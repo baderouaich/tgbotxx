@@ -19,7 +19,8 @@ using namespace tgbotxx;
 
 class MyBot : public Bot {
 public:
-    MyBot() : Bot("BOT_API_KEY_FROM_BOT_FATHER") {
+    MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {
+      // Register commands ...
       std::vector<Ptr<Command>> commands;
       Ptr<Command> greet(new Command());
       greet->command = "/greet";
@@ -54,3 +55,16 @@ int main() {
   return 0;
 }
 ```
+
+
+
+
+#### Concepts
+<details>
+  <summary><small>Long polling</small></summary>
+(Long polling)[https://en.wikipedia.org/wiki/Push_technology#Long_polling] is itself not a true push; long polling is a variation of the traditional polling technique, but it allows emulating a push mechanism under circumstances where a real push is not possible, such as sites with security policies that require rejection of incoming HTTP requests.
+
+With long polling, the client requests information from the server exactly as in normal polling, but with the expectation the server may not respond immediately. If the server has no new information for the client when the poll is received, instead of sending an empty response, the server holds the request open and waits for response information to become available. Once it does have new information, the server immediately sends an HTTP response to the client, completing the open HTTP request. Upon receipt of the server response, the client often immediately issues another server request. In this way the usual response latency (the time between when the information first becomes available at the next client request) otherwise associated with polling clients is eliminated.[15]
+
+For example, BOSH is a popular, long-lived HTTP technique used as a long-polling alternative to a continuous TCP connection when such a connection is difficult or impossible to employ directly (e.g., in a web browser);[16] it is also an underlying technology in the XMPP, which Apple uses for its iCloud push support.
+</details>
