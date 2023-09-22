@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Linux:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,10 +26,8 @@ jobs:
 
     - name: Generating Makefiles
       run: |
-        mkdir cmake-build-debug
-        cd cmake-build-debug
+        mkdir cmake-build-debug && cd cmake-build-debug
         cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-      	
       	
     - name: Make tgbotxx
       run: make -j$(nproc)
