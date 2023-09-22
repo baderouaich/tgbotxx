@@ -14,7 +14,7 @@ namespace tgbotxx {
         /// @param con: Container of T elements
         /// @param delim: Text to put between each element T
         template<typename T>
-        std::string join(const std::vector<T> &con, const std::string &delim) {
+        static std::string join(const std::vector<T> &con, const std::string &delim) {
           std::ostringstream oss{};
           for (std::size_t i = 0; i < con.size(); ++i) {
             oss << con[i];
@@ -29,7 +29,7 @@ namespace tgbotxx {
         /// @param str: String to split
         /// @param delim: Split by delimiter
         /// @return std::vector of chunks
-        std::vector<std::string> split(const std::string &str, char delim) {
+        static std::vector<std::string> split(const std::string &str, char delim) {
           std::vector<std::string> res;
           std::stringstream ss{str};
           std::string chunk;
@@ -41,7 +41,7 @@ namespace tgbotxx {
         /// @brief Lowercase a string
         /// @param str string to lowercase
         /// @return lowercase version of str
-        std::string toLower(std::string str) {
+        static std::string toLower(std::string str) {
           std::transform(str.begin(), str.end(), str.begin(), ::tolower);
           return str;
         }
@@ -49,14 +49,14 @@ namespace tgbotxx {
         /// @brief Uppercase a string
         /// @param str string to uppercase
         /// @return uppercase version of str
-        std::string toUpper(std::string str) {
+        static std::string toUpper(std::string str) {
           std::transform(str.begin(), str.end(), str.begin(), ::toupper);
           return str;
         }
 
         /// @brief Left trim a string from start (in place)
         /// @param str: string to trim from the left
-        void ltrim(std::string &str) {
+        static void ltrim(std::string &str) {
           str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch) {
               return !std::isspace(ch);
           }));
@@ -64,7 +64,7 @@ namespace tgbotxx {
 
         /// @brief Right trim a string from end (in place)
         /// @param str: string to trim from the right
-        void rtrim(std::string &str) {
+        static void rtrim(std::string &str) {
           str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
               return !std::isspace(ch);
           }).base(), str.end());
@@ -73,7 +73,7 @@ namespace tgbotxx {
 
         /// @brief Left and right trim a string (from beginning and end) (in place)
         /// @param str: string to trim from the left and right
-        void trim(std::string &str) {
+        static void trim(std::string &str) {
           rtrim(str);
           ltrim(str);
         }
@@ -81,7 +81,7 @@ namespace tgbotxx {
         /// @brief Left trim a string from start (copy)
         /// @param str: string to trim from the left
         /// @returns Copy of left trimmed string
-        std::string ltrimCopy(std::string s) {
+        static std::string ltrimCopy(std::string s) {
           ltrim(s);
           return s;
         }
@@ -89,7 +89,7 @@ namespace tgbotxx {
         /// @brief Right trim a string from end (copy)
         /// @param str: string to trim from the right
         /// @returns Copy of right trimmed string
-        std::string rtrimCopy(std::string s) {
+        static std::string rtrimCopy(std::string s) {
           rtrim(s);
           return s;
         }
@@ -97,7 +97,7 @@ namespace tgbotxx {
         /// @brief Left and Right trim a string from start and end (copy)
         /// @param str: string to trim from the left and right
         /// @returns Copy of trimmed string
-        std::string trimCopy(std::string s) {
+        static std::string trimCopy(std::string s) {
           trim(s);
           return s;
         }
@@ -107,7 +107,7 @@ namespace tgbotxx {
         /// @param prefix: prefix to check if str starts with it
         /// @param ignoreCase: Case sensitivity, default: false
         /// @returns true if str starts with prefix
-        bool startsWith(const std::string &str, const std::string &prefix, bool ignoreCase = false) {
+        static bool startsWith(const std::string &str, const std::string &prefix, bool ignoreCase = false) {
           if (str.size() < prefix.size()) return false;
           if (ignoreCase)
             return std::equal(prefix.begin(), prefix.end(), str.begin(),
@@ -120,7 +120,7 @@ namespace tgbotxx {
         /// @param suffix: suffix to check if str ends with it
         /// @param ignoreCase: Case sensitivity, default: false
         /// @returns true if str ends with suffix
-        bool endsWith(const std::string &str, const std::string &suffix, bool ignoreCase = false) {
+        static bool endsWith(const std::string &str, const std::string &suffix, bool ignoreCase = false) {
           if (str.size() < suffix.size()) return false;
           if (ignoreCase)
             return std::equal(suffix.begin(), suffix.end(), str.begin() + str.size() - suffix.size(),
