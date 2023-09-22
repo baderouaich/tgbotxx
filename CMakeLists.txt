@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
-project(tgbotxx VERSION "0.0.1" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES CXX)
+project(tgbotxx VERSION "0.0.1" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
 
 # Options
-option(ENABLE_TESTS "Enable/Disable building of tests" OFF)
+option(ENABLE_TESTS "Enable/Disable building of tests" ON)
 
 ############## Libraries ###########################
 include(cmake/find_or_fetch.cmake)
@@ -34,7 +34,7 @@ target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TGBOTXX_LIBRARIES})
 
 ## Tests
-if (ON) #(ENABLE_TESTS)
+if (ENABLE_TESTS)
     message(STATUS "Building of tests is enabled")
     enable_testing()
     add_subdirectory(${CMAKE_SOURCE_DIR}/tests)

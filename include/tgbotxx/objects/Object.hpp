@@ -1,9 +1,8 @@
-//
-// Created by bader on 9/21/23.
-//
+#pragma once
 #include <nlohmann/json.hpp>
 #include <tgbotxx/utils/Ptr.hpp>
 #include <type_traits>
+#include <iostream>
 
 namespace nl = nlohmann;
 
