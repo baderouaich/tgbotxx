@@ -7,7 +7,7 @@
 namespace tgbotxx {
     /// @brief This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.
     /// @ref https://core.telegram.org/bots/api#messageentity
-    struct MessageEntity {
+    struct MessageEntity : Object {
         /// @brief Enum of possible types of MessageEntity.
         enum class Type : std::uint8_t {
             /// @brief “mention” (@username)
