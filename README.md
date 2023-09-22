@@ -25,12 +25,12 @@ public:
       getApi()->deleteWebhook(false);
       
       // Register commands ...
-      std::vector<Ptr<Command>> commands;
-      Ptr<Command> greet(new Command());
+      std::vector<Ptr<BotCommand>> commands;
+      Ptr<Command> greet(new BotCommand());
       greet->command = "/greet";
       greet->description = "This command will greet you";
       commands.push_back(greet);
-      Bot::setMyCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
+      getApi()->setMyCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
 public:
@@ -41,13 +41,21 @@ public:
       }
     }
 
-    void onCommand(const Ptr<Command>& command) override {
-      if(command->text == "start") {
-        getApi()->sendMessage(command->chat->id, "Welcome " + command->from->firstName + "!");
+    void onCommand(const Ptr<Message>& message) override {
+      if(message->text == "start") {
+        getApi()->sendMessage(message->chat->id, "Welcome " + message->from->firstName + "!");
       }
-      else if(command->text == "greet") {
-        getApi()->sendMessage(command->chat->id, "Good day!");
-      }
+      else if(message->text == "greet") {
+        getApi()->sendMessage(message->chat->id, "Good day!");
+      } // or create a new method greet() ... do it your way 
+    }
+    
+    void onNonCommandMessage(const Ptr<Message> &message) override {
+      std::cout << "onNonCommandMessage: " << message->text << std::endl;
+    }
+    
+    void onUnknownCommand(const Ptr<Message> &message) override {
+        std::cout << "onUnknownCommand: " << message->text << std::endl;
     }
     
     ...
