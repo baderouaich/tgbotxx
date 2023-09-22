@@ -35,12 +35,13 @@ jobs:
       run: |
         mkdir cmake-build-debug && cd cmake-build-debug
         cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-    
-    - name: Make tests
-      run: ninja tests/all -j$(nproc)
-    
+
     - name: Export TESTS_BOT_TOKEN to env
       run: export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
-      
-    - name: Run CTest flow
-      run: ninja test
+
+    - name: Build & run CText flow
+      run: |
+        mkdir cmake-build-debug && cd cmake-build-debug
+        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        ninja tests/all -j$(nproc)
+        ninja test
