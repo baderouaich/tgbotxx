@@ -1,10 +1,9 @@
 #pragma once
-#include <thread>
 #include <atomic>
-#include "utils/Ptr.hpp"
-#include "Api.hpp"
+#include <tgbotxx/utils/Ptr.hpp>
 
 namespace tgbotxx {
+    class Api;
     class Message;
     class BotCommand;
     class Update;
@@ -17,7 +16,7 @@ namespace tgbotxx {
         std::int32_t m_lastUpdateId;
 
     public:
-        Bot(const std::string& token);
+        explicit Bot(const std::string& token);
 
         void start();
         void stop();

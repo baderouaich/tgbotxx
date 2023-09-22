@@ -1,4 +1,5 @@
 #include <tgbotxx/Bot.hpp>
+#include <tgbotxx/Api.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
