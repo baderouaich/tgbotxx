@@ -1,0 +1,41 @@
+name: build-ubuntu
+
+# build on pushs and pull requests on main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        architecture: [x64] #architecture: [x86, x64]
+        build-platform: [x64] #build-platform: [x86, x64]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Installing Latest GCC Compiler
+      run: |
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+        sudo apt update
+        sudo apt install gcc-13 g++-13
+
+    - name: Generating Makefiles
+      run: |
+        mkdir cmake-build-debug
+        cd cmake-build-debug
+        cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+      	
+      	
+    - name: Make tgbotxx
+      run: make -j$(nproc)
+    
+    - name: Export TESTS_BOT_TOKEN to env
+      run: expor TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
+      
+    - name: Run manual tests
+      run: ./tests/manual_tests
