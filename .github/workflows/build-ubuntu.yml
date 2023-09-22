@@ -1,6 +1,6 @@
 name: build-ubuntu
 
-# build on pushs and pull requests on main branch
+# build on pushes and pull requests on main branch
 on:
   push:
     branches: [ main ]
@@ -23,6 +23,13 @@ jobs:
       run: |
         sudo apt update
         sudo apt-get install cmake g++ make ninja-build libssl-dev valgrind
+
+    - name: Ensure deps are installed
+      run: |
+        cmake --version
+        g++ --version
+        make --version
+        ninja --version
 
     - name: Generate ninja files
       run: |
