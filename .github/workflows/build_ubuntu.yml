@@ -24,11 +24,11 @@ jobs:
         sudo apt update
         sudo apt install gcc-13 g++-13
 
-    - name: Generating Makefiles
+    - name: echo
       run: |
-        mkdir "cmake-build-debug" && cd "cmake-build-debug"
-        cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-      	
+        mkdir "hi"
+        ls
+    
     - name: Make tgbotxx
       run: make -j$(nproc)
     
