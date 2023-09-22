@@ -57,8 +57,6 @@ int main() {
 ```
 
 
-
-
 #### Concepts
 <details>
   <summary><small>Long polling</small></summary>
