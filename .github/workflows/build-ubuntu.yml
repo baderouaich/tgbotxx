@@ -31,11 +31,6 @@ jobs:
         make --version
         ninja --version
 
-    - name: Generate ninja files
-      run: |
-        mkdir cmake-build-debug && cd cmake-build-debug
-        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-
     - name: Export TESTS_BOT_TOKEN to env
       run: export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
 
