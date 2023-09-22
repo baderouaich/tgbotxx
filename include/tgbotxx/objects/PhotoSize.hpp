@@ -6,7 +6,7 @@
 namespace tgbotxx {
     /// @brief This object represents one size of a photo or a file / sticker thumbnail.
     /// @ref https://core.telegram.org/bots/api#photosize
-    struct PhotoSize : Object {
+    struct PhotoSize {
       /// @brief Identifier for this file, which can be used to download or reuse the file
       std::string fileId;
 
@@ -24,11 +24,11 @@ namespace tgbotxx {
       std::int64_t fileSize;
 
       // TODO: implement fromJson toJson
-      nl::json toJson() const override {
+      nl::json toJson() const {
         return nl::json();
       }
 
-      void fromJson(const nl::json &json) override {
+      void fromJson(const nl::json &json) {
 
       }
     };

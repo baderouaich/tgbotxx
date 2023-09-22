@@ -7,7 +7,7 @@
 namespace tgbotxx {
     /// @brief This object represents a Telegram user or bot.
     /// @ref https://core.telegram.org/bots/api#user
-    struct User : Object {
+    struct User {
         /// @brief Unique identifier for this user or bot. This number may have more than 32 significant bits
         /// and some programming languages may have difficulty/silent defects in interpreting it.
         /// But it has at most 52 significant bits, so a 64-bit integer or double-precision float type
@@ -45,7 +45,7 @@ namespace tgbotxx {
         bool supportsInlineQueries;
 
 
-        nl::json toJson() const override {
+        nl::json toJson() const {
           nl::json user = nl::json::object();
           OBJECT_SERIALIZE_FIELD(user, "id", id);
           OBJECT_SERIALIZE_FIELD(user, "is_bot", isBot);
@@ -61,7 +61,7 @@ namespace tgbotxx {
           return user;
         }
 
-        void fromJson(const nl::json &json) override {
+        void fromJson(const nl::json &json) {
           OBJECT_DESERIALIZE_FIELD(json, "id", id, -1);
           OBJECT_DESERIALIZE_FIELD(json, "is_bot", isBot, false);
           OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "");

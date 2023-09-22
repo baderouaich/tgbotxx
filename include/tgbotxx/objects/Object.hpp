@@ -3,23 +3,9 @@
 #include <tgbotxx/utils/Ptr.hpp>
 #include <type_traits>
 #include <iostream>
-
 namespace nl = nlohmann;
 
-namespace tgbotxx {
-    /// @brief Interface of all Objects.
-    /// All objects must be serializable.
-    struct Object {
-        /// @brief Serialize object to JSON
-        virtual nl::json toJson() const = 0;
-
-        /// @brief Deserialize object from JSON
-        virtual void fromJson(const nl::json &) = 0;
-    };
-
-
 /// @brief Helper macros to de/serialize objects
-
 #define OBJECT_SERIALIZE_FIELD(json, json_field, field)  \
       json[json_field] = field;
 
@@ -41,4 +27,4 @@ namespace tgbotxx {
     using E = T::element_type;                                               \
     field.reset(new (E)( json[json_field].get<E>() ));                           \
   } else { field.reset(); std::cerr << "Could not deserialize field \""<<json_field<<"\" from json object: " << json.dump(2) << std::endl;  }
-}
+

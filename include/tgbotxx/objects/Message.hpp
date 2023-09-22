@@ -8,7 +8,11 @@
 namespace tgbotxx {
     /// @brief This object represents a message.
     /// @ref https://core.telegram.org/bots/api#message
-    struct Message : Object {
+    struct Message {
+        explicit Message(const nl::json& json) {
+          fromJson(json);
+        }
+
         /// @brief Unique message identifier inside this chat
         std::int64_t messageId;
 
@@ -128,12 +132,16 @@ namespace tgbotxx {
         /// @brief
 
         // TODO: implement fromJson toJson
-        nl::json toJson() const override {
-          return nl::json();
+        nl::json toJson() const {
+          nl::json message = nl::json::object();
+          OBJECT_SERIALIZE_FIELD(message, "message_id", messageId);
+          //...
+          return message;
         }
 
-        void fromJson(const nl::json &json) override {
-
+        void fromJson(const nl::json &json) {
+          //...
+          OBJECT_DESERIALIZE_FIELD(json, "message_id", messageId, -1);
         }
     };
 }

@@ -8,7 +8,7 @@ namespace tgbotxx {
     /// @brief This object represents an incoming update.
     /// At most one of the optional parameters can be present in any given update.
     /// @ref https://core.telegram.org/bots/api#update
-    struct Update : Object {
+    struct Update {
         explicit Update(const nl::json& json) {
           fromJson(json);
         }
@@ -21,7 +21,7 @@ namespace tgbotxx {
         /// or to restore the correct update sequence, should they get out of order.
         /// If there are no new updates for at least a week, then identifier of the next update will be chosen randomly
         /// instead of sequentially.
-        std::uint64_t update_id;
+        std::int32_t updateId;
 
         /// @brief Optional. New incoming message of any kind — text, photo, sticker, etc.
         Ptr<Message> message;
@@ -37,12 +37,13 @@ namespace tgbotxx {
 
         // TODO: complete members: https://core.telegram.org/bots/api#update
         // TODO: implement fromJson toJson
-        nl::json toJson() const override {
+        nl::json toJson() const {
           return nl::json();
         }
 
-        void fromJson(const nl::json &json) override {
-
+        void fromJson(const nl::json &json) {
+          OBJECT_DESERIALIZE_FIELD(json, "update_id", updateId, 0);
+          //OBJECT_DESERIALIZE_FIELD(json, "message", message, nullptr);
         }
     };
 }

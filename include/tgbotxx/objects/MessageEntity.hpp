@@ -7,7 +7,7 @@
 namespace tgbotxx {
     /// @brief This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.
     /// @ref https://core.telegram.org/bots/api#messageentity
-    struct MessageEntity : Object {
+    struct MessageEntity {
         /// @brief Enum of possible types of MessageEntity.
         enum class Type : std::uint8_t {
             /// @brief “mention” (@username)
@@ -75,11 +75,11 @@ namespace tgbotxx {
         std::string customEmojiId;
 
         // TODO: implement fromJson toJson
-        nl::json toJson() const override {
+        nl::json toJson() const {
           return nl::json();
         }
 
-        void fromJson(const nl::json &json) override {
+        void fromJson(const nl::json &json) {
 
         }
     };

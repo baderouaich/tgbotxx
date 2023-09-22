@@ -3,7 +3,7 @@
 #include <tgbotxx/Bot.hpp>
 
 /// Objects
-#include <tgbotxx/objects/Command.hpp>
+#include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
