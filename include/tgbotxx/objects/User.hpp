@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Object.hpp"
+#include <tgbotxx/objects/Object.hpp>
 #include <cstdint>
 #include <string>
 
@@ -62,17 +62,17 @@ namespace tgbotxx {
         }
 
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "id", id, -1);
-          OBJECT_DESERIALIZE_FIELD(json, "is_bot", isBot, false);
-          OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "");
-          OBJECT_DESERIALIZE_FIELD(json, "last_name", lastName, "");
-          OBJECT_DESERIALIZE_FIELD(json, "username", username, "");
-          OBJECT_DESERIALIZE_FIELD(json, "language_code", languageCode, "");
-          OBJECT_DESERIALIZE_FIELD(json, "is_premium", isPremium, false);
-          OBJECT_DESERIALIZE_FIELD(json, "added_to_attachment_menu", addedToAttachmentMenu, false);
-          OBJECT_DESERIALIZE_FIELD(json, "can_join_groups", canJoinGroups, false);
-          OBJECT_DESERIALIZE_FIELD(json, "can_read_all_group_messages", canReadAllGroupMessages, false);
-          OBJECT_DESERIALIZE_FIELD(json, "supports_inline_queries", supportsInlineQueries, false);
+          OBJECT_DESERIALIZE_FIELD(json, "id", id, -1, false);
+          OBJECT_DESERIALIZE_FIELD(json, "is_bot", isBot, false, false);
+          OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "", false);
+          OBJECT_DESERIALIZE_FIELD(json, "last_name", lastName, "", true);
+          OBJECT_DESERIALIZE_FIELD(json, "username", username, "", true);
+          OBJECT_DESERIALIZE_FIELD(json, "language_code", languageCode, "", true);
+          OBJECT_DESERIALIZE_FIELD(json, "is_premium", isPremium, false, true);
+          OBJECT_DESERIALIZE_FIELD(json, "added_to_attachment_menu", addedToAttachmentMenu, false, true);
+          OBJECT_DESERIALIZE_FIELD(json, "can_join_groups", canJoinGroups, false, true);
+          OBJECT_DESERIALIZE_FIELD(json, "can_read_all_group_messages", canReadAllGroupMessages, false, true);
+          OBJECT_DESERIALIZE_FIELD(json, "supports_inline_queries", supportsInlineQueries, false, true);
         }
     };
 }
