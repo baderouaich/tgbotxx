@@ -1,8 +1,9 @@
-
 file(GLOB TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+## CTest
 foreach(source ${TEST_SOURCES})
     get_filename_component(filename ${source} NAME_WE)
     add_executable(${filename} ${source})
+    add_test(${filename} ${filename}) # add target to CTest flow
     target_compile_features(${filename} PRIVATE cxx_std_20)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/catch2/include)
     include_directories(${CPR_INCLUDE_DIRS})
@@ -13,7 +14,6 @@ foreach(source ${TEST_SOURCES})
             COMMAND valgrind --tool=memcheck --leak-check=full -s --show-leak-kinds=all ${CMAKE_CURRENT_BINARY_DIR}/${filename}
     )
 endforeach()
-
 
 ## Manual Tests
 add_executable(manual_tests manual_tests.cpp)
