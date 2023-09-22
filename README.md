@@ -30,7 +30,7 @@ public:
       greet->command = "/greet";
       greet->description = "This command will greet you";
       commands.push_back(greet);
-      Bot::setCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
+      Bot::setMyCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
 public:
