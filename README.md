@@ -20,6 +20,10 @@ using namespace tgbotxx;
 class MyBot : public Bot {
 public:
     MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {
+      // Drop awaiting updates (when Bot is not running, updates will remain 24 hours 
+      // in Telegram server before they get deleted or retrieved by BOT)
+      getApi()->deleteWebhook(false);
+      
       // Register commands ...
       std::vector<Ptr<Command>> commands;
       Ptr<Command> greet(new Command());
