@@ -1,5 +1,5 @@
 #pragma once
-#include "Object.hpp"
+#include <tgbotxx/objects/Object.hpp>
 #include <string>
 
 namespace tgbotxx {
@@ -25,8 +25,8 @@ namespace tgbotxx {
         }
 
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "command", command, "");
-          OBJECT_DESERIALIZE_FIELD(json, "description", description, "");
+          OBJECT_DESERIALIZE_FIELD(json, "command", command, "", false);
+          OBJECT_DESERIALIZE_FIELD(json, "description", description, "", false);
         }
     };
 }
