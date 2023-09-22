@@ -1,9 +1,9 @@
 #pragma once
 #include <cstdint>
-#include "Object.hpp"
-#include "User.hpp"
-#include "MessageEntity.hpp"
-#include "Animation.hpp"
+#include <tgbotxx/objects/Object.hpp>
+#include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/MessageEntity.hpp>
+#include <tgbotxx/objects/Animation.hpp>
 
 namespace tgbotxx {
     /// @brief This object represents a message.
@@ -93,6 +93,10 @@ namespace tgbotxx {
         /// @brief Optional. Message is an animation, information about the animation. For backward compatibility,
         /// when this field is set, the document field will also be set
         Ptr<Animation> animation;
+
+        /// @brief Optional. Message is an audio file, information about the file
+        Ptr<Audio> audio;
+
         /// @brief
         /// @brief
         /// @brief

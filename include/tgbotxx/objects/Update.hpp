@@ -1,10 +1,11 @@
 #pragma once
-#include "Object.hpp"
-#include <nlohmann/json.hpp>
-namespace nl = nlohmann;
+#include <tgbotxx/objects/Object.hpp>
+#include <tgbotxx/objects/Message.hpp>
+#include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/ChosenInlineResult.hpp>
+#include <tgbotxx/objects/CallbackQuery.hpp>
 
 namespace tgbotxx {
-    struct Message;
     /// @brief This object represents an incoming update.
     /// At most one of the optional parameters can be present in any given update.
     /// @ref https://core.telegram.org/bots/api#update
@@ -13,8 +14,7 @@ namespace tgbotxx {
           fromJson(json);
         }
 
-        /// @brief The update's unique identifier.
-        /// Update identifiers start from a certain positive number and increase sequentially.
+        /// @brief The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially.
         /// This ID becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates
         /// or to restore the correct update sequence, should they get out of order.
         /// If there are no new updates for at least a week, then identifier of the next update will be chosen randomly
@@ -67,42 +67,43 @@ namespace tgbotxx {
         /// @brief Serializes this object to JSON
         /// @returns JSON representation of this object
         nl::json toJson() const {
-          nl::json update = nl::json::object();
-          OBJECT_SERIALIZE_FIELD(update, "update_id", updateId);
-          OBJECT_SERIALIZE_FIELD_OPT(update, "message", message, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "edited_message", editedMessage, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "channel_post", channelPost, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "edited_channel_post", editedChannelPost, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "inline_query", inlineQuery, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "chosen_inline_result", chosenInlineResult, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "callback_query", callbackQuery, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "shipping_query", shippingQuery, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "pre_checkout_query", preCheckoutQuery, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "poll", poll, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "poll_answer", pollAnswer, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "my_chat_member", myChatMember, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "chat_member", chatMember, nl::json::object());
-          OBJECT_SERIALIZE_FIELD_OPT(update, "chat_join_request", chatJoinRequest, nl::json::object());
-          return update;
+          nl::json json = nl::json::object();
+          OBJECT_SERIALIZE_FIELD(json, "update_id", updateId);
+          OBJECT_SERIALIZE_FIELD_PTR(json, "message", message, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "edited_message", editedMessage, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "channel_post", channelPost, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "poll", poll, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "chat_member", chatMember, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest, nl::json::object());
+          return json;
         }
 
         /// @brief Deserializes this object from JSON
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "update_id", updateId, 0);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "message", message);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "edited_message", editedMessage);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "channel_post", channelPost);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "edited_channel_post", editedChannelPost);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "inline_query", inlineQuery);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "chosen_inline_result", chosenInlineResult);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "callback_query", callbackQuery);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "shipping_query", shippingQuery);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "pre_checkout_query", preCheckoutQuery);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "poll", poll);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "poll_answer", pollAnswer);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "my_chat_member", myChatMember);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "chat_member", chatMember);
-          OBJECT_DESERIALIZE_FIELD_OPT(json, "chat_join_request", chatJoinRequest);
+          OBJECT_DESERIALIZE_FIELD(json, "update_id", updateId, 0, false);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "message", message, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_message", editedMessage, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "channel_post", channelPost, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "poll", poll, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_member", chatMember, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest, true);
+
         }
     };
 }
