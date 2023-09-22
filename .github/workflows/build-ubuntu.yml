@@ -19,22 +19,21 @@ jobs:
     # https://github.com/actions/checkout
     - uses: actions/checkout@v4
 
-    - name: Installing Latest GCC Compiler
+    - name: Update apt repositories & install deps
       run: |
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
         sudo apt update
-        sudo apt install gcc-13 g++-13
+        sudo apt-get install cmake g++ make ninja-build libssl-dev valgrind
 
-    - name: Generate makefiles
+    - name: Generate ninja files
       run: |
         mkdir cmake-build-debug && cd cmake-build-debug
-        cmake .. -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
     
     - name: Make tests
-      run: make tests/all -j$(nproc)
+      run: ninja tests/all -j$(nproc)
     
     - name: Export TESTS_BOT_TOKEN to env
       run: export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
       
     - name: Run CTest flow
-      run: make test
+      run: ninja test
