@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project(tgbotxx VERSION "0.0.1" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES CXX)
 
 # Options
