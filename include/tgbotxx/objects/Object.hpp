@@ -11,8 +11,7 @@ namespace nl = nlohmann;
 
 
 #define OBJECT_SERIALIZE_FIELD_OPT(json, json_field, field, default_value)  \
-  json[json_field] = field ? *field : default_value
-
+  json[json_field] = field ? field->toJson() : default_value
 
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value)                 \
   if (json.contains(json_field)) {                                               \
@@ -20,11 +19,9 @@ namespace nl = nlohmann;
     field = json[json_field].get<T>();                                           \
   } else { field = default_value; std::cerr << "Could not deserialize field \""<<json_field<<"\" from json object: " << json.dump(2) << std::endl;  }
 
-
 #define OBJECT_DESERIALIZE_FIELD_OPT(json, json_field, field)                            \
   if (json.contains(json_field)) {                                               \
     using T = std::remove_reference_t<std::remove_const_t<decltype(field)>>; \
     using E = T::element_type;                                               \
-    field.reset(new (E)( json[json_field].get<E>() ));                           \
+    field.reset(new (E)( json[json_field] ));                           \
   } else { field.reset(); std::cerr << "Could not deserialize field \""<<json_field<<"\" from json object: " << json.dump(2) << std::endl;  }
-
