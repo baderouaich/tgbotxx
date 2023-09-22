@@ -22,6 +22,7 @@ find_or_fetch(
         GIT_TAG bc889afb4c5bf1c0d8ee29ef35eaaf4c8bef8a5d # The commit hash for 3.11.2. Replace with the latest from: https://github.com/nlohmann/json/releases
 )
 FetchContent_MakeAvailable(${remote_dependencies})
+set(TGBOTXX_LIBRARIES cpr::cpr nlohmann_json::nlohmann_json)
 ###################################################
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -30,11 +31,7 @@ file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/include/tgbotxx/**.hpp")
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
-target_link_libraries(${PROJECT_NAME} PRIVATE
-        cpr::cpr
-        nlohmann_json::nlohmann_json
-        pthread
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${TGBOTXX_LIBRARIES})
 
 ## Tests
 if (ON) #(ENABLE_TESTS)
