@@ -30,6 +30,7 @@ file(GLOB_RECURSE SOURCES "${CMAKE_SOURCE_DIR}/src/**.cpp")
 file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/include/tgbotxx/**.hpp")
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
+set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX) # somehow github workflows doesn't detect proj lang
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TGBOTXX_LIBRARIES})
 
