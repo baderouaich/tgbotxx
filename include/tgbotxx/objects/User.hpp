@@ -1,8 +1,5 @@
 #pragma once
-
 #include <tgbotxx/objects/Object.hpp>
-#include <cstdint>
-#include <string>
 
 namespace tgbotxx {
     /// @brief This object represents a Telegram user or bot.

@@ -1,8 +1,6 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/User.hpp>
-#include <cstdint>
-#include <string>
 
 namespace tgbotxx {
     /// @brief This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.

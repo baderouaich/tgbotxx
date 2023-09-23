@@ -1,7 +1,5 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
-#include <cstdint>
-#include <string>
 
 namespace tgbotxx {
     /// @brief This object represents one size of a photo or a file / sticker thumbnail.

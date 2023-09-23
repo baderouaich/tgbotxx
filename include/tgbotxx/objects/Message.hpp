@@ -1,12 +1,11 @@
 #pragma once
-#include "tgbotxx/objects/PhotoSize.hpp"
-#include <cstdint>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/Location.hpp>
+#include <tgbotxx/objects/PhotoSize.hpp>
 
 namespace tgbotxx {
     /// @brief This object represents a message.
