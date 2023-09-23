@@ -2,8 +2,14 @@
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/ChosenInlineResult.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/PreCheckoutQuery.hpp>
+#include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/PollAnswer.hpp>
+#include <tgbotxx/objects/ChatMemberUpdated.hpp>
+#include <tgbotxx/objects/ChatJoinRequest.hpp>
 
 namespace tgbotxx {
     /// @brief This object represents an incoming update.
