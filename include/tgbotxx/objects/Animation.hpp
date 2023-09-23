@@ -1,12 +1,15 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
-#include <string>
 
 namespace tgbotxx {
     /// @brief This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).
     /// @ref https://core.telegram.org/bots/api#animation
     struct Animation {
+        explicit Animation(const nl::json& json) {
+          fromJson(json);
+        }
+
         /// @brief Identifier for this file, which can be used to download or reuse the file
         std::string fileId;
 
