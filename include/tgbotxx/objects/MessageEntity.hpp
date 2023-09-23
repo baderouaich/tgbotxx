@@ -8,6 +8,10 @@ namespace tgbotxx {
     /// @brief This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.
     /// @ref https://core.telegram.org/bots/api#messageentity
     struct MessageEntity {
+        explicit MessageEntity(const nl::json& json) {
+          fromJson(json);
+        }
+
         /// @brief Enum of possible types of MessageEntity.
         enum class Type : std::uint8_t {
             /// @brief “mention” (@username)
@@ -72,7 +76,7 @@ namespace tgbotxx {
               return static_cast<Type>(i);
             ++i;
           }
-          throw Exception("Could not convert string \""+str+"\" to enum Type");
+          throw Exception("Could not convert MessageEntity type string \""+str+"\" to enum Type");
         }
 
         /// @brief Type of the entity.
