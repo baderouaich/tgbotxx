@@ -28,7 +28,7 @@ namespace tgbotxx {
         }
 
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "type", type, "");
+          OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
         }
     };
 
@@ -64,6 +64,7 @@ namespace tgbotxx {
     /// @brief Represents the scope of bot commands, covering a specific chat.
     struct BotCommandScopeChat : BotCommandScope {
         explicit BotCommandScopeChat(const nl::json& json) : BotCommandScope(json) {
+          fromJson(json);
           BotCommandScope::type = "chat";
         }
 
@@ -71,21 +72,21 @@ namespace tgbotxx {
         std::int64_t chatId;
 
         nl::json toJson() const {
-          nl::json scope = nl::json::object();
-          OBJECT_SERIALIZE_FIELD(scope, "type", type);
+          nl::json scope = BotCommandScope::toJson();
           OBJECT_SERIALIZE_FIELD(scope, "chat_id", chatId);
           return scope;
         }
 
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "type", type, "");
-          OBJECT_DESERIALIZE_FIELD(json, "chat_id", chatId, -1);
+          BotCommandScope::fromJson(json);
+          OBJECT_DESERIALIZE_FIELD(json, "chat_id", chatId, -1, false);
         }
     };
 
     /// @brief Represents the scope of bot commands, covering all administrators of a specific group or supergroup chat.
     struct BotCommandScopeChatAdministrators : BotCommandScope {
         explicit BotCommandScopeChatAdministrators(const nl::json& json) : BotCommandScope(json) {
+          fromJson(json);
           BotCommandScope::type = "chat_administrators";
         }
 
@@ -93,17 +94,21 @@ namespace tgbotxx {
         std::int64_t chatId;
 
         nl::json toJson() const {
-          return {};
+          nl::json scope = BotCommandScope::toJson();
+          OBJECT_SERIALIZE_FIELD(scope, "chat_id", chatId);
+          return scope;
         }
+
         void fromJson(const nl::json &json) {
-
+          BotCommandScope::fromJson(json);
+          OBJECT_DESERIALIZE_FIELD(json, "chat_id", chatId, -1, false);
         }
-
     };
 
     /// @brief Represents the scope of bot commands, covering a specific member of a group or supergroup chat.
     struct BotCommandScopeChatMember : BotCommandScope {
         explicit BotCommandScopeChatMember(const nl::json& json) : BotCommandScope(json) {
+          fromJson(json);
           BotCommandScope::type = "chat_member";
         }
 
@@ -113,15 +118,14 @@ namespace tgbotxx {
         std::int64_t userId;
 
         nl::json toJson() const {
-          nl::json scope = nl::json::object();
-          OBJECT_SERIALIZE_FIELD(scope, "type", type);
+          nl::json scope = BotCommandScope::toJson();
           OBJECT_SERIALIZE_FIELD(scope, "chat_id", chatId);
           OBJECT_SERIALIZE_FIELD(scope, "user_id", userId);
           return scope;
         }
 
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
+          BotCommandScope::fromJson(json);
           OBJECT_DESERIALIZE_FIELD(json, "chat_id", chatId, -1, false);
           OBJECT_DESERIALIZE_FIELD(json, "user_id", userId, -1, false);
         }
