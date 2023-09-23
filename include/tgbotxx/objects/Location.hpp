@@ -1,9 +1,5 @@
 #pragma once
-
 #include <tgbotxx/objects/Object.hpp>
-#include <nlohmann/json.hpp>
-
-namespace nl = nlohmann;
 
 namespace tgbotxx {
     /// @brief This object represents a point on the map.
@@ -50,12 +46,12 @@ namespace tgbotxx {
 
         /// @brief Deserializes this object from JSON
         void fromJson(const nl::json &json) {
-          OBJECT_DESERIALIZE_FIELD(json, "longitude", longitude, 0.0f);
-          OBJECT_DESERIALIZE_FIELD(json, "latitude", latitude, 0.0f);
-          OBJECT_DESERIALIZE_FIELD(json, "horizontalAccuracy", horizontalAccuracy, 0.0f);
-          OBJECT_DESERIALIZE_FIELD(json, "livePeriod", livePeriod, 0);
-          OBJECT_DESERIALIZE_FIELD(json, "heading", heading, 0);
-          OBJECT_DESERIALIZE_FIELD(json, "proximityAlertRadius", proximityAlertRadius, 0);
+          OBJECT_DESERIALIZE_FIELD(json, "longitude", longitude, 0.0f, false);
+          OBJECT_DESERIALIZE_FIELD(json, "latitude", latitude, 0.0f, false);
+          OBJECT_DESERIALIZE_FIELD(json, "horizontalAccuracy", horizontalAccuracy, 0.0f, true);
+          OBJECT_DESERIALIZE_FIELD(json, "livePeriod", livePeriod, 0, true);
+          OBJECT_DESERIALIZE_FIELD(json, "heading", heading, 0, true);
+          OBJECT_DESERIALIZE_FIELD(json, "proximityAlertRadius", proximityAlertRadius, 0, true);
         }
     };
 }
