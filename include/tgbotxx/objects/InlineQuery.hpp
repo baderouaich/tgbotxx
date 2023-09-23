@@ -1,11 +1,7 @@
 #pragma once
-
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/User.hpp>
-#include <nlohmann/json.hpp>
-
-namespace nl = nlohmann;
 
 namespace tgbotxx {
     /// @brief This object represents an incoming inline query. When the user sends an empty query,
@@ -58,5 +54,5 @@ namespace tgbotxx {
           OBJECT_DESERIALIZE_FIELD(json, "chatType", chatType, "", true);
           OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, true);
         }
-    }
+    };
 }

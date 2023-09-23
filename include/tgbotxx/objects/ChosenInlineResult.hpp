@@ -1,9 +1,6 @@
 #pragma once
-
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/Location.hpp>
-#include <nlohmann/json.hpp>
-namespace nl = nlohmann;
 
 namespace tgbotxx {
     /// @brief Represents a result of an inline query that was chosen by the user and sent to their chat partner.
@@ -49,5 +46,5 @@ namespace tgbotxx {
           OBJECT_DESERIALIZE_FIELD(json, "inline_message_id", inlineMessageId, "", true);
           OBJECT_DESERIALIZE_FIELD(json, "query", query, "", false);
         }
-    }
+    };
 }
