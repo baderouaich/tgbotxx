@@ -9,7 +9,6 @@ namespace tgbotxx {
     class Update;
 
     class Bot {
-        std::string m_token;
         Ptr<Api> m_api;
         //Ptr<std::thread> m_thread;
         std::atomic<bool> m_running;
