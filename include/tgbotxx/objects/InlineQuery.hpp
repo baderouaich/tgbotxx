@@ -40,7 +40,7 @@ namespace tgbotxx {
           OBJECT_SERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
           OBJECT_SERIALIZE_FIELD(json, "query", query);
           OBJECT_SERIALIZE_FIELD(json, "offset", offset);
-          OBJECT_SERIALIZE_FIELD(json, "chatType", chatType);
+          OBJECT_SERIALIZE_FIELD(json, "chat_type", chatType);
           OBJECT_SERIALIZE_FIELD_PTR(json, "location", location, nl::json::object());
           return json;
         }
@@ -51,7 +51,7 @@ namespace tgbotxx {
           OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, false);
           OBJECT_DESERIALIZE_FIELD(json, "query", query, "", false);
           OBJECT_DESERIALIZE_FIELD(json, "offset", offset, "", false);
-          OBJECT_DESERIALIZE_FIELD(json, "chatType", chatType, "", true);
+          OBJECT_DESERIALIZE_FIELD(json, "chat_type", chatType, "", true);
           OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, true);
         }
     };
