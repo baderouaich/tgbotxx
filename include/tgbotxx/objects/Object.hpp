@@ -29,8 +29,15 @@ namespace nl = nlohmann;
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)                                       \
   if (json.contains(json_field))                                                                                         \
   {                                                                                                                      \
-    using T = std::remove_reference_t<std::remove_const_t<decltype(field)>>;                                             \
-    field = json[json_field].get<T>();                                                                                   \
+    try {                                                                                                                \
+      using T = std::remove_reference_t<std::remove_const_t<decltype(field)>>;                                           \
+      field = json[json_field].get<T>();                                                                                 \
+    } catch(const nl::json::exception& e) {                                                                              \
+      std::ostringstream err{};                                                                                          \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Failed to deserialize \""                       \
+      << json_field << "\" from json object: " << json.dump(2) << "\nReason: " << e.what();                        \
+      throw Exception(err.str());                                                                                        \
+    }                                                                                                                    \
   }                                                                                                                      \
   else                                                                                                                   \
   {                                                                                                                      \
