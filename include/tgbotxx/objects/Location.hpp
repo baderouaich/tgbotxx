@@ -37,10 +37,10 @@ namespace tgbotxx {
           nl::json json = nl::json::object();
           OBJECT_SERIALIZE_FIELD(json, "longitude", longitude);
           OBJECT_SERIALIZE_FIELD(json, "latitude", latitude);
-          OBJECT_SERIALIZE_FIELD(json, "horizontalAccuracy", horizontalAccuracy);
-          OBJECT_SERIALIZE_FIELD(json, "livePeriod", livePeriod);
+          OBJECT_SERIALIZE_FIELD(json, "horizontal_accuracy", horizontalAccuracy);
+          OBJECT_SERIALIZE_FIELD(json, "live_period", livePeriod);
           OBJECT_SERIALIZE_FIELD(json, "heading", heading);
-          OBJECT_SERIALIZE_FIELD(json, "proximityAlertRadius", proximityAlertRadius);
+          OBJECT_SERIALIZE_FIELD(json, "proximity_alert_radius", proximityAlertRadius);
           return json;
         }
 
@@ -48,10 +48,10 @@ namespace tgbotxx {
         void fromJson(const nl::json &json) {
           OBJECT_DESERIALIZE_FIELD(json, "longitude", longitude, 0.0f, false);
           OBJECT_DESERIALIZE_FIELD(json, "latitude", latitude, 0.0f, false);
-          OBJECT_DESERIALIZE_FIELD(json, "horizontalAccuracy", horizontalAccuracy, 0.0f, true);
-          OBJECT_DESERIALIZE_FIELD(json, "livePeriod", livePeriod, 0, true);
+          OBJECT_DESERIALIZE_FIELD(json, "horizontal_accuracy", horizontalAccuracy, 0.0f, true);
+          OBJECT_DESERIALIZE_FIELD(json, "live_period", livePeriod, 0, true);
           OBJECT_DESERIALIZE_FIELD(json, "heading", heading, 0, true);
-          OBJECT_DESERIALIZE_FIELD(json, "proximityAlertRadius", proximityAlertRadius, 0, true);
+          OBJECT_DESERIALIZE_FIELD(json, "proximity_alert_radius", proximityAlertRadius, 0, true);
         }
     };
 }
