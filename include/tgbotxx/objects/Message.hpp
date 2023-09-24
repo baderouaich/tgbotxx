@@ -1,6 +1,7 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
@@ -60,20 +61,20 @@ namespace tgbotxx {
         /// the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators,
         /// the linked channel for messages automatically forwarded to the discussion group. For backward compatibility,
         /// the field from contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
-        // Ptr<Chat> senderChat;
+        Ptr<Chat> senderChat;
 
         /// @brief Date the message was sent in Unix time
         std::time_t date;
 
         /// @brief Conversation the message belongs to
-        // Ptr<Chat> chat;
+        Ptr<Chat> chat;
 
         /// @brief Optional. For forwarded messages, sender of the original message
         Ptr<User> forwardFrom;
 
         /// @brief For messages forwarded from channels or from anonymous administrators,
         /// information about the original sender chat
-        // Ptr<Chat> forwardFromChat;
+        Ptr<Chat> forwardFromChat;
 
         /// @brief Optional. For messages forwarded from channels, identifier of the original message in the channel
         std::int64_t forwardFromMessageId;
