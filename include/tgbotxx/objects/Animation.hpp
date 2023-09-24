@@ -27,7 +27,7 @@ namespace tgbotxx {
         std::int32_t duration;
 
         /// @brief Optional. Animation thumbnail as defined by sender
-        Ptr<PhotoSize> thumb;
+        Ptr<PhotoSize> thumbnail;
 
         /// @brief Optional. Original animation filename as defined by sender
         std::string fileName;
@@ -49,7 +49,7 @@ namespace tgbotxx {
           OBJECT_SERIALIZE_FIELD(json, "width", width);
           OBJECT_SERIALIZE_FIELD(json, "height", height);
           OBJECT_SERIALIZE_FIELD(json, "duration", duration);
-          OBJECT_SERIALIZE_FIELD_PTR(json, "thumb", thumb, nl::json::object());
+          OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, nl::json::object());
           OBJECT_SERIALIZE_FIELD(json, "file_name", fileName);
           OBJECT_SERIALIZE_FIELD(json, "mime_type", mimeType);
           OBJECT_SERIALIZE_FIELD(json, "file_size", fileSize);
@@ -63,7 +63,7 @@ namespace tgbotxx {
           OBJECT_DESERIALIZE_FIELD(json, "width", width, 0, false);
           OBJECT_DESERIALIZE_FIELD(json, "height", height, 0, false);
           OBJECT_DESERIALIZE_FIELD(json, "duration", duration, 0, false);
-          OBJECT_DESERIALIZE_FIELD_PTR(json, "thumb", thumb, true);
+          OBJECT_DESERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, true);
           OBJECT_DESERIALIZE_FIELD(json, "file_name", fileName, "", true);
           OBJECT_DESERIALIZE_FIELD(json, "mime_type", mimeType, "", true);
           OBJECT_DESERIALIZE_FIELD(json, "file_size", fileSize, 0, true);

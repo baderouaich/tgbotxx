@@ -46,7 +46,7 @@ namespace tgbotxx {
         std::vector<Ptr<MessageEntity>> explanationEntities;
 
         /// @brief Optional. Amount of time in seconds the poll will be active after creation
-        std::time_t openPeriod;
+        std::int32_t openPeriod;
 
         /// @brief Optional. Point in time (Unix timestamp) when the poll will be automatically closed
         std::time_t closeDate;

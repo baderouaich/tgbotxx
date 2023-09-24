@@ -97,10 +97,10 @@ namespace tgbotxx {
         Ptr<ChatPermissions> permissions;
 
         /// @brief Optional. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds. Returned only in getChat.
-        std::time_t slowModeDelay;
+        std::int32_t slowModeDelay;
 
         /// @brief Optional. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in getChat.
-        std::time_t messageAutoDeleteTime;
+        std::int32_t messageAutoDeleteTime;
 
         /// @brief Optional. True, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators. Returned only in getChat.
         bool hasAggressiveAntiSpamEnabled;
