@@ -6,6 +6,37 @@
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
+#include <tgbotxx/objects/Document.hpp>
+#include <tgbotxx/objects/Sticker.hpp>
+#include <tgbotxx/objects/Story.hpp>
+#include <tgbotxx/objects/Video.hpp>
+#include <tgbotxx/objects/VideoNote.hpp>
+#include <tgbotxx/objects/Voice.hpp>
+#include <tgbotxx/objects/Contact.hpp>
+#include <tgbotxx/objects/Dice.hpp>
+#include <tgbotxx/objects/Game.hpp>
+#include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/Venue.hpp>
+#include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
+#include <tgbotxx/objects/Invoice.hpp>
+#include <tgbotxx/objects/SuccessfulPayment.hpp>
+#include <tgbotxx/objects/UserShared.hpp>
+#include <tgbotxx/objects/ChatShared.hpp>
+#include <tgbotxx/objects/WriteAccessAllowed.hpp>
+#include <tgbotxx/objects/PassportData.hpp>
+#include <tgbotxx/objects/ProximityAlertTriggered.hpp>
+#include <tgbotxx/objects/ForumTopicCreated.hpp>
+#include <tgbotxx/objects/ForumTopicEdited.hpp>
+#include <tgbotxx/objects/ForumTopicClosed.hpp>
+#include <tgbotxx/objects/ForumTopicReopened.hpp>
+#include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
+#include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
+#include <tgbotxx/objects/VideoChatScheduled.hpp>
+#include <tgbotxx/objects/VideoChatStarted.hpp>
+#include <tgbotxx/objects/VideoChatEnded.hpp>
+#include <tgbotxx/objects/VideoChatParticipantsInvited.hpp>
+#include <tgbotxx/objects/WebAppData.hpp>
+#include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 
 namespace tgbotxx {
     /// @brief This object represents a message.
