@@ -29,7 +29,7 @@ public:
       
       // Register commands ...
       std::vector<Ptr<BotCommand>> commands;
-      Ptr<Command> greet(new BotCommand());
+      Ptr<BotCommand> greet(new BotCommand());
       greet->command = "/greet";
       greet->description = "This command will greet you";
       commands.push_back(greet);
@@ -81,3 +81,10 @@ With long polling, the client requests information from the server exactly as in
 
 For example, BOSH is a popular, long-lived HTTP technique used as a long-polling alternative to a continuous TCP connection when such a connection is difficult or impossible to employ directly (e.g., in a web browser);[16] it is also an underlying technology in the XMPP, which Apple uses for its iCloud push support.
 </details>
+
+
+
+### Ref:
+[Telegram Api Documentation](https://core.telegram.org/bots/api)
+
+[Telegram Api Schema](https://core.telegram.org/schema) [Json Schema](https://core.telegram.org/schema/json)
