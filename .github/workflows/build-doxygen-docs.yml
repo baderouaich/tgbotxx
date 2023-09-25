@@ -1,0 +1,31 @@
+# https://github.com/peaceiris/actions-gh-pages
+
+name: Build and Deploy Doxygen Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+        
+    - name: Install Doxygen
+      run: |
+        sudo apt install doxygen
+
+    - name: Run Doxygen
+      run: | # this will generate a docs/html/** folder (configured in the Doxyfile)
+        doxygen ./Doxyfile
+
+    - name: Deploy generated documentation
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./docs/html # from
+        destination_dir: ./docs/html # deploy to a subdirectory: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-deploy-to-subdirectory-destination_dir

@@ -1,4 +1,4 @@
 cmake-build-*
-build*
+build/
 .idea/*
 tests/tests_bot_token.sh
