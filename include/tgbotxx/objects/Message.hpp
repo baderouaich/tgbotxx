@@ -1,7 +1,6 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/User.hpp>
-#include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
@@ -40,6 +39,10 @@
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 
 namespace tgbotxx {
+    /// @brief Forward declarations (to avoid circular dependencies)
+    /// @note included in src/objects/Message.cpp
+    struct Chat;
+
     /// @brief This object represents a message.
     /// @ref https://core.telegram.org/bots/api#message
     struct Message {
@@ -72,7 +75,7 @@ namespace tgbotxx {
         /// @brief Optional. For forwarded messages, sender of the original message
         Ptr<User> forwardFrom;
 
-        /// @brief For messages forwarded from channels or from anonymous administrators,
+        /// @brief Optional. For messages forwarded from channels or from anonymous administrators,
         /// information about the original sender chat
         Ptr<Chat> forwardFromChat;
 
@@ -294,18 +297,9 @@ namespace tgbotxx {
 
         /// @brief Serializes this object to JSON
         /// @returns JSON representation of this object
-        nl::json toJson() const {
-          /// TODO
-          nl::json json = nl::json::object();
-          OBJECT_SERIALIZE_FIELD(json, "message_id", messageId);
-
-          return json;
-        }
+        nl::json toJson() const;
 
         /// @brief Deserializes this object from JSON
-        void fromJson(const nl::json &json) {
-          //... TODO...
-          OBJECT_DESERIALIZE_FIELD(json, "message_id", messageId, -1, false);
-        }
+        void fromJson(const nl::json &json);
     };
 }
