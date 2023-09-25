@@ -16,7 +16,6 @@ Api::Api(const std::string& token) : m_token(std::move(token)) {
 nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
   std::ostringstream url{};
   url << BASE_URL << "/bot" << m_token << '/' << endpoint; // workaround: token should have a prefix botTOKEN. see https://stackoverflow.com/a/41460083
-  std::cout << url.str() << std::endl;
 
   cpr::Header headers =  {
           {"Connection", "close"} // disable keep-alive
@@ -34,12 +33,8 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   else
     res = cpr::Get(cpr::Url{url.str()}, headers, data, CONNECT_TIMEOUT, TIMEOUT);
 
-#ifndef NDEBUG
-  std::cout << res.text << std::endl;
-#endif
-
   if(!res.text.compare(0, 6, "<html>")) {
-    throw Exception("Failed to get a JSON response from Telegram API. Did you pass the correct bot token?");
+    throw Exception("Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
   }
 
   try {
@@ -48,17 +43,19 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
       return result["result"];
     else
       throw Exception(result["description"]);
-  } catch(const Exception& e){
-    throw; // rethrow e
   } catch (const nl::json::exception& e) {
     throw Exception("Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
+  } catch(const Exception& e) {
+    throw; // rethrow e
+  } catch(const std::exception& e) {
+    throw; // rethrow e
   }
 }
 
 bool Api::deleteWebhook(bool dropPendingUpdates) const {
   cpr::Multipart data{};
   if(dropPendingUpdates)
-    data.parts.emplace_back("dropPendingUpdates", dropPendingUpdates);
+    data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
   return sendRequest("deleteWebhook", data).get<bool>();
 }
 
@@ -68,7 +65,7 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
           {"offset", offset},
           {"limit", std::max(1, std::min(100, limit))},
           {"timeout", timeout},
-          {"allowed_updates", nl::json{allowedUpdates}.dump()},
+          {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
   };
   nl::json updatesJson = sendRequest("getUpdates", data);
   std::vector<Ptr<Update>> updates;
