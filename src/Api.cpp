@@ -7,31 +7,40 @@
 #include <cpr/cpr.h>
 using namespace tgbotxx;
 
-Api::Api(const std::string& token) : m_token(std::move(token)) {
-
+Api::Api(const std::string& token) : m_token(token) {
+  m_session.SetTimeout(TIMEOUT);
+  m_session.SetConnectTimeout(CONNECT_TIMEOUT);
+  m_session.SetHeader(cpr::Header{
+          {"Connection", "close"}, // disable keep-alive
+          {"Accept", "application/json"},
+          {"Content-Type", "application/x-www-form-urlencoded"},
+  });
 }
-
-
 
 nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
   std::ostringstream url{};
   url << BASE_URL << "/bot" << m_token << '/' << endpoint; // workaround: token should have a prefix botTOKEN. see https://stackoverflow.com/a/41460083
-
-  cpr::Header headers =  {
-          {"Connection", "close"} // disable keep-alive
-  };
+  m_session.SetUrl(cpr::Url{url.str()});
+  m_session.SetMultipart(data);
 
   bool isMultipart = not data.parts.empty();
   if(isMultipart) // we have files?
-    headers.insert({"Content-Type", "multipart/form-data"});
-  else
-    headers.insert({"Content-Type", "application/x-www-form-urlencoded"});
+  {
+    m_session.UpdateHeader(cpr::Header{{
+                                               {"Content-Type", "multipart/form-data"}
+                                       }});
+
+  } else {
+    m_session.UpdateHeader(cpr::Header{{
+                                               {"Content-Type", "application/x-www-form-urlencoded"}
+                                       }});
+  }
 
   cpr::Response res{};
   if(isMultipart)
-    res = cpr::Post(cpr::Url{url.str()}, headers, data, CONNECT_TIMEOUT, TIMEOUT);
+    res = m_session.Post();
   else
-    res = cpr::Get(cpr::Url{url.str()}, headers, data, CONNECT_TIMEOUT, TIMEOUT);
+    res = m_session.Get();
 
   if(!res.text.compare(0, 6, "<html>")) {
     throw Exception("Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");

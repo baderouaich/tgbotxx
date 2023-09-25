@@ -78,10 +78,11 @@ namespace tgbotxx {
 
     class Api {
         inline static const std::string BASE_URL = "https://api.telegram.org";
-        inline static const cpr::Timeout TIMEOUT = 25 * 1000; // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout))
+        inline static const cpr::Timeout TIMEOUT = 25 * 1000; // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
         inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000; // 20s (Telegram server can take up to 20s to connect with us)
         inline static const std::int32_t LONG_POLL_TIMEOUT = 10; // 10s (calling getUpdates() every 10 seconds)
-        std::string m_token;
+        const std::string m_token;
+        mutable cpr::Session m_session;
 
     public:
         /// @brief Constructs Api object.
