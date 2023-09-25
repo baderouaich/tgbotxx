@@ -1,27 +1,32 @@
 #pragma once
-#include <atomic>
+#include <vector>
 #include <tgbotxx/utils/Ptr.hpp>
 
 namespace tgbotxx {
     class Api;
-    class Message;
-    class BotCommand;
-    class Update;
+    struct Message;
+    struct Update;
 
     class Bot {
         Ptr<Api> m_api;
-        //Ptr<std::thread> m_thread;
-        std::atomic<bool> m_running;
         std::int32_t m_lastUpdateId;
+        std::vector<Ptr<Update>> m_updates;
+        bool m_running;
 
     public:
         explicit Bot(const std::string& token);
 
         void start();
         void stop();
-        void restart();
 
     public: /// Bot Callbacks
+        /// @brief Called when Bot is started (triggered by Bot::start())
+        virtual void onStart() {}
+
+        /// @brief Called when Bot is about to be stopped (triggered by Bot::stop())
+        /// Cleanup your code in this callback (close handles, backup data...)
+        virtual void onStop() {}
+
         /// @brief Called when a new message is received of any kind - text, photo, sticker, etc.
         /// @param message Received message object
         virtual void onAnyMessage(const Ptr<Message>& message) {}

@@ -1,59 +1,50 @@
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Api.hpp>
-#include <tgbotxx/objects/BotCommand.hpp>
-#include <tgbotxx/objects/Message.hpp>
-#include <tgbotxx/objects/Update.hpp>
-#include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-  : m_api(new Api(token)), /*m_thread(nullptr),*/ m_running(false), m_lastUpdateId(0) {
+  : m_api(new Api(token)), m_running(false), m_lastUpdateId(0) {
 }
 
 void Bot::start() {
-  if(m_running.load(std::memory_order::relaxed)) return;
+  if(m_running) return;
+  m_running = true;
 
-  m_running.store(true, std::memory_order::relaxed);
+  /// Callback -> onStart
+  this->onStart();
+
   while(m_running)
   {
-    std::cout << "Getting updates (long poll)...\n";
-    std::vector<Ptr<Update>> updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
-    std::cout << "Got " << updates.size() << " updates\n";
-    for (const Ptr<Update>& update : updates) {
-      if (update->updateId >= m_lastUpdateId) {
+    // Dispatch updates
+    for (const Ptr<Update>& update : m_updates) {
+      if (update->updateId >= m_lastUpdateId)
         m_lastUpdateId = update->updateId + 1;
-      }
       this->dispatch(update);
     }
 
+    if(m_running) {
+      // Confirm dispatched updates
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+    } else {
+      // Confirm last updates before stopping, timeout = 0
+      // Requesting new updates from Telegram server lets the server know that you handled the previous updates,
+      // so it will not send us duplicate updates.
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, /*limit=*/100, /*timeout=*/0);
+    }
   }
-//  m_thread.reset(new std::thread([this]{
-//      while(m_running) {
-//          std::vector<Ptr<Update>> updates = m_api->getUpdates();
-//      }
-//  }));
 }
 
 void Bot::stop() {
-  if(not m_running.load(std::memory_order::relaxed)) return;
+  if(not m_running) return;
+  m_running = false;
 
-  m_running.store(false, std::memory_order::relaxed);
-//  if(m_thread && m_thread->joinable()) {
-//    m_thread->join();
-//    m_thread.reset();
-//  }
+  /// Callback -> onStop
+  this->onStop();
 }
 
-
-void Bot::restart() {
-  stop();
-  start();
-}
 
 void Bot::dispatch(const Ptr<Update> &update) {
-  std::cout << "Dispatching update " << update->updateId << "..."<<std::endl;
-
   if(update->message) {
     const Ptr<Message>& message = update->message;
 
@@ -77,7 +68,7 @@ void Bot::dispatch(const Ptr<Update> &update) {
       }
       std::string command = message->text.substr(1, splitPosition - 1);
       std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
-      bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) {
+      bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
          return cmd->command == command;
       });
       if (isKnownCommand) {
