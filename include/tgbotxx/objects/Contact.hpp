@@ -46,7 +46,7 @@ namespace tgbotxx {
           OBJECT_DESERIALIZE_FIELD(json, "phone_number", phoneNumber, "", false);
           OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "", false);
           OBJECT_DESERIALIZE_FIELD(json, "last_name", lastName, "", true);
-          OBJECT_DESERIALIZE_FIELD_PTR(json, "user_id", userId, 0, true);
+          OBJECT_DESERIALIZE_FIELD(json, "user_id", userId, 0, true);
           OBJECT_DESERIALIZE_FIELD(json, "vcard", vcard, "", true);
         }
     };
