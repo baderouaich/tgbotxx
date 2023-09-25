@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field) \
   json[json_field] = nl::json::array();                                 \
   for(const auto& e : array_field)                                      \
-    json[json_field].push_back(e->toJson());                            \
+    json[json_field].push_back(e->toJson());
 
 /// Deserialize
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)                                       \
