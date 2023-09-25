@@ -1,12 +1,12 @@
 #pragma once
 /// Available objects: https://core.telegram.org/bots/api#available-types
+#include <tgbotxx/utils/Ptr.hpp>
+#include <tgbotxx/Exception.hpp>
 #include <cstdint>
 #include <string>
 #include <sstream>
 #include <memory>
 #include <vector>
-#include <tgbotxx/utils/Ptr.hpp>
-#include <tgbotxx/Exception.hpp>
 #include <iostream>
 #include <nlohmann/json.hpp>
 namespace nl = nlohmann;
@@ -32,10 +32,15 @@ namespace nl = nlohmann;
     try {                                                                                                                \
       using T = std::remove_reference_t<std::remove_const_t<decltype(field)>>;                                           \
       field = json[json_field].get<T>();                                                                                 \
-    } catch(const nl::json::exception& e) {                                                                              \
+    } catch(const std::exception& e) {                                                                                   \
       std::ostringstream err{};                                                                                          \
       err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Failed to deserialize \""                       \
-      << json_field << "\" from json object: " << json.dump(2) << "\nReason: " << e.what();                        \
+      << json_field << "\" from json object: " << json.dump(2) << "\nReason: " << e.what();                              \
+      throw Exception(err.str());                                                                                        \
+    } catch(...) {                                                                                                       \
+      std::ostringstream err{};                                                                                          \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Failed to deserialize \""                       \
+      << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
   }                                                                                                                      \
