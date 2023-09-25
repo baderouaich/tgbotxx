@@ -68,7 +68,6 @@
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
-
 #include <string>
 #include <iostream>
 #include <cpr/cpr.h>
@@ -76,15 +75,12 @@
 namespace nl = nlohmann;
 
 namespace tgbotxx {
-    class Update;
-    class BotCommand;
-    class BotCommandScope;
 
     class Api {
         inline static const std::string BASE_URL = "https://api.telegram.org";
         inline static const cpr::Timeout TIMEOUT = 25 * 1000; // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout))
         inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000; // 20s (Telegram server can take up to 20s to connect with us)
-        inline static const std::int32_t LONG_POLL_TIMEOUT = 10; // 10s (calling getUpdates() evert 10 seconds)
+        inline static const std::int32_t LONG_POLL_TIMEOUT = 10; // 10s (calling getUpdates() every 10 seconds)
         std::string m_token;
 
     public:
@@ -123,6 +119,7 @@ namespace tgbotxx {
         /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
         std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, std::int32_t timeout = LONG_POLL_TIMEOUT, const std::vector<std::string>& allowedUpdates = {}) const;
 
+    public: /// @defgroup Commands
         /// @brief Use this method to change the list of the bot's commands.
         /// See this manual for more details about bot commands.
         /// @param commands A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.
