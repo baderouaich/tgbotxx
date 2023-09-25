@@ -1,11 +1,13 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
-#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/ChatPhoto.hpp>
 #include <tgbotxx/objects/ChatPermissions.hpp>
 #include <tgbotxx/objects/ChatLocation.hpp>
 
 namespace tgbotxx {
+    /// @brief Forward declarations (to avoid circular dependencies)
+    struct Message;
+
     /// @brief This object represents a chat.
     /// @ref https://core.telegram.org/bots/api#chat
     struct Chat {
