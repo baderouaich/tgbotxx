@@ -29,3 +29,4 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./docs/html # from
         destination_dir: . # deploy to a subdirectory: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-deploy-to-subdirectory-destination_dir
+        commit_message: docs - ${{ github.event.head_commit.message }}
