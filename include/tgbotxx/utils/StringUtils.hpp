@@ -7,6 +7,7 @@
 #include <algorithm>
 
 namespace tgbotxx {
+    /// @brief Namespace contains useful string related utility functions.
     namespace StringUtils {
         /// @brief Form a string from a container with a delimiter
         /// @example: array = [1,2,3]
