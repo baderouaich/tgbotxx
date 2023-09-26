@@ -1,5 +1,16 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_user.html#a739166e7708914490a5c383d97dec5ae":[2,0,0,71,8],
+"structtgbotxx_1_1_user.html#a7653a2f0a7ca49908377bc4d06388b98":[2,0,0,71,3],
+"structtgbotxx_1_1_user.html#a9298a69248c5e92e11eeb39cae1bfaae":[2,0,0,71,6],
+"structtgbotxx_1_1_user.html#a96984cf97ee3b60c809d2a00ac442357":[2,0,0,71,5],
+"structtgbotxx_1_1_user.html#ad0a3a003fa6dd2419b286991a9181697":[2,0,0,71,0],
+"structtgbotxx_1_1_user.html#adf236750413fab61ab6f9d110dfdd659":[2,0,0,71,12],
+"structtgbotxx_1_1_user.html#ae7c5def7b1ad4edb2cd445f7765bd697":[2,0,0,71,9],
+"structtgbotxx_1_1_user.html#aeaf0b31ad90ee86957bfb42a933d6225":[2,0,0,71,13],
+"structtgbotxx_1_1_user.html#af10247d8ee79749caf99129db2f98c67":[2,0,0,71,2],
+"structtgbotxx_1_1_user.html#afa9ea94a7f78a1e92f38fbd607a6628a":[2,0,0,71,4],
+"structtgbotxx_1_1_user_shared.html":[2,0,0,72],
 "structtgbotxx_1_1_user_shared.html#a0460e1929758df05e8e8564a8617620a":[2,0,0,72,4],
 "structtgbotxx_1_1_user_shared.html#a52eb806711454692e44300e343175af0":[2,0,0,72,2],
 "structtgbotxx_1_1_user_shared.html#a6ee6b4893d8dbea70633c85f23d5d0d6":[2,0,0,72,1],

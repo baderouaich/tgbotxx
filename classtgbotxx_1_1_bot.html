@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a530f1ad81b670b6e5af123667b09df22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a530f1ad81b670b6e5af123667b09df22">stop</a> ()</td></tr>
 <tr class="separator:a530f1ad81b670b6e5af123667b09df22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac426258ee47b337978ab15cfc448c18b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b">onStart</a> ()</td></tr>
-<tr class="memdesc:ac426258ee47b337978ab15cfc448c18b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is started (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">Bot::start()</a>)  <a href="classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b">More...</a><br /></td></tr>
+<tr class="memdesc:ac426258ee47b337978ab15cfc448c18b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called before <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> starts receiving updates (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">Bot::start()</a>) Use this callback to initialize your code, set commands..  <a href="classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b">More...</a><br /></td></tr>
 <tr class="separator:ac426258ee47b337978ab15cfc448c18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa401af85581921f1ed4512f6b8c2b3ee"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#aa401af85581921f1ed4512f6b8c2b3ee">onStop</a> ()</td></tr>
 <tr class="memdesc:aa401af85581921f1ed4512f6b8c2b3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is about to be stopped (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#a530f1ad81b670b6e5af123667b09df22">Bot::stop()</a>) Cleanup your code in this callback (close handles, backup data...)  <a href="classtgbotxx_1_1_bot.html#aa401af85581921f1ed4512f6b8c2b3ee">More...</a><br /></td></tr>
@@ -119,16 +119,49 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2567fe220fc80b8e4adc6cdc35ecbe64"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a2567fe220fc80b8e4adc6cdc35ecbe64">onUnknownCommand</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &amp;message)</td></tr>
 <tr class="memdesc:a2567fe220fc80b8e4adc6cdc35ecbe64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when an unknown command is received (messages with leading '/' char).  <a href="classtgbotxx_1_1_bot.html#a2567fe220fc80b8e4adc6cdc35ecbe64">More...</a><br /></td></tr>
 <tr class="separator:a2567fe220fc80b8e4adc6cdc35ecbe64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2adb7129c0474d8ba91bd1cf391912c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#af2adb7129c0474d8ba91bd1cf391912c">onEditedMessage</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &amp;editedMessage)</td></tr>
+<tr class="memdesc:af2adb7129c0474d8ba91bd1cf391912c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new version of a message that is known to the bot and was edited.  <a href="classtgbotxx_1_1_bot.html#af2adb7129c0474d8ba91bd1cf391912c">More...</a><br /></td></tr>
+<tr class="separator:af2adb7129c0474d8ba91bd1cf391912c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a9c461e7d54f8688631a92b2fe1124"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a65a9c461e7d54f8688631a92b2fe1124">onInlineQuery</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query.html">InlineQuery</a> &gt; &amp;inlineQuery)</td></tr>
+<tr class="memdesc:a65a9c461e7d54f8688631a92b2fe1124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new incoming inline query is received.  <a href="classtgbotxx_1_1_bot.html#a65a9c461e7d54f8688631a92b2fe1124">More...</a><br /></td></tr>
+<tr class="separator:a65a9c461e7d54f8688631a92b2fe1124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90729040aeb9f2775ccafa36dd9214d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a90729040aeb9f2775ccafa36dd9214d3">onChosenInlineResult</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chosen_inline_result.html">ChosenInlineResult</a> &gt; &amp;chosenInlineResult)</td></tr>
+<tr class="memdesc:a90729040aeb9f2775ccafa36dd9214d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the result of an inline query that was chosen by a user and sent to their chat partner.  <a href="classtgbotxx_1_1_bot.html#a90729040aeb9f2775ccafa36dd9214d3">More...</a><br /></td></tr>
+<tr class="separator:a90729040aeb9f2775ccafa36dd9214d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120b097882c3644aec9925216b979c9b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a120b097882c3644aec9925216b979c9b">onCallbackQuery</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_callback_query.html">CallbackQuery</a> &gt; &amp;callbackQuery)</td></tr>
+<tr class="memdesc:a120b097882c3644aec9925216b979c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new incoming callback query is received.  <a href="classtgbotxx_1_1_bot.html#a120b097882c3644aec9925216b979c9b">More...</a><br /></td></tr>
+<tr class="separator:a120b097882c3644aec9925216b979c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acee4ed2ab5bab2edcd617342a47a72e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#acee4ed2ab5bab2edcd617342a47a72e7">onShippingQuery</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_shipping_query.html">ShippingQuery</a> &gt; &amp;shippingQuery)</td></tr>
+<tr class="memdesc:acee4ed2ab5bab2edcd617342a47a72e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new incoming shipping query is received.  <a href="classtgbotxx_1_1_bot.html#acee4ed2ab5bab2edcd617342a47a72e7">More...</a><br /></td></tr>
+<tr class="separator:acee4ed2ab5bab2edcd617342a47a72e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886779c1fdb679dd231b614a5eb4d5f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a886779c1fdb679dd231b614a5eb4d5f3">onPreCheckoutQuery</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_pre_checkout_query.html">PreCheckoutQuery</a> &gt; &amp;preCheckoutQuery)</td></tr>
+<tr class="memdesc:a886779c1fdb679dd231b614a5eb4d5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new incoming pre-checkout query is received. Contains full information about checkout.  <a href="classtgbotxx_1_1_bot.html#a886779c1fdb679dd231b614a5eb4d5f3">More...</a><br /></td></tr>
+<tr class="separator:a886779c1fdb679dd231b614a5eb4d5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df030ddecb6cf01d9b4766af97c27d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a2df030ddecb6cf01d9b4766af97c27d5">onPoll</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_poll.html">Poll</a> &gt; &amp;poll)</td></tr>
+<tr class="memdesc:a2df030ddecb6cf01d9b4766af97c27d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new poll state is received.  <a href="classtgbotxx_1_1_bot.html#a2df030ddecb6cf01d9b4766af97c27d5">More...</a><br /></td></tr>
+<tr class="separator:a2df030ddecb6cf01d9b4766af97c27d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f0bb6a57910708fb964d44872d70fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#ae6f0bb6a57910708fb964d44872d70fa">onPollAnswer</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_poll_answer.html">PollAnswer</a> &gt; &amp;pollAnswer)</td></tr>
+<tr class="memdesc:ae6f0bb6a57910708fb964d44872d70fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a user changed their answer in a non-anonymous poll.  <a href="classtgbotxx_1_1_bot.html#ae6f0bb6a57910708fb964d44872d70fa">More...</a><br /></td></tr>
+<tr class="separator:ae6f0bb6a57910708fb964d44872d70fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62453ec07a1b15ebd84de97926017584"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a62453ec07a1b15ebd84de97926017584">onMyChatMember</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member_updated.html">ChatMemberUpdated</a> &gt; &amp;myChatMemberUpdated)</td></tr>
+<tr class="memdesc:a62453ec07a1b15ebd84de97926017584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the bot's chat member status was updated in a chat.  <a href="classtgbotxx_1_1_bot.html#a62453ec07a1b15ebd84de97926017584">More...</a><br /></td></tr>
+<tr class="separator:a62453ec07a1b15ebd84de97926017584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b90a6b8958e6a3aa3f2698952c5eed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a57b90a6b8958e6a3aa3f2698952c5eed">onChatMember</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member_updated.html">ChatMemberUpdated</a> &gt; &amp;chatMemberUpdated)</td></tr>
+<tr class="memdesc:a57b90a6b8958e6a3aa3f2698952c5eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a chat member's status was updated in a chat.  <a href="classtgbotxx_1_1_bot.html#a57b90a6b8958e6a3aa3f2698952c5eed">More...</a><br /></td></tr>
+<tr class="separator:a57b90a6b8958e6a3aa3f2698952c5eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155ae2121ea1fdf0da0532e9b1655f6b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a155ae2121ea1fdf0da0532e9b1655f6b">onChatJoinRequest</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_join_request.html">ChatJoinRequest</a> &gt; &amp;chatJoinRequest)</td></tr>
+<tr class="memdesc:a155ae2121ea1fdf0da0532e9b1655f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a A request to join the chat has been sent.  <a href="classtgbotxx_1_1_bot.html#a155ae2121ea1fdf0da0532e9b1655f6b">More...</a><br /></td></tr>
+<tr class="separator:a155ae2121ea1fdf0da0532e9b1655f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6d761bb5f4173d2599203d4cae349885"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="classtgbotxx_1_1_api.html">Api</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885">getApi</a> () const noexcept</td></tr>
-<tr class="memdesc:a6d761bb5f4173d2599203d4cae349885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setters.  <a href="classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885">More...</a><br /></td></tr>
+<tr class="memdesc:a6d761bb5f4173d2599203d4cae349885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getters.  <a href="classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885">More...</a><br /></td></tr>
 <tr class="separator:a6d761bb5f4173d2599203d4cae349885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00010">10</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00019">19</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1ebb9fd1e98cb5d0c32e811b7081582e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ebb9fd1e98cb5d0c32e811b7081582e">&#9670;&nbsp;</a></span>Bot()</h2>
@@ -180,8 +213,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Setters. </p>
-<p>Getters </p>
+<p>Getters. </p>
 
 </div>
 </div>
@@ -217,7 +249,154 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00032">32</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00042">42</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a120b097882c3644aec9925216b979c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120b097882c3644aec9925216b979c9b">&#9670;&nbsp;</a></span>onCallbackQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onCallbackQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_callback_query.html">CallbackQuery</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>callbackQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new incoming callback query is received. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callbackQuery</td><td><a class="el" href="structtgbotxx_1_1_callback_query.html" title="This object represents an incoming callback query from a callback button in an inline keyboard....">CallbackQuery</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00072">72</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a155ae2121ea1fdf0da0532e9b1655f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155ae2121ea1fdf0da0532e9b1655f6b">&#9670;&nbsp;</a></span>onChatJoinRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onChatJoinRequest </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_join_request.html">ChatJoinRequest</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatJoinRequest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a A request to join the chat has been sent. </p>
+<dl class="section note"><dt>Note</dt><dd>The bot must have the can_invite_users administrator right in the chat to receive these updates. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatJoinRequest</td><td><a class="el" href="structtgbotxx_1_1_chat_join_request.html" title="Represents a join request sent to a chat. https://core.telegram.org/bots/api#chatjoinrequest.">ChatJoinRequest</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00106">106</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a57b90a6b8958e6a3aa3f2698952c5eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b90a6b8958e6a3aa3f2698952c5eed">&#9670;&nbsp;</a></span>onChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onChatMember </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member_updated.html">ChatMemberUpdated</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatMemberUpdated</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a chat member's status was updated in a chat. </p>
+<dl class="section note"><dt>Note</dt><dd>The bot must be an administrator in the chat and must explicitly specify “chat_member” in the list of allowed_updates to receive these updates. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatMemberUpdated</td><td><a class="el" href="structtgbotxx_1_1_chat_member_updated.html" title="This object represents changes in the status of a chat member. https://core.telegram....">ChatMemberUpdated</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00101">101</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a90729040aeb9f2775ccafa36dd9214d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90729040aeb9f2775ccafa36dd9214d3">&#9670;&nbsp;</a></span>onChosenInlineResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onChosenInlineResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chosen_inline_result.html">ChosenInlineResult</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chosenInlineResult</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the result of an inline query that was chosen by a user and sent to their chat partner. </p>
+<dl class="section note"><dt>Note</dt><dd>Please see our documentation on the feedback collecting for details on how to enable these updates for your bot. <a href="https://core.telegram.org/bots/inline#collecting-feedback">https://core.telegram.org/bots/inline#collecting-feedback</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chosenInlineResult</td><td><a class="el" href="structtgbotxx_1_1_chosen_inline_result.html" title="Represents a result of an inline query that was chosen by the user and sent to their chat partner....">ChosenInlineResult</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00068">68</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +432,116 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00040">40</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00050">50</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af2adb7129c0474d8ba91bd1cf391912c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2adb7129c0474d8ba91bd1cf391912c">&#9670;&nbsp;</a></span>onEditedMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onEditedMessage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>editedMessage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new version of a message that is known to the bot and was edited. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">editedMessage</td><td>Edited <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00059">59</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a65a9c461e7d54f8688631a92b2fe1124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65a9c461e7d54f8688631a92b2fe1124">&#9670;&nbsp;</a></span>onInlineQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onInlineQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query.html">InlineQuery</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inlineQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new incoming inline query is received. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inlineQuery</td><td><a class="el" href="structtgbotxx_1_1_inline_query.html" title="This object represents an incoming inline query. When the user sends an empty query,...">InlineQuery</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00063">63</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a62453ec07a1b15ebd84de97926017584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62453ec07a1b15ebd84de97926017584">&#9670;&nbsp;</a></span>onMyChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onMyChatMember </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member_updated.html">ChatMemberUpdated</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>myChatMemberUpdated</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the bot's chat member status was updated in a chat. </p>
+<dl class="section note"><dt>Note</dt><dd>For private chats, this update is received only when the bot is blocked or unblocked by the user. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">myChatMemberUpdated</td><td><a class="el" href="structtgbotxx_1_1_chat_member_updated.html" title="This object represents changes in the status of a chat member. https://core.telegram....">ChatMemberUpdated</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00096">96</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +577,154 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00036">36</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00046">46</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2df030ddecb6cf01d9b4766af97c27d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df030ddecb6cf01d9b4766af97c27d5">&#9670;&nbsp;</a></span>onPoll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onPoll </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_poll.html">Poll</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>poll</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new poll state is received. </p>
+<dl class="section note"><dt>Note</dt><dd>Bots receive only updates about stopped polls and polls, which are sent by the bot </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poll</td><td><a class="el" href="structtgbotxx_1_1_poll.html" title="This object contains information about a poll. https://core.telegram.org/bots/api#poll.">Poll</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00086">86</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae6f0bb6a57910708fb964d44872d70fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f0bb6a57910708fb964d44872d70fa">&#9670;&nbsp;</a></span>onPollAnswer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onPollAnswer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_poll_answer.html">PollAnswer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pollAnswer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a user changed their answer in a non-anonymous poll. </p>
+<dl class="section note"><dt>Note</dt><dd>Bots receive new votes only in polls that were sent by the bot itself. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pollAnswer</td><td><a class="el" href="structtgbotxx_1_1_poll_answer.html" title="This object represents an answer of a user in a non-anonymous poll. https://core.telegram....">PollAnswer</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00091">91</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a886779c1fdb679dd231b614a5eb4d5f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a886779c1fdb679dd231b614a5eb4d5f3">&#9670;&nbsp;</a></span>onPreCheckoutQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onPreCheckoutQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_pre_checkout_query.html">PreCheckoutQuery</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>preCheckoutQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new incoming pre-checkout query is received. Contains full information about checkout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">preCheckoutQuery</td><td><a class="el" href="structtgbotxx_1_1_pre_checkout_query.html" title="This object contains information about an incoming pre-checkout query. https://core....">PreCheckoutQuery</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00081">81</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acee4ed2ab5bab2edcd617342a47a72e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee4ed2ab5bab2edcd617342a47a72e7">&#9670;&nbsp;</a></span>onShippingQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void tgbotxx::Bot::onShippingQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_shipping_query.html">ShippingQuery</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shippingQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when a new incoming shipping query is received. </p>
+<dl class="section note"><dt>Note</dt><dd>Only for invoices with flexible price </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shippingQuery</td><td><a class="el" href="structtgbotxx_1_1_shipping_query.html" title="This object contains information about an incoming shipping query. https://core.telegram....">ShippingQuery</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00077">77</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,10 +751,10 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is started (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">Bot::start()</a>) </p>
+<p>Called before <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> starts receiving updates (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">Bot::start()</a>) Use this callback to initialize your code, set commands.. </p>
 <p><a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> Callbacks </p>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00024">24</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00034">34</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -348,7 +783,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Called when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is about to be stopped (triggered by <a class="el" href="classtgbotxx_1_1_bot.html#a530f1ad81b670b6e5af123667b09df22">Bot::stop()</a>) Cleanup your code in this callback (close handles, backup data...) </p>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00028">28</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00038">38</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,7 +820,7 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Known commands are set with Bot::setCommands() </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00045">45</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_8hpp_source.html#l00055">55</a> of file <a class="el" href="_bot_8hpp_source.html">Bot.hpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +867,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_bot.html">Bot</a></li>
-    <li class="footer">Generated on Tue Sep 26 2023 11:01:59 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Sep 26 2023 13:47:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
