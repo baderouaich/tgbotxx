@@ -45,47 +45,107 @@ void Bot::stop() {
 
 
 void Bot::dispatch(const Ptr<Update> &update) {
-  if(update->message) {
-    const Ptr<Message>& message = update->message;
+  /// A Message can be a Command, EditedMessage, Normal Message, Channel Post...
+  if (update->message) {
+    /// ... this function will dispatch accordingly
+    this->dispatchMessage(update->message);
+  }
 
-    /// Callback -> onAnyMessage
-    this->onAnyMessage(message);
+  if (update->editedMessage) {
+    /// Callback -> onEditedMessage
+    this->onEditedMessage(update->editedMessage);
+  }
 
-    if (StringUtils::startsWith(message->text, "/")) {
-      std::size_t splitPosition;
-      std::size_t spacePosition = message->text.find(' ');
-      std::size_t atSymbolPosition = message->text.find('@');
-      if (spacePosition == std::string::npos) {
-        if (atSymbolPosition == std::string::npos) {
-          splitPosition = message->text.size();
-        } else {
-          splitPosition = atSymbolPosition;
-        }
-      } else if (atSymbolPosition == std::string::npos) {
-        splitPosition = spacePosition;
-      } else {
-        splitPosition = std::min(spacePosition, atSymbolPosition);
-      }
-      std::string command = message->text.substr(1, splitPosition - 1);
-      std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
-      bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
-         return cmd->command == command;
-      });
-      if (isKnownCommand) {
-        /// Callback -> onCommand
-        this->onCommand(message);
-      }
-      else {
-        /// Callback -> onUnknownCommand
-        this->onUnknownCommand(message);
-      }
-    } else {
-      /// Callback -> onNonCommandMessage
-      this->onNonCommandMessage(message);
-    }
+  if (update->channelPost) {
+    this->dispatchMessage(update->channelPost);
+  }
+
+  if (update->editedChannelPost) {
+    /// Callback -> onEditedMessage
+    this->onEditedMessage(update->editedChannelPost);
+  }
+
+  if (update->inlineQuery) {
+    /// Callback -> onInlineQuery
+    this->onInlineQuery(update->inlineQuery);
+  }
+  if (update->chosenInlineResult) {
+    /// Callback -> onChosenInlineResult
+    this->onChosenInlineResult(update->chosenInlineResult);
+  }
+  if (update->callbackQuery) {
+    /// Callback -> onCallbackQuery
+    this->onCallbackQuery(update->callbackQuery);
+  }
+  if (update->shippingQuery) {
+    /// Callback -> onShippingQuery
+    this->onShippingQuery(update->shippingQuery);
+  }
+  if (update->preCheckoutQuery) {
+    /// Callback -> onPreCheckoutQuery
+    this->onPreCheckoutQuery(update->preCheckoutQuery);
+  }
+  if (update->poll) {
+    /// Callback -> onPoll
+    this->onPoll(update->poll);
+  }
+  if (update->pollAnswer) {
+    /// Callback -> onPollAnswer
+    this->onPollAnswer(update->pollAnswer);
+  }
+  if (update->myChatMember) {
+    /// Callback -> onMyChatMember
+    this->onMyChatMember(update->myChatMember);
+  }
+  if (update->chatMember) {
+    /// Callback -> onChatMember
+    this->onChatMember(update->chatMember);
+  }
+  if (update->chatJoinRequest) {
+    /// Callback -> onChatJoinRequest
+    this->onChatJoinRequest(update->chatJoinRequest);
   }
 }
 
 const Ptr<Api>& Bot::getApi() const noexcept {
   return m_api;
+}
+
+void Bot::dispatchMessage(const Ptr<Message> &message) {
+  /// Callback -> onAnyMessage
+  this->onAnyMessage(message);
+
+  /// Command ?
+  if (StringUtils::startsWith(message->text, "/")) {
+    std::size_t splitPosition;
+    std::size_t spacePosition = message->text.find(' ');
+    std::size_t atSymbolPosition = message->text.find('@');
+    if (spacePosition == std::string::npos) {
+      if (atSymbolPosition == std::string::npos) {
+        splitPosition = message->text.size();
+      } else {
+        splitPosition = atSymbolPosition;
+      }
+    } else if (atSymbolPosition == std::string::npos) {
+      splitPosition = spacePosition;
+    } else {
+      splitPosition = std::min(spacePosition, atSymbolPosition);
+    }
+    std::string command = message->text.substr(1, splitPosition - 1);
+    std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
+    bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
+        return cmd->command == command;
+    });
+    if (isKnownCommand) {
+      /// Callback -> onCommand
+      this->onCommand(message);
+    }
+    else {
+      /// Callback -> onUnknownCommand
+      this->onUnknownCommand(message);
+    }
+  } else {
+    /// Callback -> onNonCommandMessage
+    this->onNonCommandMessage(message);
+  }
 }
