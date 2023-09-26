@@ -3,11 +3,9 @@
 #include <tgbotxx/objects/ChatPhoto.hpp>
 #include <tgbotxx/objects/ChatPermissions.hpp>
 #include <tgbotxx/objects/ChatLocation.hpp>
+#include <tgbotxx/objects/Message.hpp>
 
 namespace tgbotxx {
-    /// @brief Forward declarations (to avoid circular dependencies)
-    struct Message;
-
     /// @brief This object represents a chat.
     /// @ref https://core.telegram.org/bots/api#chat
     struct Chat {

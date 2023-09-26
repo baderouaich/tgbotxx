@@ -1,8 +1,10 @@
+#include "cpr/status_codes.h"
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/BotCommandScope.hpp>
+#include <tgbotxx/utils/StringUtils.hpp>
 #include <utility>
 #include <cpr/cpr.h>
 using namespace tgbotxx;
@@ -47,11 +49,16 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 
   try {
-    nl::json result = nl::json::parse(res.text);
-    if (result["ok"].get<bool>())
-      return result["result"];
-    else
-      throw Exception(result["description"]);
+    nl::json response = nl::json::parse(res.text);
+    if (response["ok"].get<bool>()) {
+      return response["result"];
+    } else {
+      std::string desc = response["description"];
+      if(response["error_code"] == cpr::status::HTTP_NOT_FOUND) {
+        desc += ". Did you enter the correct bot token?";
+      }
+      throw Exception(desc);
+    }
   } catch (const nl::json::exception& e) {
     throw Exception("Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
   } catch(const Exception& e) {
