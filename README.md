@@ -52,17 +52,7 @@ private:
     void onStop() override {
       std::cout << __func__ << std::endl;
     }
-
-    /// Called when a new message is received of any kind - text, photo, sticker, etc.
-    void onAnyMessage(const Ptr<Message>& message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
-    }
-
-    /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
-    void onNonCommandMessage(const Ptr<Message> &message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
-    }
-
+    
     /// Called when a new command is received (messages with leading '/' char).
     void onCommand(const Ptr<Message>& command) override {
       std::cout << __func__ << ": " << command->text << std::endl;
@@ -72,13 +62,14 @@ private:
       }
     }
 
+    // Other callbacks (optional overload)
+    /// Called when a new message is received of any kind - text, photo, sticker, etc.
+    void onAnyMessage(const Ptr<Message>& message) override {}
+    /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
+    void onNonCommandMessage(const Ptr<Message> &message) override {}
     /// Called when an unknown command is received (messages with leading '/' char).
     /// Known commands are set with Bot::setCommands()
-    void onUnknownCommand(const Ptr<Message> &message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
-    }
-
-    // Other callbacks (optional overload)
+    void onUnknownCommand(const Ptr<Message> &message) override {}
     /// Called when a new version of a message that is known to the bot and was edited
     void onEditedMessage(const Ptr<Message>& editedMessage) override {}
     /// Called when a new incoming inline query is received
