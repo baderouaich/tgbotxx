@@ -19,6 +19,15 @@ endforeach()
 add_executable(manual_tests manual_tests.cpp)
 target_compile_features(manual_tests PRIVATE cxx_std_20)
 target_link_libraries(manual_tests PRIVATE tgbotxx ${TGBOTXX_LIBRARIES})
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests_bot_token.sh)
+    add_custom_command(
+            TARGET manual_tests PRE_BUILD
+            COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/tests_bot_token.sh
+            VERBATIM Sourcing ${CMAKE_CURRENT_SOURCE_DIR}/tests_bot_token.sh ...
+    )
+else()
+    message(WARNING "Missing tests bot token file ${CMAKE_CURRENT_SOURCE_DIR}/tests_bot_token.sh, please create file and add an export TESTS_BOT_TOKEN=YOUR TESTING BOT TOKEN")
+endif()
 
 # valgrind memory leak checks (NOTE: valgrind has problems with clang symbols, compile with gcc before running this target)
 add_custom_target(check_memory_leaks_manual_tests

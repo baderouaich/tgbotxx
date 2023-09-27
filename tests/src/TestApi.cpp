@@ -3,9 +3,10 @@
 #include <catch2/catch.hpp>
 using namespace tgbotxx;
 
-TEST_CASE("Test Api", "deleteWebhook")
-{
-  std::cout << "runnig deleteWebhook";
-  REQUIRE(true);
+static Ptr<Api> API(new Api(std::getenv("TESTS_BOT_TOKEN") ?: "BOT_TOKEN"));
 
+TEST_CASE("Test Api", "Api methods")
+{
+    REQUIRE(API->getMe());
+    REQUIRE(API->deleteWebhook(true));
 }

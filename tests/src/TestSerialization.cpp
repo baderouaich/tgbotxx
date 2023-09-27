@@ -12,5 +12,9 @@ TEST_CASE("Serialization & Deserialization", "User")
   obj["last_name"] = "last name";
   obj["is_bot"] = false;
   User user(obj);
-  std::cout <<user.toJson().dump(2) << std::endl;
+  REQUIRE(user.id == 1000);
+  REQUIRE(user.username == "@test");
+  REQUIRE(user.firstName == "first name");
+  REQUIRE(user.lastName == "last name");
+  REQUIRE(user.isBot == false);
 }
