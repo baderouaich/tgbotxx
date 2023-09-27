@@ -25,6 +25,17 @@ namespace nl = nlohmann;
   for(const auto& e : array_field)                                      \
     json[json_field].push_back(e->toJson());
 
+#define OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field) \
+  json[json_field] = nl::json::array();                                             \
+  for(const auto& array : array_array_field) {                                      \
+    nl::json arr = nl::json::array();                                               \
+    for(const auto& e : array) {                                                    \
+       arr.push_back(e->toJson());                                                  \
+    }                                                                               \
+    json[json_field].push_back(arr);                                                \
+  }
+
+
 /// Deserialize
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)                                       \
   if (json.contains(json_field))                                                                                         \
@@ -95,4 +106,34 @@ namespace nl = nlohmann;
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
     array_field.clear();                                                                                                 \
+  }
+
+
+#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field, optional)                          \
+  if ((json.contains(json_field)) and (json[json_field].is_array()))                                                     \
+  {                                                                                                                      \
+    using ArrayArray = decltype(array_array_field);                                                                      \
+    using Array = ArrayArray::value_type; /* e.g vector<vector<int> <- > */                                              \
+    using T = ArrayArray::value_type::value_type; /* e.g vector<vector<int>> <-  */                                      \
+    using E = T::element_type;                                                                                           \
+    array_array_field.reserve(json[json_field].size());                                                                  \
+    for(const nl::json& array : json[json_field]) {                                                                      \
+        Array arr;                                                                                                       \
+        arr.reserve(array.size());                                                                                       \
+        for(const nl::json& obj : array) {                                                                               \
+            arr.emplace_back(new E(obj));                                                                                \
+        }                                                                                                                \
+        array_array_field.push_back(std::move(arr));                                                                     \
+    }                                                                                                                    \
+  }                                                                                                                      \
+  else                                                                                                                   \
+  {                                                                                                                      \
+    if(not (optional))                                                                                                   \
+    {                                                                                                                    \
+      std::ostringstream err{};                                                                                          \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Missing required field \""                      \
+      << json_field << "\" from json object: " << json.dump(2);                                                          \
+      throw Exception(err.str());                                                                                        \
+    }                                                                                                                    \
+    array_array_field.clear();                                                                                           \
   }
