@@ -53,6 +53,9 @@ var hierarchy =
     [ "tgbotxx::InlineKeyboardMarkup", "structtgbotxx_1_1_inline_keyboard_markup.html", null ],
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
+    [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
+      [ "tgbotxx::ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", null ]
+    ] ],
     [ "tgbotxx::Location", "structtgbotxx_1_1_location.html", null ],
     [ "tgbotxx::LoginUrl", "structtgbotxx_1_1_login_url.html", null ],
     [ "tgbotxx::MaskPosition", "structtgbotxx_1_1_mask_position.html", null ],

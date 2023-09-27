@@ -112,6 +112,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "Invoice.hpp", "_invoice_8hpp.html", [
       [ "Invoice", "structtgbotxx_1_1_invoice.html", "structtgbotxx_1_1_invoice" ]
     ] ],
+    [ "IReplyMarkup.hpp", "_i_reply_markup_8hpp.html", [
+      [ "IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", "structtgbotxx_1_1_i_reply_markup" ]
+    ] ],
     [ "Location.hpp", "_location_8hpp.html", [
       [ "Location", "structtgbotxx_1_1_location.html", "structtgbotxx_1_1_location" ]
     ] ],
@@ -157,6 +160,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "ProximityAlertTriggered.hpp", "_proximity_alert_triggered_8hpp.html", [
       [ "ProximityAlertTriggered", "structtgbotxx_1_1_proximity_alert_triggered.html", "structtgbotxx_1_1_proximity_alert_triggered" ]
+    ] ],
+    [ "ReplyKeyboardMarkup.hpp", "_reply_keyboard_markup_8hpp.html", [
+      [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", "structtgbotxx_1_1_reply_keyboard_markup" ]
     ] ],
     [ "ShippingAddress.hpp", "_shipping_address_8hpp.html", [
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ]

@@ -90,13 +90,25 @@ $(document).ready(function(){initNavTree('classtgbotxx_1_1_api.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> Methods <a href="https://core.telegram.org/bots/api#available-methods">https://core.telegram.org/bots/api#available-methods</a>.  
+ <a href="classtgbotxx_1_1_api.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_api_8hpp_source.html">Api.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f3c10fcdb01039733b30b74d3342095"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095">Api</a> (const std::string &amp;token)</td></tr>
-<tr class="memdesc:a3f3c10fcdb01039733b30b74d3342095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs <a class="el" href="classtgbotxx_1_1_api.html">Api</a> object.  <a href="classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095">More...</a><br /></td></tr>
+<tr class="memdesc:a3f3c10fcdb01039733b30b74d3342095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> object.  <a href="classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095">More...</a><br /></td></tr>
 <tr class="separator:a3f3c10fcdb01039733b30b74d3342095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b6fde6a4caa1262b6c6d587dc027301"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3b6fde6a4caa1262b6c6d587dc027301">getMe</a> () const</td></tr>
+<tr class="memdesc:a3b6fde6a4caa1262b6c6d587dc027301"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple method for testing your bot's authentication token.  <a href="classtgbotxx_1_1_api.html#a3b6fde6a4caa1262b6c6d587dc027301">More...</a><br /></td></tr>
+<tr class="separator:a3b6fde6a4caa1262b6c6d587dc027301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01924065be568549dfdae959370db519"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519">logOut</a> () const</td></tr>
+<tr class="memdesc:a01924065be568549dfdae959370db519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to log out from the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server for 10 minutes.  <a href="classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519">More...</a><br /></td></tr>
+<tr class="separator:a01924065be568549dfdae959370db519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2dc121a5a4329150d91cf9e60df12e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2">close</a> () const</td></tr>
+<tr class="memdesc:af2dc121a5a4329150d91cf9e60df12e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to close the bot instance before moving it from one local server to another. You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart. The method will return error 429 in the first 10 minutes after the bot is launched.  <a href="classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2">More...</a><br /></td></tr>
+<tr class="separator:af2dc121a5a4329150d91cf9e60df12e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,8 +123,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13bff65224b9e6f57919bff41b3c3e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00079">79</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<div class="textblock"><p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> Methods <a href="https://core.telegram.org/bots/api#available-methods">https://core.telegram.org/bots/api#available-methods</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>All methods in the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API are case-insensitive. </dd>
+<dd>
+We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00081">81</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -130,7 +146,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs <a class="el" href="classtgbotxx_1_1_api.html">Api</a> object. </p>
+<p>Constructs <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">token</td><td><a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> Token from FatherBot. </td></tr>
@@ -141,6 +157,26 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af2dc121a5a4329150d91cf9e60df12e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2dc121a5a4329150d91cf9e60df12e2">&#9670;&nbsp;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to close the bot instance before moving it from one local server to another. You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart. The method will return error 429 in the first 10 minutes after the bot is launched. </p>
+<dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#close">https://core.telegram.org/bots/api#close</a> </dd></dl>
+
+</div>
+</div>
 <a id="a5afff3c96f3812ccb323f66f9b938962"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5afff3c96f3812ccb323f66f9b938962">&#9670;&nbsp;</a></span>deleteWebhook()</h2>
 
@@ -167,6 +203,26 @@ Public Member Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT </dd>
 <dd>
 In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2" title="Use this method to receive incoming updates using long polling.">Api::getUpdates()</a> to work, there should be no outgoing webhook set up. see <a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> <a class="el" href=""><a href="https://core.telegram.org/bots/api#deletewebhook">https://core.telegram.org/bots/api#deletewebhook</a> </a> </dd></dl>
+
+</div>
+</div>
+<a id="a3b6fde6a4caa1262b6c6d587dc027301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b6fde6a4caa1262b6c6d587dc027301">&#9670;&nbsp;</a></span>getMe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_user.html">User</a>&gt; tgbotxx::Api::getMe </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A simple method for testing your bot's authentication token. </p>
+<dl class="section return"><dt>Returns</dt><dd>basic information about the bot in form of a <a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a> object. </dd></dl>
 
 </div>
 </div>
@@ -264,6 +320,26 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 
 </div>
 </div>
+<a id="a01924065be568549dfdae959370db519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01924065be568549dfdae959370db519">&#9670;&nbsp;</a></span>logOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::logOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to log out from the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server for 10 minutes. </p>
+<dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#logout">https://core.telegram.org/bots/api#logout</a> </dd></dl>
+
+</div>
+</div>
 <a id="abcbf6b1f63fa0e685274c7525f983518"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcbf6b1f63fa0e685274c7525f983518">&#9670;&nbsp;</a></span>setMyCommands()</h2>
 
@@ -318,7 +394,7 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Tue Sep 26 2023 13:47:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 27 2023 20:53:50 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

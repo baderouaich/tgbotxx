@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['offset_1016',['offset',['../structtgbotxx_1_1_inline_query.html#a41e4078a3d9d9bec3114c56b041dfe25',1,'tgbotxx::InlineQuery::offset()'],['../structtgbotxx_1_1_message_entity.html#add31a98286e1188b6adcde8290065dfb',1,'tgbotxx::MessageEntity::offset()']]],
-  ['oldchatmember_1017',['oldChatMember',['../structtgbotxx_1_1_chat_member_updated.html#a9e1b5196b16a1d8de46d20f6ca715aeb',1,'tgbotxx::ChatMemberUpdated']]],
-  ['openperiod_1018',['openPeriod',['../structtgbotxx_1_1_poll.html#a56064c16b650b4b377094fa05446d081',1,'tgbotxx::Poll']]],
-  ['optionids_1019',['optionIds',['../structtgbotxx_1_1_poll_answer.html#a049e947966927e7bba75f0079f2fce6e',1,'tgbotxx::PollAnswer']]],
-  ['options_1020',['options',['../structtgbotxx_1_1_poll.html#a45f0ddcb4346bcd2be34778e79bdc367',1,'tgbotxx::Poll']]],
-  ['orderinfo_1021',['orderInfo',['../structtgbotxx_1_1_pre_checkout_query.html#ac6e7d2e9c703d1a91e9719c33805bcee',1,'tgbotxx::PreCheckoutQuery::orderInfo()'],['../structtgbotxx_1_1_successful_payment.html#a659cdf59cd67a437e2993029a3ed7ace',1,'tgbotxx::SuccessfulPayment::orderInfo()']]]
+  ['name_1041',['name',['../structtgbotxx_1_1_chat_invite_link.html#a4ecd7e97a51feddba4865887c259575c',1,'tgbotxx::ChatInviteLink::name()'],['../structtgbotxx_1_1_forum_topic_created.html#a4e5f54993b0394000b20f0e3283d0750',1,'tgbotxx::ForumTopicCreated::name()'],['../structtgbotxx_1_1_forum_topic_edited.html#a7d4135e5b36538658d00530224489adb',1,'tgbotxx::ForumTopicEdited::name()'],['../structtgbotxx_1_1_order_info.html#a4476ff7b2f64b7197a8d87cda6cece6c',1,'tgbotxx::OrderInfo::name()']]],
+  ['needsrepainting_1042',['needsRepainting',['../structtgbotxx_1_1_sticker.html#a9353352d108d18cd872ebddad5ece616',1,'tgbotxx::Sticker']]],
+  ['newchatmember_1043',['newChatMember',['../structtgbotxx_1_1_chat_member_updated.html#aca163a462969d72b5b8d0e5b8ef44a63',1,'tgbotxx::ChatMemberUpdated']]],
+  ['newchatmembers_1044',['newChatMembers',['../structtgbotxx_1_1_message.html#afee3f5fa90528dd8779b692f29bdb4e7',1,'tgbotxx::Message']]],
+  ['newchatphoto_1045',['newChatPhoto',['../structtgbotxx_1_1_message.html#ad9c8f5275f1b371590f8494daee90f43',1,'tgbotxx::Message']]],
+  ['newchattitle_1046',['newChatTitle',['../structtgbotxx_1_1_message.html#a53ceb8312ebc9e1f042414ac504e61a5',1,'tgbotxx::Message']]]
 ];

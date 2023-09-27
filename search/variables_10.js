@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['replymarkup_1042',['replyMarkup',['../structtgbotxx_1_1_message.html#a8f42e6eccc79682481a753f5ea0b9edb',1,'tgbotxx::Message']]],
-  ['replytomessage_1043',['replyToMessage',['../structtgbotxx_1_1_message.html#a997cc1587d7a8f167ed8a04af0b01d72',1,'tgbotxx::Message']]],
-  ['requestid_1044',['requestId',['../structtgbotxx_1_1_chat_shared.html#a48d6a4340bb064ddee68e6a65936c765',1,'tgbotxx::ChatShared::requestId()'],['../structtgbotxx_1_1_user_shared.html#aec21c3f9d391f3293ad31597e7c72485',1,'tgbotxx::UserShared::requestId()']]],
-  ['requestwriteaccess_1045',['requestWriteAccess',['../structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147',1,'tgbotxx::LoginUrl']]],
-  ['resultid_1046',['resultId',['../structtgbotxx_1_1_chosen_inline_result.html#a38dd8f13be6ae6d99e0d6d173d6c41e1',1,'tgbotxx::ChosenInlineResult']]],
-  ['reverseside_1047',['reverseSide',['../structtgbotxx_1_1_encrypted_passport_element.html#a2bec87b3876eeba173b3e71c8a73541e',1,'tgbotxx::EncryptedPassportElement']]]
+  ['query_1072',['query',['../structtgbotxx_1_1_chosen_inline_result.html#afc4849172c306172f42afc4295380a7b',1,'tgbotxx::ChosenInlineResult::query()'],['../structtgbotxx_1_1_inline_query.html#a57ecad4d40c2d5e3124e96140760310b',1,'tgbotxx::InlineQuery::query()'],['../structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a4079944fee6b67874e791b2827ad4dae',1,'tgbotxx::SwitchInlineQueryChosenChat::query()']]],
+  ['question_1073',['question',['../structtgbotxx_1_1_poll.html#af347112e77acf3999df8db1f6bc9a8c7',1,'tgbotxx::Poll']]]
 ];

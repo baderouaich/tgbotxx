@@ -1,21 +1,10 @@
 var searchData=
 [
-  ['passportdata_1022',['passportData',['../structtgbotxx_1_1_message.html#aa6a7755a03abe1829508688376930a83',1,'tgbotxx::Message']]],
-  ['pay_1023',['pay',['../structtgbotxx_1_1_inline_keyboard_button.html#a43f9cfc1f901e9957a06e0ad900f0fea',1,'tgbotxx::InlineKeyboardButton']]],
-  ['pendingjoinrequestcount_1024',['pendingJoinRequestCount',['../structtgbotxx_1_1_chat_invite_link.html#ad2397aa320e5fe445b8909a5d699e880',1,'tgbotxx::ChatInviteLink']]],
-  ['performer_1025',['performer',['../structtgbotxx_1_1_audio.html#af3ed2d898d4f26804346e7f6b821074b',1,'tgbotxx::Audio']]],
-  ['permissions_1026',['permissions',['../structtgbotxx_1_1_chat.html#ab4f2fb435931d7e13c5751c4b2e3b9b2',1,'tgbotxx::Chat']]],
-  ['phonenumber_1027',['phoneNumber',['../structtgbotxx_1_1_contact.html#a416562b1d417fa4d76ad8f7597fd94be',1,'tgbotxx::Contact::phoneNumber()'],['../structtgbotxx_1_1_encrypted_passport_element.html#a9401910cf594c3867baad7380db66b1a',1,'tgbotxx::EncryptedPassportElement::phoneNumber()'],['../structtgbotxx_1_1_order_info.html#a15d44da580c8e64f3c9d6f5f9c823aa5',1,'tgbotxx::OrderInfo::phoneNumber()']]],
-  ['photo_1028',['photo',['../structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa',1,'tgbotxx::Chat::photo()'],['../structtgbotxx_1_1_game.html#a5608a3adab9f0cbf6e0575410d5ff54e',1,'tgbotxx::Game::photo()'],['../structtgbotxx_1_1_message.html#a31fc1f9d65f9bd4d4b6c86602f501c5d',1,'tgbotxx::Message::photo()']]],
-  ['pinnedmessage_1029',['pinnedMessage',['../structtgbotxx_1_1_message.html#a057aeea088bd95a5a9e0b5911bc02024',1,'tgbotxx::Message::pinnedMessage()'],['../structtgbotxx_1_1_chat.html#a29b59f8c62533c7623f769122401897e',1,'tgbotxx::Chat::pinnedMessage()']]],
-  ['point_1030',['point',['../structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00',1,'tgbotxx::MaskPosition']]],
-  ['poll_1031',['poll',['../structtgbotxx_1_1_message.html#ad6495526e4c9f0f1e5e82bdf92d95a54',1,'tgbotxx::Message::poll()'],['../structtgbotxx_1_1_update.html#acc5bb40ebdaf9972b45add88f0c0679a',1,'tgbotxx::Update::poll()']]],
-  ['pollanswer_1032',['pollAnswer',['../structtgbotxx_1_1_update.html#a2d6e83dc6d27cc0795478afb488146b0',1,'tgbotxx::Update']]],
-  ['pollid_1033',['pollId',['../structtgbotxx_1_1_poll_answer.html#ad8e4595a1fa10500d833707656f41ada',1,'tgbotxx::PollAnswer']]],
-  ['postcode_1034',['postCode',['../structtgbotxx_1_1_shipping_address.html#a4ff433b304da9fd350fa20129f1b266c',1,'tgbotxx::ShippingAddress']]],
-  ['precheckoutquery_1035',['preCheckoutQuery',['../structtgbotxx_1_1_update.html#a983fcd879d0405bdb112d3fed37a2a6c',1,'tgbotxx::Update']]],
-  ['premiumanimation_1036',['premiumAnimation',['../structtgbotxx_1_1_sticker.html#ab8da2e4e6c362b9ab3d6e917eff6332f',1,'tgbotxx::Sticker']]],
-  ['providerpaymentchargeid_1037',['providerPaymentChargeId',['../structtgbotxx_1_1_successful_payment.html#a02c1b20961b0fbd21ed7ba52d16ac9bb',1,'tgbotxx::SuccessfulPayment']]],
-  ['proximityalertradius_1038',['proximityAlertRadius',['../structtgbotxx_1_1_location.html#ab8ea143bca6e054abd561a73075dd44e',1,'tgbotxx::Location']]],
-  ['proximityalerttriggered_1039',['proximityAlertTriggered',['../structtgbotxx_1_1_message.html#ab442ed3ebb89f4024b3af96f8d85aaff',1,'tgbotxx::Message']]]
+  ['offset_1047',['offset',['../structtgbotxx_1_1_inline_query.html#a41e4078a3d9d9bec3114c56b041dfe25',1,'tgbotxx::InlineQuery::offset()'],['../structtgbotxx_1_1_message_entity.html#add31a98286e1188b6adcde8290065dfb',1,'tgbotxx::MessageEntity::offset()']]],
+  ['oldchatmember_1048',['oldChatMember',['../structtgbotxx_1_1_chat_member_updated.html#a9e1b5196b16a1d8de46d20f6ca715aeb',1,'tgbotxx::ChatMemberUpdated']]],
+  ['onetimekeyboard_1049',['oneTimeKeyboard',['../structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53',1,'tgbotxx::ReplyKeyboardMarkup']]],
+  ['openperiod_1050',['openPeriod',['../structtgbotxx_1_1_poll.html#a56064c16b650b4b377094fa05446d081',1,'tgbotxx::Poll']]],
+  ['optionids_1051',['optionIds',['../structtgbotxx_1_1_poll_answer.html#a049e947966927e7bba75f0079f2fce6e',1,'tgbotxx::PollAnswer']]],
+  ['options_1052',['options',['../structtgbotxx_1_1_poll.html#a45f0ddcb4346bcd2be34778e79bdc367',1,'tgbotxx::Poll']]],
+  ['orderinfo_1053',['orderInfo',['../structtgbotxx_1_1_pre_checkout_query.html#ac6e7d2e9c703d1a91e9719c33805bcee',1,'tgbotxx::PreCheckoutQuery::orderInfo()'],['../structtgbotxx_1_1_successful_payment.html#a659cdf59cd67a437e2993029a3ed7ace',1,'tgbotxx::SuccessfulPayment::orderInfo()']]]
 ];

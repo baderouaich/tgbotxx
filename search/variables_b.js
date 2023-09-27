@@ -1,15 +1,14 @@
 var searchData=
 [
-  ['maskposition_998',['maskPosition',['../structtgbotxx_1_1_sticker.html#ae9f2ccd3bbdbc472fcbc62d9a33aae46',1,'tgbotxx::Sticker']]],
-  ['mediagroupid_999',['mediaGroupId',['../structtgbotxx_1_1_message.html#a5363a698df5f1dfe9c4360ffb353bceb',1,'tgbotxx::Message']]],
-  ['memberlimit_1000',['memberLimit',['../structtgbotxx_1_1_chat_invite_link.html#a43191eacf396fb40d2a35ec7f5489db7',1,'tgbotxx::ChatInviteLink']]],
-  ['message_1001',['message',['../structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d',1,'tgbotxx::CallbackQuery::message()'],['../structtgbotxx_1_1_update.html#a06b46ec0f6a8d9a54c25e5d5e3c4b474',1,'tgbotxx::Update::message()']]],
-  ['messageautodeletetime_1002',['messageAutoDeleteTime',['../structtgbotxx_1_1_chat.html#a51a329cff0517015dcbf4ec2cb03abaa',1,'tgbotxx::Chat::messageAutoDeleteTime()'],['../structtgbotxx_1_1_message_auto_delete_timer_changed.html#ac3f5a88d77968d4e8baa1f4a751f2fb4',1,'tgbotxx::MessageAutoDeleteTimerChanged::messageAutoDeleteTime()']]],
-  ['messageautodeletetimerchanged_1003',['messageAutoDeleteTimerChanged',['../structtgbotxx_1_1_message.html#ac0a5edea0dfb3b1fb04b4b9ad1622725',1,'tgbotxx::Message']]],
-  ['messageid_1004',['messageId',['../structtgbotxx_1_1_message.html#ac2f16a09b0ed40b13d73ef2791c24ac5',1,'tgbotxx::Message']]],
-  ['messagethreadid_1005',['messageThreadId',['../structtgbotxx_1_1_message.html#a64b425f6eb748c44442f19c40151dc09',1,'tgbotxx::Message']]],
-  ['migratefromchatid_1006',['migrateFromChatId',['../structtgbotxx_1_1_message.html#aa01750ff32dc44811215bdb3dfa87ca1',1,'tgbotxx::Message']]],
-  ['migratetochatid_1007',['migrateToChatId',['../structtgbotxx_1_1_message.html#a006ee6b2791ca0af6e596df66a03273a',1,'tgbotxx::Message']]],
-  ['mimetype_1008',['mimeType',['../structtgbotxx_1_1_animation.html#ad455b76144493f2f3d13ea0215935ad7',1,'tgbotxx::Animation::mimeType()'],['../structtgbotxx_1_1_audio.html#ad088ad436e62950619e0eec5489bc8a9',1,'tgbotxx::Audio::mimeType()'],['../structtgbotxx_1_1_document.html#ae37911cad123c3fdebf7b9719f955ede',1,'tgbotxx::Document::mimeType()'],['../structtgbotxx_1_1_video.html#a366a4894d76154802246fe7e8901a6f6',1,'tgbotxx::Video::mimeType()'],['../structtgbotxx_1_1_voice.html#a4992a84a2e70e0ce328d707cd3643a4a',1,'tgbotxx::Voice::mimeType()']]],
-  ['mychatmember_1009',['myChatMember',['../structtgbotxx_1_1_update.html#a0a01eb44b680f64fa42b48b24ab22ad6',1,'tgbotxx::Update']]]
+  ['language_1018',['language',['../structtgbotxx_1_1_message_entity.html#ad8ff4cfdec670d4715a820a4cf835a26',1,'tgbotxx::MessageEntity']]],
+  ['languagecode_1019',['languageCode',['../structtgbotxx_1_1_user.html#a3667bb097c03fc100bba0fc253793704',1,'tgbotxx::User']]],
+  ['lastname_1020',['lastName',['../structtgbotxx_1_1_chat.html#aa7ad6363ec02725a091dd162a24ed721',1,'tgbotxx::Chat::lastName()'],['../structtgbotxx_1_1_contact.html#a1d6eb580f7db7d4172f6af3e4afa6528',1,'tgbotxx::Contact::lastName()'],['../structtgbotxx_1_1_user.html#a32853452564f35362de23c4f3cb53531',1,'tgbotxx::User::lastName()']]],
+  ['latitude_1021',['latitude',['../structtgbotxx_1_1_location.html#a99e12173a890216ef38ec7c200bc9669',1,'tgbotxx::Location']]],
+  ['leftchatmember_1022',['leftChatMember',['../structtgbotxx_1_1_message.html#a23d1cfbec746693d198951edeeddb865',1,'tgbotxx::Message']]],
+  ['length_1023',['length',['../structtgbotxx_1_1_message_entity.html#a1b5ee432ab3cd34377ddb624896c9946',1,'tgbotxx::MessageEntity::length()'],['../structtgbotxx_1_1_video_note.html#a9716523b75af30049a34b903b4609e85',1,'tgbotxx::VideoNote::length()']]],
+  ['linkedchatid_1024',['linkedChatId',['../structtgbotxx_1_1_chat.html#abeadceb234b1be153adf333b08790001',1,'tgbotxx::Chat']]],
+  ['liveperiod_1025',['livePeriod',['../structtgbotxx_1_1_location.html#a10ad4cdc6e3b988a2487d65a0a755dfe',1,'tgbotxx::Location']]],
+  ['location_1026',['location',['../structtgbotxx_1_1_chat.html#a9634e8c2bfa9beeac5dff6d9fbbdb1cc',1,'tgbotxx::Chat::location()'],['../structtgbotxx_1_1_chat_location.html#a2e683536d1cec53631f583789bad638e',1,'tgbotxx::ChatLocation::location()'],['../structtgbotxx_1_1_chosen_inline_result.html#a106a5d27cc0efcd4b3776c5a9f3102e4',1,'tgbotxx::ChosenInlineResult::location()'],['../structtgbotxx_1_1_inline_query.html#a6d1cd1d02fdb4501af9d2d315bc2ffca',1,'tgbotxx::InlineQuery::location()'],['../structtgbotxx_1_1_message.html#a71f9076f2de2b2b463212efdc35ff261',1,'tgbotxx::Message::location()'],['../structtgbotxx_1_1_venue.html#a3069dc6faa178ea8446dc3b5fe631cc2',1,'tgbotxx::Venue::location()']]],
+  ['loginurl_1027',['loginUrl',['../structtgbotxx_1_1_inline_keyboard_button.html#aa7cfa8d3ca90133051f39d3257192e56',1,'tgbotxx::InlineKeyboardButton']]],
+  ['longitude_1028',['longitude',['../structtgbotxx_1_1_location.html#ae6a6a09901894e33fce3256d94c6acc4',1,'tgbotxx::Location']]]
 ];

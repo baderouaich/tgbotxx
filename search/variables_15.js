@@ -1,9 +1,17 @@
 var searchData=
 [
-  ['watcher_1108',['watcher',['../structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf',1,'tgbotxx::ProximityAlertTriggered']]],
-  ['webapp_1109',['webApp',['../structtgbotxx_1_1_inline_keyboard_button.html#ac6acc69322e4a94a2b1d9ed5b6d4bf03',1,'tgbotxx::InlineKeyboardButton']]],
-  ['webappdata_1110',['webAppData',['../structtgbotxx_1_1_message.html#a9d67c84794b0cf9ecd7922f0556b0028',1,'tgbotxx::Message']]],
-  ['webappname_1111',['webAppName',['../structtgbotxx_1_1_write_access_allowed.html#ab1811876892f7490491984940f30a5cc',1,'tgbotxx::WriteAccessAllowed']]],
-  ['width_1112',['width',['../structtgbotxx_1_1_animation.html#ab05432f41358e645ddd17ebc7dd5f794',1,'tgbotxx::Animation::width()'],['../structtgbotxx_1_1_photo_size.html#a6587ec4334083e219ba1a907ae4f830f',1,'tgbotxx::PhotoSize::width()'],['../structtgbotxx_1_1_sticker.html#ab5df3feb9e937cb350a6050656101773',1,'tgbotxx::Sticker::width()'],['../structtgbotxx_1_1_video.html#a6f9a6f6027720069820894df9155bb25',1,'tgbotxx::Video::width()']]],
-  ['writeaccessallowed_1113',['writeAccessAllowed',['../structtgbotxx_1_1_message.html#ad7d2ff4df22bb97e0e5476310a9e1027',1,'tgbotxx::Message']]]
+  ['value_1128',['value',['../structtgbotxx_1_1_dice.html#addefe1eeef4b0b8f6de3e07492e606e7',1,'tgbotxx::Dice']]],
+  ['vcard_1129',['vcard',['../structtgbotxx_1_1_contact.html#aaca1ef8358f4d2aa3b0a9cb22496184d',1,'tgbotxx::Contact']]],
+  ['venue_1130',['venue',['../structtgbotxx_1_1_message.html#ae04cb25a59bf962c41d3dbed10f61e8a',1,'tgbotxx::Message']]],
+  ['viabot_1131',['viaBot',['../structtgbotxx_1_1_message.html#a456b0a7888bc93e557ff6076ec0545ee',1,'tgbotxx::Message']]],
+  ['viachatfolderinvitelink_1132',['viaChatFolderInviteLink',['../structtgbotxx_1_1_chat_member_updated.html#a17df890628c0017197d40d4d419d19f9',1,'tgbotxx::ChatMemberUpdated']]],
+  ['video_1133',['video',['../structtgbotxx_1_1_message.html#a7d6e854610420fe08516ab67f5aeb634',1,'tgbotxx::Message']]],
+  ['videochatended_1134',['videoChatEnded',['../structtgbotxx_1_1_message.html#a61de85512bff538b938fade51e42aec6',1,'tgbotxx::Message']]],
+  ['videochatparticipantsinvited_1135',['videoChatParticipantsInvited',['../structtgbotxx_1_1_message.html#ad70d06670824caa487bf16bb2b7cf673',1,'tgbotxx::Message']]],
+  ['videochatscheduled_1136',['videoChatScheduled',['../structtgbotxx_1_1_message.html#a53a8e3825d5c8ea57eb2904b199c8280',1,'tgbotxx::Message']]],
+  ['videochatstarted_1137',['videoChatStarted',['../structtgbotxx_1_1_message.html#a07948815e7211c5bc0d284c669d17c01',1,'tgbotxx::Message']]],
+  ['videonote_1138',['videoNote',['../structtgbotxx_1_1_message.html#ae494268d9c66f557818b07e42a64eebe',1,'tgbotxx::Message']]],
+  ['voice_1139',['voice',['../structtgbotxx_1_1_message.html#ac505dbf0e8b0dc7a48441b25c1a2dfeb',1,'tgbotxx::Message']]],
+  ['voterchat_1140',['voterChat',['../structtgbotxx_1_1_poll_answer.html#acbd9c5bbe65dd1bc92476bac7acf5f18',1,'tgbotxx::PollAnswer']]],
+  ['votercount_1141',['voterCount',['../structtgbotxx_1_1_poll_option.html#a28b19129f5656f955ee621258875ecaf',1,'tgbotxx::PollOption']]]
 ];
