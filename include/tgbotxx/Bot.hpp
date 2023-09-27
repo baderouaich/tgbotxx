@@ -1,5 +1,5 @@
 #pragma once
-#include "tgbotxx/objects/ChatJoinRequest.hpp"
+#include <tgbotxx/objects/ChatJoinRequest.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
 #include <tgbotxx/objects/ChosenInlineResult.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
