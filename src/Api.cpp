@@ -68,6 +68,12 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 }
 
+Ptr<User> Api::getMe() const {
+    nl::json json = sendRequest("getMe");
+    Ptr<User> me(new User(json));
+    return me;
+}
+
 bool Api::deleteWebhook(bool dropPendingUpdates) const {
   cpr::Multipart data{};
   if(dropPendingUpdates)
@@ -130,3 +136,12 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope> &scop
   }
   return commands;
 }
+
+bool Api::logOut() const {
+    return sendRequest("logOut");
+}
+
+bool Api::close() const {
+    return sendRequest("close");
+}
+

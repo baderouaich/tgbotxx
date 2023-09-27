@@ -75,7 +75,9 @@
 namespace nl = nlohmann;
 
 namespace tgbotxx {
-
+    /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
+    /// @note All methods in the Bot API are case-insensitive.
+    /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
     class Api {
         inline static const std::string BASE_URL = "https://api.telegram.org";
         inline static const cpr::Timeout TIMEOUT = 25 * 1000; // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
@@ -86,10 +88,27 @@ namespace tgbotxx {
 
     public:
         /// @brief Constructs Api object.
-        /// @param token: Bot Token from FatherBot.
+        /// @param token Bot Token from FatherBot.
         Api(const std::string& token);
 
-    public: /// @defgroup Api Methods
+    public:
+        /// @brief A simple method for testing your bot's authentication token.
+        /// @returns basic information about the bot in form of a User object.
+        Ptr<User> getMe() const;
+
+        /// @brief Use this method to log out from the cloud Bot API server before launching the bot locally.
+        /// You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates.
+        /// After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes.
+        /// @returns true on success.
+        /// @ref https://core.telegram.org/bots/api#logout
+        bool logOut() const;
+
+        /// @brief Use this method to close the bot instance before moving it from one local server to another.
+        /// You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart.
+        /// The method will return error 429 in the first 10 minutes after the bot is launched.
+        /// @returns true on success.
+        /// @ref https://core.telegram.org/bots/api#close
+        bool close() const;
         /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
         /// Returns True on success.
         /// @param dropPendingUpdates: Pass True to drop all pending updates.
