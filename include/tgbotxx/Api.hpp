@@ -125,13 +125,13 @@ namespace tgbotxx {
         /// @param disableWebPagePreview Optional. Disables link previews for links in this message
         /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
         /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+        ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
         /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
         /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
-        /// @param entities Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parse_mode
+        /// @param entities Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parseMode
         /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
         /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
         /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
-        ///        One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
         /// @returns sent Message object on success.
         /// @ref https://core.telegram.org/bots/api#sendmessage
         Ptr<Message> sendMessage(const std::int64_t& chatId,
