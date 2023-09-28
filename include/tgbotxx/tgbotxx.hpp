@@ -4,13 +4,13 @@
 #include <tgbotxx/Exception.hpp>
 
 /// Objects
-#include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/BotCommandScope.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/ChatAdministratorRights.hpp>
 #include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
 #include <tgbotxx/objects/ChatJoinRequest.hpp>
@@ -38,12 +38,18 @@
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
+#include <tgbotxx/objects/IReplyMarkup.hpp>
+#include <tgbotxx/objects/KeyboardButton.hpp>
+#include <tgbotxx/objects/KeyboardButtonPollType.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/Message.hpp>
+#include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
 #include <tgbotxx/objects/PassportData.hpp>
 #include <tgbotxx/objects/PassportFile.hpp>
@@ -53,6 +59,8 @@
 #include <tgbotxx/objects/PollOption.hpp>
 #include <tgbotxx/objects/PreCheckoutQuery.hpp>
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
+#include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
+#include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/Sticker.hpp>
