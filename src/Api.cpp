@@ -115,8 +115,7 @@ bool Api::setMyCommands(const std::vector<Ptr<BotCommand>> &commands, const Ptr<
     return sendRequest("setMyCommands", data);
 }
 
-std::vector<Ptr<BotCommand>>
-Api::getMyCommands(const Ptr<BotCommandScope> &scope, const std::string &languageCode) const {
+std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope> &scope, const std::string &languageCode) const {
     std::vector<Ptr<BotCommand>> commands;
     cpr::Multipart data{};
     data.parts.reserve(2);

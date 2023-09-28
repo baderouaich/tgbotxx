@@ -8,7 +8,7 @@
 # tgbotxx
 Telegram Bot C++ Library
 
-
+Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api#september-22-2023)
 
 ### Requirements
 - [cpr](https://github.com/libcpr/cpr)
