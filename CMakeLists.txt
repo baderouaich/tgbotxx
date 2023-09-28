@@ -62,7 +62,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 #######################################################
 
 ## Tests
-if (ON)#ENABLE_TESTS)
+if (ENABLE_TESTS)
     message(STATUS "Building of tests is enabled")
     enable_testing()
     add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
