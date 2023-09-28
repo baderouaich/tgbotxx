@@ -28,8 +28,6 @@ private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
-      std::cout << __func__ << std::endl;
-
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
@@ -48,9 +46,8 @@ private:
     }
     
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
-    /// Cleanup your code in this callback (close handles, backup data...)
     void onStop() override {
-      std::cout << __func__ << std::endl;
+        /// Cleanup your code in this callback (close handles, backup data...)
     }
     
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
@@ -60,7 +57,6 @@ private:
     
     /// Called when a new command is received (messages with leading '/' char).
     void onCommand(const Ptr<Message>& command) override {
-      std::cout << __func__ << ": " << command->text << std::endl;
       if(command->text == "/stop") {
         getApi()->sendMessage(message->chat->id, "Bot stopping...");
         Bot::stop();
