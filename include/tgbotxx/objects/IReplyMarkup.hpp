@@ -5,7 +5,7 @@ namespace tgbotxx {
     /// @brief The interface of reply markup objects InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove and ForceReply.
     /// @ref https://core.telegram.org/bots/api#sendmessage reply_markup param.
     struct IReplyMarkup {
-        IReplyMarkup() = default;
-        virtual ~IReplyMarkup() = default;
+        virtual nl::json toJson() const = 0;
+        virtual void fromJson(const nl::json&) = 0;
     };
 }
