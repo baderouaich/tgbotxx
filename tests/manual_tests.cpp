@@ -44,7 +44,8 @@ private:
 
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
     void onAnyMessage(const Ptr<Message>& message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
+      std::cout << __func__ << ": " << message->toJson().dump(2) << std::endl;
+      Ptr<Message> msg = getApi()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
     }
 
     /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
