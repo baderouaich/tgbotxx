@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(tgbotxx VERSION "1.0.6.9" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
 # Note: tgbotxx version's patch & build is based on Telegram Bot Api version for compatibility. See https://core.telegram.org/bots/api-changelog
-# <OurMajorVersion>.<OurMinorVersion>.<TelegramBotApiMajorVersion>.<TelegramBotMinorVersion>
+# <OurMajorVersion>.<OurMinorVersion>.<TelegramBotApiMajorVersion>.<TelegramBotApiMinorVersion>
 
 ################# Options ###########################
 option(ENABLE_TESTS "Enable/Disable building of tests" OFF)
@@ -62,7 +62,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 #######################################################
 
 ## Tests
-if (ENABLE_TESTS)
+if (ON)#ENABLE_TESTS)
     message(STATUS "Building of tests is enabled")
     enable_testing()
     add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
