@@ -431,13 +431,13 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
     <tr><td class="paramname">text</td><td>Text of the message to be sent, 1-4096 characters after entities parsing </td></tr>
     <tr><td class="paramname">disableWebPagePreview</td><td>Optional. Disables link previews for links in this message </td></tr>
     <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
-    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or ForceReply. </td></tr>
     <tr><td class="paramname">parseMode</td><td>Optional. Mode for parsing entities in the message text. See formatting options for more details. <a href="https://core.telegram.org/bots/api#formatting-options">https://core.telegram.org/bots/api#formatting-options</a> </td></tr>
     <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
-    <tr><td class="paramname">entities</td><td>Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parse_mode </td></tr>
+    <tr><td class="paramname">entities</td><td>Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parseMode </td></tr>
     <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
     <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
-    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or ForceReply. </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
   </table>
   </dd>
 </dl>
@@ -499,7 +499,7 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Thu Sep 28 2023 16:09:46 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Sep 28 2023 16:22:16 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
