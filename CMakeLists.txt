@@ -5,6 +5,7 @@ project(tgbotxx VERSION "1.0.6.9" DESCRIPTION "Telegram Bot C++ Library" LANGUAG
 
 ################# Options ###########################
 option(ENABLE_TESTS "Enable/Disable building of tests" OFF)
+option(BUILD_DOCS "Build doxygen API documentation." OFF)
 #####################################################
 
 
@@ -60,6 +61,19 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/include DESTINATION ${CMAKE_INSTALL_INCLUD
 # Enable position-independent code for shared libraries
 set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 #######################################################
+
+# Doxygen Documentation
+if(BUILD_DOCS)
+    find_package(Doxygen REQUIRED)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile)
+    add_custom_target(build_docs ALL
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+            COMMENT "Generating Doxygen API documentation..."
+            VERBATIM
+    )
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/docs/html/ TYPE DOC)
+endif()
 
 ## Tests
 if (ENABLE_TESTS)

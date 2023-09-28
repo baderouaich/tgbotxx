@@ -1,6 +1,6 @@
 # https://github.com/peaceiris/actions-gh-pages
 
-name: Build and Deploy Doxygen Documentation
+name: build-docs
 
 on:
   push:
@@ -14,13 +14,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
-    - name: Install Doxygen
+    - name: Install Doxygen & CMake & ninja-build
       run: |
-        sudo apt install doxygen
+        sudo apt install doxygen cmake
+        doxygen --version
+        cmake --version
+        ninja --version
 
-    - name: Run Doxygen
+    - name: Build CMake build_docs target
       run: | # this will generate a docs/html/** folder (configured in the Doxyfile)
-        doxygen ./Doxyfile
+        mkdir build && cd build
+        cmake .. -GNinja -DBUILD_DOCS=ON
+        ninja build_docs
 
     - name: Deploy generated documentation
       uses: peaceiris/actions-gh-pages@v3
