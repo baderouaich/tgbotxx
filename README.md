@@ -53,18 +53,22 @@ private:
       std::cout << __func__ << std::endl;
     }
     
+    /// Called when a new message is received of any kind - text, photo, sticker, etc.
+    void onAnyMessage(const Ptr<Message>& message) override {
+        getApi()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
+    }
+    
     /// Called when a new command is received (messages with leading '/' char).
     void onCommand(const Ptr<Message>& command) override {
       std::cout << __func__ << ": " << command->text << std::endl;
       if(command->text == "/stop") {
+        getApi()->sendMessage(message->chat->id, "Bot stopping...");
         Bot::stop();
         return;
       }
     }
-
+    
     // Other callbacks (optional overload)
-    /// Called when a new message is received of any kind - text, photo, sticker, etc.
-    void onAnyMessage(const Ptr<Message>& message) override {}
     /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
     void onNonCommandMessage(const Ptr<Message> &message) override {}
     /// Called when an unknown command is received (messages with leading '/' char).
