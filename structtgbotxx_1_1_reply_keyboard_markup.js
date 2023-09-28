@@ -1,8 +1,8 @@
 var structtgbotxx_1_1_reply_keyboard_markup =
 [
     [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4", null ],
-    [ "fromJson", "structtgbotxx_1_1_reply_keyboard_markup.html#aebee04a3758ca0073875d1933dca8c59", null ],
-    [ "toJson", "structtgbotxx_1_1_reply_keyboard_markup.html#a61d36f1d02c4501536c1abe49687eb5d", null ],
+    [ "fromJson", "structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2", null ],
+    [ "toJson", "structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898", null ],
     [ "inputFieldPlaceholder", "structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e", null ],
     [ "isPersistent", "structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7", null ],
     [ "keyboard", "structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497", null ],

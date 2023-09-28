@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['shippingaddress_631',['ShippingAddress',['../structtgbotxx_1_1_shipping_address.html',1,'tgbotxx']]],
-  ['shippingquery_632',['ShippingQuery',['../structtgbotxx_1_1_shipping_query.html',1,'tgbotxx']]],
-  ['sticker_633',['Sticker',['../structtgbotxx_1_1_sticker.html',1,'tgbotxx']]],
-  ['story_634',['Story',['../structtgbotxx_1_1_story.html',1,'tgbotxx']]],
-  ['successfulpayment_635',['SuccessfulPayment',['../structtgbotxx_1_1_successful_payment.html',1,'tgbotxx']]],
-  ['switchinlinequerychosenchat_636',['SwitchInlineQueryChosenChat',['../structtgbotxx_1_1_switch_inline_query_chosen_chat.html',1,'tgbotxx']]]
+  ['replykeyboardmarkup_661',['ReplyKeyboardMarkup',['../structtgbotxx_1_1_reply_keyboard_markup.html',1,'tgbotxx']]],
+  ['replykeyboardremove_662',['ReplyKeyboardRemove',['../structtgbotxx_1_1_reply_keyboard_remove.html',1,'tgbotxx']]]
 ];

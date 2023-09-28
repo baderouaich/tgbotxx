@@ -28,6 +28,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "Chat.hpp", "_chat_8hpp.html", [
       [ "Chat", "structtgbotxx_1_1_chat.html", "structtgbotxx_1_1_chat" ]
     ] ],
+    [ "ChatAdministratorRights.hpp", "_chat_administrator_rights_8hpp.html", [
+      [ "ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html", "structtgbotxx_1_1_chat_administrator_rights" ]
+    ] ],
     [ "ChatInviteLink.hpp", "_chat_invite_link_8hpp.html", [
       [ "ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html", "structtgbotxx_1_1_chat_invite_link" ]
     ] ],
@@ -115,6 +118,18 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "IReplyMarkup.hpp", "_i_reply_markup_8hpp.html", [
       [ "IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", "structtgbotxx_1_1_i_reply_markup" ]
     ] ],
+    [ "KeyboardButton.hpp", "_keyboard_button_8hpp.html", [
+      [ "KeyboardButton", "structtgbotxx_1_1_keyboard_button.html", "structtgbotxx_1_1_keyboard_button" ]
+    ] ],
+    [ "KeyboardButtonPollType.hpp", "_keyboard_button_poll_type_8hpp.html", [
+      [ "KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html", "structtgbotxx_1_1_keyboard_button_poll_type" ]
+    ] ],
+    [ "KeyboardButtonRequestChat.hpp", "_keyboard_button_request_chat_8hpp.html", [
+      [ "KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html", "structtgbotxx_1_1_keyboard_button_request_chat" ]
+    ] ],
+    [ "KeyboardButtonRequestUser.hpp", "_keyboard_button_request_user_8hpp.html", [
+      [ "KeyboardButtonRequestUser", "structtgbotxx_1_1_keyboard_button_request_user.html", "structtgbotxx_1_1_keyboard_button_request_user" ]
+    ] ],
     [ "Location.hpp", "_location_8hpp.html", [
       [ "Location", "structtgbotxx_1_1_location.html", "structtgbotxx_1_1_location" ]
     ] ],
@@ -163,6 +178,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "ReplyKeyboardMarkup.hpp", "_reply_keyboard_markup_8hpp.html", [
       [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", "structtgbotxx_1_1_reply_keyboard_markup" ]
+    ] ],
+    [ "ReplyKeyboardRemove.hpp", "_reply_keyboard_remove_8hpp.html", [
+      [ "ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", "structtgbotxx_1_1_reply_keyboard_remove" ]
     ] ],
     [ "ShippingAddress.hpp", "_shipping_address_8hpp.html", [
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ]

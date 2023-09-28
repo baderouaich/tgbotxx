@@ -91,22 +91,22 @@ $(document).ready(function(){initNavTree('_i_reply_markup_8hpp_source.html','');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetgbotxx.html">tgbotxx</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_i_reply_markup.html">    7</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_i_reply_markup.html#a2fb97b6ebf013e6edf901f6480195db6">    8</a></span>&#160;        <a class="code" href="structtgbotxx_1_1_i_reply_markup.html#a2fb97b6ebf013e6edf901f6480195db6">IReplyMarkup</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_i_reply_markup.html#ae4f212e540274486a59b5b30148b40dd">    9</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="structtgbotxx_1_1_i_reply_markup.html#ae4f212e540274486a59b5b30148b40dd">~IReplyMarkup</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002">    8</a></span>&#160;        <span class="keyword">virtual</span> nl::json <a class="code" href="structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002">toJson</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_i_reply_markup.html#aa254ff61ab4968036ecf1cf64b140125">    9</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structtgbotxx_1_1_i_reply_markup.html#aa254ff61ab4968036ecf1cf64b140125">fromJson</a>(<span class="keyword">const</span> nl::json&amp;) = 0;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    };</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="_object_8hpp.html">Object.hpp</a></div></div>
-<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_8hpp_source.html#l00077">Api.hpp:77</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_8hpp_source.html#l00086">Api.hpp:86</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html">tgbotxx::IReplyMarkup</a></div><div class="ttdoc">The interface of reply markup objects InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove ...</div><div class="ttdef"><b>Definition:</b> <a href="_i_reply_markup_8hpp_source.html#l00007">IReplyMarkup.hpp:7</a></div></div>
-<div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html_a2fb97b6ebf013e6edf901f6480195db6"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html#a2fb97b6ebf013e6edf901f6480195db6">tgbotxx::IReplyMarkup::IReplyMarkup</a></div><div class="ttdeci">IReplyMarkup()=default</div></div>
-<div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html_ae4f212e540274486a59b5b30148b40dd"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html#ae4f212e540274486a59b5b30148b40dd">tgbotxx::IReplyMarkup::~IReplyMarkup</a></div><div class="ttdeci">virtual ~IReplyMarkup()=default</div></div>
+<div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html_aa254ff61ab4968036ecf1cf64b140125"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html#aa254ff61ab4968036ecf1cf64b140125">tgbotxx::IReplyMarkup::fromJson</a></div><div class="ttdeci">virtual void fromJson(const nl::json &amp;)=0</div></div>
+<div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html_ae7b7ba10abae06c95436047f51775002"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002">tgbotxx::IReplyMarkup::toJson</a></div><div class="ttdeci">virtual nl::json toJson() const =0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_i_reply_markup_8hpp.html">IReplyMarkup.hpp</a></li>
-    <li class="footer">Generated on Wed Sep 27 2023 20:53:50 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Sep 28 2023 15:27:36 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['maskposition_794',['MaskPosition',['../structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29',1,'tgbotxx::MaskPosition']]],
-  ['message_795',['Message',['../structtgbotxx_1_1_message.html#a194be6eadfba1097d67876d27b991179',1,'tgbotxx::Message']]],
-  ['messageautodeletetimerchanged_796',['MessageAutoDeleteTimerChanged',['../structtgbotxx_1_1_message_auto_delete_timer_changed.html#af052c2a9b7d026db13e75b65609452b7',1,'tgbotxx::MessageAutoDeleteTimerChanged']]],
-  ['messageentity_797',['MessageEntity',['../structtgbotxx_1_1_message_entity.html#acb08b5355326da87069cc148a2f510b4',1,'tgbotxx::MessageEntity']]]
+  ['location_831',['Location',['../structtgbotxx_1_1_location.html#a854696948bbc27f98fdd3fbe3440b524',1,'tgbotxx::Location']]],
+  ['loginurl_832',['LoginUrl',['../structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977',1,'tgbotxx::LoginUrl']]],
+  ['logout_833',['logOut',['../classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519',1,'tgbotxx::Api']]],
+  ['ltrim_834',['ltrim',['../namespacetgbotxx_1_1_string_utils.html#ac76641e3294d564151a3caab70d526f2',1,'tgbotxx::StringUtils']]],
+  ['ltrimcopy_835',['ltrimCopy',['../namespacetgbotxx_1_1_string_utils.html#a83bc9425583fd6fe7a1b7f0d63ca9aee',1,'tgbotxx::StringUtils']]]
 ];

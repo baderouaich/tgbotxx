@@ -17,6 +17,7 @@ var hierarchy =
     [ "tgbotxx::CallbackGame", "structtgbotxx_1_1_callback_game.html", null ],
     [ "tgbotxx::CallbackQuery", "structtgbotxx_1_1_callback_query.html", null ],
     [ "tgbotxx::Chat", "structtgbotxx_1_1_chat.html", null ],
+    [ "tgbotxx::ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html", null ],
     [ "tgbotxx::ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html", null ],
     [ "tgbotxx::ChatJoinRequest", "structtgbotxx_1_1_chat_join_request.html", null ],
     [ "tgbotxx::ChatLocation", "structtgbotxx_1_1_chat_location.html", null ],
@@ -50,12 +51,17 @@ var hierarchy =
     [ "tgbotxx::GeneralForumTopicHidden", "structtgbotxx_1_1_general_forum_topic_hidden.html", null ],
     [ "tgbotxx::GeneralForumTopicUnhidden", "structtgbotxx_1_1_general_forum_topic_unhidden.html", null ],
     [ "tgbotxx::InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html", null ],
-    [ "tgbotxx::InlineKeyboardMarkup", "structtgbotxx_1_1_inline_keyboard_markup.html", null ],
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
-      [ "tgbotxx::ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", null ]
+      [ "tgbotxx::InlineKeyboardMarkup", "structtgbotxx_1_1_inline_keyboard_markup.html", null ],
+      [ "tgbotxx::ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", null ],
+      [ "tgbotxx::ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", null ]
     ] ],
+    [ "tgbotxx::KeyboardButton", "structtgbotxx_1_1_keyboard_button.html", null ],
+    [ "tgbotxx::KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html", null ],
+    [ "tgbotxx::KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html", null ],
+    [ "tgbotxx::KeyboardButtonRequestUser", "structtgbotxx_1_1_keyboard_button_request_user.html", null ],
     [ "tgbotxx::Location", "structtgbotxx_1_1_location.html", null ],
     [ "tgbotxx::LoginUrl", "structtgbotxx_1_1_login_url.html", null ],
     [ "tgbotxx::MaskPosition", "structtgbotxx_1_1_mask_position.html", null ],

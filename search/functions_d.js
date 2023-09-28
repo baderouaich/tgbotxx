@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['replykeyboardmarkup_824',['ReplyKeyboardMarkup',['../structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4',1,'tgbotxx::ReplyKeyboardMarkup']]],
-  ['rtrim_825',['rtrim',['../namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58',1,'tgbotxx::StringUtils']]],
-  ['rtrimcopy_826',['rtrimCopy',['../namespacetgbotxx_1_1_string_utils.html#ad7c80e7ef45fa92f57e2baf36dbbf869',1,'tgbotxx::StringUtils']]]
+  ['passportdata_858',['PassportData',['../structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0',1,'tgbotxx::PassportData']]],
+  ['passportfile_859',['PassportFile',['../structtgbotxx_1_1_passport_file.html#af9a8156ea4c1a618160b3cb11b5ff342',1,'tgbotxx::PassportFile']]],
+  ['photosize_860',['PhotoSize',['../structtgbotxx_1_1_photo_size.html#ac084766aa167749f2d9085400642721e',1,'tgbotxx::PhotoSize']]],
+  ['poll_861',['Poll',['../structtgbotxx_1_1_poll.html#a4650629f5ac0418d4628faf3e7c5e2e0',1,'tgbotxx::Poll']]],
+  ['pollanswer_862',['PollAnswer',['../structtgbotxx_1_1_poll_answer.html#aa26b7b29649acc9d97e01e88783b6e1f',1,'tgbotxx::PollAnswer']]],
+  ['polloption_863',['PollOption',['../structtgbotxx_1_1_poll_option.html#a738298ac72212ca9c6e823bb72ae21ca',1,'tgbotxx::PollOption']]],
+  ['precheckoutquery_864',['PreCheckoutQuery',['../structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79',1,'tgbotxx::PreCheckoutQuery']]],
+  ['proximityalerttriggered_865',['ProximityAlertTriggered',['../structtgbotxx_1_1_proximity_alert_triggered.html#abd91ae1b3bed83c37fd94d21ee0b5003',1,'tgbotxx::ProximityAlertTriggered']]]
 ];
