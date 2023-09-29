@@ -30,10 +30,9 @@ jobs:
 
     - name: Generate Project Files
       run: |
-      	md cmake-build-debug && cd cmake-build-debug
-      	cmake .. -G"Visual Studio 16 2022" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+       md cmake-build-debug && cd cmake-build-debug
+       cmake .. -G"Visual Studio 16 2022" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
       	
-
     - name: Build Solution
       run: msbuild tgbotxx.sln -property:Configuration=Release,MultiProcessorCompilation=true -maxCpuCount -verbosity:minimal -noLogo
 
