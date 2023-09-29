@@ -12,7 +12,7 @@ endif()
 add_executable(echo_bot main.cpp)
 
 target_link_libraries(echo_bot PUBLIC 
-  tgbotxx
+  tgbotxx::tgbotxx
   cpr::cpr
   nlohmann_json::nlohmann_json
 )
