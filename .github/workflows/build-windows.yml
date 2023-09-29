@@ -30,7 +30,7 @@ jobs:
 
     - name: Generate Project Files
       run: |
-      	mkdir cmake-build-debug && cd cmake-build-debug
+      	md cmake-build-debug && cd cmake-build-debug
       	cmake .. -G"Visual Studio 16 2022" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
       	
 
