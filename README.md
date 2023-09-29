@@ -2,8 +2,12 @@
 >
 > this library is still under development.
 >
- ![](https://geps.dev/progress/50) 
+ ![](https://geps.dev/progress/60) 
 
+[![MIT License](https://img.shields.io/badge/license-MIT-yellow)](https://github.com/baderouaich/tgbotxx/blob/master/LICENSE)
+[![Linux build](https://github.com/baderouaich/tgbotxx/workflows/build-ubuntu/badge.svg)](https://github.com/baderouaich/tgbotxx/actions?workflow=build) 
+[![Windows build](https://github.com/baderouaich/tgbotxx/workflows/build-windows/badge.svg)](https://github.com/baderouaich/tgbotxx/actions?workflow=build) 
+[![Docs](https://codedocs.xyz/doxygen/doxygen.svg)](https://baderouaich.github.io/tgbotxx)
 
 # tgbotxx
 Telegram Bot C++ Library
