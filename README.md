@@ -56,8 +56,8 @@ private:
     }
     
     /// Called when a new command is received (messages with leading '/' char).
-    void onCommand(const Ptr<Message>& command) override {
-      if(command->text == "/stop") {
+    void onCommand(const Ptr<Message>& message) override {
+      if(message->text == "/stop") {
         getApi()->sendMessage(message->chat->id, "Bot stopping...");
         Bot::stop();
         return;
