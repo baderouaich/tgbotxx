@@ -23,9 +23,14 @@ namespace tgbotxx {
         bool m_running;
 
     public:
+        /// @brief Constructs a new Bot object
+        /// @param token Bot token from the BotFather
         explicit Bot(const std::string& token);
 
+        /// @brief Start the bot
         void start();
+
+        /// @brief Stop the bot
         void stop();
 
     public: /// Bot Callbacks
@@ -108,6 +113,7 @@ namespace tgbotxx {
 
     protected: /// Getters
         const Ptr<Api>& getApi() const noexcept;
+        const Ptr<Api>& api() const noexcept { return getApi(); }
 
     private:
         /// @brief Dispatch update to callbacks

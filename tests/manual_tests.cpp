@@ -54,21 +54,19 @@ private:
     }
 
     /// Called when a new command is received (messages with leading '/' char).
-    void onCommand(const Ptr<Message>& command) override {
-      std::cout << __func__ << ": " << command->text << std::endl;
-      if(command->text == "/stop") {
+    void onCommand(const Ptr<Message>& message) override {
+      std::cout << __func__ << ": " << message->text << std::endl;
+      if(message->text == "/stop") {
         Bot::stop();
         return;
       }
 
-#if api_sendMessage_implemented
-    if(command->text == "start") {
-        getApi()->sendMessage(command->chat->id, "Welcome " + command->from->firstName + "!");
+      if(message->text == "start") {
+        getApi()->sendMessage(message->chat->id, "Welcome " + message->from->firstName + "!");
       }
-      else if(command->text == "greet") {
-        getApi()->sendMessage(command->chat->id, "Good day!");
+      else if(message->text == "greet") {
+        getApi()->sendMessage(message->chat->id, "Good day!");
       }
-#endif
     }
 
     /// Called when an unknown command is received (messages with leading '/' char).
