@@ -27,12 +27,11 @@ jobs:
       run: |
         cmake --version
         make --version
-        ninja --version
 
     - name: Generate Project Files & Build Solution
       run: |
         md cmake-build-debug && cd cmake-build-debug
-        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-        ninja tests/all
-        ninja test
+        cmake .. -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        make tests/all
+        make test
         
