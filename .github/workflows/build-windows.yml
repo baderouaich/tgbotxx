@@ -23,16 +23,16 @@ jobs:
     # https://github.com/actions/checkout
     - uses: actions/checkout@v4
 
-
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
-      with: 
-        vs-version: '16.8' # using vs 16.8.3 in my local machine Help -> About Microsoft Visual Studio
-
+    - name: Ensure deps are installed
+      run: |
+        cmake --version
+        make --version
+        ninja --version
 
     - name: Generate Project Files & Build Solution
       run: |
         md cmake-build-debug && cd cmake-build-debug
-        cmake .. -G"Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-        msbuild tgbotxx.sln -property:Configuration=Release,MultiProcessorCompilation=true -maxCpuCount -verbosity:minimal -noLogo
-
+        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        ninja tests/all
+        ninja test
+        
