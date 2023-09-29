@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_keyboard_button_poll_type.html#a51502d93e52abbc3e09be8658c7a594e":[2,0,0,52,1],
 "structtgbotxx_1_1_keyboard_button_poll_type.html#a53ba791055afd7d322f85f2b7658f755":[2,0,0,52,0],
 "structtgbotxx_1_1_keyboard_button_poll_type.html#a7195678e4dfe36eedec2f90ced58b6e4":[2,0,0,52,3],
 "structtgbotxx_1_1_keyboard_button_poll_type.html#ae8722e2b04aef0b7ed7332d9e971c4b5":[2,0,0,52,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497":[2,0,0,70,5],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2":[2,0,0,70,1],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4":[2,0,0,70,0],
-"structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e":[2,0,0,70,3],
-"structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898":[2,0,0,70,2]
+"structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e":[2,0,0,70,3]
 };
