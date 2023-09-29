@@ -33,6 +33,6 @@ jobs:
     - name: Generate Project Files & Build Solution
       run: |
         md cmake-build-debug && cd cmake-build-debug
-        cmake .. -G"Visual Studio 16 2022" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        cmake .. -G"Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
         msbuild tgbotxx.sln -property:Configuration=Release,MultiProcessorCompilation=true -maxCpuCount -verbosity:minimal -noLogo
 
