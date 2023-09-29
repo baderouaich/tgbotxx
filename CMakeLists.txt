@@ -7,6 +7,7 @@ project(tgbotxx VERSION "1.0.6.9" DESCRIPTION "Telegram Bot C++ Library" LANGUAG
 ################# Options ###########################
 option(ENABLE_TESTS "Enable/Disable building of tests" OFF)
 option(BUILD_DOCS "Build doxygen API documentation" OFF)
+option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 #####################################################
 
 
