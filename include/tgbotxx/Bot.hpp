@@ -26,7 +26,8 @@ namespace tgbotxx {
         /// @brief Constructs a new Bot object
         /// @param token Bot token from the BotFather
         explicit Bot(const std::string& token);
-
+        ~Bot();
+        
         /// @brief Start the bot
         void start();
 

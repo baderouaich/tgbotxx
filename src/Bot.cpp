@@ -9,6 +9,10 @@ Bot::Bot(const std::string& token)
   : m_api(new Api(token)), m_running(false), m_lastUpdateId(0) {
 }
 
+Bot::~Bot() {
+  stop();
+}
+
 void Bot::start() {
   if(m_running) return;
   m_running = true;
@@ -40,7 +44,7 @@ void Bot::start() {
 void Bot::stop() {
   if(not m_running) return;
   m_running = false;
-
+  
   /// Callback -> onStop
   this->onStop();
 }
