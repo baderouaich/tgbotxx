@@ -20,6 +20,9 @@ private:
 
 private:
   void onStart() override {
+    // Drop pending updates
+    api()->deleteWebhook(true);
+
     // Register my commands (/subscribe & /unsubscribe)
     Ptr<BotCommand> subscribeCmd(new BotCommand());
     subscribeCmd->command = "/subscribe";
@@ -28,7 +31,6 @@ private:
     unsubscribeCmd->command = "/unsubscribe";
     unsubscribeCmd->description = "Unsubscribe from recent earthquakes alerts";
     api()->setMyCommands({subscribeCmd, unsubscribeCmd});
-
 
     // Load any registered user chat ids from a file (if available from previous run)
     if(std::ifstream ifs{"subscribed_chats.txt"}) {
@@ -78,11 +80,12 @@ private:
     /// Alert all subscribed users about this new earthquake events
     std::ostringstream oss{};
     oss << "New earthquake!\n"
-        << "* Title: " << eqEvent["properties"]["title"].get<std::string>()
-        << "* Date: " << eqEvent["properties"]["time"].get<std::time_t>()
-        << "* Magnitude: " << eqEvent["properties"]["mag"].get<float>()
-        << "* Location: " << eqEvent["properties"]["place"].get<std::string>();
-
+        << "* Title: " << eqEvent["properties"]["title"].get<std::string>() << '\n'
+        << "* Date: " << eqEvent["properties"]["time"].get<std::time_t>() / 1000 << '\n'
+        << "* Magnitude: " << eqEvent["properties"]["mag"].get<float>() << '\n'
+        << "* Location: " << eqEvent["properties"]["place"].get<std::string>() << '\n'
+        << "* Coordinates: (longitude: " << eqEvent["geometry"]["coordinates"][0].get<float>() << ", latitude: " << eqEvent["geometry"]["coordinates"][1].get<float>() << ")\n";
+        ;
     for (const std::int64_t &chatId : m_chatIds)
     {
       api()->sendMessage(chatId, oss.str());
@@ -132,6 +135,7 @@ private:
   }
 };
 
+
 static std::unique_ptr<EarthQuakeBot> BOT;
 
 int main(int argc, const char *argv[]) {
@@ -140,12 +144,11 @@ int main(int argc, const char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  std::signal(SIGINT, [](int) { // Graceful bot exit on terminal CTRL+C  
+  std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if(BOT) {
       BOT->stop();
-      BOT.reset(nullptr);
     }
-    std::exit(EXIT_SUCCESS);   
+    std::exit(EXIT_SUCCESS);
   });
 
   BOT = std::make_unique<EarthQuakeBot>(argv[1]);
