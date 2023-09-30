@@ -10,6 +10,7 @@ Api::Api(const std::string &token) : m_token(token) {
     m_session.SetHeader(cpr::Header{
             {"Connection",   "close"}, // disable keep-alive
             {"Accept",       "application/json"},
+            //{"User-Agent",   "tgbotxx/1.0"},
             {"Content-Type", "application/x-www-form-urlencoded"},
     });
 }
@@ -40,8 +41,12 @@ nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &dat
     else
         res = m_session.Get();
 
+    if(res.status_code == 0) {
+        throw Exception(endpoint+": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?");
+    }
+
     if (!res.text.compare(0, 6, "<html>")) {
-        throw Exception("Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
+        throw Exception(endpoint+": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
     }
 
     try {
@@ -56,7 +61,7 @@ nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &dat
             throw Exception(desc);
         }
     } catch (const nl::json::exception &e) {
-        throw Exception("Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
+        throw Exception(endpoint+": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
     } catch (const Exception &e) {
         throw; // rethrow e
     } catch (const std::exception &e) {
