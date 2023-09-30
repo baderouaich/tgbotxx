@@ -4,8 +4,8 @@
 include(GNUInstallDirs) # Use standard CMake directory variables
 
 # Install header files (our headers & lib single headers)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/tgbotxx DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/lib/json/include/nlohmann DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include/nlohmann DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Enable position-independent code for shared libraries
 set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -33,7 +33,7 @@ write_basic_package_version_file("${PROJECT_BINARY_DIR}/tgbotxx-config-version.c
         )
 install(
         FILES
-        ${CMAKE_SOURCE_DIR}/cmake/tgbotxx-config.cmake
+        ${CMAKE_CURRENT_SOURCE_DIR}/cmake/tgbotxx-config.cmake
         ${PROJECT_BINARY_DIR}/tgbotxx-config-version.cmake
         DESTINATION
         ${CMAKE_INSTALL_LIBDIR}/cmake/tgbotxx
