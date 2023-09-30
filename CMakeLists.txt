@@ -11,9 +11,12 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 #####################################################
 
 
-################# Libraries ###########################
-include(cmake/tgbotxx-dependencies.cmake)
-set(tgbotxx_LIBRARIES ${FIND_OR_FETCH_LIBS})
+################## Libraries ##########################
+## nlohmann json (single include)
+include_directories(${CMAKE_SOURCE_DIR}/lib/json/include)
+## libcpr curl
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpr)
+include_directories(${CPR_INCLUDE_DIRS})
 ######################################################
 
 
@@ -29,7 +32,7 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx>
         $<INSTALL_INTERFACE:include>
         )
-target_link_libraries(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
 
 
 ###### Installation ######
