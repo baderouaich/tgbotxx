@@ -1,5 +1,4 @@
 #pragma once
-#include "nlohmann/json_fwd.hpp"
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/User.hpp>
 

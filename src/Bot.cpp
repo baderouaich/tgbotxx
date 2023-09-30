@@ -1,5 +1,7 @@
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Api.hpp>
+#include <tgbotxx/objects/Update.hpp>
+#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
 
