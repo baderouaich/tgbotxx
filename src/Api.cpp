@@ -26,8 +26,6 @@ nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &dat
     if (isMultipart) {
         session.SetMultipart(data);
         session.UpdateHeader(cpr::Header{{{"Content-Type", "multipart/form-data"}}});
-    } else {
-        session.UpdateHeader(cpr::Header{{{"Content-Type", "application/x-www-form-urlencoded"}}});
     }
 
     cpr::Response res = isMultipart ? session.Post() : session.Get();
