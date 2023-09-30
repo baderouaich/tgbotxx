@@ -13,17 +13,17 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 
 ################## Libraries ##########################
 ## nlohmann json (single include)
-include_directories(${CMAKE_SOURCE_DIR}/lib/json/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include)
 ## libcpr curl
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpr)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
 include_directories(${CPR_INCLUDE_DIRS})
 ######################################################
 
 
 ################# Main project ######################
-include_directories(${CMAKE_SOURCE_DIR}/include)
-file(GLOB_RECURSE SOURCES "${CMAKE_SOURCE_DIR}/src/**.cpp")
-file(GLOB_RECURSE HEADERS "${CMAKE_SOURCE_DIR}/include/tgbotxx/**.hpp")
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/**.cpp")
+file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx/**.hpp")
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS}) # TODO: allow build shared libs
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
@@ -60,6 +60,6 @@ endif()
 if (ON)#ENABLE_TESTS)
     message(STATUS "Building tests is enabled")
     enable_testing()
-    add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endif()
 ####################
