@@ -32,6 +32,6 @@ jobs:
       run: |
         md cmake-build-debug && cd cmake-build-debug
         cmake .. -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
-        make tests/all
+        make -j%NUMBER_OF_PROCESSORS%
         make test
         
