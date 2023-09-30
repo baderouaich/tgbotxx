@@ -57,7 +57,7 @@ endif()
 
 
 ###### Tests ######
-if (ON)#ENABLE_TESTS)
+if (ENABLE_TESTS)
     message(STATUS "Building tests is enabled")
     enable_testing()
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
