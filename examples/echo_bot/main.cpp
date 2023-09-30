@@ -4,7 +4,7 @@ using namespace tgbotxx;
 
 class EchoBot : public Bot {
 public:
-    EchoBot() : Bot("BOT_TOKEN_FROM_BOTH_FATHER") {}
+    EchoBot() : Bot("BOT_TOKEN_FROM_BOTH_FATHER") { }
 
 private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
@@ -61,7 +61,7 @@ private:
 };
 
 int main() {
-  EchoBot bot;
-  bot.start();
-  return 0;
+    EchoBot bot;
+    bot.start();
+    return EXIT_SUCCESS;
 }
