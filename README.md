@@ -14,7 +14,8 @@ Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
-### Usage
+### Example
+see [examples](examples/) for more examples:
 ```cpp
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
@@ -110,9 +111,6 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 sudo make install
 ```
--  *Requirements (will be downloaded by cmake if not found in system)*
-    - [cpr](https://github.com/libcpr/cpr)
-    - [nlohmann_json](https://github.com/nlohmann/json)
 
 
 ### Ref:
