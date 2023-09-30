@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2":[2,0,0,70,1],
+"structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4":[2,0,0,70,0],
+"structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e":[2,0,0,70,3],
 "structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898":[2,0,0,70,2],
 "structtgbotxx_1_1_reply_keyboard_remove.html":[2,0,0,71],
 "structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[2,0,0,71,4],

@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['game_1037',['game',['../structtgbotxx_1_1_message.html#af4231e1aea52361caba0383ead314cb1',1,'tgbotxx::Message']]],
-  ['gameshortname_1038',['gameShortName',['../structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2',1,'tgbotxx::CallbackQuery']]],
-  ['generalforumtopichidden_1039',['generalForumTopicHidden',['../structtgbotxx_1_1_message.html#a653b3c538c8ced17511dbc1a121d9eb2',1,'tgbotxx::Message']]],
-  ['generalforumtopicunhidden_1040',['generalForumTopicUnhidden',['../structtgbotxx_1_1_message.html#af65e6a4dc4c29fb9ff35c819e20aac0b',1,'tgbotxx::Message']]],
-  ['googleplaceid_1041',['googlePlaceId',['../structtgbotxx_1_1_venue.html#a82b9aecdbcfe69d45d7750bab9cc9ef3',1,'tgbotxx::Venue']]],
-  ['googleplacetype_1042',['googlePlaceType',['../structtgbotxx_1_1_venue.html#a89499161ce42bedf987a78ad283d52ac',1,'tgbotxx::Venue']]],
-  ['groupchatcreated_1043',['groupChatCreated',['../structtgbotxx_1_1_message.html#acbe3a2c8d84591fddfb5f4e598a07ae5',1,'tgbotxx::Message']]]
+  ['game_1029',['game',['../structtgbotxx_1_1_message.html#af4231e1aea52361caba0383ead314cb1',1,'tgbotxx::Message']]],
+  ['gameshortname_1030',['gameShortName',['../structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2',1,'tgbotxx::CallbackQuery']]],
+  ['generalforumtopichidden_1031',['generalForumTopicHidden',['../structtgbotxx_1_1_message.html#a653b3c538c8ced17511dbc1a121d9eb2',1,'tgbotxx::Message']]],
+  ['generalforumtopicunhidden_1032',['generalForumTopicUnhidden',['../structtgbotxx_1_1_message.html#af65e6a4dc4c29fb9ff35c819e20aac0b',1,'tgbotxx::Message']]],
+  ['googleplaceid_1033',['googlePlaceId',['../structtgbotxx_1_1_venue.html#a82b9aecdbcfe69d45d7750bab9cc9ef3',1,'tgbotxx::Venue']]],
+  ['googleplacetype_1034',['googlePlaceType',['../structtgbotxx_1_1_venue.html#a89499161ce42bedf987a78ad283d52ac',1,'tgbotxx::Venue']]],
+  ['groupchatcreated_1035',['groupChatCreated',['../structtgbotxx_1_1_message.html#acbe3a2c8d84591fddfb5f4e598a07ae5',1,'tgbotxx::Message']]]
 ];

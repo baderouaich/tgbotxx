@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat_member_administrator.html#a03883bdc70dd16d56bc481a497b9e9ea":[2,0,0,23,12],
+"structtgbotxx_1_1_chat_member_administrator.html#a048e012a774607a81439448d22ff3d94":[2,0,0,23,17],
+"structtgbotxx_1_1_chat_member_administrator.html#a0a93906aec19f6c1960cfd078d24b217":[2,0,0,23,0],
 "structtgbotxx_1_1_chat_member_administrator.html#a405ac6074697823ba6a04c7c19e086e1":[2,0,0,23,3],
 "structtgbotxx_1_1_chat_member_administrator.html#a709d201ab99ab8a2c3cdba383c5b53d9":[2,0,0,23,6],
 "structtgbotxx_1_1_chat_member_administrator.html#a8229c4fb01c0a760148576091ce58882":[2,0,0,23,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_keyboard_button.html#a6dc45c0734436729fd4be92df96e9a03":[2,0,0,51,0],
 "structtgbotxx_1_1_keyboard_button.html#a9c15a395147362b7d12d869df4e78430":[2,0,0,51,5],
 "structtgbotxx_1_1_keyboard_button.html#aac94b1c881fa1984aed732d484dd0faa":[2,0,0,51,9],
-"structtgbotxx_1_1_keyboard_button.html#ac52203937f9c60d623e281b7900d7ddf":[2,0,0,51,1],
-"structtgbotxx_1_1_keyboard_button.html#acab349c824932f5638e65334e816a234":[2,0,0,51,3],
-"structtgbotxx_1_1_keyboard_button.html#ade8ef09bc03c49fab8271fe91ffc4fdb":[2,0,0,51,2],
-"structtgbotxx_1_1_keyboard_button_poll_type.html":[2,0,0,52]
+"structtgbotxx_1_1_keyboard_button.html#ac52203937f9c60d623e281b7900d7ddf":[2,0,0,51,1]
 };
