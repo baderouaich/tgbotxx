@@ -4,48 +4,37 @@
 #include <utility>
 using namespace tgbotxx;
 
-Api::Api(const std::string &token) : m_token(token) {
-    m_session.SetTimeout(TIMEOUT);
-    m_session.SetConnectTimeout(CONNECT_TIMEOUT);
-    m_session.SetHeader(cpr::Header{
+Api::Api(const std::string &token) : m_token(token) { }
+
+nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &data) const {
+    cpr::Session session{}; // Workaround: Why not have one session as a class member ? 
+                            // You can initiate multiple concurrent requests to the Telegram API, which means 
+                            // You can sendMessage while getUpdates long polling is still pending, and you can't do that with one cpr::Session.
+
+    session.SetTimeout(TIMEOUT);
+    session.SetConnectTimeout(CONNECT_TIMEOUT);
+    session.SetHeader(cpr::Header{
             {"Connection",   "close"}, // disable keep-alive
             {"Accept",       "application/json"},
             //{"User-Agent",   "tgbotxx/1.0"},
             {"Content-Type", "application/x-www-form-urlencoded"},
     });
-}
-
-nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &data) const {
     std::ostringstream url{};
-    url << BASE_URL << "/bot" << m_token << '/'
-        << endpoint; // workaround: token should have a prefix botTOKEN. see https://stackoverflow.com/a/41460083
-    m_session.SetUrl(cpr::Url{url.str()});
-    m_session.SetMultipart(data);
-
+    url << BASE_URL << "/bot" << m_token << '/' << endpoint; // Workaround: token should have a prefix botTOKEN.
+    session.SetUrl(cpr::Url{url.str()});
     bool isMultipart = not data.parts.empty();
-    if (isMultipart) // we have files?
-    {
-        m_session.UpdateHeader(cpr::Header{{
-                                                   {"Content-Type", "multipart/form-data"}
-                                           }});
-
+    if (isMultipart) {
+        session.SetMultipart(data);
+        session.UpdateHeader(cpr::Header{{{"Content-Type", "multipart/form-data"}}});
     } else {
-        m_session.UpdateHeader(cpr::Header{{
-                                                   {"Content-Type", "application/x-www-form-urlencoded"}
-                                           }});
+        session.UpdateHeader(cpr::Header{{{"Content-Type", "application/x-www-form-urlencoded"}}});
     }
 
-    cpr::Response res{};
-    if (isMultipart)
-        res = m_session.Post();
-    else
-        res = m_session.Get();
-
-    if(res.status_code == 0) {
+    cpr::Response res = isMultipart ? session.Post() : session.Get();
+    if(res.status_code == 0) [[unlikely]] {
         throw Exception(endpoint+": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?");
     }
-
-    if (!res.text.compare(0, 6, "<html>")) {
+    if (!res.text.compare(0, 6, "<html>")) [[unlikely]] {
         throw Exception(endpoint+": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
     }
 

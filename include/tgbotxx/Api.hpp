@@ -93,7 +93,6 @@ namespace tgbotxx {
         inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000; // 20s (Telegram server can take up to 20s to connect with us)
         inline static const std::int32_t LONG_POLL_TIMEOUT = 10; // 10s (calling getUpdates() every 10 seconds)
         const std::string m_token;
-        mutable cpr::Session m_session;
 
     public:
         /// @brief Constructs Api object.
