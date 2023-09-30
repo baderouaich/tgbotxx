@@ -112,10 +112,35 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 sudo make install
 ```
+
 #### Windows
 TODO
 #### macOS
 TODO
+
+
+## Use tgbotxx as a project submodule (without installation)
+You can also use this library as a submodule in your bot project without the need of installing it in your system.
+Use git clone or git submodule add the library:
+```shell
+git submodule add https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
+```
+or 
+```shell
+git clone https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
+```
+
+Then add `add_subdirectory(lib/tgbotxx)` in your `CMakeLists.txt`.
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(my_bot_project)
+
+add_subdirectory(lib/tgbotxx) # <-- clone tgbotxx in your lib/ directory
+include_directories(lib/tgbotxx/include) # <-- include tgbotxx/ headers
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link to tgbotxx
+```
 
 ### Ref:
 [Telegram Api Documentation](https://core.telegram.org/bots/api)
