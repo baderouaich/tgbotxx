@@ -164,7 +164,7 @@ Ptr<Message> Api::sendMessage(std::int64_t chatId, const std::string &text, std:
         data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
     if (replyMarkup)
         data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
-    
+
      nl::json sentMessageObj = sendRequest("sendMessage", data);
      Ptr<Message> message(new Message(sentMessageObj));
      return message;
@@ -224,6 +224,51 @@ Ptr<Message> Api::forwardMessage(std::int64_t chatId, std::int64_t fromChatId, s
         data.parts.emplace_back("protect_content", protectContent);
 
     nl::json sentMessageObj = sendRequest("sendMessage", data);
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+}
+
+Ptr<Message> Api::sendPhoto(std::int64_t chatId, std::variant<cpr::File, std::string> photo,
+                            std::int32_t messageThreadId, const std::string &caption, const std::string &parseMode,
+               const std::vector<Ptr<MessageEntity>> &captionEntities, bool disableNotification, bool protectContent,
+               std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup> &replyMarkup) const {
+    cpr::Multipart data{};
+    data.parts.reserve(12);
+    data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+    if(photo.index() == 0) // cpr::File
+    {
+        const cpr::File& file = std::get<cpr::File>(photo);
+        data.parts.emplace_back("photo", cpr::Files{file});
+    }
+    else // std::string (fileId or Url)
+    {
+        const std::string& fileIdOrUrl = std::get<std::string>(photo);
+        data.parts.emplace_back("photo", fileIdOrUrl);
+    }
+    if (messageThreadId)
+        data.parts.emplace_back("message_thread_id", messageThreadId);
+    if (not caption.empty())
+        data.parts.emplace_back("caption", caption);
+    if (not parseMode.empty())
+        data.parts.emplace_back("parse_mode", parseMode);
+    if (not captionEntities.empty()) {
+        nl::json entitiesArray = nl::json::array();
+        for(const Ptr<MessageEntity>& entity : captionEntities)
+            entitiesArray.push_back(entity->toJson());
+        data.parts.emplace_back("caption_entities", entitiesArray.dump());
+    }
+    if (disableNotification)
+        data.parts.emplace_back("disable_notification", disableNotification);
+    if (protectContent)
+        data.parts.emplace_back("protect_content", protectContent);
+    if (replyToMessageId)
+        data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+    if (allowSendingWithoutReply)
+        data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+    if (replyMarkup)
+        data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+    nl::json sentMessageObj = sendRequest("sendPhoto", data);
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
 }

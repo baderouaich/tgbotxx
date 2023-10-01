@@ -78,10 +78,9 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 #include <string>
-#include <iostream>
+#include <variant>
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
-
 namespace nl = nlohmann;
 
 namespace tgbotxx {
@@ -193,6 +192,39 @@ namespace tgbotxx {
                                    std::int32_t replyToMessageId = 0,
                                    bool allowSendingWithoutReply = false,
                                    const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+        /// @brief Use this method to send photos.
+        /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+        /// @param photo Photo to send. cpr::File or std::string.
+        /// Pass a fileId as String to send a photo that exists on the Telegram servers (recommended),
+        /// Pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.
+        /// The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total.
+        /// Width and height ratio must be at most 20.
+        /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+        /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+        /// @param caption Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing
+        /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+        /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
+        /// @param hasSpoiler Optional. Pass True if the photo needs to be covered with a spoiler animation
+        /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+        /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+        /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+        /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+        /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+        ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+        /// @returns the sent Message is returned on success.
+        /// @ref https://core.telegram.org/bots/api#sendphoto
+        Ptr<Message> sendPhoto(std::int64_t chatId,
+                               std::variant<cpr::File, std::string> photo,
+                               std::int32_t messageThreadId = 0,
+                               const std::string& caption = "",
+                               const std::string& parseMode = "",
+                               const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                               bool disableNotification = false,
+                               bool protectContent = false,
+                               std::int32_t replyToMessageId = 0,
+                               bool allowSendingWithoutReply = false,
+                               const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
 
 

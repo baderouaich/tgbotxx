@@ -1,3 +1,4 @@
+#include "cpr/file.h"
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
 #include <csignal>
@@ -26,16 +27,16 @@ private:
       getApi()->deleteWebhook(true);
 
       // Register bot commands ...
-      std::vector<Ptr<BotCommand>> commands;
       Ptr<BotCommand> greet(new BotCommand());
       greet->command = "greet";
       greet->description = "This command will greet you";
-      commands.push_back(greet);
       Ptr<BotCommand> stop(new BotCommand());
       stop->command = "stop";
       stop->description = "Stop the bot";
-      commands.push_back(stop);
-      getApi()->setMyCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> photo(new BotCommand());
+      photo->command = "photo";
+      photo->description = "You will receive a photo using Api::sendPhoto method";
+      getApi()->setMyCommands({greet, stop, photo}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -46,28 +47,33 @@ private:
 
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
     void onAnyMessage(const Ptr<Message>& message) override {
-      std::cout << __func__ << ": " << message->toJson().dump(2) << std::endl;
-      Ptr<Message> msg = getApi()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
+      //std::cout << __func__ << ": " << message->toJson().dump(2) << std::endl;
+      //Ptr<Message> msg = getApi()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
     }
 
     /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
     void onNonCommandMessage(const Ptr<Message> &message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
+      //std::cout << __func__ << ": " << message->text << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).
     void onCommand(const Ptr<Message>& message) override {
-      std::cout << __func__ << ": " << message->text << std::endl;
+      //std::cout << __func__ << ": " << message->text << std::endl;
       if(message->text == "/stop") {
         Bot::stop();
         return;
       }
-
-      if(message->text == "start") {
+      else if(message->text == "/start") {
         getApi()->sendMessage(message->chat->id, "Welcome " + message->from->firstName + "!");
       }
-      else if(message->text == "greet") {
+      else if(message->text == "/greet") {
         getApi()->sendMessage(message->chat->id, "Good day!");
+      }
+      else if(message->text == "/photo") {
+          getApi()->sendMessage(message->chat->id, "Sending URL photo...");
+          getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
+          getApi()->sendMessage(message->chat->id, "Sending File photo...");
+          getApi()->sendPhoto(message->chat->id, cpr::File{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
       }
     }
 
