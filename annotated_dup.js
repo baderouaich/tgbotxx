@@ -62,6 +62,7 @@ var annotated_dup =
       [ "Message", "structtgbotxx_1_1_message.html", "structtgbotxx_1_1_message" ],
       [ "MessageAutoDeleteTimerChanged", "structtgbotxx_1_1_message_auto_delete_timer_changed.html", "structtgbotxx_1_1_message_auto_delete_timer_changed" ],
       [ "MessageEntity", "structtgbotxx_1_1_message_entity.html", "structtgbotxx_1_1_message_entity" ],
+      [ "MessageId", "structtgbotxx_1_1_message_id.html", "structtgbotxx_1_1_message_id" ],
       [ "OrderInfo", "structtgbotxx_1_1_order_info.html", "structtgbotxx_1_1_order_info" ],
       [ "PassportData", "structtgbotxx_1_1_passport_data.html", "structtgbotxx_1_1_passport_data" ],
       [ "PassportFile", "structtgbotxx_1_1_passport_file.html", "structtgbotxx_1_1_passport_file" ],

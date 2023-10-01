@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['keyboard_294',['keyboard',['../structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497',1,'tgbotxx::ReplyKeyboardMarkup']]],
-  ['keyboardbutton_295',['KeyboardButton',['../structtgbotxx_1_1_keyboard_button.html#a6dc45c0734436729fd4be92df96e9a03',1,'tgbotxx::KeyboardButton::KeyboardButton()'],['../structtgbotxx_1_1_keyboard_button.html',1,'tgbotxx::KeyboardButton']]],
-  ['keyboardbutton_2ehpp_296',['KeyboardButton.hpp',['../_keyboard_button_8hpp.html',1,'']]],
-  ['keyboardbuttonpolltype_297',['KeyboardButtonPollType',['../structtgbotxx_1_1_keyboard_button_poll_type.html#a53ba791055afd7d322f85f2b7658f755',1,'tgbotxx::KeyboardButtonPollType::KeyboardButtonPollType()'],['../structtgbotxx_1_1_keyboard_button_poll_type.html',1,'tgbotxx::KeyboardButtonPollType']]],
-  ['keyboardbuttonpolltype_2ehpp_298',['KeyboardButtonPollType.hpp',['../_keyboard_button_poll_type_8hpp.html',1,'']]],
-  ['keyboardbuttonrequestchat_299',['KeyboardButtonRequestChat',['../structtgbotxx_1_1_keyboard_button_request_chat.html#aaee40dddcc991719cc7add19abe73381',1,'tgbotxx::KeyboardButtonRequestChat::KeyboardButtonRequestChat()'],['../structtgbotxx_1_1_keyboard_button_request_chat.html',1,'tgbotxx::KeyboardButtonRequestChat']]],
-  ['keyboardbuttonrequestchat_2ehpp_300',['KeyboardButtonRequestChat.hpp',['../_keyboard_button_request_chat_8hpp.html',1,'']]],
-  ['keyboardbuttonrequestuser_301',['KeyboardButtonRequestUser',['../structtgbotxx_1_1_keyboard_button_request_user.html#af2d68a85b5a4f78c52b3bc70fb52d283',1,'tgbotxx::KeyboardButtonRequestUser::KeyboardButtonRequestUser()'],['../structtgbotxx_1_1_keyboard_button_request_user.html',1,'tgbotxx::KeyboardButtonRequestUser']]],
-  ['keyboardbuttonrequestuser_2ehpp_302',['KeyboardButtonRequestUser.hpp',['../_keyboard_button_request_user_8hpp.html',1,'']]]
+  ['keyboard_296',['keyboard',['../structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497',1,'tgbotxx::ReplyKeyboardMarkup']]],
+  ['keyboardbutton_297',['KeyboardButton',['../structtgbotxx_1_1_keyboard_button.html#a6dc45c0734436729fd4be92df96e9a03',1,'tgbotxx::KeyboardButton::KeyboardButton()'],['../structtgbotxx_1_1_keyboard_button.html',1,'tgbotxx::KeyboardButton']]],
+  ['keyboardbutton_2ehpp_298',['KeyboardButton.hpp',['../_keyboard_button_8hpp.html',1,'']]],
+  ['keyboardbuttonpolltype_299',['KeyboardButtonPollType',['../structtgbotxx_1_1_keyboard_button_poll_type.html#a53ba791055afd7d322f85f2b7658f755',1,'tgbotxx::KeyboardButtonPollType::KeyboardButtonPollType()'],['../structtgbotxx_1_1_keyboard_button_poll_type.html',1,'tgbotxx::KeyboardButtonPollType']]],
+  ['keyboardbuttonpolltype_2ehpp_300',['KeyboardButtonPollType.hpp',['../_keyboard_button_poll_type_8hpp.html',1,'']]],
+  ['keyboardbuttonrequestchat_301',['KeyboardButtonRequestChat',['../structtgbotxx_1_1_keyboard_button_request_chat.html#aaee40dddcc991719cc7add19abe73381',1,'tgbotxx::KeyboardButtonRequestChat::KeyboardButtonRequestChat()'],['../structtgbotxx_1_1_keyboard_button_request_chat.html',1,'tgbotxx::KeyboardButtonRequestChat']]],
+  ['keyboardbuttonrequestchat_2ehpp_302',['KeyboardButtonRequestChat.hpp',['../_keyboard_button_request_chat_8hpp.html',1,'']]],
+  ['keyboardbuttonrequestuser_303',['KeyboardButtonRequestUser',['../structtgbotxx_1_1_keyboard_button_request_user.html#af2d68a85b5a4f78c52b3bc70fb52d283',1,'tgbotxx::KeyboardButtonRequestUser::KeyboardButtonRequestUser()'],['../structtgbotxx_1_1_keyboard_button_request_user.html',1,'tgbotxx::KeyboardButtonRequestUser']]],
+  ['keyboardbuttonrequestuser_2ehpp_304',['KeyboardButtonRequestUser.hpp',['../_keyboard_button_request_user_8hpp.html',1,'']]]
 ];

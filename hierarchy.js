@@ -68,6 +68,7 @@ var hierarchy =
     [ "tgbotxx::Message", "structtgbotxx_1_1_message.html", null ],
     [ "tgbotxx::MessageAutoDeleteTimerChanged", "structtgbotxx_1_1_message_auto_delete_timer_changed.html", null ],
     [ "tgbotxx::MessageEntity", "structtgbotxx_1_1_message_entity.html", null ],
+    [ "tgbotxx::MessageId", "structtgbotxx_1_1_message_id.html", null ],
     [ "tgbotxx::OrderInfo", "structtgbotxx_1_1_order_info.html", null ],
     [ "tgbotxx::PassportData", "structtgbotxx_1_1_passport_data.html", null ],
     [ "tgbotxx::PassportFile", "structtgbotxx_1_1_passport_file.html", null ],

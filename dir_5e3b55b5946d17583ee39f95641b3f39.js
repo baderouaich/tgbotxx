@@ -148,6 +148,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "MessageEntity.hpp", "_message_entity_8hpp.html", [
       [ "MessageEntity", "structtgbotxx_1_1_message_entity.html", "structtgbotxx_1_1_message_entity" ]
     ] ],
+    [ "MessageId.hpp", "_message_id_8hpp.html", [
+      [ "MessageId", "structtgbotxx_1_1_message_id.html", "structtgbotxx_1_1_message_id" ]
+    ] ],
     [ "Object.hpp", "_object_8hpp.html", null ],
     [ "OrderInfo.hpp", "_order_info_8hpp.html", [
       [ "OrderInfo", "structtgbotxx_1_1_order_info.html", "structtgbotxx_1_1_order_info" ]

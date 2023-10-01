@@ -110,12 +110,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac2f16a09b0ed40b13d73ef2791c24ac5"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ac2f16a09b0ed40b13d73ef2791c24ac5">messageId</a></td></tr>
-<tr class="memdesc:ac2f16a09b0ed40b13d73ef2791c24ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique message identifier inside this chat.  <a href="structtgbotxx_1_1_message.html#ac2f16a09b0ed40b13d73ef2791c24ac5">More...</a><br /></td></tr>
-<tr class="separator:ac2f16a09b0ed40b13d73ef2791c24ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64b425f6eb748c44442f19c40151dc09"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a64b425f6eb748c44442f19c40151dc09">messageThreadId</a></td></tr>
-<tr class="memdesc:a64b425f6eb748c44442f19c40151dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Unique identifier of a message thread to which the message belongs; for supergroups only.  <a href="structtgbotxx_1_1_message.html#a64b425f6eb748c44442f19c40151dc09">More...</a><br /></td></tr>
-<tr class="separator:a64b425f6eb748c44442f19c40151dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1fa8d266d25ef115d235f1ad2f7ee726">messageId</a></td></tr>
+<tr class="memdesc:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique message identifier inside this chat.  <a href="structtgbotxx_1_1_message.html#a1fa8d266d25ef115d235f1ad2f7ee726">More...</a><br /></td></tr>
+<tr class="separator:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d000817dcb029da9891f3d244e96283"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1d000817dcb029da9891f3d244e96283">messageThreadId</a></td></tr>
+<tr class="memdesc:a1d000817dcb029da9891f3d244e96283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Unique identifier of a message thread to which the message belongs; for supergroups only.  <a href="structtgbotxx_1_1_message.html#a1d000817dcb029da9891f3d244e96283">More...</a><br /></td></tr>
+<tr class="separator:a1d000817dcb029da9891f3d244e96283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40f84e3d8220884ff66acc8f66328a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ad40f84e3d8220884ff66acc8f66328a8">from</a></td></tr>
 <tr class="memdesc:ad40f84e3d8220884ff66acc8f66328a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.  <a href="structtgbotxx_1_1_message.html#ad40f84e3d8220884ff66acc8f66328a8">More...</a><br /></td></tr>
 <tr class="separator:ad40f84e3d8220884ff66acc8f66328a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,9 +134,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a0a56092415f85f43f8fa6aee2cf2cac7">forwardFromChat</a></td></tr>
 <tr class="memdesc:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages forwarded from channels or from anonymous administrators, information about the original sender chat.  <a href="structtgbotxx_1_1_message.html#a0a56092415f85f43f8fa6aee2cf2cac7">More...</a><br /></td></tr>
 <tr class="separator:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ca234ecaba4e658b75bf759d76eef2"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ac5ca234ecaba4e658b75bf759d76eef2">forwardFromMessageId</a></td></tr>
-<tr class="memdesc:ac5ca234ecaba4e658b75bf759d76eef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages forwarded from channels, identifier of the original message in the channel.  <a href="structtgbotxx_1_1_message.html#ac5ca234ecaba4e658b75bf759d76eef2">More...</a><br /></td></tr>
-<tr class="separator:ac5ca234ecaba4e658b75bf759d76eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82cf2687186f6c65d35f02604bafca06"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a82cf2687186f6c65d35f02604bafca06">forwardFromMessageId</a></td></tr>
+<tr class="memdesc:a82cf2687186f6c65d35f02604bafca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages forwarded from channels, identifier of the original message in the channel.  <a href="structtgbotxx_1_1_message.html#a82cf2687186f6c65d35f02604bafca06">More...</a><br /></td></tr>
+<tr class="separator:a82cf2687186f6c65d35f02604bafca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53df15a98f74d04b7ee5dbf5ba402a39"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a53df15a98f74d04b7ee5dbf5ba402a39">forwardSignature</a></td></tr>
 <tr class="memdesc:a53df15a98f74d04b7ee5dbf5ba402a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present.  <a href="structtgbotxx_1_1_message.html#a53df15a98f74d04b7ee5dbf5ba402a39">More...</a><br /></td></tr>
 <tr class="separator:a53df15a98f74d04b7ee5dbf5ba402a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -816,14 +816,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac5ca234ecaba4e658b75bf759d76eef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5ca234ecaba4e658b75bf759d76eef2">&#9670;&nbsp;</a></span>forwardFromMessageId</h2>
+<a id="a82cf2687186f6c65d35f02604bafca06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82cf2687186f6c65d35f02604bafca06">&#9670;&nbsp;</a></span>forwardFromMessageId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Message::forwardFromMessageId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::forwardFromMessageId</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1122,14 +1122,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2f16a09b0ed40b13d73ef2791c24ac5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2f16a09b0ed40b13d73ef2791c24ac5">&#9670;&nbsp;</a></span>messageId</h2>
+<a id="a1fa8d266d25ef115d235f1ad2f7ee726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa8d266d25ef115d235f1ad2f7ee726">&#9670;&nbsp;</a></span>messageId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Message::messageId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::messageId</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1140,14 +1140,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a64b425f6eb748c44442f19c40151dc09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64b425f6eb748c44442f19c40151dc09">&#9670;&nbsp;</a></span>messageThreadId</h2>
+<a id="a1d000817dcb029da9891f3d244e96283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d000817dcb029da9891f3d244e96283">&#9670;&nbsp;</a></span>messageThreadId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Message::messageThreadId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::messageThreadId</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1707,7 +1707,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_message.html">Message</a></li>
-    <li class="footer">Generated on Sat Sep 30 2023 21:04:30 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 1 2023 11:35:03 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

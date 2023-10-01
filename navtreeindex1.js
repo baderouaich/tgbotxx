@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"functions_func_o.html":[2,3,1,11],
+"functions_func_p.html":[2,3,1,12],
+"functions_func_r.html":[2,3,1,13],
+"functions_func_s.html":[2,3,1,14],
 "functions_func_t.html":[2,3,1,15],
 "functions_func_u.html":[2,3,1,16],
 "functions_func_v.html":[2,3,1,17],
@@ -60,10 +64,10 @@ var NAVTREEINDEX1 =
 "namespacemembers_type.html":[1,1,2],
 "namespaces.html":[1,0],
 "namespacetgbotxx.html":[1,0,0],
-"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,101],
-"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,100],
-"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,98],
-"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,99],
+"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,102],
+"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,101],
+"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,99],
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,100],
 "namespacetgbotxx_1_1_string_utils.html":[1,0,0,0],
 "namespacetgbotxx_1_1_string_utils.html#a0e1c43908f57edb496b00522dee6ea80":[1,0,0,0,7],
 "namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58":[1,0,0,0,4],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_chat_location.html#a4ed8f541f75152a5e76dde09eb83eb7a":[2,0,0,20,1],
 "structtgbotxx_1_1_chat_member.html":[2,0,0,21],
 "structtgbotxx_1_1_chat_member.html#a44b745ca0969f5a296ec4b5fe4c1ca83":[2,0,0,21,0],
-"structtgbotxx_1_1_chat_member.html#a5cb60873297379b590b8ac2863740b57":[2,0,0,21,1],
-"structtgbotxx_1_1_chat_member.html#a98114546cbd578d1a81d663a5a180318":[2,0,0,21,4],
-"structtgbotxx_1_1_chat_member.html#ab305b35b9b204c2d01920442d7751cd5":[2,0,0,21,3],
-"structtgbotxx_1_1_chat_member.html#adee0f0e75d5b4cb90e372e6c59f6dfd9":[2,0,0,21,2],
-"structtgbotxx_1_1_chat_member_administrator.html":[2,0,0,23]
+"structtgbotxx_1_1_chat_member.html#a5cb60873297379b590b8ac2863740b57":[2,0,0,21,1]
 };

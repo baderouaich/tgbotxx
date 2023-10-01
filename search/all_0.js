@@ -13,12 +13,12 @@ var searchData=
   ['animation_10',['animation',['../structtgbotxx_1_1_message.html#a3a5516e7364df19c4ef8f2187b8f20dd',1,'tgbotxx::Message']]],
   ['animation_11',['Animation',['../structtgbotxx_1_1_animation.html',1,'tgbotxx']]],
   ['animation_2ehpp_12',['Animation.hpp',['../_animation_8hpp.html',1,'']]],
-  ['api_13',['Api',['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api']]],
-  ['api_14',['api',['../classtgbotxx_1_1_bot.html#a22bb788ca3f247f896461a9641004e10',1,'tgbotxx::Bot']]],
-  ['api_15',['Api',['../classtgbotxx_1_1_api.html',1,'tgbotxx']]],
-  ['api_2ehpp_16',['Api.hpp',['../_api_8hpp.html',1,'']]],
+  ['api_13',['api',['../classtgbotxx_1_1_bot.html#a22bb788ca3f247f896461a9641004e10',1,'tgbotxx::Bot']]],
+  ['api_14',['Api',['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api::Api()'],['../classtgbotxx_1_1_api.html',1,'tgbotxx::Api']]],
+  ['api_2ehpp_15',['Api.hpp',['../_api_8hpp.html',1,'']]],
+  ['audio_16',['Audio',['../structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b',1,'tgbotxx::Audio']]],
   ['audio_17',['audio',['../structtgbotxx_1_1_message.html#ae3c9ff13afb53e3737a20de5d1c958c2',1,'tgbotxx::Message']]],
-  ['audio_18',['Audio',['../structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b',1,'tgbotxx::Audio::Audio()'],['../structtgbotxx_1_1_audio.html',1,'tgbotxx::Audio']]],
+  ['audio_18',['Audio',['../structtgbotxx_1_1_audio.html',1,'tgbotxx']]],
   ['audio_2ehpp_19',['Audio.hpp',['../_audio_8hpp.html',1,'']]],
   ['authorsignature_20',['authorSignature',['../structtgbotxx_1_1_message.html#a37579ad478a4a65a35139a2ac5f55868',1,'tgbotxx::Message']]]
 ];
