@@ -43,6 +43,7 @@
 #include <tgbotxx/objects/MaskPosition.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
+#include <tgbotxx/objects/MessageId.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
@@ -121,29 +122,80 @@ namespace tgbotxx {
         /// @brief Use this method to send text messages. On success, the sent Message is returned.
         /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername)
         /// @param text Text of the message to be sent, 1-4096 characters after entities parsing
+        /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+        /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+        /// @param entities Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parseMode
         /// @param disableWebPagePreview Optional. Disables link previews for links in this message
+        /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+        /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
         /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+        /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
         /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
         ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
-        /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
-        /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
-        /// @param entities Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parseMode
-        /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
-        /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
-        /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
         /// @returns sent Message object on success.
         /// @ref https://core.telegram.org/bots/api#sendmessage
-        Ptr<Message> sendMessage(const std::int64_t& chatId,
+        Ptr<Message> sendMessage(std::int64_t chatId,
                                  const std::string& text,
-                                 bool disableWebPagePreview = false,
-                                 std::int64_t replyToMessageId = 0,
-                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                 std::int32_t messageThreadId = 0,
                                  const std::string& parseMode = "",
-                                 bool disableNotification = false,
                                  const std::vector<Ptr<MessageEntity>>& entities = std::vector<Ptr<MessageEntity>>(),
-                                 bool allowSendingWithoutReply = false,
+                                 bool disableWebPagePreview = false,
+                                 bool disableNotification = false,
                                  bool protectContent = false,
-                                 std::int64_t messageThreadId = 0) const;
+                                 std::int32_t replyToMessageId = 0,
+                                 bool allowSendingWithoutReply = false,
+                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+        /// @brief Use this method to forward messages of any kind. Service messages can't be forwarded.
+        /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+        /// @param fromChatId Unique identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
+        /// @param messageId Message identifier in the chat specified in fromChatId
+        /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+        /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+        /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+        /// @returns the sent Message is returned on success.
+        /// @ref https://core.telegram.org/bots/api#forwardmessage
+        Ptr<Message> forwardMessage(std::int64_t chatId,
+                                   std::int64_t fromChatId,
+                                   std::int32_t messageId,
+                                   std::int32_t messageThreadId = 0,
+                                   bool disableNotification = false,
+                                   bool protectContent = false) const;
+
+        /// @brief Use this method to copy messages of any kind. Service messages and invoice messages can't be copied.
+        /// A quiz poll can be copied only if the value of the field correct_option_id is known to the bot.
+        /// The method is analogous to the method forwardMessage, but the copied message doesn't have a link to the original message.
+        /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+        /// @param fromChatId Unique identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
+        /// @param messageId Message identifier in the chat specified in fromChatId
+        /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+        /// @param caption Optional. New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept
+        /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+        /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
+        /// @param disableWebPagePreview Optional. Disables link previews for links in this message
+        /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+        /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+        /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+        /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+        /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+        ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+        /// @returns the MessageId of the sent message on success.
+        /// @ref https://core.telegram.org/bots/api#copymessage
+        Ptr<MessageId> copyMessage(std::int64_t chatId,
+                                   std::int64_t fromChatId,
+                                   std::int32_t messageId,
+                                   std::int32_t messageThreadId = 0,
+                                   const std::string& caption = "",
+                                   const std::string& parseMode = "",
+                                   const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                                   bool disableNotification = false,
+                                   bool protectContent = false,
+                                   std::int32_t replyToMessageId = 0,
+                                   bool allowSendingWithoutReply = false,
+                                   const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+
 
         /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
         /// Returns True on success.
