@@ -45,7 +45,7 @@ private:
         m_earthquakesMonitorRunning = true;
         while(m_earthquakesMonitorRunning) 
         {
-          cpr::Response res = cpr::Get(cpr::Url{EQ_API_ENDPOINT}, cpr::Header({{"Connection", "close"}}));
+          cpr::Response res = cpr::Get(cpr::Url{EQ_API_ENDPOINT});
           if(res.status_code == cpr::status::HTTP_OK)
           {
             nl::json eqEvents = nl::json::parse(res.text);

@@ -8,7 +8,7 @@ This example shows how to program a Telegram Bot that will alert you if there is
 4. After you finish the instructions, you will receive a Bot Token, make sure you keep it secured. 
 
 ## Commands
-<img src="commands.jpg" alt="Commands" width="300"/>
+<img src="img/commands.jpg" alt="Commands" width="300"/>
 
 ## Alerts
-<img src="alerts.jpg" alt="Alerts" width="300"/>
+<img src="img/alerts.jpg" alt="Alerts" width="300"/>
