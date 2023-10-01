@@ -17,4 +17,6 @@ TEST_CASE("Serialization & Deserialization", "User")
   REQUIRE(user.firstName == "first name");
   REQUIRE(user.lastName == "last name");
   REQUIRE(user.isBot == false);
+  REQUIRE(user.isPremium == false); // expected to be set to false by deserialize even if absent
+  REQUIRE(user.canJoinGroups == false); // expected to be set to false by deserialize even if absent
 }

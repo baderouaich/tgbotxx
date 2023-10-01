@@ -1,5 +1,7 @@
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
+#include <csignal>
+
 using namespace tgbotxx;
 
 class MyBot : public Bot {
@@ -101,7 +103,10 @@ private:
 };
 
 int main() {
-  MyBot bot;
+  static MyBot bot;
+  std::signal(SIGINT, [](int) {
+      bot.stop();
+  });
   bot.start();
   return 0;
 }
