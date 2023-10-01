@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_keyboard_button.html#a446e6e44fd3f2d36ed48a6f93a5343be":[2,0,0,51,4],
 "structtgbotxx_1_1_keyboard_button.html#a6dc45c0734436729fd4be92df96e9a03":[2,0,0,51,0],
 "structtgbotxx_1_1_keyboard_button.html#a9c15a395147362b7d12d869df4e78430":[2,0,0,51,5],
 "structtgbotxx_1_1_keyboard_button.html#aac94b1c881fa1984aed732d484dd0faa":[2,0,0,51,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_pre_checkout_query.html#aea89569df1c64926ab3fe06d330739d3":[2,0,0,69,1],
 "structtgbotxx_1_1_proximity_alert_triggered.html":[2,0,0,70],
 "structtgbotxx_1_1_proximity_alert_triggered.html#a15a4c1bd9fffcdbf87a36c9e5fa39c8a":[2,0,0,70,4],
-"structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf":[2,0,0,70,5],
-"structtgbotxx_1_1_proximity_alert_triggered.html#a69a2986e4ea434ca5a481888fee02c64":[2,0,0,70,1]
+"structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf":[2,0,0,70,5]
 };

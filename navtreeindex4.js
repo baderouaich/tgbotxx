@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_proximity_alert_triggered.html#a69a2986e4ea434ca5a481888fee02c64":[2,0,0,70,1],
 "structtgbotxx_1_1_proximity_alert_triggered.html#aabc1f18655b3489488aea2feee1d5ebc":[2,0,0,70,2],
 "structtgbotxx_1_1_proximity_alert_triggered.html#abd91ae1b3bed83c37fd94d21ee0b5003":[2,0,0,70,0],
 "structtgbotxx_1_1_proximity_alert_triggered.html#ae8663942dd510ef2a4cc52c5b388e7e4":[2,0,0,70,3],

@@ -10,5 +10,6 @@ var classtgbotxx_1_1_api =
     [ "getUpdates", "classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2", null ],
     [ "logOut", "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821", null ],
+    [ "sendPhoto", "classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd", null ],
     [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ]
 ];

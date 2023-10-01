@@ -119,6 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a559d4f43c4641303b84e97bdba97ef69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_id.html">MessageId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a559d4f43c4641303b84e97bdba97ef69">copyMessage</a> (std::int64_t chatId, std::int64_t fromChatId, std::int32_t messageId, std::int32_t messageThreadId=0, const std::string &amp;caption=&quot;&quot;, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;captionEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
 <tr class="memdesc:a559d4f43c4641303b84e97bdba97ef69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz poll can be copied only if the value of the field correct_option_id is known to the bot. The method is analogous to the method forwardMessage, but the copied message doesn't have a link to the original message.  <a href="classtgbotxx_1_1_api.html#a559d4f43c4641303b84e97bdba97ef69">More...</a><br /></td></tr>
 <tr class="separator:a559d4f43c4641303b84e97bdba97ef69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f226f3de07154c2f84fbceac42adedd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd">sendPhoto</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; photo, std::int32_t messageThreadId=0, const std::string &amp;caption=&quot;&quot;, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;captionEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:a4f226f3de07154c2f84fbceac42adedd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send photos.  <a href="classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd">More...</a><br /></td></tr>
+<tr class="separator:a4f226f3de07154c2f84fbceac42adedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00091">91</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00090">90</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -627,6 +630,108 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 
 </div>
 </div>
+<a id="a4f226f3de07154c2f84fbceac42adedd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f226f3de07154c2f84fbceac42adedd">&#9670;&nbsp;</a></span>sendPhoto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendPhoto </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::variant&lt; cpr::File, std::string &gt;&#160;</td>
+          <td class="paramname"><em>photo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>caption</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>parseMode</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>captionEntities</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send photos. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">photo</td><td>Photo to send. cpr::File or std::string. Pass a fileId as String to send a photo that exists on the Telegram servers (recommended), Pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a> </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">caption</td><td>Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing </td></tr>
+    <tr><td class="paramname">parseMode</td><td>Optional. Mode for parsing entities in the message text. See formatting options for more details. <a href="https://core.telegram.org/bots/api#formatting-options">https://core.telegram.org/bots/api#formatting-options</a> </td></tr>
+    <tr><td class="paramname">captionEntities</td><td>Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode </td></tr>
+    <tr><td class="paramname">hasSpoiler</td><td>Optional. Pass True if the photo needs to be covered with a spoiler animation </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or ForceReply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is returned on success. <a href="https://core.telegram.org/bots/api#sendphoto">https://core.telegram.org/bots/api#sendphoto</a> </dd></dl>
+
+</div>
+</div>
 <a id="abcbf6b1f63fa0e685274c7525f983518"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcbf6b1f63fa0e685274c7525f983518">&#9670;&nbsp;</a></span>setMyCommands()</h2>
 
@@ -681,7 +786,7 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sun Oct 1 2023 11:41:26 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 1 2023 13:07:00 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
