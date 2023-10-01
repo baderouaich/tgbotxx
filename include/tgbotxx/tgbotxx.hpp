@@ -48,6 +48,7 @@
 #include <tgbotxx/objects/MaskPosition.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
+#include <tgbotxx/objects/MessageId.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
