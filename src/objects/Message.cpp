@@ -78,7 +78,7 @@ nl::json Message::toJson() const {
   return json;
 }
 
-void Message::fromJson(const nlohmann::json &json) {
+void Message::fromJson(const nl::json &json) {
   OBJECT_DESERIALIZE_FIELD(json, "message_id", messageId, 0, false);
   OBJECT_DESERIALIZE_FIELD(json, "message_thread_id", messageThreadId, 0, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, true);

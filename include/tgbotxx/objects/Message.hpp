@@ -51,10 +51,10 @@ namespace tgbotxx {
         }
 
         /// @brief Unique message identifier inside this chat
-        std::int64_t messageId;
+        std::int32_t messageId;
 
         /// @brief Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
-        std::int64_t messageThreadId;
+        std::int32_t messageThreadId;
 
         /// @brief Optional. Sender of the message; empty for messages sent to channels. For backward compatibility,
         /// the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
@@ -80,7 +80,7 @@ namespace tgbotxx {
         Ptr<Chat> forwardFromChat;
 
         /// @brief Optional. For messages forwarded from channels, identifier of the original message in the channel
-        std::int64_t forwardFromMessageId;
+        std::int32_t forwardFromMessageId;
 
         /// @brief Optional. For forwarded messages that were originally sent in channels or by an anonymous
         /// chat administrator, signature of the message sender if present
