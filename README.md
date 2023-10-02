@@ -2,17 +2,23 @@
 >
 > this library is still under development.
 >
- ![](https://geps.dev/progress/60) 
+ ![](https://geps.dev/progress/70) 
 
-[![MIT License](https://img.shields.io/badge/license-MIT-yellow)](https://github.com/baderouaich/tgbotxx/blob/master/LICENSE)
-[![Linux build](https://github.com/baderouaich/tgbotxx/workflows/build-ubuntu/badge.svg)](https://github.com/baderouaich/tgbotxx/actions?workflow=build) 
-[![Windows build](https://github.com/baderouaich/tgbotxx/workflows/build-windows/badge.svg)](https://github.com/baderouaich/tgbotxx/actions?workflow=build) 
+[![MIT License](https://img.shields.io/badge/license-MIT-yellow)](https://github.com/baderouaich/tgbotxx/blob/main/LICENSE)
 [![Docs](https://codedocs.xyz/doxygen/doxygen.svg)](https://baderouaich.github.io/tgbotxx)
+[![Language](https://img.shields.io/badge/C++-20-blue.svg?style=flat&logo=c%2B%2B)](https://img.shields.io/badge/C++-20-blue.svg?style=flat&logo=c%2B%2B)
 
 # tgbotxx
 Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
+
+## Continuous Integration Build Status
+| Operating system | Build status |
+| ---------------- | ------------------ |
+| Ubuntu (x64)     | [![Ubuntu](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-ubuntu.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-ubuntu.yml) |
+| Windows (x64)    | [![Windows](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-windows.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-windows.yml) |
+| macOS            | [![macOS](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml)
 
 ### Example
 see [examples](examples/) for more samples:
@@ -214,7 +220,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link with tgbotxx
 ```
 
 </details>
-
 
 ### Ref:
 [Telegram Api Documentation](https://core.telegram.org/bots/api)
