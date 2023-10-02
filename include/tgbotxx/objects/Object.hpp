@@ -45,12 +45,12 @@ namespace nl = nlohmann;
       field = json[json_field].get<T>();                                                                                 \
     } catch(const std::exception& e) {                                                                                   \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Failed to deserialize \""                       \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Failed to deserialize \""                       \
       << json_field << "\" from json object: " << json.dump(2) << "\nReason: " << e.what();                              \
       throw Exception(err.str());                                                                                        \
     } catch(...) {                                                                                                       \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Failed to deserialize \""                       \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Failed to deserialize \""                       \
       << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
@@ -60,7 +60,7 @@ namespace nl = nlohmann;
     if(not (optional))                                                                                                   \
     {                                                                                                                    \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Missing required field \""                      \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Missing required field \""                      \
       << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
@@ -79,7 +79,7 @@ namespace nl = nlohmann;
     if(not (optional))                                                                                                   \
     {                                                                                                                    \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Missing required field \""                      \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Missing required field \""                      \
       << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
@@ -101,7 +101,7 @@ namespace nl = nlohmann;
     if(not (optional))                                                                                                   \
     {                                                                                                                    \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Missing required field \""                      \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Missing required field \""                      \
       << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \
@@ -131,7 +131,7 @@ namespace nl = nlohmann;
     if(not (optional))                                                                                                   \
     {                                                                                                                    \
       std::ostringstream err{};                                                                                          \
-      err << __FILE__ << ':' << __LINE__ <<": "<<__PRETTY_FUNCTION__<<": Missing required field \""                      \
+      err << __FILE__ << ':' << __LINE__ <<": "<<__FUNCTION__<<": Missing required field \""                      \
       << json_field << "\" from json object: " << json.dump(2);                                                          \
       throw Exception(err.str());                                                                                        \
     }                                                                                                                    \

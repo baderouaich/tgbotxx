@@ -49,9 +49,9 @@ nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &dat
     } catch (const nl::json::exception &e) {
         throw Exception(endpoint+": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
     } catch (const Exception &e) {
-        throw; // rethrow e
+        throw e; // rethrow e
     } catch (const std::exception &e) {
-        throw; // rethrow e
+        throw e; // rethrow e
     }
 }
 
@@ -73,7 +73,7 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
                                          const std::vector<std::string> &allowedUpdates) const {
     cpr::Multipart data = {
             {"offset",          offset},
-            {"limit",           std::max(1, std::min(100, limit))},
+            {"limit",           (std::max)(1, (std::min)(100, limit))},
             {"timeout",         timeout},
             {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
     };
