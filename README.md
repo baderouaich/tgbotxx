@@ -34,16 +34,13 @@ private:
       getApi()->deleteWebhook(true);
 
       // Register bot commands ...
-      std::vector<Ptr<BotCommand>> commands;
       Ptr<BotCommand> greet(new BotCommand());
       greet->command = "greet";
       greet->description = "This command will greet you";
-      commands.push_back(greet);
       Ptr<BotCommand> stop(new BotCommand());
       stop->command = "stop";
       stop->description = "Stop the bot";
-      commands.push_back(stop);
-      getApi()->setMyCommands(commands); // The above commands will be shown in the bot chat menu (bottom left)
+      getApi()->setMyCommands({greet, stop}); // The above commands will be shown in the bot chat menu (bottom left)
     }
     
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
