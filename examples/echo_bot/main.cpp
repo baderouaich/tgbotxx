@@ -60,8 +60,20 @@ private:
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
 };
 
-int main() {
-    EchoBot bot;
-    bot.start();
-    return EXIT_SUCCESS;
+int main(int argc, const char *argv[]) {
+  if (argc < 2) {
+    std::cerr << "Usage:\necho_bot \"BOT_TOKEN\"\n";
+    return EXIT_FAILURE;
+  }
+
+  static std::unique_ptr<EchoBot> BOT(new EchoBot(argv[1]));
+  std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
+    if(BOT) {
+      std::cout << "Stopping Bot. Please wait...\n";
+      BOT->stop();
+    }
+    std::exit(EXIT_SUCCESS);
+  });
+  BOT->start();
+  return EXIT_SUCCESS;
 }
