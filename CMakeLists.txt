@@ -21,15 +21,14 @@ include_directories(${CPR_INCLUDE_DIRS})
 
 
 ################# Main project ######################
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/**.cpp")
 file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx/**.hpp")
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS}) # TODO: allow build shared libs
+add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
 target_include_directories(${PROJECT_NAME}
         PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
