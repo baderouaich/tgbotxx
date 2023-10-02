@@ -12,11 +12,8 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 
 
 ################## Libraries ##########################
-## nlohmann json (single include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include)
 ## libcpr curl
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
-include_directories(${CPR_INCLUDE_DIRS})
 ######################################################
 
 
@@ -24,13 +21,16 @@ include_directories(${CPR_INCLUDE_DIRS})
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/**.cpp")
 file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx/**.hpp")
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
+add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS}) # Todo: allow building tgbotxx as a shared library
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 target_include_directories(${PROJECT_NAME}
-        PUBLIC
+    PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
-        )
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include # nlohmann json (single include)
+        ${CPR_INCLUDE_DIRS}                          # libcpr includes
+)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
 
 
