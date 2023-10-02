@@ -85,4 +85,5 @@
 
 /// Utils
 #include <tgbotxx/utils/StringUtils.hpp>
+#include <tgbotxx/utils/DateTimeUtils.hpp>
 #include <tgbotxx/utils/Ptr.hpp>
