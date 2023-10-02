@@ -135,7 +135,7 @@ void Bot::dispatchMessage(const Ptr<Message> &message) {
     } else if (atSymbolPosition == std::string::npos) {
       splitPosition = spacePosition;
     } else {
-      splitPosition = std::min(spacePosition, atSymbolPosition);
+      splitPosition = (std::min)(spacePosition, atSymbolPosition);
     }
     std::string command = message->text.substr(1, splitPosition - 1);
     std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();

@@ -73,7 +73,7 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
                                          const std::vector<std::string> &allowedUpdates) const {
     cpr::Multipart data = {
             {"offset",          offset},
-            {"limit",           std::max(1, std::min(100, limit))},
+            {"limit",           (std::max)(1, (std::min)(100, limit))},
             {"timeout",         timeout},
             {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
     };
