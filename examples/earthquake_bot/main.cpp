@@ -81,7 +81,7 @@ private:
     std::ostringstream oss{};
     oss << "New earthquake!\n"
         << "* Title: " << eqEvent["properties"]["title"].get<std::string>() << '\n'
-        << "* Date: " << eqEvent["properties"]["time"].get<std::time_t>() / 1000 << '\n'
+        << "* Date: " << DateTimeUtils::toString(eqEvent["properties"]["time"].get<std::time_t>() / 1000) << '\n'
         << "* Magnitude: " << eqEvent["properties"]["mag"].get<float>() << '\n'
         << "* Location: " << eqEvent["properties"]["place"].get<std::string>() << '\n'
         << "* Coordinates: (longitude: " << eqEvent["geometry"]["coordinates"][0].get<float>() << ", latitude: " << eqEvent["geometry"]["coordinates"][1].get<float>() << ")\n";
@@ -146,6 +146,7 @@ int main(int argc, const char *argv[]) {
 
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if(BOT) {
+      std::cout << "Stopping Bot. Please wait...\n";
       BOT->stop();
     }
     std::exit(EXIT_SUCCESS);
