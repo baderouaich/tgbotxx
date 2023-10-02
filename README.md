@@ -31,7 +31,7 @@ private:
     void onStart() override {
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
-      getApi()->deleteWebhook(true);
+      api()->deleteWebhook(true);
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
@@ -40,23 +40,26 @@ private:
       Ptr<BotCommand> stop(new BotCommand());
       stop->command = "stop";
       stop->description = "Stop the bot";
-      getApi()->setMyCommands({greet, stop}); // The above commands will be shown in the bot chat menu (bottom left)
+      api()->setMyCommands({greet, stop}); // The above commands will be shown in the bot chat menu (bottom left)
+      
+      std::cout << "Bot " << api()->getMe()->username << " Started\n";
     }
     
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
     void onStop() override {
-        /// Cleanup your code in this callback (close handles, backup data...)
+      /// Cleanup your code in this callback (close handles, backup data...)
+      std::cout << "Bot " << api()->getMe()->username << " Stopped\n";
     }
     
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
     void onAnyMessage(const Ptr<Message>& message) override {
-        getApi()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
+        api()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
     }
     
     /// Called when a new command is received (messages with leading '/' char).
     void onCommand(const Ptr<Message>& message) override {
       if(message->text == "/stop") {
-        getApi()->sendMessage(message->chat->id, "Bot stopping...");
+        api()->sendMessage(message->chat->id, "Bot stopping...");
         Bot::stop();
         return;
       }
@@ -100,25 +103,97 @@ int main() {
 ```
 
 
-### Installation
-#### Linux (tested on Ubuntu)
-```bash
+
+### Usage (4 approaches)
+#### 1. `FetchContent` *(recommended)*
+
+Simply use CMake's `FetchContent` in your project's `CMakeLists.txt` as below:
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(my_bot)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include(FetchContent)
+FetchContent_Declare(tgbotxx
+        GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
+        GIT_TAG         main
+        )
+FetchContent_MakeAvailable(tgbotxx)
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx)
+```
+
+#### 2. `PkgConfig`: clone and install the library locally, then use PkgConfig:
+<details>
+  <summary>example</summary>
+
+```shell
 git clone https://github.com/baderouaich/tgbotxx
 cd tgbotxx
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc)
-sudo make install
+sudo make install 
+# On Windows run `make install` as administrator 
 ```
 
-#### Windows
-TODO
-#### macOS
-TODO
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(my_bot)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## Use tgbotxx as a project submodule (without installation)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(tgbotxx REQUIRED tgbotxx)
+
+if(NOT tgbotxx_FOUND)
+  message(FATAL_ERROR "Did you install tgbotxx locally?")
+endif()
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARY_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PUBLIC ${tgbotxx_CFLAGS_OTHER})
+target_link_libraries(${PROJECT_NAME} PUBLIC  ${tgbotxx_LIBRARIES})
+```
+
+</details>
+
+#### 3. `find_package`: clone and install the library locally, then use find_package(tgbotxx REQUIRED):
+<details>
+  <summary>example</summary>
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(my_bot)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(tgbotxx REQUIRED)
+
+if(NOT tgbotxx_FOUND)
+  message(FATAL_ERROR "Did you install tgbotxx locally?")
+endif()
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARY_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PUBLIC ${tgbotxx_CFLAGS_OTHER})
+target_link_libraries(${PROJECT_NAME} PUBLIC  ${tgbotxx_LIBRARIES})
+```
+
+</details>
+
+#### 4. `Submodule`: Use tgbotxx as a project submodule (without installation)
+<details>
+  <summary>example</summary>
+
 You can also use this library as a submodule in your bot project without the need of installing it in your system.
 Use git clone or git submodule add the library:
+
 ```shell
 git submodule add https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
 ```
@@ -130,14 +205,16 @@ git clone https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
 Then add `add_subdirectory(lib/tgbotxx)` in your `CMakeLists.txt`.
 ```cmake
 cmake_minimum_required(VERSION 3.10)
-project(my_bot_project)
+project(my_bot)
 
-add_subdirectory(lib/tgbotxx) # <-- clone tgbotxx in your lib/ directory
-include_directories(lib/tgbotxx/include) # <-- include tgbotxx/ headers
+add_subdirectory(lib/tgbotxx) # <-- clone tgbotxx in your project's lib/ directory
 
 add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link to tgbotxx
+target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link with tgbotxx
 ```
+
+</details>
+
 
 ### Ref:
 [Telegram Api Documentation](https://core.telegram.org/bots/api)
