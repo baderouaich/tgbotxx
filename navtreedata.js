@@ -55,10 +55,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a-example.html",
-"functions_func_m.html",
-"structtgbotxx_1_1_chat_member.html#a5cb60873297379b590b8ac2863740b57",
-"structtgbotxx_1_1_keyboard_button.html#a446e6e44fd3f2d36ed48a6f93a5343be",
-"structtgbotxx_1_1_proximity_alert_triggered.html#a69a2986e4ea434ca5a481888fee02c64"
+"functions_func_g.html",
+"structtgbotxx_1_1_chat_location.html#a1e300b9bf2dc57eab5d3c744fb509589",
+"structtgbotxx_1_1_invoice.html#a9e4924d91d666d01a8c1196e03456b31",
+"structtgbotxx_1_1_pre_checkout_query.html#acf470b4d0abf2fabb3f70a0405757f9d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
