@@ -7,6 +7,7 @@ namespace tgbotxx {
     /// @brief This object represents an inline keyboard that appears right next to the message it belongs to.
     /// @ref https://core.telegram.org/bots/api#inlinekeyboardmarkup
     struct InlineKeyboardMarkup : IReplyMarkup {
+        InlineKeyboardMarkup() = default;
         explicit InlineKeyboardMarkup(const nl::json& json) {
             _fromJson(json);
         }
