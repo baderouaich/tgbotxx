@@ -1,4 +1,6 @@
 cmake-build-*
 build/
-.idea/*
+**/.idea/**
+**/.vscode/**
 tests/tests_bot_token.sh
+
