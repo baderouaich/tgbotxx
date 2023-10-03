@@ -1,0 +1,40 @@
+name: build-macos
+
+# build on pushes and pull requests on main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    # https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: macos-latest
+
+    steps:
+    # https://github.com/actions/checkout
+    - uses: actions/checkout@v4
+
+    # https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md#installed-software
+    # macos image comes with installed clang, cmake .. (except ninja-build)
+    - name: Install deps
+      run: |
+        brew install ninja
+
+    - name: Ensure deps are installed
+      run: |
+        cmake --version
+        clang++ --version
+        ninja --version
+
+    - name: Print system information
+      run: system_profiler SPSoftwareDataType SPHardwareDataType
+
+    - name: Build & run CText flow
+      run: |
+        mkdir cmake-build-debug && cd cmake-build-debug
+        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
+        ninja tests/all -j$(nproc)
+        ninja test
