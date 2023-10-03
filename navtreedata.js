@@ -57,8 +57,8 @@ var NAVTREEINDEX =
 "_a-example.html",
 "functions_func_g.html",
 "structtgbotxx_1_1_chat_location.html#a1e300b9bf2dc57eab5d3c744fb509589",
-"structtgbotxx_1_1_invoice.html#a90c996e738716f5c8e9a9db297bfdbf0",
-"structtgbotxx_1_1_pre_checkout_query.html#aca806e359521b52114dc98d11cbba141"
+"structtgbotxx_1_1_invoice.html#a702339cdd525340022142b1cf61f5525",
+"structtgbotxx_1_1_pre_checkout_query.html#ac6e7d2e9c703d1a91e9719c33805bcee"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
