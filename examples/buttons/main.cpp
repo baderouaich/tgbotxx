@@ -1,0 +1,82 @@
+#include "tgbotxx/objects/InlineQuery.hpp"
+#include <tgbotxx/tgbotxx.hpp>
+#include <iostream>
+#include <csignal>
+using namespace tgbotxx;
+
+class ButtonsBot : public Bot {
+public:
+  ButtonsBot(const std::string &token) : Bot(token) {}
+
+private:
+  void onStart() override {
+    Ptr<BotCommand> startCmd(new BotCommand());
+    startCmd->command = "/start";
+    startCmd->description = "Start the Bot";
+    api()->setMyCommands({ startCmd });
+
+    std::cout << "Bot " << api()->getMe()->username << " Started\n";
+  }
+
+  void onCommand(const Ptr<Message> &message) override
+  {
+      if(message->text == "/start")
+      {
+          /** === Create inline keyboard buttons === */
+          /// InlineKeyboardMarkup:
+          ///  row ->
+          ///  ______________   ______________
+          /// |     Yes     |  |      No     | <--- InlineKeyboardButton
+          /// --------------   --------------
+          Ptr<InlineKeyboardMarkup> keyboard(new InlineKeyboardMarkup());
+          std::vector<Ptr<InlineKeyboardButton>> row;
+          Ptr<InlineKeyboardButton> yesButton(new InlineKeyboardButton());
+          yesButton->text = "Yes";
+          yesButton->callbackData = "YesButton"; // will be received by below onCallbackQuery() method if the 'no' button was clicked.
+          row.push_back(yesButton);
+          Ptr<InlineKeyboardButton> noButton(new InlineKeyboardButton());
+          noButton->text = "No";
+          noButton->callbackData = "NoButton";  // will be received by below onCallbackQuery() method if the 'no' button was clicked.
+          row.push_back(noButton);
+          keyboard->inlineKeyboard.push_back(row);
+
+          api()->sendMessage(message->chat->id, "Hello! Please click a button:", 0, "", {}, false, false, false, 0, false, keyboard);
+      }
+  }
+
+  void onCallbackQuery(const Ptr<CallbackQuery>& callbackQuery) override
+  {
+      if(callbackQuery->data == "YesButton")  // callbackQuery->data will hold the InlineKeyboardButton::callbackData set above
+      {
+          api()->sendMessage(callbackQuery->message->chat->id, "You have clicked the 'Yes' button!");
+      }
+      else if(callbackQuery->data == "NoButton")
+      {
+          api()->sendMessage(callbackQuery->message->chat->id, "You have clicked the 'No' button!");
+      }
+  }
+
+  void onStop() override
+  {
+    std::cout << "Bot " << api()->getMe()->username << " Stopped\n";
+  }
+};
+
+
+int main(int argc, const char *argv[]) {
+  if (argc < 2) {
+    std::cerr << "Usage:\nbuttons \"BOT_TOKEN\"\n";
+    return EXIT_FAILURE;
+  }
+
+  static std::unique_ptr<ButtonsBot> BOT(new ButtonsBot(argv[1]));
+  std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
+    if(BOT) {
+      std::cout << "Stopping Bot. Please wait...\n";
+      BOT->stop();
+    }
+    std::exit(EXIT_SUCCESS);
+  });
+  BOT->start();
+  return EXIT_SUCCESS;
+}
