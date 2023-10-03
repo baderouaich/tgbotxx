@@ -36,5 +36,5 @@ jobs:
         mkdir cmake-build-debug && cd cmake-build-debug
         cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
         export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
-        ninja tests/all -j$(nproc)
+        ninja tests/all -j$(sysctl -n hw.logicalcpu)
         ninja test
