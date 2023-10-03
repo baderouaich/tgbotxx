@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_voice =
 [
+    [ "Voice", "structtgbotxx_1_1_voice.html#ac56c4b4a9a8b63b505dc9e2c62115777", null ],
     [ "Voice", "structtgbotxx_1_1_voice.html#af506352a0712bc2eec5584768d86c195", null ],
     [ "fromJson", "structtgbotxx_1_1_voice.html#a8a3a23f1da24990f50f8eb03230fdc32", null ],
     [ "toJson", "structtgbotxx_1_1_voice.html#ad7dbd827d790d2425e21ef25ac316b82", null ],

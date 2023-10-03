@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_location =
 [
+    [ "Location", "structtgbotxx_1_1_location.html#a4bfa07dcb7d3932220862298425c0847", null ],
     [ "Location", "structtgbotxx_1_1_location.html#a854696948bbc27f98fdd3fbe3440b524", null ],
     [ "fromJson", "structtgbotxx_1_1_location.html#abbfe5eff5188cf88d1c01a38132ffb92", null ],
     [ "toJson", "structtgbotxx_1_1_location.html#ad283fad5e56953b283f4f74b54d3d908", null ],

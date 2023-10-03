@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_login_url =
 [
+    [ "LoginUrl", "structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2", null ],
     [ "LoginUrl", "structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977", null ],
     [ "fromJson", "structtgbotxx_1_1_login_url.html#abb91873363874cd600c6002b84f2ae8c", null ],
     [ "toJson", "structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8", null ],

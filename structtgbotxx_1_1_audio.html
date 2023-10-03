@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_audio.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a953255898280192bca9b09cf9f5aaa70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70">Audio</a> ()=default</td></tr>
+<tr class="separator:a953255898280192bca9b09cf9f5aaa70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab53455676939473f6dd5cbdfaa17975b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b">Audio</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:ab53455676939473f6dd5cbdfaa17975b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee6411b6ee26b17d76dd98bf80cee985"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#aee6411b6ee26b17d76dd98bf80cee985">toJson</a> () const</td></tr>
@@ -116,7 +118,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a075e7f064468a8a28f0b7152592d4288"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a075e7f064468a8a28f0b7152592d4288">fileUniqueId</a></td></tr>
 <tr class="memdesc:a075e7f064468a8a28f0b7152592d4288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.  <a href="structtgbotxx_1_1_audio.html#a075e7f064468a8a28f0b7152592d4288">More...</a><br /></td></tr>
 <tr class="separator:a075e7f064468a8a28f0b7152592d4288"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bcc4424e5cede31039413ecfdfe553c"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a9bcc4424e5cede31039413ecfdfe553c">duration</a></td></tr>
+<tr class="memitem:a9bcc4424e5cede31039413ecfdfe553c"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a9bcc4424e5cede31039413ecfdfe553c">duration</a> {}</td></tr>
 <tr class="memdesc:a9bcc4424e5cede31039413ecfdfe553c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the audio in seconds as defined by sender.  <a href="structtgbotxx_1_1_audio.html#a9bcc4424e5cede31039413ecfdfe553c">More...</a><br /></td></tr>
 <tr class="separator:a9bcc4424e5cede31039413ecfdfe553c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3ed2d898d4f26804346e7f6b821074b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#af3ed2d898d4f26804346e7f6b821074b">performer</a></td></tr>
@@ -131,7 +133,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad088ad436e62950619e0eec5489bc8a9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#ad088ad436e62950619e0eec5489bc8a9">mimeType</a></td></tr>
 <tr class="memdesc:ad088ad436e62950619e0eec5489bc8a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. MIME type of the file as defined by sender.  <a href="structtgbotxx_1_1_audio.html#ad088ad436e62950619e0eec5489bc8a9">More...</a><br /></td></tr>
 <tr class="separator:ad088ad436e62950619e0eec5489bc8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71ae7821dd9ff725a2a8f40ba3f06854"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a71ae7821dd9ff725a2a8f40ba3f06854">fileSize</a></td></tr>
+<tr class="memitem:a71ae7821dd9ff725a2a8f40ba3f06854"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a71ae7821dd9ff725a2a8f40ba3f06854">fileSize</a> {}</td></tr>
 <tr class="memdesc:a71ae7821dd9ff725a2a8f40ba3f06854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.  <a href="structtgbotxx_1_1_audio.html#a71ae7821dd9ff725a2a8f40ba3f06854">More...</a><br /></td></tr>
 <tr class="separator:a71ae7821dd9ff725a2a8f40ba3f06854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a44dac13f358a6f5bcf9a4e495f0ef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_photo_size.html">PhotoSize</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_audio.html#a5a44dac13f358a6f5bcf9a4e495f0ef5">thumbnail</a></td></tr>
@@ -143,8 +145,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00008">8</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a953255898280192bca9b09cf9f5aaa70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953255898280192bca9b09cf9f5aaa70">&#9670;&nbsp;</a></span>Audio() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::Audio::Audio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab53455676939473f6dd5cbdfaa17975b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab53455676939473f6dd5cbdfaa17975b">&#9670;&nbsp;</a></span>Audio()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53455676939473f6dd5cbdfaa17975b">&#9670;&nbsp;</a></span>Audio() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +194,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00009">9</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00010">10</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -198,7 +225,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00061">61</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00062">62</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -228,7 +255,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00046">46</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00047">47</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -240,14 +267,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Audio::duration</td>
+          <td class="memname">std::int32_t tgbotxx::Audio::duration {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Duration of the audio in seconds as defined by sender. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00021">21</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00022">22</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +292,7 @@ Public Attributes</h2></td></tr>
 
 <p>Identifier for this file, which can be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00014">14</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00015">15</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +310,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Original filename as defined by sender. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00030">30</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00031">31</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -294,14 +321,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Audio::fileSize</td>
+          <td class="memname">std::int64_t tgbotxx::Audio::fileSize {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00038">38</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00039">39</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -319,7 +346,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00018">18</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00019">19</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +364,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. MIME type of the file as defined by sender. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00033">33</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00034">34</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +382,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Performer of the audio as defined by sender or by audio tags. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00024">24</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00025">25</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -373,7 +400,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Thumbnail of the album cover to which the music file belongs. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00041">41</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00042">42</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -391,7 +418,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Title of the audio as defined by sender or by audio tags. </p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00027">27</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_8hpp_source.html#l00028">28</a> of file <a class="el" href="_audio_8hpp_source.html">Audio.hpp</a>.</p>
 
 </div>
 </div>
@@ -404,7 +431,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_audio.html">Audio</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:54 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

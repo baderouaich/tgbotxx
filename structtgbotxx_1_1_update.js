@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_update =
 [
+    [ "Update", "structtgbotxx_1_1_update.html#a12d683309c92dd801b76ba53a6b7595d", null ],
     [ "Update", "structtgbotxx_1_1_update.html#abc8c011d7e36dca28d656277f642a3d0", null ],
     [ "fromJson", "structtgbotxx_1_1_update.html#a41e39723a6d3caf57f75cdb93a280d08", null ],
     [ "toJson", "structtgbotxx_1_1_update.html#a1c753d0dbbef6d4663939253e7109c2a", null ],

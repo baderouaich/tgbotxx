@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_join_request =
 [
+    [ "ChatJoinRequest", "structtgbotxx_1_1_chat_join_request.html#a1393f4c6753bdd9c6eeedbdd8f8d66c3", null ],
     [ "ChatJoinRequest", "structtgbotxx_1_1_chat_join_request.html#ad036b61d9f759e0b16f50498cb1b7fb9", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_join_request.html#a3fe7e350aa49da60606d0a7cf2689d36", null ],
     [ "toJson", "structtgbotxx_1_1_chat_join_request.html#af5b31683eb0f5b067d8b74e936b98732", null ],

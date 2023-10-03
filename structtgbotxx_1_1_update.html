@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_update.html',''); in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a12d683309c92dd801b76ba53a6b7595d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#a12d683309c92dd801b76ba53a6b7595d">Update</a> ()=default</td></tr>
+<tr class="separator:a12d683309c92dd801b76ba53a6b7595d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc8c011d7e36dca28d656277f642a3d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#abc8c011d7e36dca28d656277f642a3d0">Update</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:abc8c011d7e36dca28d656277f642a3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c753d0dbbef6d4663939253e7109c2a"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#a1c753d0dbbef6d4663939253e7109c2a">toJson</a> () const</td></tr>
@@ -110,7 +112,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aeb974f6a13a456ac808c6ece4901d931"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#aeb974f6a13a456ac808c6ece4901d931">updateId</a></td></tr>
+<tr class="memitem:aeb974f6a13a456ac808c6ece4901d931"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#aeb974f6a13a456ac808c6ece4901d931">updateId</a> {}</td></tr>
 <tr class="memdesc:aeb974f6a13a456ac808c6ece4901d931"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update's unique identifier. <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.  <a href="structtgbotxx_1_1_update.html#aeb974f6a13a456ac808c6ece4901d931">More...</a><br /></td></tr>
 <tr class="separator:aeb974f6a13a456ac808c6ece4901d931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b46ec0f6a8d9a54c25e5d5e3c4b474"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_update.html#a06b46ec0f6a8d9a54c25e5d5e3c4b474">message</a></td></tr>
@@ -161,8 +163,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00018">18</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a12d683309c92dd801b76ba53a6b7595d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d683309c92dd801b76ba53a6b7595d">&#9670;&nbsp;</a></span>Update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::Update::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abc8c011d7e36dca28d656277f642a3d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc8c011d7e36dca28d656277f642a3d0">&#9670;&nbsp;</a></span>Update()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abc8c011d7e36dca28d656277f642a3d0">&#9670;&nbsp;</a></span>Update() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +212,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00019">19</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00020">20</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +243,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00096">96</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00097">97</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -246,7 +273,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00075">75</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00076">76</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +292,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming callback query. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00050">50</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00051">51</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +310,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming channel post of any kind — text, photo, sticker, etc. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00037">37</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00038">38</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +328,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Optional. A request to join the chat has been sent. The bot must have the can_invite_users administrator right in the chat to receive these updates. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00071">71</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00072">72</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -319,7 +346,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. A chat member's status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify “chat_member” in the list of allowed_updates to receive these updates. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00068">68</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00069">69</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +364,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00047">47</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00048">48</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +382,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New version of a channel post that is known to the bot and was edited. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00040">40</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00041">41</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -373,7 +400,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New version of a message that is known to the bot and was edited. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00034">34</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00035">35</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -391,7 +418,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming inline query. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00043">43</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00044">44</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +436,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming message of any kind — text, photo, sticker, etc. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00031">31</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00032">32</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -427,7 +454,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. The bot's chat member status was updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00065">65</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00066">66</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -445,7 +472,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New poll state. Bots receive only updates about stopped polls and polls, which are sent by the bot. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00059">59</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00060">60</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -463,7 +490,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by the bot itself. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00062">62</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00063">63</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -481,7 +508,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming pre-checkout query. Contains full information about checkout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00056">56</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00057">57</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -499,7 +526,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New incoming shipping query. Only for invoices with flexible price. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00053">53</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00054">54</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -510,14 +537,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Update::updateId</td>
+          <td class="memname">std::int32_t tgbotxx::Update::updateId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The update's unique identifier. <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially. </p>
 
-<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00028">28</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_8hpp_source.html#l00029">29</a> of file <a class="el" href="_update_8hpp_source.html">Update.hpp</a>.</p>
 
 </div>
 </div>
@@ -530,7 +557,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_update.html">Update</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

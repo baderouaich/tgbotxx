@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_switch_inline_query_chosen_chat =
 [
+    [ "SwitchInlineQueryChosenChat", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a83103bbad87aabd7011ed195404ec45b", null ],
     [ "SwitchInlineQueryChosenChat", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a13851f182ee689c851834a98b14ff27b", null ],
     [ "fromJson", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ac31664f9446ac8e791d0c0e3b47139fa", null ],
     [ "toJson", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ac5bd21debdd5e802e119154293ed2403", null ],

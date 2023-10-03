@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_game =
 [
+    [ "Game", "structtgbotxx_1_1_game.html#acdba6534b1fe46c115ff67d94bbe5b7e", null ],
     [ "Game", "structtgbotxx_1_1_game.html#a342390bb3ff784f5f2948455d0149e8c", null ],
     [ "fromJson", "structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d", null ],
     [ "toJson", "structtgbotxx_1_1_game.html#a97acdc5f40057870177c807d47e02cc7", null ],

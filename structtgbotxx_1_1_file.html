@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_file.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab65c5ece205537a3a6efa095ddcb8f9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#ab65c5ece205537a3a6efa095ddcb8f9e">File</a> ()=default</td></tr>
+<tr class="separator:ab65c5ece205537a3a6efa095ddcb8f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4ec6eb5618071596d21ee1d924480e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#aa4ec6eb5618071596d21ee1d924480e4">File</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:aa4ec6eb5618071596d21ee1d924480e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b672a4eb039787398f8656f5cd3c02"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#a88b672a4eb039787398f8656f5cd3c02">toJson</a> () const</td></tr>
@@ -116,7 +118,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad7bb9d2657d971eb8bfeb01f18f352c1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#ad7bb9d2657d971eb8bfeb01f18f352c1">fileUniqueId</a></td></tr>
 <tr class="memdesc:ad7bb9d2657d971eb8bfeb01f18f352c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.  <a href="structtgbotxx_1_1_file.html#ad7bb9d2657d971eb8bfeb01f18f352c1">More...</a><br /></td></tr>
 <tr class="separator:ad7bb9d2657d971eb8bfeb01f18f352c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c6b13a85510557a743cb83d5e19a148"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#a9c6b13a85510557a743cb83d5e19a148">fileSize</a></td></tr>
+<tr class="memitem:a9c6b13a85510557a743cb83d5e19a148"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#a9c6b13a85510557a743cb83d5e19a148">fileSize</a> {}</td></tr>
 <tr class="memdesc:a9c6b13a85510557a743cb83d5e19a148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.  <a href="structtgbotxx_1_1_file.html#a9c6b13a85510557a743cb83d5e19a148">More...</a><br /></td></tr>
 <tr class="separator:a9c6b13a85510557a743cb83d5e19a148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65ae3bbbc5b6745efbe300297a1a73c4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_file.html#a65ae3bbbc5b6745efbe300297a1a73c4">filePath</a></td></tr>
@@ -130,8 +132,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00013">13</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab65c5ece205537a3a6efa095ddcb8f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65c5ece205537a3a6efa095ddcb8f9e">&#9670;&nbsp;</a></span>File() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::File::File </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa4ec6eb5618071596d21ee1d924480e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4ec6eb5618071596d21ee1d924480e4">&#9670;&nbsp;</a></span>File()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ec6eb5618071596d21ee1d924480e4">&#9670;&nbsp;</a></span>File() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +181,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00014">14</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00015">15</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +212,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00045">45</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00046">46</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -215,7 +242,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00035">35</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00036">36</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -234,7 +261,7 @@ Public Attributes</h2></td></tr>
 
 <p>Identifier for this file, which can be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00019">19</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00020">20</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -252,7 +279,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> path. Use <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt; to get the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00031">31</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00032">32</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -263,14 +290,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::File::fileSize</td>
+          <td class="memname">std::int64_t tgbotxx::File::fileSize {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00028">28</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00029">29</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -288,7 +315,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00023">23</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_8hpp_source.html#l00024">24</a> of file <a class="el" href="_file_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +328,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_file.html">File</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

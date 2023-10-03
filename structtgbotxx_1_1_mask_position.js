@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_mask_position =
 [
+    [ "MaskPosition", "structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe", null ],
     [ "MaskPosition", "structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29", null ],
     [ "fromJson", "structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5", null ],
     [ "toJson", "structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3", null ],

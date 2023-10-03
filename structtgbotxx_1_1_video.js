@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_video =
 [
+    [ "Video", "structtgbotxx_1_1_video.html#a0b22f1e26a945f920230ad66a6a60e2b", null ],
     [ "Video", "structtgbotxx_1_1_video.html#a81280d60c801fe28ef8c64785395143e", null ],
     [ "fromJson", "structtgbotxx_1_1_video.html#aa237fd3b430dec6a88bf4911eb48899d", null ],
     [ "toJson", "structtgbotxx_1_1_video.html#a91437de2db276ac4d9c504f45d73b3b5", null ],

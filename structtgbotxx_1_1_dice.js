@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_dice =
 [
+    [ "Dice", "structtgbotxx_1_1_dice.html#aa131fbb96794aadca664dff7de820e3a", null ],
     [ "Dice", "structtgbotxx_1_1_dice.html#a0c705259848759d13c648f69dc79af13", null ],
     [ "fromJson", "structtgbotxx_1_1_dice.html#aa4e0b0267bdc80033420d278c2486d5d", null ],
     [ "toJson", "structtgbotxx_1_1_dice.html#a88b1d47bbd0309399fafa557f6ba660c", null ],

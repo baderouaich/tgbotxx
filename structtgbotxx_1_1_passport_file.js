@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_passport_file =
 [
+    [ "PassportFile", "structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433", null ],
     [ "PassportFile", "structtgbotxx_1_1_passport_file.html#af9a8156ea4c1a618160b3cb11b5ff342", null ],
     [ "fromJson", "structtgbotxx_1_1_passport_file.html#a1e1dc3b62bbecd4ab6910701b87bff49", null ],
     [ "toJson", "structtgbotxx_1_1_passport_file.html#a815b95a38af51858824cc6b18b2e3e5a", null ],

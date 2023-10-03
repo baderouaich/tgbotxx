@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_photo_size =
 [
+    [ "PhotoSize", "structtgbotxx_1_1_photo_size.html#a24f75c6c6a5920661ccf92e6ebf17e77", null ],
     [ "PhotoSize", "structtgbotxx_1_1_photo_size.html#ac084766aa167749f2d9085400642721e", null ],
     [ "fromJson", "structtgbotxx_1_1_photo_size.html#aa3cad870e39f398c3e0745b05c03551f", null ],
     [ "toJson", "structtgbotxx_1_1_photo_size.html#a49cd1be8726a919416809bbdea66457f", null ],

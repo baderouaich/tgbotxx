@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_successful_payment =
 [
+    [ "SuccessfulPayment", "structtgbotxx_1_1_successful_payment.html#add0db65876525c477e470d752171aa27", null ],
     [ "SuccessfulPayment", "structtgbotxx_1_1_successful_payment.html#a65dad6c79ce7f5a98052075e0fcbadc6", null ],
     [ "fromJson", "structtgbotxx_1_1_successful_payment.html#aa9fb73f9435d3e6d833bb01edb3c629a", null ],
     [ "toJson", "structtgbotxx_1_1_successful_payment.html#a04eda8d371c4ebc3904c4d1eec2afd2c", null ],

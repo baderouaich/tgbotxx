@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_venue =
 [
+    [ "Venue", "structtgbotxx_1_1_venue.html#ad8b22231c003d385018a3d5a31a315fb", null ],
     [ "Venue", "structtgbotxx_1_1_venue.html#a0d08447115f3b08a5fab9a12bc86b72b", null ],
     [ "fromJson", "structtgbotxx_1_1_venue.html#a8a68d61175b0a8030f99a0b46c64d488", null ],
     [ "toJson", "structtgbotxx_1_1_venue.html#aff446847bb0c67dc794defa2ddd6eed5", null ],

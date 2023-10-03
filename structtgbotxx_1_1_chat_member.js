@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_member =
 [
+    [ "ChatMember", "structtgbotxx_1_1_chat_member.html#af2c4c6ad199440e1a4bbcf87cd080443", null ],
     [ "ChatMember", "structtgbotxx_1_1_chat_member.html#a44b745ca0969f5a296ec4b5fe4c1ca83", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_member.html#a5cb60873297379b590b8ac2863740b57", null ],
     [ "toJson", "structtgbotxx_1_1_chat_member.html#adee0f0e75d5b4cb90e372e6c59f6dfd9", null ],

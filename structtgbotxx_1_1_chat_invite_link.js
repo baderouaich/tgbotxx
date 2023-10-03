@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_invite_link =
 [
+    [ "ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html#ab992152b781844ff46582825c20356e9", null ],
     [ "ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html#a9c47e4f3f3f41f0f0cd96e423035f500", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_invite_link.html#a3b7bdbeca9cf0610315b969e389c1235", null ],
     [ "toJson", "structtgbotxx_1_1_chat_invite_link.html#a584af25b574574cedecbc2876da6574d", null ],

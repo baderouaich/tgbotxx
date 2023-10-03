@@ -88,27 +88,27 @@ $(document).ready(function(){initNavTree('_date_time_utils_8hpp_source.html','')
 </div><!--header-->
 <div class="contents">
 <a href="_date_time_utils_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetgbotxx.html">tgbotxx</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html">    6</a></span>&#160;    <span class="keyword">namespace </span>DateTimeUtils {</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">   10</a></span>&#160;        std::string <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">toString</a>(<span class="keyword">const</span> std::time_t &amp;time, <span class="keyword">const</span> std::string_view &amp;format = <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordtype">char</span> buffer[64]{};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            std::tm *tm_ = std::localtime(&amp;time);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            std::strftime(buffer, <span class="keyword">sizeof</span>(buffer), format.data(), tm_);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <span class="keywordflow">return</span> std::string{buffer};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">   20</a></span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">currentDateTime</a>(<span class="keyword">const</span> std::string_view&amp; format = <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordtype">char</span> buffer[64]{};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            std::time_t now = std::time(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">toString</a>(now);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="ttc" id="anamespacetgbotxx_1_1_date_time_utils_html_a7aa36db8fde9ad02848154d5ef1a84df"><div class="ttname"><a href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">tgbotxx::DateTimeUtils::toString</a></div><div class="ttdeci">std::string toString(const std::time_t &amp;time, const std::string_view &amp;format=&quot;%Y-%m-%d %H:%M:%S&quot;)</div><div class="ttdoc">Converts an std::time_t to a string date time with a specific format.</div><div class="ttdef"><b>Definition:</b> <a href="_date_time_utils_8hpp_source.html#l00010">DateTimeUtils.hpp:10</a></div></div>
-<div class="ttc" id="anamespacetgbotxx_1_1_date_time_utils_html_a859e64342f377102da429d1318ffa339"><div class="ttname"><a href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">tgbotxx::DateTimeUtils::currentDateTime</a></div><div class="ttdeci">static std::string currentDateTime(const std::string_view &amp;format=&quot;%Y-%m-%d %H:%M:%S&quot;)</div><div class="ttdoc">returns current date and time as a string with a specific format</div><div class="ttdef"><b>Definition:</b> <a href="_date_time_utils_8hpp_source.html#l00020">DateTimeUtils.hpp:20</a></div></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html">    7</a></span>&#160;  <span class="keyword">namespace </span>DateTimeUtils {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">   12</a></span>&#160;    std::string <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">toString</a>(<span class="keyword">const</span> std::time_t&amp; time, <span class="keyword">const</span> std::string_view&amp; format = <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      <span class="keywordtype">char</span> buffer[64]{};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      std::tm *tm_ = std::localtime(&amp;time);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      std::strftime(buffer, <span class="keyword">sizeof</span>(buffer), format.data(), tm_);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="keywordflow">return</span> std::string{buffer};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">   22</a></span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">currentDateTime</a>(<span class="keyword">const</span> std::string_view&amp; format = <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keywordtype">char</span> buffer[64]{};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      std::time_t now = std::time(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">toString</a>(now);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="ttc" id="anamespacetgbotxx_1_1_date_time_utils_html_a7aa36db8fde9ad02848154d5ef1a84df"><div class="ttname"><a href="namespacetgbotxx_1_1_date_time_utils.html#a7aa36db8fde9ad02848154d5ef1a84df">tgbotxx::DateTimeUtils::toString</a></div><div class="ttdeci">std::string toString(const std::time_t &amp;time, const std::string_view &amp;format=&quot;%Y-%m-%d %H:%M:%S&quot;)</div><div class="ttdoc">Converts an std::time_t to a string date time with a specific format.</div><div class="ttdef"><b>Definition:</b> <a href="_date_time_utils_8hpp_source.html#l00012">DateTimeUtils.hpp:12</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_1_1_date_time_utils_html_a859e64342f377102da429d1318ffa339"><div class="ttname"><a href="namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339">tgbotxx::DateTimeUtils::currentDateTime</a></div><div class="ttdeci">static std::string currentDateTime(const std::string_view &amp;format=&quot;%Y-%m-%d %H:%M:%S&quot;)</div><div class="ttdoc">returns current date and time as a string with a specific format</div><div class="ttdef"><b>Definition:</b> <a href="_date_time_utils_8hpp_source.html#l00022">DateTimeUtils.hpp:22</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_8hpp_source.html#l00086">Api.hpp:86</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('_date_time_utils_8hpp_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_0a686d04ada01e782ce20d676fccf00f.html">utils</a></li><li class="navelem"><a class="el" href="_date_time_utils_8hpp.html">DateTimeUtils.hpp</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:54 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

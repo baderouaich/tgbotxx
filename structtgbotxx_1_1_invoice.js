@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_invoice =
 [
+    [ "Invoice", "structtgbotxx_1_1_invoice.html#ae320959d2075c13d8ceb94e8b892517f", null ],
     [ "Invoice", "structtgbotxx_1_1_invoice.html#aea7d41b4d6f4d63e1b3bd6000d16473e", null ],
     [ "fromJson", "structtgbotxx_1_1_invoice.html#a6a25d820a6da009109c100f0068a161e", null ],
     [ "toJson", "structtgbotxx_1_1_invoice.html#a9e4924d91d666d01a8c1196e03456b31", null ],

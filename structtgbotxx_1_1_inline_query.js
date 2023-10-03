@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_inline_query =
 [
+    [ "InlineQuery", "structtgbotxx_1_1_inline_query.html#a3a56a9740fdf4e9d8d587639b9499281", null ],
     [ "InlineQuery", "structtgbotxx_1_1_inline_query.html#a63993c5779088813989e1168b5264474", null ],
     [ "fromJson", "structtgbotxx_1_1_inline_query.html#ad95bf56c14696d512f0222871151c963", null ],
     [ "toJson", "structtgbotxx_1_1_inline_query.html#a2eef2ab84c6dce67d924d4ad3abbc9ce", null ],

@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_pre_checkout_query =
 [
+    [ "PreCheckoutQuery", "structtgbotxx_1_1_pre_checkout_query.html#a83898f960c278b68ba1cf0ea94adadd6", null ],
     [ "PreCheckoutQuery", "structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79", null ],
     [ "fromJson", "structtgbotxx_1_1_pre_checkout_query.html#aea89569df1c64926ab3fe06d330739d3", null ],
     [ "toJson", "structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c", null ],

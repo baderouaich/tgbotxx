@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_animation =
 [
+    [ "Animation", "structtgbotxx_1_1_animation.html#a54e5a295e9dd3cbf427062bee7c32166", null ],
     [ "Animation", "structtgbotxx_1_1_animation.html#a370ffd45d6d4d1fa0182ecdb1109e71d", null ],
     [ "fromJson", "structtgbotxx_1_1_animation.html#af6d8055a88c5ed1f8fbdd6052eb56975", null ],
     [ "toJson", "structtgbotxx_1_1_animation.html#ae756cda4bc5f6de837f1b815c84d0c21", null ],

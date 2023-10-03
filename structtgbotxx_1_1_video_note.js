@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_video_note =
 [
+    [ "VideoNote", "structtgbotxx_1_1_video_note.html#a04d718b297abc5b8da97e8ebadf4e60d", null ],
     [ "VideoNote", "structtgbotxx_1_1_video_note.html#a59997fa0acca2014fd520bab0f9875d3", null ],
     [ "fromJson", "structtgbotxx_1_1_video_note.html#a300bda7799f61c326bc2f871fd80636d", null ],
     [ "toJson", "structtgbotxx_1_1_video_note.html#aaefefc32de6afeb0de89b0b7cce6419e", null ],

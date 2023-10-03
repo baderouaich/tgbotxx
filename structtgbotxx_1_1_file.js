@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_file =
 [
+    [ "File", "structtgbotxx_1_1_file.html#ab65c5ece205537a3a6efa095ddcb8f9e", null ],
     [ "File", "structtgbotxx_1_1_file.html#aa4ec6eb5618071596d21ee1d924480e4", null ],
     [ "fromJson", "structtgbotxx_1_1_file.html#a38b5c7b9021c4b4b58363917bcf5d8b4", null ],
     [ "toJson", "structtgbotxx_1_1_file.html#a88b672a4eb039787398f8656f5cd3c02", null ],

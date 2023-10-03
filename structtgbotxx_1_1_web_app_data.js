@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_web_app_data =
 [
+    [ "WebAppData", "structtgbotxx_1_1_web_app_data.html#a65596f3c1c525311781235a93b7f54e8", null ],
     [ "WebAppData", "structtgbotxx_1_1_web_app_data.html#ae6ae74a8e49464221b1439656081ed11", null ],
     [ "fromJson", "structtgbotxx_1_1_web_app_data.html#a33312d35ebe4d552f55a63d908c346b5", null ],
     [ "toJson", "structtgbotxx_1_1_web_app_data.html#acf8ab54bdd80b4bcb44e5bde9960a004", null ],

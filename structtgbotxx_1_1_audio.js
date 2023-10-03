@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_audio =
 [
+    [ "Audio", "structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70", null ],
     [ "Audio", "structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b", null ],
     [ "fromJson", "structtgbotxx_1_1_audio.html#a1a226f238b687ea71a8af75f7e0c0255", null ],
     [ "toJson", "structtgbotxx_1_1_audio.html#aee6411b6ee26b17d76dd98bf80cee985", null ],

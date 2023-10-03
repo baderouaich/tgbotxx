@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_forum_topic_created =
 [
+    [ "ForumTopicCreated", "structtgbotxx_1_1_forum_topic_created.html#aa90bb6303a545ba470c51f682bfb1d19", null ],
     [ "ForumTopicCreated", "structtgbotxx_1_1_forum_topic_created.html#a9fe224d288764ec0546d6d6da7655fc6", null ],
     [ "fromJson", "structtgbotxx_1_1_forum_topic_created.html#a9473158a03bd601609dc650d6427c63b", null ],
     [ "toJson", "structtgbotxx_1_1_forum_topic_created.html#a3eae0034fa3e50b720535d3f7fe19db0", null ],

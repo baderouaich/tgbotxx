@@ -6,6 +6,7 @@ var structtgbotxx_1_1_chat =
       [ "Supergroup", "structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a9c306d98196730ac00fc621998b4a8f5", null ],
       [ "Channel", "structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a781dc97dc62331eec3ea9ec4373a3ca8", null ]
     ] ],
+    [ "Chat", "structtgbotxx_1_1_chat.html#ad9e097cac98b6d4165c645f0d6e1ec2b", null ],
     [ "Chat", "structtgbotxx_1_1_chat.html#ab161214a433db43f56d10d079f4195cd", null ],
     [ "fromJson", "structtgbotxx_1_1_chat.html#aaff61800627cf528206f485bee8dbb12", null ],
     [ "Str2Type", "structtgbotxx_1_1_chat.html#ad76e417e68b9954cfa739a72f79df683", null ],

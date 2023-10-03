@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_encrypted_passport_element =
 [
+    [ "EncryptedPassportElement", "structtgbotxx_1_1_encrypted_passport_element.html#a9655c53c1d84ac999054a9afb012568f", null ],
     [ "EncryptedPassportElement", "structtgbotxx_1_1_encrypted_passport_element.html#a12e3ed0ea6de8a64cae282f3c7924d3b", null ],
     [ "fromJson", "structtgbotxx_1_1_encrypted_passport_element.html#a61b2859fc8675b576d4880a05f6251b2", null ],
     [ "toJson", "structtgbotxx_1_1_encrypted_passport_element.html#a8a76f53d1fdc8b127e2304908b1d2d7f", null ],

@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_shipping_address =
 [
+    [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html#a8139363b4f8c3dc873ba143a511592f6", null ],
     [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html#ac2139452cb3b98439397422fb42b578d", null ],
     [ "fromJson", "structtgbotxx_1_1_shipping_address.html#ac62a134610b0437109d9aa3aa1256d13", null ],
     [ "toJson", "structtgbotxx_1_1_shipping_address.html#a7cb094d6bca38bcc10e95f9dd31e7372", null ],

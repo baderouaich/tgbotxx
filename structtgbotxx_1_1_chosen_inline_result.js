@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chosen_inline_result =
 [
+    [ "ChosenInlineResult", "structtgbotxx_1_1_chosen_inline_result.html#a9a77f8bbb65d829bfbfa461ba43a08cf", null ],
     [ "ChosenInlineResult", "structtgbotxx_1_1_chosen_inline_result.html#a1c31b4d99787f598d6ab0f092d58581f", null ],
     [ "fromJson", "structtgbotxx_1_1_chosen_inline_result.html#a4b33cc7a9df08e4ed29b8f7f0a08d6df", null ],
     [ "toJson", "structtgbotxx_1_1_chosen_inline_result.html#ad893d62785c1231ae6f1a5d65177a531", null ],

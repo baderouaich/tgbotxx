@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_write_access_allowed =
 [
+    [ "WriteAccessAllowed", "structtgbotxx_1_1_write_access_allowed.html#a929947c26223a67272814d849150c928", null ],
     [ "WriteAccessAllowed", "structtgbotxx_1_1_write_access_allowed.html#a0f5df4c52b445e423b31b096d4fd5822", null ],
     [ "fromJson", "structtgbotxx_1_1_write_access_allowed.html#a0cd26bb6adabaac2af080016eb5b6f4f", null ],
     [ "toJson", "structtgbotxx_1_1_write_access_allowed.html#ade558a000632313581e72ee926c404dd", null ],

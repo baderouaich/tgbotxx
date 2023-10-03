@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_keyboard_button_poll_type =
 [
+    [ "KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html#aeff7f71c66615341a197520db3ec77c9", null ],
     [ "KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html#a53ba791055afd7d322f85f2b7658f755", null ],
     [ "fromJson", "structtgbotxx_1_1_keyboard_button_poll_type.html#a51502d93e52abbc3e09be8658c7a594e", null ],
     [ "toJson", "structtgbotxx_1_1_keyboard_button_poll_type.html#ae8722e2b04aef0b7ed7332d9e971c4b5", null ],

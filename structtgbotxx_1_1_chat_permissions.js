@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_permissions =
 [
+    [ "ChatPermissions", "structtgbotxx_1_1_chat_permissions.html#a84fb9b62e33728f1e15a4fe714cf1a77", null ],
     [ "ChatPermissions", "structtgbotxx_1_1_chat_permissions.html#ad7327d42e87a344c214be4162e6a161f", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_permissions.html#a2f5134ebc580b816dec84633a28912d3", null ],
     [ "toJson", "structtgbotxx_1_1_chat_permissions.html#a07d7e34534b14c963e50a3dd143a28d9", null ],

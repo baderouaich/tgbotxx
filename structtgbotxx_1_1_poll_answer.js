@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_poll_answer =
 [
+    [ "PollAnswer", "structtgbotxx_1_1_poll_answer.html#afae1eec21711d0b9f77ba779769f70d6", null ],
     [ "PollAnswer", "structtgbotxx_1_1_poll_answer.html#aa26b7b29649acc9d97e01e88783b6e1f", null ],
     [ "fromJson", "structtgbotxx_1_1_poll_answer.html#aa46e00328ef0748dd0cd07e301f08704", null ],
     [ "toJson", "structtgbotxx_1_1_poll_answer.html#a01441c23b694a965c62e3c28af830106", null ],

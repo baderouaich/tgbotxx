@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_user =
 [
+    [ "User", "structtgbotxx_1_1_user.html#a9afe32ee7618de36302300e9284aaeeb", null ],
     [ "User", "structtgbotxx_1_1_user.html#ad0a3a003fa6dd2419b286991a9181697", null ],
     [ "fromJson", "structtgbotxx_1_1_user.html#a64a441a2b5c16d3aba9b989ae3b71d75", null ],
     [ "toJson", "structtgbotxx_1_1_user.html#af10247d8ee79749caf99129db2f98c67", null ],

@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_keyboard_button_request_chat =
 [
+    [ "KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html#aad0bcd1deb8d6ea15d74a1d4ee0db222", null ],
     [ "KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html#aaee40dddcc991719cc7add19abe73381", null ],
     [ "fromJson", "structtgbotxx_1_1_keyboard_button_request_chat.html#a95f1a5e1714d53049d85397ea003effd", null ],
     [ "toJson", "structtgbotxx_1_1_keyboard_button_request_chat.html#a70159eb2c3c15af7a68e48a4bd8e5227", null ],

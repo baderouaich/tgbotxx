@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_passport_file.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a17e085052e3ad9b79b457cb57ac06433"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433">PassportFile</a> ()=default</td></tr>
+<tr class="separator:a17e085052e3ad9b79b457cb57ac06433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9a8156ea4c1a618160b3cb11b5ff342"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#af9a8156ea4c1a618160b3cb11b5ff342">PassportFile</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:af9a8156ea4c1a618160b3cb11b5ff342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a815b95a38af51858824cc6b18b2e3e5a"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#a815b95a38af51858824cc6b18b2e3e5a">toJson</a> () const</td></tr>
@@ -116,10 +118,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa7955eadc1ec4ce78e0996bd2a7e338a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#aa7955eadc1ec4ce78e0996bd2a7e338a">fileUniqueId</a></td></tr>
 <tr class="memdesc:aa7955eadc1ec4ce78e0996bd2a7e338a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.  <a href="structtgbotxx_1_1_passport_file.html#aa7955eadc1ec4ce78e0996bd2a7e338a">More...</a><br /></td></tr>
 <tr class="separator:aa7955eadc1ec4ce78e0996bd2a7e338a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdeb6081b1b52bcccca3fef4676646c2"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#abdeb6081b1b52bcccca3fef4676646c2">fileSize</a></td></tr>
+<tr class="memitem:abdeb6081b1b52bcccca3fef4676646c2"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#abdeb6081b1b52bcccca3fef4676646c2">fileSize</a> {}</td></tr>
 <tr class="memdesc:abdeb6081b1b52bcccca3fef4676646c2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes.  <a href="structtgbotxx_1_1_passport_file.html#abdeb6081b1b52bcccca3fef4676646c2">More...</a><br /></td></tr>
 <tr class="separator:abdeb6081b1b52bcccca3fef4676646c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade5ed845f9f71458bc3b75392097c437"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#ade5ed845f9f71458bc3b75392097c437">fileDate</a></td></tr>
+<tr class="memitem:ade5ed845f9f71458bc3b75392097c437"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_passport_file.html#ade5ed845f9f71458bc3b75392097c437">fileDate</a> {}</td></tr>
 <tr class="memdesc:ade5ed845f9f71458bc3b75392097c437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unix time when the file was uploaded.  <a href="structtgbotxx_1_1_passport_file.html#ade5ed845f9f71458bc3b75392097c437">More...</a><br /></td></tr>
 <tr class="separator:ade5ed845f9f71458bc3b75392097c437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -128,8 +130,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00008">8</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a17e085052e3ad9b79b457cb57ac06433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e085052e3ad9b79b457cb57ac06433">&#9670;&nbsp;</a></span>PassportFile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::PassportFile::PassportFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af9a8156ea4c1a618160b3cb11b5ff342"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9a8156ea4c1a618160b3cb11b5ff342">&#9670;&nbsp;</a></span>PassportFile()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af9a8156ea4c1a618160b3cb11b5ff342">&#9670;&nbsp;</a></span>PassportFile() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +179,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00009">9</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00010">10</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -183,7 +210,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00038">38</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00039">39</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -213,7 +240,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00028">28</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00029">29</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -225,14 +252,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t tgbotxx::PassportFile::fileDate</td>
+          <td class="memname">std::time_t tgbotxx::PassportFile::fileDate {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Unix time when the file was uploaded. </p>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00024">24</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00025">25</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -250,7 +277,7 @@ Public Attributes</h2></td></tr>
 
 <p>Identifier for this file, which can be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00014">14</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00015">15</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,14 +288,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::PassportFile::fileSize</td>
+          <td class="memname">std::int64_t tgbotxx::PassportFile::fileSize {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. </p>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00021">21</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00022">22</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +313,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00018">18</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_passport_file_8hpp_source.html#l00019">19</a> of file <a class="el" href="_passport_file_8hpp_source.html">PassportFile.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +326,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_passport_file.html">PassportFile</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

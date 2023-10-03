@@ -56,9 +56,10 @@ var NAVTREEINDEX =
 [
 "_a-example.html",
 "functions_func_g.html",
-"structtgbotxx_1_1_chat_location.html#a1e300b9bf2dc57eab5d3c744fb509589",
-"structtgbotxx_1_1_invoice.html#a702339cdd525340022142b1cf61f5525",
-"structtgbotxx_1_1_pre_checkout_query.html#ac6e7d2e9c703d1a91e9719c33805bcee"
+"structtgbotxx_1_1_chat_join_request.html#a1393f4c6753bdd9c6eeedbdd8f8d66c3",
+"structtgbotxx_1_1_inline_keyboard_button.html",
+"structtgbotxx_1_1_passport_file.html#a815b95a38af51858824cc6b18b2e3e5a",
+"structtgbotxx_1_1_video_chat_started.html#a1fb5544e217fb1837fa11e3b273732c6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

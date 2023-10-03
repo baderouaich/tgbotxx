@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_administrator_rights =
 [
+    [ "ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html#acfc9efe8217ee6c6a03cb57146032ae7", null ],
     [ "ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html#a9379e101e9f87344f5dbaeab6428a7f7", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_administrator_rights.html#a73517e4853f464932db90a4b78a342b9", null ],
     [ "toJson", "structtgbotxx_1_1_chat_administrator_rights.html#a03e89fcb6f3267a47e810c709f764ea7", null ],

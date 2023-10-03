@@ -17,5 +17,5 @@ var searchData=
   ['onstart_877',['onStart',['../classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b',1,'tgbotxx::Bot']]],
   ['onstop_878',['onStop',['../classtgbotxx_1_1_bot.html#aa401af85581921f1ed4512f6b8c2b3ee',1,'tgbotxx::Bot']]],
   ['onunknowncommand_879',['onUnknownCommand',['../classtgbotxx_1_1_bot.html#a2567fe220fc80b8e4adc6cdc35ecbe64',1,'tgbotxx::Bot']]],
-  ['orderinfo_880',['OrderInfo',['../structtgbotxx_1_1_order_info.html#a3fb1b7df2e7937c129ce61edfd7673ae',1,'tgbotxx::OrderInfo']]]
+  ['orderinfo_880',['OrderInfo',['../structtgbotxx_1_1_order_info.html#a95dafad248cbba95ec0c764a0a47bdc3',1,'tgbotxx::OrderInfo::OrderInfo()=default'],['../structtgbotxx_1_1_order_info.html#a3fb1b7df2e7937c129ce61edfd7673ae',1,'tgbotxx::OrderInfo::OrderInfo(const nl::json &amp;json)']]]
 ];

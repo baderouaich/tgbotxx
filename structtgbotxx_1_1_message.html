@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_message.html',''); i
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2957928b4eaba8e1b70cd969763c6d4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a2957928b4eaba8e1b70cd969763c6d4b">Message</a> ()=default</td></tr>
+<tr class="separator:a2957928b4eaba8e1b70cd969763c6d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a194be6eadfba1097d67876d27b991179"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a194be6eadfba1097d67876d27b991179">Message</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a194be6eadfba1097d67876d27b991179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4ec38964aff99d6ece027072928d0fd"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ae4ec38964aff99d6ece027072928d0fd">toJson</a> () const</td></tr>
@@ -110,10 +112,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1fa8d266d25ef115d235f1ad2f7ee726">messageId</a></td></tr>
+<tr class="memitem:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1fa8d266d25ef115d235f1ad2f7ee726">messageId</a> {}</td></tr>
 <tr class="memdesc:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique message identifier inside this chat.  <a href="structtgbotxx_1_1_message.html#a1fa8d266d25ef115d235f1ad2f7ee726">More...</a><br /></td></tr>
 <tr class="separator:a1fa8d266d25ef115d235f1ad2f7ee726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d000817dcb029da9891f3d244e96283"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1d000817dcb029da9891f3d244e96283">messageThreadId</a></td></tr>
+<tr class="memitem:a1d000817dcb029da9891f3d244e96283"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a1d000817dcb029da9891f3d244e96283">messageThreadId</a> {}</td></tr>
 <tr class="memdesc:a1d000817dcb029da9891f3d244e96283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Unique identifier of a message thread to which the message belongs; for supergroups only.  <a href="structtgbotxx_1_1_message.html#a1d000817dcb029da9891f3d244e96283">More...</a><br /></td></tr>
 <tr class="separator:a1d000817dcb029da9891f3d244e96283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40f84e3d8220884ff66acc8f66328a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ad40f84e3d8220884ff66acc8f66328a8">from</a></td></tr>
@@ -122,7 +124,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a467629fd383d9dffed57489b7e5d038e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a467629fd383d9dffed57489b7e5d038e">senderChat</a></td></tr>
 <tr class="memdesc:a467629fd383d9dffed57489b7e5d038e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Sender of the message, sent on behalf of a chat. For example, the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators, the linked channel for messages automatically forwarded to the discussion group. For backward compatibility, the field from contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.  <a href="structtgbotxx_1_1_message.html#a467629fd383d9dffed57489b7e5d038e">More...</a><br /></td></tr>
 <tr class="separator:a467629fd383d9dffed57489b7e5d038e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af545d42b5041bc6c0714f6d4869fa4dc"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#af545d42b5041bc6c0714f6d4869fa4dc">date</a></td></tr>
+<tr class="memitem:af545d42b5041bc6c0714f6d4869fa4dc"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#af545d42b5041bc6c0714f6d4869fa4dc">date</a> {}</td></tr>
 <tr class="memdesc:af545d42b5041bc6c0714f6d4869fa4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date the message was sent in Unix time.  <a href="structtgbotxx_1_1_message.html#af545d42b5041bc6c0714f6d4869fa4dc">More...</a><br /></td></tr>
 <tr class="separator:af545d42b5041bc6c0714f6d4869fa4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5980d820e731a8b97817b9fe7835c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#aea5980d820e731a8b97817b9fe7835c1">chat</a></td></tr>
@@ -134,7 +136,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a0a56092415f85f43f8fa6aee2cf2cac7">forwardFromChat</a></td></tr>
 <tr class="memdesc:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages forwarded from channels or from anonymous administrators, information about the original sender chat.  <a href="structtgbotxx_1_1_message.html#a0a56092415f85f43f8fa6aee2cf2cac7">More...</a><br /></td></tr>
 <tr class="separator:a0a56092415f85f43f8fa6aee2cf2cac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82cf2687186f6c65d35f02604bafca06"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a82cf2687186f6c65d35f02604bafca06">forwardFromMessageId</a></td></tr>
+<tr class="memitem:a82cf2687186f6c65d35f02604bafca06"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a82cf2687186f6c65d35f02604bafca06">forwardFromMessageId</a> {}</td></tr>
 <tr class="memdesc:a82cf2687186f6c65d35f02604bafca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages forwarded from channels, identifier of the original message in the channel.  <a href="structtgbotxx_1_1_message.html#a82cf2687186f6c65d35f02604bafca06">More...</a><br /></td></tr>
 <tr class="separator:a82cf2687186f6c65d35f02604bafca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53df15a98f74d04b7ee5dbf5ba402a39"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a53df15a98f74d04b7ee5dbf5ba402a39">forwardSignature</a></td></tr>
@@ -143,13 +145,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ab4484a596734b1c560ad2109074822be"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ab4484a596734b1c560ad2109074822be">forwardSenderName</a></td></tr>
 <tr class="memdesc:ab4484a596734b1c560ad2109074822be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Sender's name for messages forwarded from users who disallow adding a link to their account in forwarded messages.  <a href="structtgbotxx_1_1_message.html#ab4484a596734b1c560ad2109074822be">More...</a><br /></td></tr>
 <tr class="separator:ab4484a596734b1c560ad2109074822be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b9d5c57677c202f98fec94b2da4ea58"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a6b9d5c57677c202f98fec94b2da4ea58">forwardDate</a></td></tr>
+<tr class="memitem:a6b9d5c57677c202f98fec94b2da4ea58"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a6b9d5c57677c202f98fec94b2da4ea58">forwardDate</a> {}</td></tr>
 <tr class="memdesc:a6b9d5c57677c202f98fec94b2da4ea58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For forwarded messages, date the original message was sent in Unix time.  <a href="structtgbotxx_1_1_message.html#a6b9d5c57677c202f98fec94b2da4ea58">More...</a><br /></td></tr>
 <tr class="separator:a6b9d5c57677c202f98fec94b2da4ea58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31153109de85aa8bfc652b2e4602fc7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a31153109de85aa8bfc652b2e4602fc7d">isTopicMessage</a></td></tr>
+<tr class="memitem:a31153109de85aa8bfc652b2e4602fc7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a31153109de85aa8bfc652b2e4602fc7d">isTopicMessage</a> {}</td></tr>
 <tr class="memdesc:a31153109de85aa8bfc652b2e4602fc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the message is sent to a forum topic.  <a href="structtgbotxx_1_1_message.html#a31153109de85aa8bfc652b2e4602fc7d">More...</a><br /></td></tr>
 <tr class="separator:a31153109de85aa8bfc652b2e4602fc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4404864e2c330a6f65db420cd217494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494">isAutomaticForward</a></td></tr>
+<tr class="memitem:aa4404864e2c330a6f65db420cd217494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494">isAutomaticForward</a> {}</td></tr>
 <tr class="memdesc:aa4404864e2c330a6f65db420cd217494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the message is a channel post that was automatically forwarded to the connected discussion group.  <a href="structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494">More...</a><br /></td></tr>
 <tr class="separator:aa4404864e2c330a6f65db420cd217494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a997cc1587d7a8f167ed8a04af0b01d72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a997cc1587d7a8f167ed8a04af0b01d72">replyToMessage</a></td></tr>
@@ -158,10 +160,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a456b0a7888bc93e557ff6076ec0545ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a456b0a7888bc93e557ff6076ec0545ee">viaBot</a></td></tr>
 <tr class="memdesc:a456b0a7888bc93e557ff6076ec0545ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> through which the message was sent.  <a href="structtgbotxx_1_1_message.html#a456b0a7888bc93e557ff6076ec0545ee">More...</a><br /></td></tr>
 <tr class="separator:a456b0a7888bc93e557ff6076ec0545ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2a8def2f51b142e6f0d4ed94b8bf611"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611">editDate</a></td></tr>
+<tr class="memitem:ab2a8def2f51b142e6f0d4ed94b8bf611"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611">editDate</a> {}</td></tr>
 <tr class="memdesc:ab2a8def2f51b142e6f0d4ed94b8bf611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Date the message was last edited in Unix time.  <a href="structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611">More...</a><br /></td></tr>
 <tr class="separator:ab2a8def2f51b142e6f0d4ed94b8bf611"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae092a9fff1d79349957ff60c4eef3895"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ae092a9fff1d79349957ff60c4eef3895">hasProtectedContent</a></td></tr>
+<tr class="memitem:ae092a9fff1d79349957ff60c4eef3895"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ae092a9fff1d79349957ff60c4eef3895">hasProtectedContent</a> {}</td></tr>
 <tr class="memdesc:ae092a9fff1d79349957ff60c4eef3895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the message can't be forwarded.  <a href="structtgbotxx_1_1_message.html#ae092a9fff1d79349957ff60c4eef3895">More...</a><br /></td></tr>
 <tr class="separator:ae092a9fff1d79349957ff60c4eef3895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5363a698df5f1dfe9c4360ffb353bceb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a5363a698df5f1dfe9c4360ffb353bceb">mediaGroupId</a></td></tr>
@@ -209,7 +211,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a178730f0504ad867a9bfc920ba05b4b4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a178730f0504ad867a9bfc920ba05b4b4">captionEntities</a></td></tr>
 <tr class="memdesc:a178730f0504ad867a9bfc920ba05b4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption.  <a href="structtgbotxx_1_1_message.html#a178730f0504ad867a9bfc920ba05b4b4">More...</a><br /></td></tr>
 <tr class="separator:a178730f0504ad867a9bfc920ba05b4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04c9d0f1696894351cfe29e3b4d970f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a04c9d0f1696894351cfe29e3b4d970f2">hasMediaSpoiler</a></td></tr>
+<tr class="memitem:a04c9d0f1696894351cfe29e3b4d970f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a04c9d0f1696894351cfe29e3b4d970f2">hasMediaSpoiler</a> {}</td></tr>
 <tr class="memdesc:a04c9d0f1696894351cfe29e3b4d970f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the message media is covered by a spoiler animation.  <a href="structtgbotxx_1_1_message.html#a04c9d0f1696894351cfe29e3b4d970f2">More...</a><br /></td></tr>
 <tr class="separator:a04c9d0f1696894351cfe29e3b4d970f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2c13121bc6fb830c921afa2a72f166e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_contact.html">Contact</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ab2c13121bc6fb830c921afa2a72f166e">contact</a></td></tr>
@@ -242,25 +244,25 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad9c8f5275f1b371590f8494daee90f43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_photo_size.html">PhotoSize</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ad9c8f5275f1b371590f8494daee90f43">newChatPhoto</a></td></tr>
 <tr class="memdesc:ad9c8f5275f1b371590f8494daee90f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. A chat photo was change to this value.  <a href="structtgbotxx_1_1_message.html#ad9c8f5275f1b371590f8494daee90f43">More...</a><br /></td></tr>
 <tr class="separator:ad9c8f5275f1b371590f8494daee90f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9ab117d6e2075acded0e43fbae1c820"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ae9ab117d6e2075acded0e43fbae1c820">deleteChatPhoto</a></td></tr>
+<tr class="memitem:ae9ab117d6e2075acded0e43fbae1c820"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ae9ab117d6e2075acded0e43fbae1c820">deleteChatPhoto</a> {}</td></tr>
 <tr class="memdesc:ae9ab117d6e2075acded0e43fbae1c820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Service message: the chat photo was deleted.  <a href="structtgbotxx_1_1_message.html#ae9ab117d6e2075acded0e43fbae1c820">More...</a><br /></td></tr>
 <tr class="separator:ae9ab117d6e2075acded0e43fbae1c820"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbe3a2c8d84591fddfb5f4e598a07ae5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#acbe3a2c8d84591fddfb5f4e598a07ae5">groupChatCreated</a></td></tr>
+<tr class="memitem:acbe3a2c8d84591fddfb5f4e598a07ae5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#acbe3a2c8d84591fddfb5f4e598a07ae5">groupChatCreated</a> {}</td></tr>
 <tr class="memdesc:acbe3a2c8d84591fddfb5f4e598a07ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Service message: the group has been created.  <a href="structtgbotxx_1_1_message.html#acbe3a2c8d84591fddfb5f4e598a07ae5">More...</a><br /></td></tr>
 <tr class="separator:acbe3a2c8d84591fddfb5f4e598a07ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f67eab2895eca98d56935423d65da4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a5f67eab2895eca98d56935423d65da4e">supergroupChatCreated</a></td></tr>
+<tr class="memitem:a5f67eab2895eca98d56935423d65da4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a5f67eab2895eca98d56935423d65da4e">supergroupChatCreated</a> {}</td></tr>
 <tr class="memdesc:a5f67eab2895eca98d56935423d65da4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.  <a href="structtgbotxx_1_1_message.html#a5f67eab2895eca98d56935423d65da4e">More...</a><br /></td></tr>
 <tr class="separator:a5f67eab2895eca98d56935423d65da4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0169c153397b640d4dc8899ac3dfc19b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a0169c153397b640d4dc8899ac3dfc19b">channelChatCreated</a></td></tr>
+<tr class="memitem:a0169c153397b640d4dc8899ac3dfc19b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a0169c153397b640d4dc8899ac3dfc19b">channelChatCreated</a> {}</td></tr>
 <tr class="memdesc:a0169c153397b640d4dc8899ac3dfc19b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.  <a href="structtgbotxx_1_1_message.html#a0169c153397b640d4dc8899ac3dfc19b">More...</a><br /></td></tr>
 <tr class="separator:a0169c153397b640d4dc8899ac3dfc19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0a5edea0dfb3b1fb04b4b9ad1622725"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_auto_delete_timer_changed.html">MessageAutoDeleteTimerChanged</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#ac0a5edea0dfb3b1fb04b4b9ad1622725">messageAutoDeleteTimerChanged</a></td></tr>
 <tr class="memdesc:ac0a5edea0dfb3b1fb04b4b9ad1622725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Service message: auto-delete timer settings changed in the chat.  <a href="structtgbotxx_1_1_message.html#ac0a5edea0dfb3b1fb04b4b9ad1622725">More...</a><br /></td></tr>
 <tr class="separator:ac0a5edea0dfb3b1fb04b4b9ad1622725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a006ee6b2791ca0af6e596df66a03273a"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a006ee6b2791ca0af6e596df66a03273a">migrateToChatId</a></td></tr>
+<tr class="memitem:a006ee6b2791ca0af6e596df66a03273a"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a006ee6b2791ca0af6e596df66a03273a">migrateToChatId</a> {}</td></tr>
 <tr class="memdesc:a006ee6b2791ca0af6e596df66a03273a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.  <a href="structtgbotxx_1_1_message.html#a006ee6b2791ca0af6e596df66a03273a">More...</a><br /></td></tr>
 <tr class="separator:a006ee6b2791ca0af6e596df66a03273a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa01750ff32dc44811215bdb3dfa87ca1"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#aa01750ff32dc44811215bdb3dfa87ca1">migrateFromChatId</a></td></tr>
+<tr class="memitem:aa01750ff32dc44811215bdb3dfa87ca1"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#aa01750ff32dc44811215bdb3dfa87ca1">migrateFromChatId</a> {}</td></tr>
 <tr class="memdesc:aa01750ff32dc44811215bdb3dfa87ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.  <a href="structtgbotxx_1_1_message.html#aa01750ff32dc44811215bdb3dfa87ca1">More...</a><br /></td></tr>
 <tr class="separator:aa01750ff32dc44811215bdb3dfa87ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a057aeea088bd95a5a9e0b5911bc02024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_message.html#a057aeea088bd95a5a9e0b5911bc02024">pinnedMessage</a></td></tr>
@@ -332,8 +334,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00048">48</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2957928b4eaba8e1b70cd969763c6d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2957928b4eaba8e1b70cd969763c6d4b">&#9670;&nbsp;</a></span>Message() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::Message::Message </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a194be6eadfba1097d67876d27b991179"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a194be6eadfba1097d67876d27b991179">&#9670;&nbsp;</a></span>Message()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a194be6eadfba1097d67876d27b991179">&#9670;&nbsp;</a></span>Message() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +383,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00049">49</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00050">50</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -416,7 +443,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is an animation, information about the animation. For backward compatibility, when this field is set, the document field will also be set. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00132">132</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00133">133</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +461,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is an audio file, information about the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00135">135</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00136">136</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -452,7 +479,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Signature of the post author for messages in channels, or the custom title of an anonymous group administrator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00122">122</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00123">123</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -470,7 +497,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Caption for the animation, audio, document, photo, video or voice. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00159">159</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00160">160</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -488,7 +515,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00162">162</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00163">163</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -499,14 +526,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::channelChatCreated</td>
+          <td class="memname">bool tgbotxx::Message::channelChatCreated {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00213">213</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00214">214</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -524,7 +551,7 @@ Public Attributes</h2></td></tr>
 
 <p>Conversation the message belongs to. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00073">73</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00074">74</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +569,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: a chat was shared with the bot. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00245">245</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00246">246</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +587,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. The domain name of the website on which the user has logged in. <a class="el" href="">about Telegram Login » <a href="https://core.telegram.org/widgets/login">https://core.telegram.org/widgets/login</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00249">249</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00250">250</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +605,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a shared contact, information about the contact. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00168">168</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00169">169</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -589,14 +616,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t tgbotxx::Message::date</td>
+          <td class="memname">std::time_t tgbotxx::Message::date {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Date the message was sent in Unix time. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00070">70</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00071">71</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -607,14 +634,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::deleteChatPhoto</td>
+          <td class="memname">bool tgbotxx::Message::deleteChatPhoto {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Service message: the chat photo was deleted. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00200">200</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00201">201</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +659,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a dice with random value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00171">171</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00172">172</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -650,7 +677,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a general file, information about the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00138">138</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00139">139</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -661,14 +688,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t tgbotxx::Message::editDate</td>
+          <td class="memname">std::time_t tgbotxx::Message::editDate {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Date the message was last edited in Unix time. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00111">111</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00112">112</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -686,7 +713,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00128">128</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00129">129</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -704,7 +731,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: forum topic closed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00268">268</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00269">269</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -722,7 +749,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: forum topic created. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00262">262</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00263">263</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -740,7 +767,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: forum topic edited. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00265">265</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00266">266</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -758,7 +785,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: forum topic reopened. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00271">271</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00272">272</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -769,14 +796,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t tgbotxx::Message::forwardDate</td>
+          <td class="memname">std::time_t tgbotxx::Message::forwardDate {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. For forwarded messages, date the original message was sent in Unix time. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00094">94</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00095">95</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -794,7 +821,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For forwarded messages, sender of the original message. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00076">76</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00077">77</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -812,7 +839,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For messages forwarded from channels or from anonymous administrators, information about the original sender chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00080">80</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00081">81</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -823,14 +850,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Message::forwardFromMessageId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::forwardFromMessageId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. For messages forwarded from channels, identifier of the original message in the channel. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00083">83</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00084">84</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -848,7 +875,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Sender's name for messages forwarded from users who disallow adding a link to their account in forwarded messages. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00091">91</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00092">92</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +893,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00087">87</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00088">88</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -884,7 +911,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00061">61</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00062">62</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -902,7 +929,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a game, information about the game. <a class="el" href="">about games » <a href="https://core.telegram.org/bots/api#games">https://core.telegram.org/bots/api#games</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00175">175</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00176">176</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -920,7 +947,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: the 'General' forum topic hidden. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00274">274</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00275">275</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -938,7 +965,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: the 'General' forum topic unhidden. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00277">277</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00278">278</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -949,14 +976,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::groupChatCreated</td>
+          <td class="memname">bool tgbotxx::Message::groupChatCreated {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Service message: the group has been created. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00203">203</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00204">204</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -967,14 +994,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::hasMediaSpoiler</td>
+          <td class="memname">bool tgbotxx::Message::hasMediaSpoiler {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. True, if the message media is covered by a spoiler animation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00165">165</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00166">166</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -985,14 +1012,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::hasProtectedContent</td>
+          <td class="memname">bool tgbotxx::Message::hasProtectedContent {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. True, if the message can't be forwarded. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00114">114</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00115">115</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1010,7 +1037,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is an invoice for a payment, information about the invoice. <a class="el" href="">about payments » <a href="https://core.telegram.org/bots/api#payments">https://core.telegram.org/bots/api#payments</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00235">235</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00236">236</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1021,14 +1048,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::isAutomaticForward</td>
+          <td class="memname">bool tgbotxx::Message::isAutomaticForward {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. True, if the message is a channel post that was automatically forwarded to the connected discussion group. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00101">101</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00102">102</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1039,14 +1066,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::isTopicMessage</td>
+          <td class="memname">bool tgbotxx::Message::isTopicMessage {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. True, if the message is sent to a forum topic. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00097">97</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00098">98</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1064,7 +1091,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. A member was removed from the group, information about them (this member may be the bot itself) </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00191">191</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00192">192</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1109,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a shared location, information about the location. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00185">185</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00186">186</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1100,7 +1127,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. The unique identifier of a media message group this message belongs to. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00117">117</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00118">118</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1118,7 +1145,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: auto-delete timer settings changed in the chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00216">216</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00217">217</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1129,14 +1156,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Message::messageId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::messageId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Unique message identifier inside this chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00054">54</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00055">55</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1147,14 +1174,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Message::messageThreadId</td>
+          <td class="memname">std::int32_t tgbotxx::Message::messageThreadId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Unique identifier of a message thread to which the message belongs; for supergroups only. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00057">57</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00058">58</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1165,14 +1192,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Message::migrateFromChatId</td>
+          <td class="memname">std::int64_t tgbotxx::Message::migrateFromChatId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00228">228</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00229">229</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1183,14 +1210,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::Message::migrateToChatId</td>
+          <td class="memname">std::int64_t tgbotxx::Message::migrateToChatId {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00222">222</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00223">223</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1208,7 +1235,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members) </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00188">188</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00189">189</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1226,7 +1253,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. A chat photo was change to this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00197">197</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00198">198</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1244,7 +1271,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. A chat title was changed to this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00194">194</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00195">195</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1262,7 +1289,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Telegram Passport data. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00256">256</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00257">257</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1280,7 +1307,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a photo, available sizes of the photo. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00141">141</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00142">142</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1325,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Specified message was pinned. Note that the <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object in this field will not contain further reply_to_message fields even if it is itself a reply. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00231">231</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00232">232</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1343,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a native poll, information about the poll. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00178">178</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00179">179</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1334,7 +1361,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message. A user in the chat triggered another user's proximity alert while sharing Live <a class="el" href="structtgbotxx_1_1_location.html" title="This object represents a point on the map. https://core.telegram.org/bots/api#location.">Location</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00259">259</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00260">260</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1352,7 +1379,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Inline keyboard attached to the message. <code>login_url</code> buttons are represented as ordinary <code>url</code> buttons. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00295">295</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00296">296</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1370,7 +1397,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For replies, the original message. Note that the <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object in this field will not contain further reply_to_message fields even if it itself is a reply. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00105">105</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00106">106</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1415,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Sender of the message, sent on behalf of a chat. For example, the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators, the linked channel for messages automatically forwarded to the discussion group. For backward compatibility, the field from contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00067">67</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00068">68</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1406,7 +1433,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a sticker, information about the sticker. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00144">144</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00145">145</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1424,7 +1451,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a forwarded story. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00147">147</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00148">148</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1469,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a service message about a successful payment, information about the payment. <a class="el" href="">about payments » <a href="https://core.telegram.org/bots/api#payments">https://core.telegram.org/bots/api#payments</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00239">239</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00240">240</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1453,14 +1480,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::Message::supergroupChatCreated</td>
+          <td class="memname">bool tgbotxx::Message::supergroupChatCreated {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00208">208</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00209">209</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1478,7 +1505,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. For text messages, the actual UTF-8 text of the message. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00125">125</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00126">126</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1496,7 +1523,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: a user was shared with the bot. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00242">242</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00243">243</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1541,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a venue, information about the venue. For backward compatibility, when this field is set, the location field will also be set. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00182">182</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00183">183</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1532,7 +1559,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> through which the message was sent. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00108">108</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00109">109</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1577,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a video, information about the video. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00150">150</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00151">151</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1568,7 +1595,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: video chat ended. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00286">286</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00287">287</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1586,7 +1613,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: new participants invited to a video chat. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00289">289</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00290">290</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1631,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: video chat scheduled. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00280">280</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00281">281</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1622,7 +1649,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: video chat started. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00283">283</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00284">284</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1640,7 +1667,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a video note, information about the video message. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00153">153</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00154">154</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1658,7 +1685,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is a voice message, information about the file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00156">156</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00157">157</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1703,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: data sent by a Web App. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00292">292</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00293">293</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1694,7 +1721,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method requestWriteAccess. </p>
 
-<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00253">253</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_message_8hpp_source.html#l00254">254</a> of file <a class="el" href="_message_8hpp_source.html">Message.hpp</a>.</p>
 
 </div>
 </div>
@@ -1707,7 +1734,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_message.html">Message</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

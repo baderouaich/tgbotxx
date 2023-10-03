@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_chat_photo =
 [
+    [ "ChatPhoto", "structtgbotxx_1_1_chat_photo.html#a88b69cbca11f2826f06124aab62c2e99", null ],
     [ "ChatPhoto", "structtgbotxx_1_1_chat_photo.html#afe3f18317f21e11ea093d116a505a784", null ],
     [ "fromJson", "structtgbotxx_1_1_chat_photo.html#a0273b89a7da2040b8eed346db3e4c3da", null ],
     [ "toJson", "structtgbotxx_1_1_chat_photo.html#a88ab4d7215d563a43062fb102d7c2216", null ],

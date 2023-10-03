@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_document =
 [
+    [ "Document", "structtgbotxx_1_1_document.html#ae1fdb6dcd2e7d71594b717f5737d7a00", null ],
     [ "Document", "structtgbotxx_1_1_document.html#a4b18b26b6b7ada0dde6917ded908fa7a", null ],
     [ "fromJson", "structtgbotxx_1_1_document.html#abb520b7c79f8f50f1bbc0a69f7b898d0", null ],
     [ "toJson", "structtgbotxx_1_1_document.html#af144ddbdb169ccac5d42d839a8afdb9d", null ],

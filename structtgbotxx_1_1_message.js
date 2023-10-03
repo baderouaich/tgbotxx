@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_message =
 [
+    [ "Message", "structtgbotxx_1_1_message.html#a2957928b4eaba8e1b70cd969763c6d4b", null ],
     [ "Message", "structtgbotxx_1_1_message.html#a194be6eadfba1097d67876d27b991179", null ],
     [ "fromJson", "structtgbotxx_1_1_message.html#a9d58b971052289103c77a6da9aec4b09", null ],
     [ "toJson", "structtgbotxx_1_1_message.html#ae4ec38964aff99d6ece027072928d0fd", null ],

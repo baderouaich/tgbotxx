@@ -108,6 +108,8 @@ Inheritance diagram for tgbotxx::ReplyKeyboardMarkup:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2e4ea10518cd80487995296c3298207c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a2e4ea10518cd80487995296c3298207c">ReplyKeyboardMarkup</a> ()=default</td></tr>
+<tr class="separator:a2e4ea10518cd80487995296c3298207c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85bcf2048b4c3ede47b7f8a8ad5c2cf4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4">ReplyKeyboardMarkup</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a85bcf2048b4c3ede47b7f8a8ad5c2cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff823f6e5b960ff4a3e2df66a4c2c898"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898">toJson</a> () const override</td></tr>
@@ -122,19 +124,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a6895353ad4cedc5cce981438f67b0497"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button.html">KeyboardButton</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497">keyboard</a></td></tr>
 <tr class="memdesc:a6895353ad4cedc5cce981438f67b0497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of button rows, each represented by an Array of <a class="el" href="structtgbotxx_1_1_keyboard_button.html" title="This object represents one button of the reply keyboard. For simple text buttons, String can be used ...">KeyboardButton</a> objects @type Array of Array of <a class="el" href="structtgbotxx_1_1_keyboard_button.html" title="This object represents one button of the reply keyboard. For simple text buttons, String can be used ...">KeyboardButton</a>.  <a href="structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497">More...</a><br /></td></tr>
 <tr class="separator:a6895353ad4cedc5cce981438f67b0497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a865b6625920bf4d0df2225cf4f1b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7">isPersistent</a></td></tr>
+<tr class="memitem:a63a865b6625920bf4d0df2225cf4f1b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7">isPersistent</a> {}</td></tr>
 <tr class="memdesc:a63a865b6625920bf4d0df2225cf4f1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to false, in which case the custom keyboard can be hidden and opened with a keyboard icon.  <a href="structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7">More...</a><br /></td></tr>
 <tr class="separator:a63a865b6625920bf4d0df2225cf4f1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f15cd0b85f4fb391fd03b0d672fd415"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415">resizeKeyboard</a></td></tr>
+<tr class="memitem:a2f15cd0b85f4fb391fd03b0d672fd415"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415">resizeKeyboard</a> {}</td></tr>
 <tr class="memdesc:a2f15cd0b85f4fb391fd03b0d672fd415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard.  <a href="structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415">More...</a><br /></td></tr>
 <tr class="separator:a2f15cd0b85f4fb391fd03b0d672fd415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c8081f0b46d1e76bfff2bd1c0849d53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53">oneTimeKeyboard</a></td></tr>
+<tr class="memitem:a2c8081f0b46d1e76bfff2bd1c0849d53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53">oneTimeKeyboard</a> {}</td></tr>
 <tr class="memdesc:a2c8081f0b46d1e76bfff2bd1c0849d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to false.  <a href="structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53">More...</a><br /></td></tr>
 <tr class="separator:a2c8081f0b46d1e76bfff2bd1c0849d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3439c2a759f50f6ced23dcea88a449e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e">inputFieldPlaceholder</a></td></tr>
+<tr class="memitem:ac3439c2a759f50f6ced23dcea88a449e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e">inputFieldPlaceholder</a> {}</td></tr>
 <tr class="memdesc:ac3439c2a759f50f6ced23dcea88a449e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters.  <a href="structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e">More...</a><br /></td></tr>
 <tr class="separator:ac3439c2a759f50f6ced23dcea88a449e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa6195ebecab597590682207746e47b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a4fa6195ebecab597590682207746e47b">selective</a></td></tr>
+<tr class="memitem:a4fa6195ebecab597590682207746e47b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html#a4fa6195ebecab597590682207746e47b">selective</a> {}</td></tr>
 <tr class="separator:a4fa6195ebecab597590682207746e47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -142,8 +144,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00009">9</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2e4ea10518cd80487995296c3298207c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4ea10518cd80487995296c3298207c">&#9670;&nbsp;</a></span>ReplyKeyboardMarkup() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::ReplyKeyboardMarkup::ReplyKeyboardMarkup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a85bcf2048b4c3ede47b7f8a8ad5c2cf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85bcf2048b4c3ede47b7f8a8ad5c2cf4">&#9670;&nbsp;</a></span>ReplyKeyboardMarkup()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a85bcf2048b4c3ede47b7f8a8ad5c2cf4">&#9670;&nbsp;</a></span>ReplyKeyboardMarkup() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,7 +193,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00010">10</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00011">11</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +226,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="structtgbotxx_1_1_i_reply_markup.html#aa254ff61ab4968036ecf1cf64b140125">tgbotxx::IReplyMarkup</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00059">59</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00060">60</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +258,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002">tgbotxx::IReplyMarkup</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00047">47</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00048">48</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -243,14 +270,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::inputFieldPlaceholder</td>
+          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::inputFieldPlaceholder {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00034">34</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00035">35</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,14 +288,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::isPersistent</td>
+          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::isPersistent {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to false, in which case the custom keyboard can be hidden and opened with a keyboard icon. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00020">20</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00021">21</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +313,7 @@ Public Attributes</h2></td></tr>
 
 <p>Array of button rows, each represented by an Array of <a class="el" href="structtgbotxx_1_1_keyboard_button.html" title="This object represents one button of the reply keyboard. For simple text buttons, String can be used ...">KeyboardButton</a> objects @type Array of Array of <a class="el" href="structtgbotxx_1_1_keyboard_button.html" title="This object represents one button of the reply keyboard. For simple text buttons, String can be used ...">KeyboardButton</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00016">16</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00017">17</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -297,14 +324,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::oneTimeKeyboard</td>
+          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::oneTimeKeyboard {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to false. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00031">31</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00032">32</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -315,14 +342,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::resizeKeyboard</td>
+          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::resizeKeyboard {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00025">25</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00026">26</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -333,12 +360,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::selective</td>
+          <td class="memname">bool tgbotxx::ReplyKeyboardMarkup::selective {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00043">43</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_keyboard_markup_8hpp_source.html#l00044">44</a> of file <a class="el" href="_reply_keyboard_markup_8hpp_source.html">ReplyKeyboardMarkup.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +378,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html">ReplyKeyboardMarkup</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

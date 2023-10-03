@@ -5,6 +5,7 @@ var structtgbotxx_1_1_sticker =
       [ "Mask", "structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101a4a18312b5b75f549d5551e5912ad6ebf", null ],
       [ "CustomEmoji", "structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101af2ded25b30113452f7b15011b876ef8f", null ]
     ] ],
+    [ "Sticker", "structtgbotxx_1_1_sticker.html#a119be9e369bc902aa47160439ab97dd0", null ],
     [ "Sticker", "structtgbotxx_1_1_sticker.html#a541fca50d350faae0c9e6abec67e05ed", null ],
     [ "fromJson", "structtgbotxx_1_1_sticker.html#aa0b568c0438af7bbb86ac5dc397e7b1a", null ],
     [ "Str2Type", "structtgbotxx_1_1_sticker.html#a94fa83c61e90c88979350476ab47942b", null ],

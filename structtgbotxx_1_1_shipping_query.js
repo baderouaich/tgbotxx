@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_shipping_query =
 [
+    [ "ShippingQuery", "structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d", null ],
     [ "ShippingQuery", "structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c", null ],
     [ "fromJson", "structtgbotxx_1_1_shipping_query.html#a6a23fb3dee7b8e8de3b8e08ead8acff2", null ],
     [ "toJson", "structtgbotxx_1_1_shipping_query.html#ad0683737643164c9fc30d821f51ff2d1", null ],

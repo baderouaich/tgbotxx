@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_order_info =
 [
+    [ "OrderInfo", "structtgbotxx_1_1_order_info.html#a95dafad248cbba95ec0c764a0a47bdc3", null ],
     [ "OrderInfo", "structtgbotxx_1_1_order_info.html#a3fb1b7df2e7937c129ce61edfd7673ae", null ],
     [ "fromJson", "structtgbotxx_1_1_order_info.html#a03c44521672c1298bfe15ba6f6dbe57a", null ],
     [ "toJson", "structtgbotxx_1_1_order_info.html#a35dc0123d47454f8ca593393ceab4964", null ],

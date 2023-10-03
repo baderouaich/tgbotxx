@@ -19,6 +19,7 @@ var structtgbotxx_1_1_message_entity =
       [ "TextMention", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a4ed8233defa4ad141a6a784b45a31c45", null ],
       [ "CustomEmoji", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9af2ded25b30113452f7b15011b876ef8f", null ]
     ] ],
+    [ "MessageEntity", "structtgbotxx_1_1_message_entity.html#a2145cbcf67bd56f5e4054041bb2d7387", null ],
     [ "MessageEntity", "structtgbotxx_1_1_message_entity.html#acb08b5355326da87069cc148a2f510b4", null ],
     [ "fromJson", "structtgbotxx_1_1_message_entity.html#a5cd87fa1f6817a993fc28e59963f47fd", null ],
     [ "Str2Type", "structtgbotxx_1_1_message_entity.html#afb03c32cba719ed6fc70503e93494ef9", null ],

@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_keyboard_button.html
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad64ba05cae8a55d04b281b7e2c4d8b3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#ad64ba05cae8a55d04b281b7e2c4d8b3e">KeyboardButton</a> ()=default</td></tr>
+<tr class="separator:ad64ba05cae8a55d04b281b7e2c4d8b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc45c0734436729fd4be92df96e9a03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a6dc45c0734436729fd4be92df96e9a03">KeyboardButton</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a6dc45c0734436729fd4be92df96e9a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade8ef09bc03c49fab8271fe91ffc4fdb"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#ade8ef09bc03c49fab8271fe91ffc4fdb">toJson</a> () const</td></tr>
@@ -119,10 +121,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acab349c824932f5638e65334e816a234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_request_chat.html">KeyboardButtonRequestChat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#acab349c824932f5638e65334e816a234">requestChat</a></td></tr>
 <tr class="memdesc:acab349c824932f5638e65334e816a234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message.  <a href="structtgbotxx_1_1_keyboard_button.html#acab349c824932f5638e65334e816a234">More...</a><br /></td></tr>
 <tr class="separator:acab349c824932f5638e65334e816a234"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a446e6e44fd3f2d36ed48a6f93a5343be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a446e6e44fd3f2d36ed48a6f93a5343be">requestContact</a></td></tr>
+<tr class="memitem:a446e6e44fd3f2d36ed48a6f93a5343be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a446e6e44fd3f2d36ed48a6f93a5343be">requestContact</a> {}</td></tr>
 <tr class="memdesc:a446e6e44fd3f2d36ed48a6f93a5343be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If True, the user's phone number will be sent as a contact when the button is pressed.  <a href="structtgbotxx_1_1_keyboard_button.html#a446e6e44fd3f2d36ed48a6f93a5343be">More...</a><br /></td></tr>
 <tr class="separator:a446e6e44fd3f2d36ed48a6f93a5343be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c15a395147362b7d12d869df4e78430"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a9c15a395147362b7d12d869df4e78430">requestLocation</a></td></tr>
+<tr class="memitem:a9c15a395147362b7d12d869df4e78430"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a9c15a395147362b7d12d869df4e78430">requestLocation</a> {}</td></tr>
 <tr class="memdesc:a9c15a395147362b7d12d869df4e78430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If True, the user's current location will be sent when the button is pressed.  <a href="structtgbotxx_1_1_keyboard_button.html#a9c15a395147362b7d12d869df4e78430">More...</a><br /></td></tr>
 <tr class="separator:a9c15a395147362b7d12d869df4e78430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04fcf155abadf578fbcaf1f483725f1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_poll_type.html">KeyboardButtonPollType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a04fcf155abadf578fbcaf1f483725f1f">requestPoll</a></td></tr>
@@ -137,8 +139,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00013">13</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad64ba05cae8a55d04b281b7e2c4d8b3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64ba05cae8a55d04b281b7e2c4d8b3e">&#9670;&nbsp;</a></span>KeyboardButton() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::KeyboardButton::KeyboardButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6dc45c0734436729fd4be92df96e9a03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dc45c0734436729fd4be92df96e9a03">&#9670;&nbsp;</a></span>KeyboardButton()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc45c0734436729fd4be92df96e9a03">&#9670;&nbsp;</a></span>KeyboardButton() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +188,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00014">14</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00015">15</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -192,7 +219,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00064">64</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00065">65</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -222,7 +249,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +269,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00029">29</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00030">30</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +280,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::KeyboardButton::requestContact</td>
+          <td class="memname">bool tgbotxx::KeyboardButton::requestContact {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -261,7 +288,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's phone number will be sent as a contact when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00033">33</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +299,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::KeyboardButton::requestLocation</td>
+          <td class="memname">bool tgbotxx::KeyboardButton::requestLocation {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,7 +307,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's current location will be sent when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00037">37</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +326,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00041">41</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -318,7 +345,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00024">24</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -336,7 +363,7 @@ Public Attributes</h2></td></tr>
 
 <p>Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00019">19</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00020">20</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +382,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the described Web App will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00046">46</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -368,7 +395,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_keyboard_button.html">KeyboardButton</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -88,32 +88,32 @@ $(document).ready(function(){initNavTree('_bot_command_8hpp_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_bot_command_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_object_8hpp.html">tgbotxx/objects/Object.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_object_8hpp.html">tgbotxx/objects/Object.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetgbotxx.html">tgbotxx</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html">    8</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structtgbotxx_1_1_bot_command.html">BotCommand</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a7a396d517a0289e79a1a23561041e1d4">    9</a></span>&#160;        <a class="code" href="structtgbotxx_1_1_bot_command.html#a7a396d517a0289e79a1a23561041e1d4">BotCommand</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0">   10</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0">BotCommand</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;          <a class="code" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">fromJson</a>(json);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        }</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html">    8</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structtgbotxx_1_1_bot_command.html">BotCommand</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a7a396d517a0289e79a1a23561041e1d4">    9</a></span>&#160;      <a class="code" href="structtgbotxx_1_1_bot_command.html#a7a396d517a0289e79a1a23561041e1d4">BotCommand</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0">   10</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0">BotCommand</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">fromJson</a>(json);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">   15</a></span>&#160;        std::string <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">   15</a></span>&#160;      std::string <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">   18</a></span>&#160;        std::string <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">   18</a></span>&#160;      std::string <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#aac29d830867ebd45cd044449eb46e77c">   20</a></span>&#160;        nl::json <a class="code" href="structtgbotxx_1_1_bot_command.html#aac29d830867ebd45cd044449eb46e77c">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;          nl::json cmd = nl::json::object();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;          OBJECT_SERIALIZE_FIELD(cmd, <span class="stringliteral">&quot;command&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;          OBJECT_SERIALIZE_FIELD(cmd, <span class="stringliteral">&quot;description&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;          <span class="keywordflow">return</span> cmd;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#aac29d830867ebd45cd044449eb46e77c">   20</a></span>&#160;      nl::json <a class="code" href="structtgbotxx_1_1_bot_command.html#aac29d830867ebd45cd044449eb46e77c">toJson</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        nl::json cmd = nl::json::object();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        OBJECT_SERIALIZE_FIELD(cmd, <span class="stringliteral">&quot;command&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        OBJECT_SERIALIZE_FIELD(cmd, <span class="stringliteral">&quot;description&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> cmd;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">   27</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">fromJson</a>(<span class="keyword">const</span> nl::json &amp;json) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;          OBJECT_DESERIALIZE_FIELD(json, <span class="stringliteral">&quot;command&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>, <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;          OBJECT_DESERIALIZE_FIELD(json, <span class="stringliteral">&quot;description&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>, <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">   27</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="structtgbotxx_1_1_bot_command.html#a0d5a9f0b0ba894e530fd5b95a45d18e4">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        OBJECT_DESERIALIZE_FIELD(json, <span class="stringliteral">&quot;command&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#abad0386ebf24fa52850f84c5d879dfcb">command</a>, <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        OBJECT_DESERIALIZE_FIELD(json, <span class="stringliteral">&quot;description&quot;</span>, <a class="code" href="structtgbotxx_1_1_bot_command.html#a3ef2671817c971a2cd810bf7faa4abaa">description</a>, <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  };</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="_object_8hpp.html">Object.hpp</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_8hpp_source.html#l00086">Api.hpp:86</a></div></div>
@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('_bot_command_8hpp_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_bot_command_8hpp.html">BotCommand.hpp</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:54 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

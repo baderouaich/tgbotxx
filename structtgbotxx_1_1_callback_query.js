@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_callback_query =
 [
+    [ "CallbackQuery", "structtgbotxx_1_1_callback_query.html#aa9295345801263c276be32414de65e41", null ],
     [ "CallbackQuery", "structtgbotxx_1_1_callback_query.html#af99338fc868971a0bc30989b59890642", null ],
     [ "fromJson", "structtgbotxx_1_1_callback_query.html#a8d5dd9c49e6dcf1533ed177c16d0d559", null ],
     [ "toJson", "structtgbotxx_1_1_callback_query.html#adc55d57c9a45b5fd394d49a115833c31", null ],

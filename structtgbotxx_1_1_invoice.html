@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_invoice.html',''); i
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae320959d2075c13d8ceb94e8b892517f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#ae320959d2075c13d8ceb94e8b892517f">Invoice</a> ()=default</td></tr>
+<tr class="separator:ae320959d2075c13d8ceb94e8b892517f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea7d41b4d6f4d63e1b3bd6000d16473e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#aea7d41b4d6f4d63e1b3bd6000d16473e">Invoice</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:aea7d41b4d6f4d63e1b3bd6000d16473e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e4924d91d666d01a8c1196e03456b31"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#a9e4924d91d666d01a8c1196e03456b31">toJson</a> () const</td></tr>
@@ -122,7 +124,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a3b155d1e180d669b61b77008864d1d0a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#a3b155d1e180d669b61b77008864d1d0a">currency</a></td></tr>
 <tr class="memdesc:a3b155d1e180d669b61b77008864d1d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Three-letter ISO 4217 currency code <a class="el" href="structtgbotxx_1_1_invoice.html#a3b155d1e180d669b61b77008864d1d0a"><a href="https://core.telegram.org/bots/payments#supported-currencies">https://core.telegram.org/bots/payments#supported-currencies</a> </a>.  <a href="structtgbotxx_1_1_invoice.html#a3b155d1e180d669b61b77008864d1d0a">More...</a><br /></td></tr>
 <tr class="separator:a3b155d1e180d669b61b77008864d1d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c996e738716f5c8e9a9db297bfdbf0"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#a90c996e738716f5c8e9a9db297bfdbf0">totalAmount</a></td></tr>
+<tr class="memitem:a90c996e738716f5c8e9a9db297bfdbf0"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_invoice.html#a90c996e738716f5c8e9a9db297bfdbf0">totalAmount</a> {}</td></tr>
 <tr class="memdesc:a90c996e738716f5c8e9a9db297bfdbf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). <a class="el" href=""><a href="https://core.telegram.org/bots/payments/currencies.json">https://core.telegram.org/bots/payments/currencies.json</a> </a>.  <a href="structtgbotxx_1_1_invoice.html#a90c996e738716f5c8e9a9db297bfdbf0">More...</a><br /></td></tr>
 <tr class="separator:a90c996e738716f5c8e9a9db297bfdbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -131,8 +133,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00007">7</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae320959d2075c13d8ceb94e8b892517f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae320959d2075c13d8ceb94e8b892517f">&#9670;&nbsp;</a></span>Invoice() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::Invoice::Invoice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea7d41b4d6f4d63e1b3bd6000d16473e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea7d41b4d6f4d63e1b3bd6000d16473e">&#9670;&nbsp;</a></span>Invoice()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7d41b4d6f4d63e1b3bd6000d16473e">&#9670;&nbsp;</a></span>Invoice() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +182,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00008">8</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00009">9</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -186,7 +213,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00045">45</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00046">46</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +243,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00034">34</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00035">35</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +262,7 @@ Public Attributes</h2></td></tr>
 
 <p>Three-letter ISO 4217 currency code <a class="el" href="structtgbotxx_1_1_invoice.html#a3b155d1e180d669b61b77008864d1d0a"><a href="https://core.telegram.org/bots/payments#supported-currencies">https://core.telegram.org/bots/payments#supported-currencies</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00023">23</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00024">24</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +280,7 @@ Public Attributes</h2></td></tr>
 
 <p>Product description. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00016">16</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00017">17</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +298,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique bot deep-linking parameter that can be used to generate this invoice. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00019">19</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00020">20</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +316,7 @@ Public Attributes</h2></td></tr>
 
 <p>Product name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00013">13</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00014">14</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -300,14 +327,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::Invoice::totalAmount</td>
+          <td class="memname">std::int32_t tgbotxx::Invoice::totalAmount {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). <a class="el" href=""><a href="https://core.telegram.org/bots/payments/currencies.json">https://core.telegram.org/bots/payments/currencies.json</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00029">29</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_invoice_8hpp_source.html#l00030">30</a> of file <a class="el" href="_invoice_8hpp_source.html">Invoice.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +347,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_invoice.html">Invoice</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

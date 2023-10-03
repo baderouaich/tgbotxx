@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_login_url.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab2f7a6cbab7bc633f09761c047ec22c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2">LoginUrl</a> ()=default</td></tr>
+<tr class="separator:ab2f7a6cbab7bc633f09761c047ec22c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab678fa67f91107afb5e5764cbae26977"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977">LoginUrl</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:ab678fa67f91107afb5e5764cbae26977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8396f39eab6b5fd421f8547a3ee64fd8"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8">toJson</a> () const</td></tr>
@@ -119,7 +121,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0fe54ed90b2a5e0a1b51bb5958e606be"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#a0fe54ed90b2a5e0a1b51bb5958e606be">botUsername</a></td></tr>
 <tr class="memdesc:a0fe54ed90b2a5e0a1b51bb5958e606be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Username of a bot, which will be used for user authorization. See Setting up a bot for more details. If not specified, the current bot's username will be assumed. The url's domain must be the same as the domain linked with the bot. See Linking your domain to the bot for more details.  <a href="structtgbotxx_1_1_login_url.html#a0fe54ed90b2a5e0a1b51bb5958e606be">More...</a><br /></td></tr>
 <tr class="separator:a0fe54ed90b2a5e0a1b51bb5958e606be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a308f7bbf388d437fbe8e62aee66dc147"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147">requestWriteAccess</a></td></tr>
+<tr class="memitem:a308f7bbf388d437fbe8e62aee66dc147"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147">requestWriteAccess</a> {}</td></tr>
 <tr class="memdesc:a308f7bbf388d437fbe8e62aee66dc147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Pass True to request the permission for your bot to send messages to the user.  <a href="structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147">More...</a><br /></td></tr>
 <tr class="separator:a308f7bbf388d437fbe8e62aee66dc147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -129,8 +131,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00011">11</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab2f7a6cbab7bc633f09761c047ec22c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2f7a6cbab7bc633f09761c047ec22c2">&#9670;&nbsp;</a></span>LoginUrl() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::LoginUrl::LoginUrl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab678fa67f91107afb5e5764cbae26977"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab678fa67f91107afb5e5764cbae26977">&#9670;&nbsp;</a></span>LoginUrl()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab678fa67f91107afb5e5764cbae26977">&#9670;&nbsp;</a></span>LoginUrl() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +180,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00012">12</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00013">13</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -184,7 +211,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00047">47</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00048">48</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -214,7 +241,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00037">37</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00038">38</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -233,7 +260,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Username of a bot, which will be used for user authorization. See Setting up a bot for more details. If not specified, the current bot's username will be assumed. The url's domain must be the same as the domain linked with the bot. See Linking your domain to the bot for more details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00030">30</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00031">31</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +278,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. New text of the button in forwarded messages. </p>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00025">25</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00026">26</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -262,14 +289,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tgbotxx::LoginUrl::requestWriteAccess</td>
+          <td class="memname">bool tgbotxx::LoginUrl::requestWriteAccess {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Optional. Pass True to request the permission for your bot to send messages to the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00033">33</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00034">34</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -288,7 +315,7 @@ Public Attributes</h2></td></tr>
 <p>An HTTPS URL to be opened with user authorization data added to the query string when the button is pressed. If the user refuses to provide authorization data, the original URL without information about the user will be opened. The data added is the same as described in Receiving authorization data. </p>
 <dl class="section note"><dt>Note</dt><dd>You must always check the hash of the received data to verify the authentication and the integrity of the data as described in Checking authorization. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00022">22</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_login_url_8hpp_source.html#l00023">23</a> of file <a class="el" href="_login_url_8hpp_source.html">LoginUrl.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +328,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_login_url.html">LoginUrl</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_contact =
 [
+    [ "Contact", "structtgbotxx_1_1_contact.html#ac9911f725585dd30c31a3144bda94175", null ],
     [ "Contact", "structtgbotxx_1_1_contact.html#aa907df7ac49203adf396d048bc7c3398", null ],
     [ "fromJson", "structtgbotxx_1_1_contact.html#aa4188d4d12ebbb3df6b52702ff237cc7", null ],
     [ "toJson", "structtgbotxx_1_1_contact.html#a21a9b5e0153057877df5537402050107", null ],

@@ -99,6 +99,8 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_successful_payment.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:add0db65876525c477e470d752171aa27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#add0db65876525c477e470d752171aa27">SuccessfulPayment</a> ()=default</td></tr>
+<tr class="separator:add0db65876525c477e470d752171aa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65dad6c79ce7f5a98052075e0fcbadc6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#a65dad6c79ce7f5a98052075e0fcbadc6">SuccessfulPayment</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a65dad6c79ce7f5a98052075e0fcbadc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04eda8d371c4ebc3904c4d1eec2afd2c"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#a04eda8d371c4ebc3904c4d1eec2afd2c">toJson</a> () const</td></tr>
@@ -113,7 +115,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0b70abb2cd36574df868a8b31ba16067"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#a0b70abb2cd36574df868a8b31ba16067">currency</a></td></tr>
 <tr class="memdesc:a0b70abb2cd36574df868a8b31ba16067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Three-letter ISO 4217 currency code <a class="el" href="structtgbotxx_1_1_successful_payment.html#a0b70abb2cd36574df868a8b31ba16067"><a href="https://core.telegram.org/bots/payments#supported-currencies">https://core.telegram.org/bots/payments#supported-currencies</a> </a>.  <a href="structtgbotxx_1_1_successful_payment.html#a0b70abb2cd36574df868a8b31ba16067">More...</a><br /></td></tr>
 <tr class="separator:a0b70abb2cd36574df868a8b31ba16067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ca6f1e263635d673a315f843e7e9468"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#a9ca6f1e263635d673a315f843e7e9468">totalAmount</a></td></tr>
+<tr class="memitem:a9ca6f1e263635d673a315f843e7e9468"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#a9ca6f1e263635d673a315f843e7e9468">totalAmount</a> {}</td></tr>
 <tr class="memdesc:a9ca6f1e263635d673a315f843e7e9468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). <a class="el" href=""><a href="https://core.telegram.org/bots/payments/currencies.json">https://core.telegram.org/bots/payments/currencies.json</a> </a>.  <a href="structtgbotxx_1_1_successful_payment.html#a9ca6f1e263635d673a315f843e7e9468">More...</a><br /></td></tr>
 <tr class="separator:a9ca6f1e263635d673a315f843e7e9468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f0a75c29725de8a03ad25c8686a669"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_successful_payment.html#ae2f0a75c29725de8a03ad25c8686a669">invoicePayload</a></td></tr>
@@ -137,8 +139,33 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00008">8</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add0db65876525c477e470d752171aa27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0db65876525c477e470d752171aa27">&#9670;&nbsp;</a></span>SuccessfulPayment() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::SuccessfulPayment::SuccessfulPayment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a65dad6c79ce7f5a98052075e0fcbadc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65dad6c79ce7f5a98052075e0fcbadc6">&#9670;&nbsp;</a></span>SuccessfulPayment()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a65dad6c79ce7f5a98052075e0fcbadc6">&#9670;&nbsp;</a></span>SuccessfulPayment() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +188,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00009">9</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00010">10</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -192,7 +219,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00054">54</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00055">55</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -222,7 +249,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00041">41</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00042">42</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +268,7 @@ Public Attributes</h2></td></tr>
 
 <p>Three-letter ISO 4217 currency code <a class="el" href="structtgbotxx_1_1_successful_payment.html#a0b70abb2cd36574df868a8b31ba16067"><a href="https://core.telegram.org/bots/payments#supported-currencies">https://core.telegram.org/bots/payments#supported-currencies</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00015">15</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00016">16</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +286,7 @@ Public Attributes</h2></td></tr>
 
 <p><a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> specified invoice payload. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00024">24</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00025">25</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +304,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Order information provided by the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00027">27</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00028">28</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +322,7 @@ Public Attributes</h2></td></tr>
 
 <p>Provider payment identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00036">36</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00037">37</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -313,7 +340,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Identifier of the shipping option chosen by the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00030">30</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00031">31</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +358,7 @@ Public Attributes</h2></td></tr>
 
 <p>Telegram payment identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00033">33</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00034">34</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -342,14 +369,14 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int32_t tgbotxx::SuccessfulPayment::totalAmount</td>
+          <td class="memname">std::int32_t tgbotxx::SuccessfulPayment::totalAmount {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). <a class="el" href=""><a href="https://core.telegram.org/bots/payments/currencies.json">https://core.telegram.org/bots/payments/currencies.json</a> </a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00021">21</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_successful_payment_8hpp_source.html#l00022">22</a> of file <a class="el" href="_successful_payment_8hpp_source.html">SuccessfulPayment.hpp</a>.</p>
 
 </div>
 </div>
@@ -362,7 +389,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_successful_payment.html">SuccessfulPayment</a></li>
-    <li class="footer">Generated on Tue Oct 3 2023 13:36:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 3 2023 16:05:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
