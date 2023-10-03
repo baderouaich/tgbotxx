@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
 #include <csignal>
@@ -5,14 +6,8 @@
 using namespace tgbotxx;
 
 class MyBot : public Bot {
-  static std::string getTestsBotToken() {
-    if(char* token = std::getenv("TESTS_BOT_TOKEN"); token != nullptr)
-      return std::string(token);
-     throw std::runtime_error("Couldn't find TESTS_BOT_TOKEN in the env; please export an environment variable TESTS_BOT_TOKEN with your bot token");
-  }
-
 public:
-    MyBot() : Bot(getTestsBotToken()) {}
+    MyBot(const std::string& token) : Bot(token) {}
 
 private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
@@ -27,15 +22,18 @@ private:
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
-      greet->command = "greet";
+      greet->command = "/greet";
       greet->description = "This command will greet you";
       Ptr<BotCommand> stop(new BotCommand());
-      stop->command = "stop";
+      stop->command = "/stop";
       stop->description = "Stop the bot";
       Ptr<BotCommand> photo(new BotCommand());
-      photo->command = "photo";
+      photo->command = "/photo";
       photo->description = "You will receive a photo using Api::sendPhoto method";
-      getApi()->setMyCommands({greet, stop, photo}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> buttons(new BotCommand());
+      buttons->command = "/buttons";
+      buttons->description = "You will receive an inline keyboard markup";
+      getApi()->setMyCommands({greet, stop, photo, buttons}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -74,6 +72,35 @@ private:
           getApi()->sendMessage(message->chat->id, "Sending File photo...");
           getApi()->sendPhoto(message->chat->id, cpr::File{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
       }
+      else if(message->text == "/buttons") {
+          /*
+            Create inline keyboard buttons
+               7 8 9
+               4 5 6
+               1 2 3
+                 0
+           */
+          Ptr<InlineKeyboardMarkup> keyboard(new InlineKeyboardMarkup());
+          std::vector<Ptr<InlineKeyboardButton>> row;
+          for(int i = 0; i <= 9; i++) {
+              Ptr<InlineKeyboardButton> button(new InlineKeyboardButton());
+              button->text = std::to_string(i);
+              button->callbackData = button->text;
+              row.push_back(button);
+              if (i % 3 == 0 || !i) {
+                  keyboard->inlineKeyboard.push_back(row);
+                  row.clear();
+              }
+          }
+          std::reverse(keyboard->inlineKeyboard.begin(), keyboard->inlineKeyboard.end());
+          api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, false, 0, false, keyboard);
+      }
+    }
+
+    /// Called when a new incoming callback query is received (e.g inline button callback query)
+    void onCallbackQuery(const Ptr<CallbackQuery>& callbackQuery) override {
+      std::cout << "You have clicked #" << callbackQuery->data << " button!" << std::endl;
+      api()->sendMessage(callbackQuery->message->chat->id, "You have clicked #"+callbackQuery->data +" button!");
     }
 
     /// Called when an unknown command is received (messages with leading '/' char).
@@ -89,8 +116,6 @@ private:
     void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {}
     /// Called when the result of an inline query that was chosen by a user and sent to their chat partner.
     void onChosenInlineResult(const Ptr<ChosenInlineResult>& chosenInlineResult) override {}
-    /// Called when a new incoming callback query is received
-    void onCallbackQuery(const Ptr<CallbackQuery>& callbackQuery) override {}
     /// Called when a new incoming shipping query is received.
     void onShippingQuery(const Ptr<ShippingQuery>& shippingQuery) override {}
     /// Called when a new incoming pre-checkout query is received. Contains full information about checkout
@@ -107,8 +132,15 @@ private:
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
 };
 
+
+static std::string getToken() {
+    if(char* token = std::getenv("TESTS_BOT_TOKEN"); token != nullptr)
+        return std::string(token);
+    throw std::runtime_error("Couldn't find TESTS_BOT_TOKEN in the env; please export an environment variable TESTS_BOT_TOKEN with your bot token");
+}
+
 int main() {
-  static MyBot bot;
+  static MyBot bot(getToken());
   std::signal(SIGINT, [](int) {
       bot.stop();
   });
