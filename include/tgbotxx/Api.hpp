@@ -81,6 +81,7 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 #include <variant>
+#include <optional>
 namespace nl = nlohmann;
 
 namespace tgbotxx {
@@ -89,9 +90,10 @@ namespace tgbotxx {
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
       inline static const std::string BASE_URL = "https://api.telegram.org";
-      inline static const cpr::Timeout TIMEOUT = 25 * 1000;               // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
-      inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000;// 20s (Telegram server can take up to 20s to connect with us)
-      inline static const std::int32_t LONG_POLL_TIMEOUT = 10;            // 10s (calling getUpdates() every 10 seconds)
+      inline static const cpr::Timeout TIMEOUT = 25 * 1000;                 // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
+      inline static const cpr::Timeout FILES_UPLOAD_TIMEOUT = 300 * 1000;   // 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
+      inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000;  // 20s (Telegram server can take up to 20s to connect with us)
+      inline static const std::int32_t LONG_POLL_TIMEOUT = 10;              // 10s (calling getUpdates() every 10 seconds)
       const std::string m_token;
 
     public:
@@ -152,7 +154,7 @@ namespace tgbotxx {
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
       /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
-      /// @returns the sent Message is returned on success.
+      /// @returns the sent Message on success.
       /// @ref https://core.telegram.org/bots/api#forwardmessage
       Ptr<Message> forwardMessage(std::int64_t chatId,
                                   std::int64_t fromChatId,
@@ -205,14 +207,13 @@ namespace tgbotxx {
       /// @param caption Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing
       /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
       /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
-      /// @param hasSpoiler Optional. Pass True if the photo needs to be covered with a spoiler animation
       /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
       /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
       /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
       /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
-      /// @returns the sent Message is returned on success.
+      /// @returns the sent Message on success.
       /// @ref https://core.telegram.org/bots/api#sendphoto
       Ptr<Message> sendPhoto(std::int64_t chatId,
                              std::variant<cpr::File, std::string> photo,

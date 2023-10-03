@@ -1,3 +1,4 @@
+#include "cpr/timeout.h"
 #include <exception>
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Exception.hpp>
@@ -11,7 +12,11 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   cpr::Session session{};// Note: Why not have one session as a class member to use for all requests ?
                          // You can initiate multiple concurrent requests to the Telegram API, which means
                          // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
-  session.SetTimeout(TIMEOUT);
+  bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
+  if(hasFiles) // Files can take longer to upload
+    session.SetTimeout(FILES_UPLOAD_TIMEOUT);
+  else
+    session.SetTimeout(TIMEOUT);
   session.SetConnectTimeout(CONNECT_TIMEOUT);
   session.SetHeader(cpr::Header{
     {"Connection", "close"},// disable keep-alive

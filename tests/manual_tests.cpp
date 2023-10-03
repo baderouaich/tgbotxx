@@ -33,7 +33,10 @@ class MyBot : public Bot {
     Ptr<BotCommand> buttons(new BotCommand());
     buttons->command = "/buttons";
     buttons->description = "You will receive an inline keyboard markup";
-    getApi()->setMyCommands({greet, stop, photo, buttons});// The above commands will be shown in the bot chat menu (bottom left)
+    Ptr<BotCommand> audio(new BotCommand());
+    audio->command = "/audio";
+    audio->description = "You will receive an audio";
+    getApi()->setMyCommands({greet, stop, photo, buttons, audio}); // The above commands will be shown in the bot chat menu (bottom left)
   }
 
   /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -90,6 +93,9 @@ class MyBot : public Bot {
       }
       std::reverse(keyboard->inlineKeyboard.begin(), keyboard->inlineKeyboard.end());
       api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, false, 0, false, keyboard);
+    } else if (message->text == "/audio") {
+      getApi()->sendMessage(message->chat->id, "Sending audio file...");
+      getApi()->sendAudio(message->chat->id, cpr::File{"/media/bader/6296B2EC60F91DB6/Programs & Entertainment/Music/Navy Modern General Quarters Sound Effect.m4a"});
     }
   }
 
