@@ -143,6 +143,7 @@ static std::string getToken() {
 int main() {
   static MyBot bot(getToken());
   std::signal(SIGINT, [](int) {
+    std::cout << "Stopping Bot. Please wait...\n";
     bot.stop();
   });
   bot.start();
