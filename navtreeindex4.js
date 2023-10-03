@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_pre_checkout_query.html#aca806e359521b52114dc98d11cbba141":[2,0,0,69,8],
 "structtgbotxx_1_1_pre_checkout_query.html#acf470b4d0abf2fabb3f70a0405757f9d":[2,0,0,69,9],
 "structtgbotxx_1_1_pre_checkout_query.html#acf655b09cc9985555175e3b1efdb37fa":[2,0,0,69,6],
 "structtgbotxx_1_1_pre_checkout_query.html#ae049fdf597f47d0754d56ddf6fcff07b":[2,0,0,69,5],

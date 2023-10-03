@@ -1,5 +1,6 @@
 var structtgbotxx_1_1_inline_keyboard_button =
 [
+    [ "InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html#aef8264a12c657f5c53cd2a6a53b7030e", null ],
     [ "InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html#a2b1c3a56edc35a9d58b6a59bc6cf4c09", null ],
     [ "fromJson", "structtgbotxx_1_1_inline_keyboard_button.html#a4ec76a4b85fc85d407524a297be4cb27", null ],
     [ "toJson", "structtgbotxx_1_1_inline_keyboard_button.html#aaf2317ad5140959d65c7d02f80a6e800", null ],
