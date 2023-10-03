@@ -1,5 +1,5 @@
 ## buttons
-This example shows how to program a basic Telegram Bot which you can use inline keyboard buttons to interact with users.
+This example shows how to program a basic Telegram Bot which that uses inline keyboard buttons to interact with users.
 
 ### Run
 ```bash
