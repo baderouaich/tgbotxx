@@ -9,6 +9,7 @@ namespace tgbotxx {
     /// @brief This object represents one button of an inline keyboard. You must use exactly one of the optional fields.
     /// @ref https://core.telegram.org/bots/api#inlinekeyboardbutton
     struct InlineKeyboardButton {
+        InlineKeyboardButton() = default;
         explicit InlineKeyboardButton(const nl::json& json) {
           fromJson(json);
         }
