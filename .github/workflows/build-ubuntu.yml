@@ -22,7 +22,7 @@ jobs:
     - name: Update apt repositories & install deps
       run: |
         sudo apt update
-        sudo apt-get install cmake g++ make ninja-build libssl-dev valgrind
+        sudo apt-get install cmake g++ make ninja-build libssl-dev
 
     - name: Ensure deps are installed
       run: |
