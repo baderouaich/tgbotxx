@@ -58,7 +58,7 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "invite_link", inviteLink, "", false);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "creator", creator, nl::json::object());
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "creator", creator, false);
         OBJECT_DESERIALIZE_FIELD(json, "creates_join_request", createsJoinRequest, false, false);
         OBJECT_DESERIALIZE_FIELD(json, "is_primary", isPrimary, false, false);
         OBJECT_DESERIALIZE_FIELD(json, "is_revoked", isRevoked, false, false);

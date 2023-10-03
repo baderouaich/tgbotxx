@@ -51,12 +51,12 @@ namespace tgbotxx {
 
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) {
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, nl::json::object());
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, false);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, false);
         OBJECT_DESERIALIZE_FIELD(json, "user_chat_id", userChatId, 0, false);
         OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
         OBJECT_DESERIALIZE_FIELD(json, "bio", bio, "", true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "invite_link", inviteLink, nl::json::object());
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "invite_link", inviteLink, true);
       }
   };
 }

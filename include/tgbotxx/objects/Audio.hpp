@@ -68,7 +68,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "file_name", fileName, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "mime_type", mimeType, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "file_size", fileSize, 0, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, nl::json::object());
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, true);
       }
   };
 }

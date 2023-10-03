@@ -54,7 +54,7 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, false);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, false);
         OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "old_chat_member", oldChatMember, false);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "new_chat_member", newChatMember, false);
