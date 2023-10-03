@@ -9,6 +9,7 @@ var classtgbotxx_1_1_api =
     [ "getMyCommands", "classtgbotxx_1_1_api.html#a13bff65224b9e6f57919bff41b3c3e44", null ],
     [ "getUpdates", "classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2", null ],
     [ "logOut", "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519", null ],
+    [ "sendAudio", "classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821", null ],
     [ "sendPhoto", "classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd", null ],
     [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ]

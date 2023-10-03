@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002":[2,0,0,50,1],
 "structtgbotxx_1_1_inline_keyboard_button.html":[2,0,0,46],
 "structtgbotxx_1_1_inline_keyboard_button.html#a2b1c3a56edc35a9d58b6a59bc6cf4c09":[2,0,0,46,1],
 "structtgbotxx_1_1_inline_keyboard_button.html#a31a9825db9b623be95fb210b187843a9":[2,0,0,46,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_passport_data.html#ac7f994126ec9b9231ca4d06e8eff26c5":[2,0,0,63,4],
 "structtgbotxx_1_1_passport_data.html#af2a07b8497e358a467fabdc27a506907":[2,0,0,63,2],
 "structtgbotxx_1_1_passport_file.html":[2,0,0,64],
-"structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433":[2,0,0,64,0],
-"structtgbotxx_1_1_passport_file.html#a1e1dc3b62bbecd4ab6910701b87bff49":[2,0,0,64,2]
+"structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433":[2,0,0,64,0]
 };
