@@ -2,54 +2,55 @@
 #include <tgbotxx/objects/Object.hpp>
 
 namespace tgbotxx {
-    /// @brief Describes actions that a non-administrator user is allowed to take in a chat.
-    /// @ref https://core.telegram.org/bots/api#chatpermissions
-    struct ChatPermissions {
+  /// @brief Describes actions that a non-administrator user is allowed to take in a chat.
+  /// @ref https://core.telegram.org/bots/api#chatpermissions
+  struct ChatPermissions {
+      ChatPermissions() = default;
       explicit ChatPermissions(const nl::json& json) {
         fromJson(json);
       }
 
       /// @brief Optional. True, if the user is allowed to send text messages, contacts, invoices, locations and venues
-      bool canSendMessages;
+      bool canSendMessages{};
 
       /// @brief Optional. True, if the user is allowed to send audios
-      bool canSendAudios;
+      bool canSendAudios{};
 
       /// @brief Optional. True, if the user is allowed to send documents
-      bool canSendDocuments;
+      bool canSendDocuments{};
 
       /// @brief Optional. True, if the user is allowed to send photos
-      bool canSendPhotos;
+      bool canSendPhotos{};
 
       /// @brief Optional. True, if the user is allowed to send videos
-      bool canSendVideos;
+      bool canSendVideos{};
 
       /// @brief Optional. True, if the user is allowed to send video notes
-      bool canSendVideoNotes;
+      bool canSendVideoNotes{};
 
       /// @brief Optional. True, if the user is allowed to send voice notes
-      bool canSendVoiceNotes;
+      bool canSendVoiceNotes{};
 
       /// @brief Optional. True, if the user is allowed to send polls
-      bool canSendPolls;
+      bool canSendPolls{};
 
       /// @brief Optional. True, if the user is allowed to send animations, games, stickers and use inline bots
-      bool canSendOtherMessages;
+      bool canSendOtherMessages{};
 
       /// @brief Optional. True, if the user is allowed to add web page previews to their messages
-      bool canAddWebPagePreviews;
+      bool canAddWebPagePreviews{};
 
       /// @brief Optional. True, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
-      bool canChangeInfo;
+      bool canChangeInfo{};
 
       /// @brief Optional. True, if the user is allowed to invite new users to the chat
-      bool canInviteUsers;
+      bool canInviteUsers{};
 
       /// @brief Optional. True, if the user is allowed to pin messages. Ignored in public supergroups
-      bool canPinMessages;
+      bool canPinMessages{};
 
       /// @brief Optional. True, if the user is allowed to create forum topics. If omitted defaults to the value of canPinMessages
-      bool canManageTopics;
+      bool canManageTopics{};
 
 
       /// @brief Serializes this object to JSON
@@ -74,7 +75,7 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json &json) {
+      void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "can_send_messages", canSendMessages, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_send_audios", canSendAudios, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_send_documents", canSendDocuments, false, true);
@@ -90,5 +91,5 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "can_pin_messages", canPinMessages, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_manage_topics", canManageTopics, false, true);
       }
-    };
+  };
 }

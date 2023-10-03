@@ -1,11 +1,12 @@
 #pragma once
-#include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/Location.hpp>
+#include <tgbotxx/objects/Object.hpp>
 
 namespace tgbotxx {
-    /// @brief Represents a location to which a chat is connected.
-    /// @ref https://core.telegram.org/bots/api#chatlocation
-    struct ChatLocation {
+  /// @brief Represents a location to which a chat is connected.
+  /// @ref https://core.telegram.org/bots/api#chatlocation
+  struct ChatLocation {
+      ChatLocation() = default;
       explicit ChatLocation(const nl::json& json) {
         fromJson(json);
       }
@@ -27,9 +28,9 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json &json) {
+      void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, false);
         OBJECT_DESERIALIZE_FIELD(json, "address", address, "", false);
       }
-    };
+  };
 }

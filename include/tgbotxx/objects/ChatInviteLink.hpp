@@ -3,9 +3,10 @@
 #include <tgbotxx/objects/User.hpp>
 
 namespace tgbotxx {
-    /// @brief Represents an invite link for a chat.
-    /// @ref https://core.telegram.org/bots/api#chatinvitelink
-    struct ChatInviteLink {
+  /// @brief Represents an invite link for a chat.
+  /// @ref https://core.telegram.org/bots/api#chatinvitelink
+  struct ChatInviteLink {
+      ChatInviteLink() = default;
       explicit ChatInviteLink(const nl::json& json) {
         fromJson(json);
       }
@@ -17,25 +18,25 @@ namespace tgbotxx {
       Ptr<User> creator;
 
       /// @brief True, if users joining the chat via the link need to be approved by chat administrators
-      bool createsJoinRequest;
+      bool createsJoinRequest{};
 
       /// @brief True, if the link is primary
-      bool isPrimary;
+      bool isPrimary{};
 
       /// @brief True, if the link is revoked
-      bool isRevoked;
+      bool isRevoked{};
 
       /// @brief Optional. Invite link name
       std::string name;
 
       /// @brief Optional. Point in time (Unix timestamp) when the link will expire or has been expired
-      std::time_t expireDate;
+      std::time_t expireDate{};
 
       /// @brief Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
-      std::int32_t memberLimit;
+      std::int32_t memberLimit{};
 
       /// @brief Optional. Number of pending join requests created using this link
-      std::int32_t pendingJoinRequestCount;
+      std::int32_t pendingJoinRequestCount{};
 
 
       /// @brief Serializes this object to JSON
@@ -55,7 +56,7 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json &json) {
+      void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "invite_link", inviteLink, "", false);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "creator", creator, nl::json::object());
         OBJECT_DESERIALIZE_FIELD(json, "creates_join_request", createsJoinRequest, false, false);
@@ -66,5 +67,5 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "member_limit", memberLimit, 0, true);
         OBJECT_DESERIALIZE_FIELD(json, "pending_join_request_count", pendingJoinRequestCount, 0, true);
       }
-    };
+  };
 }

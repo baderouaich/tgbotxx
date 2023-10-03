@@ -1,274 +1,272 @@
+#include <exception>
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 #include <utility>
 using namespace tgbotxx;
 
-Api::Api(const std::string &token) : m_token(token) { }
+Api::Api(const std::string& token) : m_token(token) {}
 
-nl::json Api::sendRequest(const std::string &endpoint, const cpr::Multipart &data) const {
-    cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
-                            // You can initiate multiple concurrent requests to the Telegram API, which means
-                            // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
-    session.SetTimeout(TIMEOUT);
-    session.SetConnectTimeout(CONNECT_TIMEOUT);
-    session.SetHeader(cpr::Header{
-            {"Connection",   "close"}, // disable keep-alive
-            {"Accept",       "application/json"},
-            //{"User-Agent",   "tgbotxx/1.0"},
-            {"Content-Type", "application/x-www-form-urlencoded"},
-    });
-    std::ostringstream url{};
-    url << BASE_URL << "/bot" << m_token << '/' << endpoint; // Note: token should have a prefix botTOKEN.
-    session.SetUrl(cpr::Url{url.str()});
-    bool isMultipart = not data.parts.empty();
-    if (isMultipart) {
-        session.SetMultipart(data);
-        session.UpdateHeader(cpr::Header{{{"Content-Type", "multipart/form-data"}}});
-    }
+nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
+  cpr::Session session{};// Note: Why not have one session as a class member to use for all requests ?
+                         // You can initiate multiple concurrent requests to the Telegram API, which means
+                         // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
+  session.SetTimeout(TIMEOUT);
+  session.SetConnectTimeout(CONNECT_TIMEOUT);
+  session.SetHeader(cpr::Header{
+    {"Connection", "close"},// disable keep-alive
+    {"Accept", "application/json"},
+    //{"User-Agent",   "tgbotxx/1.0"},
+    {"Content-Type", "application/x-www-form-urlencoded"},
+  });
+  std::ostringstream url{};
+  url << BASE_URL << "/bot" << m_token << '/' << endpoint;// Note: token should have a prefix botTOKEN.
+  session.SetUrl(cpr::Url{url.str()});
+  bool isMultipart = not data.parts.empty();
+  if (isMultipart) {
+    session.SetMultipart(data);
+    session.UpdateHeader(cpr::Header{{{"Content-Type", "multipart/form-data"}}});
+  }
 
-    cpr::Response res = isMultipart ? session.Post() : session.Get();
-    if(res.status_code == 0) [[unlikely]] {
-        throw Exception(endpoint+": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?");
-    }
-    if (!res.text.compare(0, 6, "<html>")) [[unlikely]] {
-        throw Exception(endpoint+": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
-    }
+  cpr::Response res = isMultipart ? session.Post() : session.Get();
+  if (res.status_code == 0) [[unlikely]] {
+    throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?");
+  }
+  if (!res.text.compare(0, 6, "<html>")) [[unlikely]] {
+    throw Exception(endpoint + ": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
+  }
 
-    try {
-        nl::json response = nl::json::parse(res.text);
-        if (response["ok"].get<bool>()) {
-            return response["result"];
-        } else {
-            std::string desc = response["description"];
-            if (response["error_code"] == cpr::status::HTTP_NOT_FOUND) {
-                desc += ". Did you enter the correct bot token?";
-            }
-            throw Exception(desc);
-        }
-    } catch (const nl::json::exception &e) {
-        throw Exception(endpoint+": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
-    } catch (const Exception &e) {
-        throw e; // rethrow e
-    } catch (const std::exception &e) {
-        throw e; // rethrow e
+  try {
+    nl::json response = nl::json::parse(res.text);
+    if (response["ok"].get<bool>()) {
+      return response["result"];
+    } else {
+      std::string desc = response["description"];
+      if (response["error_code"] == cpr::status::HTTP_NOT_FOUND) {
+        desc += ". Did you enter the correct bot token?";
+      }
+      throw Exception(desc);
     }
+  } catch (const nl::json::exception& e) {
+    throw Exception(endpoint + ": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
+  } catch (const Exception& e) {
+    std::rethrow_exception(std::current_exception());// rethrow e
+  } catch (const std::exception& e) {
+    std::rethrow_exception(std::current_exception());// rethrow e
+  }
 }
 
 Ptr<User> Api::getMe() const {
-    nl::json json = sendRequest("getMe");
-    Ptr<User> me(new User(json));
-    return me;
+  nl::json json = sendRequest("getMe");
+  Ptr<User> me(new User(json));
+  return me;
 }
 
 bool Api::deleteWebhook(bool dropPendingUpdates) const {
-    cpr::Multipart data{};
-    if (dropPendingUpdates)
-        data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
-    return sendRequest("deleteWebhook", data);
+  cpr::Multipart data{};
+  if (dropPendingUpdates)
+    data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
+  return sendRequest("deleteWebhook", data);
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
 std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::int32_t timeout,
-                                         const std::vector<std::string> &allowedUpdates) const {
-    cpr::Multipart data = {
-            {"offset",          offset},
-            {"limit",           (std::max)(1, (std::min)(100, limit))},
-            {"timeout",         timeout},
-            {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
-    };
-    nl::json updatesJson = sendRequest("getUpdates", data);
-    std::vector<Ptr<Update>> updates;
-    updates.reserve(updatesJson.size());
-    for (const nl::json &updateObj: updatesJson) {
-        Ptr<Update> update(new Update(updateObj));
-        updates.push_back(std::move(update));
-    }
-    return updates;
+                                         const std::vector<std::string>& allowedUpdates) const {
+  cpr::Multipart data = {
+    {"offset", offset},
+    {"limit", (std::max)(1, (std::min)(100, limit))},
+    {"timeout", timeout},
+    {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
+  };
+  nl::json updatesJson = sendRequest("getUpdates", data);
+  std::vector<Ptr<Update>> updates;
+  updates.reserve(updatesJson.size());
+  for (const nl::json& updateObj: updatesJson) {
+    Ptr<Update> update(new Update(updateObj));
+    updates.push_back(std::move(update));
+  }
+  return updates;
 }
 
-bool Api::setMyCommands(const std::vector<Ptr<BotCommand>> &commands, const Ptr<BotCommandScope> &scope,
-                        const std::string &languageCode) const {
-    cpr::Multipart data{};
-    data.parts.reserve(3);
+bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope,
+                        const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
 
-    nl::json commandsJson = nl::json::array();
-    for (const Ptr<BotCommand> &command: commands)
-        commandsJson.push_back(command->toJson());
-    data.parts.emplace_back("commands", commandsJson.dump());
-    if (scope) {
-        data.parts.emplace_back("scope", scope->toJson().dump());
-    }
-    if (not languageCode.empty()) {
-        data.parts.emplace_back("language_code", languageCode);
-    }
+  nl::json commandsJson = nl::json::array();
+  for (const Ptr<BotCommand>& command: commands)
+    commandsJson.push_back(command->toJson());
+  data.parts.emplace_back("commands", commandsJson.dump());
+  if (scope) {
+    data.parts.emplace_back("scope", scope->toJson().dump());
+  }
+  if (not languageCode.empty()) {
+    data.parts.emplace_back("language_code", languageCode);
+  }
 
-    return sendRequest("setMyCommands", data);
+  return sendRequest("setMyCommands", data);
 }
 
-std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope> &scope, const std::string &languageCode) const {
-    std::vector<Ptr<BotCommand>> commands;
-    cpr::Multipart data{};
-    data.parts.reserve(2);
-    if (scope)
-        data.parts.emplace_back("scope", scope->toJson().dump());
-    if (not languageCode.empty())
-        data.parts.emplace_back("language_code", languageCode);
+std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scope, const std::string& languageCode) const {
+  std::vector<Ptr<BotCommand>> commands;
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (scope)
+    data.parts.emplace_back("scope", scope->toJson().dump());
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
 
-    nl::json commandsJson = sendRequest("getMyCommands", data);
-    if (commandsJson.empty()) return commands;
-    commands.reserve(commandsJson.size());
-    for (const nl::json &commandObj: commandsJson) {
-        Ptr<BotCommand> cmd(new BotCommand(commandObj));
-        commands.push_back(std::move(cmd));
-    }
-    return commands;
+  nl::json commandsJson = sendRequest("getMyCommands", data);
+  if (commandsJson.empty()) return commands;
+  commands.reserve(commandsJson.size());
+  for (const nl::json& commandObj: commandsJson) {
+    Ptr<BotCommand> cmd(new BotCommand(commandObj));
+    commands.push_back(std::move(cmd));
+  }
+  return commands;
 }
 
 bool Api::logOut() const {
-    return sendRequest("logOut");
+  return sendRequest("logOut");
 }
 
 bool Api::close() const {
-    return sendRequest("close");
+  return sendRequest("close");
 }
 
-Ptr<Message> Api::sendMessage(std::int64_t chatId, const std::string &text, std::int32_t messageThreadId,
-                              const std::string &parseMode, const std::vector<Ptr<MessageEntity>> &entities,
+Ptr<Message> Api::sendMessage(std::int64_t chatId, const std::string& text, std::int32_t messageThreadId,
+                              const std::string& parseMode, const std::vector<Ptr<MessageEntity>>& entities,
                               bool disableWebPagePreview, bool disableNotification, bool protectContent,
                               std::int32_t replyToMessageId, bool allowSendingWithoutReply,
-                              const Ptr<IReplyMarkup> &replyMarkup) const {
-    cpr::Multipart data{};
-    data.parts.reserve(11);
-    data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-    data.parts.emplace_back("text", text);
-    if (messageThreadId)
-        data.parts.emplace_back("message_thread_id", messageThreadId);
-    if (not parseMode.empty())
-        data.parts.emplace_back("parse_mode", parseMode);
-    if (not entities.empty()) {
-        nl::json entitiesArray = nl::json::array();
-        for(const Ptr<MessageEntity>& entity : entities)
-            entitiesArray.push_back(entity->toJson());
-        data.parts.emplace_back("entities", entitiesArray.dump());
-    }
-    if (disableWebPagePreview)
-        data.parts.emplace_back("disable_web_page_preview", disableWebPagePreview);
-    if (disableNotification)
-        data.parts.emplace_back("disable_notification", disableNotification);
-    if (protectContent)
-        data.parts.emplace_back("protect_content", protectContent);
-    if (replyToMessageId)
-        data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-    if (allowSendingWithoutReply)
-        data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
-    if (replyMarkup)
-        data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+                              const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));// Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("text", text);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not entities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: entities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("entities", entitiesArray.dump());
+  }
+  if (disableWebPagePreview)
+    data.parts.emplace_back("disable_web_page_preview", disableWebPagePreview);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-     nl::json sentMessageObj = sendRequest("sendMessage", data);
-     Ptr<Message> message(new Message(sentMessageObj));
-     return message;
+  nl::json sentMessageObj = sendRequest("sendMessage", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
 }
 
 Ptr<MessageId> Api::copyMessage(std::int64_t chatId, std::int64_t fromChatId, std::int32_t messageId,
-                                std::int32_t messageThreadId, const std::string &caption, const std::string &parseMode,
-                                const std::vector<Ptr<MessageEntity>> &captionEntities, bool disableNotification,
+                                std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
+                                const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification,
                                 bool protectContent, std::int32_t replyToMessageId, bool allowSendingWithoutReply,
-                                const Ptr<IReplyMarkup> &replyMarkup) const {
+                                const Ptr<IReplyMarkup>& replyMarkup) const {
 
-    cpr::Multipart data{};
-    data.parts.reserve(12);
-    data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-    data.parts.emplace_back("from_chat_id", std::to_string(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
-    data.parts.emplace_back("message_id", messageId);
-    if (messageThreadId)
-        data.parts.emplace_back("message_thread_id", messageThreadId);
-    if (not caption.empty())
-        data.parts.emplace_back("caption", caption);
-    if (not parseMode.empty())
-        data.parts.emplace_back("parse_mode", parseMode);
-    if (not captionEntities.empty()) {
-        nl::json entitiesArray = nl::json::array();
-        for(const Ptr<MessageEntity>& entity : captionEntities)
-            entitiesArray.push_back(entity->toJson());
-        data.parts.emplace_back("caption_entities", entitiesArray.dump());
-    }
-    if (disableNotification)
-        data.parts.emplace_back("disable_notification", disableNotification);
-    if (protectContent)
-        data.parts.emplace_back("protect_content", protectContent);
-    if (replyToMessageId)
-        data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-    if (allowSendingWithoutReply)
-        data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
-    if (replyMarkup)
-        data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  cpr::Multipart data{};
+  data.parts.reserve(12);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));         // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId));// Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
+  data.parts.emplace_back("message_id", messageId);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-    nl::json msgIdJson = sendRequest("copyMessage", data);
-    Ptr<MessageId> messageIdObj(new MessageId(msgIdJson));
-    return messageIdObj;
+  nl::json msgIdJson = sendRequest("copyMessage", data);
+  Ptr<MessageId> messageIdObj(new MessageId(msgIdJson));
+  return messageIdObj;
 }
 
 Ptr<Message> Api::forwardMessage(std::int64_t chatId, std::int64_t fromChatId, std::int32_t messageId, std::int32_t messageThreadId,
-                    bool disableNotification, bool protectContent) const {
-    cpr::Multipart data{};
-    data.parts.reserve(6);
-    data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-    data.parts.emplace_back("from_chat_id", std::to_string(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
-    data.parts.emplace_back("message_id", messageId);
-    if (messageThreadId)
-        data.parts.emplace_back("message_thread_id", messageThreadId);
-    if (disableNotification)
-        data.parts.emplace_back("disable_notification", disableNotification);
-    if (protectContent)
-        data.parts.emplace_back("protect_content", protectContent);
+                                 bool disableNotification, bool protectContent) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));         // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId));// Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
+  data.parts.emplace_back("message_id", messageId);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
 
-    nl::json sentMessageObj = sendRequest("sendMessage", data);
-    Ptr<Message> message(new Message(sentMessageObj));
-    return message;
+  nl::json sentMessageObj = sendRequest("sendMessage", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
 }
 
 Ptr<Message> Api::sendPhoto(std::int64_t chatId, std::variant<cpr::File, std::string> photo,
-                            std::int32_t messageThreadId, const std::string &caption, const std::string &parseMode,
-               const std::vector<Ptr<MessageEntity>> &captionEntities, bool disableNotification, bool protectContent,
-               std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup> &replyMarkup) const {
-    cpr::Multipart data{};
-    data.parts.reserve(12);
-    data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-    if(photo.index() == 0) // cpr::File
-    {
-        const cpr::File& file = std::get<cpr::File>(photo);
-        data.parts.emplace_back("photo", cpr::Files{file});
-    }
-    else // std::string (fileId or Url)
-    {
-        const std::string& fileIdOrUrl = std::get<std::string>(photo);
-        data.parts.emplace_back("photo", fileIdOrUrl);
-    }
-    if (messageThreadId)
-        data.parts.emplace_back("message_thread_id", messageThreadId);
-    if (not caption.empty())
-        data.parts.emplace_back("caption", caption);
-    if (not parseMode.empty())
-        data.parts.emplace_back("parse_mode", parseMode);
-    if (not captionEntities.empty()) {
-        nl::json entitiesArray = nl::json::array();
-        for(const Ptr<MessageEntity>& entity : captionEntities)
-            entitiesArray.push_back(entity->toJson());
-        data.parts.emplace_back("caption_entities", entitiesArray.dump());
-    }
-    if (disableNotification)
-        data.parts.emplace_back("disable_notification", disableNotification);
-    if (protectContent)
-        data.parts.emplace_back("protect_content", protectContent);
-    if (replyToMessageId)
-        data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-    if (allowSendingWithoutReply)
-        data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
-    if (replyMarkup)
-        data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+                            std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
+                            const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification, bool protectContent,
+                            std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(12);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));// Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (photo.index() == 0) /* cpr::File */ {
+    const cpr::File& file = std::get<cpr::File>(photo);
+    data.parts.emplace_back("photo", cpr::Files{file});
+  } else /* std::string (fileId or Url) */ {
+    const std::string& fileIdOrUrl = std::get<std::string>(photo);
+    data.parts.emplace_back("photo", fileIdOrUrl);
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-    nl::json sentMessageObj = sendRequest("sendPhoto", data);
-    Ptr<Message> message(new Message(sentMessageObj));
-    return message;
+  nl::json sentMessageObj = sendRequest("sendPhoto", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
 }

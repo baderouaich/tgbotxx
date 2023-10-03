@@ -10,8 +10,8 @@
 #include <tgbotxx/objects/BotCommandScope.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/ChatAdministratorRights.hpp>
 #include <tgbotxx/objects/Chat.hpp>
+#include <tgbotxx/objects/ChatAdministratorRights.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
 #include <tgbotxx/objects/ChatJoinRequest.hpp>
 #include <tgbotxx/objects/ChatLocation.hpp>
@@ -34,11 +34,11 @@
 #include <tgbotxx/objects/Game.hpp>
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
+#include <tgbotxx/objects/IReplyMarkup.hpp>
 #include <tgbotxx/objects/InlineKeyboardButton.hpp>
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
-#include <tgbotxx/objects/IReplyMarkup.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
@@ -46,17 +46,17 @@
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
+#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/MessageId.hpp>
-#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
 #include <tgbotxx/objects/PassportData.hpp>
 #include <tgbotxx/objects/PassportFile.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
-#include <tgbotxx/objects/PollAnswer.hpp>
 #include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/PollAnswer.hpp>
 #include <tgbotxx/objects/PollOption.hpp>
 #include <tgbotxx/objects/PreCheckoutQuery.hpp>
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
@@ -72,11 +72,11 @@
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
+#include <tgbotxx/objects/Video.hpp>
 #include <tgbotxx/objects/VideoChatEnded.hpp>
 #include <tgbotxx/objects/VideoChatParticipantsInvited.hpp>
 #include <tgbotxx/objects/VideoChatScheduled.hpp>
 #include <tgbotxx/objects/VideoChatStarted.hpp>
-#include <tgbotxx/objects/Video.hpp>
 #include <tgbotxx/objects/VideoNote.hpp>
 #include <tgbotxx/objects/Voice.hpp>
 #include <tgbotxx/objects/WebAppData.hpp>
@@ -84,6 +84,6 @@
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 
 /// Utils
-#include <tgbotxx/utils/StringUtils.hpp>
 #include <tgbotxx/utils/DateTimeUtils.hpp>
 #include <tgbotxx/utils/Ptr.hpp>
+#include <tgbotxx/utils/StringUtils.hpp>

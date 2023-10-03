@@ -1,16 +1,17 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 // TODO: circular include ? Chat and here
-#include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/Chat.hpp>
+#include <tgbotxx/objects/User.hpp>
 //
-#include <tgbotxx/objects/ChatMember.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
+#include <tgbotxx/objects/ChatMember.hpp>
 
 namespace tgbotxx {
-    /// @brief This object represents changes in the status of a chat member.
-    /// @ref https://core.telegram.org/bots/api#chatmemberupdated
-    struct ChatMemberUpdated {
+  /// @brief This object represents changes in the status of a chat member.
+  /// @ref https://core.telegram.org/bots/api#chatmemberupdated
+  struct ChatMemberUpdated {
+      ChatMemberUpdated() = default;
       explicit ChatMemberUpdated(const nl::json& json) {
         fromJson(json);
       }
@@ -22,7 +23,7 @@ namespace tgbotxx {
       Ptr<User> from;
 
       /// @brief Date the change was done in Unix time
-      std::time_t date;
+      std::time_t date{};
 
       /// @brief Previous information about the chat member
       Ptr<ChatMember> oldChatMember;
@@ -34,7 +35,7 @@ namespace tgbotxx {
       Ptr<ChatInviteLink> inviteLink;
 
       /// @brief Optional. True, if the user joined the chat via a chat folder invite link
-      bool viaChatFolderInviteLink;
+      bool viaChatFolderInviteLink{};
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
@@ -51,7 +52,7 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json &json) {
+      void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, false);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
         OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
@@ -60,5 +61,5 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "invite_link", inviteLink, true);
         OBJECT_DESERIALIZE_FIELD(json, "via_chat_folder_invite_link", viaChatFolderInviteLink, false, true);
       }
-    };
+  };
 }

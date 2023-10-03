@@ -2,9 +2,10 @@
 #include <tgbotxx/objects/Object.hpp>
 
 namespace tgbotxx {
-    /// @brief This object represents a chat photo.
-    /// @ref https://core.telegram.org/bots/api#chatphoto
-    struct ChatPhoto {
+  /// @brief This object represents a chat photo.
+  /// @ref https://core.telegram.org/bots/api#chatphoto
+  struct ChatPhoto {
+      ChatPhoto() = default;
       explicit ChatPhoto(const nl::json& json) {
         fromJson(json);
       }
@@ -33,11 +34,11 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json &json) {
+      void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "small_file_id", smallFileId, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "small_file_unique_id", smallFileUniqueId, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "big_file_id", bigFileId, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "big_file_unique_id", bigFileUniqueId, "", false);
       }
-    };
+  };
 }

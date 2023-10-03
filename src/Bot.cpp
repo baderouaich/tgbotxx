@@ -1,12 +1,12 @@
-#include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Api.hpp>
-#include <tgbotxx/objects/Update.hpp>
+#include <tgbotxx/Bot.hpp>
 #include <tgbotxx/objects/Message.hpp>
+#include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-  : m_api(new Api(token)), m_running(false), m_lastUpdateId(0) {
+    : m_api(new Api(token)), m_running(false), m_lastUpdateId(0) {
 }
 
 Bot::~Bot() {
@@ -14,22 +14,21 @@ Bot::~Bot() {
 }
 
 void Bot::start() {
-  if(m_running) return;
+  if (m_running) return;
   m_running = true;
 
   /// Callback -> onStart
   this->onStart();
 
-  while(m_running)
-  {
+  while (m_running) {
     // Dispatch updates
-    for (const Ptr<Update>& update : m_updates) {
+    for (const Ptr<Update>& update: m_updates) {
       if (update->updateId >= m_lastUpdateId)
         m_lastUpdateId = update->updateId + 1;
       this->dispatch(update);
     }
 
-    if(m_running) {
+    if (m_running) {
       // Confirm dispatched updates
       m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
     } else {
@@ -42,15 +41,15 @@ void Bot::start() {
 }
 
 void Bot::stop() {
-  if(not m_running) return;
+  if (not m_running) return;
   m_running = false;
-  
+
   /// Callback -> onStop
   this->onStop();
 }
 
 
-void Bot::dispatch(const Ptr<Update> &update) {
+void Bot::dispatch(const Ptr<Update>& update) {
   /// A Message can be a Command, EditedMessage, Normal Message, Channel Post...
   if (update->message) {
     /// ... this function will dispatch accordingly
@@ -117,7 +116,7 @@ const Ptr<Api>& Bot::getApi() const noexcept {
   return m_api;
 }
 
-void Bot::dispatchMessage(const Ptr<Message> &message) {
+void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage
   this->onAnyMessage(message);
 
@@ -140,13 +139,12 @@ void Bot::dispatchMessage(const Ptr<Message> &message) {
     std::string command = message->text.substr(1, splitPosition - 1);
     std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
     bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
-        return cmd->command == command;
+      return cmd->command == command;
     });
     if (isKnownCommand) {
       /// Callback -> onCommand
       this->onCommand(message);
-    }
-    else {
+    } else {
       /// Callback -> onUnknownCommand
       this->onUnknownCommand(message);
     }

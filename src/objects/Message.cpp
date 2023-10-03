@@ -1,5 +1,5 @@
-#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Chat.hpp>
+#include <tgbotxx/objects/Message.hpp>
 using namespace tgbotxx;
 
 nl::json Message::toJson() const {
@@ -78,7 +78,7 @@ nl::json Message::toJson() const {
   return json;
 }
 
-void Message::fromJson(const nl::json &json) {
+void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD(json, "message_id", messageId, 0, false);
   OBJECT_DESERIALIZE_FIELD(json, "message_thread_id", messageThreadId, 0, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "from", from, true);
@@ -93,7 +93,7 @@ void Message::fromJson(const nl::json &json) {
   OBJECT_DESERIALIZE_FIELD(json, "forward_date", forwardDate, 0, true);
   OBJECT_DESERIALIZE_FIELD(json, "is_topic_message", isTopicMessage, false, true);
   OBJECT_DESERIALIZE_FIELD(json, "is_automatic_forward", isAutomaticForward, false, true);
-  OBJECT_DESERIALIZE_FIELD_PTR(json, "reply_to_message", replyToMessage,true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "reply_to_message", replyToMessage, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "via_bot", viaBot, true);
   OBJECT_DESERIALIZE_FIELD(json, "edit_date", editDate, 0, true);
   OBJECT_DESERIALIZE_FIELD(json, "has_protected_content", hasProtectedContent, false, true);
@@ -133,7 +133,7 @@ void Message::fromJson(const nl::json &json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "invoice", invoice, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "successful_payment", successfulPayment, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "user_shared", userShared, true);
-  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_shared", chatShared,  true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_shared", chatShared, true);
   OBJECT_DESERIALIZE_FIELD(json, "connected_website", connectedWebsite, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "write_access_allowed", writeAccessAllowed, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "passport_data", passportData, true);
