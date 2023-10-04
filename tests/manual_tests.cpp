@@ -36,7 +36,10 @@ class MyBot : public Bot {
     Ptr<BotCommand> audio(new BotCommand());
     audio->command = "/audio";
     audio->description = "You will receive an audio";
-    getApi()->setMyCommands({greet, stop, photo, buttons, audio}); // The above commands will be shown in the bot chat menu (bottom left)
+    Ptr<BotCommand> document(new BotCommand());
+    document->command = "/document";
+    document->description = "You will receive a document";
+    getApi()->setMyCommands({greet, stop, photo, buttons, audio, document}); // The above commands will be shown in the bot chat menu (bottom left)
   }
 
   /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -96,6 +99,11 @@ class MyBot : public Bot {
     } else if (message->text == "/audio") {
       getApi()->sendMessage(message->chat->id, "Sending audio file...");
       getApi()->sendAudio(message->chat->id, cpr::File{"/media/bader/6296B2EC60F91DB6/Programs & Entertainment/Music/Navy Modern General Quarters Sound Effect.m4a"});
+    } else if (message->text == "/document") {
+      getApi()->sendMessage(message->chat->id, "Sending local document ...");
+      getApi()->sendDocument(message->chat->id, cpr::File{__FILE__});
+      getApi()->sendMessage(message->chat->id, "Sending document from the internet ...");
+      getApi()->sendDocument(message->chat->id, "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf");
     }
   }
 

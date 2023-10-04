@@ -1,6 +1,7 @@
 #pragma once
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <string>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
@@ -81,7 +82,6 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 #include <variant>
-#include <optional>
 namespace nl = nlohmann;
 
 namespace tgbotxx {
@@ -90,10 +90,10 @@ namespace tgbotxx {
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
       inline static const std::string BASE_URL = "https://api.telegram.org";
-      inline static const cpr::Timeout TIMEOUT = 25 * 1000;                 // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
-      inline static const cpr::Timeout FILES_UPLOAD_TIMEOUT = 300 * 1000;   // 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
-      inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000;  // 20s (Telegram server can take up to 20s to connect with us)
-      inline static const std::int32_t LONG_POLL_TIMEOUT = 10;              // 10s (calling getUpdates() every 10 seconds)
+      inline static const cpr::Timeout TIMEOUT = 25 * 1000;               // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
+      inline static const cpr::Timeout FILES_UPLOAD_TIMEOUT = 300 * 1000; // 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
+      inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000;// 20s (Telegram server can take up to 20s to connect with us)
+      inline static const std::int32_t LONG_POLL_TIMEOUT = 10;            // 10s (calling getUpdates() every 10 seconds)
       const std::string m_token;
 
     public:
@@ -205,7 +205,7 @@ namespace tgbotxx {
       /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param caption Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing
-      /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+      /// @param parseMode Optional. Mode for parsing entities in the photo caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
       /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
       /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
       /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
@@ -236,7 +236,7 @@ namespace tgbotxx {
       /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param caption Optional. Audio caption, 0-1024 characters after entities parsing
-      /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+      /// @param parseMode Optional. Mode for parsing entities in the audio caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
       /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
       /// @param duration Optional. Duration of the audio in seconds
       /// @param performer Optional. Performer
@@ -255,6 +255,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @note Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
       /// @note For sending voice messages, use the sendVoice method instead.
+      /// @ref https://core.telegram.org/bots/api#sendaudio
       Ptr<Message> sendAudio(std::int64_t chatId,
                              std::variant<cpr::File, std::string> audio,
                              std::int32_t messageThreadId = 0,
@@ -270,6 +271,45 @@ namespace tgbotxx {
                              std::int32_t replyToMessageId = 0,
                              bool allowSendingWithoutReply = false,
                              const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send general files.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param document File to send.
+      /// Pass a file_id as String to send a file that exists on the Telegram servers (recommended),
+      /// Pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.
+      /// More information on Sending Files » » https://core.telegram.org/bots/api#sending-files
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
+      /// The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320.
+      /// Ignored if the file is not uploaded using multipart/form-data.
+      /// Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param caption Optional. Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing
+      /// @param parseMode Optional. Mode for parsing entities in the document text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+      /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @note Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
+      /// @note For sending voice messages, use the sendVoice method instead.
+      /// @ref https://core.telegram.org/bots/api#senddocument
+      Ptr<Message> sendDocument(std::int64_t chatId,
+                                std::variant<cpr::File, std::string> document,
+                                std::int32_t messageThreadId = 0,
+                                std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                const std::string& caption = "",
+                                const std::string& parseMode = "",
+                                const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                                bool disableNotification = false,
+                                bool protectContent = false,
+                                std::int32_t replyToMessageId = 0,
+                                bool allowSendingWithoutReply = false,
+                                const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.

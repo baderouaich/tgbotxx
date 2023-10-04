@@ -343,3 +343,61 @@ Ptr<Message> Api::sendAudio(std::int64_t chatId,
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
+Ptr<Message> Api::sendDocument(std::int64_t chatId,
+                               std::variant<cpr::File, std::string> document,
+                               std::int32_t messageThreadId,
+                               std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                               const std::string& caption,
+                               const std::string& parseMode,
+                               const std::vector<Ptr<MessageEntity>>& captionEntities,
+                               bool disableNotification,
+                               bool protectContent,
+                               std::int32_t replyToMessageId,
+                               bool allowSendingWithoutReply,
+                               const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(12);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));// Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (document.index() == 0) /* cpr::File */ {
+    const cpr::File& file = std::get<cpr::File>(document);
+    data.parts.emplace_back("document", cpr::Files{file});
+  } else /* std::string (fileId or Url) */ {
+    const std::string& fileIdOrUrl = std::get<std::string>(document);
+    data.parts.emplace_back("document", fileIdOrUrl);
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if(thumbnail.has_value()) {
+    if (thumbnail->index() == 0) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+      data.parts.emplace_back("thumbnail", cpr::Files{file});
+    } else /* std::string (fileId or Url) */ {
+      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      data.parts.emplace_back("thumbnail", fileIdOrUrl);
+    }
+  }
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendDocument", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
