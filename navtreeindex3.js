@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_general_forum_topic_unhidden.html#af57a5fe28a2a564a6678f1ae1ca0efa0":[2,0,0,45,1],
+"structtgbotxx_1_1_i_reply_markup.html":[2,0,0,50],
 "structtgbotxx_1_1_i_reply_markup.html#aa254ff61ab4968036ecf1cf64b140125":[2,0,0,50,0],
 "structtgbotxx_1_1_i_reply_markup.html#ae7b7ba10abae06c95436047f51775002":[2,0,0,50,1],
 "structtgbotxx_1_1_inline_keyboard_button.html":[2,0,0,46],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0":[2,0,0,63,1],
 "structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e":[2,0,0,63,0],
 "structtgbotxx_1_1_passport_data.html#a92f2aef3f89be993a5735a4896f14754":[2,0,0,63,5],
-"structtgbotxx_1_1_passport_data.html#ac7f994126ec9b9231ca4d06e8eff26c5":[2,0,0,63,4],
-"structtgbotxx_1_1_passport_data.html#af2a07b8497e358a467fabdc27a506907":[2,0,0,63,2],
-"structtgbotxx_1_1_passport_file.html":[2,0,0,64]
+"structtgbotxx_1_1_passport_data.html#ac7f994126ec9b9231ca4d06e8eff26c5":[2,0,0,63,4]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"functions_func_c.html":[2,3,1,2],
+"functions_func_d.html":[2,3,1,3],
 "functions_func_e.html":[2,3,1,4],
 "functions_func_f.html":[2,3,1,5],
 "functions_func_g.html":[2,3,1,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_chat_invite_link.html#a9c47e4f3f3f41f0f0cd96e423035f500":[2,0,0,18,1],
 "structtgbotxx_1_1_chat_invite_link.html#ab0393ea609e32b3690012e0fe8ae5bdb":[2,0,0,18,7],
 "structtgbotxx_1_1_chat_invite_link.html#ab992152b781844ff46582825c20356e9":[2,0,0,18,0],
-"structtgbotxx_1_1_chat_invite_link.html#ad2397aa320e5fe445b8909a5d699e880":[2,0,0,18,12],
-"structtgbotxx_1_1_chat_invite_link.html#afd274dbda2e32fe8e0a5a32821442eeb":[2,0,0,18,9],
-"structtgbotxx_1_1_chat_join_request.html":[2,0,0,19]
+"structtgbotxx_1_1_chat_invite_link.html#ad2397aa320e5fe445b8909a5d699e880":[2,0,0,18,12]
 };

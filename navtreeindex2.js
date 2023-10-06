@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat_invite_link.html#afd274dbda2e32fe8e0a5a32821442eeb":[2,0,0,18,9],
+"structtgbotxx_1_1_chat_join_request.html":[2,0,0,19],
 "structtgbotxx_1_1_chat_join_request.html#a09f1d0b914325cbd86754205a1d0685f":[2,0,0,19,9],
 "structtgbotxx_1_1_chat_join_request.html#a0c004080bf9b538752a17d8518b9696a":[2,0,0,19,4],
 "structtgbotxx_1_1_chat_join_request.html#a1393f4c6753bdd9c6eeedbdd8f8d66c3":[2,0,0,19,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_general_forum_topic_unhidden.html":[2,0,0,45],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#a9c5ecaa8ec2699af8dd17e5d8f8e27dd":[2,0,0,45,2],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#aacff1d72a685ec43c520ce37bb7f0905":[2,0,0,45,0],
-"structtgbotxx_1_1_general_forum_topic_unhidden.html#aaf8993c46a90683555d97d514475564b":[2,0,0,45,3],
-"structtgbotxx_1_1_general_forum_topic_unhidden.html#af57a5fe28a2a564a6678f1ae1ca0efa0":[2,0,0,45,1],
-"structtgbotxx_1_1_i_reply_markup.html":[2,0,0,50]
+"structtgbotxx_1_1_general_forum_topic_unhidden.html#aaf8993c46a90683555d97d514475564b":[2,0,0,45,3]
 };

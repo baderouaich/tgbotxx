@@ -128,6 +128,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:add175b0d63ee2e77fa053142c5b27d3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e">sendDocument</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; document, std::int32_t messageThreadId=0, std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; thumbnail=std::nullopt, const std::string &amp;caption=&quot;&quot;, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;captionEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
 <tr class="memdesc:add175b0d63ee2e77fa053142c5b27d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send general files.  <a href="classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e">More...</a><br /></td></tr>
 <tr class="separator:add175b0d63ee2e77fa053142c5b27d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
+<tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
+<tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757b45a81dd38746a1004c6bd4b6f262"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262">downloadFile</a> (const std::string &amp;filePath) const</td></tr>
+<tr class="memdesc:a757b45a81dd38746a1004c6bd4b6f262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to download a file from Telegram and save it in memory. For the moment, bots can download files of up to 20MB in size. See <a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139" title="Use this method to get basic information about a file and prepare it for downloading....">Api::getFile</a>. The file can then be downloaded via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262">More...</a><br /></td></tr>
+<tr class="separator:a757b45a81dd38746a1004c6bd4b6f262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -334,6 +340,39 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
 
 </div>
 </div>
+<a id="a757b45a81dd38746a1004c6bd4b6f262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a757b45a81dd38746a1004c6bd4b6f262">&#9670;&nbsp;</a></span>downloadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::Api::downloadFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to download a file from Telegram and save it in memory. For the moment, bots can download files of up to 20MB in size. See <a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139" title="Use this method to get basic information about a file and prepare it for downloading....">Api::getFile</a>. The file can then be downloaded via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>Telegram file path from Api::getFile(fileId) -&gt; <a class="el" href="structtgbotxx_1_1_file.html#a65ae3bbbc5b6745efbe300297a1a73c4" title="Optional. File path. Use https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt; to get the file.">File::filePath</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string contains downloaded file contents. <a href="https://core.telegram.org/bots/api#getfile">https://core.telegram.org/bots/api#getfile</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac20f5fa4ae8213841989b4e967573cdb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac20f5fa4ae8213841989b4e967573cdb">&#9670;&nbsp;</a></span>forwardMessage()</h2>
 
@@ -397,6 +436,36 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#forwardmessage">https://core.telegram.org/bots/api#forwardmessage</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3bbbf85d141c05ff15b659ce05f4d139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bbbf85d141c05ff15b659ce05f4d139">&#9670;&nbsp;</a></span>getFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_file.html">File</a>&gt; tgbotxx::Api::getFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fileId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileId</td><td><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> identifier to get information about </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> object is returned on success. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile again. </dd>
+<dd>
+This function may not preserve the original file name and MIME type. You should save the file's MIME type and name (if available) when the <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> object is received. <a href="https://core.telegram.org/bots/api#getfile">https://core.telegram.org/bots/api#getfile</a> </dd></dl>
 
 </div>
 </div>
@@ -1034,7 +1103,7 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Fri Oct 6 2023 21:58:38 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 6 2023 23:18:55 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
