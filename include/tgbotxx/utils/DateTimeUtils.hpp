@@ -9,7 +9,7 @@ namespace tgbotxx {
     /// @param time std::time_t value to convert
     /// @param format Format of the date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05)
     /// @returns time as string date time with the specific format
-    std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+    static std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
       char buffer[64]{};
       std::tm *tm_ = std::localtime(&time);
       std::strftime(buffer, sizeof(buffer), format.data(), tm_);
