@@ -311,6 +311,25 @@ namespace tgbotxx {
                                 bool allowSendingWithoutReply = false,
                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
+      /// @brief Use this method to get basic information about a file and prepare it for downloading.
+      /// For the moment, bots can download files of up to 20MB in size.
+      /// The file can then be downloaded using Api::downloadFile or via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
+      /// @param fileId File identifier to get information about
+      /// @returns a File object is returned on success.
+      /// @note It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile again.
+      /// @note This function may not preserve the original file name and MIME type. You should save the file's MIME type and name (if available) when the File object is received.
+      /// @ref https://core.telegram.org/bots/api#getfile
+      Ptr<File> getFile(const std::string& fileId) const;
+
+      /// @brief Use this method to download a file from Telegram and save it in memory.
+      /// For the moment, bots can download files of up to 20MB in size. See Api::getFile.
+      /// The file can then be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
+      /// @param filePath Telegram file path from Api::getFile(fileId) -> File::filePath
+      /// @returns std::string contains downloaded file contents.
+      /// @ref https://core.telegram.org/bots/api#getfile
+      /// @throws Exception on failure
+      std::string downloadFile(const std::string& filePath) const;
+
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.
       /// @param dropPendingUpdates: Pass True to drop all pending updates.

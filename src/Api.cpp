@@ -1,3 +1,6 @@
+#include "cpr/accept_encoding.h"
+#include "cpr/response.h"
+#include "cpr/status_codes.h"
 #include "cpr/timeout.h"
 #include <exception>
 #include <tgbotxx/Api.hpp>
@@ -13,7 +16,7 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
                          // You can initiate multiple concurrent requests to the Telegram API, which means
                          // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
   bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
-  if(hasFiles) // Files can take longer to upload
+  if (hasFiles)// Files can take longer to upload
     session.SetTimeout(FILES_UPLOAD_TIMEOUT);
   else
     session.SetTimeout(TIMEOUT);
@@ -319,7 +322,7 @@ Ptr<Message> Api::sendAudio(std::int64_t chatId,
     data.parts.emplace_back("performer", performer);
   if (not title.empty())
     data.parts.emplace_back("title", title);
-  if(thumbnail.has_value()) {
+  if (thumbnail.has_value()) {
     if (thumbnail->index() == 0) /* cpr::File */ {
       const cpr::File& file = std::get<cpr::File>(*thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
@@ -367,7 +370,7 @@ Ptr<Message> Api::sendDocument(std::int64_t chatId,
   }
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
-  if(thumbnail.has_value()) {
+  if (thumbnail.has_value()) {
     if (thumbnail->index() == 0) /* cpr::File */ {
       const cpr::File& file = std::get<cpr::File>(*thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
@@ -400,4 +403,27 @@ Ptr<Message> Api::sendDocument(std::int64_t chatId,
   nl::json sentMessageObj = sendRequest("sendDocument", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
+}
+
+Ptr<File> Api::getFile(const std::string& fileId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("file_id", fileId);
+  nl::json fileObj = sendRequest("getFile", data);
+  Ptr<File> file(new File(fileObj));
+  return file;
+}
+
+std::string Api::downloadFile(const std::string& filePath) const {
+  std::ostringstream oss;
+  oss << BASE_URL << "/file/bot" << m_token << "/" << filePath;
+
+  cpr::Url url{oss.str()};
+  cpr::Timeout timeout{FILES_UPLOAD_TIMEOUT};
+  cpr::AcceptEncoding encoding = cpr::AcceptEncoding{{cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib}};
+  cpr::Response res = cpr::Get(url, timeout, encoding);
+  if (res.status_code == cpr::status::HTTP_OK) {
+    return res.text;
+  }
+  throw Exception("Failed to download file " + filePath + " with status code: " + std::to_string(res.status_code));
 }
