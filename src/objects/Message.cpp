@@ -28,6 +28,7 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "entities", entities);
   OBJECT_SERIALIZE_FIELD_PTR(json, "animation", animation, nl::json::object());
   OBJECT_SERIALIZE_FIELD_PTR(json, "audio", audio, nl::json::object());
+  OBJECT_SERIALIZE_FIELD_PTR(json, "document", document, nl::json::object());
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "photo", photo);
   OBJECT_SERIALIZE_FIELD_PTR(json, "sticker", sticker, nl::json::object());
   OBJECT_SERIALIZE_FIELD_PTR(json, "story", story, nl::json::object());
@@ -103,6 +104,7 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "entities", entities, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "animation", animation, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "audio", audio, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "document", document, true);
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "photo", photo, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "sticker", sticker, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "story", story, true);

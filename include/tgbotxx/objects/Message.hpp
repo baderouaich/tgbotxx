@@ -117,7 +117,6 @@ namespace tgbotxx {
       /// @brief Optional. The unique identifier of a media message group this message belongs to
       std::string mediaGroupId;
 
-
       /// @brief Optional. Signature of the post author for messages in channels, or the custom title of
       /// an anonymous group administrator
       std::string authorSignature;
