@@ -29,7 +29,7 @@ using namespace tgbotxx;
 
 class MyBot : public Bot {
 public:
-    MyBot() : Bot("BOT_TOKEN_FROM_BOTH_FATHER") {}
+    MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {}
 
 private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())

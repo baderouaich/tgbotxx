@@ -55,7 +55,7 @@ SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
 SpaceBeforeRangeBasedForLoopColon: false
 SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 0
+SpacesBeforeTrailingComments: 1
 SpacesInAngles: Never
 SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: false

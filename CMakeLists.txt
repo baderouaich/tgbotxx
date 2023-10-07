@@ -31,7 +31,7 @@ target_include_directories(${PROJECT_NAME}
         ${CPR_INCLUDE_DIRS}                                             # libcpr includes
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
-
+add_compile_definitions(TGBOTXX_VERSION="${PROJECT_VERSION}")
 
 ###### Installation ######
 include(cmake/install.cmake)
