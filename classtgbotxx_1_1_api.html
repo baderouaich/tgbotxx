@@ -129,11 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:add175b0d63ee2e77fa053142c5b27d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send general files.  <a href="classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e">More...</a><br /></td></tr>
 <tr class="separator:add175b0d63ee2e77fa053142c5b27d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
-<tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
+<tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757b45a81dd38746a1004c6bd4b6f262"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262">downloadFile</a> (const std::string &amp;filePath) const</td></tr>
-<tr class="memdesc:a757b45a81dd38746a1004c6bd4b6f262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to download a file from Telegram and save it in memory. For the moment, bots can download files of up to 20MB in size. See <a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139" title="Use this method to get basic information about a file and prepare it for downloading....">Api::getFile</a>. The file can then be downloaded via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262">More...</a><br /></td></tr>
-<tr class="separator:a757b45a81dd38746a1004c6bd4b6f262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0773a822572d7787fd91cc15fb307a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1">downloadFile</a> (const std::string &amp;filePath, const std::function&lt; bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)&gt; &amp;progressCallback=nullptr) const</td></tr>
+<tr class="memdesc:ac0773a822572d7787fd91cc15fb307a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to download a file from Telegram and save it in memory. For the moment, bots can download files of up to 20MB in size. See <a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139" title="Use this method to get basic information about a file and prepare it for downloading....">Api::getFile</a>. The file can then be downloaded via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1">More...</a><br /></td></tr>
+<tr class="separator:ac0773a822572d7787fd91cc15fb307a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -340,8 +340,8 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
 
 </div>
 </div>
-<a id="a757b45a81dd38746a1004c6bd4b6f262"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a757b45a81dd38746a1004c6bd4b6f262">&#9670;&nbsp;</a></span>downloadFile()</h2>
+<a id="ac0773a822572d7787fd91cc15fb307a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0773a822572d7787fd91cc15fb307a1">&#9670;&nbsp;</a></span>downloadFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,8 +350,18 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
           <td class="memname">std::string tgbotxx::Api::downloadFile </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filePath</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>progressCallback</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -360,6 +370,7 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filePath</td><td>Telegram file path from Api::getFile(fileId) -&gt; <a class="el" href="structtgbotxx_1_1_file.html#a65ae3bbbc5b6745efbe300297a1a73c4" title="Optional. File path. Use https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt; to get the file.">File::filePath</a> </td></tr>
+    <tr><td class="paramname">progressCallback</td><td>Optional. Download progress callback. Callback shall return true to continue downloading, or false to cancel the download. </td></tr>
   </table>
   </dd>
 </dl>
@@ -455,7 +466,7 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
       </table>
 </div><div class="memdoc">
 
-<p>Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response. </p>
+<p>Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fileId</td><td><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> identifier to get information about </td></tr>
@@ -1103,7 +1114,7 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Oct 7 2023 12:28:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 7 2023 12:58:19 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

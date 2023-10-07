@@ -4,7 +4,7 @@ var classtgbotxx_1_1_api =
     [ "close", "classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2", null ],
     [ "copyMessage", "classtgbotxx_1_1_api.html#a559d4f43c4641303b84e97bdba97ef69", null ],
     [ "deleteWebhook", "classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962", null ],
-    [ "downloadFile", "classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262", null ],
+    [ "downloadFile", "classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1", null ],
     [ "forwardMessage", "classtgbotxx_1_1_api.html#ac20f5fa4ae8213841989b4e967573cdb", null ],
     [ "getFile", "classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139", null ],
     [ "getMe", "classtgbotxx_1_1_api.html#a3b6fde6a4caa1262b6c6d587dc027301", null ],

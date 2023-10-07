@@ -13,6 +13,6 @@ var searchData=
   ['document_162',['document',['../structtgbotxx_1_1_message.html#a74563e6b153578cbe708da9b6b35e4db',1,'tgbotxx::Message']]],
   ['document_163',['Document',['../structtgbotxx_1_1_document.html#ae1fdb6dcd2e7d71594b717f5737d7a00',1,'tgbotxx::Document::Document()=default'],['../structtgbotxx_1_1_document.html#a4b18b26b6b7ada0dde6917ded908fa7a',1,'tgbotxx::Document::Document(const nl::json &amp;json)'],['../structtgbotxx_1_1_document.html',1,'tgbotxx::Document']]],
   ['document_2ehpp_164',['Document.hpp',['../_document_8hpp.html',1,'']]],
-  ['downloadfile_165',['downloadFile',['../classtgbotxx_1_1_api.html#a757b45a81dd38746a1004c6bd4b6f262',1,'tgbotxx::Api']]],
+  ['downloadfile_165',['downloadFile',['../classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1',1,'tgbotxx::Api']]],
   ['duration_166',['duration',['../structtgbotxx_1_1_animation.html#ac977845e4dda49f259c28dc0dbe6205f',1,'tgbotxx::Animation::duration()'],['../structtgbotxx_1_1_audio.html#a9bcc4424e5cede31039413ecfdfe553c',1,'tgbotxx::Audio::duration()'],['../structtgbotxx_1_1_video.html#a612a6ba893110adc4b3e8d50b2ed90c6',1,'tgbotxx::Video::duration()'],['../structtgbotxx_1_1_video_chat_ended.html#aa56d5a49c580d7003ce4df029a30e5bc',1,'tgbotxx::VideoChatEnded::duration()'],['../structtgbotxx_1_1_video_note.html#a6b71aab19e1b9a5418ccf3bd5a01c5dc',1,'tgbotxx::VideoNote::duration()'],['../structtgbotxx_1_1_voice.html#ad2ff5b06d9618f7c57c694c6ee084447',1,'tgbotxx::Voice::duration()']]]
 ];
