@@ -15,5 +15,6 @@ var classtgbotxx_1_1_api =
     [ "sendDocument", "classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821", null ],
     [ "sendPhoto", "classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd", null ],
+    [ "sendVideo", "classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115", null ],
     [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ]
 ];

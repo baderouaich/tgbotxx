@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['shippingaddress_689',['ShippingAddress',['../structtgbotxx_1_1_shipping_address.html',1,'tgbotxx']]],
-  ['shippingquery_690',['ShippingQuery',['../structtgbotxx_1_1_shipping_query.html',1,'tgbotxx']]],
-  ['sticker_691',['Sticker',['../structtgbotxx_1_1_sticker.html',1,'tgbotxx']]],
-  ['story_692',['Story',['../structtgbotxx_1_1_story.html',1,'tgbotxx']]],
-  ['successfulpayment_693',['SuccessfulPayment',['../structtgbotxx_1_1_successful_payment.html',1,'tgbotxx']]],
-  ['switchinlinequerychosenchat_694',['SwitchInlineQueryChosenChat',['../structtgbotxx_1_1_switch_inline_query_chosen_chat.html',1,'tgbotxx']]]
+  ['shippingaddress_686',['ShippingAddress',['../structtgbotxx_1_1_shipping_address.html',1,'tgbotxx']]],
+  ['shippingquery_687',['ShippingQuery',['../structtgbotxx_1_1_shipping_query.html',1,'tgbotxx']]],
+  ['sticker_688',['Sticker',['../structtgbotxx_1_1_sticker.html',1,'tgbotxx']]],
+  ['story_689',['Story',['../structtgbotxx_1_1_story.html',1,'tgbotxx']]],
+  ['successfulpayment_690',['SuccessfulPayment',['../structtgbotxx_1_1_successful_payment.html',1,'tgbotxx']]],
+  ['switchinlinequerychosenchat_691',['SwitchInlineQueryChosenChat',['../structtgbotxx_1_1_switch_inline_query_chosen_chat.html',1,'tgbotxx']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat_invite_link.html#ad2397aa320e5fe445b8909a5d699e880":[2,0,0,18,12],
 "structtgbotxx_1_1_chat_invite_link.html#afd274dbda2e32fe8e0a5a32821442eeb":[2,0,0,18,9],
 "structtgbotxx_1_1_chat_join_request.html":[2,0,0,19],
 "structtgbotxx_1_1_chat_join_request.html#a09f1d0b914325cbd86754205a1d0685f":[2,0,0,19,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_general_forum_topic_hidden.html#a78863999f049618e875c2c52905ae697":[2,0,0,44,1],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html":[2,0,0,45],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#a9c5ecaa8ec2699af8dd17e5d8f8e27dd":[2,0,0,45,2],
-"structtgbotxx_1_1_general_forum_topic_unhidden.html#aacff1d72a685ec43c520ce37bb7f0905":[2,0,0,45,0],
-"structtgbotxx_1_1_general_forum_topic_unhidden.html#aaf8993c46a90683555d97d514475564b":[2,0,0,45,3]
+"structtgbotxx_1_1_general_forum_topic_unhidden.html#aacff1d72a685ec43c520ce37bb7f0905":[2,0,0,45,0]
 };
