@@ -1,5 +1,7 @@
-## photo_bot
-This example shows how to program a Telegram Bot that will send users photos using the `Api::sendPhoto()` method.
+## Receive photo
+This example shows how to program a Telegram Bot that will receive photos from users
+using the `Api::getFile()` and `Api::downloadFile()` api methods.
+
 
 ### Run
 ```bash
