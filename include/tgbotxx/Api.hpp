@@ -3,6 +3,8 @@
 #include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
+#include <variant>
+#include <functional>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
@@ -81,7 +83,6 @@
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
-#include <variant>
 namespace nl = nlohmann;
 
 namespace tgbotxx {
@@ -310,6 +311,56 @@ namespace tgbotxx {
                                 std::int32_t replyToMessageId = 0,
                                 bool allowSendingWithoutReply = false,
                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as Document using Api::sendDocument()).
+      /// Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param video Video to send.
+      /// Pass a fileId as String to send a video that exists on the Telegram servers (recommended),
+      /// Pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param duration Optional. Duration of sent video in seconds
+      /// @param width Optional. Video width
+      /// @param height Optional. Video height
+      /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
+      /// The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320.
+      /// Ignored if the file is not uploaded using multipart/form-data.
+      /// Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param caption Optional. Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing
+      /// @param parseMode Optional. Mode for parsing entities in the video caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+      /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
+      /// @param hasSpoiler Optional. Pass True if the video needs to be covered with a spoiler animation
+      /// @param supportsStreaming Optional. Pass True if the uploaded video is suitable for streaming
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+      /// @ref https://core.telegram.org/bots/api#sendvideo
+      Ptr<Message> sendVideo(std::int64_t chatId,
+                             std::variant<cpr::File, std::string> video,
+                             std::int32_t messageThreadId = 0,
+                             std::int32_t duration = 0,
+                             std::int32_t width = 0,
+                             std::int32_t height = 0,
+                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             const std::string& caption = "",
+                             const std::string& parseMode = "",
+                             const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                             bool hasSpoiler = false,
+                             bool supportsStreaming = false,
+                             bool disableNotification = false,
+                             bool protectContent = false,
+                             std::int32_t replyToMessageId = 0,
+                             bool allowSendingWithoutReply = false,
+                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
 
       /// @brief Use this method to get basic information about a file and prepare it for downloading.
       /// For the moment, bots can download files of up to 20MB in size.
