@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(receive_photo_bot)
+project(send_video_bot)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,3 +13,5 @@ FetchContent_MakeAvailable(tgbotxx)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx)
+
+add_compile_definitions(VIDEOS_DIR="${CMAKE_CURRENT_SOURCE_DIR}/videos")

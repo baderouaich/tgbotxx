@@ -13,5 +13,3 @@ FetchContent_MakeAvailable(tgbotxx)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx)
-
-add_compile_definitions(PHOTOS_DIR="${CMAKE_CURRENT_SOURCE_DIR}/photos")
