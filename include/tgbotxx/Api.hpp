@@ -325,10 +325,11 @@ namespace tgbotxx {
       /// For the moment, bots can download files of up to 20MB in size. See Api::getFile.
       /// The file can then be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
       /// @param filePath Telegram file path from Api::getFile(fileId) -> File::filePath
+      /// @param progressCallback Optional. Download progress callback. Callback shall return true to continue downloading, or false to cancel the download.
       /// @returns std::string contains downloaded file contents.
       /// @ref https://core.telegram.org/bots/api#getfile
       /// @throws Exception on failure
-      std::string downloadFile(const std::string& filePath) const;
+      std::string downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)>& progressCallback = nullptr) const;
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.

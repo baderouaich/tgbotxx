@@ -52,6 +52,15 @@ class MyBot : public Bot {
   void onAnyMessage(const Ptr<Message>& message) override {
     //std::cout << __func__ << ": " << message->toJson().dump(2) << std::endl;
     //Ptr<Message> msg = getApi()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
+
+    if(message->document){
+      Ptr<File> docFile = api()->getFile(message->document->fileId);
+      std::string bytes = api()->downloadFile(docFile->filePath, [](cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow) -> bool {
+          std::cout << "Downloading document " << downloadNow  << " / " << downloadTotal  << " bytes" << std::endl;
+          // return false to cancel the download
+          return true;
+      });
+    }
   }
 
   /// Called when a non-command message is received of any kind - text, photo, sticker, etc.

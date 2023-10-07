@@ -1,8 +1,3 @@
-#include "cpr/accept_encoding.h"
-#include "cpr/response.h"
-#include "cpr/status_codes.h"
-#include "cpr/timeout.h"
-#include <exception>
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
@@ -414,14 +409,26 @@ Ptr<File> Api::getFile(const std::string& fileId) const {
   return file;
 }
 
-std::string Api::downloadFile(const std::string& filePath) const {
+std::string Api::downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t, cpr::cpr_off_t)>& progressCallback) const {
   std::ostringstream oss;
   oss << BASE_URL << "/file/bot" << m_token << "/" << filePath;
 
-  cpr::Url url{oss.str()};
-  cpr::Timeout timeout{FILES_UPLOAD_TIMEOUT};
-  cpr::AcceptEncoding encoding = cpr::AcceptEncoding{{cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib}};
-  cpr::Response res = cpr::Get(url, timeout, encoding);
+  cpr::Session session{};
+  session.SetUrl(cpr::Url{oss.str()});
+  session.SetTimeout(FILES_UPLOAD_TIMEOUT);
+  session.SetConnectTimeout(CONNECT_TIMEOUT);
+  session.SetAcceptEncoding({cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib});
+  if(progressCallback) {
+    cpr::ProgressCallback pCallback{[&progressCallback](cpr::cpr_off_t downloadTotal,
+                                                        cpr::cpr_off_t downloadNow,
+                                                        [[maybe_unused]] cpr::cpr_off_t uploadTotal,
+                                                        [[maybe_unused]] cpr::cpr_off_t uploadNow,
+                                                        [[maybe_unused]] std::intptr_t userdata) -> bool {
+                                      return progressCallback(downloadTotal, downloadNow);
+                                    }, 0};
+    session.SetProgressCallback(pCallback);
+  }
+  cpr::Response res = session.Get();
   if (res.status_code == cpr::status::HTTP_OK) {
     return res.text;
   }
