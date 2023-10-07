@@ -6,7 +6,7 @@ This example shows how to program a Telegram Bot that will send users photos usi
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
-./photo_bot YOUR_BOT_TOKEN
+./send_video_bot YOUR_BOT_TOKEN
 ```
 
 ### How to create a new Bot and obtain its private token ?

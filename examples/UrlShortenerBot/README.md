@@ -6,7 +6,7 @@ This example shows how to program Telegram Bot for shortening URLs using a [free
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
-./ping_bot YOUR_BOT_TOKEN
+./urlshortener_bot YOUR_BOT_TOKEN
 ```
 
 ### How to create a new Bot and obtain its private token ?

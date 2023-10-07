@@ -8,7 +8,7 @@ using the `Api::getFile()` and `Api::downloadFile()` api methods.
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
-./photo_bot YOUR_BOT_TOKEN
+./receive_photo_bot YOUR_BOT_TOKEN
 ```
 
 ### How to create a new Bot and obtain its private token ?
