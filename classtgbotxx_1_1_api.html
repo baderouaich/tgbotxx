@@ -131,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae44a154bb84fa0a0beafed1fb63f5115"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115">sendVideo</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; video, std::int32_t messageThreadId=0, std::int32_t duration=0, std::int32_t width=0, std::int32_t height=0, std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; thumbnail=std::nullopt, const std::string &amp;caption=&quot;&quot;, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;captionEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool hasSpoiler=false, bool supportsStreaming=false, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
 <tr class="memdesc:ae44a154bb84fa0a0beafed1fb63f5115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <a class="el" href="structtgbotxx_1_1_document.html" title="This object represents a general file (as opposed to photos, voice messages and audio files)....">Document</a> using <a class="el" href="classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e" title="Use this method to send general files.">Api::sendDocument()</a>). Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.  <a href="classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115">More...</a><br /></td></tr>
 <tr class="separator:ae44a154bb84fa0a0beafed1fb63f5115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af300682b84b541bad99b1d0e9d81ccef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef">sendAnimation</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; animation, std::int32_t messageThreadId=0, std::int32_t duration=0, std::int32_t width=0, std::int32_t height=0, std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; thumbnail=std::nullopt, const std::string &amp;caption=&quot;&quot;, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;captionEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool hasSpoiler=false, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:af300682b84b541bad99b1d0e9d81ccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.  <a href="classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef">More...</a><br /></td></tr>
+<tr class="separator:af300682b84b541bad99b1d0e9d81ccef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
 <tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -615,6 +618,143 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 
 <p>Use this method to log out from the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server for 10 minutes. </p>
 <dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#logout">https://core.telegram.org/bots/api#logout</a> </dd></dl>
+
+</div>
+</div>
+<a id="af300682b84b541bad99b1d0e9d81ccef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af300682b84b541bad99b1d0e9d81ccef">&#9670;&nbsp;</a></span>sendAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendAnimation </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::variant&lt; cpr::File, std::string &gt;&#160;</td>
+          <td class="paramname"><em>animation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>duration</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>width</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>height</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt;&#160;</td>
+          <td class="paramname"><em>thumbnail</em> = <code>std::nullopt</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>caption</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>parseMode</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>captionEntities</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hasSpoiler</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">animation</td><td><a class="el" href="structtgbotxx_1_1_animation.html" title="This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound)....">Animation</a> to send. Pass a fileId as String to send an animation that exists on the Telegram servers (recommended), Pass an HTTP URL as a String for Telegram to get a animation from the Internet, or upload a new animation using multipart/form-data. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a> </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">duration</td><td>Optional. Duration of sent animation in seconds </td></tr>
+    <tr><td class="paramname">width</td><td>Optional. <a class="el" href="structtgbotxx_1_1_animation.html" title="This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound)....">Animation</a> width </td></tr>
+    <tr><td class="paramname">height</td><td>Optional. <a class="el" href="structtgbotxx_1_1_animation.html" title="This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound)....">Animation</a> height </td></tr>
+    <tr><td class="paramname">thumbnail</td><td>Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a> </td></tr>
+    <tr><td class="paramname">caption</td><td>Optional. <a class="el" href="structtgbotxx_1_1_animation.html" title="This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound)....">Animation</a> caption (may also be used when resending animation by file_id), 0-1024 characters after entities parsing </td></tr>
+    <tr><td class="paramname">parseMode</td><td>Optional. Mode for parsing entities in the animation caption. See formatting options for more details. <a href="https://core.telegram.org/bots/api#formatting-options">https://core.telegram.org/bots/api#formatting-options</a> </td></tr>
+    <tr><td class="paramname">captionEntities</td><td>Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode </td></tr>
+    <tr><td class="paramname">hasSpoiler</td><td>Optional. Pass True if the animation needs to be covered with a spoiler animation </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or ForceReply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future. <a href="https://core.telegram.org/bots/api#sendanimation">https://core.telegram.org/bots/api#sendanimation</a> </dd></dl>
 
 </div>
 </div>
@@ -1261,7 +1401,7 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Oct 7 2023 14:01:30 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 15:12:41 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
