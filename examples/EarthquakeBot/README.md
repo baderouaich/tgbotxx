@@ -15,8 +15,11 @@ make -j8
 3. Follow instructions to create a new Bot
 4. After you finish the instructions, you will receive a Bot Token, make sure you keep it secured.
 
-## Commands
+### Commands
 <img src="img/commands.jpg" alt="Commands" width="300"/>
 
-## Alerts
+### Alerts
 <img src="img/alerts.jpg" alt="Alerts" width="300"/>
+
+### Location
+<img src="img/location.jpg" alt="Location" width="300"/>

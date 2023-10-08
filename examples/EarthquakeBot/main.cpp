@@ -78,17 +78,21 @@ private:
       return;
 
     /// Alert all subscribed users about this new earthquake events
+    float latitude = eqEvent["geometry"]["coordinates"][1].get<float>();
+    float longitude = eqEvent["geometry"]["coordinates"][0].get<float>();
     std::ostringstream oss{};
     oss << "New earthquake!\n"
         << "* Title: " << eqEvent["properties"]["title"].get<std::string>() << '\n'
         << "* Date: " << DateTimeUtils::toString(eqEvent["properties"]["time"].get<std::time_t>() / 1000) << '\n'
         << "* Magnitude: " << eqEvent["properties"]["mag"].get<float>() << '\n'
+        << "* Tsunami: " << eqEvent["properties"]["tsunami"].get<int>() << '\n'
         << "* Location: " << eqEvent["properties"]["place"].get<std::string>() << '\n'
-        << "* Coordinates: (longitude: " << eqEvent["geometry"]["coordinates"][0].get<float>() << ", latitude: " << eqEvent["geometry"]["coordinates"][1].get<float>() << ")\n";
+        << "* Coordinates: (latitude: " << latitude << ", latitude: " << longitude << ")\n";
         ;
     for (const std::int64_t &chatId : m_chatIds)
     {
       api()->sendMessage(chatId, oss.str());
+      api()->sendLocation(chatId, latitude, longitude);
     }
 
     /// Mark as alerted.

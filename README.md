@@ -20,8 +20,23 @@ Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegra
 | Windows (x64)    | [![Windows](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-windows.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-windows.yml) |
 | macOS            | [![macOS](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml)
 
-### Example
-see [examples](examples/) for more samples:
+### Examples
+see [examples](examples/) for more:
+
+| Example                                     | Description                                                                                                                  |                                    Preview                                     |
+|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------:|
+| [EarthquakeBot](examples/EarthquakeBot)     | This example shows how to program a Telegram Bot that will alert you if there is a recent earthquake somewhere in the world. |  <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">   |
+| [Buttons](examples/Buttons)                 | This example shows how to program a basic Telegram Bot which that uses inline keyboard buttons to interact with users.       |     <img src="examples/Buttons/img/preview.jpg" alt="preview" width="200">     |
+| [UrlShortenerBot](examples/UrlShortenerBot) | This example shows how to program Telegram Bot for shortening URLs.                                                          | <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200"> |
+
+
+### Usage
+This library is using Inheritance-Based Extensibility technique providing a Bot class which you can inherit from 
+and optionally override callback events depending on your Bot needs.
+
+This also allows you to instantiate multiple bots in the same program. Just make sure each Bot is running on a separate thread.
+
+Usage example: Creating a new Bot called `MyBot` that overrides all callbacks:
 ```cpp
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
@@ -107,9 +122,6 @@ int main() {
   return 0;
 }
 ```
-
-
-
 ### Usage (4 approaches)
 #### 1. `FetchContent` *(recommended)*
 

@@ -1,5 +1,5 @@
 ## UrlShortenerBot
-This example shows how to program Telegram Bot for shortening URLs using a [free url shortner JSON Api](https://ulvis.net/developer.html).
+This example shows how to program a Telegram Bot for shortening URLs using a [free url shortner JSON Api](https://ulvis.net/developer.html).
 
 ### Run
 ```bash
@@ -14,3 +14,6 @@ make -j8
 2. Send BotFather a command /newbot
 3. Follow instructions to create a new Bot
 4. After you finish the instructions, you will receive a Bot Token, make sure you keep it secured.
+
+### Preview
+<img src="img/preview.jpg" alt="Preview" width="300"/>

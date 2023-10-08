@@ -1,4 +1,3 @@
-#include "tgbotxx/objects/InputMedia.hpp"
 #include <csignal>
 #include <cstdlib>
 #include <iostream>
@@ -164,7 +163,7 @@ class MyBot : public Bot {
         }
       } else if (message->text == "/location") {
         getApi()->sendMessage(message->chat->id, "Sending location ...");
-        getApi()->sendLocation(message->chat->id, 64.9631f, 19.0208f); // Iceland
+        getApi()->sendLocation(message->chat->id, 65.590261f, -17.303453f); // Iceland
       }
     }
 
