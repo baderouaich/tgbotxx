@@ -42,7 +42,10 @@ class MyBot : public Bot {
     Ptr<BotCommand> animation(new BotCommand());
     animation->command = "/animation";
     animation->description = "You will receive an animation (GIF)";
-    getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation}); // The above commands will be shown in the bot chat menu (bottom left)
+    Ptr<BotCommand> voice(new BotCommand());
+    voice->command = "/voice";
+    voice->description = "You will receive an voice message";
+    getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice}); // The above commands will be shown in the bot chat menu (bottom left)
   }
 
   /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -119,6 +122,9 @@ class MyBot : public Bot {
     } else if (message->text == "/animation") {
       getApi()->sendMessage(message->chat->id, "Sending animation ...");
       getApi()->sendDocument(message->chat->id, "https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif");
+    } else if (message->text == "/voice") {
+      getApi()->sendMessage(message->chat->id, "Sending voice message ...");
+      getApi()->sendDocument(message->chat->id, "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg");
     }
   }
 
