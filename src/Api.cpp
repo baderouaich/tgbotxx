@@ -632,3 +632,55 @@ Ptr<Message> Api::sendVoice(std::int64_t chatId,
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
+
+Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
+                                std::variant<cpr::File, std::string> videoNote,
+                                std::int32_t messageThreadId,
+                                std::int32_t duration,
+                                std::int32_t length,
+                                std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                                bool disableNotification,
+                                bool protectContent,
+                                std::int32_t replyToMessageId,
+                                bool allowSendingWithoutReply,
+                                const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (videoNote.index() == 0) /* cpr::File */ {
+    const cpr::File& file = std::get<cpr::File>(videoNote);
+    data.parts.emplace_back("video_note", cpr::Files{file});
+  } else /* std::string (fileId or Url) */ {
+    const std::string& fileIdOrUrl = std::get<std::string>(videoNote);
+    data.parts.emplace_back("video_note", fileIdOrUrl);
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (duration)
+    data.parts.emplace_back("duration", duration);
+  if (length)
+    data.parts.emplace_back("length", duration);
+  if (thumbnail.has_value()) {
+    if (thumbnail->index() == 0) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+      data.parts.emplace_back("thumbnail", cpr::Files{file});
+    } else /* std::string (fileId or Url) */ {
+      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      data.parts.emplace_back("thumbnail", fileIdOrUrl);
+    }
+  }
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendVideoNote", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}

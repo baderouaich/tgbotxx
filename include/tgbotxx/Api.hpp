@@ -445,6 +445,44 @@ namespace tgbotxx {
                              const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
 
+      /// @brief As of v.4.0, Telegram clients support rounded square MPEG4 videos of up to 1 minute long.
+      /// Use this method to send video messages. https://telegram.org/blog/video-messages-and-telescope
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param videoNote Video note to send.
+      /// Pass a fileId as String to send a video note that exists on the Telegram servers (recommended),
+      /// Pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param duration Optional. Duration of sent video in seconds
+      /// @param length Optional. Video width and height, i.e. diameter of the video message
+      /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
+      /// The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320.
+      /// Ignored if the file is not uploaded using multipart/form-data.
+      /// Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @note Sending video notes by a URL is currently unsupported
+      /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+      /// @ref https://core.telegram.org/bots/api#sendvideonote
+      Ptr<Message> sendVideoNote(std::int64_t chatId,
+                             std::variant<cpr::File, std::string> videoNote,
+                             std::int32_t messageThreadId = 0,
+                             std::int32_t duration = 0,
+                             std::int32_t length = 0,
+                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             bool disableNotification = false,
+                             bool protectContent = false,
+                             std::int32_t replyToMessageId = 0,
+                             bool allowSendingWithoutReply = false,
+                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+      
       /// @brief Use this method to get basic information about a file and prepare it for downloading.
       /// For the moment, bots can download files of up to 20MB in size.
       /// The file can then be downloaded using Api::downloadFile or via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
