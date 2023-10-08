@@ -35,10 +35,10 @@
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
 #include <tgbotxx/objects/IReplyMarkup.hpp>
-#include <tgbotxx/objects/InputMedia.hpp>
 #include <tgbotxx/objects/InlineKeyboardButton.hpp>
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/InputMedia.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
@@ -499,12 +499,41 @@ namespace tgbotxx {
       /// @note Documents and audio files can be only grouped in an album with messages of the same type.
       /// @ref https://core.telegram.org/bots/api#sendmediagroup
       std::vector<Ptr<Message>> sendMediaGroup(std::int64_t chatId,
-                                               std::vector<Ptr<InputMedia>> media,
+                                               const std::vector<Ptr<InputMedia>>& media,
                                                std::int32_t messageThreadId = 0,
                                                bool disableNotification = false,
                                                bool protectContent = false,
                                                std::int32_t replyToMessageId = 0,
                                                bool allowSendingWithoutReply = false) const;
+
+
+      /// @brief Use this method to send point on the map.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param latitude Latitude of the location
+      /// @param longitude Longitude of the location
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param horizontalAccuracy Optional. The radius of uncertainty for the location, measured in meters; 0-1500
+      /// @param livePeriod Optional. Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400. https://telegram.org/blog/live-locations
+      /// @param heading Optional. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
+      /// @param proximityAlertRadius Optional. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @returns the sent Message on success.
+      /// @ref https://core.telegram.org/bots/api#sendlocation
+      Ptr<Message> sendLocation(std::int64_t chatId,
+                                float latitude,
+                                float longitude,
+                                std::int32_t messageThreadId = 0,
+                                float horizontalAccuracy = 0.0f,
+                                std::int32_t livePeriod = 0,
+                                std::int32_t heading = 0,
+                                std::int32_t proximityAlertRadius = 0,
+                                bool disableNotification = false,
+                                bool protectContent = false,
+                                std::int32_t replyToMessageId = 0,
+                                bool allowSendingWithoutReply = false) const;
 
 
       /// @brief Use this method to get basic information about a file and prepare it for downloading.

@@ -686,14 +686,14 @@ Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
 }
 
 std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
-                                              std::vector<Ptr<InputMedia>> media,
+                                              const std::vector<Ptr<InputMedia>>& media,
                                               std::int32_t messageThreadId,
                                               bool disableNotification,
                                               bool protectContent,
                                               std::int32_t replyToMessageId,
                                               bool allowSendingWithoutReply) const {
   cpr::Multipart data{};
-  data.parts.reserve(11);
+  data.parts.reserve(7);
   data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   if (media.size() > 10 or media.size() < 2)
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
@@ -720,4 +720,45 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
     sentMessages.push_back(std::move(msg));
   }
   return sentMessages;
+}
+
+Ptr<Message> Api::sendLocation(std::int64_t chatId,
+                               float latitude,
+                               float longitude,
+                               std::int32_t messageThreadId,
+                               float horizontalAccuracy,
+                               std::int32_t livePeriod,
+                               std::int32_t heading,
+                               std::int32_t proximityAlertRadius,
+                               bool disableNotification,
+                               bool protectContent,
+                               std::int32_t replyToMessageId,
+                               bool allowSendingWithoutReply) const {
+  cpr::Multipart data{};
+  data.parts.reserve(12);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("latitude", latitude);
+  data.parts.emplace_back("longitude", longitude);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (horizontalAccuracy != 0.0f)
+    data.parts.emplace_back("horizontal_accuracy", horizontalAccuracy);
+  if (livePeriod)
+    data.parts.emplace_back("live_period", livePeriod);
+  if (heading)
+    data.parts.emplace_back("heading", heading);
+  if (proximityAlertRadius)
+    data.parts.emplace_back("proximity_alert_radius", proximityAlertRadius);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+
+  nl::json sentMessageObj = sendRequest("sendLocation", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
 }

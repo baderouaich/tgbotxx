@@ -48,8 +48,11 @@ class MyBot : public Bot {
       voice->description = "You will receive a voice message";
       Ptr<BotCommand> mediaGroup(new BotCommand());
       mediaGroup->command = "/media_group";
-      mediaGroup->description = "You will a media group";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup}); // The above commands will be shown in the bot chat menu (bottom left)
+      mediaGroup->description = "You will receive a media group";
+      Ptr<BotCommand> location(new BotCommand());
+      location->command = "/location";
+      location->description = "You will receive a location";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -159,6 +162,9 @@ class MyBot : public Bot {
           }
           api()->sendMediaGroup(message->chat->id, mediaGroup);
         }
+      } else if (message->text == "/location") {
+        getApi()->sendMessage(message->chat->id, "Sending location ...");
+        getApi()->sendLocation(message->chat->id, 64.9631f, 19.0208f); // Iceland
       }
     }
 
