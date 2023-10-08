@@ -1,10 +1,9 @@
 #pragma once
 #include <cpr/cpr.h>
+#include <functional>
 #include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
-#include <variant>
-#include <functional>
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
@@ -36,6 +35,7 @@
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
 #include <tgbotxx/objects/IReplyMarkup.hpp>
+#include <tgbotxx/objects/InputMedia.hpp>
 #include <tgbotxx/objects/InlineKeyboardButton.hpp>
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
@@ -83,6 +83,7 @@
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
+#include <variant>
 namespace nl = nlohmann;
 
 namespace tgbotxx {
@@ -392,21 +393,21 @@ namespace tgbotxx {
       /// @note Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendanimation
       Ptr<Message> sendAnimation(std::int64_t chatId,
-                             std::variant<cpr::File, std::string> animation,
-                             std::int32_t messageThreadId = 0,
-                             std::int32_t duration = 0,
-                             std::int32_t width = 0,
-                             std::int32_t height = 0,
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
-                             const std::string& caption = "",
-                             const std::string& parseMode = "",
-                             const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
-                             bool hasSpoiler = false,
-                             bool disableNotification = false,
-                             bool protectContent = false,
-                             std::int32_t replyToMessageId = 0,
-                             bool allowSendingWithoutReply = false,
-                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                 std::variant<cpr::File, std::string> animation,
+                                 std::int32_t messageThreadId = 0,
+                                 std::int32_t duration = 0,
+                                 std::int32_t width = 0,
+                                 std::int32_t height = 0,
+                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 const std::string& caption = "",
+                                 const std::string& parseMode = "",
+                                 const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                                 bool hasSpoiler = false,
+                                 bool disableNotification = false,
+                                 bool protectContent = false,
+                                 std::int32_t replyToMessageId = 0,
+                                 bool allowSendingWithoutReply = false,
+                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
 
       /// @brief Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message.
@@ -471,18 +472,41 @@ namespace tgbotxx {
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideonote
       Ptr<Message> sendVideoNote(std::int64_t chatId,
-                             std::variant<cpr::File, std::string> videoNote,
-                             std::int32_t messageThreadId = 0,
-                             std::int32_t duration = 0,
-                             std::int32_t length = 0,
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
-                             bool disableNotification = false,
-                             bool protectContent = false,
-                             std::int32_t replyToMessageId = 0,
-                             bool allowSendingWithoutReply = false,
-                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                 std::variant<cpr::File, std::string> videoNote,
+                                 std::int32_t messageThreadId = 0,
+                                 std::int32_t duration = 0,
+                                 std::int32_t length = 0,
+                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 bool disableNotification = false,
+                                 bool protectContent = false,
+                                 std::int32_t replyToMessageId = 0,
+                                 bool allowSendingWithoutReply = false,
+                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
-      
+
+      /// @brief Use this method to send a group of photos, videos, documents or audios as an album.
+      /// Documents and audio files can be only grouped in an album with messages of the same type.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param media A JSON-serialized array describing messages to be sent, must include 2-10 items.
+      /// Array of InputMediaAudio, InputMediaDocument, InputMediaPhoto and InputMediaVideo
+      /// https://core.telegram.org/bots/api#inputmedia
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @returns an array of Messages that were sent.
+      /// @note Documents and audio files can be only grouped in an album with messages of the same type.
+      /// @ref https://core.telegram.org/bots/api#sendmediagroup
+      std::vector<Ptr<Message>> sendMediaGroup(std::int64_t chatId,
+                                               std::vector<Ptr<InputMedia>> media,
+                                               std::int32_t messageThreadId = 0,
+                                               bool disableNotification = false,
+                                               bool protectContent = false,
+                                               std::int32_t replyToMessageId = 0,
+                                               bool allowSendingWithoutReply = false) const;
+
+
       /// @brief Use this method to get basic information about a file and prepare it for downloading.
       /// For the moment, bots can download files of up to 20MB in size.
       /// The file can then be downloaded using Api::downloadFile or via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.

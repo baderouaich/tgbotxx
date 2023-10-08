@@ -684,3 +684,40 @@ Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
+
+std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
+                                              std::vector<Ptr<InputMedia>> media,
+                                              std::int32_t messageThreadId,
+                                              bool disableNotification,
+                                              bool protectContent,
+                                              std::int32_t replyToMessageId,
+                                              bool allowSendingWithoutReply) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (media.size() > 10 or media.size() < 2)
+    throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
+  nl::json mediaJson = nl::json::array();
+  for (const Ptr<InputMedia>& m: media)
+    mediaJson.push_back(m->toJson());
+  data.parts.emplace_back("media", mediaJson.dump());
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+
+  nl::json sentMessagesArray = sendRequest("sendMediaGroup", data);
+  std::vector<Ptr<Message>> sentMessages;
+  sentMessages.reserve(sentMessagesArray.size());
+  for (const nl::json& msgObj: sentMessagesArray) {
+    Ptr<Message> msg(new Message(msgObj));
+    sentMessages.push_back(std::move(msg));
+  }
+  return sentMessages;
+}
