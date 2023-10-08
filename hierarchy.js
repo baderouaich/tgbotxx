@@ -52,6 +52,13 @@ var hierarchy =
     [ "tgbotxx::GeneralForumTopicUnhidden", "structtgbotxx_1_1_general_forum_topic_unhidden.html", null ],
     [ "tgbotxx::InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html", null ],
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
+    [ "tgbotxx::InputMedia", "structtgbotxx_1_1_input_media.html", [
+      [ "tgbotxx::InputMediaAnimation", "structtgbotxx_1_1_input_media_animation.html", null ],
+      [ "tgbotxx::InputMediaAudio", "structtgbotxx_1_1_input_media_audio.html", null ],
+      [ "tgbotxx::InputMediaDocument", "structtgbotxx_1_1_input_media_document.html", null ],
+      [ "tgbotxx::InputMediaPhoto", "structtgbotxx_1_1_input_media_photo.html", null ],
+      [ "tgbotxx::InputMediaVideo", "structtgbotxx_1_1_input_media_video.html", null ]
+    ] ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
       [ "tgbotxx::InlineKeyboardMarkup", "structtgbotxx_1_1_inline_keyboard_markup.html", null ],

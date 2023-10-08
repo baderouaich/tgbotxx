@@ -112,6 +112,14 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "InlineQuery.hpp", "_inline_query_8hpp.html", [
       [ "InlineQuery", "structtgbotxx_1_1_inline_query.html", "structtgbotxx_1_1_inline_query" ]
     ] ],
+    [ "InputMedia.hpp", "_input_media_8hpp.html", [
+      [ "InputMedia", "structtgbotxx_1_1_input_media.html", "structtgbotxx_1_1_input_media" ],
+      [ "InputMediaAnimation", "structtgbotxx_1_1_input_media_animation.html", "structtgbotxx_1_1_input_media_animation" ],
+      [ "InputMediaDocument", "structtgbotxx_1_1_input_media_document.html", "structtgbotxx_1_1_input_media_document" ],
+      [ "InputMediaAudio", "structtgbotxx_1_1_input_media_audio.html", "structtgbotxx_1_1_input_media_audio" ],
+      [ "InputMediaPhoto", "structtgbotxx_1_1_input_media_photo.html", "structtgbotxx_1_1_input_media_photo" ],
+      [ "InputMediaVideo", "structtgbotxx_1_1_input_media_video.html", "structtgbotxx_1_1_input_media_video" ]
+    ] ],
     [ "Invoice.hpp", "_invoice_8hpp.html", [
       [ "Invoice", "structtgbotxx_1_1_invoice.html", "structtgbotxx_1_1_invoice" ]
     ] ],

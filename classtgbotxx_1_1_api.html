@@ -140,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab720518f8fa4535a52e0c842f59df61b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b">sendVideoNote</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; videoNote, std::int32_t messageThreadId=0, std::int32_t duration=0, std::int32_t length=0, std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; thumbnail=std::nullopt, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
 <tr class="memdesc:ab720518f8fa4535a52e0c842f59df61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">As of v.4.0, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. <a href="https://telegram.org/blog/video-messages-and-telescope">https://telegram.org/blog/video-messages-and-telescope</a>.  <a href="classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b">More...</a><br /></td></tr>
 <tr class="separator:ab720518f8fa4535a52e0c842f59df61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883a1999c6794ecf6f9ff2d290056532"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a883a1999c6794ecf6f9ff2d290056532">sendMediaGroup</a> (std::int64_t chatId, std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt; media, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
+<tr class="memdesc:a883a1999c6794ecf6f9ff2d290056532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type.  <a href="classtgbotxx_1_1_api.html#a883a1999c6794ecf6f9ff2d290056532">More...</a><br /></td></tr>
+<tr class="separator:a883a1999c6794ecf6f9ff2d290056532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
 <tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +168,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00092">92</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00093">93</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -1007,6 +1010,80 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 
 </div>
 </div>
+<a id="a883a1999c6794ecf6f9ff2d290056532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a883a1999c6794ecf6f9ff2d290056532">&#9670;&nbsp;</a></span>sendMediaGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; &gt; tgbotxx::Api::sendMediaGroup </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>media</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">media</td><td>A JSON-serialized array describing messages to be sent, must include 2-10 items. Array of <a class="el" href="structtgbotxx_1_1_input_media_audio.html" title="Represents an audio file to be treated as music to be sent. https://core.telegram....">InputMediaAudio</a>, <a class="el" href="structtgbotxx_1_1_input_media_document.html" title="Represents a general file to be sent. https://core.telegram.org/bots/api#inputmediadocument.">InputMediaDocument</a>, <a class="el" href="structtgbotxx_1_1_input_media_photo.html" title="Represents a photo to be sent. https://core.telegram.org/bots/api#inputmediaphoto.">InputMediaPhoto</a> and <a class="el" href="structtgbotxx_1_1_input_media_video.html" title="Represents a video to be sent. https://core.telegram.org/bots/api#inputmediavideo.">InputMediaVideo</a> <a href="https://core.telegram.org/bots/api#inputmedia">https://core.telegram.org/bots/api#inputmedia</a> </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an array of Messages that were sent. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Documents and audio files can be only grouped in an album with messages of the same type. <a href="https://core.telegram.org/bots/api#sendmediagroup">https://core.telegram.org/bots/api#sendmediagroup</a> </dd></dl>
+
+</div>
+</div>
 <a id="adcc5447a9b671e6180d25f51b9f40821"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adcc5447a9b671e6180d25f51b9f40821">&#9670;&nbsp;</a></span>sendMessage()</h2>
 
@@ -1620,7 +1697,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sun Oct 8 2023 15:36:07 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 16:52:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

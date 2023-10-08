@@ -1,5 +1,15 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat_administrator_rights.html#afdd44576718451dd8409987ff56c4b4f":[2,0,0,17,9],
+"structtgbotxx_1_1_chat_invite_link.html":[2,0,0,18],
+"structtgbotxx_1_1_chat_invite_link.html#a0330dcc3ccfc8c1b9f4e676d7d062afb":[2,0,0,18,5],
+"structtgbotxx_1_1_chat_invite_link.html#a3b7bdbeca9cf0610315b969e389c1235":[2,0,0,18,2],
+"structtgbotxx_1_1_chat_invite_link.html#a4051fd07cb4600371593a5a4ba892f91":[2,0,0,18,4],
+"structtgbotxx_1_1_chat_invite_link.html#a43191eacf396fb40d2a35ec7f5489db7":[2,0,0,18,10],
+"structtgbotxx_1_1_chat_invite_link.html#a4ecd7e97a51feddba4865887c259575c":[2,0,0,18,11],
+"structtgbotxx_1_1_chat_invite_link.html#a584af25b574574cedecbc2876da6574d":[2,0,0,18,3],
+"structtgbotxx_1_1_chat_invite_link.html#a655a46eddb886a32729b5788a094e093":[2,0,0,18,6],
+"structtgbotxx_1_1_chat_invite_link.html#a8da65526f20ae614478b1bb95f3040d9":[2,0,0,18,8],
 "structtgbotxx_1_1_chat_invite_link.html#a9c47e4f3f3f41f0f0cd96e423035f500":[2,0,0,18,1],
 "structtgbotxx_1_1_chat_invite_link.html#ab0393ea609e32b3690012e0fe8ae5bdb":[2,0,0,18,7],
 "structtgbotxx_1_1_chat_invite_link.html#ab992152b781844ff46582825c20356e9":[2,0,0,18,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_game.html#a5608a3adab9f0cbf6e0575410d5ff54e":[2,0,0,43,6],
 "structtgbotxx_1_1_game.html#a6454099bcbb8a5f273ed6c23d3ff4d89":[2,0,0,43,5],
 "structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d":[2,0,0,43,2],
-"structtgbotxx_1_1_game.html#a89a1310b522e0af263befe9b170b1fda":[2,0,0,43,4],
-"structtgbotxx_1_1_game.html#a930682602476107b49e4f782e51646cc":[2,0,0,43,7],
-"structtgbotxx_1_1_game.html#a97acdc5f40057870177c807d47e02cc7":[2,0,0,43,3],
-"structtgbotxx_1_1_game.html#acdba6534b1fe46c115ff67d94bbe5b7e":[2,0,0,43,0],
-"structtgbotxx_1_1_game.html#ae22242d8739810dfe0d50f08edac0687":[2,0,0,43,8],
-"structtgbotxx_1_1_game.html#af5b3191b2783347d3f760dfbd01c3867":[2,0,0,43,9],
-"structtgbotxx_1_1_general_forum_topic_hidden.html":[2,0,0,44],
-"structtgbotxx_1_1_general_forum_topic_hidden.html#a5760af251dc593876c4740e273b57be4":[2,0,0,44,3],
-"structtgbotxx_1_1_general_forum_topic_hidden.html#a69194e040aaa6b462000e3403730fe6d":[2,0,0,44,0],
-"structtgbotxx_1_1_general_forum_topic_hidden.html#a6acaca137c9e6c8ce64b826968acd9c9":[2,0,0,44,2],
-"structtgbotxx_1_1_general_forum_topic_hidden.html#a78863999f049618e875c2c52905ae697":[2,0,0,44,1]
+"structtgbotxx_1_1_game.html#a89a1310b522e0af263befe9b170b1fda":[2,0,0,43,4]
 };

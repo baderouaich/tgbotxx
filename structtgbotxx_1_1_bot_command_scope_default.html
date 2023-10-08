@@ -107,6 +107,8 @@ Inheritance diagram for tgbotxx::BotCommandScopeDefault:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae47f2dd5640c5c0756df45836c41957e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope_default.html#ae47f2dd5640c5c0756df45836c41957e">BotCommandScopeDefault</a> ()</td></tr>
+<tr class="separator:ae47f2dd5640c5c0756df45836c41957e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3d938971e4a383c3b23cd406628b4f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope_default.html#aa3d938971e4a383c3b23cd406628b4f5">BotCommandScopeDefault</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:aa3d938971e4a383c3b23cd406628b4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structtgbotxx_1_1_bot_command_scope"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structtgbotxx_1_1_bot_command_scope')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structtgbotxx_1_1_bot_command_scope.html">tgbotxx::BotCommandScope</a></td></tr>
@@ -114,10 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6996505f3bd6b75bdee5a26e99619641 inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d402a4efc4a685645fe9f0a75120105 inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a7d402a4efc4a685645fe9f0a75120105">BotCommandScope</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a7d402a4efc4a685645fe9f0a75120105 inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10394870457ce274181ff649e2c2a968 inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a10394870457ce274181ff649e2c2a968">toJson</a> () const</td></tr>
-<tr class="separator:a10394870457ce274181ff649e2c2a968 inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af21b06dcbbc7fce72ffea20cec30d71a inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#af21b06dcbbc7fce72ffea20cec30d71a">fromJson</a> (const nl::json &amp;json)</td></tr>
-<tr class="separator:af21b06dcbbc7fce72ffea20cec30d71a inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f450c9792a2c9a7dac5c6f5420433fb inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memItemLeft" align="right" valign="top">virtual nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a8f450c9792a2c9a7dac5c6f5420433fb">toJson</a> () const</td></tr>
+<tr class="separator:a8f450c9792a2c9a7dac5c6f5420433fb inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4ed52dc6417ddb4b95013ef609502b inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a5f4ed52dc6417ddb4b95013ef609502b">fromJson</a> (const nl::json &amp;json)</td></tr>
+<tr class="separator:a5f4ed52dc6417ddb4b95013ef609502b inherit pub_methods_structtgbotxx_1_1_bot_command_scope"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -129,10 +131,37 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the default scope of bot commands. Default commands are used if no commands with a narrower scope are specified for the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00038">38</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00043">43</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae47f2dd5640c5c0756df45836c41957e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae47f2dd5640c5c0756df45836c41957e">&#9670;&nbsp;</a></span>BotCommandScopeDefault() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tgbotxx::BotCommandScopeDefault::BotCommandScopeDefault </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00044">44</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+
+</div>
+</div>
 <a id="aa3d938971e4a383c3b23cd406628b4f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3d938971e4a383c3b23cd406628b4f5">&#9670;&nbsp;</a></span>BotCommandScopeDefault()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d938971e4a383c3b23cd406628b4f5">&#9670;&nbsp;</a></span>BotCommandScopeDefault() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00039">39</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00047">47</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
 
 </div>
 </div>
@@ -168,7 +197,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_bot_command_scope_default.html">BotCommandScopeDefault</a></li>
-    <li class="footer">Generated on Sun Oct 8 2023 15:36:07 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 16:52:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

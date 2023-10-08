@@ -14,6 +14,7 @@ var classtgbotxx_1_1_api =
     [ "sendAnimation", "classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef", null ],
     [ "sendAudio", "classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c", null ],
     [ "sendDocument", "classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e", null ],
+    [ "sendMediaGroup", "classtgbotxx_1_1_api.html#a883a1999c6794ecf6f9ff2d290056532", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821", null ],
     [ "sendPhoto", "classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd", null ],
     [ "sendVideo", "classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115", null ],
