@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e":[2,0,0,63,0],
 "structtgbotxx_1_1_passport_data.html#a92f2aef3f89be993a5735a4896f14754":[2,0,0,63,5],
 "structtgbotxx_1_1_passport_data.html#ac7f994126ec9b9231ca4d06e8eff26c5":[2,0,0,63,4],
 "structtgbotxx_1_1_passport_data.html#af2a07b8497e358a467fabdc27a506907":[2,0,0,63,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_video_chat_participants_invited.html#a8f7866e637bd67e61e2bf2c564353a2c":[2,0,0,85,4],
 "structtgbotxx_1_1_video_chat_participants_invited.html#aaadd29a24b53c7dafb5f86a9fedce8e1":[2,0,0,85,0],
 "structtgbotxx_1_1_video_chat_participants_invited.html#adf052cf90fd4922740e5c3750fb3209c":[2,0,0,85,3],
-"structtgbotxx_1_1_video_chat_scheduled.html":[2,0,0,86],
-"structtgbotxx_1_1_video_chat_scheduled.html#aa89c825408dcb604c6185b1462f29562":[2,0,0,86,1]
+"structtgbotxx_1_1_video_chat_scheduled.html":[2,0,0,86]
 };

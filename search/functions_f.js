@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['sendanimation_911',['sendAnimation',['../classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef',1,'tgbotxx::Api']]],
-  ['sendaudio_912',['sendAudio',['../classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c',1,'tgbotxx::Api']]],
-  ['senddocument_913',['sendDocument',['../classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e',1,'tgbotxx::Api']]],
-  ['sendmessage_914',['sendMessage',['../classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821',1,'tgbotxx::Api']]],
-  ['sendphoto_915',['sendPhoto',['../classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd',1,'tgbotxx::Api']]],
-  ['sendvideo_916',['sendVideo',['../classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115',1,'tgbotxx::Api']]],
+  ['sendanimation_910',['sendAnimation',['../classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef',1,'tgbotxx::Api']]],
+  ['sendaudio_911',['sendAudio',['../classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c',1,'tgbotxx::Api']]],
+  ['senddocument_912',['sendDocument',['../classtgbotxx_1_1_api.html#add175b0d63ee2e77fa053142c5b27d3e',1,'tgbotxx::Api']]],
+  ['sendmessage_913',['sendMessage',['../classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821',1,'tgbotxx::Api']]],
+  ['sendphoto_914',['sendPhoto',['../classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd',1,'tgbotxx::Api']]],
+  ['sendvideo_915',['sendVideo',['../classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115',1,'tgbotxx::Api']]],
+  ['sendvoice_916',['sendVoice',['../classtgbotxx_1_1_api.html#af4e5f1804c06a7de6e41671235562466',1,'tgbotxx::Api']]],
   ['setmycommands_917',['setMyCommands',['../classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518',1,'tgbotxx::Api']]],
   ['shippingaddress_918',['ShippingAddress',['../structtgbotxx_1_1_shipping_address.html#a8139363b4f8c3dc873ba143a511592f6',1,'tgbotxx::ShippingAddress::ShippingAddress()=default'],['../structtgbotxx_1_1_shipping_address.html#ac2139452cb3b98439397422fb42b578d',1,'tgbotxx::ShippingAddress::ShippingAddress(const nl::json &amp;json)']]],
   ['shippingquery_919',['ShippingQuery',['../structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d',1,'tgbotxx::ShippingQuery::ShippingQuery()=default'],['../structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c',1,'tgbotxx::ShippingQuery::ShippingQuery(const nl::json &amp;json)']]],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_general_forum_topic_unhidden.html#a9c5ecaa8ec2699af8dd17e5d8f8e27dd":[2,0,0,45,2],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#aacff1d72a685ec43c520ce37bb7f0905":[2,0,0,45,0],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#aaf8993c46a90683555d97d514475564b":[2,0,0,45,3],
 "structtgbotxx_1_1_general_forum_topic_unhidden.html#af57a5fe28a2a564a6678f1ae1ca0efa0":[2,0,0,45,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_order_info.html#aec567174aeb23129772ac6ea9a6d04e9":[2,0,0,62,4],
 "structtgbotxx_1_1_passport_data.html":[2,0,0,63],
 "structtgbotxx_1_1_passport_data.html#a0e7925906252bdd40f5a86bac3ea8e08":[2,0,0,63,3],
-"structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0":[2,0,0,63,1],
-"structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e":[2,0,0,63,0]
+"structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0":[2,0,0,63,1]
 };
