@@ -140,9 +140,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab720518f8fa4535a52e0c842f59df61b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b">sendVideoNote</a> (std::int64_t chatId, std::variant&lt; cpr::File, std::string &gt; videoNote, std::int32_t messageThreadId=0, std::int32_t duration=0, std::int32_t length=0, std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; thumbnail=std::nullopt, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
 <tr class="memdesc:ab720518f8fa4535a52e0c842f59df61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">As of v.4.0, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. <a href="https://telegram.org/blog/video-messages-and-telescope">https://telegram.org/blog/video-messages-and-telescope</a>.  <a href="classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b">More...</a><br /></td></tr>
 <tr class="separator:ab720518f8fa4535a52e0c842f59df61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a883a1999c6794ecf6f9ff2d290056532"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a883a1999c6794ecf6f9ff2d290056532">sendMediaGroup</a> (std::int64_t chatId, std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt; media, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
-<tr class="memdesc:a883a1999c6794ecf6f9ff2d290056532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type.  <a href="classtgbotxx_1_1_api.html#a883a1999c6794ecf6f9ff2d290056532">More...</a><br /></td></tr>
-<tr class="separator:a883a1999c6794ecf6f9ff2d290056532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab">sendMediaGroup</a> (std::int64_t chatId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt; &amp;media, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
+<tr class="memdesc:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type.  <a href="classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab">More...</a><br /></td></tr>
+<tr class="separator:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233036bd7fa8c969ff2f8670f8167a84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a233036bd7fa8c969ff2f8670f8167a84">sendLocation</a> (std::int64_t chatId, float latitude, float longitude, std::int32_t messageThreadId=0, float horizontalAccuracy=0.0f, std::int32_t livePeriod=0, std::int32_t heading=0, std::int32_t proximityAlertRadius=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
+<tr class="memdesc:a233036bd7fa8c969ff2f8670f8167a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send point on the map.  <a href="classtgbotxx_1_1_api.html#a233036bd7fa8c969ff2f8670f8167a84">More...</a><br /></td></tr>
+<tr class="separator:a233036bd7fa8c969ff2f8670f8167a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
 <tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1010,8 +1013,116 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 
 </div>
 </div>
-<a id="a883a1999c6794ecf6f9ff2d290056532"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a883a1999c6794ecf6f9ff2d290056532">&#9670;&nbsp;</a></span>sendMediaGroup()</h2>
+<a id="a233036bd7fa8c969ff2f8670f8167a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233036bd7fa8c969ff2f8670f8167a84">&#9670;&nbsp;</a></span>sendLocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendLocation </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>longitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>horizontalAccuracy</em> = <code>0.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>livePeriod</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>heading</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>proximityAlertRadius</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send point on the map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">latitude</td><td>Latitude of the location </td></tr>
+    <tr><td class="paramname">longitude</td><td>Longitude of the location </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">horizontalAccuracy</td><td>Optional. The radius of uncertainty for the location, measured in meters; 0-1500 </td></tr>
+    <tr><td class="paramname">livePeriod</td><td>Optional. Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400. <a href="https://telegram.org/blog/live-locations">https://telegram.org/blog/live-locations</a> </td></tr>
+    <tr><td class="paramname">heading</td><td>Optional. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified. </td></tr>
+    <tr><td class="paramname">proximityAlertRadius</td><td>Optional. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified. </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendlocation">https://core.telegram.org/bots/api#sendlocation</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad4250178e3ee176c8ac2f5a6d07d0eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4250178e3ee176c8ac2f5a6d07d0eab">&#9670;&nbsp;</a></span>sendMediaGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1025,7 +1136,7 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>media</em>, </td>
         </tr>
         <tr>
@@ -1697,7 +1808,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sun Oct 8 2023 16:52:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 8 2023 17:10:43 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

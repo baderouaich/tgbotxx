@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat_administrator_rights.html#af53a855bc41ec4f4ede22decd925dbed":[2,0,0,17,7],
 "structtgbotxx_1_1_chat_administrator_rights.html#afdd44576718451dd8409987ff56c4b4f":[2,0,0,17,9],
 "structtgbotxx_1_1_chat_invite_link.html":[2,0,0,18],
 "structtgbotxx_1_1_chat_invite_link.html#a0330dcc3ccfc8c1b9f4e676d7d062afb":[2,0,0,18,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_game.html#a342390bb3ff784f5f2948455d0149e8c":[2,0,0,43,1],
 "structtgbotxx_1_1_game.html#a5608a3adab9f0cbf6e0575410d5ff54e":[2,0,0,43,6],
 "structtgbotxx_1_1_game.html#a6454099bcbb8a5f273ed6c23d3ff4d89":[2,0,0,43,5],
-"structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d":[2,0,0,43,2],
-"structtgbotxx_1_1_game.html#a89a1310b522e0af263befe9b170b1fda":[2,0,0,43,4]
+"structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d":[2,0,0,43,2]
 };
