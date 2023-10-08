@@ -362,6 +362,53 @@ namespace tgbotxx {
                              const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
 
+      /// @brief Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound).
+      /// Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param animation Animation to send.
+      /// Pass a fileId as String to send an animation that exists on the Telegram servers (recommended),
+      /// Pass an HTTP URL as a String for Telegram to get a animation from the Internet, or upload a new animation using multipart/form-data.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param duration Optional. Duration of sent animation in seconds
+      /// @param width Optional. Animation width
+      /// @param height Optional. Animation height
+      /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
+      /// The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320.
+      /// Ignored if the file is not uploaded using multipart/form-data.
+      /// Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+      /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
+      /// @param caption Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters after entities parsing
+      /// @param parseMode Optional. Mode for parsing entities in the animation caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
+      /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
+      /// @param hasSpoiler Optional. Pass True if the animation needs to be covered with a spoiler animation
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @note Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+      /// @ref https://core.telegram.org/bots/api#sendanimation
+      Ptr<Message> sendAnimation(std::int64_t chatId,
+                             std::variant<cpr::File, std::string> animation,
+                             std::int32_t messageThreadId = 0,
+                             std::int32_t duration = 0,
+                             std::int32_t width = 0,
+                             std::int32_t height = 0,
+                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             const std::string& caption = "",
+                             const std::string& parseMode = "",
+                             const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                             bool hasSpoiler = false,
+                             bool disableNotification = false,
+                             bool protectContent = false,
+                             std::int32_t replyToMessageId = 0,
+                             bool allowSendingWithoutReply = false,
+                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
       /// @brief Use this method to get basic information about a file and prepare it for downloading.
       /// For the moment, bots can download files of up to 20MB in size.
       /// The file can then be downloaded using Api::downloadFile or via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.

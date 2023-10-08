@@ -418,14 +418,15 @@ std::string Api::downloadFile(const std::string& filePath, const std::function<b
   session.SetTimeout(FILES_UPLOAD_TIMEOUT);
   session.SetConnectTimeout(CONNECT_TIMEOUT);
   session.SetAcceptEncoding({cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib});
-  if(progressCallback) {
+  if (progressCallback) {
     cpr::ProgressCallback pCallback{[&progressCallback](cpr::cpr_off_t downloadTotal,
                                                         cpr::cpr_off_t downloadNow,
                                                         [[maybe_unused]] cpr::cpr_off_t uploadTotal,
                                                         [[maybe_unused]] cpr::cpr_off_t uploadNow,
                                                         [[maybe_unused]] std::intptr_t userdata) -> bool {
                                       return progressCallback(downloadTotal, downloadNow);
-                                    }, 0};
+                                    },
+                                    0};
     session.SetProgressCallback(pCallback);
   }
   cpr::Response res = session.Get();
@@ -453,7 +454,7 @@ Ptr<Message> Api::sendVideo(std::int64_t chatId,
                             bool allowSendingWithoutReply,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
+  data.parts.reserve(17);
   data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   if (video.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(video);
@@ -505,6 +506,77 @@ Ptr<Message> Api::sendVideo(std::int64_t chatId,
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
   nl::json sentMessageObj = sendRequest("sendVideo", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+Ptr<Message> Api::sendAnimation(std::int64_t chatId,
+                                std::variant<cpr::File, std::string> animation,
+                                std::int32_t messageThreadId,
+                                std::int32_t duration,
+                                std::int32_t width,
+                                std::int32_t height,
+                                std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                                const std::string& caption,
+                                const std::string& parseMode,
+                                const std::vector<Ptr<MessageEntity>>& captionEntities,
+                                bool hasSpoiler,
+                                bool disableNotification,
+                                bool protectContent,
+                                std::int32_t replyToMessageId,
+                                bool allowSendingWithoutReply,
+                                const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(16);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (animation.index() == 0) /* cpr::File */ {
+    const cpr::File& file = std::get<cpr::File>(animation);
+    data.parts.emplace_back("animation", cpr::Files{file});
+  } else /* std::string (fileId or Url) */ {
+    const std::string& fileIdOrUrl = std::get<std::string>(animation);
+    data.parts.emplace_back("animation", fileIdOrUrl);
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (duration)
+    data.parts.emplace_back("duration", duration);
+  if (width)
+    data.parts.emplace_back("width", width);
+  if (height)
+    data.parts.emplace_back("height", height);
+  if (thumbnail.has_value()) {
+    if (thumbnail->index() == 0) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+      data.parts.emplace_back("thumbnail", cpr::Files{file});
+    } else /* std::string (fileId or Url) */ {
+      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      data.parts.emplace_back("thumbnail", fileIdOrUrl);
+    }
+  }
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (hasSpoiler)
+    data.parts.emplace_back("has_spoiler", hasSpoiler);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendAnimation", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }

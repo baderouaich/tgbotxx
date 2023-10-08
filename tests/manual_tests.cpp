@@ -39,7 +39,10 @@ class MyBot : public Bot {
     Ptr<BotCommand> document(new BotCommand());
     document->command = "/document";
     document->description = "You will receive a document";
-    getApi()->setMyCommands({greet, stop, photo, buttons, audio, document}); // The above commands will be shown in the bot chat menu (bottom left)
+    Ptr<BotCommand> animation(new BotCommand());
+    animation->command = "/animation";
+    animation->description = "You will receive an animation (GIF)";
+    getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation}); // The above commands will be shown in the bot chat menu (bottom left)
   }
 
   /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -113,6 +116,9 @@ class MyBot : public Bot {
       getApi()->sendDocument(message->chat->id, cpr::File{__FILE__});
       getApi()->sendMessage(message->chat->id, "Sending document from the internet ...");
       getApi()->sendDocument(message->chat->id, "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf");
+    } else if (message->text == "/animation") {
+      getApi()->sendMessage(message->chat->id, "Sending animation ...");
+      getApi()->sendDocument(message->chat->id, "https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif");
     }
   }
 
