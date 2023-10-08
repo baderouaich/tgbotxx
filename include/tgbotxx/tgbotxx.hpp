@@ -38,6 +38,7 @@
 #include <tgbotxx/objects/InlineKeyboardButton.hpp>
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/InputMedia.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
