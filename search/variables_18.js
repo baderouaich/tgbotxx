@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yshift_1255',['yShift',['../structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3',1,'tgbotxx::MaskPosition']]]
+  ['yshift_1259',['yShift',['../structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3',1,'tgbotxx::MaskPosition']]]
 ];
