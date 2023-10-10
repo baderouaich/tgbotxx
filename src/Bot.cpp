@@ -20,22 +20,16 @@ void Bot::start() {
   /// Callback -> onStart
   this->onStart();
 
+  /// Long Poll
   while (m_running) {
-    // Dispatch updates
+    // Get updates from Telegram (any new events such as messages, commands, files, ...)
+    m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+    // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
     for (const Ptr<Update>& update: m_updates) {
-      if (update->updateId >= m_lastUpdateId)
+      if (update->updateId >= m_lastUpdateId) {
         m_lastUpdateId = update->updateId + 1;
-      this->dispatch(update);
-    }
-
-    if (m_running) {
-      // Confirm dispatched updates
-      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
-    } else {
-      // Confirm last updates before stopping, timeout = 0
-      // Requesting new updates from Telegram server lets the server know that you handled the previous updates,
-      // so it will not send us duplicate updates.
-      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, /*limit=*/100, /*timeout=*/0);
+        this->dispatch(update);
+      }
     }
   }
 }
@@ -120,23 +114,12 @@ void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage
   this->onAnyMessage(message);
 
-  /// Command ?
-  if (StringUtils::startsWith(message->text, "/")) {
-    std::size_t splitPosition;
-    std::size_t spacePosition = message->text.find(' ');
-    std::size_t atSymbolPosition = message->text.find('@');
-    if (spacePosition == std::string::npos) {
-      if (atSymbolPosition == std::string::npos) {
-        splitPosition = message->text.size();
-      } else {
-        splitPosition = atSymbolPosition;
-      }
-    } else if (atSymbolPosition == std::string::npos) {
-      splitPosition = spacePosition;
-    } else {
-      splitPosition = (std::min)(spacePosition, atSymbolPosition);
-    }
-    std::string command = message->text.substr(1, splitPosition - 1);
+  /// Is this message a Command ? (starts with '/' character)
+  if (not message->text.empty() and message->text[0] == '/') {
+    std::size_t firstSpacePos = message->text.find_first_of(" \t\n\r");
+    if (firstSpacePos == std::string::npos)
+      firstSpacePos = message->text.size();
+    std::string command = message->text.substr(1, firstSpacePos - 1);
     std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
     bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
       return cmd->command == command;

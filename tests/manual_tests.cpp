@@ -57,7 +57,7 @@ class MyBot : public Bot {
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
     /// Cleanup your code in this callback (close handles, backup data...)
     void onStop() override {
-      std::cout << __func__ << ": " << getApi()->getMe()->firstName << " bot stopped." << std::endl;
+      std::cout << __func__ << ": " << getApi()->getMe()->firstName << " bot stopping..." << std::endl;
     }
 
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
