@@ -20,7 +20,7 @@ namespace tgbotxx {
       }
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json& json) {
+      void fromJson([[maybe_unused]] const nl::json& json) {
       }
   };
 }

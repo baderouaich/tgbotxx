@@ -6,7 +6,7 @@
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-    : m_api(new Api(token)), m_running(false), m_lastUpdateId(0) {
+    : m_api(new Api(token)), m_lastUpdateId(0), m_running(false) {
 }
 
 Bot::~Bot() {
