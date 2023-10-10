@@ -31,10 +31,10 @@ namespace tgbotxx {
       explicit Bot(const std::string& token);
       ~Bot();
 
-      /// @brief Start the bot
+      /// @brief Start the long polling
       void start();
 
-      /// @brief Stop the bot
+      /// @brief Stop the long polling
       void stop();
 
     public: /// Bot Callbacks
