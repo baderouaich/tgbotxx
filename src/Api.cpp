@@ -77,9 +77,9 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
                                          const std::vector<std::string>& allowedUpdates) const {
   cpr::Multipart data = {
     {"offset", offset},
-    {"limit", (std::max)(1, (std::min)(100, limit))},
+    {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
     {"timeout", timeout},
-    {"allowed_updates", allowedUpdates.empty() ? "[]" : nl::json{allowedUpdates}.dump()},
+    {"allowed_updates", nl::json(allowedUpdates).dump()},
   };
   nl::json updatesJson = sendRequest("getUpdates", data);
   std::vector<Ptr<Update>> updates;
@@ -91,7 +91,8 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
   return updates;
 }
 
-bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope,
+bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
+                        const Ptr<BotCommandScope>& scope,
                         const std::string& languageCode) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
