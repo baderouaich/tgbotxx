@@ -181,25 +181,45 @@ class MyBot : public Bot {
 
     // Other callbacks (optional overload)
     /// Called when a new version of a message that is known to the bot and was edited
-    void onEditedMessage(const Ptr<Message>& editedMessage) override {}
+    void onEditedMessage(const Ptr<Message>& editedMessage) override {
+      std::cout << __func__ << ": " << editedMessage->text << std::endl;
+    }
     /// Called when a new incoming inline query is received
-    void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {}
+    void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {
+      std::cout << __func__ << ": " << inlineQuery->query << std::endl;
+    }
     /// Called when the result of an inline query that was chosen by a user and sent to their chat partner.
-    void onChosenInlineResult(const Ptr<ChosenInlineResult>& chosenInlineResult) override {}
+    void onChosenInlineResult(const Ptr<ChosenInlineResult>& chosenInlineResult) override {
+      std::cout << __func__ << ": " << chosenInlineResult->query << std::endl;
+    }
     /// Called when a new incoming shipping query is received.
-    void onShippingQuery(const Ptr<ShippingQuery>& shippingQuery) override {}
+    void onShippingQuery(const Ptr<ShippingQuery>& shippingQuery) override {
+      std::cout << __func__ << ": " << shippingQuery->invoicePayload << std::endl;
+    }
     /// Called when a new incoming pre-checkout query is received. Contains full information about checkout
-    void onPreCheckoutQuery(const Ptr<PreCheckoutQuery>& preCheckoutQuery) override {}
+    void onPreCheckoutQuery(const Ptr<PreCheckoutQuery>& preCheckoutQuery) override {
+      std::cout << __func__ << ": " << preCheckoutQuery->invoicePayload << std::endl;
+    }
     /// Called when a new poll state is received.
-    void onPoll(const Ptr<Poll>& poll) override {}
+    void onPoll(const Ptr<Poll>& poll) override {
+      std::cout << __func__ << ": " << poll->question << std::endl;
+    }
     /// Called when a user changed their answer in a non-anonymous poll.
-    void onPollAnswer(const Ptr<PollAnswer>& pollAnswer) override {}
+    void onPollAnswer(const Ptr<PollAnswer>& pollAnswer) override {
+      std::cout << __func__ << ": " << pollAnswer->pollId << std::endl;
+    }
     /// Called when the bot's chat member status was updated in a chat.
-    void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
+    void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {
+      std::cout << __func__ << ": " << myChatMemberUpdated->from->username << std::endl;
+    }
     /// Called when a chat member's status was updated in a chat.
-    void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
+    void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {
+      std::cout << __func__ << ": " << chatMemberUpdated->from->username << std::endl;
+    }
     /// Called when a A request to join the chat has been sent.
-    void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
+    void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {
+      std::cout << __func__ << ": " << chatJoinRequest->from->username << std::endl;
+    }
 };
 
 static std::string getToken() {
