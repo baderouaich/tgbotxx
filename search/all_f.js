@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['parsemode_397',['parseMode',['../structtgbotxx_1_1_input_media.html#a58f12625650f15300459f0be2166c565',1,'tgbotxx::InputMedia']]],
-  ['passportdata_398',['PassportData',['../structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0',1,'tgbotxx::PassportData::PassportData(const nl::json &amp;json)'],['../structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e',1,'tgbotxx::PassportData::PassportData()=default']]],
+  ['parsemode_398',['parseMode',['../structtgbotxx_1_1_input_media.html#a58f12625650f15300459f0be2166c565',1,'tgbotxx::InputMedia']]],
   ['passportdata_399',['passportData',['../structtgbotxx_1_1_message.html#aa6a7755a03abe1829508688376930a83',1,'tgbotxx::Message']]],
-  ['passportdata_400',['PassportData',['../structtgbotxx_1_1_passport_data.html',1,'tgbotxx']]],
+  ['passportdata_400',['PassportData',['../structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0',1,'tgbotxx::PassportData::PassportData(const nl::json &amp;json)'],['../structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e',1,'tgbotxx::PassportData::PassportData()=default'],['../structtgbotxx_1_1_passport_data.html',1,'tgbotxx::PassportData']]],
   ['passportdata_2ehpp_401',['PassportData.hpp',['../_passport_data_8hpp.html',1,'']]],
   ['passportfile_402',['PassportFile',['../structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433',1,'tgbotxx::PassportFile::PassportFile()=default'],['../structtgbotxx_1_1_passport_file.html#af9a8156ea4c1a618160b3cb11b5ff342',1,'tgbotxx::PassportFile::PassportFile(const nl::json &amp;json)'],['../structtgbotxx_1_1_passport_file.html',1,'tgbotxx::PassportFile']]],
   ['passportfile_2ehpp_403',['PassportFile.hpp',['../_passport_file_8hpp.html',1,'']]],
@@ -11,8 +10,8 @@ var searchData=
   ['pendingjoinrequestcount_405',['pendingJoinRequestCount',['../structtgbotxx_1_1_chat_invite_link.html#ad2397aa320e5fe445b8909a5d699e880',1,'tgbotxx::ChatInviteLink']]],
   ['performer_406',['performer',['../structtgbotxx_1_1_input_media_audio.html#a0ff65797b227dcdde3888f49a839c878',1,'tgbotxx::InputMediaAudio::performer()'],['../structtgbotxx_1_1_audio.html#af3ed2d898d4f26804346e7f6b821074b',1,'tgbotxx::Audio::performer()']]],
   ['permissions_407',['permissions',['../structtgbotxx_1_1_chat.html#ab4f2fb435931d7e13c5751c4b2e3b9b2',1,'tgbotxx::Chat']]],
-  ['phonenumber_408',['PhoneNumber',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a677befbff0d2028b6eaf673212273a56',1,'tgbotxx::MessageEntity']]],
-  ['phonenumber_409',['phoneNumber',['../structtgbotxx_1_1_contact.html#a416562b1d417fa4d76ad8f7597fd94be',1,'tgbotxx::Contact::phoneNumber()'],['../structtgbotxx_1_1_encrypted_passport_element.html#a9401910cf594c3867baad7380db66b1a',1,'tgbotxx::EncryptedPassportElement::phoneNumber()'],['../structtgbotxx_1_1_order_info.html#a15d44da580c8e64f3c9d6f5f9c823aa5',1,'tgbotxx::OrderInfo::phoneNumber()']]],
+  ['phonenumber_408',['phoneNumber',['../structtgbotxx_1_1_contact.html#a416562b1d417fa4d76ad8f7597fd94be',1,'tgbotxx::Contact::phoneNumber()'],['../structtgbotxx_1_1_encrypted_passport_element.html#a9401910cf594c3867baad7380db66b1a',1,'tgbotxx::EncryptedPassportElement::phoneNumber()'],['../structtgbotxx_1_1_order_info.html#a15d44da580c8e64f3c9d6f5f9c823aa5',1,'tgbotxx::OrderInfo::phoneNumber()']]],
+  ['phonenumber_409',['PhoneNumber',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a677befbff0d2028b6eaf673212273a56',1,'tgbotxx::MessageEntity']]],
   ['photo_410',['photo',['../structtgbotxx_1_1_game.html#a5608a3adab9f0cbf6e0575410d5ff54e',1,'tgbotxx::Game::photo()'],['../structtgbotxx_1_1_message.html#a31fc1f9d65f9bd4d4b6c86602f501c5d',1,'tgbotxx::Message::photo()'],['../structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa',1,'tgbotxx::Chat::photo()']]],
   ['photosize_411',['PhotoSize',['../structtgbotxx_1_1_photo_size.html#ac084766aa167749f2d9085400642721e',1,'tgbotxx::PhotoSize::PhotoSize(const nl::json &amp;json)'],['../structtgbotxx_1_1_photo_size.html#a24f75c6c6a5920661ccf92e6ebf17e77',1,'tgbotxx::PhotoSize::PhotoSize()=default'],['../structtgbotxx_1_1_photo_size.html',1,'tgbotxx::PhotoSize']]],
   ['photosize_2ehpp_412',['PhotoSize.hpp',['../_photo_size_8hpp.html',1,'']]],

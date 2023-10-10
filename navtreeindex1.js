@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"functions.html":[2,3,0],
+"functions.html":[2,3,0,0],
+"functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],
 "functions_e.html":[2,3,0,4],
@@ -81,10 +84,10 @@ var NAVTREEINDEX1 =
 "namespacemembers_type.html":[1,1,2],
 "namespaces.html":[1,0],
 "namespacetgbotxx.html":[1,0,0],
-"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,109],
-"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,108],
-"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,106],
-"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,107],
+"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,110],
+"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,109],
+"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,107],
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,108],
 "namespacetgbotxx_1_1_date_time_utils.html":[1,0,0,0],
 "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951":[1,0,0,0,1],
 "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339":[1,0,0,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_chat_administrator_rights.html#a92f3d5c10bead41855c20ccccd89a9ab":[2,0,0,17,8],
 "structtgbotxx_1_1_chat_administrator_rights.html#a9379e101e9f87344f5dbaeab6428a7f7":[2,0,0,17,1],
 "structtgbotxx_1_1_chat_administrator_rights.html#a9b1d620d7fe64c3b4862d407cb18800e":[2,0,0,17,17],
-"structtgbotxx_1_1_chat_administrator_rights.html#a9e9c76078b2e88a25dd036d01b8145a2":[2,0,0,17,14],
-"structtgbotxx_1_1_chat_administrator_rights.html#aa3603bc5e41c85966336ebf08fc878ab":[2,0,0,17,13],
-"structtgbotxx_1_1_chat_administrator_rights.html#acfc9efe8217ee6c6a03cb57146032ae7":[2,0,0,17,0],
-"structtgbotxx_1_1_chat_administrator_rights.html#aebb671a48671b159fcbc8d399252fb8f":[2,0,0,17,12]
+"structtgbotxx_1_1_chat_administrator_rights.html#a9e9c76078b2e88a25dd036d01b8145a2":[2,0,0,17,14]
 };

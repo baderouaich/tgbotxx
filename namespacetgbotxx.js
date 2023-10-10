@@ -57,6 +57,7 @@ var namespacetgbotxx =
     [ "EncryptedCredentials", "structtgbotxx_1_1_encrypted_credentials.html", "structtgbotxx_1_1_encrypted_credentials" ],
     [ "EncryptedPassportElement", "structtgbotxx_1_1_encrypted_passport_element.html", "structtgbotxx_1_1_encrypted_passport_element" ],
     [ "File", "structtgbotxx_1_1_file.html", "structtgbotxx_1_1_file" ],
+    [ "ForceReply", "structtgbotxx_1_1_force_reply.html", "structtgbotxx_1_1_force_reply" ],
     [ "ForumTopicClosed", "structtgbotxx_1_1_forum_topic_closed.html", "structtgbotxx_1_1_forum_topic_closed" ],
     [ "ForumTopicCreated", "structtgbotxx_1_1_forum_topic_created.html", "structtgbotxx_1_1_forum_topic_created" ],
     [ "ForumTopicEdited", "structtgbotxx_1_1_forum_topic_edited.html", "structtgbotxx_1_1_forum_topic_edited" ],

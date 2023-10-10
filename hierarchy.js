@@ -61,6 +61,7 @@ var hierarchy =
     ] ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
+      [ "tgbotxx::ForceReply", "structtgbotxx_1_1_force_reply.html", null ],
       [ "tgbotxx::InlineKeyboardMarkup", "structtgbotxx_1_1_inline_keyboard_markup.html", null ],
       [ "tgbotxx::ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", null ],
       [ "tgbotxx::ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", null ]
