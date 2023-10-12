@@ -1,12 +1,12 @@
-## Buttons
-This example shows how to program a basic Telegram Bot that uses inline keyboard buttons to interact with users.
+## Weather Bot
+This example shows how to program a Telegram Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/). 
 
 ### Run
 ```bash
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
-./buttons YOUR_BOT_TOKEN
+./weather_bot YOUR_BOT_TOKEN WEATHER_API_KEY
 ```
 
 ### How to create a new Bot and obtain its private token ?
@@ -16,4 +16,4 @@ make -j8
 4. After you finish the instructions, you will receive a Bot Token, make sure you keep it secured.
 
 ### Preview
-<img src="img/preview.jpg" alt="Preview" width="300">
+<img src="img/preview.jpg" alt="Preview" width="300"/>

@@ -2,7 +2,7 @@
 >
 > this library is still under development.
 >
- ![](https://geps.dev/progress/70) 
+ ![](https://geps.dev/progress/80) 
 
 [![MIT License](https://img.shields.io/badge/license-MIT-yellow)](https://github.com/baderouaich/tgbotxx/blob/main/LICENSE)
 [![Docs](https://codedocs.xyz/doxygen/doxygen.svg)](https://baderouaich.github.io/tgbotxx)
@@ -13,21 +13,22 @@ Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
-## Continuous Integration Build Status
-| Operating system | Build status |
-| ---------------- | ------------------ |
-| Ubuntu (x64)     | [![Ubuntu](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-ubuntu.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-ubuntu.yml) |
+### CI Status
+| Operating system | Build status                                                                                                                                                                                      |
+| ---------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ubuntu (x64)     | [![Ubuntu](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-ubuntu.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-ubuntu.yml)    |
 | Windows (x64)    | [![Windows](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-windows.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-windows.yml) |
-| macOS            | [![macOS](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml)
+| macOS            | [![macOS](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml)       | 
 
 ### Examples
 see [examples](examples/) for more:
 
-| Example                                     | Description                                                                                                                  |                                    Preview                                     |
-|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------:|
-| [EarthquakeBot](examples/EarthquakeBot)     | This example shows how to program a Telegram Bot that will alert you if there is a recent earthquake somewhere in the world. |  <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">   |
-| [Buttons](examples/Buttons)                 | This example shows how to program a basic Telegram Bot which that uses inline keyboard buttons to interact with users.       |     <img src="examples/Buttons/img/preview.jpg" alt="preview" width="200">     |
-| [UrlShortenerBot](examples/UrlShortenerBot) | This example shows how to program Telegram Bot for shortening URLs.                                                          | <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200"> |
+| Example                                     | Description                                                                                                                                            |                                    Preview                                     |
+|:--------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------:|
+| [WeatherBot](examples/WeatherBot)           | This example shows how to program a Telegram Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/). |   <img src="examples/WeatherBot/img/preview.jpg" alt="preview" width="200">    |
+| [EarthquakeBot](examples/EarthquakeBot)     | This example shows how to program a Telegram Bot that will alert you if there is a recent earthquake somewhere in the world.                           |  <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">   |
+| [UrlShortenerBot](examples/UrlShortenerBot) | This example shows how to program Telegram Bot for shortening URLs.                                                                                    | <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200"> |
+| [Buttons](examples/Buttons)                 | This example shows how to program a basic Telegram Bot that uses inline keyboard buttons to interact with users.                                       |     <img src="examples/Buttons/img/preview.jpg" alt="preview" width="200">     |
 
 
 ### Usage
