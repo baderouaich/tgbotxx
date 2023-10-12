@@ -25,4 +25,10 @@ namespace tgbotxx {
   struct isPtr<PtrC<T>> : std::true_type {};
   template<typename T>
   struct isPtr<CPtrC<T>> : std::true_type {};
+
+
+  template<typename T, typename ... Args>
+  static Ptr<T> makePtr(Args&& ... args) {
+    return Ptr<T>(new T(std::forward<Args>(args)...));
+  }
 }
