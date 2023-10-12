@@ -1,7 +1,6 @@
-
 #pragma once
-
 #include <algorithm>
+#include <span>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -14,8 +13,8 @@ namespace tgbotxx {
     ///           StringUtils::join(array, ",") -> "1,2,3"
     /// @param con: Container of T elements
     /// @param delim: Text to put between each element T
-    template<typename T>
-    static std::string join(const std::vector<T>& con, const std::string& delim) {
+    template<typename T, typename D>
+    static std::string join(const std::span<T>& con, const D& delim) {
       std::ostringstream oss{};
       for (std::size_t i = 0; i < con.size(); ++i) {
         oss << con[i];
@@ -24,6 +23,10 @@ namespace tgbotxx {
         }
       }
       return oss.str();
+    }
+    template<typename T, typename D>
+    static std::string join(const std::vector<T>& con, const D& delim) {
+      return join(std::span{con}, delim);
     }
 
     /// @brief Split a string by delimiter
@@ -128,6 +131,25 @@ namespace tgbotxx {
         return std::equal(suffix.begin(), suffix.end(), str.begin() + str.size() - suffix.size(),
                           [](char a, char b) { return std::tolower(a) == std::tolower(b); });
       return str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+    }
+
+    static void replace(std::string& str, const std::string& search, const std::string& replace) {
+      if (search.empty()) return; // Avoid infinite loops
+      std::size_t pos{0};
+      while ((pos = str.find(search, pos)) != std::string::npos) {
+        str.replace(pos, search.length(), replace);
+        pos += replace.length();
+      }
+    }
+
+    static std::string replaceCopy(std::string str, const std::string& search, const std::string& replace) {
+      if (search.empty()) return str; // Avoid infinite loops
+      std::size_t pos{0};
+      while ((pos = str.find(search, pos)) != std::string::npos) {
+        str.replace(pos, search.length(), replace);
+        pos += replace.length();
+      }
+      return str;
     }
   };
 }
