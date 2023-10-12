@@ -1,5 +1,15 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a8b0c93ccf54823664b725cd53f34a630":[2,0,0,85,5],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ab2aeed0196cceaa01c65afc1f859d9b0":[2,0,0,85,4],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ac31664f9446ac8e791d0c0e3b47139fa":[2,0,0,85,2],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ac5bd21debdd5e802e119154293ed2403":[2,0,0,85,3],
+"structtgbotxx_1_1_update.html":[2,0,0,86],
+"structtgbotxx_1_1_update.html#a06b46ec0f6a8d9a54c25e5d5e3c4b474":[2,0,0,86,12],
+"structtgbotxx_1_1_update.html#a0a01eb44b680f64fa42b48b24ab22ad6":[2,0,0,86,13],
+"structtgbotxx_1_1_update.html#a12d683309c92dd801b76ba53a6b7595d":[2,0,0,86,0],
+"structtgbotxx_1_1_update.html#a169335b84e6e7d086225efb8985b6686":[2,0,0,86,5],
+"structtgbotxx_1_1_update.html#a1c753d0dbbef6d4663939253e7109c2a":[2,0,0,86,3],
 "structtgbotxx_1_1_update.html#a20719b0d2990e42e5d85caeaf39f9403":[2,0,0,86,6],
 "structtgbotxx_1_1_update.html#a2794c01e378126dfc8e8edac55f4c443":[2,0,0,86,17],
 "structtgbotxx_1_1_update.html#a2d6e83dc6d27cc0795478afb488146b0":[2,0,0,86,15],

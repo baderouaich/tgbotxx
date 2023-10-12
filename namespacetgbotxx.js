@@ -2,13 +2,17 @@ var namespacetgbotxx =
 [
     [ "DateTimeUtils", "namespacetgbotxx_1_1_date_time_utils.html", [
       [ "currentDateTime", "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339", null ],
+      [ "fromString", "namespacetgbotxx_1_1_date_time_utils.html#a9d31f333c31fc323f7be8a7aeceef454", null ],
       [ "toString", "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951", null ]
     ] ],
     [ "StringUtils", "namespacetgbotxx_1_1_string_utils.html", [
       [ "endsWith", "namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb", null ],
-      [ "join", "namespacetgbotxx_1_1_string_utils.html#a619e321a323adf914867f85b38749670", null ],
+      [ "join", "namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8", null ],
+      [ "join", "namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6", null ],
       [ "ltrim", "namespacetgbotxx_1_1_string_utils.html#ac76641e3294d564151a3caab70d526f2", null ],
       [ "ltrimCopy", "namespacetgbotxx_1_1_string_utils.html#a83bc9425583fd6fe7a1b7f0d63ca9aee", null ],
+      [ "replace", "namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e", null ],
+      [ "replaceCopy", "namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2", null ],
       [ "rtrim", "namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58", null ],
       [ "rtrimCopy", "namespacetgbotxx_1_1_string_utils.html#ad7c80e7ef45fa92f57e2baf36dbbf869", null ],
       [ "split", "namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005", null ],
@@ -126,5 +130,6 @@ var namespacetgbotxx =
     [ "CPtr", "namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb", null ],
     [ "CPtrC", "namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e", null ],
     [ "Ptr", "namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43", null ],
-    [ "PtrC", "namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4", null ]
+    [ "PtrC", "namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4", null ],
+    [ "makePtr", "namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99", null ]
 ];

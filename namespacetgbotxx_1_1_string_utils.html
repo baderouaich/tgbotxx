@@ -95,9 +95,12 @@ $(document).ready(function(){initNavTree('namespacetgbotxx_1_1_string_utils.html
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a619e321a323adf914867f85b38749670"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a619e321a323adf914867f85b38749670"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a619e321a323adf914867f85b38749670">join</a> (const std::vector&lt; T &gt; &amp;con, const std::string &amp;delim)</td></tr>
-<tr class="separator:a619e321a323adf914867f85b38749670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a485515db3889cb8ab2cac23f436137f8"><td class="memTemplParams" colspan="2">template&lt;typename T , typename D &gt; </td></tr>
+<tr class="memitem:a485515db3889cb8ab2cac23f436137f8"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8">join</a> (const std::span&lt; T &gt; &amp;con, const D &amp;delim)</td></tr>
+<tr class="separator:a485515db3889cb8ab2cac23f436137f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename D &gt; </td></tr>
+<tr class="memitem:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6">join</a> (const std::vector&lt; T &gt; &amp;con, const D &amp;delim)</td></tr>
+<tr class="separator:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d65a9679afbc01aa6785fba77616005"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005">split</a> (const std::string &amp;str, char delim)</td></tr>
 <tr class="memdesc:a6d65a9679afbc01aa6785fba77616005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string by delimiter.  <a href="namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005">More...</a><br /></td></tr>
 <tr class="separator:a6d65a9679afbc01aa6785fba77616005"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +134,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae1f42c3a086d6459fb91817981d8f8eb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb">endsWith</a> (const std::string &amp;str, const std::string &amp;suffix, bool ignoreCase=false)</td></tr>
 <tr class="memdesc:ae1f42c3a086d6459fb91817981d8f8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if str ends with suffix.  <a href="namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb">More...</a><br /></td></tr>
 <tr class="separator:ae1f42c3a086d6459fb91817981d8f8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0112b79199930cc9a09606c1e3640e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e">replace</a> (std::string &amp;str, const std::string &amp;search, const std::string &amp;replace)</td></tr>
+<tr class="separator:a6f0112b79199930cc9a09606c1e3640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2">replaceCopy</a> (std::string str, const std::string &amp;search, const std::string &amp;<a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e">replace</a>)</td></tr>
+<tr class="separator:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace contains useful string related utility functions. </p>
@@ -186,17 +193,17 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if str ends with suffix </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00125">125</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00128">128</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a619e321a323adf914867f85b38749670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a619e321a323adf914867f85b38749670">&#9670;&nbsp;</a></span>join()</h2>
+<a id="a485515db3889cb8ab2cac23f436137f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a485515db3889cb8ab2cac23f436137f8">&#9670;&nbsp;</a></span>join() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T , typename D &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -204,13 +211,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static std::string tgbotxx::StringUtils::join </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::span&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>con</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const D &amp;&#160;</td>
           <td class="paramname"><em>delim</em>&#160;</td>
         </tr>
         <tr>
@@ -226,7 +233,47 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00018">18</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00017">17</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a51af8c0b4db4bd64a9adfe3e8d5f2fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51af8c0b4db4bd64a9adfe3e8d5f2fb6">&#9670;&nbsp;</a></span>join() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename D &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string tgbotxx::StringUtils::join </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>con</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const D &amp;&#160;</td>
+          <td class="paramname"><em>delim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00028">28</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +309,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00060">60</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00063">63</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +346,95 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of left trimmed string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00086">86</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00089">89</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6f0112b79199930cc9a09606c1e3640e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0112b79199930cc9a09606c1e3640e">&#9670;&nbsp;</a></span>replace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void tgbotxx::StringUtils::replace </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>replace</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00136">136</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a50fc52e61bbe0e73c63a25e354bae3b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fc52e61bbe0e73c63a25e354bae3b2">&#9670;&nbsp;</a></span>replaceCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string tgbotxx::StringUtils::replaceCopy </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>replace</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00145">145</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +470,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00068">68</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00071">71</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -372,7 +507,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of right trimmed string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00094">94</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00097">97</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +555,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector of chunks </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00033">33</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00036">36</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +610,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if str starts with prefix </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00112">112</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00115">115</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -512,7 +647,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>lowercase version of str </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00045">45</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00048">48</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -549,7 +684,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uppercase version of str </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00053">53</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00056">56</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +720,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00078">78</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00081">81</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -622,7 +757,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of trimmed string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00102">102</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00105">105</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +767,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="namespacetgbotxx_1_1_string_utils.html">StringUtils</a></li>
-    <li class="footer">Generated on Tue Oct 10 2023 20:23:44 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 12 2023 17:58:45 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

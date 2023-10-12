@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['location_694',['Location',['../structtgbotxx_1_1_location.html',1,'tgbotxx']]],
-  ['loginurl_695',['LoginUrl',['../structtgbotxx_1_1_login_url.html',1,'tgbotxx']]]
+  ['location_698',['Location',['../structtgbotxx_1_1_location.html',1,'tgbotxx']]],
+  ['loginurl_699',['LoginUrl',['../structtgbotxx_1_1_login_url.html',1,'tgbotxx']]]
 ];

@@ -103,9 +103,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a619e321a323adf914867f85b38749670"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a619e321a323adf914867f85b38749670"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a619e321a323adf914867f85b38749670">tgbotxx::StringUtils::join</a> (const std::vector&lt; T &gt; &amp;con, const std::string &amp;delim)</td></tr>
-<tr class="separator:a619e321a323adf914867f85b38749670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a485515db3889cb8ab2cac23f436137f8"><td class="memTemplParams" colspan="2">template&lt;typename T , typename D &gt; </td></tr>
+<tr class="memitem:a485515db3889cb8ab2cac23f436137f8"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8">tgbotxx::StringUtils::join</a> (const std::span&lt; T &gt; &amp;con, const D &amp;delim)</td></tr>
+<tr class="separator:a485515db3889cb8ab2cac23f436137f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename D &gt; </td></tr>
+<tr class="memitem:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6">tgbotxx::StringUtils::join</a> (const std::vector&lt; T &gt; &amp;con, const D &amp;delim)</td></tr>
+<tr class="separator:a51af8c0b4db4bd64a9adfe3e8d5f2fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d65a9679afbc01aa6785fba77616005"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005">tgbotxx::StringUtils::split</a> (const std::string &amp;str, char delim)</td></tr>
 <tr class="memdesc:a6d65a9679afbc01aa6785fba77616005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string by delimiter.  <a href="namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005">More...</a><br /></td></tr>
 <tr class="separator:a6d65a9679afbc01aa6785fba77616005"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +142,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae1f42c3a086d6459fb91817981d8f8eb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb">tgbotxx::StringUtils::endsWith</a> (const std::string &amp;str, const std::string &amp;suffix, bool ignoreCase=false)</td></tr>
 <tr class="memdesc:ae1f42c3a086d6459fb91817981d8f8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if str ends with suffix.  <a href="namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb">More...</a><br /></td></tr>
 <tr class="separator:ae1f42c3a086d6459fb91817981d8f8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0112b79199930cc9a09606c1e3640e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e">tgbotxx::StringUtils::replace</a> (std::string &amp;str, const std::string &amp;search, const std::string &amp;replace)</td></tr>
+<tr class="separator:a6f0112b79199930cc9a09606c1e3640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2">tgbotxx::StringUtils::replaceCopy</a> (std::string str, const std::string &amp;search, const std::string &amp;replace)</td></tr>
+<tr class="separator:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -146,7 +153,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_0a686d04ada01e782ce20d676fccf00f.html">utils</a></li><li class="navelem"><a class="el" href="_string_utils_8hpp.html">StringUtils.hpp</a></li>
-    <li class="footer">Generated on Tue Oct 10 2023 20:23:44 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 12 2023 17:58:44 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

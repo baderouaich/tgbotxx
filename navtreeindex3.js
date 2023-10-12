@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_forum_topic_created.html#a9473158a03bd601609dc650d6427c63b":[2,0,0,41,2],
+"structtgbotxx_1_1_forum_topic_created.html#a9fe224d288764ec0546d6d6da7655fc6":[2,0,0,41,1],
+"structtgbotxx_1_1_forum_topic_created.html#aa5078fb50fd4dc3ce5f2b03e448900e9":[2,0,0,41,4],
+"structtgbotxx_1_1_forum_topic_created.html#aa90bb6303a545ba470c51f682bfb1d19":[2,0,0,41,0],
+"structtgbotxx_1_1_forum_topic_edited.html":[2,0,0,42],
+"structtgbotxx_1_1_forum_topic_edited.html#a54a7e4ced8644180693705ed44bcf2d7":[2,0,0,42,3],
+"structtgbotxx_1_1_forum_topic_edited.html#a75caed1091999db8e30cd9d6be84d72e":[2,0,0,42,2],
+"structtgbotxx_1_1_forum_topic_edited.html#a7d4135e5b36538658d00530224489adb":[2,0,0,42,5],
+"structtgbotxx_1_1_forum_topic_edited.html#a7f900615fd4e0bd57fb2c1b1aa650f8a":[2,0,0,42,4],
+"structtgbotxx_1_1_forum_topic_edited.html#ab132b4a5b68ef765ad5d37d628f65f17":[2,0,0,42,1],
 "structtgbotxx_1_1_forum_topic_edited.html#ae21d376974cbcfabdd3b8c1ac32065c9":[2,0,0,42,0],
 "structtgbotxx_1_1_forum_topic_reopened.html":[2,0,0,43],
 "structtgbotxx_1_1_forum_topic_reopened.html#a579f63092f5b8908eabbe37c019d4b04":[2,0,0,43,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_message.html#a8f42e6eccc79682481a753f5ea0b9edb":[2,0,0,65,56],
 "structtgbotxx_1_1_message.html#a93bca0957c7ff7b3cd89a292679100df":[2,0,0,65,7],
 "structtgbotxx_1_1_message.html#a997cc1587d7a8f167ed8a04af0b01d72":[2,0,0,65,57],
-"structtgbotxx_1_1_message.html#a9a4010bffb6d403f010786ff96672965":[2,0,0,65,22],
-"structtgbotxx_1_1_message.html#a9d58b971052289103c77a6da9aec4b09":[2,0,0,65,2],
-"structtgbotxx_1_1_message.html#a9d67c84794b0cf9ecd7922f0556b0028":[2,0,0,65,74],
-"structtgbotxx_1_1_message.html#aa01750ff32dc44811215bdb3dfa87ca1":[2,0,0,65,46],
-"structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494":[2,0,0,65,38],
-"structtgbotxx_1_1_message.html#aa6a7755a03abe1829508688376930a83":[2,0,0,65,51],
-"structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611":[2,0,0,65,18],
-"structtgbotxx_1_1_message.html#ab2c13121bc6fb830c921afa2a72f166e":[2,0,0,65,13],
-"structtgbotxx_1_1_message.html#ab442ed3ebb89f4024b3af96f8d85aaff":[2,0,0,65,55],
-"structtgbotxx_1_1_message.html#ab4484a596734b1c560ad2109074822be":[2,0,0,65,28],
-"structtgbotxx_1_1_message.html#ab7cd9fe01a147d4b0dda566ea47a80b1":[2,0,0,65,16]
+"structtgbotxx_1_1_message.html#a9a4010bffb6d403f010786ff96672965":[2,0,0,65,22]
 };
