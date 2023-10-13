@@ -978,3 +978,32 @@ Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
   Ptr<UserProfilePhotos> userProfilePhotos(new UserProfilePhotos(userProfilePhotosObj));
   return userProfilePhotos;
 }
+
+bool Api::banChatMember(std::int64_t chatId,
+                        std::int64_t userId,
+                        std::time_t untilDate,
+                        bool revokeMessages) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (untilDate)
+    data.parts.emplace_back("until_date", untilDate);
+  if (revokeMessages)
+    data.parts.emplace_back("revoke_messages", revokeMessages);
+
+  return sendRequest("banChatMember", data);
+}
+
+bool Api::unbanChatMember(std::int64_t chatId,
+                          std::int64_t userId,
+                          bool onlyIfBanned) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (onlyIfBanned)
+    data.parts.emplace_back("only_if_banned", onlyIfBanned);
+
+  return sendRequest("unbanChatMember", data);
+}

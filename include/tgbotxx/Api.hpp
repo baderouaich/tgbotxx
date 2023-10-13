@@ -1,5 +1,6 @@
 #pragma once
 #include <cpr/cpr.h>
+#include <cstdint>
 #include <functional>
 #include <nlohmann/json.hpp>
 #include <optional>
@@ -718,6 +719,7 @@ namespace tgbotxx {
       /// @ref https://core.telegram.org/bots/api#getfile
       Ptr<File> getFile(const std::string& fileId) const;
 
+
       /// @brief Use this method to download a file from Telegram and save it in memory.
       /// For the moment, bots can download files of up to 20MB in size. See Api::getFile.
       /// The file can then be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
@@ -727,6 +729,39 @@ namespace tgbotxx {
       /// @ref https://core.telegram.org/bots/api#getfile
       /// @throws Exception on failure
       std::string downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)>& progressCallback = nullptr) const;
+
+
+      /// @brief Use this method to ban a user in a group, a supergroup or a channel.
+      /// In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. https://core.telegram.org/bots/api#unbanchatmember
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @param untilDate Optional. Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. .
+      /// AApplied for supergroups and channels only.
+      /// @param revokeMessages Optional. Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.
+      /// @returns True on success.
+      /// @note You can't ban members in private chats
+      /// @ref https://core.telegram.org/bots/api#banchatmember
+      bool banChatMember(std::int64_t chatId,
+                         std::int64_t userId,
+                         std::time_t untilDate = 0,
+                         bool revokeMessages = false) const;
+
+
+      /// @brief Use this method to unban a previously banned user in a supergroup or channel.
+      /// The user will not return to the group or channel automatically, but will be able to join via link, etc.
+      /// The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat,
+      /// but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this,
+      /// use the parameter onlyIfBanned.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @param onlyIfBanned Optional. Do nothing if the user is not banned
+      /// @returns True on success.
+      /// @ref https://core.telegram.org/bots/api#unbanchatmember
+      bool unbanChatMember(std::int64_t chatId,
+                           std::int64_t userId,
+                           bool onlyIfBanned = false) const;
+
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.

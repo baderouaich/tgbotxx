@@ -1,5 +1,3 @@
-#include "tgbotxx/utils/DateTimeUtils.hpp"
-#include "tgbotxx/utils/Ptr.hpp"
 #include <ostream>
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>

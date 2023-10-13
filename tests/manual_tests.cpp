@@ -54,7 +54,10 @@ class MyBot : public Bot {
       Ptr<BotCommand> userProfilePhotos(new BotCommand());
       userProfilePhotos->command = "/user_profile_photos";
       userProfilePhotos->description = "You will receive a location";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> ban(new BotCommand());
+      ban->command = "/ban";
+      ban->description = "You will be banned for 1 minute seconds";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -182,6 +185,11 @@ class MyBot : public Bot {
             std::ofstream{photoFile->fileUniqueId + ".jpg"} << bytes;
           }
         }
+      } else if (message->text == "/ban") {
+        std::time_t now = std::time(nullptr);
+        std::time_t oneMinuteAfter = now + 60;
+        api()->sendMessage(message->chat->id, "Banning you for 1 minute. You will be able to use this bot after " + DateTimeUtils::toString(oneMinuteAfter));
+        api()->banChatMember(message->chat->id, message->from->id, oneMinuteAfter);
       }
     }
 
