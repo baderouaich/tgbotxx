@@ -763,6 +763,25 @@ namespace tgbotxx {
                            bool onlyIfBanned = false) const;
 
 
+      /// @brief Use this method to restrict a user in a supergroup.
+      /// The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights.
+      /// Pass True for all permissions of ChatPermissions object to lift restrictions from a user.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @param permissions A ChatPermissions object for new user permissions
+      /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
+      /// the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.
+      /// @param untilDate Optional. Date when restrictions will be lifted for the user; Unix time.
+      /// If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever
+      /// @returns True on success.
+      /// @ref https://core.telegram.org/bots/api#restrictchatmember
+      bool restrictChatMember(std::int64_t chatId,
+                              std::int64_t userId,
+                              const Ptr<ChatPermissions>& permissions,
+                              bool useIndependentChatPermissions = false,
+                              std::time_t untilDate = 0) const;
+
+
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.
       /// @param dropPendingUpdates: Pass True to drop all pending updates.

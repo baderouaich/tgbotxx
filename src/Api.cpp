@@ -1007,3 +1007,21 @@ bool Api::unbanChatMember(std::int64_t chatId,
 
   return sendRequest("unbanChatMember", data);
 }
+
+bool Api::restrictChatMember(std::int64_t chatId,
+                             std::int64_t userId,
+                             const Ptr<ChatPermissions>& permissions,
+                             bool useIndependentChatPermissions,
+                             std::time_t untilDate) const {
+  cpr::Multipart data{};
+  data.parts.reserve(5);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("permissions", permissions->toJson().dump());
+  if (useIndependentChatPermissions)
+    data.parts.emplace_back("use_independent_chat_permissions", useIndependentChatPermissions);
+  if (untilDate)
+    data.parts.emplace_back("until_date", untilDate);
+
+  return sendRequest("restrictChatMember", data);
+}
