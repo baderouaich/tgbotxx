@@ -1,5 +1,10 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a13851f182ee689c851834a98b14ff27b":[2,0,0,85,1],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a15ec9f5c8ea4d0d93fbe3f5352d9399d":[2,0,0,85,6],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a1ebc15ab4ccc68647ccbe65992a3cb23":[2,0,0,85,7],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a4079944fee6b67874e791b2827ad4dae":[2,0,0,85,8],
+"structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a83103bbad87aabd7011ed195404ec45b":[2,0,0,85,0],
 "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#a8b0c93ccf54823664b725cd53f34a630":[2,0,0,85,5],
 "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ab2aeed0196cceaa01c65afc1f859d9b0":[2,0,0,85,4],
 "structtgbotxx_1_1_switch_inline_query_chosen_chat.html#ac31664f9446ac8e791d0c0e3b47139fa":[2,0,0,85,2],

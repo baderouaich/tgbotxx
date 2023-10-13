@@ -87,16 +87,33 @@ $(document).ready(function(){initNavTree('_example-example.html',''); initResiza
 <div class="title">Example</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. <a href="https://core.telegram.org/bots/features#privacy-mode">https://core.telegram.org/bots/features#privacy-mode</a> : A poll bot for groups runs in privacy mode (only receives commands, replies to its messages and mentions). There could be two ways to create a new poll:</p><ul>
-<li>Explain the user how to send a command with parameters (e.g. /newpoll question answer1 answer2). May be appealing for hardcore users but lacks modern day polish.</li>
-<li>Guide the user through a step-by-step process. 'Please send me your question', 'Cool, now let's add the first answer option', 'Great. Keep adding answer options, then send /done when you're ready'. The last option is definitely more attractive. And if you use ForceReply in your bot's questions, it will receive the user's answers even if it only receives replies, commands and mentions - without any extra work for the user. <a href="https://core.telegram.org/bots/api#forcereply">https://core.telegram.org/bots/api#forcereply</a></li>
+<p>Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">action</td><td>Type of action to broadcast. Choose one, depending on what the user is about to receive:<ul>
+<li>"typing" for text messages</li>
+<li>"upload_photo" for photos</li>
+<li>"record_video" or upload_video for videos</li>
+<li>"record_voice" or upload_voice for voice notes</li>
+<li>"upload_document" for general files</li>
+<li>"choose_sticker" for stickers</li>
+<li>"find_location" for location data</li>
+<li>"record_video_note"</li>
+<li>"upload_video_note" for video notes </li>
 </ul>
+</td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. : The ImageBot needs some time to process a request and upload the image. <a href="https://t.me/imagebot">https://t.me/imagebot</a> Instead of sending a text message along the lines of “Retrieving image, please wait…”, the bot may use sendChatAction with action = upload_photo. The user will see a “sending photo” status for the bot. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>We only recommend using this method when a response from the bot will take a noticeable amount of time to arrive. <a href="https://core.telegram.org/bots/api#sendchataction">https://core.telegram.org/bots/api#sendchataction</a></dd></dl>
 <div class="fragment"> </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Oct 12 2023 17:58:44 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 13 2023 17:38:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -143,9 +143,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab">sendMediaGroup</a> (std::int64_t chatId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a> &gt;&gt; &amp;media, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
 <tr class="memdesc:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type.  <a href="classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab">More...</a><br /></td></tr>
 <tr class="separator:ad4250178e3ee176c8ac2f5a6d07d0eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a233036bd7fa8c969ff2f8670f8167a84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a233036bd7fa8c969ff2f8670f8167a84">sendLocation</a> (std::int64_t chatId, float latitude, float longitude, std::int32_t messageThreadId=0, float horizontalAccuracy=0.0f, std::int32_t livePeriod=0, std::int32_t heading=0, std::int32_t proximityAlertRadius=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false) const</td></tr>
-<tr class="memdesc:a233036bd7fa8c969ff2f8670f8167a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send point on the map.  <a href="classtgbotxx_1_1_api.html#a233036bd7fa8c969ff2f8670f8167a84">More...</a><br /></td></tr>
-<tr class="separator:a233036bd7fa8c969ff2f8670f8167a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7b1cd51279fcfbb42d6d3b8354032e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#adf7b1cd51279fcfbb42d6d3b8354032e">sendLocation</a> (std::int64_t chatId, float latitude, float longitude, std::int32_t messageThreadId=0, float horizontalAccuracy=0.0f, std::int32_t livePeriod=0, std::int32_t heading=0, std::int32_t proximityAlertRadius=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:adf7b1cd51279fcfbb42d6d3b8354032e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send point on the map.  <a href="classtgbotxx_1_1_api.html#adf7b1cd51279fcfbb42d6d3b8354032e">More...</a><br /></td></tr>
+<tr class="separator:adf7b1cd51279fcfbb42d6d3b8354032e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cdb97620287d85c5533b102018a9c24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a6cdb97620287d85c5533b102018a9c24">sendVenue</a> (std::int64_t chatId, float latitude, float longitude, const std::string &amp;title, const std::string &amp;address, std::int32_t messageThreadId=0, const std::string &amp;foursquareId=&quot;&quot;, const std::string &amp;foursquareType=&quot;&quot;, const std::string &amp;googlePlaceId=&quot;&quot;, const std::string &amp;googlePlaceType=&quot;&quot;, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:a6cdb97620287d85c5533b102018a9c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send information about a venue.  <a href="classtgbotxx_1_1_api.html#a6cdb97620287d85c5533b102018a9c24">More...</a><br /></td></tr>
+<tr class="separator:a6cdb97620287d85c5533b102018a9c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67024d6fe19c406b73f254e9d7fb9bf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a67024d6fe19c406b73f254e9d7fb9bf2">sendContact</a> (std::int64_t chatId, const std::string &amp;phoneNumber, const std::string &amp;firstName, const std::string &amp;lastName=&quot;&quot;, const std::string &amp;vcard=&quot;&quot;, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:a67024d6fe19c406b73f254e9d7fb9bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send phone contacts.  <a href="classtgbotxx_1_1_api.html#a67024d6fe19c406b73f254e9d7fb9bf2">More...</a><br /></td></tr>
+<tr class="separator:a67024d6fe19c406b73f254e9d7fb9bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d99a8f8e502c8c7c0e231103ec41b50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a2d99a8f8e502c8c7c0e231103ec41b50">sendPoll</a> (std::int64_t chatId, const std::string &amp;question, const std::vector&lt; std::string &gt; &amp;options, bool isAnonymous=false, const std::string &amp;type=&quot;regular&quot;, bool allowsMultipleAnswers=false, std::int32_t correctOptionId=-1, const std::string &amp;explanation=&quot;&quot;, const std::string &amp;explanationParseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;explanationEntities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), std::int32_t openPeriod=0, std::int32_t closeDate=0, bool isClosed=false, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:a2d99a8f8e502c8c7c0e231103ec41b50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a native poll.  <a href="classtgbotxx_1_1_api.html#a2d99a8f8e502c8c7c0e231103ec41b50">More...</a><br /></td></tr>
+<tr class="separator:a2d99a8f8e502c8c7c0e231103ec41b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6476d7aa1e627621ca839c8cdd2b0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#aa6476d7aa1e627621ca839c8cdd2b0ae">sendDice</a> (std::int64_t chatId, const std::string &amp;emoji=&quot;🎲&quot;, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:aa6476d7aa1e627621ca839c8cdd2b0ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send an animated emoji that will display a random value.  <a href="classtgbotxx_1_1_api.html#aa6476d7aa1e627621ca839c8cdd2b0ae">More...</a><br /></td></tr>
+<tr class="separator:aa6476d7aa1e627621ca839c8cdd2b0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55ee31564b2163150a7a65c57e412d0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a55ee31564b2163150a7a65c57e412d0f">sendChatAction</a> (std::int64_t chatId, const std::string &amp;action, std::int32_t messageThreadId=0) const</td></tr>
+<tr class="separator:a55ee31564b2163150a7a65c57e412d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
 <tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -902,6 +916,221 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 
 </div>
 </div>
+<a id="a55ee31564b2163150a7a65c57e412d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ee31564b2163150a7a65c57e412d0f">&#9670;&nbsp;</a></span>sendChatAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::sendChatAction </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67024d6fe19c406b73f254e9d7fb9bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67024d6fe19c406b73f254e9d7fb9bf2">&#9670;&nbsp;</a></span>sendContact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendContact </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>phoneNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>firstName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>lastName</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vcard</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send phone contacts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">phoneNumber</td><td><a class="el" href="structtgbotxx_1_1_contact.html" title="This object represents a phone contact. https://core.telegram.org/bots/api#contact.">Contact</a>'s phone number </td></tr>
+    <tr><td class="paramname">firstName</td><td><a class="el" href="structtgbotxx_1_1_contact.html" title="This object represents a phone contact. https://core.telegram.org/bots/api#contact.">Contact</a>'s first name </td></tr>
+    <tr><td class="paramname">lastName</td><td>Optional. <a class="el" href="structtgbotxx_1_1_contact.html" title="This object represents a phone contact. https://core.telegram.org/bots/api#contact.">Contact</a>'s last name </td></tr>
+    <tr><td class="paramname">vcard</td><td>Optional. Additional data about the contact in the form of a vCard, 0-2048 bytes <a href="https://en.wikipedia.org/wiki/VCard">https://en.wikipedia.org/wiki/VCard</a> </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendcontact">https://core.telegram.org/bots/api#sendcontact</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa6476d7aa1e627621ca839c8cdd2b0ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6476d7aa1e627621ca839c8cdd2b0ae">&#9670;&nbsp;</a></span>sendDice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendDice </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>emoji</em> = <code>&quot;🎲&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send an animated emoji that will display a random value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">emoji</td><td>Optional. Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. <a class="el" href="structtgbotxx_1_1_dice.html" title="This object represents an animated emoji that displays a random value. https://core....">Dice</a> can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲” </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#senddice">https://core.telegram.org/bots/api#senddice</a> </dd></dl>
+
+</div>
+</div>
 <a id="add175b0d63ee2e77fa053142c5b27d3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add175b0d63ee2e77fa053142c5b27d3e">&#9670;&nbsp;</a></span>sendDocument()</h2>
 
@@ -1013,8 +1242,8 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 
 </div>
 </div>
-<a id="a233036bd7fa8c969ff2f8670f8167a84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a233036bd7fa8c969ff2f8670f8167a84">&#9670;&nbsp;</a></span>sendLocation()</h2>
+<a id="adf7b1cd51279fcfbb42d6d3b8354032e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf7b1cd51279fcfbb42d6d3b8354032e">&#9670;&nbsp;</a></span>sendLocation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1089,7 +1318,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1114,6 +1349,7 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
     <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
     <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
     <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1394,6 +1630,292 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendphoto">https://core.telegram.org/bots/api#sendphoto</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2d99a8f8e502c8c7c0e231103ec41b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d99a8f8e502c8c7c0e231103ec41b50">&#9670;&nbsp;</a></span>sendPoll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendPoll </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>question</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isAnonymous</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em> = <code>&quot;regular&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowsMultipleAnswers</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>correctOptionId</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>explanation</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>explanationParseMode</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>explanationEntities</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>openPeriod</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>closeDate</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isClosed</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send a native poll. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">question</td><td><a class="el" href="structtgbotxx_1_1_poll.html" title="This object contains information about a poll. https://core.telegram.org/bots/api#poll.">Poll</a> question, 1-300 characters </td></tr>
+    <tr><td class="paramname">options</td><td>A list of answer options, 2-10 strings 1-100 characters each </td></tr>
+    <tr><td class="paramname">isAnonymous</td><td>Optional. True, if the poll needs to be anonymous, defaults to True </td></tr>
+    <tr><td class="paramname">type</td><td>Optional. <a class="el" href="structtgbotxx_1_1_poll.html" title="This object contains information about a poll. https://core.telegram.org/bots/api#poll.">Poll</a> type, “quiz” or “regular”, defaults to “regular” </td></tr>
+    <tr><td class="paramname">allowsMultipleAnswers</td><td>Optional. True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to False </td></tr>
+    <tr><td class="paramname">correctOptionId</td><td>Optional. 0-based identifier of the correct answer option, required for polls in quiz mode </td></tr>
+    <tr><td class="paramname">explanation</td><td>Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing </td></tr>
+    <tr><td class="paramname">explanationParseMode</td><td>Optional. Mode for parsing entities in the explanation. See formatting options for more details. </td></tr>
+    <tr><td class="paramname">explanationEntities</td><td>Optional. A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of parseMode </td></tr>
+    <tr><td class="paramname">openPeriod</td><td>Optional. Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with closeDate. </td></tr>
+    <tr><td class="paramname">closeDate</td><td>Optional. Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with openPeriod. </td></tr>
+    <tr><td class="paramname">isClosed</td><td>Optional. Pass True if the poll needs to be immediately closed. This can be useful for poll preview. </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendpoll">https://core.telegram.org/bots/api#sendpoll</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6cdb97620287d85c5533b102018a9c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cdb97620287d85c5533b102018a9c24">&#9670;&nbsp;</a></span>sendVenue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendVenue </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>longitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>foursquareId</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>foursquareType</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>googlePlaceId</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>googlePlaceType</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send information about a venue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">latitude</td><td>Latitude of the venue </td></tr>
+    <tr><td class="paramname">longitude</td><td>Longitude of the venue </td></tr>
+    <tr><td class="paramname">title</td><td>Name of the venue </td></tr>
+    <tr><td class="paramname">address</td><td>Address of the venue </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">foursquareId</td><td>Optional. Foursquare identifier of the venue </td></tr>
+    <tr><td class="paramname">foursquareType</td><td>Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.) </td></tr>
+    <tr><td class="paramname">googlePlaceId</td><td>Optional. Google Places identifier of the venue </td></tr>
+    <tr><td class="paramname">googlePlaceType</td><td>Optional. Google Places type of the venue. (See supported types. <a href="https://developers.google.com/places/web-service/supported_types">https://developers.google.com/places/web-service/supported_types</a>) </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendvenue">https://core.telegram.org/bots/api#sendvenue</a> </dd></dl>
 
 </div>
 </div>
@@ -1808,7 +2330,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Thu Oct 12 2023 17:58:44 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 13 2023 17:38:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
