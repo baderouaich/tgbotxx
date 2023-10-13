@@ -13,6 +13,7 @@ var classtgbotxx_1_1_api =
     [ "getUpdates", "classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2", null ],
     [ "getUserProfilePhotos", "classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d", null ],
     [ "logOut", "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519", null ],
+    [ "restrictChatMember", "classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538", null ],
     [ "sendAnimation", "classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef", null ],
     [ "sendAudio", "classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c", null ],
     [ "sendChatAction", "classtgbotxx_1_1_api.html#a55ee31564b2163150a7a65c57e412d0f", null ],

@@ -175,6 +175,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af73dea700bffee7c4275bc46e2c85f26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26">unbanChatMember</a> (std::int64_t chatId, std::int64_t userId, bool onlyIfBanned=false) const</td></tr>
 <tr class="memdesc:af73dea700bffee7c4275bc46e2c85f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to unban a previously banned user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter onlyIfBanned.  <a href="classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26">More...</a><br /></td></tr>
 <tr class="separator:af73dea700bffee7c4275bc46e2c85f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd0da5b9e81debbf9beb736d71a06538"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538">restrictChatMember</a> (std::int64_t chatId, std::int64_t userId, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_permissions.html">ChatPermissions</a> &gt; &amp;permissions, bool useIndependentChatPermissions=false, std::time_t untilDate=0) const</td></tr>
+<tr class="memdesc:abd0da5b9e81debbf9beb736d71a06538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights. Pass True for all permissions of <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object to lift restrictions from a user.  <a href="classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538">More...</a><br /></td></tr>
+<tr class="separator:abd0da5b9e81debbf9beb736d71a06538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -751,6 +754,65 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 
 <p>Use this method to log out from the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server for 10 minutes. </p>
 <dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#logout">https://core.telegram.org/bots/api#logout</a> </dd></dl>
+
+</div>
+</div>
+<a id="abd0da5b9e81debbf9beb736d71a06538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd0da5b9e81debbf9beb736d71a06538">&#9670;&nbsp;</a></span>restrictChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::restrictChatMember </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_permissions.html">ChatPermissions</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>permissions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useIndependentChatPermissions</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>untilDate</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights. Pass True for all permissions of <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object to lift restrictions from a user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">permissions</td><td>A <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object for new user permissions </td></tr>
+    <tr><td class="paramname">useIndependentChatPermissions</td><td>Optional. Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission. </td></tr>
+    <tr><td class="paramname">untilDate</td><td>Optional. Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. <a href="https://core.telegram.org/bots/api#restrictchatmember">https://core.telegram.org/bots/api#restrictchatmember</a> </dd></dl>
 
 </div>
 </div>
@@ -2482,7 +2544,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Fri Oct 13 2023 18:18:29 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 13 2023 18:26:57 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
