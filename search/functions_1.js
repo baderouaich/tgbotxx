@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['banchatmember_846',['banChatMember',['../classtgbotxx_1_1_api.html#a2f7e769becefeddd576f6baa085cb457',1,'tgbotxx::Api']]],
   ['bot_847',['Bot',['../classtgbotxx_1_1_bot.html#a1ebb9fd1e98cb5d0c32e811b7081582e',1,'tgbotxx::Bot']]],
   ['botcommand_848',['BotCommand',['../structtgbotxx_1_1_bot_command.html#a7a396d517a0289e79a1a23561041e1d4',1,'tgbotxx::BotCommand::BotCommand()=default'],['../structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0',1,'tgbotxx::BotCommand::BotCommand(const nl::json &amp;json)']]],
   ['botcommandscope_849',['BotCommandScope',['../structtgbotxx_1_1_bot_command_scope.html#a6996505f3bd6b75bdee5a26e99619641',1,'tgbotxx::BotCommandScope::BotCommandScope()=default'],['../structtgbotxx_1_1_bot_command_scope.html#a7d402a4efc4a685645fe9f0a75120105',1,'tgbotxx::BotCommandScope::BotCommandScope(const nl::json &amp;json)']]],

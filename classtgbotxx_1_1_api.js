@@ -1,6 +1,7 @@
 var classtgbotxx_1_1_api =
 [
     [ "Api", "classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095", null ],
+    [ "banChatMember", "classtgbotxx_1_1_api.html#a2f7e769becefeddd576f6baa085cb457", null ],
     [ "close", "classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2", null ],
     [ "copyMessage", "classtgbotxx_1_1_api.html#a559d4f43c4641303b84e97bdba97ef69", null ],
     [ "deleteWebhook", "classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962", null ],
@@ -27,5 +28,6 @@ var classtgbotxx_1_1_api =
     [ "sendVideo", "classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115", null ],
     [ "sendVideoNote", "classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b", null ],
     [ "sendVoice", "classtgbotxx_1_1_api.html#af4e5f1804c06a7de6e41671235562466", null ],
-    [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ]
+    [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ],
+    [ "unbanChatMember", "classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26", null ]
 ];

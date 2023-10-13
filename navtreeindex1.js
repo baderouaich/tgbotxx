@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b":[2,0,0,1,18],
+"classtgbotxx_1_1_bot.html#acee4ed2ab5bab2edcd617342a47a72e7":[2,0,0,1,17],
 "classtgbotxx_1_1_bot.html#ae6b3bc2790f55bc39cc7b840af5d6f55":[2,0,0,1,13],
 "classtgbotxx_1_1_bot.html#ae6f0bb6a57910708fb964d44872d70fa":[2,0,0,1,15],
 "classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314":[2,0,0,1,21],
@@ -58,8 +60,8 @@ var NAVTREEINDEX1 =
 "functions_t.html":[2,3,0,19],
 "functions_u.html":[2,3,0,20],
 "functions_v.html":[2,3,0,21],
-"functions_vars.html":[2,3,2],
 "functions_vars.html":[2,3,2,0],
+"functions_vars.html":[2,3,2],
 "functions_vars_b.html":[2,3,2,1],
 "functions_vars_c.html":[2,3,2,2],
 "functions_vars_d.html":[2,3,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_chat.html#ac9499a4a84e277f231d9947619d2eeb1":[2,0,0,16,9],
 "structtgbotxx_1_1_chat.html#acbdbd72b6b9a1b1391716cc597f21d65":[2,0,0,16,14],
 "structtgbotxx_1_1_chat.html#ad76e417e68b9954cfa739a72f79df683":[2,0,0,16,4],
-"structtgbotxx_1_1_chat.html#ad9e097cac98b6d4165c645f0d6e1ec2b":[2,0,0,16,1],
-"structtgbotxx_1_1_chat.html#adeed39da30ee8db72feaa07e8b0d08b6":[2,0,0,16,31],
-"structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa":[2,0,0,16,28]
+"structtgbotxx_1_1_chat.html#ad9e097cac98b6d4165c645f0d6e1ec2b":[2,0,0,16,1]
 };

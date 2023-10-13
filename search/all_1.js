@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['banchatmember_21',['banChatMember',['../classtgbotxx_1_1_api.html#a2f7e769becefeddd576f6baa085cb457',1,'tgbotxx::Api']]],
   ['bigfileid_22',['bigFileId',['../structtgbotxx_1_1_chat_photo.html#a2f53a7862f0d0a464687414d09b972b5',1,'tgbotxx::ChatPhoto']]],
   ['bigfileuniqueid_23',['bigFileUniqueId',['../structtgbotxx_1_1_chat_photo.html#a849b5055c7252c475295bbb4613032e8',1,'tgbotxx::ChatPhoto']]],
   ['bio_24',['bio',['../structtgbotxx_1_1_chat_join_request.html#a0c004080bf9b538752a17d8518b9696a',1,'tgbotxx::ChatJoinRequest::bio()'],['../structtgbotxx_1_1_chat.html#a483580d26b0fd85ebaf3bcdd615e6aa6',1,'tgbotxx::Chat::bio()']]],

@@ -169,6 +169,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0773a822572d7787fd91cc15fb307a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1">downloadFile</a> (const std::string &amp;filePath, const std::function&lt; bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)&gt; &amp;progressCallback=nullptr) const</td></tr>
 <tr class="memdesc:ac0773a822572d7787fd91cc15fb307a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to download a file from Telegram and save it in memory. For the moment, bots can download files of up to 20MB in size. See <a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139" title="Use this method to get basic information about a file and prepare it for downloading....">Api::getFile</a>. The file can then be downloaded via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1">More...</a><br /></td></tr>
 <tr class="separator:ac0773a822572d7787fd91cc15fb307a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f7e769becefeddd576f6baa085cb457"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a2f7e769becefeddd576f6baa085cb457">banChatMember</a> (std::int64_t chatId, std::int64_t userId, std::time_t untilDate=0, bool revokeMessages=false) const</td></tr>
+<tr class="memdesc:a2f7e769becefeddd576f6baa085cb457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. <a href="https://core.telegram.org/bots/api#unbanchatmember">https://core.telegram.org/bots/api#unbanchatmember</a>.  <a href="classtgbotxx_1_1_api.html#a2f7e769becefeddd576f6baa085cb457">More...</a><br /></td></tr>
+<tr class="separator:a2f7e769becefeddd576f6baa085cb457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73dea700bffee7c4275bc46e2c85f26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26">unbanChatMember</a> (std::int64_t chatId, std::int64_t userId, bool onlyIfBanned=false) const</td></tr>
+<tr class="memdesc:af73dea700bffee7c4275bc46e2c85f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to unban a previously banned user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter onlyIfBanned.  <a href="classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26">More...</a><br /></td></tr>
+<tr class="separator:af73dea700bffee7c4275bc46e2c85f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00095">95</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00096">96</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -217,6 +223,59 @@ We support GET and POST HTTP methods. Use either URL query string or application
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2f7e769becefeddd576f6baa085cb457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f7e769becefeddd576f6baa085cb457">&#9670;&nbsp;</a></span>banChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::banChatMember </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>untilDate</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>revokeMessages</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. <a href="https://core.telegram.org/bots/api#unbanchatmember">https://core.telegram.org/bots/api#unbanchatmember</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">untilDate</td><td>Optional. Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. . AApplied for supergroups and channels only. </td></tr>
+    <tr><td class="paramname">revokeMessages</td><td>Optional. Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>You can't ban members in private chats <a href="https://core.telegram.org/bots/api#banchatmember">https://core.telegram.org/bots/api#banchatmember</a> </dd></dl>
+
+</div>
+</div>
 <a id="af2dc121a5a4329150d91cf9e60df12e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2dc121a5a4329150d91cf9e60df12e2">&#9670;&nbsp;</a></span>close()</h2>
 
@@ -2369,6 +2428,51 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="af73dea700bffee7c4275bc46e2c85f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73dea700bffee7c4275bc46e2c85f26">&#9670;&nbsp;</a></span>unbanChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::unbanChatMember </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onlyIfBanned</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to unban a previously banned user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter onlyIfBanned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">onlyIfBanned</td><td>Optional. Do nothing if the user is not banned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. <a href="https://core.telegram.org/bots/api#unbanchatmember">https://core.telegram.org/bots/api#unbanchatmember</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/tgbotxx/<a class="el" href="_api_8hpp_source.html">Api.hpp</a></li>
 </ul>
@@ -2378,7 +2482,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Fri Oct 13 2023 18:00:38 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 13 2023 18:18:29 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
