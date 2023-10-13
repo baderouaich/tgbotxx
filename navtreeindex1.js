@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"classtgbotxx_1_1_bot.html#ae6b3bc2790f55bc39cc7b840af5d6f55":[2,0,0,1,13],
+"classtgbotxx_1_1_bot.html#ae6f0bb6a57910708fb964d44872d70fa":[2,0,0,1,15],
+"classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314":[2,0,0,1,21],
 "classtgbotxx_1_1_bot.html#af2adb7129c0474d8ba91bd1cf391912c":[2,0,0,1,10],
 "classtgbotxx_1_1_bot.html#aff8f11497ae56bb196d01770e083f206":[2,0,0,1,1],
 "classtgbotxx_1_1_exception.html":[2,0,0,2],
@@ -94,11 +97,11 @@ var NAVTREEINDEX1 =
 "namespacemembers_type.html":[1,1,2],
 "namespaces.html":[1,0],
 "namespacetgbotxx.html":[1,0,0],
-"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,110],
-"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,109],
-"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,107],
-"namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99":[1,0,0,111],
-"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,108],
+"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[1,0,0,111],
+"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[1,0,0,110],
+"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[1,0,0,108],
+"namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99":[1,0,0,112],
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[1,0,0,109],
 "namespacetgbotxx_1_1_date_time_utils.html":[1,0,0,0],
 "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951":[1,0,0,0,2],
 "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339":[1,0,0,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_chat.html#ad76e417e68b9954cfa739a72f79df683":[2,0,0,16,4],
 "structtgbotxx_1_1_chat.html#ad9e097cac98b6d4165c645f0d6e1ec2b":[2,0,0,16,1],
 "structtgbotxx_1_1_chat.html#adeed39da30ee8db72feaa07e8b0d08b6":[2,0,0,16,31],
-"structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa":[2,0,0,16,28],
-"structtgbotxx_1_1_chat.html#aec97277505ea55c4f0e6156d0c2262f4":[2,0,0,16,22],
-"structtgbotxx_1_1_chat.html#af5657e168d12b40a700ad2534c2710f6":[2,0,0,16,30],
-"structtgbotxx_1_1_chat.html#af65e367da2c12233227f00d77e072631":[2,0,0,16,8]
+"structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa":[2,0,0,16,28]
 };

@@ -89,6 +89,7 @@ var annotated_dup =
       [ "SwitchInlineQueryChosenChat", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html", "structtgbotxx_1_1_switch_inline_query_chosen_chat" ],
       [ "Update", "structtgbotxx_1_1_update.html", "structtgbotxx_1_1_update" ],
       [ "User", "structtgbotxx_1_1_user.html", "structtgbotxx_1_1_user" ],
+      [ "UserProfilePhotos", "structtgbotxx_1_1_user_profile_photos.html", "structtgbotxx_1_1_user_profile_photos" ],
       [ "UserShared", "structtgbotxx_1_1_user_shared.html", "structtgbotxx_1_1_user_shared" ],
       [ "Venue", "structtgbotxx_1_1_venue.html", "structtgbotxx_1_1_venue" ],
       [ "Video", "structtgbotxx_1_1_video.html", "structtgbotxx_1_1_video" ],

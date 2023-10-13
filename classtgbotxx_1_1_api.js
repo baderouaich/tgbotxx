@@ -10,6 +10,7 @@ var classtgbotxx_1_1_api =
     [ "getMe", "classtgbotxx_1_1_api.html#a3b6fde6a4caa1262b6c6d587dc027301", null ],
     [ "getMyCommands", "classtgbotxx_1_1_api.html#a13bff65224b9e6f57919bff41b3c3e44", null ],
     [ "getUpdates", "classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2", null ],
+    [ "getUserProfilePhotos", "classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d", null ],
     [ "logOut", "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519", null ],
     [ "sendAnimation", "classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef", null ],
     [ "sendAudio", "classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c", null ],

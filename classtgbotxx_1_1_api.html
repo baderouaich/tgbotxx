@@ -160,6 +160,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa6476d7aa1e627621ca839c8cdd2b0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55ee31564b2163150a7a65c57e412d0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a55ee31564b2163150a7a65c57e412d0f">sendChatAction</a> (std::int64_t chatId, const std::string &amp;action, std::int32_t messageThreadId=0) const</td></tr>
 <tr class="separator:a55ee31564b2163150a7a65c57e412d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb13e0c63ac03e210f140f12e08379d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user_profile_photos.html">UserProfilePhotos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d">getUserProfilePhotos</a> (std::int64_t userId, std::int32_t offset=0, std::int32_t limit=100) const</td></tr>
+<tr class="memdesc:a7fb13e0c63ac03e210f140f12e08379d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get a list of profile pictures for a user.  <a href="classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d">More...</a><br /></td></tr>
+<tr class="separator:a7fb13e0c63ac03e210f140f12e08379d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">getFile</a> (const std::string &amp;fileId) const</td></tr>
 <tr class="memdesc:a3bbbf85d141c05ff15b659ce05f4d139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. The file can then be downloaded using <a class="el" href="classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1" title="Use this method to download a file from Telegram and save it in memory. For the moment,...">Api::downloadFile</a> or via the link <a href="https://api.telegram.org/file/bot">https://api.telegram.org/file/bot</a>&lt;token&gt;/&lt;file_path&gt;, where &lt;file_path&gt; is taken from the response.  <a href="classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139">More...</a><br /></td></tr>
 <tr class="separator:a3bbbf85d141c05ff15b659ce05f4d139"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,7 +188,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00094">94</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00095">95</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -624,6 +627,51 @@ This function may not preserve the original file name and MIME type. You should 
 This method will not work if an outgoing webhook is set up. </dd>
 <dd>
 In order to avoid getting duplicate updates, recalculate offset after each server response. <a class="el" href=""><a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> </a> </dd></dl>
+
+</div>
+</div>
+<a id="a7fb13e0c63ac03e210f140f12e08379d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb13e0c63ac03e210f140f12e08379d">&#9670;&nbsp;</a></span>getUserProfilePhotos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_user_profile_photos.html">UserProfilePhotos</a>&gt; tgbotxx::Api::getUserProfilePhotos </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>limit</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get a list of profile pictures for a user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">offset</td><td>Optional. Sequential number of the first photo to be returned. By default, all photos are returned. </td></tr>
+    <tr><td class="paramname">limit</td><td>Optional. Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structtgbotxx_1_1_user_profile_photos.html" title="This object represent a user&#39;s profile pictures. https://core.telegram.org/bots/api#userprofilephotos...">UserProfilePhotos</a> object. <a href="https://core.telegram.org/bots/api#getuserprofilephotos">https://core.telegram.org/bots/api#getuserprofilephotos</a> </dd></dl>
 
 </div>
 </div>
@@ -2330,7 +2378,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Fri Oct 13 2023 17:38:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 13 2023 18:00:38 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

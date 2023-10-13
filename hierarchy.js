@@ -103,6 +103,7 @@ var hierarchy =
     ] ],
     [ "tgbotxx::Update", "structtgbotxx_1_1_update.html", null ],
     [ "tgbotxx::User", "structtgbotxx_1_1_user.html", null ],
+    [ "tgbotxx::UserProfilePhotos", "structtgbotxx_1_1_user_profile_photos.html", null ],
     [ "tgbotxx::UserShared", "structtgbotxx_1_1_user_shared.html", null ],
     [ "tgbotxx::Venue", "structtgbotxx_1_1_venue.html", null ],
     [ "tgbotxx::Video", "structtgbotxx_1_1_video.html", null ],

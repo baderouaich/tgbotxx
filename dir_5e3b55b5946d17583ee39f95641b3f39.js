@@ -220,6 +220,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "User.hpp", "_user_8hpp.html", [
       [ "User", "structtgbotxx_1_1_user.html", "structtgbotxx_1_1_user" ]
     ] ],
+    [ "UserProfilePhotos.hpp", "_user_profile_photos_8hpp.html", [
+      [ "UserProfilePhotos", "structtgbotxx_1_1_user_profile_photos.html", "structtgbotxx_1_1_user_profile_photos" ]
+    ] ],
     [ "UserShared.hpp", "_user_shared_8hpp.html", [
       [ "UserShared", "structtgbotxx_1_1_user_shared.html", "structtgbotxx_1_1_user_shared" ]
     ] ],
