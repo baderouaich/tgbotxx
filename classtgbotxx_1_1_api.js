@@ -24,11 +24,11 @@ var classtgbotxx_1_1_api =
     [ "sendMediaGroup", "classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#adcc5447a9b671e6180d25f51b9f40821", null ],
     [ "sendPhoto", "classtgbotxx_1_1_api.html#a4f226f3de07154c2f84fbceac42adedd", null ],
-    [ "sendPoll", "classtgbotxx_1_1_api.html#a2d99a8f8e502c8c7c0e231103ec41b50", null ],
+    [ "sendPoll", "classtgbotxx_1_1_api.html#a38df23227cee896c031344b14b87ae46", null ],
     [ "sendVenue", "classtgbotxx_1_1_api.html#a6cdb97620287d85c5533b102018a9c24", null ],
     [ "sendVideo", "classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115", null ],
     [ "sendVideoNote", "classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b", null ],
     [ "sendVoice", "classtgbotxx_1_1_api.html#af4e5f1804c06a7de6e41671235562466", null ],
-    [ "setMyCommands", "classtgbotxx_1_1_api.html#abcbf6b1f63fa0e685274c7525f983518", null ],
+    [ "setMyCommands", "classtgbotxx_1_1_api.html#a11212f0ef53a7f794c1a0c11bede47e4", null ],
     [ "unbanChatMember", "classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26", null ]
 ];
