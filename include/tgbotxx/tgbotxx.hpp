@@ -71,6 +71,7 @@
 #include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/UserProfilePhotos.hpp>
 #include <tgbotxx/objects/UserShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
 #include <tgbotxx/objects/Video.hpp>

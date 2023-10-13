@@ -51,7 +51,10 @@ class MyBot : public Bot {
       Ptr<BotCommand> location(new BotCommand());
       location->command = "/location";
       location->description = "You will receive a location";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> userProfilePhotos(new BotCommand());
+      userProfilePhotos->command = "/user_profile_photos";
+      userProfilePhotos->description = "You will receive a location";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -164,6 +167,21 @@ class MyBot : public Bot {
       } else if (message->text == "/location") {
         getApi()->sendMessage(message->chat->id, "Sending location ...");
         getApi()->sendLocation(message->chat->id, 65.590261f, -17.303453f); // Iceland
+      } else if (message->text == "/user_profile_photos") {
+        std::int64_t userId = message->from->id;
+        Ptr<UserProfilePhotos> userProfilePhotos = api()->getUserProfilePhotos(userId);
+        api()->sendMessage(message->chat->id, "You have " + std::to_string(userProfilePhotos->totalCount) + " profile photos");
+        for (const std::vector<Ptr<PhotoSize>>& photoResolutions: userProfilePhotos->photos) {
+          for (const Ptr<PhotoSize>& photo: photoResolutions) {
+            Ptr<File> photoFile = api()->getFile(photo->fileId);
+            std::string bytes = api()->downloadFile(photoFile->filePath, [](cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow) -> bool {
+              std::cout << "Downloading Photo " << downloadNow << " / " << downloadTotal << " bytes" << std::endl;
+              // return false to cancel the download
+              return true;
+            });
+            std::ofstream{photoFile->fileUniqueId + ".jpg"} << bytes;
+          }
+        }
       }
     }
 

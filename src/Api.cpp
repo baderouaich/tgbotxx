@@ -962,3 +962,19 @@ bool Api::sendChatAction(std::int64_t chatId,
 
   return sendRequest("sendChatAction", data);
 }
+
+Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
+                                                 std::int32_t offset,
+                                                 std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (offset)
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+
+  nl::json userProfilePhotosObj = sendRequest("getUserProfilePhotos", data);
+  Ptr<UserProfilePhotos> userProfilePhotos(new UserProfilePhotos(userProfilePhotosObj));
+  return userProfilePhotos;
+}

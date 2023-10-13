@@ -72,6 +72,7 @@
 #include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/UserProfilePhotos.hpp>
 #include <tgbotxx/objects/UserShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
 #include <tgbotxx/objects/Video.hpp>
@@ -694,6 +695,17 @@ namespace tgbotxx {
       bool sendChatAction(std::int64_t chatId,
                           const std::string& action,
                           std::int32_t messageThreadId = 0) const;
+
+
+      /// @brief Use this method to get a list of profile pictures for a user.
+      /// @param userId Unique identifier of the target user
+      /// @param offset Optional. Sequential number of the first photo to be returned. By default, all photos are returned.
+      /// @param limit Optional. Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+      /// @returns UserProfilePhotos object.
+      /// @ref https://core.telegram.org/bots/api#getuserprofilephotos
+      Ptr<UserProfilePhotos> getUserProfilePhotos(std::int64_t userId,
+                                                  std::int32_t offset = 0,
+                                                  std::int32_t limit = 100) const;
 
 
       /// @brief Use this method to get basic information about a file and prepare it for downloading.
