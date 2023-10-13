@@ -1,4 +1,6 @@
+#include "tgbotxx/objects/PollOption.hpp"
 #include <csignal>
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <tgbotxx/tgbotxx.hpp>
@@ -57,7 +59,13 @@ class MyBot : public Bot {
       Ptr<BotCommand> ban(new BotCommand());
       ban->command = "/ban";
       ban->description = "You will be banned for 1 minute seconds";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> poll(new BotCommand());
+      poll->command = "/poll";
+      poll->description = "You will receive a voting poll";
+      Ptr<BotCommand> quiz(new BotCommand());
+      quiz->command = "/quiz";
+      quiz->description = "You will receive a quiz poll";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz}); // The above commands will be shown in the bot chat menu (bottom left)
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -190,6 +198,26 @@ class MyBot : public Bot {
         std::time_t oneMinuteAfter = now + 60;
         api()->sendMessage(message->chat->id, "Banning you for 1 minute. You will be able to use this bot after " + DateTimeUtils::toString(oneMinuteAfter));
         api()->banChatMember(message->chat->id, message->from->id, oneMinuteAfter);
+      } else if (message->text == "/poll") {
+        std::vector<std::string> options = {
+          "Answer 1",
+          "Answer 2",
+          "Answer 3",
+        };
+        api()->sendPoll(message->chat->id, "Please choose an answer", options);
+      } else if (message->text == "/quiz") {
+        std::string question = "Which of the following empires had no written language: Incan, Aztec, Egyptian, Roman? ";
+        std::vector<std::string> possibleAnswers = {
+          "Aztec",
+          "Egyptian",
+          "Incan", // CORRECT answer index = 2
+          "Roman",
+        };
+        std::int32_t correctAnswerIndex = 2;
+        std::string explanation = "The Incas didn't have a written language in the way you might expect."
+                                  " Instead, the way they recorded information was through a system of "
+                                  "different knots tied in ropes attached to a longer cord."; // optional (0-200 character explanation will be shown to user as a notification after answer>)
+        api()->sendPoll(message->chat->id, question, possibleAnswers, false, "quiz", false, correctAnswerIndex, explanation);
       }
     }
 
@@ -229,10 +257,14 @@ class MyBot : public Bot {
     /// Called when a new poll state is received.
     void onPoll(const Ptr<Poll>& poll) override {
       std::cout << __func__ << ": " << poll->question << std::endl;
+      const Ptr<PollOption>& highestVotedOption = *std::max_element(poll->options.begin(), poll->options.end(), [](const Ptr<PollOption>& A, const Ptr<PollOption>& B){
+        return A->voterCount < B->voterCount;
+      });
+      std::cout << __func__ << ": Highest voted option: " << highestVotedOption->text << std::endl;
     }
     /// Called when a user changed their answer in a non-anonymous poll.
     void onPollAnswer(const Ptr<PollAnswer>& pollAnswer) override {
-      std::cout << __func__ << ": " << pollAnswer->pollId << std::endl;
+      std::cout << __func__ << ": " << pollAnswer->optionIds.front() << std::endl;
     }
     /// Called when the bot's chat member status was updated in a chat.
     void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {

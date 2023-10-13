@@ -877,7 +877,7 @@ Ptr<Message> Api::sendPoll(std::int64_t chatId,
   data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("question", question);
   data.parts.emplace_back("options", nl::json(options).dump());
-  if (isAnonymous)
+  if (not isAnonymous)
     data.parts.emplace_back("is_anonymous", isAnonymous);
   if (not type.empty())
     data.parts.emplace_back("type", type);

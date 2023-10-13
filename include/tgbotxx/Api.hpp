@@ -632,7 +632,7 @@ namespace tgbotxx {
       Ptr<Message> sendPoll(std::int64_t chatId,
                             const std::string& question,
                             const std::vector<std::string>& options,
-                            bool isAnonymous = false,
+                            bool isAnonymous = true,
                             const std::string& type = "regular",
                             bool allowsMultipleAnswers = false,
                             std::int32_t correctOptionId = -1,
@@ -781,7 +781,6 @@ namespace tgbotxx {
                               bool useIndependentChatPermissions = false,
                               std::time_t untilDate = 0) const;
 
-
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
       /// Returns True on success.
       /// @param dropPendingUpdates: Pass True to drop all pending updates.
@@ -819,7 +818,7 @@ namespace tgbotxx {
       /// @param languageCode A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
       /// @returns true on success.
       /// @link ref https://core.telegram.org/bots/api#setmycommands @endlink
-      bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope = nullptr, const std::string& languageCode = "") const;
+      bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
 
 
       /// @brief Use this method to get the current list of the bot's commands for the given scope and user language.
