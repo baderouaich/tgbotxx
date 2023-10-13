@@ -521,6 +521,8 @@ namespace tgbotxx {
       /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
       /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
       /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
       /// @ref https://core.telegram.org/bots/api#sendlocation
       Ptr<Message> sendLocation(std::int64_t chatId,
@@ -534,7 +536,164 @@ namespace tgbotxx {
                                 bool disableNotification = false,
                                 bool protectContent = false,
                                 std::int32_t replyToMessageId = 0,
-                                bool allowSendingWithoutReply = false) const;
+                                bool allowSendingWithoutReply = false,
+                                const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send information about a venue.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param latitude Latitude of the venue
+      /// @param longitude Longitude of the venue
+      /// @param title Name of the venue
+      /// @param address Address of the venue
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param foursquareId Optional. Foursquare identifier of the venue
+      /// @param foursquareType Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
+      /// @param googlePlaceId Optional. Google Places identifier of the venue
+      /// @param googlePlaceType Optional. Google Places type of the venue. (See supported types. https://developers.google.com/places/web-service/supported_types)
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @ref https://core.telegram.org/bots/api#sendvenue
+      Ptr<Message> sendVenue(std::int64_t chatId,
+                             float latitude,
+                             float longitude,
+                             const std::string& title,
+                             const std::string& address,
+                             std::int32_t messageThreadId = 0,
+                             const std::string& foursquareId = "",
+                             const std::string& foursquareType = "",
+                             const std::string& googlePlaceId = "",
+                             const std::string& googlePlaceType = "",
+                             bool disableNotification = false,
+                             bool protectContent = false,
+                             std::int32_t replyToMessageId = 0,
+                             bool allowSendingWithoutReply = false,
+                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send phone contacts.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param phoneNumber Contact's phone number
+      /// @param firstName Contact's first name
+      /// @param lastName Optional. Contact's last name
+      /// @param vcard Optional. Additional data about the contact in the form of a vCard, 0-2048 bytes https://en.wikipedia.org/wiki/VCard
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @ref https://core.telegram.org/bots/api#sendcontact
+      Ptr<Message> sendContact(std::int64_t chatId,
+                               const std::string& phoneNumber,
+                               const std::string& firstName,
+                               const std::string& lastName = "",
+                               const std::string& vcard = "",
+                               std::int32_t messageThreadId = 0,
+                               bool disableNotification = false,
+                               bool protectContent = false,
+                               std::int32_t replyToMessageId = 0,
+                               bool allowSendingWithoutReply = false,
+                               const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send a native poll.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param question Poll question, 1-300 characters
+      /// @param options A list of answer options, 2-10 strings 1-100 characters each
+      /// @param isAnonymous Optional. True, if the poll needs to be anonymous, defaults to True
+      /// @param type Optional. Poll type, “quiz” or “regular”, defaults to “regular”
+      /// @param allowsMultipleAnswers Optional. True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to False
+      /// @param correctOptionId Optional. 0-based identifier of the correct answer option, required for polls in quiz mode
+      /// @param explanation Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing
+      /// @param explanationParseMode Optional. Mode for parsing entities in the explanation. See formatting options for more details.
+      /// @param explanationEntities Optional. A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of parseMode
+      /// @param openPeriod Optional. Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with closeDate.
+      /// @param closeDate Optional. Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with openPeriod.
+      /// @param isClosed Optional. Pass True if the poll needs to be immediately closed. This can be useful for poll preview.
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @ref https://core.telegram.org/bots/api#sendpoll
+      Ptr<Message> sendPoll(std::int64_t chatId,
+                            const std::string& question,
+                            const std::vector<std::string>& options,
+                            bool isAnonymous = false,
+                            const std::string& type = "regular",
+                            bool allowsMultipleAnswers = false,
+                            std::int32_t correctOptionId = -1,
+                            const std::string& explanation = "",
+                            const std::string& explanationParseMode = "",
+                            const std::vector<Ptr<MessageEntity>>& explanationEntities = std::vector<Ptr<MessageEntity>>(),
+                            std::int32_t openPeriod = 0,
+                            std::int32_t closeDate = 0,
+                            bool isClosed = false,
+                            std::int32_t messageThreadId = 0,
+                            bool disableNotification = false,
+                            bool protectContent = false,
+                            std::int32_t replyToMessageId = 0,
+                            bool allowSendingWithoutReply = false,
+                            const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to send an animated emoji that will display a random value.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param emoji Optional. Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”.
+      /// Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
+      /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @ref https://core.telegram.org/bots/api#senddice
+      Ptr<Message> sendDice(std::int64_t chatId,
+                            const std::string& emoji = "🎲",
+                            std::int32_t messageThreadId = 0,
+                            bool disableNotification = false,
+                            bool protectContent = false,
+                            std::int32_t replyToMessageId = 0,
+                            bool allowSendingWithoutReply = false,
+                            const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method when you need to tell the user that something is happening on the bot's side.
+      /// The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status).
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param action Type of action to broadcast. Choose one, depending on what the user is about to receive:
+      /// - "typing" for text messages
+      /// - "upload_photo" for photos
+      /// - "record_video" or upload_video for videos
+      /// - "record_voice" or upload_voice for voice notes
+      /// - "upload_document" for general files
+      /// - "choose_sticker" for stickers
+      /// - "find_location" for location data
+      /// - "record_video_note"
+      /// - "upload_video_note" for video notes
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @returns True on success.
+      /// @example Example: The ImageBot needs some time to process a request and upload the image. https://t.me/imagebot
+      /// Instead of sending a text message along the lines of “Retrieving image, please wait…”,
+      /// the bot may use sendChatAction with action = upload_photo. The user will see a “sending photo” status for the bot.
+      /// @note We only recommend using this method when a response from the bot will take a noticeable amount of time to arrive.
+      /// @ref https://core.telegram.org/bots/api#sendchataction
+      bool sendChatAction(std::int64_t chatId,
+                          const std::string& action,
+                          std::int32_t messageThreadId = 0) const;
 
 
       /// @brief Use this method to get basic information about a file and prepare it for downloading.

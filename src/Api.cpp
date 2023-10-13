@@ -734,9 +734,10 @@ Ptr<Message> Api::sendLocation(std::int64_t chatId,
                                bool disableNotification,
                                bool protectContent,
                                std::int32_t replyToMessageId,
-                               bool allowSendingWithoutReply) const {
+                               bool allowSendingWithoutReply,
+                               const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
+  data.parts.reserve(13);
   data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("latitude", latitude);
   data.parts.emplace_back("longitude", longitude);
@@ -758,8 +759,206 @@ Ptr<Message> Api::sendLocation(std::int64_t chatId,
     data.parts.emplace_back("reply_to_message_id", replyToMessageId);
   if (allowSendingWithoutReply)
     data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
   nl::json sentMessageObj = sendRequest("sendLocation", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
+}
+
+Ptr<Message> Api::sendVenue(std::int64_t chatId,
+                            float latitude,
+                            float longitude,
+                            const std::string& title,
+                            const std::string& address,
+                            std::int32_t messageThreadId,
+                            const std::string& foursquareId,
+                            const std::string& foursquareType,
+                            const std::string& googlePlaceId,
+                            const std::string& googlePlaceType,
+                            bool disableNotification,
+                            bool protectContent,
+                            std::int32_t replyToMessageId,
+                            bool allowSendingWithoutReply,
+                            const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(15);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("latitude", latitude);
+  data.parts.emplace_back("longitude", longitude);
+  data.parts.emplace_back("title", title);
+  data.parts.emplace_back("address", address);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not foursquareId.empty())
+    data.parts.emplace_back("foursquare_id", foursquareId);
+  if (not foursquareType.empty())
+    data.parts.emplace_back("foursquare_type", foursquareType);
+  if (not googlePlaceId.empty())
+    data.parts.emplace_back("google_place_id", googlePlaceId);
+  if (not googlePlaceType.empty())
+    data.parts.emplace_back("google_place_type", googlePlaceType);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendVenue", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+Ptr<Message> Api::sendContact(std::int64_t chatId,
+                              const std::string& phoneNumber,
+                              const std::string& firstName,
+                              const std::string& lastName,
+                              const std::string& vcard,
+                              std::int32_t messageThreadId,
+                              bool disableNotification,
+                              bool protectContent,
+                              std::int32_t replyToMessageId,
+                              bool allowSendingWithoutReply,
+                              const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("phone_number", phoneNumber);
+  data.parts.emplace_back("first_name", firstName);
+  if (not lastName.empty())
+    data.parts.emplace_back("last_name", lastName);
+  if (not vcard.empty())
+    data.parts.emplace_back("vcard", vcard);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendContact", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+Ptr<Message> Api::sendPoll(std::int64_t chatId,
+                           const std::string& question,
+                           const std::vector<std::string>& options,
+                           bool isAnonymous,
+                           const std::string& type,
+                           bool allowsMultipleAnswers,
+                           std::int32_t correctOptionId,
+                           const std::string& explanation,
+                           const std::string& explanationParseMode,
+                           const std::vector<Ptr<MessageEntity>>& explanationEntities,
+                           std::int32_t openPeriod,
+                           std::int32_t closeDate,
+                           bool isClosed,
+                           std::int32_t messageThreadId,
+                           bool disableNotification,
+                           bool protectContent,
+                           std::int32_t replyToMessageId,
+                           bool allowSendingWithoutReply,
+                           const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(19);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("question", question);
+  data.parts.emplace_back("options", nl::json(options).dump());
+  if (isAnonymous)
+    data.parts.emplace_back("is_anonymous", isAnonymous);
+  if (not type.empty())
+    data.parts.emplace_back("type", type);
+  if (allowsMultipleAnswers)
+    data.parts.emplace_back("allows_multiple_answers", allowsMultipleAnswers);
+  if (correctOptionId >= 0)
+    data.parts.emplace_back("correct_option_id", correctOptionId);
+  if (not explanation.empty())
+    data.parts.emplace_back("explanation", explanation);
+  if (not explanationParseMode.empty())
+    data.parts.emplace_back("explanation_parse_mode", explanationParseMode);
+  if (not explanationEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: explanationEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("explanation_entities", entitiesArray.dump());
+  }
+  if (openPeriod)
+    data.parts.emplace_back("open_period", openPeriod);
+  if (closeDate)
+    data.parts.emplace_back("close_date", closeDate);
+  if (isClosed)
+    data.parts.emplace_back("is_closed", isClosed);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendPoll", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+Ptr<Message> Api::sendDice(std::int64_t chatId,
+                           const std::string& emoji,
+                           std::int32_t messageThreadId,
+                           bool disableNotification,
+                           bool protectContent,
+                           std::int32_t replyToMessageId,
+                           bool allowSendingWithoutReply,
+                           const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(8);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (not emoji.empty())
+    data.parts.emplace_back("emoji", emoji);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendDice", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+bool Api::sendChatAction(std::int64_t chatId,
+                         const std::string& action,
+                         std::int32_t messageThreadId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("action", action);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+
+  return sendRequest("sendChatAction", data);
 }
