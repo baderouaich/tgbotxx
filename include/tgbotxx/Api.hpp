@@ -1152,7 +1152,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to create a topic in a forum supergroup chat.
-      /// The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param name Topic name, 1-128 characters
@@ -1166,6 +1166,61 @@ namespace tgbotxx {
                                        const std::string& name,
                                        std::int32_t iconColor = 0x000000,
                                        const std::string& iconCustomEmojiId = "") const;
+
+
+      /// @brief Use this method to edit name and icon of a topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+      /// https://core.telegram.org/bots/api#forumtopic
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+      /// @param name Optional. New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept
+      /// @param iconCustomEmojiId Optional. New unique identifier of the custom emoji shown as the topic icon.
+      /// Use getForumTopicIconStickers to get all allowed custom emoji identifiers.
+      /// Pass an empty string to remove the icon. If not specified, the current icon will be kept
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso createForumTopic closeForumTopic reopenForumTopic deleteForumTopic
+      /// @ref https://core.telegram.org/bots/api#editforumtopic
+      bool editForumTopic(std::int64_t chatId,
+                          std::int32_t messageThreadId,
+                          const std::string& name,
+                          const std::optional<std::string>& iconCustomEmojiId = std::nullopt) const;
+
+
+      /// @brief Use this method to close an open topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+      /// https://core.telegram.org/bots/api#forumtopic
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso createForumTopic editForumTopic reopenForumTopic deleteForumTopic
+      /// @ref https://core.telegram.org/bots/api#closeforumtopic
+      bool closeForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
+
+
+      /// @brief Use this method to reopen a closed topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+      /// https://core.telegram.org/bots/api#forumtopic
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso createForumTopic editForumTopic closeForumTopic deleteForumTopic
+      /// @ref https://core.telegram.org/bots/api#reopenforumtopic
+      bool reopenForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
+
+
+      /// @brief Use this method to delete a forum topic along with all its messages in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+      /// https://core.telegram.org/bots/api#forumtopic
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso createForumTopic editForumTopic closeForumTopic reopenForumTopic
+      /// @ref https://core.telegram.org/bots/api#deleteforumtopic
+      bool deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
 
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.

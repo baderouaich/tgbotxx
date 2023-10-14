@@ -1356,3 +1356,43 @@ Ptr<ForumTopic> Api::createForumTopic(std::int64_t chatId,
   Ptr<ForumTopic> forumTopic(new ForumTopic(forumTopicObj));
   return forumTopic;
 }
+
+bool Api::editForumTopic(std::int64_t chatId,
+                         std::int32_t messageThreadId,
+                         const std::string& name,
+                         const std::optional<std::string>& iconCustomEmojiId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+  if (iconCustomEmojiId.has_value()) {
+    data.parts.emplace_back("icon_custom_emoji_id", *iconCustomEmojiId);
+  }
+  return sendRequest("editForumTopic", data);
+}
+
+bool Api::closeForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_thread_id", messageThreadId);
+  return sendRequest("closeForumTopic", data);
+}
+
+bool Api::reopenForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_thread_id", messageThreadId);
+  return sendRequest("reopenForumTopic", data);
+}
+
+bool Api::deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_thread_id", messageThreadId);
+  return sendRequest("deleteForumTopic", data);
+}
