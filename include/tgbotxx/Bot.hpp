@@ -32,6 +32,7 @@ namespace tgbotxx {
       ~Bot();
 
       /// @brief Start the long polling
+      /// @throws Exception on failure
       void start();
 
       /// @brief Stop the long polling

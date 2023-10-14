@@ -1025,3 +1025,163 @@ bool Api::restrictChatMember(std::int64_t chatId,
 
   return sendRequest("restrictChatMember", data);
 }
+
+bool Api::promoteChatMember(std::int64_t chatId,
+                            std::int64_t userId,
+                            bool isAnonymous,
+                            bool canManageChat,
+                            bool canDeleteMessages,
+                            bool canManageVideoChats,
+                            bool canRestrictMembers,
+                            bool canPromoteMembers,
+                            bool canChangeInfo,
+                            bool canInviteUsers,
+                            bool canPostMessages,
+                            bool canEditMessages,
+                            bool canPinMessages,
+                            bool canPostStories,
+                            bool canEditStories,
+                            bool canDeleteStories,
+                            bool canManageTopics) const {
+  cpr::Multipart data{};
+  data.parts.reserve(17);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (isAnonymous)
+    data.parts.emplace_back("is_anonymous", isAnonymous);
+  if (canManageChat)
+    data.parts.emplace_back("can_manage_chat", canManageChat);
+  if (canDeleteMessages)
+    data.parts.emplace_back("can_delete_messages", canDeleteMessages);
+  if (canManageVideoChats)
+    data.parts.emplace_back("can_manage_video_chats", canManageVideoChats);
+  if (canRestrictMembers)
+    data.parts.emplace_back("can_restrict_members", canRestrictMembers);
+  if (canPromoteMembers)
+    data.parts.emplace_back("can_promote_members", canPromoteMembers);
+  if (canChangeInfo)
+    data.parts.emplace_back("can_change_info", canChangeInfo);
+  if (canInviteUsers)
+    data.parts.emplace_back("can_invite_users", canInviteUsers);
+  if (canPostMessages)
+    data.parts.emplace_back("can_post_messages", canPostMessages);
+  if (canEditMessages)
+    data.parts.emplace_back("can_edit_messages", canEditMessages);
+  if (canPinMessages)
+    data.parts.emplace_back("can_pin_messages", canPinMessages);
+  if (canPostStories)
+    data.parts.emplace_back("can_post_stories", canPostStories);
+  if (canEditStories)
+    data.parts.emplace_back("can_edit_stories", canEditStories);
+  if (canDeleteStories)
+    data.parts.emplace_back("can_delete_stories", canDeleteStories);
+  if (canManageTopics)
+    data.parts.emplace_back("can_manage_topics", canManageTopics);
+  return sendRequest("promoteChatMember", data);
+}
+
+bool Api::setChatAdministratorCustomTitle(std::int64_t chatId,
+                                          std::int64_t userId,
+                                          const std::string& customTitle) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("custom_title", customTitle);
+  return sendRequest("setChatAdministratorCustomTitle", data);
+}
+
+bool Api::banChatSenderChat(std::int64_t chatId,
+                            std::int64_t senderChatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
+  return sendRequest("banChatSenderChat", data);
+}
+
+bool Api::unbanChatSenderChat(std::int64_t chatId,
+                              std::int64_t senderChatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
+  return sendRequest("unbanChatSenderChat", data);
+}
+
+bool Api::setChatPermissions(std::int64_t chatId,
+                             const Ptr<ChatPermissions>& permissions,
+                             bool useIndependentChatPermissions) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("permissions", permissions->toJson().dump());
+  if (useIndependentChatPermissions)
+    data.parts.emplace_back("use_independent_chat_permissions", useIndependentChatPermissions);
+  return sendRequest("setChatPermissions", data);
+}
+
+std::string Api::exportChatInviteLink(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  return sendRequest("exportChatInviteLink", data);
+}
+
+Ptr<ChatInviteLink> Api::createChatInviteLink(std::int64_t chatId,
+                                              const std::string& name,
+                                              std::time_t expireDate,
+                                              std::int32_t memberLimit,
+                                              bool createsJoinRequest) const {
+  cpr::Multipart data{};
+  data.parts.reserve(5);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+  if (expireDate)
+    data.parts.emplace_back("expire_date", expireDate);
+  if (memberLimit)
+    data.parts.emplace_back("member_limit", memberLimit);
+  if (createsJoinRequest)
+    data.parts.emplace_back("creates_join_request", createsJoinRequest);
+
+  nl::json chatInviteLinkObj = sendRequest("createChatInviteLink", data);
+  Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
+  return chatInviteLink;
+}
+
+Ptr<ChatInviteLink> Api::editChatInviteLink(std::int64_t chatId,
+                                            const std::string& inviteLink,
+                                            const std::string& name,
+                                            std::time_t expireDate,
+                                            std::int32_t memberLimit,
+                                            bool createsJoinRequest) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("invite_link", inviteLink);
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+  if (expireDate)
+    data.parts.emplace_back("expire_date", expireDate);
+  if (memberLimit)
+    data.parts.emplace_back("member_limit", memberLimit);
+  if (createsJoinRequest)
+    data.parts.emplace_back("creates_join_request", createsJoinRequest);
+
+  nl::json chatInviteLinkObj = sendRequest("editChatInviteLink", data);
+  Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
+  return chatInviteLink;
+}
+
+Ptr<ChatInviteLink> Api::revokeChatInviteLink(std::int64_t chatId,
+                                              const std::string& inviteLink) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("invite_link", inviteLink);
+
+  nl::json chatInviteLinkObj = sendRequest("revokeChatInviteLink", data);
+  Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
+  return chatInviteLink;
+}

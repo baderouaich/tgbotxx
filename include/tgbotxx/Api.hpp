@@ -109,12 +109,14 @@ namespace tgbotxx {
     public:
       /// @brief A simple method for testing your bot's authentication token.
       /// @returns basic information about the bot in form of a User object.
+      /// @throws Exception on failure
       Ptr<User> getMe() const;
 
       /// @brief Use this method to log out from the cloud Bot API server before launching the bot locally.
       /// You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates.
       /// After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes.
       /// @returns true on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#logout
       bool logOut() const;
 
@@ -122,6 +124,7 @@ namespace tgbotxx {
       /// You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart.
       /// The method will return error 429 in the first 10 minutes after the bot is launched.
       /// @returns true on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#close
       bool close() const;
 
@@ -139,6 +142,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns sent Message object on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendmessage
       Ptr<Message> sendMessage(std::int64_t chatId,
                                const std::string& text,
@@ -160,6 +164,7 @@ namespace tgbotxx {
       /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
       /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#forwardmessage
       Ptr<Message> forwardMessage(std::int64_t chatId,
                                   std::int64_t fromChatId,
@@ -186,6 +191,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the MessageId of the sent message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#copymessage
       Ptr<MessageId> copyMessage(std::int64_t chatId,
                                  std::int64_t fromChatId,
@@ -219,6 +225,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendphoto
       Ptr<Message> sendPhoto(std::int64_t chatId,
                              std::variant<cpr::File, std::string> photo,
@@ -258,6 +265,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#sendaudio
@@ -300,6 +308,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#senddocument
@@ -345,6 +354,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideo
       Ptr<Message> sendVideo(std::int64_t chatId,
@@ -393,6 +403,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendanimation
       Ptr<Message> sendAnimation(std::int64_t chatId,
@@ -433,6 +444,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvoice
       Ptr<Message> sendVoice(std::int64_t chatId,
@@ -471,6 +483,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @note Sending video notes by a URL is currently unsupported
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideonote
@@ -499,6 +512,7 @@ namespace tgbotxx {
       /// @param replyToMessageId Optional. If the message is a reply, ID of the original message
       /// @param allowSendingWithoutReply Optional. Pass True if the message should be sent even if the specified replied-to message is not found
       /// @returns an array of Messages that were sent.
+      /// @throws Exception on failure
       /// @note Documents and audio files can be only grouped in an album with messages of the same type.
       /// @ref https://core.telegram.org/bots/api#sendmediagroup
       std::vector<Ptr<Message>> sendMediaGroup(std::int64_t chatId,
@@ -526,6 +540,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendlocation
       Ptr<Message> sendLocation(std::int64_t chatId,
                                 float latitude,
@@ -560,6 +575,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendvenue
       Ptr<Message> sendVenue(std::int64_t chatId,
                              float latitude,
@@ -592,6 +608,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendcontact
       Ptr<Message> sendContact(std::int64_t chatId,
                                const std::string& phoneNumber,
@@ -628,6 +645,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendpoll
       Ptr<Message> sendPoll(std::int64_t chatId,
                             const std::string& question,
@@ -662,6 +680,7 @@ namespace tgbotxx {
       /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
       ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
       /// @returns the sent Message on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#senddice
       Ptr<Message> sendDice(std::int64_t chatId,
                             const std::string& emoji = "🎲",
@@ -688,6 +707,7 @@ namespace tgbotxx {
       /// - "upload_video_note" for video notes
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @returns True on success.
+      /// @throws Exception on failure
       /// @example Example: The ImageBot needs some time to process a request and upload the image. https://t.me/imagebot
       /// Instead of sending a text message along the lines of “Retrieving image, please wait…”,
       /// the bot may use sendChatAction with action = upload_photo. The user will see a “sending photo” status for the bot.
@@ -703,6 +723,7 @@ namespace tgbotxx {
       /// @param offset Optional. Sequential number of the first photo to be returned. By default, all photos are returned.
       /// @param limit Optional. Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.
       /// @returns UserProfilePhotos object.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getuserprofilephotos
       Ptr<UserProfilePhotos> getUserProfilePhotos(std::int64_t userId,
                                                   std::int32_t offset = 0,
@@ -714,6 +735,7 @@ namespace tgbotxx {
       /// The file can then be downloaded using Api::downloadFile or via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
       /// @param fileId File identifier to get information about
       /// @returns a File object is returned on success.
+      /// @throws Exception on failure
       /// @note It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile again.
       /// @note This function may not preserve the original file name and MIME type. You should save the file's MIME type and name (if available) when the File object is received.
       /// @ref https://core.telegram.org/bots/api#getfile
@@ -726,6 +748,7 @@ namespace tgbotxx {
       /// @param filePath Telegram file path from Api::getFile(fileId) -> File::filePath
       /// @param progressCallback Optional. Download progress callback. Callback shall return true to continue downloading, or false to cancel the download.
       /// @returns std::string contains downloaded file contents.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getfile
       /// @throws Exception on failure
       std::string downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)>& progressCallback = nullptr) const;
@@ -740,6 +763,7 @@ namespace tgbotxx {
       /// AApplied for supergroups and channels only.
       /// @param revokeMessages Optional. Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.
       /// @returns True on success.
+      /// @throws Exception on failure
       /// @note You can't ban members in private chats
       /// @ref https://core.telegram.org/bots/api#banchatmember
       bool banChatMember(std::int64_t chatId,
@@ -757,6 +781,7 @@ namespace tgbotxx {
       /// @param userId Unique identifier of the target user
       /// @param onlyIfBanned Optional. Do nothing if the user is not banned
       /// @returns True on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#unbanchatmember
       bool unbanChatMember(std::int64_t chatId,
                            std::int64_t userId,
@@ -774,6 +799,7 @@ namespace tgbotxx {
       /// @param untilDate Optional. Date when restrictions will be lifted for the user; Unix time.
       /// If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever
       /// @returns True on success.
+      /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#restrictchatmember
       bool restrictChatMember(std::int64_t chatId,
                               std::int64_t userId,
@@ -781,13 +807,180 @@ namespace tgbotxx {
                               bool useIndependentChatPermissions = false,
                               std::time_t untilDate = 0) const;
 
+
+      /// @brief Use this method to promote or demote a user in a supergroup or a channel.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// Pass False for all boolean parameters to demote a user.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @param isAnonymous Optional. Pass True if the administrator's presence in the chat is hidden
+      /// @param canManageChat Optional. Pass True if the administrator can access the chat event log, boost list in channels, see channel members,
+      /// report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
+      /// @param canDeleteMessages Optional. Pass True if the administrator can delete messages of other users
+      /// @param canManageVideoChats Optional. Pass True if the administrator can manage video chats
+      /// @param canRestrictMembers Optional. Pass True if the administrator can restrict, ban or unban chat members, or access supergroup statistics
+      /// @param canPromoteMembers Optional. Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)
+      /// @param canChangeInfo Optional. Pass True if the administrator can change chat title, photo and other settings
+      /// @param canInviteUsers Optional. Pass True if the administrator can invite new users to the chat
+      /// @param canPostMessages Optional. Pass True if the administrator can post messages in the channel, or access channel statistics; channels only
+      /// @param canEditMessages Optional. Pass True if the administrator can edit messages of other users and can pin messages; channels only
+      /// @param canPinMessages Optional. Pass True if the administrator can pin messages, supergroups only
+      /// @param canPostStories Optional. Pass True if the administrator can post stories in the channel; channels only
+      /// @param canEditStories Optional. Pass True if the administrator can edit stories posted by other users; channels only
+      /// @param canDeleteStories Optional. Pass True if the administrator can delete stories posted by other users; channels only
+      /// @param canManageTopics Optional. Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#promotechatmember
+      bool promoteChatMember(std::int64_t chatId,
+                             std::int64_t userId,
+                             bool isAnonymous = false,
+                             bool canManageChat = false,
+                             bool canDeleteMessages = false,
+                             bool canManageVideoChats = false,
+                             bool canRestrictMembers = false,
+                             bool canPromoteMembers = false,
+                             bool canChangeInfo = false,
+                             bool canInviteUsers = false,
+                             bool canPostMessages = false,
+                             bool canEditMessages = false,
+                             bool canPinMessages = false,
+                             bool canPostStories = false,
+                             bool canEditStories = false,
+                             bool canDeleteStories = false,
+                             bool canManageTopics = false) const;
+
+
+      /// @brief Use this method to set a custom title for an administrator in a supergroup promoted by the bot.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setchatadministratorcustomtitle
+      bool setChatAdministratorCustomTitle(std::int64_t chatId,
+                                           std::int64_t userId,
+                                           const std::string& customTitle) const;
+
+
+      /// @brief Use this method to ban a channel chat in a supergroup or a channel.
+      /// Until the chat is unbanned, the owner of the banned chat won't be able to send messages on behalf of <b>any of their channels</b>.
+      /// The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param senderChatId Unique identifier of the target sender chat
+      /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related unbanChatSenderChat
+      /// @ref https://core.telegram.org/bots/api#banchatsenderchat
+      bool banChatSenderChat(std::int64_t chatId,
+                             std::int64_t senderChatId) const;
+
+
+      /// @brief Use this method to unban a previously banned channel chat in a supergroup or channel.
+      /// The bot must be an administrator for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param senderChatId Unique identifier of the target sender chat
+      /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related banChatSenderChat
+      /// @ref https://core.telegram.org/bots/api#unbanchatsenderchat
+      bool unbanChatSenderChat(std::int64_t chatId,
+                               std::int64_t senderChatId) const;
+
+
+      /// @brief Use this method to set default chat permissions for all members.
+      /// The bot must be an administrator in the group or a supergroup for this to work and must have the canRestrictMembers administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param permissions A ChatPermissions object for new user permissions
+      /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
+      /// the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios,
+      /// canSendDocuments, canSendPhotos, canSendVideos, canSendVideoNotes, and canSendVoiceNotes permissions;
+      /// the canSendPolls permission will imply the canSendMessages permission.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setchatpermissions
+      bool setChatPermissions(std::int64_t chatId,
+                              const Ptr<ChatPermissions>& permissions,
+                              bool useIndependentChatPermissions = false) const;
+
+
+      /// @brief Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param permissions A ChatPermissions object for new user permissions
+      /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
+      /// the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios,
+      /// canSendDocuments, canSendPhotos, canSendVideos, canSendVideoNotes, and canSendVoiceNotes permissions;
+      /// the canSendPolls permission will imply the canSendMessages permission.
+      /// @returns The new invite link as std::string on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#exportchatinvitelink
+      /// @note Each administrator in a chat generates their own invite links. Bots can't use invite links generated by other administrators.
+      /// If you want your bot to work with invite links, it will need to generate its own link using exportChatInviteLink or by calling the getChat method.
+      /// If your bot needs to generate a new primary invite link replacing its previous one, use exportChatInviteLink again.
+      std::string exportChatInviteLink(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to create an additional invite link for a chat.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// The link can be revoked using the method revokeChatInviteLink.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param name Optional. Invite link name; 0-32 characters
+      /// @param expireDate Optional. Point in time (Unix timestamp) when the link will expire
+      /// @param memberLimit Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
+      /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
+      /// @returns the new invite link as ChatInviteLink object on success.
+      /// @throws Exception on failure
+      /// @related editChatInviteLink revokeChatInviteLink
+      /// @ref https://core.telegram.org/bots/api#createchatinvitelink
+      Ptr<ChatInviteLink> createChatInviteLink(std::int64_t chatId,
+                                               const std::string& name = "",
+                                               std::time_t expireDate = 0,
+                                               std::int32_t memberLimit = 0,
+                                               bool createsJoinRequest = false) const;
+
+
+      /// @brief Use this method to edit a non-primary invite link created by the bot.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param inviteLink The invite link to edit
+      /// @param name Optional. Invite link name; 0-32 characters
+      /// @param expireDate Optional. Point in time (Unix timestamp) when the link will expire
+      /// @param memberLimit Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
+      /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
+      /// @returns The edited invite link as a ChatInviteLink object on success.
+      /// @throws Exception on failure
+      /// @related createChatInviteLink revokeChatInviteLink
+      /// @ref https://core.telegram.org/bots/api#editchatinvitelink
+      Ptr<ChatInviteLink> editChatInviteLink(std::int64_t chatId,
+                                             const std::string& inviteLink,
+                                             const std::string& name = "",
+                                             std::time_t expireDate = 0,
+                                             std::int32_t memberLimit = 0,
+                                             bool createsJoinRequest = false) const;
+
+
+      /// @brief Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param inviteLink The invite link to revoke
+      /// @returns The revoked invite link as ChatInviteLink object on success.
+      /// @throws Exception on failure
+      /// @related createChatInviteLink editChatInviteLink
+      /// @ref https://core.telegram.org/bots/api#revokechatinvitelink
+      Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId,
+                                               const std::string& inviteLink) const;
+
+
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
-      /// Returns True on success.
       /// @param dropPendingUpdates: Pass True to drop all pending updates.
+      /// @returns True on success.
+      /// @throws Exception on failure
       /// @note when Bot is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT
-      /// @note In order for Api::getUpdates() to work, there should be no outgoing webhook set up.
-      /// see https://core.telegram.org/bots/api#getupdates
-      /// @link ref https://core.telegram.org/bots/api#deletewebhook @endlink
+      /// @note In order for Api::getUpdates() to work, there should be no outgoing webhook set up. See https://core.telegram.org/bots/api#getupdates
+      /// @ref https://core.telegram.org/bots/api#deletewebhook
       bool deleteWebhook(bool dropPendingUpdates = false) const;
 
       /// @brief Use this method to receive incoming updates using long polling.
@@ -804,19 +997,20 @@ namespace tgbotxx {
       /// See Update for a complete list of available update types. Specify an empty list to receive all update types
       /// except chat_member (default). If not specified, the previous setting will be used.
       /// @returns an Array of Update objects.
+      /// @throws Exception on failure
       /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
       /// @note This method will not work if an outgoing webhook is set up.
       /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
       /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
       std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, std::int32_t timeout = LONG_POLL_TIMEOUT, const std::vector<std::string>& allowedUpdates = {}) const;
 
-    public: /// @defgroup Commands
       /// @brief Use this method to change the list of the bot's commands.
       /// See this manual for more details about bot commands.
       /// @param commands A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.
       /// @param scope A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
       /// @param languageCode A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
       /// @returns true on success.
+      /// @throws Exception on failure
       /// @link ref https://core.telegram.org/bots/api#setmycommands @endlink
       bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
 
@@ -825,6 +1019,7 @@ namespace tgbotxx {
       /// @param scope A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
       /// @param languageCode A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
       /// @returns an Array of BotCommand objects. If commands aren't set, an empty list is returned.
+      /// @throws Exception on failure
       /// @link ref https://core.telegram.org/bots/api#getmycommands @endlink
       std::vector<Ptr<BotCommand>> getMyCommands(const Ptr<BotCommandScope>& scope = nullptr, const std::string& languageCode = "") const;
 
