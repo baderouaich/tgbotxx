@@ -970,8 +970,109 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @related createChatInviteLink editChatInviteLink
       /// @ref https://core.telegram.org/bots/api#revokechatinvitelink
-      Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId,
-                                               const std::string& inviteLink) const;
+      Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId, const std::string& inviteLink) const;
+
+
+      /// @brief Use this method to approve a chat join request.
+      /// The bot must be an administrator in the chat for this to work and must have the canInviteUsers administrator right.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related declineChatJoinRequest
+      /// @ref https://core.telegram.org/bots/api#approvechatjoinrequest
+      bool approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
+
+
+      /// @brief Use this method to decline a chat join request.
+      /// The bot must be an administrator in the chat for this to work and must have the canInviteUsers administrator right.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related approveChatJoinRequest
+      /// @ref https://core.telegram.org/bots/api#declinechatjoinrequest
+      bool declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
+
+
+      /// @brief Use this method to set a new profile photo for the chat. Photos can't be changed for private chats.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param photo New chat photo, uploaded using multipart/form-data
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related deleteChatPhoto
+      /// @ref https://core.telegram.org/bots/api#setchatphoto
+      bool setChatPhoto(std::int64_t chatId, const cpr::File& photo) const;
+
+
+      /// @brief Use this method to delete a chat photo. Photos can't be changed for private chats.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related setChatPhoto
+      /// @ref https://core.telegram.org/bots/api#deletechatphoto
+      bool deleteChatPhoto(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to change the title of a chat. Titles can't be changed for private chats.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param title New chat title, 1-128 characters
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setchattitle
+      bool setChatTitle(std::int64_t chatId, const std::string& title) const;
+
+
+      /// @brief Use this method to change the description of a group, a supergroup or a channel.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param description Optional. New chat description, 0-255 characters
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setchatdescription
+      bool setChatDescription(std::int64_t chatId, const std::string& description = "") const;
+
+
+      /// @brief Use this method to add a message to the list of pinned messages in a chat.
+      /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
+      /// in a supergroup or 'canEditMessages' administrator right in a channel.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageId Identifier of a message to pin
+      /// @param disableNotification Optional. Pass True if it is not necessary to send a notification to all chat members about the new pinned message.
+      /// Notifications are always disabled in channels and private chats.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related unpinChatMessage unpinAllChatMessages
+      /// @ref https://core.telegram.org/bots/api#pinchatmessage
+      bool pinChatMessage(std::int64_t chatId,
+                          std::int32_t messageId,
+                          bool disableNotification = false) const;
+
+
+      /// @brief Use this method to remove a message from the list of pinned messages in a chat.
+      /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
+      /// in a supergroup or 'canEditMessages' administrator right in a channel.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageId Optional. Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related pinChatMessage unpinAllChatMessages
+      /// @ref https://core.telegram.org/bots/api#unpinchatmessage
+      bool unpinChatMessage(std::int64_t chatId, std::int32_t messageId = 0) const;
+
+
+      /// @brief Use this method to clear the list of pinned messages in a chat.
+      /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
+      /// in a supergroup or 'canEditMessages' administrator right in a channel.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @related pinChatMessage unpinChatMessage
+      /// @ref https://core.telegram.org/bots/api#unpinallchatmessages
+      bool unpinAllChatMessages(std::int64_t chatId) const;
 
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
