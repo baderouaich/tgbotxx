@@ -27,6 +27,7 @@
 #include <tgbotxx/objects/EncryptedCredentials.hpp>
 #include <tgbotxx/objects/EncryptedPassportElement.hpp>
 #include <tgbotxx/objects/File.hpp>
+#include <tgbotxx/objects/ForumTopic.hpp>
 #include <tgbotxx/objects/ForumTopicClosed.hpp>
 #include <tgbotxx/objects/ForumTopicCreated.hpp>
 #include <tgbotxx/objects/ForumTopicEdited.hpp>

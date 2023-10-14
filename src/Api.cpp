@@ -239,7 +239,7 @@ Ptr<Message> Api::sendPhoto(std::int64_t chatId, std::variant<cpr::File, std::st
                             std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (photo.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(photo);
     data.parts.emplace_back("photo", cpr::Files{file});
@@ -292,7 +292,7 @@ Ptr<Message> Api::sendAudio(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(15);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (audio.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(audio);
     data.parts.emplace_back("audio", cpr::Files{file});
@@ -356,7 +356,7 @@ Ptr<Message> Api::sendDocument(std::int64_t chatId,
                                const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (document.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(document);
     data.parts.emplace_back("document", cpr::Files{file});
@@ -456,7 +456,7 @@ Ptr<Message> Api::sendVideo(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(17);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (video.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(video);
     data.parts.emplace_back("video", cpr::Files{file});
@@ -529,7 +529,7 @@ Ptr<Message> Api::sendAnimation(std::int64_t chatId,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(16);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (animation.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(animation);
     data.parts.emplace_back("animation", cpr::Files{file});
@@ -596,7 +596,7 @@ Ptr<Message> Api::sendVoice(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (voice.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(voice);
     data.parts.emplace_back("voice", cpr::Files{file});
@@ -647,7 +647,7 @@ Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (videoNote.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(videoNote);
     data.parts.emplace_back("video_note", cpr::Files{file});
@@ -695,7 +695,7 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
                                               bool allowSendingWithoutReply) const {
   cpr::Multipart data{};
   data.parts.reserve(7);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (media.size() > 10 or media.size() < 2)
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
   nl::json mediaJson = nl::json::array();
@@ -738,7 +738,7 @@ Ptr<Message> Api::sendLocation(std::int64_t chatId,
                                const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(13);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("latitude", latitude);
   data.parts.emplace_back("longitude", longitude);
   if (messageThreadId)
@@ -784,7 +784,7 @@ Ptr<Message> Api::sendVenue(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(15);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("latitude", latitude);
   data.parts.emplace_back("longitude", longitude);
   data.parts.emplace_back("title", title);
@@ -828,7 +828,7 @@ Ptr<Message> Api::sendContact(std::int64_t chatId,
                               const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("phone_number", phoneNumber);
   data.parts.emplace_back("first_name", firstName);
   if (not lastName.empty())
@@ -874,7 +874,7 @@ Ptr<Message> Api::sendPoll(std::int64_t chatId,
                            const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(19);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("question", question);
   data.parts.emplace_back("options", nl::json(options).dump());
   if (not isAnonymous)
@@ -929,7 +929,7 @@ Ptr<Message> Api::sendDice(std::int64_t chatId,
                            const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(8);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (not emoji.empty())
     data.parts.emplace_back("emoji", emoji);
   if (messageThreadId)
@@ -955,7 +955,7 @@ bool Api::sendChatAction(std::int64_t chatId,
                          std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("action", action);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -985,7 +985,7 @@ bool Api::banChatMember(std::int64_t chatId,
                         bool revokeMessages) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (untilDate)
     data.parts.emplace_back("until_date", untilDate);
@@ -1000,7 +1000,7 @@ bool Api::unbanChatMember(std::int64_t chatId,
                           bool onlyIfBanned) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (onlyIfBanned)
     data.parts.emplace_back("only_if_banned", onlyIfBanned);
@@ -1015,7 +1015,7 @@ bool Api::restrictChatMember(std::int64_t chatId,
                              std::time_t untilDate) const {
   cpr::Multipart data{};
   data.parts.reserve(5);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("permissions", permissions->toJson().dump());
   if (useIndependentChatPermissions)
@@ -1045,7 +1045,7 @@ bool Api::promoteChatMember(std::int64_t chatId,
                             bool canManageTopics) const {
   cpr::Multipart data{};
   data.parts.reserve(17);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (isAnonymous)
     data.parts.emplace_back("is_anonymous", isAnonymous);
@@ -1085,7 +1085,7 @@ bool Api::setChatAdministratorCustomTitle(std::int64_t chatId,
                                           const std::string& customTitle) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("custom_title", customTitle);
   return sendRequest("setChatAdministratorCustomTitle", data);
@@ -1095,7 +1095,7 @@ bool Api::banChatSenderChat(std::int64_t chatId,
                             std::int64_t senderChatId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
   return sendRequest("banChatSenderChat", data);
 }
@@ -1104,7 +1104,7 @@ bool Api::unbanChatSenderChat(std::int64_t chatId,
                               std::int64_t senderChatId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
   return sendRequest("unbanChatSenderChat", data);
 }
@@ -1114,7 +1114,7 @@ bool Api::setChatPermissions(std::int64_t chatId,
                              bool useIndependentChatPermissions) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("permissions", permissions->toJson().dump());
   if (useIndependentChatPermissions)
     data.parts.emplace_back("use_independent_chat_permissions", useIndependentChatPermissions);
@@ -1124,7 +1124,7 @@ bool Api::setChatPermissions(std::int64_t chatId,
 std::string Api::exportChatInviteLink(std::int64_t chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   return sendRequest("exportChatInviteLink", data);
 }
 
@@ -1135,7 +1135,7 @@ Ptr<ChatInviteLink> Api::createChatInviteLink(std::int64_t chatId,
                                               bool createsJoinRequest) const {
   cpr::Multipart data{};
   data.parts.reserve(5);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (not name.empty())
     data.parts.emplace_back("name", name);
   if (expireDate)
@@ -1158,7 +1158,7 @@ Ptr<ChatInviteLink> Api::editChatInviteLink(std::int64_t chatId,
                                             bool createsJoinRequest) const {
   cpr::Multipart data{};
   data.parts.reserve(6);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("invite_link", inviteLink);
   if (not name.empty())
     data.parts.emplace_back("name", name);
@@ -1178,7 +1178,7 @@ Ptr<ChatInviteLink> Api::revokeChatInviteLink(std::int64_t chatId,
                                               const std::string& inviteLink) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("invite_link", inviteLink);
 
   nl::json chatInviteLinkObj = sendRequest("revokeChatInviteLink", data);
@@ -1189,7 +1189,7 @@ Ptr<ChatInviteLink> Api::revokeChatInviteLink(std::int64_t chatId,
 bool Api::approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   return sendRequest("approveChatJoinRequest", data);
 }
@@ -1197,7 +1197,7 @@ bool Api::approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const
 bool Api::declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   return sendRequest("declineChatJoinRequest", data);
 }
@@ -1205,7 +1205,7 @@ bool Api::declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const
 bool Api::setChatPhoto(std::int64_t chatId, const cpr::File& photo) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("photo", cpr::Files{photo});
   return sendRequest("setChatPhoto", data);
 }
@@ -1213,14 +1213,14 @@ bool Api::setChatPhoto(std::int64_t chatId, const cpr::File& photo) const {
 bool Api::deleteChatPhoto(std::int64_t chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   return sendRequest("deleteChatPhoto", data);
 }
 
 bool Api::setChatTitle(std::int64_t chatId, const std::string& title) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("title", title);
   return sendRequest("setChatTitle", data);
 }
@@ -1228,7 +1228,7 @@ bool Api::setChatTitle(std::int64_t chatId, const std::string& title) const {
 bool Api::setChatDescription(std::int64_t chatId, const std::string& description) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (not description.empty())
     data.parts.emplace_back("description", description);
   return sendRequest("setChatDescription", data);
@@ -1239,7 +1239,7 @@ bool Api::pinChatMessage(std::int64_t chatId,
                          bool disableNotification) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   data.parts.emplace_back("message_id", messageId);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
@@ -1249,7 +1249,7 @@ bool Api::pinChatMessage(std::int64_t chatId,
 bool Api::unpinChatMessage(std::int64_t chatId, std::int32_t messageId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   if (messageId)
     data.parts.emplace_back("message_id", messageId);
   return sendRequest("unpinChatMessage", data);
@@ -1258,6 +1258,101 @@ bool Api::unpinChatMessage(std::int64_t chatId, std::int32_t messageId) const {
 bool Api::unpinAllChatMessages(std::int64_t chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
   return sendRequest("unpinAllChatMessages", data);
+}
+
+
+bool Api::leaveChat(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("leaveChat", data);
+}
+
+Ptr<Chat> Api::getChat(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+
+  nl::json chatObj = sendRequest("getChat", data);
+  Ptr<Chat> chat(new Chat(chatObj));
+  return chat;
+}
+
+std::vector<Ptr<ChatMember>> Api::getChatAdministrators(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+
+  nl::json chatMembersArray = sendRequest("getChatAdministrators", data);
+  std::vector<Ptr<ChatMember>> chatMembers;
+  chatMembers.reserve(chatMembersArray.size());
+  for (const nl::json& chatMemberObj: chatMembersArray) {
+    Ptr<ChatMember> chatMember(new ChatMember(chatMemberObj));
+    chatMembers.push_back(std::move(chatMember));
+  }
+  return chatMembers;
+}
+
+std::int32_t Api::getChatMemberCount(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("getChatMemberCount", data);
+}
+
+Ptr<ChatMember> Api::getChatMember(std::int64_t chatId, std::int64_t userId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("user_id", std::to_string(userId));
+
+  nl::json chatMemberObj = sendRequest("getChatMember", data);
+  Ptr<ChatMember> chatMember(new ChatMember(chatMemberObj));
+  return chatMember;
+}
+
+bool Api::setChatStickerSet(std::int64_t chatId, const std::string& stickerSetName) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("sticker_set_name", stickerSetName);
+  return sendRequest("setChatStickerSet", data);
+}
+
+bool Api::deleteChatStickerSet(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("deleteChatStickerSet", data);
+}
+
+std::vector<Ptr<Sticker>> Api::getForumTopicIconStickers() const {
+  nl::json stickersArray = sendRequest("getForumTopicIconStickers");
+  std::vector<Ptr<Sticker>> stickers;
+  stickers.reserve(stickersArray.size());
+  for (const nl::json& stickerObj: stickersArray) {
+    Ptr<Sticker> sticker(new Sticker(stickerObj));
+    stickers.push_back(std::move(sticker));
+  }
+  return stickers;
+}
+
+Ptr<ForumTopic> Api::createForumTopic(std::int64_t chatId,
+                                      const std::string& name,
+                                      std::int32_t iconColor,
+                                      const std::string& iconCustomEmojiId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("name", name);
+  if (iconColor)
+    data.parts.emplace_back("icon_color", iconColor);
+  if (not iconCustomEmojiId.empty())
+    data.parts.emplace_back("icon_custom_emoji_id", iconCustomEmojiId);
+
+  nl::json forumTopicObj = sendRequest("createForumTopic", data);
+  Ptr<ForumTopic> forumTopic(new ForumTopic(forumTopicObj));
+  return forumTopic;
 }

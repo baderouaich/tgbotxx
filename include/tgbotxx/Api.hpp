@@ -29,6 +29,7 @@
 #include <tgbotxx/objects/EncryptedPassportElement.hpp>
 #include <tgbotxx/objects/File.hpp>
 #include <tgbotxx/objects/ForceReply.hpp>
+#include <tgbotxx/objects/ForumTopic.hpp>
 #include <tgbotxx/objects/ForumTopicClosed.hpp>
 #include <tgbotxx/objects/ForumTopicCreated.hpp>
 #include <tgbotxx/objects/ForumTopicEdited.hpp>
@@ -871,7 +872,7 @@ namespace tgbotxx {
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related unbanChatSenderChat
+      /// @relatedalso unbanChatSenderChat
       /// @ref https://core.telegram.org/bots/api#banchatsenderchat
       bool banChatSenderChat(std::int64_t chatId,
                              std::int64_t senderChatId) const;
@@ -884,7 +885,7 @@ namespace tgbotxx {
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related banChatSenderChat
+      /// @relatedalso banChatSenderChat
       /// @ref https://core.telegram.org/bots/api#unbanchatsenderchat
       bool unbanChatSenderChat(std::int64_t chatId,
                                std::int64_t senderChatId) const;
@@ -933,7 +934,7 @@ namespace tgbotxx {
       /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
       /// @returns the new invite link as ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @related editChatInviteLink revokeChatInviteLink
+      /// @relatedalso editChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#createchatinvitelink
       Ptr<ChatInviteLink> createChatInviteLink(std::int64_t chatId,
                                                const std::string& name = "",
@@ -952,7 +953,7 @@ namespace tgbotxx {
       /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
       /// @returns The edited invite link as a ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @related createChatInviteLink revokeChatInviteLink
+      /// @relatedalso createChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#editchatinvitelink
       Ptr<ChatInviteLink> editChatInviteLink(std::int64_t chatId,
                                              const std::string& inviteLink,
@@ -968,7 +969,7 @@ namespace tgbotxx {
       /// @param inviteLink The invite link to revoke
       /// @returns The revoked invite link as ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @related createChatInviteLink editChatInviteLink
+      /// @relatedalso createChatInviteLink editChatInviteLink
       /// @ref https://core.telegram.org/bots/api#revokechatinvitelink
       Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId, const std::string& inviteLink) const;
 
@@ -979,7 +980,7 @@ namespace tgbotxx {
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related declineChatJoinRequest
+      /// @relatedalso declineChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#approvechatjoinrequest
       bool approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
 
@@ -990,7 +991,7 @@ namespace tgbotxx {
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related approveChatJoinRequest
+      /// @relatedalso approveChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#declinechatjoinrequest
       bool declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
 
@@ -1001,7 +1002,7 @@ namespace tgbotxx {
       /// @param photo New chat photo, uploaded using multipart/form-data
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related deleteChatPhoto
+      /// @relatedalso deleteChatPhoto
       /// @ref https://core.telegram.org/bots/api#setchatphoto
       bool setChatPhoto(std::int64_t chatId, const cpr::File& photo) const;
 
@@ -1011,7 +1012,7 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related setChatPhoto
+      /// @relatedalso setChatPhoto
       /// @ref https://core.telegram.org/bots/api#deletechatphoto
       bool deleteChatPhoto(std::int64_t chatId) const;
 
@@ -1045,7 +1046,7 @@ namespace tgbotxx {
       /// Notifications are always disabled in channels and private chats.
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related unpinChatMessage unpinAllChatMessages
+      /// @relatedalso unpinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#pinchatmessage
       bool pinChatMessage(std::int64_t chatId,
                           std::int32_t messageId,
@@ -1059,7 +1060,7 @@ namespace tgbotxx {
       /// @param messageId Optional. Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related pinChatMessage unpinAllChatMessages
+      /// @relatedalso pinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#unpinchatmessage
       bool unpinChatMessage(std::int64_t chatId, std::int32_t messageId = 0) const;
 
@@ -1070,9 +1071,101 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @related pinChatMessage unpinChatMessage
+      /// @relatedalso pinChatMessage unpinChatMessage
       /// @ref https://core.telegram.org/bots/api#unpinallchatmessages
       bool unpinAllChatMessages(std::int64_t chatId) const;
+
+
+      /// @brief Use this method for your bot to leave a group, supergroup or channel.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#leavechat
+      bool leaveChat(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.).
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns a Chat object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getchat
+      Ptr<Chat> getChat(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to get a list of administrators in a chat, which aren't bots.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns an Array of ChatMember objects.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getchatadministrators
+      std::vector<Ptr<ChatMember>> getChatAdministrators(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to get the number of members in a chat.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns std::int32_t on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getchatmembercount
+      std::int32_t getChatMemberCount(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to get information about a member of a chat.
+      /// The method is only guaranteed to work for other users if the bot is an administrator in the chat.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param userId Unique identifier of the target user
+      /// @returns a ChatMember object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getchatmember
+      Ptr<ChatMember> getChatMember(std::int64_t chatId, std::int64_t userId) const;
+
+
+      /// @brief Use this method to set a new group sticker set for a supergroup.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param stickerSetName Name of the sticker set to be set as the group sticker set
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso deleteChatStickerSet getForumTopicIconStickers Sticker::setName
+      /// @ref https://core.telegram.org/bots/api#setchatstickerset
+      bool setChatStickerSet(std::int64_t chatId, const std::string& stickerSetName) const;
+
+
+      /// @brief Use this method to delete a group sticker set from a supergroup.
+      /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
+      /// Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @relatedalso setChatStickerSet getForumTopicIconStickers Sticker::setName
+      /// @ref https://core.telegram.org/bots/api#deletechatstickerset
+      bool deleteChatStickerSet(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user.
+      /// Requires no parameters.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns an Array of Sticker objects.
+      /// @throws Exception on failure
+      /// @relatedalso setChatStickerSet deleteChatStickerSet
+      /// @ref https://core.telegram.org/bots/api#getforumtopiciconstickers
+      std::vector<Ptr<Sticker>> getForumTopicIconStickers() const;
+
+
+      /// @brief Use this method to create a topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights.
+      /// https://core.telegram.org/bots/api#forumtopic
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param name Topic name, 1-128 characters
+      /// @param iconColor Optional. Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)
+      /// @param iconCustomEmojiId Optional. Unique identifier of the custom emoji shown as the topic icon. Use getForumTopicIconStickers to get all allowed custom emoji identifiers. https://core.telegram.org/bots/api#getforumtopiciconstickers
+      /// @returns information about the created topic as a ForumTopic object.
+      /// @throws Exception on failure
+      /// @relatedalso editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
+      /// @ref https://core.telegram.org/bots/api#createforumtopic
+      Ptr<ForumTopic> createForumTopic(std::int64_t chatId,
+                                       const std::string& name,
+                                       std::int32_t iconColor = 0x000000,
+                                       const std::string& iconCustomEmojiId = "") const;
 
 
       /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
