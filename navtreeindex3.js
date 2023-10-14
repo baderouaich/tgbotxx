@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_encrypted_credentials.html#aefb55e84581db50a6029e83aaf544793":[1,0,0,36,5],
+"structtgbotxx_1_1_encrypted_passport_element.html":[1,0,0,37],
+"structtgbotxx_1_1_encrypted_passport_element.html#a014d6928eb48a8349294d05c50a32e79":[1,0,0,37,13],
+"structtgbotxx_1_1_encrypted_passport_element.html#a0541a490ca26f14e358b555aba378f6e":[1,0,0,37,12],
 "structtgbotxx_1_1_encrypted_passport_element.html#a12e3ed0ea6de8a64cae282f3c7924d3b":[1,0,0,37,1],
 "structtgbotxx_1_1_encrypted_passport_element.html#a2bec87b3876eeba173b3e71c8a73541e":[1,0,0,37,10],
 "structtgbotxx_1_1_encrypted_passport_element.html#a34b30a63f638dc7fe6938fd8936e9545":[1,0,0,37,11],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe":[1,0,0,65,0],
 "structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,65,5],
 "structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,65,2],
-"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,65,1],
-"structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3":[1,0,0,65,3],
-"structtgbotxx_1_1_mask_position.html#ac00c21d7ce9443e71a8d257121171a7b":[1,0,0,65,6],
-"structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00":[1,0,0,65,4],
-"structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3":[1,0,0,65,7]
+"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,65,1]
 };

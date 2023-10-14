@@ -275,8 +275,20 @@ Related Functions</h2></td></tr>
 <tr class="memdesc:ae27362c73afe17da3a8c261d73bbb96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters.  <a href="classtgbotxx_1_1_api.html#ae27362c73afe17da3a8c261d73bbb96f">More...</a><br /></td></tr>
 <tr class="separator:ae27362c73afe17da3a8c261d73bbb96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70d9a57a7051a87eb6e5f1524753c829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_forum_topic.html">ForumTopic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a70d9a57a7051a87eb6e5f1524753c829">createForumTopic</a> (std::int64_t chatId, const std::string &amp;name, std::int32_t iconColor=0x000000, const std::string &amp;iconCustomEmojiId=&quot;&quot;) const</td></tr>
-<tr class="memdesc:a70d9a57a7051a87eb6e5f1524753c829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#a70d9a57a7051a87eb6e5f1524753c829">More...</a><br /></td></tr>
+<tr class="memdesc:a70d9a57a7051a87eb6e5f1524753c829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#a70d9a57a7051a87eb6e5f1524753c829">More...</a><br /></td></tr>
 <tr class="separator:a70d9a57a7051a87eb6e5f1524753c829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc359e10605a559daab63527aa8ebfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#addc359e10605a559daab63527aa8ebfc">editForumTopic</a> (std::int64_t chatId, std::int32_t messageThreadId, const std::string &amp;name, const std::optional&lt; std::string &gt; &amp;iconCustomEmojiId=std::nullopt) const</td></tr>
+<tr class="memdesc:addc359e10605a559daab63527aa8ebfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#addc359e10605a559daab63527aa8ebfc">More...</a><br /></td></tr>
+<tr class="separator:addc359e10605a559daab63527aa8ebfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7c2bac3795566b0eb3a2a8bda8c1b65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ae7c2bac3795566b0eb3a2a8bda8c1b65">closeForumTopic</a> (std::int64_t chatId, std::int32_t messageThreadId) const</td></tr>
+<tr class="memdesc:ae7c2bac3795566b0eb3a2a8bda8c1b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#ae7c2bac3795566b0eb3a2a8bda8c1b65">More...</a><br /></td></tr>
+<tr class="separator:ae7c2bac3795566b0eb3a2a8bda8c1b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4886e108ffa2f51abb7a8f5f1415952"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af4886e108ffa2f51abb7a8f5f1415952">reopenForumTopic</a> (std::int64_t chatId, std::int32_t messageThreadId) const</td></tr>
+<tr class="memdesc:af4886e108ffa2f51abb7a8f5f1415952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#af4886e108ffa2f51abb7a8f5f1415952">More...</a><br /></td></tr>
+<tr class="separator:af4886e108ffa2f51abb7a8f5f1415952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8e62676ff1c93729c284d4d0c48930"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3b8e62676ff1c93729c284d4d0c48930">deleteForumTopic</a> (std::int64_t chatId, std::int32_t messageThreadId) const</td></tr>
+<tr class="memdesc:a3b8e62676ff1c93729c284d4d0c48930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to delete a forum topic along with all its messages in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#a3b8e62676ff1c93729c284d4d0c48930">More...</a><br /></td></tr>
+<tr class="separator:a3b8e62676ff1c93729c284d4d0c48930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> Methods <a href="https://core.telegram.org/bots/api#available-methods">https://core.telegram.org/bots/api#available-methods</a>. </p>
@@ -3451,6 +3463,58 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="ae7c2bac3795566b0eb3a2a8bda8c1b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7c2bac3795566b0eb3a2a8bda8c1b65">&#9670;&nbsp;</a></span>closeForumTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool closeForumTopic </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Unique identifier for the target message thread of the forum topic </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure editForumTopic reopenForumTopic deleteForumTopic <a href="https://core.telegram.org/bots/api#closeforumtopic">https://core.telegram.org/bots/api#closeforumtopic</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7c5be13e32f78e403ce653f28db752d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c5be13e32f78e403ce653f28db752d8">&#9670;&nbsp;</a></span>createChatInviteLink()</h2>
 
@@ -3570,7 +3634,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 </table>
 </div><div class="memdoc">
 
-<p>Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<p>Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
@@ -3726,6 +3790,58 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a3b8e62676ff1c93729c284d4d0c48930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b8e62676ff1c93729c284d4d0c48930">&#9670;&nbsp;</a></span>deleteForumTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deleteForumTopic </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to delete a forum topic along with all its messages in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Unique identifier for the target message thread of the forum topic </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure editForumTopic closeForumTopic reopenForumTopic <a href="https://core.telegram.org/bots/api#deleteforumtopic">https://core.telegram.org/bots/api#deleteforumtopic</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a19f87c2d21e091880f06222477862cbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19f87c2d21e091880f06222477862cbe">&#9670;&nbsp;</a></span>editChatInviteLink()</h2>
 
@@ -3800,6 +3916,72 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure revokeChatInviteLink <a href="https://core.telegram.org/bots/api#editchatinvitelink">https://core.telegram.org/bots/api#editchatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="addc359e10605a559daab63527aa8ebfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc359e10605a559daab63527aa8ebfc">&#9670;&nbsp;</a></span>editForumTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool editForumTopic </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iconCustomEmojiId</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Unique identifier for the target message thread of the forum topic </td></tr>
+    <tr><td class="paramname">name</td><td>Optional. New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept </td></tr>
+    <tr><td class="paramname">iconCustomEmojiId</td><td>Optional. New unique identifier of the custom emoji shown as the topic icon. Use getForumTopicIconStickers to get all allowed custom emoji identifiers. Pass an empty string to remove the icon. If not specified, the current icon will be kept </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure closeForumTopic reopenForumTopic deleteForumTopic <a href="https://core.telegram.org/bots/api#editforumtopic">https://core.telegram.org/bots/api#editforumtopic</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -3899,6 +4081,58 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure unpinAllChatMessages <a href="https://core.telegram.org/bots/api#pinchatmessage">https://core.telegram.org/bots/api#pinchatmessage</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4886e108ffa2f51abb7a8f5f1415952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4886e108ffa2f51abb7a8f5f1415952">&#9670;&nbsp;</a></span>reopenForumTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool reopenForumTopic </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Unique identifier for the target message thread of the forum topic </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure editForumTopic closeForumTopic deleteForumTopic <a href="https://core.telegram.org/bots/api#reopenforumtopic">https://core.telegram.org/bots/api#reopenforumtopic</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -4218,7 +4452,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Oct 14 2023 12:47:38 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 14 2023 13:20:40 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

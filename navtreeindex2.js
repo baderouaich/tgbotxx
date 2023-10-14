@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat.html#a18fe024a672731db78e84f8744cd326e":[1,0,0,16,6],
+"structtgbotxx_1_1_chat.html#a29b59f8c62533c7623f769122401897e":[1,0,0,16,29],
+"structtgbotxx_1_1_chat.html#a2e9619145c8744a3ce2de464973720a8":[1,0,0,16,10],
+"structtgbotxx_1_1_chat.html#a2f8fce17e58e772b8bcf7e0e9a800c88":[1,0,0,16,17],
 "structtgbotxx_1_1_chat.html#a3fe55ec157658bcb4437fe24dc474e36":[1,0,0,16,35],
 "structtgbotxx_1_1_chat.html#a483580d26b0fd85ebaf3bcdd615e6aa6":[1,0,0,16,7],
 "structtgbotxx_1_1_chat.html#a48d1fce46fe4fdfde117536ad827b022":[1,0,0,16,21],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_encrypted_credentials.html#a77eaabf89c2ccd96fb04f150103f8792":[1,0,0,36,4],
 "structtgbotxx_1_1_encrypted_credentials.html#aadc1e077f53731d480309336eb8d9093":[1,0,0,36,1],
 "structtgbotxx_1_1_encrypted_credentials.html#ab6dd7a7cd1c0b5b4e00448d713e2f608":[1,0,0,36,2],
-"structtgbotxx_1_1_encrypted_credentials.html#ae6e378f61e154e0a773547ad44a9db55":[1,0,0,36,6],
-"structtgbotxx_1_1_encrypted_credentials.html#aefb55e84581db50a6029e83aaf544793":[1,0,0,36,5],
-"structtgbotxx_1_1_encrypted_passport_element.html":[1,0,0,37],
-"structtgbotxx_1_1_encrypted_passport_element.html#a014d6928eb48a8349294d05c50a32e79":[1,0,0,37,13],
-"structtgbotxx_1_1_encrypted_passport_element.html#a0541a490ca26f14e358b555aba378f6e":[1,0,0,37,12]
+"structtgbotxx_1_1_encrypted_credentials.html#ae6e378f61e154e0a773547ad44a9db55":[1,0,0,36,6]
 };
