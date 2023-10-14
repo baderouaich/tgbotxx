@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['update_738',['Update',['../structtgbotxx_1_1_update.html',1,'tgbotxx']]],
-  ['user_739',['User',['../structtgbotxx_1_1_user.html',1,'tgbotxx']]],
-  ['userprofilephotos_740',['UserProfilePhotos',['../structtgbotxx_1_1_user_profile_photos.html',1,'tgbotxx']]],
-  ['usershared_741',['UserShared',['../structtgbotxx_1_1_user_shared.html',1,'tgbotxx']]]
+  ['update_739',['Update',['../structtgbotxx_1_1_update.html',1,'tgbotxx']]],
+  ['user_740',['User',['../structtgbotxx_1_1_user.html',1,'tgbotxx']]],
+  ['userprofilephotos_741',['UserProfilePhotos',['../structtgbotxx_1_1_user_profile_photos.html',1,'tgbotxx']]],
+  ['usershared_742',['UserShared',['../structtgbotxx_1_1_user_shared.html',1,'tgbotxx']]]
 ];
