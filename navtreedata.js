@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "tgbotxx", "index.html", [
-    [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -55,11 +54,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a-example.html",
-"classtgbotxx_1_1_bot.html#aa401af85581921f1ed4512f6b8c2b3ee",
-"structtgbotxx_1_1_chat.html#ad9e097cac98b6d4165c645f0d6e1ec2b",
-"structtgbotxx_1_1_force_reply.html#ac9b25eb4973c0c1a0841419fa6244511",
-"structtgbotxx_1_1_message.html#a71f9076f2de2b2b463212efdc35ff261",
-"structtgbotxx_1_1_successful_payment.html#a9ca6f1e263635d673a315f843e7e9468"
+"classtgbotxx_1_1_bot.html#a2df030ddecb6cf01d9b4766af97c27d5",
+"structtgbotxx_1_1_chat.html#abba2e955e6df4e0c60e9dd44961a5efa",
+"structtgbotxx_1_1_file.html#ad7bb9d2657d971eb8bfeb01f18f352c1",
+"structtgbotxx_1_1_message.html#a53a8e3825d5c8ea57eb2904b199c8280",
+"structtgbotxx_1_1_successful_payment.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

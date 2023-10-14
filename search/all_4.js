@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['editchatinvitelink_169',['editChatInviteLink',['../classtgbotxx_1_1_api.html#a19f87c2d21e091880f06222477862cbe',1,'tgbotxx::Api']]],
   ['editdate_170',['editDate',['../structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611',1,'tgbotxx::Message']]],
   ['editedchannelpost_171',['editedChannelPost',['../structtgbotxx_1_1_update.html#a2ff9dfa44ae0089ac0c8582c191d0d64',1,'tgbotxx::Update']]],
   ['editedmessage_172',['editedMessage',['../structtgbotxx_1_1_update.html#a6135fe2c34f67ef3c585bd169848e325',1,'tgbotxx::Update']]],
@@ -19,5 +20,6 @@ var searchData=
   ['exception_2ehpp_186',['Exception.hpp',['../_exception_8hpp.html',1,'']]],
   ['expiredate_187',['expireDate',['../structtgbotxx_1_1_chat_invite_link.html#a655a46eddb886a32729b5788a094e093',1,'tgbotxx::ChatInviteLink']]],
   ['explanation_188',['explanation',['../structtgbotxx_1_1_poll.html#ad7e65b3b2223924469ee07cf46b550ba',1,'tgbotxx::Poll']]],
-  ['explanationentities_189',['explanationEntities',['../structtgbotxx_1_1_poll.html#ac1c799b7390d2926dcf0f8c797f8ce16',1,'tgbotxx::Poll']]]
+  ['explanationentities_189',['explanationEntities',['../structtgbotxx_1_1_poll.html#ac1c799b7390d2926dcf0f8c797f8ce16',1,'tgbotxx::Poll']]],
+  ['exportchatinvitelink_190',['exportChatInviteLink',['../classtgbotxx_1_1_api.html#a15fa095aa08c5a1872caf922c2352288',1,'tgbotxx::Api']]]
 ];

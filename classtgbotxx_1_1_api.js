@@ -6,6 +6,7 @@ var classtgbotxx_1_1_api =
     [ "copyMessage", "classtgbotxx_1_1_api.html#a559d4f43c4641303b84e97bdba97ef69", null ],
     [ "deleteWebhook", "classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962", null ],
     [ "downloadFile", "classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1", null ],
+    [ "exportChatInviteLink", "classtgbotxx_1_1_api.html#a15fa095aa08c5a1872caf922c2352288", null ],
     [ "forwardMessage", "classtgbotxx_1_1_api.html#ac20f5fa4ae8213841989b4e967573cdb", null ],
     [ "getFile", "classtgbotxx_1_1_api.html#a3bbbf85d141c05ff15b659ce05f4d139", null ],
     [ "getMe", "classtgbotxx_1_1_api.html#a3b6fde6a4caa1262b6c6d587dc027301", null ],
@@ -13,6 +14,7 @@ var classtgbotxx_1_1_api =
     [ "getUpdates", "classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2", null ],
     [ "getUserProfilePhotos", "classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d", null ],
     [ "logOut", "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519", null ],
+    [ "promoteChatMember", "classtgbotxx_1_1_api.html#af27374f9d5994ab6f7422d03835bcb5d", null ],
     [ "restrictChatMember", "classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538", null ],
     [ "sendAnimation", "classtgbotxx_1_1_api.html#af300682b84b541bad99b1d0e9d81ccef", null ],
     [ "sendAudio", "classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c", null ],
@@ -29,6 +31,13 @@ var classtgbotxx_1_1_api =
     [ "sendVideo", "classtgbotxx_1_1_api.html#ae44a154bb84fa0a0beafed1fb63f5115", null ],
     [ "sendVideoNote", "classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b", null ],
     [ "sendVoice", "classtgbotxx_1_1_api.html#af4e5f1804c06a7de6e41671235562466", null ],
+    [ "setChatAdministratorCustomTitle", "classtgbotxx_1_1_api.html#a697c92ff6f56b8f1fce1105a5a893b48", null ],
+    [ "setChatPermissions", "classtgbotxx_1_1_api.html#a7e0f76f6a79d623a16807308a15f6947", null ],
     [ "setMyCommands", "classtgbotxx_1_1_api.html#a11212f0ef53a7f794c1a0c11bede47e4", null ],
-    [ "unbanChatMember", "classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26", null ]
+    [ "unbanChatMember", "classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26", null ],
+    [ "banChatSenderChat", "classtgbotxx_1_1_api.html#a4e062c61e064369da4ba54a5ca4b1bd3", null ],
+    [ "createChatInviteLink", "classtgbotxx_1_1_api.html#a7c5be13e32f78e403ce653f28db752d8", null ],
+    [ "editChatInviteLink", "classtgbotxx_1_1_api.html#a19f87c2d21e091880f06222477862cbe", null ],
+    [ "revokeChatInviteLink", "classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b", null ],
+    [ "unbanChatSenderChat", "classtgbotxx_1_1_api.html#a0ecca999d22d38ee3aa1fcfe94f260af", null ]
 ];

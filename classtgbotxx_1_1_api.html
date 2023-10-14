@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('classtgbotxx_1_1_api.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#related">Related Functions</a> &#124;
 <a href="classtgbotxx_1_1_api-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">tgbotxx::Api Class Reference</div>  </div>
@@ -178,8 +179,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd0da5b9e81debbf9beb736d71a06538"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538">restrictChatMember</a> (std::int64_t chatId, std::int64_t userId, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_permissions.html">ChatPermissions</a> &gt; &amp;permissions, bool useIndependentChatPermissions=false, std::time_t untilDate=0) const</td></tr>
 <tr class="memdesc:abd0da5b9e81debbf9beb736d71a06538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights. Pass True for all permissions of <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object to lift restrictions from a user.  <a href="classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538">More...</a><br /></td></tr>
 <tr class="separator:abd0da5b9e81debbf9beb736d71a06538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27374f9d5994ab6f7422d03835bcb5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af27374f9d5994ab6f7422d03835bcb5d">promoteChatMember</a> (std::int64_t chatId, std::int64_t userId, bool isAnonymous=false, bool canManageChat=false, bool canDeleteMessages=false, bool canManageVideoChats=false, bool canRestrictMembers=false, bool canPromoteMembers=false, bool canChangeInfo=false, bool canInviteUsers=false, bool canPostMessages=false, bool canEditMessages=false, bool canPinMessages=false, bool canPostStories=false, bool canEditStories=false, bool canDeleteStories=false, bool canManageTopics=false) const</td></tr>
+<tr class="memdesc:af27374f9d5994ab6f7422d03835bcb5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass False for all boolean parameters to demote a user.  <a href="classtgbotxx_1_1_api.html#af27374f9d5994ab6f7422d03835bcb5d">More...</a><br /></td></tr>
+<tr class="separator:af27374f9d5994ab6f7422d03835bcb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697c92ff6f56b8f1fce1105a5a893b48"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a697c92ff6f56b8f1fce1105a5a893b48">setChatAdministratorCustomTitle</a> (std::int64_t chatId, std::int64_t userId, const std::string &amp;customTitle) const</td></tr>
+<tr class="memdesc:a697c92ff6f56b8f1fce1105a5a893b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set a custom title for an administrator in a supergroup promoted by the bot.  <a href="classtgbotxx_1_1_api.html#a697c92ff6f56b8f1fce1105a5a893b48">More...</a><br /></td></tr>
+<tr class="separator:a697c92ff6f56b8f1fce1105a5a893b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0f76f6a79d623a16807308a15f6947"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a7e0f76f6a79d623a16807308a15f6947">setChatPermissions</a> (std::int64_t chatId, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_permissions.html">ChatPermissions</a> &gt; &amp;permissions, bool useIndependentChatPermissions=false) const</td></tr>
+<tr class="memdesc:a7e0f76f6a79d623a16807308a15f6947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the canRestrictMembers administrator rights.  <a href="classtgbotxx_1_1_api.html#a7e0f76f6a79d623a16807308a15f6947">More...</a><br /></td></tr>
+<tr class="separator:a7e0f76f6a79d623a16807308a15f6947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15fa095aa08c5a1872caf922c2352288"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a15fa095aa08c5a1872caf922c2352288">exportChatInviteLink</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:a15fa095aa08c5a1872caf922c2352288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#a15fa095aa08c5a1872caf922c2352288">More...</a><br /></td></tr>
+<tr class="separator:a15fa095aa08c5a1872caf922c2352288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
-<tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
+<tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a138c29b3e7836704b42aded39ed7f2c2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_update.html">Update</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2">getUpdates</a> (std::int32_t offset, std::int32_t limit=100, std::int32_t timeout=LONG_POLL_TIMEOUT, const std::vector&lt; std::string &gt; &amp;allowedUpdates={}) const</td></tr>
 <tr class="memdesc:a138c29b3e7836704b42aded39ed7f2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to receive incoming updates using long polling.  <a href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2">More...</a><br /></td></tr>
@@ -190,6 +203,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a13bff65224b9e6f57919bff41b3c3e44"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_bot_command.html">BotCommand</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a13bff65224b9e6f57919bff41b3c3e44">getMyCommands</a> (const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_bot_command_scope.html">BotCommandScope</a> &gt; &amp;scope=nullptr, const std::string &amp;languageCode=&quot;&quot;) const</td></tr>
 <tr class="memdesc:a13bff65224b9e6f57919bff41b3c3e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get the current list of the bot's commands for the given scope and user language.  <a href="classtgbotxx_1_1_api.html#a13bff65224b9e6f57919bff41b3c3e44">More...</a><br /></td></tr>
 <tr class="separator:a13bff65224b9e6f57919bff41b3c3e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
+Related Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
+</td></tr>
+<tr class="memitem:a4e062c61e064369da4ba54a5ca4b1bd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a4e062c61e064369da4ba54a5ca4b1bd3">banChatSenderChat</a> (std::int64_t chatId, std::int64_t senderChatId) const</td></tr>
+<tr class="memdesc:a4e062c61e064369da4ba54a5ca4b1bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to ban a channel chat in a supergroup or a channel. Until the chat is unbanned, the owner of the banned chat won't be able to send messages on behalf of <b>any of their channels</b>. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#a4e062c61e064369da4ba54a5ca4b1bd3">More...</a><br /></td></tr>
+<tr class="separator:a4e062c61e064369da4ba54a5ca4b1bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ecca999d22d38ee3aa1fcfe94f260af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a0ecca999d22d38ee3aa1fcfe94f260af">unbanChatSenderChat</a> (std::int64_t chatId, std::int64_t senderChatId) const</td></tr>
+<tr class="memdesc:a0ecca999d22d38ee3aa1fcfe94f260af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to unban a previously banned channel chat in a supergroup or channel. The bot must be an administrator for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#a0ecca999d22d38ee3aa1fcfe94f260af">More...</a><br /></td></tr>
+<tr class="separator:a0ecca999d22d38ee3aa1fcfe94f260af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5be13e32f78e403ce653f28db752d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a7c5be13e32f78e403ce653f28db752d8">createChatInviteLink</a> (std::int64_t chatId, const std::string &amp;name=&quot;&quot;, std::time_t expireDate=0, std::int32_t memberLimit=0, bool createsJoinRequest=false) const</td></tr>
+<tr class="memdesc:a7c5be13e32f78e403ce653f28db752d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink.  <a href="classtgbotxx_1_1_api.html#a7c5be13e32f78e403ce653f28db752d8">More...</a><br /></td></tr>
+<tr class="separator:a7c5be13e32f78e403ce653f28db752d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f87c2d21e091880f06222477862cbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a19f87c2d21e091880f06222477862cbe">editChatInviteLink</a> (std::int64_t chatId, const std::string &amp;inviteLink, const std::string &amp;name=&quot;&quot;, std::time_t expireDate=0, std::int32_t memberLimit=0, bool createsJoinRequest=false) const</td></tr>
+<tr class="memdesc:a19f87c2d21e091880f06222477862cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#a19f87c2d21e091880f06222477862cbe">More...</a><br /></td></tr>
+<tr class="separator:a19f87c2d21e091880f06222477862cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa85b780c893c4d48a3b90424eed64c4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b">revokeChatInviteLink</a> (std::int64_t chatId, const std::string &amp;inviteLink) const</td></tr>
+<tr class="memdesc:aa85b780c893c4d48a3b90424eed64c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b">More...</a><br /></td></tr>
+<tr class="separator:aa85b780c893c4d48a3b90424eed64c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> Methods <a href="https://core.telegram.org/bots/api#available-methods">https://core.telegram.org/bots/api#available-methods</a>. </p>
@@ -275,6 +308,12 @@ We support GET and POST HTTP methods. Use either URL query string or application
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>You can't ban members in private chats <a href="https://core.telegram.org/bots/api#banchatmember">https://core.telegram.org/bots/api#banchatmember</a> </dd></dl>
 
 </div>
@@ -295,7 +334,13 @@ We support GET and POST HTTP methods. Use either URL query string or application
 </div><div class="memdoc">
 
 <p>Use this method to close the bot instance before moving it from one local server to another. You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart. The method will return error 429 in the first 10 minutes after the bot is launched. </p>
-<dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#close">https://core.telegram.org/bots/api#close</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#close">https://core.telegram.org/bots/api#close</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -404,7 +449,13 @@ We support GET and POST HTTP methods. Use either URL query string or application
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="structtgbotxx_1_1_message_id.html" title="This object represents a unique message identifier. https://core.telegram.org/bots/api#messageid.">MessageId</a> of the sent message on success. <a href="https://core.telegram.org/bots/api#copymessage">https://core.telegram.org/bots/api#copymessage</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="structtgbotxx_1_1_message_id.html" title="This object represents a unique message identifier. https://core.telegram.org/bots/api#messageid.">MessageId</a> of the sent message on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#copymessage">https://core.telegram.org/bots/api#copymessage</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -424,16 +475,23 @@ We support GET and POST HTTP methods. Use either URL query string or application
       </table>
 </div><div class="memdoc">
 
-<p>Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success. </p>
+<p>Use this method to remove webhook integration if you decide to switch back to getUpdates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dropPendingUpdates</td><td>Pass True to drop all pending updates. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT </dd>
 <dd>
-In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2" title="Use this method to receive incoming updates using long polling.">Api::getUpdates()</a> to work, there should be no outgoing webhook set up. see <a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> <a class="el" href=""><a href="https://core.telegram.org/bots/api#deletewebhook">https://core.telegram.org/bots/api#deletewebhook</a> </a> </dd></dl>
+In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42aded39ed7f2c2" title="Use this method to receive incoming updates using long polling.">Api::getUpdates()</a> to work, there should be no outgoing webhook set up. See <a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> <a href="https://core.telegram.org/bots/api#deletewebhook">https://core.telegram.org/bots/api#deletewebhook</a> </dd></dl>
 
 </div>
 </div>
@@ -471,13 +529,50 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string contains downloaded file contents. <a href="https://core.telegram.org/bots/api#getfile">https://core.telegram.org/bots/api#getfile</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string contains downloaded file contents. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getfile">https://core.telegram.org/bots/api#getfile</a> </td></tr>
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a15fa095aa08c5a1872caf922c2352288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15fa095aa08c5a1872caf922c2352288">&#9670;&nbsp;</a></span>exportChatInviteLink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::Api::exportChatInviteLink </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">permissions</td><td>A <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object for new user permissions </td></tr>
+    <tr><td class="paramname">useIndependentChatPermissions</td><td>Optional. Pass True if chat permissions are set independently. Otherwise, the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios, canSendDocuments, canSendPhotos, canSendVideos, canSendVideoNotes, and canSendVoiceNotes permissions; the canSendPolls permission will imply the canSendMessages permission. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new invite link as std::string on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#exportchatinvitelink">https://core.telegram.org/bots/api#exportchatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Each administrator in a chat generates their own invite links. Bots can't use invite links generated by other administrators. If you want your bot to work with invite links, it will need to generate its own link using exportChatInviteLink or by calling the getChat method. If your bot needs to generate a new primary invite link replacing its previous one, use exportChatInviteLink again. </dd></dl>
 
 </div>
 </div>
@@ -543,7 +638,13 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#forwardmessage">https://core.telegram.org/bots/api#forwardmessage</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#forwardmessage">https://core.telegram.org/bots/api#forwardmessage</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -571,6 +672,12 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> object is returned on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile again. </dd>
 <dd>
 This function may not preserve the original file name and MIME type. You should save the file's MIME type and name (if available) when the <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> object is received. <a href="https://core.telegram.org/bots/api#getfile">https://core.telegram.org/bots/api#getfile</a> </dd></dl>
@@ -594,6 +701,12 @@ This function may not preserve the original file name and MIME type. You should 
 
 <p>A simple method for testing your bot's authentication token. </p>
 <dl class="section return"><dt>Returns</dt><dd>basic information about the bot in form of a <a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a> object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -631,7 +744,13 @@ This function may not preserve the original file name and MIME type. You should 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_bot_command.html" title="This object represents a bot command. https://core.telegram.org/bots/api#botcommand.">BotCommand</a> objects. If commands aren't set, an empty list is returned. <a class="el" href=""><a href="https://core.telegram.org/bots/api#getmycommands">https://core.telegram.org/bots/api#getmycommands</a> </a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_bot_command.html" title="This object represents a bot command. https://core.telegram.org/bots/api#botcommand.">BotCommand</a> objects. If commands aren't set, an empty list is returned. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a class="el" href=""><a href="https://core.telegram.org/bots/api#getmycommands">https://core.telegram.org/bots/api#getmycommands</a> </a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -684,6 +803,12 @@ This function may not preserve the original file name and MIME type. You should 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> objects. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time. </dd>
 <dd>
 This method will not work if an outgoing webhook is set up. </dd>
@@ -733,7 +858,13 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structtgbotxx_1_1_user_profile_photos.html" title="This object represent a user&#39;s profile pictures. https://core.telegram.org/bots/api#userprofilephotos...">UserProfilePhotos</a> object. <a href="https://core.telegram.org/bots/api#getuserprofilephotos">https://core.telegram.org/bots/api#getuserprofilephotos</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structtgbotxx_1_1_user_profile_photos.html" title="This object represent a user&#39;s profile pictures. https://core.telegram.org/bots/api#userprofilephotos...">UserProfilePhotos</a> object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getuserprofilephotos">https://core.telegram.org/bots/api#getuserprofilephotos</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -753,7 +884,162 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 </div><div class="memdoc">
 
 <p>Use this method to log out from the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API server for 10 minutes. </p>
-<dl class="section return"><dt>Returns</dt><dd>true on success. <a href="https://core.telegram.org/bots/api#logout">https://core.telegram.org/bots/api#logout</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#logout">https://core.telegram.org/bots/api#logout</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af27374f9d5994ab6f7422d03835bcb5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27374f9d5994ab6f7422d03835bcb5d">&#9670;&nbsp;</a></span>promoteChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::promoteChatMember </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isAnonymous</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canManageChat</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canDeleteMessages</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canManageVideoChats</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canRestrictMembers</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canPromoteMembers</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canChangeInfo</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canInviteUsers</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canPostMessages</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canEditMessages</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canPinMessages</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canPostStories</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canEditStories</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canDeleteStories</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>canManageTopics</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass False for all boolean parameters to demote a user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">isAnonymous</td><td>Optional. Pass True if the administrator's presence in the chat is hidden </td></tr>
+    <tr><td class="paramname">canManageChat</td><td>Optional. Pass True if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege </td></tr>
+    <tr><td class="paramname">canDeleteMessages</td><td>Optional. Pass True if the administrator can delete messages of other users </td></tr>
+    <tr><td class="paramname">canManageVideoChats</td><td>Optional. Pass True if the administrator can manage video chats </td></tr>
+    <tr><td class="paramname">canRestrictMembers</td><td>Optional. Pass True if the administrator can restrict, ban or unban chat members, or access supergroup statistics </td></tr>
+    <tr><td class="paramname">canPromoteMembers</td><td>Optional. Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him) </td></tr>
+    <tr><td class="paramname">canChangeInfo</td><td>Optional. Pass True if the administrator can change chat title, photo and other settings </td></tr>
+    <tr><td class="paramname">canInviteUsers</td><td>Optional. Pass True if the administrator can invite new users to the chat </td></tr>
+    <tr><td class="paramname">canPostMessages</td><td>Optional. Pass True if the administrator can post messages in the channel, or access channel statistics; channels only </td></tr>
+    <tr><td class="paramname">canEditMessages</td><td>Optional. Pass True if the administrator can edit messages of other users and can pin messages; channels only </td></tr>
+    <tr><td class="paramname">canPinMessages</td><td>Optional. Pass True if the administrator can pin messages, supergroups only </td></tr>
+    <tr><td class="paramname">canPostStories</td><td>Optional. Pass True if the administrator can post stories in the channel; channels only </td></tr>
+    <tr><td class="paramname">canEditStories</td><td>Optional. Pass True if the administrator can edit stories posted by other users; channels only </td></tr>
+    <tr><td class="paramname">canDeleteStories</td><td>Optional. Pass True if the administrator can delete stories posted by other users; channels only </td></tr>
+    <tr><td class="paramname">canManageTopics</td><td>Optional. Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#promotechatmember">https://core.telegram.org/bots/api#promotechatmember</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -812,7 +1098,13 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True on success. <a href="https://core.telegram.org/bots/api#restrictchatmember">https://core.telegram.org/bots/api#restrictchatmember</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#restrictchatmember">https://core.telegram.org/bots/api#restrictchatmember</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -949,6 +1241,12 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future. <a href="https://core.telegram.org/bots/api#sendanimation">https://core.telegram.org/bots/api#sendanimation</a> </dd></dl>
 
 </div>
@@ -1079,6 +1377,12 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future. </dd>
 <dd>
 For sending voice messages, use the sendVoice method instead. <a href="https://core.telegram.org/bots/api#sendaudio">https://core.telegram.org/bots/api#sendaudio</a> </dd></dl>
@@ -1216,7 +1520,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendcontact">https://core.telegram.org/bots/api#sendcontact</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendcontact">https://core.telegram.org/bots/api#sendcontact</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1296,7 +1606,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#senddice">https://core.telegram.org/bots/api#senddice</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#senddice">https://core.telegram.org/bots/api#senddice</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1405,6 +1721,12 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future. </dd>
 <dd>
 For sending voice messages, use the sendVoice method instead. <a href="https://core.telegram.org/bots/api#senddocument">https://core.telegram.org/bots/api#senddocument</a> </dd></dl>
@@ -1522,7 +1844,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendlocation">https://core.telegram.org/bots/api#sendlocation</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendlocation">https://core.telegram.org/bots/api#sendlocation</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1596,6 +1924,12 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an array of Messages that were sent. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Documents and audio files can be only grouped in an album with messages of the same type. <a href="https://core.telegram.org/bots/api#sendmediagroup">https://core.telegram.org/bots/api#sendmediagroup</a> </dd></dl>
 
 </div>
@@ -1697,7 +2031,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object on success. <a href="https://core.telegram.org/bots/api#sendmessage">https://core.telegram.org/bots/api#sendmessage</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendmessage">https://core.telegram.org/bots/api#sendmessage</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1798,7 +2138,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendphoto">https://core.telegram.org/bots/api#sendphoto</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendphoto">https://core.telegram.org/bots/api#sendphoto</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1955,7 +2301,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendpoll">https://core.telegram.org/bots/api#sendpoll</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendpoll">https://core.telegram.org/bots/api#sendpoll</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2084,7 +2436,13 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. <a href="https://core.telegram.org/bots/api#sendvenue">https://core.telegram.org/bots/api#sendvenue</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendvenue">https://core.telegram.org/bots/api#sendvenue</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2228,6 +2586,12 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future. <a href="https://core.telegram.org/bots/api#sendvideo">https://core.telegram.org/bots/api#sendvideo</a> </dd></dl>
 
 </div>
@@ -2330,6 +2694,12 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Sending video notes by a URL is currently unsupported </dd>
 <dd>
 Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future. <a href="https://core.telegram.org/bots/api#sendvideonote">https://core.telegram.org/bots/api#sendvideonote</a> </dd></dl>
@@ -2441,7 +2811,115 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future. <a href="https://core.telegram.org/bots/api#sendvoice">https://core.telegram.org/bots/api#sendvoice</a> </dd></dl>
+
+</div>
+</div>
+<a id="a697c92ff6f56b8f1fce1105a5a893b48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697c92ff6f56b8f1fce1105a5a893b48">&#9670;&nbsp;</a></span>setChatAdministratorCustomTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::setChatAdministratorCustomTitle </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>customTitle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to set a custom title for an administrator in a supergroup promoted by the bot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+    <tr><td class="paramname">customTitle</td><td>New custom title for the administrator; 0-16 characters, emoji are not allowed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setchatadministratorcustomtitle">https://core.telegram.org/bots/api#setchatadministratorcustomtitle</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e0f76f6a79d623a16807308a15f6947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0f76f6a79d623a16807308a15f6947">&#9670;&nbsp;</a></span>setChatPermissions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::setChatPermissions </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_permissions.html">ChatPermissions</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>permissions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useIndependentChatPermissions</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the canRestrictMembers administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">permissions</td><td>A <a class="el" href="structtgbotxx_1_1_chat_permissions.html" title="Describes actions that a non-administrator user is allowed to take in a chat. https://core....">ChatPermissions</a> object for new user permissions </td></tr>
+    <tr><td class="paramname">useIndependentChatPermissions</td><td>Optional. Pass True if chat permissions are set independently. Otherwise, the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios, canSendDocuments, canSendPhotos, canSendVideos, canSendVideoNotes, and canSendVoiceNotes permissions; the canSendPolls permission will imply the canSendMessages permission. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setchatpermissions">https://core.telegram.org/bots/api#setchatpermissions</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2486,7 +2964,13 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true on success. <a class="el" href=""><a href="https://core.telegram.org/bots/api#setmycommands">https://core.telegram.org/bots/api#setmycommands</a> </a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a class="el" href=""><a href="https://core.telegram.org/bots/api#setmycommands">https://core.telegram.org/bots/api#setmycommands</a> </a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2531,7 +3015,327 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True on success. <a href="https://core.telegram.org/bots/api#unbanchatmember">https://core.telegram.org/bots/api#unbanchatmember</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#unbanchatmember">https://core.telegram.org/bots/api#unbanchatmember</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a4e062c61e064369da4ba54a5ca4b1bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e062c61e064369da4ba54a5ca4b1bd3">&#9670;&nbsp;</a></span>banChatSenderChat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool banChatSenderChat </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>senderChatId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to ban a channel chat in a supergroup or a channel. Until the chat is unbanned, the owner of the banned chat won't be able to send messages on behalf of <b>any of their channels</b>. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">senderChatId</td><td>Unique identifier of the target sender chat </td></tr>
+    <tr><td class="paramname">customTitle</td><td>New custom title for the administrator; 0-16 characters, emoji are not allowed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a href="https://core.telegram.org/bots/api#banchatsenderchat">https://core.telegram.org/bots/api#banchatsenderchat</a> </p>
+
+</div>
+</div>
+<a id="a7c5be13e32f78e403ce653f28db752d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5be13e32f78e403ce653f28db752d8">&#9670;&nbsp;</a></span>createChatInviteLink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a>&gt; createChatInviteLink </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>expireDate</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>memberLimit</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>createsJoinRequest</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">name</td><td>Optional. Invite link name; 0-32 characters </td></tr>
+    <tr><td class="paramname">expireDate</td><td>Optional. Point in time (Unix timestamp) when the link will expire </td></tr>
+    <tr><td class="paramname">memberLimit</td><td>Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999 </td></tr>
+    <tr><td class="paramname">createsJoinRequest</td><td>Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the new invite link as <a class="el" href="structtgbotxx_1_1_chat_invite_link.html" title="Represents an invite link for a chat. https://core.telegram.org/bots/api#chatinvitelink.">ChatInviteLink</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure revokeChatInviteLink <a href="https://core.telegram.org/bots/api#createchatinvitelink">https://core.telegram.org/bots/api#createchatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a19f87c2d21e091880f06222477862cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f87c2d21e091880f06222477862cbe">&#9670;&nbsp;</a></span>editChatInviteLink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a>&gt; editChatInviteLink </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inviteLink</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>expireDate</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>memberLimit</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>createsJoinRequest</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">inviteLink</td><td>The invite link to edit </td></tr>
+    <tr><td class="paramname">name</td><td>Optional. Invite link name; 0-32 characters </td></tr>
+    <tr><td class="paramname">expireDate</td><td>Optional. Point in time (Unix timestamp) when the link will expire </td></tr>
+    <tr><td class="paramname">memberLimit</td><td>Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999 </td></tr>
+    <tr><td class="paramname">createsJoinRequest</td><td>Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The edited invite link as a <a class="el" href="structtgbotxx_1_1_chat_invite_link.html" title="Represents an invite link for a chat. https://core.telegram.org/bots/api#chatinvitelink.">ChatInviteLink</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure revokeChatInviteLink <a href="https://core.telegram.org/bots/api#editchatinvitelink">https://core.telegram.org/bots/api#editchatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa85b780c893c4d48a3b90424eed64c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85b780c893c4d48a3b90424eed64c4b">&#9670;&nbsp;</a></span>revokeChatInviteLink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat_invite_link.html">ChatInviteLink</a>&gt; revokeChatInviteLink </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inviteLink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">inviteLink</td><td>The invite link to revoke </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The revoked invite link as <a class="el" href="structtgbotxx_1_1_chat_invite_link.html" title="Represents an invite link for a chat. https://core.telegram.org/bots/api#chatinvitelink.">ChatInviteLink</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure editChatInviteLink <a href="https://core.telegram.org/bots/api#revokechatinvitelink">https://core.telegram.org/bots/api#revokechatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0ecca999d22d38ee3aa1fcfe94f260af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ecca999d22d38ee3aa1fcfe94f260af">&#9670;&nbsp;</a></span>unbanChatSenderChat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool unbanChatSenderChat </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>senderChatId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to unban a previously banned channel chat in a supergroup or channel. The bot must be an administrator for this to work and must have the appropriate administrator rights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">senderChatId</td><td>Unique identifier of the target sender chat </td></tr>
+    <tr><td class="paramname">customTitle</td><td>New custom title for the administrator; 0-16 characters, emoji are not allowed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a href="https://core.telegram.org/bots/api#unbanchatsenderchat">https://core.telegram.org/bots/api#unbanchatsenderchat</a> </p>
 
 </div>
 </div>
@@ -2544,7 +3348,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Oct 14 2023 11:15:35 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 14 2023 11:25:08 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
