@@ -197,6 +197,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c28d1f061e4098f58ec9065a330e270"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a3c28d1f061e4098f58ec9065a330e270">setChatDescription</a> (std::int64_t chatId, const std::string &amp;description=&quot;&quot;) const</td></tr>
 <tr class="memdesc:a3c28d1f061e4098f58ec9065a330e270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.  <a href="classtgbotxx_1_1_api.html#a3c28d1f061e4098f58ec9065a330e270">More...</a><br /></td></tr>
 <tr class="separator:a3c28d1f061e4098f58ec9065a330e270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f126a780214603680dfd397ae27918"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ae9f126a780214603680dfd397ae27918">leaveChat</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:ae9f126a780214603680dfd397ae27918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method for your bot to leave a group, supergroup or channel.  <a href="classtgbotxx_1_1_api.html#ae9f126a780214603680dfd397ae27918">More...</a><br /></td></tr>
+<tr class="separator:ae9f126a780214603680dfd397ae27918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5878571a4c480dbb6271671ed48053"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a6f5878571a4c480dbb6271671ed48053">getChat</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:a6f5878571a4c480dbb6271671ed48053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.).  <a href="classtgbotxx_1_1_api.html#a6f5878571a4c480dbb6271671ed48053">More...</a><br /></td></tr>
+<tr class="separator:a6f5878571a4c480dbb6271671ed48053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1f04a27970c76fa4ad0923bf0bd096b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member.html">ChatMember</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ad1f04a27970c76fa4ad0923bf0bd096b">getChatAdministrators</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:ad1f04a27970c76fa4ad0923bf0bd096b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get a list of administrators in a chat, which aren't bots.  <a href="classtgbotxx_1_1_api.html#ad1f04a27970c76fa4ad0923bf0bd096b">More...</a><br /></td></tr>
+<tr class="separator:ad1f04a27970c76fa4ad0923bf0bd096b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cca626f4c98189da4beb98c8b224d04"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a2cca626f4c98189da4beb98c8b224d04">getChatMemberCount</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:a2cca626f4c98189da4beb98c8b224d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get the number of members in a chat.  <a href="classtgbotxx_1_1_api.html#a2cca626f4c98189da4beb98c8b224d04">More...</a><br /></td></tr>
+<tr class="separator:a2cca626f4c98189da4beb98c8b224d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1809c943b7b53904f798f71cd57cdcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_member.html">ChatMember</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb">getChatMember</a> (std::int64_t chatId, std::int64_t userId) const</td></tr>
+<tr class="memdesc:ab1809c943b7b53904f798f71cd57cdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat.  <a href="classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb">More...</a><br /></td></tr>
+<tr class="separator:ab1809c943b7b53904f798f71cd57cdcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afff3c96f3812ccb323f66f9b938962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">deleteWebhook</a> (bool dropPendingUpdates=false) const</td></tr>
 <tr class="memdesc:a5afff3c96f3812ccb323f66f9b938962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to remove webhook integration if you decide to switch back to getUpdates.  <a href="classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962">More...</a><br /></td></tr>
 <tr class="separator:a5afff3c96f3812ccb323f66f9b938962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,6 +265,18 @@ Related Functions</h2></td></tr>
 <tr class="memitem:a4043285e7b071f3677e99aa6a0162c7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a4043285e7b071f3677e99aa6a0162c7c">unpinAllChatMessages</a> (std::int64_t chatId) const</td></tr>
 <tr class="memdesc:a4043285e7b071f3677e99aa6a0162c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right in a supergroup or 'canEditMessages' administrator right in a channel.  <a href="classtgbotxx_1_1_api.html#a4043285e7b071f3677e99aa6a0162c7c">More...</a><br /></td></tr>
 <tr class="separator:a4043285e7b071f3677e99aa6a0162c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc574569687df39f09f8b19c9111620c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#abc574569687df39f09f8b19c9111620c">setChatStickerSet</a> (std::int64_t chatId, const std::string &amp;stickerSetName) const</td></tr>
+<tr class="memdesc:abc574569687df39f09f8b19c9111620c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.  <a href="classtgbotxx_1_1_api.html#abc574569687df39f09f8b19c9111620c">More...</a><br /></td></tr>
+<tr class="separator:abc574569687df39f09f8b19c9111620c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746d0d4eacf8f2fc986d90b99424528a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a746d0d4eacf8f2fc986d90b99424528a">deleteChatStickerSet</a> (std::int64_t chatId) const</td></tr>
+<tr class="memdesc:a746d0d4eacf8f2fc986d90b99424528a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.  <a href="classtgbotxx_1_1_api.html#a746d0d4eacf8f2fc986d90b99424528a">More...</a><br /></td></tr>
+<tr class="separator:a746d0d4eacf8f2fc986d90b99424528a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27362c73afe17da3a8c261d73bbb96f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_sticker.html">Sticker</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ae27362c73afe17da3a8c261d73bbb96f">getForumTopicIconStickers</a> () const</td></tr>
+<tr class="memdesc:ae27362c73afe17da3a8c261d73bbb96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters.  <a href="classtgbotxx_1_1_api.html#ae27362c73afe17da3a8c261d73bbb96f">More...</a><br /></td></tr>
+<tr class="separator:ae27362c73afe17da3a8c261d73bbb96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d9a57a7051a87eb6e5f1524753c829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_forum_topic.html">ForumTopic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a70d9a57a7051a87eb6e5f1524753c829">createForumTopic</a> (std::int64_t chatId, const std::string &amp;name, std::int32_t iconColor=0x000000, const std::string &amp;iconCustomEmojiId=&quot;&quot;) const</td></tr>
+<tr class="memdesc:a70d9a57a7051a87eb6e5f1524753c829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>.  <a href="classtgbotxx_1_1_api.html#a70d9a57a7051a87eb6e5f1524753c829">More...</a><br /></td></tr>
+<tr class="separator:a70d9a57a7051a87eb6e5f1524753c829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> Methods <a href="https://core.telegram.org/bots/api#available-methods">https://core.telegram.org/bots/api#available-methods</a>. </p>
@@ -257,7 +284,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00096">96</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00097">97</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -675,6 +702,149 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a138c29b3e7836704b42a
 
 </div>
 </div>
+<a id="a6f5878571a4c480dbb6271671ed48053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f5878571a4c480dbb6271671ed48053">&#9670;&nbsp;</a></span>getChat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat.html">Chat</a>&gt; tgbotxx::Api::getChat </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="structtgbotxx_1_1_chat.html" title="This object represents a chat. https://core.telegram.org/bots/api#chat.">Chat</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getchat">https://core.telegram.org/bots/api#getchat</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad1f04a27970c76fa4ad0923bf0bd096b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1f04a27970c76fa4ad0923bf0bd096b">&#9670;&nbsp;</a></span>getChatAdministrators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat_member.html">ChatMember</a>&gt; &gt; tgbotxx::Api::getChatAdministrators </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get a list of administrators in a chat, which aren't bots. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_chat_member.html" title="The base class of all chat members objects. This object contains information about one member of a ch...">ChatMember</a> objects. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getchatadministrators">https://core.telegram.org/bots/api#getchatadministrators</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1809c943b7b53904f798f71cd57cdcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1809c943b7b53904f798f71cd57cdcb">&#9670;&nbsp;</a></span>getChatMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat_member.html">ChatMember</a>&gt; tgbotxx::Api::getChatMember </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">userId</td><td>Unique identifier of the target user </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="structtgbotxx_1_1_chat_member.html" title="The base class of all chat members objects. This object contains information about one member of a ch...">ChatMember</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getchatmember">https://core.telegram.org/bots/api#getchatmember</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2cca626f4c98189da4beb98c8b224d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cca626f4c98189da4beb98c8b224d04">&#9670;&nbsp;</a></span>getChatMemberCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::int32_t tgbotxx::Api::getChatMemberCount </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get the number of members in a chat. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::int32_t on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getchatmembercount">https://core.telegram.org/bots/api#getchatmembercount</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3bbbf85d141c05ff15b659ce05f4d139"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3bbbf85d141c05ff15b659ce05f4d139">&#9670;&nbsp;</a></span>getFile()</h2>
 
@@ -889,6 +1059,39 @@ In order to avoid getting duplicate updates, recalculate offset after each serve
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getuserprofilephotos">https://core.telegram.org/bots/api#getuserprofilephotos</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae9f126a780214603680dfd397ae27918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f126a780214603680dfd397ae27918">&#9670;&nbsp;</a></span>leaveChat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::leaveChat </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method for your bot to leave a group, supergroup or channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#leavechat">https://core.telegram.org/bots/api#leavechat</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -3321,6 +3524,72 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a70d9a57a7051a87eb6e5f1524753c829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d9a57a7051a87eb6e5f1524753c829">&#9670;&nbsp;</a></span>createForumTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_forum_topic.html">ForumTopic</a>&gt; createForumTopic </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>iconColor</em> = <code>0x000000</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>iconCustomEmojiId</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. <a href="https://core.telegram.org/bots/api#forumtopic">https://core.telegram.org/bots/api#forumtopic</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">name</td><td>Topic name, 1-128 characters </td></tr>
+    <tr><td class="paramname">iconColor</td><td>Optional. Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F) </td></tr>
+    <tr><td class="paramname">iconCustomEmojiId</td><td>Optional. Unique identifier of the custom emoji shown as the topic icon. Use getForumTopicIconStickers to get all allowed custom emoji identifiers. <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">https://core.telegram.org/bots/api#getforumtopiciconstickers</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>information about the created topic as a <a class="el" href="structtgbotxx_1_1_forum_topic.html" title="This object represents a forum topic. https://core.telegram.org/bots/api#forumtopic.">ForumTopic</a> object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure closeForumTopic reopenForumTopic deleteForumTopic <a href="https://core.telegram.org/bots/api#createforumtopic">https://core.telegram.org/bots/api#createforumtopic</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6f981ecd9c4fbb8d3f87fe7185d57a82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f981ecd9c4fbb8d3f87fe7185d57a82">&#9670;&nbsp;</a></span>declineChatJoinRequest()</h2>
 
@@ -3416,6 +3685,47 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a746d0d4eacf8f2fc986d90b99424528a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a746d0d4eacf8f2fc986d90b99424528a">&#9670;&nbsp;</a></span>deleteChatStickerSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deleteChatStickerSet </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure getForumTopicIconStickers <a class="el" href="structtgbotxx_1_1_sticker.html#ab56745407c94abd17d49f6e474ee4bc9" title="Optional. Name of the sticker set to which the sticker belongs.">Sticker::setName</a> <a href="https://core.telegram.org/bots/api#deletechatstickerset">https://core.telegram.org/bots/api#deletechatstickerset</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a19f87c2d21e091880f06222477862cbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19f87c2d21e091880f06222477862cbe">&#9670;&nbsp;</a></span>editChatInviteLink()</h2>
 
@@ -3490,6 +3800,46 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure revokeChatInviteLink <a href="https://core.telegram.org/bots/api#editchatinvitelink">https://core.telegram.org/bots/api#editchatinvitelink</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae27362c73afe17da3a8c261d73bbb96f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27362c73afe17da3a8c261d73bbb96f">&#9670;&nbsp;</a></span>getForumTopicIconStickers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_sticker.html">Sticker</a>&gt; &gt; getForumTopicIconStickers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> objects. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure deleteChatStickerSet <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">https://core.telegram.org/bots/api#getforumtopiciconstickers</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -3660,6 +4010,58 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="abc574569687df39f09f8b19c9111620c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc574569687df39f09f8b19c9111620c">&#9670;&nbsp;</a></span>setChatStickerSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool setChatStickerSet </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>stickerSetName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">stickerSetName</td><td>Name of the sticker set to be set as the group sticker set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure getForumTopicIconStickers <a class="el" href="structtgbotxx_1_1_sticker.html#ab56745407c94abd17d49f6e474ee4bc9" title="Optional. Name of the sticker set to which the sticker belongs.">Sticker::setName</a> <a href="https://core.telegram.org/bots/api#setchatstickerset">https://core.telegram.org/bots/api#setchatstickerset</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0ecca999d22d38ee3aa1fcfe94f260af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ecca999d22d38ee3aa1fcfe94f260af">&#9670;&nbsp;</a></span>unbanChatSenderChat()</h2>
 
@@ -3816,7 +4218,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Oct 14 2023 11:57:47 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 14 2023 12:47:38 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

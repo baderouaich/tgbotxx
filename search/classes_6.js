@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['game_702',['Game',['../structtgbotxx_1_1_game.html',1,'tgbotxx']]],
-  ['generalforumtopichidden_703',['GeneralForumTopicHidden',['../structtgbotxx_1_1_general_forum_topic_hidden.html',1,'tgbotxx']]],
-  ['generalforumtopicunhidden_704',['GeneralForumTopicUnhidden',['../structtgbotxx_1_1_general_forum_topic_unhidden.html',1,'tgbotxx']]]
+  ['game_717',['Game',['../structtgbotxx_1_1_game.html',1,'tgbotxx']]],
+  ['generalforumtopichidden_718',['GeneralForumTopicHidden',['../structtgbotxx_1_1_general_forum_topic_hidden.html',1,'tgbotxx']]],
+  ['generalforumtopicunhidden_719',['GeneralForumTopicUnhidden',['../structtgbotxx_1_1_general_forum_topic_unhidden.html',1,'tgbotxx']]]
 ];

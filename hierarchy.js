@@ -43,6 +43,7 @@ var hierarchy =
       [ "tgbotxx::isPtr< T >", "structtgbotxx_1_1is_ptr.html", null ]
     ] ],
     [ "tgbotxx::File", "structtgbotxx_1_1_file.html", null ],
+    [ "tgbotxx::ForumTopic", "structtgbotxx_1_1_forum_topic.html", null ],
     [ "tgbotxx::ForumTopicClosed", "structtgbotxx_1_1_forum_topic_closed.html", null ],
     [ "tgbotxx::ForumTopicCreated", "structtgbotxx_1_1_forum_topic_created.html", null ],
     [ "tgbotxx::ForumTopicEdited", "structtgbotxx_1_1_forum_topic_edited.html", null ],

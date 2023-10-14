@@ -41,6 +41,7 @@ var annotated_dup =
       [ "EncryptedPassportElement", "structtgbotxx_1_1_encrypted_passport_element.html", "structtgbotxx_1_1_encrypted_passport_element" ],
       [ "File", "structtgbotxx_1_1_file.html", "structtgbotxx_1_1_file" ],
       [ "ForceReply", "structtgbotxx_1_1_force_reply.html", "structtgbotxx_1_1_force_reply" ],
+      [ "ForumTopic", "structtgbotxx_1_1_forum_topic.html", "structtgbotxx_1_1_forum_topic" ],
       [ "ForumTopicClosed", "structtgbotxx_1_1_forum_topic_closed.html", "structtgbotxx_1_1_forum_topic_closed" ],
       [ "ForumTopicCreated", "structtgbotxx_1_1_forum_topic_created.html", "structtgbotxx_1_1_forum_topic_created" ],
       [ "ForumTopicEdited", "structtgbotxx_1_1_forum_topic_edited.html", "structtgbotxx_1_1_forum_topic_edited" ],

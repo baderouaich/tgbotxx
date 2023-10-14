@@ -85,6 +85,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "ForceReply.hpp", "_force_reply_8hpp.html", [
       [ "ForceReply", "structtgbotxx_1_1_force_reply.html", "structtgbotxx_1_1_force_reply" ]
     ] ],
+    [ "ForumTopic.hpp", "_forum_topic_8hpp.html", [
+      [ "ForumTopic", "structtgbotxx_1_1_forum_topic.html", "structtgbotxx_1_1_forum_topic" ]
+    ] ],
     [ "ForumTopicClosed.hpp", "_forum_topic_closed_8hpp.html", [
       [ "ForumTopicClosed", "structtgbotxx_1_1_forum_topic_closed.html", "structtgbotxx_1_1_forum_topic_closed" ]
     ] ],
