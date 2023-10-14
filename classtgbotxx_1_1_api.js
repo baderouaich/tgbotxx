@@ -32,12 +32,21 @@ var classtgbotxx_1_1_api =
     [ "sendVideoNote", "classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b", null ],
     [ "sendVoice", "classtgbotxx_1_1_api.html#af4e5f1804c06a7de6e41671235562466", null ],
     [ "setChatAdministratorCustomTitle", "classtgbotxx_1_1_api.html#a697c92ff6f56b8f1fce1105a5a893b48", null ],
+    [ "setChatDescription", "classtgbotxx_1_1_api.html#a3c28d1f061e4098f58ec9065a330e270", null ],
     [ "setChatPermissions", "classtgbotxx_1_1_api.html#a7e0f76f6a79d623a16807308a15f6947", null ],
+    [ "setChatTitle", "classtgbotxx_1_1_api.html#aaace035490f52886245bd85c85224a94", null ],
     [ "setMyCommands", "classtgbotxx_1_1_api.html#a11212f0ef53a7f794c1a0c11bede47e4", null ],
     [ "unbanChatMember", "classtgbotxx_1_1_api.html#af73dea700bffee7c4275bc46e2c85f26", null ],
+    [ "approveChatJoinRequest", "classtgbotxx_1_1_api.html#a8fbcfb5e5473978863b88b20b3e9b39c", null ],
     [ "banChatSenderChat", "classtgbotxx_1_1_api.html#a4e062c61e064369da4ba54a5ca4b1bd3", null ],
     [ "createChatInviteLink", "classtgbotxx_1_1_api.html#a7c5be13e32f78e403ce653f28db752d8", null ],
+    [ "declineChatJoinRequest", "classtgbotxx_1_1_api.html#a6f981ecd9c4fbb8d3f87fe7185d57a82", null ],
+    [ "deleteChatPhoto", "classtgbotxx_1_1_api.html#acbfd1def3f70a117bf95189a8068ed5c", null ],
     [ "editChatInviteLink", "classtgbotxx_1_1_api.html#a19f87c2d21e091880f06222477862cbe", null ],
+    [ "pinChatMessage", "classtgbotxx_1_1_api.html#a149dc6d669364ba7c61cd878743a1bc6", null ],
     [ "revokeChatInviteLink", "classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b", null ],
-    [ "unbanChatSenderChat", "classtgbotxx_1_1_api.html#a0ecca999d22d38ee3aa1fcfe94f260af", null ]
+    [ "setChatPhoto", "classtgbotxx_1_1_api.html#ab1891964ffa7a546d0ac292245df48aa", null ],
+    [ "unbanChatSenderChat", "classtgbotxx_1_1_api.html#a0ecca999d22d38ee3aa1fcfe94f260af", null ],
+    [ "unpinAllChatMessages", "classtgbotxx_1_1_api.html#a4043285e7b071f3677e99aa6a0162c7c", null ],
+    [ "unpinChatMessage", "classtgbotxx_1_1_api.html#a91cd887b183fa8a2cbe4747fb67ca05b", null ]
 ];

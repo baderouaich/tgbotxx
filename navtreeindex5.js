@@ -1,5 +1,14 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_sticker.html#ad7d7101400176b07df75a06c859ad898":[1,0,0,82,8],
+"structtgbotxx_1_1_sticker.html#ae9f2ccd3bbdbc472fcbc62d9a33aae46":[1,0,0,82,14],
+"structtgbotxx_1_1_sticker.html#afc45325764161eab2b9822030d035f90":[1,0,0,82,12],
+"structtgbotxx_1_1_sticker.html#afd7a240acdfab741c73a82ccf6afe16c":[1,0,0,82,18],
+"structtgbotxx_1_1_story.html":[1,0,0,83],
+"structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2":[1,0,0,83,0],
+"structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de":[1,0,0,83,1],
+"structtgbotxx_1_1_story.html#a6919ce1c5aaa24f96c1fb717e27dee31":[1,0,0,83,2],
+"structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1":[1,0,0,83,3],
 "structtgbotxx_1_1_successful_payment.html":[1,0,0,84],
 "structtgbotxx_1_1_successful_payment.html#a02c1b20961b0fbd21ed7ba52d16ac9bb":[1,0,0,84,7],
 "structtgbotxx_1_1_successful_payment.html#a04eda8d371c4ebc3904c4d1eec2afd2c":[1,0,0,84,3],

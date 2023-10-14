@@ -1,5 +1,14 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_chat.html#a7e5cef4edb3881f85c69d5465c78dae1":[1,0,0,16,20],
+"structtgbotxx_1_1_chat.html#a9634e8c2bfa9beeac5dff6d9fbbdb1cc":[1,0,0,16,25],
+"structtgbotxx_1_1_chat.html#a9d16fbcb587dfcc8daaf9e7a0eb19398":[1,0,0,16,34],
+"structtgbotxx_1_1_chat.html#aa7ad6363ec02725a091dd162a24ed721":[1,0,0,16,23],
+"structtgbotxx_1_1_chat.html#aaff61800627cf528206f485bee8dbb12":[1,0,0,16,3],
+"structtgbotxx_1_1_chat.html#ab161214a433db43f56d10d079f4195cd":[1,0,0,16,2],
+"structtgbotxx_1_1_chat.html#ab4f2fb435931d7e13c5751c4b2e3b9b2":[1,0,0,16,27],
+"structtgbotxx_1_1_chat.html#ab6d8f5e8090735ac9ea1c248934a2702":[1,0,0,16,33],
+"structtgbotxx_1_1_chat.html#ab7c06cd04505c3adc64bb3f730b4d8bd":[1,0,0,16,12],
 "structtgbotxx_1_1_chat.html#abba2e955e6df4e0c60e9dd44961a5efa":[1,0,0,16,5],
 "structtgbotxx_1_1_chat.html#abeadceb234b1be153adf333b08790001":[1,0,0,16,24],
 "structtgbotxx_1_1_chat.html#ac30f12e05a7a8bd4415f54928cf22631":[1,0,0,16,18],
@@ -240,14 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_encrypted_passport_element.html#a813390709815005e1c531e2102981653":[1,0,0,37,7],
 "structtgbotxx_1_1_encrypted_passport_element.html#a8a76f53d1fdc8b127e2304908b1d2d7f":[1,0,0,37,3],
 "structtgbotxx_1_1_encrypted_passport_element.html#a9401910cf594c3867baad7380db66b1a":[1,0,0,37,9],
-"structtgbotxx_1_1_encrypted_passport_element.html#a9655c53c1d84ac999054a9afb012568f":[1,0,0,37,0],
-"structtgbotxx_1_1_encrypted_passport_element.html#aeb3e1471295e5d707c8f2f09210dee58":[1,0,0,37,6],
-"structtgbotxx_1_1_file.html":[1,0,0,38],
-"structtgbotxx_1_1_file.html#a38b5c7b9021c4b4b58363917bcf5d8b4":[1,0,0,38,2],
-"structtgbotxx_1_1_file.html#a65ae3bbbc5b6745efbe300297a1a73c4":[1,0,0,38,5],
-"structtgbotxx_1_1_file.html#a688e950ec8172964f1bb32bb6787b2f4":[1,0,0,38,4],
-"structtgbotxx_1_1_file.html#a88b672a4eb039787398f8656f5cd3c02":[1,0,0,38,3],
-"structtgbotxx_1_1_file.html#a9c6b13a85510557a743cb83d5e19a148":[1,0,0,38,6],
-"structtgbotxx_1_1_file.html#aa4ec6eb5618071596d21ee1d924480e4":[1,0,0,38,1],
-"structtgbotxx_1_1_file.html#ab65c5ece205537a3a6efa095ddcb8f9e":[1,0,0,38,0]
+"structtgbotxx_1_1_encrypted_passport_element.html#a9655c53c1d84ac999054a9afb012568f":[1,0,0,37,0]
 };

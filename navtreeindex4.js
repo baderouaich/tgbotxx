@@ -1,5 +1,14 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_message.html#a3811990d8e836debf54b28de6c3e80b0":[1,0,0,65,63],
+"structtgbotxx_1_1_message.html#a3a5516e7364df19c4ef8f2187b8f20dd":[1,0,0,65,4],
+"structtgbotxx_1_1_message.html#a3b379d5a509f228d4d67b3aa003cfbd2":[1,0,0,65,20],
+"structtgbotxx_1_1_message.html#a41052bd9854300c095554023e3a50293":[1,0,0,65,21],
+"structtgbotxx_1_1_message.html#a43d420734ef4d15a05aecc2f2f59788b":[1,0,0,65,61],
+"structtgbotxx_1_1_message.html#a44307e1b7226198198a721b271969ee3":[1,0,0,65,25],
+"structtgbotxx_1_1_message.html#a456b0a7888bc93e557ff6076ec0545ee":[1,0,0,65,66],
+"structtgbotxx_1_1_message.html#a467629fd383d9dffed57489b7e5d038e":[1,0,0,65,58],
+"structtgbotxx_1_1_message.html#a5363a698df5f1dfe9c4360ffb353bceb":[1,0,0,65,42],
 "structtgbotxx_1_1_message.html#a53a8e3825d5c8ea57eb2904b199c8280":[1,0,0,65,70],
 "structtgbotxx_1_1_message.html#a53ceb8312ebc9e1f042414ac504e61a5":[1,0,0,65,50],
 "structtgbotxx_1_1_message.html#a53df15a98f74d04b7ee5dbf5ba402a39":[1,0,0,65,29],
@@ -240,14 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_sticker.html#ab56745407c94abd17d49f6e474ee4bc9":[1,0,0,82,17],
 "structtgbotxx_1_1_sticker.html#ab5df3feb9e937cb350a6050656101773":[1,0,0,82,21],
 "structtgbotxx_1_1_sticker.html#ab8da2e4e6c362b9ab3d6e917eff6332f":[1,0,0,82,16],
-"structtgbotxx_1_1_sticker.html#ac338749c597f1ae7c44903fa547e5d06":[1,0,0,82,5],
-"structtgbotxx_1_1_sticker.html#ad7d7101400176b07df75a06c859ad898":[1,0,0,82,8],
-"structtgbotxx_1_1_sticker.html#ae9f2ccd3bbdbc472fcbc62d9a33aae46":[1,0,0,82,14],
-"structtgbotxx_1_1_sticker.html#afc45325764161eab2b9822030d035f90":[1,0,0,82,12],
-"structtgbotxx_1_1_sticker.html#afd7a240acdfab741c73a82ccf6afe16c":[1,0,0,82,18],
-"structtgbotxx_1_1_story.html":[1,0,0,83],
-"structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2":[1,0,0,83,0],
-"structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de":[1,0,0,83,1],
-"structtgbotxx_1_1_story.html#a6919ce1c5aaa24f96c1fb717e27dee31":[1,0,0,83,2],
-"structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1":[1,0,0,83,3]
+"structtgbotxx_1_1_sticker.html#ac338749c597f1ae7c44903fa547e5d06":[1,0,0,82,5]
 };
