@@ -165,7 +165,7 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "MessageId.hpp", "_message_id_8hpp.html", [
       [ "MessageId", "structtgbotxx_1_1_message_id.html", "structtgbotxx_1_1_message_id" ]
     ] ],
-    [ "Object.hpp", "_object_8hpp.html", null ],
+    [ "Object.hpp", "_object_8hpp.html", "_object_8hpp" ],
     [ "OrderInfo.hpp", "_order_info_8hpp.html", [
       [ "OrderInfo", "structtgbotxx_1_1_order_info.html", "structtgbotxx_1_1_order_info" ]
     ] ],

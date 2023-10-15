@@ -90,7 +90,96 @@ $(document).ready(function(){initNavTree('_api_8hpp.html',''); initResizable(); 
 <div class="title">Api.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;cpr/cpr.h&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;<a class="el" href="_animation_8hpp_source.html">tgbotxx/objects/Animation.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_audio_8hpp_source.html">tgbotxx/objects/Audio.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_bot_command_8hpp_source.html">tgbotxx/objects/BotCommand.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_bot_command_scope_8hpp_source.html">tgbotxx/objects/BotCommandScope.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_callback_game_8hpp_source.html">tgbotxx/objects/CallbackGame.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_callback_query_8hpp_source.html">tgbotxx/objects/CallbackQuery.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_8hpp_source.html">tgbotxx/objects/Chat.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_administrator_rights_8hpp_source.html">tgbotxx/objects/ChatAdministratorRights.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_invite_link_8hpp_source.html">tgbotxx/objects/ChatInviteLink.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_join_request_8hpp_source.html">tgbotxx/objects/ChatJoinRequest.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_location_8hpp_source.html">tgbotxx/objects/ChatLocation.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_member_8hpp_source.html">tgbotxx/objects/ChatMember.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_member_updated_8hpp_source.html">tgbotxx/objects/ChatMemberUpdated.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_permissions_8hpp_source.html">tgbotxx/objects/ChatPermissions.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_photo_8hpp_source.html">tgbotxx/objects/ChatPhoto.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_shared_8hpp_source.html">tgbotxx/objects/ChatShared.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chosen_inline_result_8hpp_source.html">tgbotxx/objects/ChosenInlineResult.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_contact_8hpp_source.html">tgbotxx/objects/Contact.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_dice_8hpp_source.html">tgbotxx/objects/Dice.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_document_8hpp_source.html">tgbotxx/objects/Document.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_encrypted_credentials_8hpp_source.html">tgbotxx/objects/EncryptedCredentials.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_encrypted_passport_element_8hpp_source.html">tgbotxx/objects/EncryptedPassportElement.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_file_8hpp_source.html">tgbotxx/objects/File.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_force_reply_8hpp_source.html">tgbotxx/objects/ForceReply.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_forum_topic_8hpp_source.html">tgbotxx/objects/ForumTopic.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_forum_topic_closed_8hpp_source.html">tgbotxx/objects/ForumTopicClosed.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_forum_topic_created_8hpp_source.html">tgbotxx/objects/ForumTopicCreated.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_forum_topic_edited_8hpp_source.html">tgbotxx/objects/ForumTopicEdited.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_forum_topic_reopened_8hpp_source.html">tgbotxx/objects/ForumTopicReopened.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_game_8hpp_source.html">tgbotxx/objects/Game.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_general_forum_topic_hidden_8hpp_source.html">tgbotxx/objects/GeneralForumTopicHidden.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_general_forum_topic_unhidden_8hpp_source.html">tgbotxx/objects/GeneralForumTopicUnhidden.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_i_reply_markup_8hpp_source.html">tgbotxx/objects/IReplyMarkup.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_inline_keyboard_button_8hpp_source.html">tgbotxx/objects/InlineKeyboardButton.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_inline_keyboard_markup_8hpp_source.html">tgbotxx/objects/InlineKeyboardMarkup.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_inline_query_8hpp_source.html">tgbotxx/objects/InlineQuery.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_input_media_8hpp_source.html">tgbotxx/objects/InputMedia.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_invoice_8hpp_source.html">tgbotxx/objects/Invoice.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_keyboard_button_8hpp_source.html">tgbotxx/objects/KeyboardButton.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_keyboard_button_poll_type_8hpp_source.html">tgbotxx/objects/KeyboardButtonPollType.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_keyboard_button_request_chat_8hpp_source.html">tgbotxx/objects/KeyboardButtonRequestChat.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_keyboard_button_request_user_8hpp_source.html">tgbotxx/objects/KeyboardButtonRequestUser.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_location_8hpp_source.html">tgbotxx/objects/Location.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_login_url_8hpp_source.html">tgbotxx/objects/LoginUrl.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_mask_position_8hpp_source.html">tgbotxx/objects/MaskPosition.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_message_8hpp_source.html">tgbotxx/objects/Message.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_message_auto_delete_timer_changed_8hpp_source.html">tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_message_entity_8hpp_source.html">tgbotxx/objects/MessageEntity.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_message_id_8hpp_source.html">tgbotxx/objects/MessageId.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_object_8hpp_source.html">tgbotxx/objects/Object.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_order_info_8hpp_source.html">tgbotxx/objects/OrderInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_passport_data_8hpp_source.html">tgbotxx/objects/PassportData.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_passport_file_8hpp_source.html">tgbotxx/objects/PassportFile.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_photo_size_8hpp_source.html">tgbotxx/objects/PhotoSize.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_poll_8hpp_source.html">tgbotxx/objects/Poll.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_poll_answer_8hpp_source.html">tgbotxx/objects/PollAnswer.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_poll_option_8hpp_source.html">tgbotxx/objects/PollOption.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_pre_checkout_query_8hpp_source.html">tgbotxx/objects/PreCheckoutQuery.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_proximity_alert_triggered_8hpp_source.html">tgbotxx/objects/ProximityAlertTriggered.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_reply_keyboard_markup_8hpp_source.html">tgbotxx/objects/ReplyKeyboardMarkup.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_reply_keyboard_remove_8hpp_source.html">tgbotxx/objects/ReplyKeyboardRemove.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_shipping_address_8hpp_source.html">tgbotxx/objects/ShippingAddress.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_shipping_query_8hpp_source.html">tgbotxx/objects/ShippingQuery.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_sticker_8hpp_source.html">tgbotxx/objects/Sticker.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_story_8hpp_source.html">tgbotxx/objects/Story.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_successful_payment_8hpp_source.html">tgbotxx/objects/SuccessfulPayment.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_switch_inline_query_chosen_chat_8hpp_source.html">tgbotxx/objects/SwitchInlineQueryChosenChat.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_update_8hpp_source.html">tgbotxx/objects/Update.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_user_8hpp_source.html">tgbotxx/objects/User.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_user_profile_photos_8hpp_source.html">tgbotxx/objects/UserProfilePhotos.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_user_shared_8hpp_source.html">tgbotxx/objects/UserShared.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_venue_8hpp_source.html">tgbotxx/objects/Venue.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_8hpp_source.html">tgbotxx/objects/Video.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_chat_ended_8hpp_source.html">tgbotxx/objects/VideoChatEnded.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_chat_participants_invited_8hpp_source.html">tgbotxx/objects/VideoChatParticipantsInvited.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_chat_scheduled_8hpp_source.html">tgbotxx/objects/VideoChatScheduled.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_chat_started_8hpp_source.html">tgbotxx/objects/VideoChatStarted.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_video_note_8hpp_source.html">tgbotxx/objects/VideoNote.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_voice_8hpp_source.html">tgbotxx/objects/Voice.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_web_app_data_8hpp_source.html">tgbotxx/objects/WebAppData.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_web_app_info_8hpp_source.html">tgbotxx/objects/WebAppInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_write_access_allowed_8hpp_source.html">tgbotxx/objects/WriteAccessAllowed.hpp</a>&gt;</code><br />
+<code>#include &lt;variant&gt;</code><br />
+</div>
 <p><a href="_api_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -110,7 +199,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="_api_8hpp.html">Api.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 14 2023 13:20:40 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 15 2023 10:16:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

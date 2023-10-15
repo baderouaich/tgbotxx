@@ -1,5 +1,15 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d":[1,0,0,64,7],
+"structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8":[1,0,0,64,3],
+"structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2":[1,0,0,64,0],
+"structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977":[1,0,0,64,1],
+"structtgbotxx_1_1_login_url.html#abb91873363874cd600c6002b84f2ae8c":[1,0,0,64,2],
+"structtgbotxx_1_1_mask_position.html":[1,0,0,65],
+"structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe":[1,0,0,65,0],
+"structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,65,5],
+"structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,65,2],
+"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,65,1],
 "structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3":[1,0,0,65,3],
 "structtgbotxx_1_1_mask_position.html#ac00c21d7ce9443e71a8d257121171a7b":[1,0,0,65,6],
 "structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00":[1,0,0,65,4],
@@ -239,15 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_shipping_address.html#a7cb094d6bca38bcc10e95f9dd31e7372":[1,0,0,81,3],
 "structtgbotxx_1_1_shipping_address.html#a8139363b4f8c3dc873ba143a511592f6":[1,0,0,81,0],
 "structtgbotxx_1_1_shipping_address.html#ac2139452cb3b98439397422fb42b578d":[1,0,0,81,1],
-"structtgbotxx_1_1_shipping_address.html#ac62a134610b0437109d9aa3aa1256d13":[1,0,0,81,2],
-"structtgbotxx_1_1_shipping_address.html#ae747b6112462d88464321ce757509c60":[1,0,0,81,9],
-"structtgbotxx_1_1_shipping_address.html#af134f7a808798df17ef22c92c5218ace":[1,0,0,81,5],
-"structtgbotxx_1_1_shipping_address.html#af96ede3d2f60f95d09f61197ccd63bc9":[1,0,0,81,7],
-"structtgbotxx_1_1_shipping_query.html":[1,0,0,82],
-"structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d":[1,0,0,82,0],
-"structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c":[1,0,0,82,1],
-"structtgbotxx_1_1_shipping_query.html#a6a23fb3dee7b8e8de3b8e08ead8acff2":[1,0,0,82,2],
-"structtgbotxx_1_1_shipping_query.html#a72c1ddaade24af6b5d2fd107ee7c05d7":[1,0,0,82,5],
-"structtgbotxx_1_1_shipping_query.html#a85c513fb9db09f9f9aec348812c0f7d3":[1,0,0,82,4],
-"structtgbotxx_1_1_shipping_query.html#a95c3da5a7248d09994c52d7582e7fb9f":[1,0,0,82,6]
+"structtgbotxx_1_1_shipping_address.html#ac62a134610b0437109d9aa3aa1256d13":[1,0,0,81,2]
 };

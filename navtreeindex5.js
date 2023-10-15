@@ -1,5 +1,15 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_shipping_address.html#ae747b6112462d88464321ce757509c60":[1,0,0,81,9],
+"structtgbotxx_1_1_shipping_address.html#af134f7a808798df17ef22c92c5218ace":[1,0,0,81,5],
+"structtgbotxx_1_1_shipping_address.html#af96ede3d2f60f95d09f61197ccd63bc9":[1,0,0,81,7],
+"structtgbotxx_1_1_shipping_query.html":[1,0,0,82],
+"structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d":[1,0,0,82,0],
+"structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c":[1,0,0,82,1],
+"structtgbotxx_1_1_shipping_query.html#a6a23fb3dee7b8e8de3b8e08ead8acff2":[1,0,0,82,2],
+"structtgbotxx_1_1_shipping_query.html#a72c1ddaade24af6b5d2fd107ee7c05d7":[1,0,0,82,5],
+"structtgbotxx_1_1_shipping_query.html#a85c513fb9db09f9f9aec348812c0f7d3":[1,0,0,82,4],
+"structtgbotxx_1_1_shipping_query.html#a95c3da5a7248d09994c52d7582e7fb9f":[1,0,0,82,6],
 "structtgbotxx_1_1_shipping_query.html#ad0683737643164c9fc30d821f51ff2d1":[1,0,0,82,3],
 "structtgbotxx_1_1_shipping_query.html#ade1c4c310ff5cbf150c5a6aa9e64517f":[1,0,0,82,7],
 "structtgbotxx_1_1_sticker.html":[1,0,0,83],

@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_document.html#ae37911cad123c3fdebf7b9719f955ede":[1,0,0,35,8],
+"structtgbotxx_1_1_document.html#ae3f60309b7d04c01ff01855cebd95c47":[1,0,0,35,6],
+"structtgbotxx_1_1_document.html#af144ddbdb169ccac5d42d839a8afdb9d":[1,0,0,35,3],
+"structtgbotxx_1_1_encrypted_credentials.html":[1,0,0,36],
+"structtgbotxx_1_1_encrypted_credentials.html#a15427c8f6f34cb6c0aaecc94c7d9d450":[1,0,0,36,3],
+"structtgbotxx_1_1_encrypted_credentials.html#a386b65e535fc2ac511f754f81d2d6769":[1,0,0,36,0],
+"structtgbotxx_1_1_encrypted_credentials.html#a77eaabf89c2ccd96fb04f150103f8792":[1,0,0,36,4],
+"structtgbotxx_1_1_encrypted_credentials.html#aadc1e077f53731d480309336eb8d9093":[1,0,0,36,1],
+"structtgbotxx_1_1_encrypted_credentials.html#ab6dd7a7cd1c0b5b4e00448d713e2f608":[1,0,0,36,2],
+"structtgbotxx_1_1_encrypted_credentials.html#ae6e378f61e154e0a773547ad44a9db55":[1,0,0,36,6],
 "structtgbotxx_1_1_encrypted_credentials.html#aefb55e84581db50a6029e83aaf544793":[1,0,0,36,5],
 "structtgbotxx_1_1_encrypted_passport_element.html":[1,0,0,37],
 "structtgbotxx_1_1_encrypted_passport_element.html#a014d6928eb48a8349294d05c50a32e79":[1,0,0,37,13],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_login_url.html":[1,0,0,64],
 "structtgbotxx_1_1_login_url.html#a0fe54ed90b2a5e0a1b51bb5958e606be":[1,0,0,64,4],
 "structtgbotxx_1_1_login_url.html#a25ce97fc465a1ea8e0c074475d320b26":[1,0,0,64,5],
-"structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147":[1,0,0,64,6],
-"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d":[1,0,0,64,7],
-"structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8":[1,0,0,64,3],
-"structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2":[1,0,0,64,0],
-"structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977":[1,0,0,64,1],
-"structtgbotxx_1_1_login_url.html#abb91873363874cd600c6002b84f2ae8c":[1,0,0,64,2],
-"structtgbotxx_1_1_mask_position.html":[1,0,0,65],
-"structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe":[1,0,0,65,0],
-"structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,65,5],
-"structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,65,2],
-"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,65,1]
+"structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147":[1,0,0,64,6]
 };

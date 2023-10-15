@@ -83,19 +83,476 @@ $(document).ready(function(){initNavTree('_object_8hpp.html',''); initResizable(
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Object.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;<a class="el" href="_exception_8hpp_source.html">tgbotxx/Exception.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_ptr_8hpp_source.html">tgbotxx/utils/Ptr.hpp</a>&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
 <p><a href="_object_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">OBJECT_SERIALIZE_FIELD</a>(json,  json_field,  field)&#160;&#160;&#160;  json[json_field] = field;</td></tr>
+<tr class="memdesc:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>.  <a href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">More...</a><br /></td></tr>
+<tr class="separator:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46c79079559432ca7c005b6d81bfe3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ab46c79079559432ca7c005b6d81bfe3d">OBJECT_SERIALIZE_FIELD_PTR</a>(json,  json_field,  field,  default_value)&#160;&#160;&#160;  json[json_field] = field ? field-&gt;toJson() : default_value</td></tr>
+<tr class="separator:ab46c79079559432ca7c005b6d81bfe3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db08aa2e59210a0f40834d022000b31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a>(json,  json_field,  array_field)</td></tr>
+<tr class="separator:a1db08aa2e59210a0f40834d022000b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5989e55603d7c0f51eb23ca2b8542e83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json,  json_field,  array_array_field)</td></tr>
+<tr class="separator:a5989e55603d7c0f51eb23ca2b8542e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">OBJECT_DESERIALIZE_FIELD</a>(json,  json_field,  field,  default_value,  optional)</td></tr>
+<tr class="memdesc:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize.  <a href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">More...</a><br /></td></tr>
+<tr class="separator:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f92a5ada9a8ff7aac5151925ad1a19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(json,  json_field,  field,  optional)</td></tr>
+<tr class="separator:a25f92a5ada9a8ff7aac5151925ad1a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b3310f245b3966305bd80e1e673cc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a>(json,  json_field,  array_field,  optional)</td></tr>
+<tr class="separator:ac0b3310f245b3966305bd80e1e673cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8a4563132fc0614d8ea401dd1059e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json,  json_field,  array_array_field,  optional)</td></tr>
+<tr class="separator:a6e8a4563132fc0614d8ea401dd1059e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a90e832fd1bb8a47ee1eabf6a0f69442c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e832fd1bb8a47ee1eabf6a0f69442c">&#9670;&nbsp;</a></span>OBJECT_DESERIALIZE_FIELD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_DESERIALIZE_FIELD</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">default_value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">optional&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (json.contains(json_field)) {                                                                \</div>
+<div class="line">    try {                                                                                         \</div>
+<div class="line">      using T = std::remove_reference_t&lt;std::remove_const_t&lt;decltype(field)&gt;&gt;;                    \</div>
+<div class="line">      field = json[json_field].get&lt;T&gt;();                                                          \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                           \</div>
+<div class="line">      std::ostringstream err{};                                                                   \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();   \</div>
+<div class="line">      throw Exception(err.str());                                                                 \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (...) {                                                                               \</div>
+<div class="line">      std::ostringstream err{};                                                                   \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
+<div class="line">      throw Exception(err.str());                                                                 \</div>
+<div class="line">    }                                                                                             \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                                        \</div>
+<div class="line">    if (not(optional)) {                                                                          \</div>
+<div class="line">      std::ostringstream err{};                                                                   \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span> \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
+<div class="line">      throw Exception(err.str());                                                                 \</div>
+<div class="line">    }                                                                                             \</div>
+<div class="line">    field = default_value;                                                                        \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p>Deserialize. </p>
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00041">41</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a25f92a5ada9a8ff7aac5151925ad1a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25f92a5ada9a8ff7aac5151925ad1a19">&#9670;&nbsp;</a></span>OBJECT_DESERIALIZE_FIELD_PTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_DESERIALIZE_FIELD_PTR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">optional&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  static_assert(!std::is_const_v&lt;decltype(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;field&#39; must not be const&quot;</span>);         \</div>
+<div class="line">  static_assert(std::is_same_v&lt;decltype(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;optional&#39; must be boolean&quot;</span>); \</div>
+<div class="line">  if (json.contains(json_field)) {                                                                                     \</div>
+<div class="line">    using T = std::remove_reference_t&lt;decltype(field)&gt;;                                                                \</div>
+<div class="line">    using E = T::element_type;                                                                                         \</div>
+<div class="line">    field.reset(<span class="keyword">new</span> (E)(json[json_field]));                                                                            \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                                                             \</div>
+<div class="line">    if (not(optional)) {                                                                                               \</div>
+<div class="line">      std::ostringstream err{};                                                                                        \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                      \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                    \</div>
+<div class="line">      throw Exception(err.str());                                                                                      \</div>
+<div class="line">    }                                                                                                                  \</div>
+<div class="line">    field = <span class="keyword">nullptr</span>;                                                                                                   \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00067">67</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac0b3310f245b3966305bd80e1e673cc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b3310f245b3966305bd80e1e673cc7">&#9670;&nbsp;</a></span>OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">array_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">optional&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  static_assert(!std::is_const_v&lt;decltype(array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;field&#39; must not be const&quot;</span>);   \</div>
+<div class="line">  static_assert(std::is_same_v&lt;decltype(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;optional&#39; must be boolean&quot;</span>); \</div>
+<div class="line">  if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                       \</div>
+<div class="line">    using T = std::remove_reference_t&lt;std::remove_const_t&lt;decltype(array_field)::value_type&gt;&gt;;                               \</div>
+<div class="line">    using E = T::element_type;                                                                                               \</div>
+<div class="line">    array_field.reserve(json[json_field].size());                                                                            \</div>
+<div class="line">    for (<span class="keyword">const</span> nl::json&amp; obj: json[json_field]) {                                                                            \</div>
+<div class="line">      array_field.emplace_back(<span class="keyword">new</span> E(obj));                                                                                  \</div>
+<div class="line">    }                                                                                                                        \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                                                                   \</div>
+<div class="line">    if (not(optional)) {                                                                                                     \</div>
+<div class="line">      std::ostringstream err{};                                                                                              \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                            \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                          \</div>
+<div class="line">      throw Exception(err.str());                                                                                            \</div>
+<div class="line">    }                                                                                                                        \</div>
+<div class="line">    array_field.clear();                                                                                                     \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00084">84</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6e8a4563132fc0614d8ea401dd1059e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8a4563132fc0614d8ea401dd1059e2">&#9670;&nbsp;</a></span>OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">array_array_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">optional&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  static_assert(!std::is_const_v&lt;decltype(array_array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;field&#39; must not be const&quot;</span>); \</div>
+<div class="line">  static_assert(std::is_same_v&lt;decltype(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;optional&#39; must be boolean&quot;</span>);     \</div>
+<div class="line">  if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                                 \</div>
+<div class="line">    using ArrayArray = decltype(array_array_field);                                                                                    \</div>
+<div class="line">    using Array = ArrayArray::value_type;         <span class="comment">/* e.g vector&lt;vector&lt;int&gt; &lt;- &gt; */</span>                                                    \</div>
+<div class="line">    using T = ArrayArray::value_type::value_type; <span class="comment">/* e.g vector&lt;vector&lt;int&gt;&gt; &lt;-  */</span>                                                    \</div>
+<div class="line">    using E = T::element_type;                                                                                                         \</div>
+<div class="line">    array_array_field.reserve(json[json_field].size());                                                                                \</div>
+<div class="line">    for (<span class="keyword">const</span> nl::json&amp; array: json[json_field]) {                                                                                    \</div>
+<div class="line">      Array arr;                                                                                                                       \</div>
+<div class="line">      arr.reserve(array.size());                                                                                                       \</div>
+<div class="line">      for (<span class="keyword">const</span> nl::json&amp; obj: array) {                                                                                               \</div>
+<div class="line">        arr.emplace_back(<span class="keyword">new</span> E(obj));                                                                                                  \</div>
+<div class="line">      }                                                                                                                                \</div>
+<div class="line">      array_array_field.push_back(std::move(arr));                                                                                     \</div>
+<div class="line">    }                                                                                                                                  \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                                                                             \</div>
+<div class="line">    if (not(optional)) {                                                                                                               \</div>
+<div class="line">      std::ostringstream err{};                                                                                                        \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                                      \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                                    \</div>
+<div class="line">      throw Exception(err.str());                                                                                                      \</div>
+<div class="line">    }                                                                                                                                  \</div>
+<div class="line">    array_array_field.clear();                                                                                                         \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00105">105</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3aba7f6dbd6431b702cd63e69d2b31f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aba7f6dbd6431b702cd63e69d2b31f3">&#9670;&nbsp;</a></span>OBJECT_SERIALIZE_FIELD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_SERIALIZE_FIELD</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  json[json_field] = field;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>. </p>
+<p>Helper macros to de/serialize objects Serialize </p>
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00018">18</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab46c79079559432ca7c005b6d81bfe3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46c79079559432ca7c005b6d81bfe3d">&#9670;&nbsp;</a></span>OBJECT_SERIALIZE_FIELD_PTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_SERIALIZE_FIELD_PTR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">default_value&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  json[json_field] = field ? field-&gt;toJson() : default_value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00021">21</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1db08aa2e59210a0f40834d022000b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db08aa2e59210a0f40834d022000b31">&#9670;&nbsp;</a></span>OBJECT_SERIALIZE_FIELD_PTR_ARRAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_SERIALIZE_FIELD_PTR_ARRAY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">array_field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  json[json_field] = nl::json::array();                                 \</div>
+<div class="line">  for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array_field)                                      \</div>
+<div class="line">    json[json_field].push_back(e-&gt;toJson());</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00024">24</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5989e55603d7c0f51eb23ca2b8542e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5989e55603d7c0f51eb23ca2b8542e83">&#9670;&nbsp;</a></span>OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">array_array_field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  json[json_field] = nl::json::array();                                             \</div>
+<div class="line">  for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; array: array_array_field) {                                      \</div>
+<div class="line">    nl::json arr = nl::json::array();                                               \</div>
+<div class="line">    for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array) {                                                    \</div>
+<div class="line">      arr.push_back(e-&gt;toJson());                                                   \</div>
+<div class="line">    }                                                                               \</div>
+<div class="line">    json[json_field].push_back(arr);                                                \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00029">29</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_object_8hpp.html">Object.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 14 2023 13:20:40 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 15 2023 10:16:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

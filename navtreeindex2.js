@@ -1,5 +1,15 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_callback_query.html#a8d5dd9c49e6dcf1533ed177c16d0d559":[1,0,0,15,2],
+"structtgbotxx_1_1_callback_query.html#aa9295345801263c276be32414de65e41":[1,0,0,15,0],
+"structtgbotxx_1_1_callback_query.html#aad8535d442df59e63cf73a00dfaa5ebd":[1,0,0,15,8],
+"structtgbotxx_1_1_callback_query.html#adc55d57c9a45b5fd394d49a115833c31":[1,0,0,15,3],
+"structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d":[1,0,0,15,10],
+"structtgbotxx_1_1_callback_query.html#af99338fc868971a0bc30989b59890642":[1,0,0,15,1],
+"structtgbotxx_1_1_chat.html":[1,0,0,16],
+"structtgbotxx_1_1_chat.html#a0492522f25caefaa27c70d901fa9de62":[1,0,0,16,15],
+"structtgbotxx_1_1_chat.html#a0fbe77d686b33a21bf44d1bb7baa7d3b":[1,0,0,16,11],
+"structtgbotxx_1_1_chat.html#a16b893444762b20cf399b4073e998d2a":[1,0,0,16,13],
 "structtgbotxx_1_1_chat.html#a18fe024a672731db78e84f8744cd326e":[1,0,0,16,6],
 "structtgbotxx_1_1_chat.html#a29b59f8c62533c7623f769122401897e":[1,0,0,16,29],
 "structtgbotxx_1_1_chat.html#a2e9619145c8744a3ce2de464973720a8":[1,0,0,16,10],
@@ -239,15 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_document.html#abb520b7c79f8f50f1bbc0a69f7b898d0":[1,0,0,35,2],
 "structtgbotxx_1_1_document.html#ac634df957b3c5e3a3e0e6e4f137a2c64":[1,0,0,35,4],
 "structtgbotxx_1_1_document.html#ad9a731b39b41eb9b07a6fa8050820e66":[1,0,0,35,5],
-"structtgbotxx_1_1_document.html#ae1fdb6dcd2e7d71594b717f5737d7a00":[1,0,0,35,0],
-"structtgbotxx_1_1_document.html#ae37911cad123c3fdebf7b9719f955ede":[1,0,0,35,8],
-"structtgbotxx_1_1_document.html#ae3f60309b7d04c01ff01855cebd95c47":[1,0,0,35,6],
-"structtgbotxx_1_1_document.html#af144ddbdb169ccac5d42d839a8afdb9d":[1,0,0,35,3],
-"structtgbotxx_1_1_encrypted_credentials.html":[1,0,0,36],
-"structtgbotxx_1_1_encrypted_credentials.html#a15427c8f6f34cb6c0aaecc94c7d9d450":[1,0,0,36,3],
-"structtgbotxx_1_1_encrypted_credentials.html#a386b65e535fc2ac511f754f81d2d6769":[1,0,0,36,0],
-"structtgbotxx_1_1_encrypted_credentials.html#a77eaabf89c2ccd96fb04f150103f8792":[1,0,0,36,4],
-"structtgbotxx_1_1_encrypted_credentials.html#aadc1e077f53731d480309336eb8d9093":[1,0,0,36,1],
-"structtgbotxx_1_1_encrypted_credentials.html#ab6dd7a7cd1c0b5b4e00448d713e2f608":[1,0,0,36,2],
-"structtgbotxx_1_1_encrypted_credentials.html#ae6e378f61e154e0a773547ad44a9db55":[1,0,0,36,6]
+"structtgbotxx_1_1_document.html#ae1fdb6dcd2e7d71594b717f5737d7a00":[1,0,0,35,0]
 };

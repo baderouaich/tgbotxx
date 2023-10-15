@@ -1,5 +1,13 @@
 var NAVTREEINDEX1 =
 {
+"classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb":[1,0,0,0,10],
+"classtgbotxx_1_1_api.html#ab1891964ffa7a546d0ac292245df48aa":[1,0,0,0,57],
+"classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c":[1,0,0,0,22],
+"classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b":[1,0,0,0,34],
+"classtgbotxx_1_1_api.html#abc574569687df39f09f8b19c9111620c":[1,0,0,0,58],
+"classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538":[1,0,0,0,20],
+"classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1":[1,0,0,0,5],
+"classtgbotxx_1_1_api.html#ac20f5fa4ae8213841989b4e967573cdb":[1,0,0,0,7],
 "classtgbotxx_1_1_api.html#acbfd1def3f70a117bf95189a8068ed5c":[1,0,0,0,48],
 "classtgbotxx_1_1_api.html#ad1f04a27970c76fa4ad0923bf0bd096b":[1,0,0,0,9],
 "classtgbotxx_1_1_api.html#ad4250178e3ee176c8ac2f5a6d07d0eab":[1,0,0,0,28],
@@ -124,6 +132,8 @@ var NAVTREEINDEX1 =
 "functions_x.html":[1,3,0,23],
 "functions_y.html":[1,3,0,24],
 "functions_~.html":[1,3,0,25],
+"globals.html":[2,1,0],
+"globals_defs.html":[2,1,1],
 "hierarchy.html":[1,2],
 "index.html":[],
 "namespacemembers.html":[0,1,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_callback_query.html#a3b83daf8a1033ce5950cf67757c7488d":[1,0,0,15,6],
 "structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2":[1,0,0,15,7],
 "structtgbotxx_1_1_callback_query.html#a6614f6b3e6ccdb8cdebc254c2f204524":[1,0,0,15,5],
-"structtgbotxx_1_1_callback_query.html#a6fd60113fc325b44bd6db3b51bab707d":[1,0,0,15,4],
-"structtgbotxx_1_1_callback_query.html#a8d5dd9c49e6dcf1533ed177c16d0d559":[1,0,0,15,2],
-"structtgbotxx_1_1_callback_query.html#aa9295345801263c276be32414de65e41":[1,0,0,15,0],
-"structtgbotxx_1_1_callback_query.html#aad8535d442df59e63cf73a00dfaa5ebd":[1,0,0,15,8],
-"structtgbotxx_1_1_callback_query.html#adc55d57c9a45b5fd394d49a115833c31":[1,0,0,15,3],
-"structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d":[1,0,0,15,10],
-"structtgbotxx_1_1_callback_query.html#af99338fc868971a0bc30989b59890642":[1,0,0,15,1],
-"structtgbotxx_1_1_chat.html":[1,0,0,16],
-"structtgbotxx_1_1_chat.html#a0492522f25caefaa27c70d901fa9de62":[1,0,0,16,15],
-"structtgbotxx_1_1_chat.html#a0fbe77d686b33a21bf44d1bb7baa7d3b":[1,0,0,16,11],
-"structtgbotxx_1_1_chat.html#a16b893444762b20cf399b4073e998d2a":[1,0,0,16,13]
+"structtgbotxx_1_1_callback_query.html#a6fd60113fc325b44bd6db3b51bab707d":[1,0,0,15,4]
 };

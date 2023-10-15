@@ -45,7 +45,11 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
   ] ]
@@ -54,11 +58,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a-example.html",
-"classtgbotxx_1_1_api.html#acbfd1def3f70a117bf95189a8068ed5c",
-"structtgbotxx_1_1_chat.html#a18fe024a672731db78e84f8744cd326e",
-"structtgbotxx_1_1_encrypted_credentials.html#aefb55e84581db50a6029e83aaf544793",
-"structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3",
-"structtgbotxx_1_1_shipping_query.html#ad0683737643164c9fc30d821f51ff2d1"
+"classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb",
+"structtgbotxx_1_1_callback_query.html#a8d5dd9c49e6dcf1533ed177c16d0d559",
+"structtgbotxx_1_1_document.html#ae37911cad123c3fdebf7b9719f955ede",
+"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d",
+"structtgbotxx_1_1_shipping_address.html#ae747b6112462d88464321ce757509c60"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
