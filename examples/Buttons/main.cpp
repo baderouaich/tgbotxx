@@ -1,4 +1,3 @@
-#include "tgbotxx/objects/InlineQuery.hpp"
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
 #include <csignal>
