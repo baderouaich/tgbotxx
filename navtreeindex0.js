@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"_a-example.html":[3,1],
 "_animation_8hpp.html":[2,0,0,0,0,0],
 "_animation_8hpp_source.html":[2,0,0,0,0,0],
 "_api_8hpp.html":[2,0,0,0,2],
@@ -54,7 +53,6 @@ var NAVTREEINDEX0 =
 "_encrypted_credentials_8hpp_source.html":[2,0,0,0,0,20],
 "_encrypted_passport_element_8hpp.html":[2,0,0,0,0,21],
 "_encrypted_passport_element_8hpp_source.html":[2,0,0,0,0,21],
-"_example-example.html":[3,0],
 "_exception_8hpp.html":[2,0,0,0,4],
 "_exception_8hpp_source.html":[2,0,0,0,4],
 "_file_8hpp.html":[2,0,0,0,0,22],
@@ -210,7 +208,6 @@ var NAVTREEINDEX0 =
 "_write_access_allowed_8hpp.html":[2,0,0,0,0,81],
 "_write_access_allowed_8hpp_source.html":[2,0,0,0,0,81],
 "annotated.html":[1,0],
-"array-example.html":[3,2],
 "classes.html":[1,1],
 "classtgbotxx_1_1_api.html":[1,0,0,0],
 "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519":[1,0,0,0,18],
@@ -249,5 +246,8 @@ var NAVTREEINDEX0 =
 "classtgbotxx_1_1_api.html#a91cd887b183fa8a2cbe4747fb67ca05b":[1,0,0,0,61],
 "classtgbotxx_1_1_api.html#aa6476d7aa1e627621ca839c8cdd2b0ae":[1,0,0,0,25],
 "classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b":[1,0,0,0,56],
-"classtgbotxx_1_1_api.html#aaace035490f52886245bd85c85224a94":[1,0,0,0,39]
+"classtgbotxx_1_1_api.html#aaace035490f52886245bd85c85224a94":[1,0,0,0,39],
+"classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb":[1,0,0,0,10],
+"classtgbotxx_1_1_api.html#ab1891964ffa7a546d0ac292245df48aa":[1,0,0,0,57],
+"classtgbotxx_1_1_api.html#ab4f0eb34c1e3ec51db86aa0be868294c":[1,0,0,0,22]
 };

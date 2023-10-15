@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_force_reply.html',''
 </div><!--header-->
 <div class="contents">
 
+<p>Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. <a href="https://core.telegram.org/bots/features#privacy-mode">https://core.telegram.org/bots/features#privacy-mode</a> Example. A poll bot for groups runs in privacy mode (only receives commands, replies to its messages and mentions). There could be two ways to create a new poll:  
+ <a href="structtgbotxx_1_1_force_reply.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_force_reply_8hpp_source.html">ForceReply.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for tgbotxx::ForceReply:</div>
@@ -121,7 +124,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae5fb26168a9e14ea8150a5595ce25d3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_force_reply.html#ae5fb26168a9e14ea8150a5595ce25d3c">forceReply</a> {}</td></tr>
 <tr class="memdesc:ae5fb26168a9e14ea8150a5595ce25d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'.  <a href="structtgbotxx_1_1_force_reply.html#ae5fb26168a9e14ea8150a5595ce25d3c">More...</a><br /></td></tr>
 <tr class="separator:ae5fb26168a9e14ea8150a5595ce25d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac795882fb5502eaf585e9a1e5ca97835"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_force_reply.html#ac795882fb5502eaf585e9a1e5ca97835">inputFieldPlaceholder</a> {}</td></tr>
+<tr class="memitem:ac795882fb5502eaf585e9a1e5ca97835"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_force_reply.html#ac795882fb5502eaf585e9a1e5ca97835">inputFieldPlaceholder</a></td></tr>
 <tr class="memdesc:ac795882fb5502eaf585e9a1e5ca97835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. The placeholder to be shown in the input field when the reply is active; 1-64 characters.  <a href="structtgbotxx_1_1_force_reply.html#ac795882fb5502eaf585e9a1e5ca97835">More...</a><br /></td></tr>
 <tr class="separator:ac795882fb5502eaf585e9a1e5ca97835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9b25eb4973c0c1a0841419fa6244511"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_force_reply.html#ac9b25eb4973c0c1a0841419fa6244511">selective</a> {}</td></tr>
@@ -129,7 +132,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac9b25eb4973c0c1a0841419fa6244511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. <a href="https://core.telegram.org/bots/features#privacy-mode">https://core.telegram.org/bots/features#privacy-mode</a> Example. A poll bot for groups runs in privacy mode (only receives commands, replies to its messages and mentions). There could be two ways to create a new poll: </p>
+<ul>
+<li>Explain the user how to send a command with parameters (e.g. /newpoll question answer1 answer2). May be appealing for hardcore users but lacks modern day polish.</li>
+<li>Guide the user through a step-by-step process. 'Please send me your question', 'Cool, now let's add the first answer option', 'Great. Keep adding answer options, then send /done when you're ready'. The last option is definitely more attractive. And if you use <a class="el" href="structtgbotxx_1_1_force_reply.html" title="Upon receiving a message with this object, Telegram clients will display a reply interface to the use...">ForceReply</a> in your bot's questions, it will receive the user's answers even if it only receives replies, commands and mentions - without any extra work for the user. <a href="https://core.telegram.org/bots/api#forcereply">https://core.telegram.org/bots/api#forcereply</a> </li>
+</ul>
+
 <p class="definition">Definition at line <a class="el" href="_force_reply_8hpp_source.html#l00015">15</a> of file <a class="el" href="_force_reply_8hpp_source.html">ForceReply.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab5596b23de8eab977115966c00e82f3e"></a>
@@ -276,7 +284,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string tgbotxx::ForceReply::inputFieldPlaceholder {}</td>
+          <td class="memname">std::string tgbotxx::ForceReply::inputFieldPlaceholder</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -318,7 +326,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_force_reply.html">ForceReply</a></li>
-    <li class="footer">Generated on Sun Oct 15 2023 10:16:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 15 2023 10:28:03 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

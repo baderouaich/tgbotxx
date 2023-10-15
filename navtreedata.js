@@ -50,19 +50,18 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_a-example.html",
-"classtgbotxx_1_1_api.html#ab1809c943b7b53904f798f71cd57cdcb",
-"structtgbotxx_1_1_callback_query.html#a8d5dd9c49e6dcf1533ed177c16d0d559",
-"structtgbotxx_1_1_document.html#ae37911cad123c3fdebf7b9719f955ede",
-"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d",
-"structtgbotxx_1_1_shipping_address.html#ae747b6112462d88464321ce757509c60"
+"_animation_8hpp.html",
+"classtgbotxx_1_1_api.html#ab720518f8fa4535a52e0c842f59df61b",
+"structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d",
+"structtgbotxx_1_1_encrypted_credentials.html#a15427c8f6f34cb6c0aaecc94c7d9d450",
+"structtgbotxx_1_1_login_url.html#abb91873363874cd600c6002b84f2ae8c",
+"structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -125,6 +125,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ac8a30b186904dbb610c9e59c446a8114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use oneTimeKeyboard in <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a>)  <a href="structtgbotxx_1_1_reply_keyboard_remove.html#ac8a30b186904dbb610c9e59c446a8114">More...</a><br /></td></tr>
 <tr class="separator:ac8a30b186904dbb610c9e59c446a8114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65d4e15f9ce1244b8a917d34a24b0bf8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8">selective</a> {}</td></tr>
+<tr class="memdesc:a65d4e15f9ce1244b8a917d34a24b0bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets:  <a href="structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8">More...</a><br /></td></tr>
 <tr class="separator:a65d4e15f9ce1244b8a917d34a24b0bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -281,6 +282,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: </p>
+<ul>
+<li>1) users that are @mentioned in the text of the <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object;</li>
+<li>2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.</li>
+</ul>
+<p>Example A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet. </p>
+
 <p class="definition">Definition at line <a class="el" href="_reply_keyboard_remove_8hpp_source.html#l00026">26</a> of file <a class="el" href="_reply_keyboard_remove_8hpp_source.html">ReplyKeyboardRemove.hpp</a>.</p>
 
 </div>
@@ -294,7 +302,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html">ReplyKeyboardRemove</a></li>
-    <li class="footer">Generated on Sun Oct 15 2023 10:16:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 15 2023 10:28:03 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
