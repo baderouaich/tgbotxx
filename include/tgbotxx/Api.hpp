@@ -709,7 +709,7 @@ namespace tgbotxx {
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @example Example: The ImageBot needs some time to process a request and upload the image. https://t.me/imagebot
+      /// Example: The ImageBot needs some time to process a request and upload the image. https://t.me/imagebot
       /// Instead of sending a text message along the lines of “Retrieving image, please wait…”,
       /// the bot may use sendChatAction with action = upload_photo. The user will see a “sending photo” status for the bot.
       /// @note We only recommend using this method when a response from the bot will take a noticeable amount of time to arrive.

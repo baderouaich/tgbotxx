@@ -9,10 +9,10 @@ namespace tgbotxx {
   /// @brief Namespace contains useful string related utility functions.
   namespace StringUtils {
     /// @brief Form a string from a container with a delimiter
-    /// @example: array = [1,2,3]
-    ///           StringUtils::join(array, ",") -> "1,2,3"
     /// @param con: Container of T elements
     /// @param delim: Text to put between each element T
+    /// Example: array = [1,2,3]
+    ///           StringUtils::join(array, ",") -> "1,2,3"
     template<typename T, typename D>
     static std::string join(const std::span<T>& con, const D& delim) {
       std::ostringstream oss{};
