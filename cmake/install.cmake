@@ -40,5 +40,5 @@ install(
 )
 
 # Install pkg-config file
-configure_file(${PROJECT_SOURCE_DIR}/tgbotxx.pc.in ${CMAKE_BINARY_DIR}/tgbotxx.pc @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/tgbotxx.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig/)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/tgbotxx.pc.in ${CMAKE_CURRENT_BINARY_DIR}/tgbotxx.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tgbotxx.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig/)
