@@ -80,7 +80,7 @@ class QrCodeBot : public Bot {
 
       // Save downloaded photo to ./photos/input/PHOTO.jpg
       fs::path photosDir = "photos/input";
-      if (!fs::exists(photosDir)) fs::create_directory(photosDir);
+      if (!fs::exists(photosDir)) fs::create_directories(photosDir);
       fs::path photoPath = photosDir / fs::path(file->filePath).filename();
       std::ofstream ofs{photoPath, std::ios::binary};
       ofs.write(bytes.data(), bytes.size());
