@@ -1,3 +1,5 @@
+#include "tgbotxx/objects/MenuButton.hpp"
+#include "tgbotxx/utils/Ptr.hpp"
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
@@ -65,71 +67,6 @@ Ptr<User> Api::getMe() const {
   return me;
 }
 
-bool Api::deleteWebhook(bool dropPendingUpdates) const {
-  cpr::Multipart data{};
-  if (dropPendingUpdates)
-    data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
-  return sendRequest("deleteWebhook", data);
-}
-
-/// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::int32_t timeout,
-                                         const std::vector<std::string>& allowedUpdates) const {
-  cpr::Multipart data = {
-    {"offset", offset},
-    {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
-    {"timeout", timeout},
-    {"allowed_updates", nl::json(allowedUpdates).dump()},
-  };
-  nl::json updatesJson = sendRequest("getUpdates", data);
-  std::vector<Ptr<Update>> updates;
-  updates.reserve(updatesJson.size());
-  for (const nl::json& updateObj: updatesJson) {
-    Ptr<Update> update(new Update(updateObj));
-    updates.push_back(std::move(update));
-  }
-  return updates;
-}
-
-bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
-                        const Ptr<BotCommandScope>& scope,
-                        const std::string& languageCode) const {
-  cpr::Multipart data{};
-  data.parts.reserve(3);
-
-  nl::json commandsJson = nl::json::array();
-  for (const Ptr<BotCommand>& command: commands)
-    commandsJson.push_back(command->toJson());
-  data.parts.emplace_back("commands", commandsJson.dump());
-  if (scope) {
-    data.parts.emplace_back("scope", scope->toJson().dump());
-  }
-  if (not languageCode.empty()) {
-    data.parts.emplace_back("language_code", languageCode);
-  }
-
-  return sendRequest("setMyCommands", data);
-}
-
-std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scope, const std::string& languageCode) const {
-  std::vector<Ptr<BotCommand>> commands;
-  cpr::Multipart data{};
-  data.parts.reserve(2);
-  if (scope)
-    data.parts.emplace_back("scope", scope->toJson().dump());
-  if (not languageCode.empty())
-    data.parts.emplace_back("language_code", languageCode);
-
-  nl::json commandsJson = sendRequest("getMyCommands", data);
-  if (commandsJson.empty()) return commands;
-  commands.reserve(commandsJson.size());
-  for (const nl::json& commandObj: commandsJson) {
-    Ptr<BotCommand> cmd(new BotCommand(commandObj));
-    commands.push_back(std::move(cmd));
-  }
-  return commands;
-}
-
 bool Api::logOut() const {
   return sendRequest("logOut");
 }
@@ -180,7 +117,6 @@ Ptr<MessageId> Api::copyMessage(std::int64_t chatId, std::int64_t fromChatId, st
                                 const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification,
                                 bool protectContent, std::int32_t replyToMessageId, bool allowSendingWithoutReply,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
-
   cpr::Multipart data{};
   data.parts.reserve(12);
   data.parts.emplace_back("chat_id", std::to_string(chatId));          // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
@@ -1396,3 +1332,291 @@ bool Api::deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) co
   data.parts.emplace_back("message_thread_id", messageThreadId);
   return sendRequest("deleteForumTopic", data);
 }
+
+bool Api::unpinAllForumTopicMessages(std::int64_t chatId, std::int32_t messageThreadId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_thread_id", messageThreadId);
+  return sendRequest("unpinAllForumTopicMessages", data);
+}
+
+bool Api::editGeneralForumTopic(std::int64_t chatId, const std::string& name) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("name", name);
+  return sendRequest("editGeneralForumTopic", data);
+}
+
+bool Api::closeGeneralForumTopic(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("closeGeneralForumTopic", data);
+}
+
+bool Api::reopenGeneralForumTopic(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("reopenGeneralForumTopic", data);
+}
+
+bool Api::hideGeneralForumTopic(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("hideGeneralForumTopic", data);
+}
+
+bool Api::unhideGeneralForumTopic(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("unhideGeneralForumTopic", data);
+}
+
+bool Api::unpinAllGeneralForumTopicMessages(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  return sendRequest("unpinAllGeneralForumTopicMessages", data);
+}
+
+bool Api::answerCallbackQuery(const std::string& callbackQueryId,
+                              const std::string& text,
+                              bool showAlert,
+                              const std::string& url,
+                              std::int32_t cacheTime) const {
+  cpr::Multipart data{};
+  data.parts.reserve(5);
+  data.parts.emplace_back("callback_query_id", callbackQueryId);
+  if (not text.empty())
+    data.parts.emplace_back("text", text);
+  if (showAlert)
+    data.parts.emplace_back("show_alert", showAlert);
+  if (not url.empty())
+    data.parts.emplace_back("url", url);
+  if (cacheTime)
+    data.parts.emplace_back("cache_time", cacheTime);
+  return sendRequest("answerCallbackQuery", data);
+}
+
+bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
+                        const Ptr<BotCommandScope>& scope,
+                        const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+
+  nl::json commandsJson = nl::json::array();
+  for (const Ptr<BotCommand>& command: commands)
+    commandsJson.push_back(command->toJson());
+  data.parts.emplace_back("commands", commandsJson.dump());
+  if (scope)
+    data.parts.emplace_back("scope", scope->toJson().dump());
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+
+
+  return sendRequest("setMyCommands", data);
+}
+
+bool Api::deleteMyCommands(const Ptr<BotCommandScope>& scope, const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (scope)
+    data.parts.emplace_back("scope", scope->toJson().dump());
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+  return sendRequest("deleteMyCommands", data);
+}
+
+std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scope, const std::string& languageCode) const {
+  std::vector<Ptr<BotCommand>> commands;
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (scope)
+    data.parts.emplace_back("scope", scope->toJson().dump());
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+
+  nl::json commandsJson = sendRequest("getMyCommands", data);
+  if (commandsJson.empty()) return commands;
+  commands.reserve(commandsJson.size());
+  for (const nl::json& commandObj: commandsJson) {
+    Ptr<BotCommand> cmd(new BotCommand(commandObj));
+    commands.push_back(std::move(cmd));
+  }
+  return commands;
+}
+
+bool Api::setMyName(const std::string& name, const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+  return sendRequest("setMyName", data);
+}
+
+Ptr<BotName> Api::getMyName(const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+
+  nl::json botNameObj = sendRequest("getMyName", data);
+  ;
+  return makePtr<BotName>(botNameObj);
+}
+
+bool Api::setMyDescription(const std::string& description, const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (not description.empty())
+    data.parts.emplace_back("description", description);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+  return sendRequest("setMyDescription", data);
+}
+
+Ptr<BotDescription> Api::getMyDescription(const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+
+  nl::json botDescObj = sendRequest("getMyDescription", data);
+  ;
+  return makePtr<BotDescription>(botDescObj);
+}
+
+bool Api::setMyShortDescription(const std::string& shortDescription, const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (not shortDescription.empty())
+    data.parts.emplace_back("short_description", shortDescription);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+  return sendRequest("setMyShortDescription", data);
+}
+
+Ptr<BotShortDescription> Api::getMyShortDescription(const std::string& languageCode) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (not languageCode.empty())
+    data.parts.emplace_back("language_code", languageCode);
+
+  nl::json botShortDescObj = sendRequest("getMyShortDescription", data);
+  return makePtr<BotShortDescription>(botShortDescObj);
+}
+
+bool Api::setChatMenuButton(std::int64_t chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (chatId)
+    data.parts.emplace_back("chat_id", std::to_string(chatId));
+  if (menuButton)
+    data.parts.emplace_back("menu_button", menuButton->toJson().dump());
+  return sendRequest("setChatMenuButton", data);
+}
+
+Ptr<MenuButton> Api::getChatMenuButton(std::int64_t chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (chatId)
+    data.parts.emplace_back("chat_id", std::to_string(chatId));
+
+  nl::json chatMenuObj = sendRequest("getChatMenuButton", data);
+  std::string type = chatMenuObj["type"].get<std::string>();
+  if (type == "web_app")
+    return makePtr<MenuButtonWebApp>(chatMenuObj);
+  else if (type == "commands")
+    return makePtr<MenuButtonCommands>(chatMenuObj);
+  // (type == "default")
+  return makePtr<MenuButtonDefault>(chatMenuObj);
+}
+
+bool Api::setMyDefaultAdministratorRights(const Ptr<tgbotxx::ChatAdministratorRights>& rights, bool forChannels) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (rights)
+    data.parts.emplace_back("rights", rights->toJson().dump());
+  if (forChannels)
+    data.parts.emplace_back("for_channels", forChannels);
+  return sendRequest("setMyDefaultAdministratorRights", data);
+}
+
+Ptr<ChatAdministratorRights> Api::getMyDefaultAdministratorRights(bool forChannels) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (forChannels)
+    data.parts.emplace_back("for_channels", forChannels);
+  nl::json chatAdministratorRightsObj = sendRequest("getMyDefaultAdministratorRights", data);
+  return makePtr<ChatAdministratorRights>(chatAdministratorRightsObj);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool Api::deleteWebhook(bool dropPendingUpdates) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  if (dropPendingUpdates)
+    data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
+  return sendRequest("deleteWebhook", data);
+}
+
+/// Called every LONG_POOL_TIMEOUT seconds
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::int32_t timeout,
+                                         const std::vector<std::string>& allowedUpdates) const {
+  std::vector<Ptr<Update>> updates;
+  cpr::Multipart data = {
+    {"offset", offset},
+    {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
+    {"timeout", timeout},
+    {"allowed_updates", nl::json(allowedUpdates).dump()},
+  };
+  nl::json updatesJson = sendRequest("getUpdates", data);
+  updates.reserve(updatesJson.size());
+  for (const nl::json& updateObj: updatesJson) {
+    Ptr<Update> update(new Update(updateObj));
+    updates.push_back(std::move(update));
+  }
+  return updates;
+}
+
+
+bool Api::setWebhook(const std::string& url,
+                     const std::optional<cpr::File>& certificate,
+                     const std::string& ipAddress,
+                     std::int32_t maxConnections,
+                     const std::vector<std::string>& allowedUpdates,
+                     bool dropPendingUpdates,
+                     const std::string& secretToken) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  data.parts.emplace_back("url", url);
+  if (certificate.has_value())
+    data.parts.emplace_back("certificate", cpr::Files{*certificate});
+  if (not ipAddress.empty())
+    data.parts.emplace_back("ip_address", ipAddress);
+  if (maxConnections != 40)
+    data.parts.emplace_back("max_connections", std::max<std::int32_t>(1, std::min<std::int32_t>(100, maxConnections)));
+  if (not allowedUpdates.empty())
+    data.parts.emplace_back("allowed_updates", nl::json(allowedUpdates).dump());
+  if (dropPendingUpdates)
+    data.parts.emplace_back("drop_pending_updates", dropPendingUpdates);
+  if (!secretToken.empty()) {
+    data.parts.emplace_back("secret_token", secretToken);
+  }
+  return sendRequest("setWebhook", data);
+}
+
+Ptr<WebhookInfo> Api::getWebhookInfo() const {
+  nl::json webhookInfoObj = sendRequest("getWebhookInfo");
+  return makePtr<WebhookInfo>(webhookInfoObj);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////

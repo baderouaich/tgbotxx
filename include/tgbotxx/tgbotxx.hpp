@@ -8,6 +8,9 @@
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/BotCommandScope.hpp>
+#include <tgbotxx/objects/BotDescription.hpp>
+#include <tgbotxx/objects/BotName.hpp>
+#include <tgbotxx/objects/BotShortDescription.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
 #include <tgbotxx/objects/Chat.hpp>
@@ -48,6 +51,7 @@
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
+#include <tgbotxx/objects/MenuButton.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
@@ -84,6 +88,7 @@
 #include <tgbotxx/objects/Voice.hpp>
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
+#include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 
 /// Utils

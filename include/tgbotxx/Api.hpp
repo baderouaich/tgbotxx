@@ -9,6 +9,9 @@
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/BotCommandScope.hpp>
+#include <tgbotxx/objects/BotDescription.hpp>
+#include <tgbotxx/objects/BotName.hpp>
+#include <tgbotxx/objects/BotShortDescription.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
 #include <tgbotxx/objects/Chat.hpp>
@@ -50,6 +53,7 @@
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
+#include <tgbotxx/objects/MenuButton.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
@@ -86,6 +90,7 @@
 #include <tgbotxx/objects/Voice.hpp>
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
+#include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 #include <variant>
 namespace nl = nlohmann;
@@ -107,7 +112,7 @@ namespace tgbotxx {
       /// @param token Bot Token from FatherBot.
       Api(const std::string& token);
 
-    public:
+    public: /// Bot Api Methods https://core.telegram.org/bots/api#available-methods
       /// @brief A simple method for testing your bot's authentication token.
       /// @returns basic information about the bot in form of a User object.
       /// @throws Exception on failure
@@ -872,7 +877,7 @@ namespace tgbotxx {
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso unbanChatSenderChat
+      /// @relatesalso unbanChatSenderChat
       /// @ref https://core.telegram.org/bots/api#banchatsenderchat
       bool banChatSenderChat(std::int64_t chatId,
                              std::int64_t senderChatId) const;
@@ -885,7 +890,7 @@ namespace tgbotxx {
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso banChatSenderChat
+      /// @relatesalso banChatSenderChat
       /// @ref https://core.telegram.org/bots/api#unbanchatsenderchat
       bool unbanChatSenderChat(std::int64_t chatId,
                                std::int64_t senderChatId) const;
@@ -934,7 +939,7 @@ namespace tgbotxx {
       /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
       /// @returns the new invite link as ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @relatedalso editChatInviteLink revokeChatInviteLink
+      /// @relatesalso editChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#createchatinvitelink
       Ptr<ChatInviteLink> createChatInviteLink(std::int64_t chatId,
                                                const std::string& name = "",
@@ -953,7 +958,7 @@ namespace tgbotxx {
       /// @param createsJoinRequest Optional. True, if users joining the chat via the link need to be approved by chat administrators. If True, memberLimit can't be specified
       /// @returns The edited invite link as a ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @relatedalso createChatInviteLink revokeChatInviteLink
+      /// @relatesalso createChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#editchatinvitelink
       Ptr<ChatInviteLink> editChatInviteLink(std::int64_t chatId,
                                              const std::string& inviteLink,
@@ -969,7 +974,7 @@ namespace tgbotxx {
       /// @param inviteLink The invite link to revoke
       /// @returns The revoked invite link as ChatInviteLink object on success.
       /// @throws Exception on failure
-      /// @relatedalso createChatInviteLink editChatInviteLink
+      /// @relatesalso createChatInviteLink editChatInviteLink
       /// @ref https://core.telegram.org/bots/api#revokechatinvitelink
       Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId, const std::string& inviteLink) const;
 
@@ -980,7 +985,7 @@ namespace tgbotxx {
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso declineChatJoinRequest
+      /// @relatesalso declineChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#approvechatjoinrequest
       bool approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
 
@@ -991,7 +996,7 @@ namespace tgbotxx {
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso approveChatJoinRequest
+      /// @relatesalso approveChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#declinechatjoinrequest
       bool declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
 
@@ -1002,7 +1007,7 @@ namespace tgbotxx {
       /// @param photo New chat photo, uploaded using multipart/form-data
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso deleteChatPhoto
+      /// @relatesalso deleteChatPhoto
       /// @ref https://core.telegram.org/bots/api#setchatphoto
       bool setChatPhoto(std::int64_t chatId, const cpr::File& photo) const;
 
@@ -1012,7 +1017,7 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso setChatPhoto
+      /// @relatesalso setChatPhoto
       /// @ref https://core.telegram.org/bots/api#deletechatphoto
       bool deleteChatPhoto(std::int64_t chatId) const;
 
@@ -1046,7 +1051,7 @@ namespace tgbotxx {
       /// Notifications are always disabled in channels and private chats.
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso unpinChatMessage unpinAllChatMessages
+      /// @relatesalso unpinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#pinchatmessage
       bool pinChatMessage(std::int64_t chatId,
                           std::int32_t messageId,
@@ -1060,7 +1065,7 @@ namespace tgbotxx {
       /// @param messageId Optional. Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso pinChatMessage unpinAllChatMessages
+      /// @relatesalso pinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#unpinchatmessage
       bool unpinChatMessage(std::int64_t chatId, std::int32_t messageId = 0) const;
 
@@ -1071,7 +1076,7 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso pinChatMessage unpinChatMessage
+      /// @relatesalso pinChatMessage unpinChatMessage
       /// @ref https://core.telegram.org/bots/api#unpinallchatmessages
       bool unpinAllChatMessages(std::int64_t chatId) const;
 
@@ -1125,7 +1130,7 @@ namespace tgbotxx {
       /// @param stickerSetName Name of the sticker set to be set as the group sticker set
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso deleteChatStickerSet getForumTopicIconStickers Sticker::setName
+      /// @relatesalso deleteChatStickerSet getForumTopicIconStickers Sticker::setName
       /// @ref https://core.telegram.org/bots/api#setchatstickerset
       bool setChatStickerSet(std::int64_t chatId, const std::string& stickerSetName) const;
 
@@ -1136,7 +1141,7 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso setChatStickerSet getForumTopicIconStickers Sticker::setName
+      /// @relatesalso setChatStickerSet getForumTopicIconStickers Sticker::setName
       /// @ref https://core.telegram.org/bots/api#deletechatstickerset
       bool deleteChatStickerSet(std::int64_t chatId) const;
 
@@ -1146,7 +1151,7 @@ namespace tgbotxx {
       /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns an Array of Sticker objects.
       /// @throws Exception on failure
-      /// @relatedalso setChatStickerSet deleteChatStickerSet
+      /// @relatesalso setChatStickerSet deleteChatStickerSet
       /// @ref https://core.telegram.org/bots/api#getforumtopiciconstickers
       std::vector<Ptr<Sticker>> getForumTopicIconStickers() const;
 
@@ -1160,7 +1165,7 @@ namespace tgbotxx {
       /// @param iconCustomEmojiId Optional. Unique identifier of the custom emoji shown as the topic icon. Use getForumTopicIconStickers to get all allowed custom emoji identifiers. https://core.telegram.org/bots/api#getforumtopiciconstickers
       /// @returns information about the created topic as a ForumTopic object.
       /// @throws Exception on failure
-      /// @relatedalso editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
+      /// @relatesalso editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#createforumtopic
       Ptr<ForumTopic> createForumTopic(std::int64_t chatId,
                                        const std::string& name,
@@ -1179,7 +1184,7 @@ namespace tgbotxx {
       /// Pass an empty string to remove the icon. If not specified, the current icon will be kept
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso createForumTopic closeForumTopic reopenForumTopic deleteForumTopic
+      /// @relatesalso createForumTopic closeForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#editforumtopic
       bool editForumTopic(std::int64_t chatId,
                           std::int32_t messageThreadId,
@@ -1194,7 +1199,7 @@ namespace tgbotxx {
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso createForumTopic editForumTopic reopenForumTopic deleteForumTopic
+      /// @relatesalso createForumTopic editForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#closeforumtopic
       bool closeForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
 
@@ -1206,7 +1211,7 @@ namespace tgbotxx {
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso createForumTopic editForumTopic closeForumTopic deleteForumTopic
+      /// @relatesalso createForumTopic editForumTopic closeForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#reopenforumtopic
       bool reopenForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
 
@@ -1218,20 +1223,216 @@ namespace tgbotxx {
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @relatedalso createForumTopic editForumTopic closeForumTopic reopenForumTopic
+      /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic
       /// @ref https://core.telegram.org/bots/api#deleteforumtopic
       bool deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
 
 
-      /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
-      /// @param dropPendingUpdates: Pass True to drop all pending updates.
+      /// @brief Use this method to clear the list of pinned messages in a forum topic.
+      /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
-      /// @note when Bot is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT
-      /// @note In order for Api::getUpdates() to work, there should be no outgoing webhook set up. See https://core.telegram.org/bots/api#getupdates
-      /// @ref https://core.telegram.org/bots/api#deletewebhook
-      bool deleteWebhook(bool dropPendingUpdates = false) const;
+      /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
+      /// @ref https://core.telegram.org/bots/api#unpinallforumtopicmessages
+      bool unpinAllForumTopicMessages(std::int64_t chatId, std::int32_t messageThreadId) const;
 
+
+      /// @brief Use this method to edit the name of the 'General' topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param name New topic name, 1-128 characters
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#editgeneralforumtopic
+      bool editGeneralForumTopic(std::int64_t chatId, const std::string& name) const;
+
+
+      /// @brief Use this method to close an open 'General' topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#closegeneralforumtopic
+      bool closeGeneralForumTopic(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to reopen a closed 'General' topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#reopengeneralforumtopic
+      bool reopenGeneralForumTopic(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to hide the 'General' topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#hidegeneralforumtopic
+      bool hideGeneralForumTopic(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to unhide the 'General' topic in a forum supergroup chat.
+      /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#unhidegeneralforumtopic
+      bool unhideGeneralForumTopic(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to clear the list of pinned messages in a General forum topic.
+      /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
+      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#unpinallgeneralforumtopicmessages
+      bool unpinAllGeneralForumTopicMessages(std::int64_t chatId) const;
+
+
+      /// @brief Use this method to send answers to callback queries sent from inline keyboards.
+      /// The answer will be displayed to the user as a notification at the top of the chat screen or as an alert.
+      /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
+      /// https://core.telegram.org/bots/features#inline-keyboards
+      /// @param callbackQueryId Unique identifier for the query to be answered
+      /// @param text Optional. Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters
+      /// @param showAlert Optional. If True, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to false.
+      /// @param url Optional. URL that will be opened by the user's client. If you have created a Game and accepted the conditions via @BotFather, specify the URL that opens your game - note that this will only work if the query comes from a callback_game button.
+      /// Otherwise, you may use links like t.me/your_bot?start=XXXX that open your bot with a parameter.
+      /// @param cacheTime Optional. The maximum amount of time in seconds that the result of the callback query may be cached client-side.
+      /// Telegram apps will support caching starting in version 3.14. Defaults to 0.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ote Alternatively, the user can be redirected to the specified Game URL. For this option to work, you must first create a game for your bot via \@BotFather and accept the terms.
+      /// Otherwise, you may use links like t.me/your_bot?start=XXXX that open your bot with a parameter.
+      /// @ref https://core.telegram.org/bots/api#answercallbackquery
+      bool answerCallbackQuery(const std::string& callbackQueryId,
+                               const std::string& text = "",
+                               bool showAlert = false,
+                               const std::string& url = "",
+                               std::int32_t cacheTime = 0) const;
+
+
+      /// @brief Use this method to change the list of the bot's commands.
+      /// See this manual for more details about bot commands. https://core.telegram.org/bots/features#commands
+      /// @param commands A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.
+      /// @param scope Optional. A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @note Commands must not contain spaces and must be in snake case e.g "do_something" ✅  or "dosomthing" ✅ and not "doSomething" 𐄂 or "do something" 𐄂.
+      /// @ref https://core.telegram.org/bots/api#setmycommands
+      bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
+                         const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(),
+                         const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to delete the list of the bot's commands for the given scope and user language.
+      /// After deletion, higher level commands will be shown to affected users.
+      /// https://core.telegram.org/bots/api#determining-list-of-commands
+      /// @param scope Optional. A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#deletemycommands
+      bool deleteMyCommands(const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to get the current list of the bot's commands for the given scope and user language.
+      /// @param scope Optional. A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
+      /// @returns an Array of BotCommand objects. If commands aren't set, an empty list is returned.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getmycommands
+      std::vector<Ptr<BotCommand>> getMyCommands(const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to change the bot's name.
+      /// @param name Optional. New bot name; 0-64 characters. Pass an empty string to remove the dedicated name for the given language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, the name will be shown to all users for whose language there is no dedicated name.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmyname
+      bool setMyName(const std::string& name = "", const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to get the current bot name for the given user language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code or an empty string
+      /// @returns BotName object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getmyname
+      Ptr<BotName> getMyName(const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty.
+      /// @param description Optional. New bot description; 0-512 characters. Pass an empty string to remove the dedicated description for the given language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, the description will be applied to all users for whose language there is no dedicated description.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmydescription
+      bool setMyDescription(const std::string& description = "", const std::string& languageCode = "") const;
+
+
+      /// @brief Use this method to get the current bot description for the given user language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code or an empty string
+      /// @returns BotDescription object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getmydescription
+      Ptr<BotDescription> getMyDescription(const std::string& languageCode = "") const;
+
+      /// @brief Use this method to change the bot's short description, which is shown on the bot's profile page and is sent together with the link when users share the bot.
+      /// @param shortDescription Optional. New short description for the bot; 0-120 characters. Pass an empty string to remove the dedicated short description for the given language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code. If empty, the short description will be applied to all users for whose language there is no dedicated short description.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmyshortdescription
+      bool setMyShortDescription(const std::string& shortDescription = "", const std::string& languageCode = "") const;
+
+      /// @brief Use this method to get the current bot short description for the given user language.
+      /// @param languageCode Optional. A two-letter ISO 639-1 language code or an empty string
+      /// @returns BotShortDescription object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getmyshortdescription
+      Ptr<BotShortDescription> getMyShortDescription(const std::string& languageCode = "") const;
+
+      /// @brief Use this method to change the bot's menu button in a private chat, or the default menu button.
+      /// @param chatId Optional. Unique identifier for the target private chat. If not specified, default bot's menu button will be changed
+      /// @param menuButton Optional. A JSON-serialized object for the bot's new menu button. Defaults to MenuButtonDefault
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmyshortdescription
+      bool setChatMenuButton(std::int64_t chatId = 0, const Ptr<MenuButton>& menuButton = makePtr<MenuButtonDefault>()) const;
+
+      /// @brief Use this method to get the current value of the bot's menu button in a private chat, or the default menu button.
+      /// @param chatId Optional. Unique identifier for the target private chat. If not specified, default bot's menu button will be returned
+      /// @returns MenuButton object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getchatmenubutton
+      Ptr<MenuButton> getChatMenuButton(std::int64_t chatId = 0) const;
+
+      /// @brief Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels.
+      /// These rights will be suggested to users, but they are free to modify the list before adding the bot.
+      /// @param rights Optional. A JSON-serialized object describing new default administrator rights. If not specified, the default administrator rights will be cleared.
+      /// @param forChannels Optional. Pass True to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmydefaultadministratorrights
+      bool setMyDefaultAdministratorRights(const Ptr<ChatAdministratorRights>& rights = nullptr, bool forChannels = false) const;
+
+      /// @brief Use this method to get the current default administrator rights of the bot.
+      /// @param forChannels Optional. Pass True to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned.
+      /// @returns ChatAdministratorRights object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getmydefaultadministratorrights
+      Ptr<ChatAdministratorRights> getMyDefaultAdministratorRights(bool forChannels = false) const;
+
+
+
+    public: /// Updates methods  https://core.telegram.org/bots/api#getting-updates
       /// @brief Use this method to receive incoming updates using long polling.
       /// @param offset Identifier of the first update to be returned. Must be greater by one than the highest
       /// among the identifiers of previously received updates. By default, updates starting with the earliest
@@ -1253,26 +1454,59 @@ namespace tgbotxx {
       /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
       std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, std::int32_t timeout = LONG_POLL_TIMEOUT, const std::vector<std::string>& allowedUpdates = {}) const;
 
-      /// @brief Use this method to change the list of the bot's commands.
-      /// See this manual for more details about bot commands.
-      /// @param commands A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.
-      /// @param scope A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
-      /// @param languageCode A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
-      /// @returns true on success.
+      /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
+      /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
+      /// In case of an unsuccessful request, we will give up after a reasonable amount of attempts.
+      /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter secret_token.
+      /// If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
+      /// @param url HTTPS URL to send updates to. Use an empty string to remove webhook integration
+      /// @param certificate Optional. Upload your public key certificate so that the root certificate in use can be checked. See our self-signed guide for details.
+      /// @param ipAddress Optional. The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS
+      /// @param maxConnections Optional. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to 40.
+      /// Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.
+      /// @param allowedUpdates Optional. A JSON-serialized list of the update types you want your bot to receive.
+      /// For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types.
+      /// See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member (default).
+      /// If not specified, the previous setting will be used.
+      /// Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
+      /// @param dropPendingUpdates Optional. Pass True to drop all pending updates.
+      /// @param secretToken Optional. A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters A-Z, a-z, 0-9, _ and - are allowed.
+      /// The header is useful to ensure that the request comes from a webhook set by you.
+      /// @returns True on success.
       /// @throws Exception on failure
-      /// @link ref https://core.telegram.org/bots/api#setmycommands @endlink
-      bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands, const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
+      /// @note You will not be able to receive updates using Api::getUpdates for as long as an outgoing webhook is set up.
+      /// @note To use a self-signed certificate, you need to upload your public key certificate using certificate parameter. Please upload as InputFile, sending a String will not work.
+      /// @note Ports currently supported for webhooks: 443, 80, 88, 8443.
+      /// If you're having any trouble setting up webhooks, please check out this amazing guide to webhooks. https://core.telegram.org/bots/webhooks
+      /// @ref https://core.telegram.org/bots/api#setwebhook
+      bool setWebhook(const std::string& url,
+                      const std::optional<cpr::File>& certificate = std::nullopt,
+                      const std::string& ipAddress = "",
+                      std::int32_t maxConnections = 40,
+                      const std::vector<std::string>& allowedUpdates = std::vector<std::string>(),
+                      bool dropPendingUpdates = false,
+                      const std::string& secretToken = "") const;
 
-
-      /// @brief Use this method to get the current list of the bot's commands for the given scope and user language.
-      /// @param scope A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to BotCommandScopeDefault.
-      /// @param languageCode A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
-      /// @returns an Array of BotCommand objects. If commands aren't set, an empty list is returned.
+      /// @brief Use this method to remove webhook integration if you decide to switch back to getUpdates.
+      /// @param dropPendingUpdates Optional. Pass True to drop all pending updates.
+      /// @returns True on success.
       /// @throws Exception on failure
-      /// @link ref https://core.telegram.org/bots/api#getmycommands @endlink
-      std::vector<Ptr<BotCommand>> getMyCommands(const Ptr<BotCommandScope>& scope = nullptr, const std::string& languageCode = "") const;
+      /// @note when Bot is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT
+      /// @note In order for Api::getUpdates() to work, there should be no outgoing webhook set up. See https://core.telegram.org/bots/api#getupdates
+      /// @ref https://core.telegram.org/bots/api#deletewebhook
+      bool deleteWebhook(bool dropPendingUpdates = false) const;
 
-      /// Todo: ...
+      /// @brief Use this method to get current webhook status. Requires no parameters. On success, returns a WebhookInfo object.
+      /// If the bot is using getUpdates, will return an object with the url field empty.
+      /// @returns a WebhookInfo object on success. If the bot is using getUpdates, will return an object with the WebhookInfo::url field empty.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getwebhookinfo
+      Ptr<WebhookInfo> getWebhookInfo() const;
+
+
+
+    public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
+
 
     private:
       nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;

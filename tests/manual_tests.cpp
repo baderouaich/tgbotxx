@@ -1,4 +1,8 @@
+#include "tgbotxx/objects/ChatAdministratorRights.hpp"
+#include "tgbotxx/objects/MenuButton.hpp"
 #include "tgbotxx/objects/PollOption.hpp"
+#include "tgbotxx/objects/WebAppInfo.hpp"
+#include "tgbotxx/objects/WebhookInfo.hpp"
 #include <csignal>
 #include <cstdint>
 #include <cstdlib>
@@ -15,12 +19,12 @@ class MyBot : public Bot {
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
-      Ptr<User> me = getApi()->getMe();
-      std::cout << __func__ << ": " << me->firstName << " bot started!" << std::endl;
-
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
+
+      api()->setMyName("tgbotxx manual_tests");
+      api()->setMyDescription("tgbotxx bot manual tests");
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
@@ -65,7 +69,24 @@ class MyBot : public Bot {
       Ptr<BotCommand> quiz(new BotCommand());
       quiz->command = "/quiz";
       quiz->description = "You will receive a quiz poll";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> webhookInfo(new BotCommand());
+      webhookInfo->command = "/webhook_info";
+      webhookInfo->description = "You will receive webhook info in JSON";
+      Ptr<BotCommand> botName(new BotCommand());
+      botName->command = "/bot_name";
+      botName->description = "You will receive bot name";
+      Ptr<BotCommand> menuButtonWebApp(new BotCommand());
+      menuButtonWebApp->command = "/menubutton_webapp";
+      menuButtonWebApp->description = "Change Menu button to MenuButtonWebApp";
+      Ptr<BotCommand> menuButtonDefault(new BotCommand());
+      menuButtonDefault->command = "/menubutton_default";
+      menuButtonDefault->description = "Change Menu button to default (MenuButtonCommands)";
+      Ptr<BotCommand> showAdministratorRights(new BotCommand());
+      showAdministratorRights->command = "/show_administrator_rights";
+      showAdministratorRights->description = "Display bot's default administrator rights in JSON";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights}); // The above commands will be shown in the bot chat menu (bottom left)
+
+      std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
 
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
@@ -218,6 +239,25 @@ class MyBot : public Bot {
                                   " Instead, the way they recorded information was through a system of "
                                   "different knots tied in ropes attached to a longer cord."; // optional (0-200 character explanation will be shown to user as a notification after answer>)
         api()->sendPoll(message->chat->id, question, possibleAnswers, false, "quiz", false, correctAnswerIndex, explanation);
+      } else if (message->text == "/webhook_info") {
+        Ptr<WebhookInfo> info = api()->getWebhookInfo();
+        api()->sendMessage(message->chat->id, info->toJson().dump(2));
+      } else if (message->text == "/bot_name") {
+        Ptr<BotName> botName = api()->getMyName();
+        api()->sendMessage(message->chat->id, botName->name);
+      } else if (message->text == "/menubutton_webapp") {
+        Ptr<WebAppInfo> webApp(new WebAppInfo());
+        webApp->url = "https://google.com";
+        Ptr<MenuButtonWebApp> menuButtonWebApp(new MenuButtonWebApp());
+        menuButtonWebApp->text = "Click Me";
+        menuButtonWebApp->webApp = webApp;
+        api()->setChatMenuButton(message->chat->id, menuButtonWebApp);
+      } else if (message->text == "/menubutton_default") {
+        Ptr<MenuButtonDefault> menuButtonDefault(new MenuButtonDefault());
+        api()->setChatMenuButton(message->chat->id, menuButtonDefault);
+      } else if (message->text == "/show_administrator_rights") {
+        Ptr<ChatAdministratorRights> chatAdministratorRights = api()->getMyDefaultAdministratorRights();
+        api()->sendMessage(message->chat->id, chatAdministratorRights->toJson().dump(2));
       }
     }
 
@@ -257,7 +297,7 @@ class MyBot : public Bot {
     /// Called when a new poll state is received.
     void onPoll(const Ptr<Poll>& poll) override {
       std::cout << __func__ << ": " << poll->question << std::endl;
-      const Ptr<PollOption>& highestVotedOption = *std::max_element(poll->options.begin(), poll->options.end(), [](const Ptr<PollOption>& A, const Ptr<PollOption>& B){
+      const Ptr<PollOption>& highestVotedOption = *std::max_element(poll->options.begin(), poll->options.end(), [](const Ptr<PollOption>& A, const Ptr<PollOption>& B) {
         return A->voterCount < B->voterCount;
       });
       std::cout << __func__ << ": Highest voted option: " << highestVotedOption->text << std::endl;
