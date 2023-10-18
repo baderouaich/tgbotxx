@@ -14,6 +14,9 @@ var hierarchy =
       [ "tgbotxx::BotCommandScopeChatMember", "structtgbotxx_1_1_bot_command_scope_chat_member.html", null ],
       [ "tgbotxx::BotCommandScopeDefault", "structtgbotxx_1_1_bot_command_scope_default.html", null ]
     ] ],
+    [ "tgbotxx::BotDescription", "structtgbotxx_1_1_bot_description.html", null ],
+    [ "tgbotxx::BotName", "structtgbotxx_1_1_bot_name.html", null ],
+    [ "tgbotxx::BotShortDescription", "structtgbotxx_1_1_bot_short_description.html", null ],
     [ "tgbotxx::CallbackGame", "structtgbotxx_1_1_callback_game.html", null ],
     [ "tgbotxx::CallbackQuery", "structtgbotxx_1_1_callback_query.html", null ],
     [ "tgbotxx::Chat", "structtgbotxx_1_1_chat.html", null ],
@@ -74,6 +77,11 @@ var hierarchy =
     [ "tgbotxx::Location", "structtgbotxx_1_1_location.html", null ],
     [ "tgbotxx::LoginUrl", "structtgbotxx_1_1_login_url.html", null ],
     [ "tgbotxx::MaskPosition", "structtgbotxx_1_1_mask_position.html", null ],
+    [ "tgbotxx::MenuButton", "structtgbotxx_1_1_menu_button.html", [
+      [ "tgbotxx::MenuButtonCommands", "structtgbotxx_1_1_menu_button_commands.html", null ],
+      [ "tgbotxx::MenuButtonDefault", "structtgbotxx_1_1_menu_button_default.html", null ],
+      [ "tgbotxx::MenuButtonWebApp", "structtgbotxx_1_1_menu_button_web_app.html", null ]
+    ] ],
     [ "tgbotxx::Message", "structtgbotxx_1_1_message.html", null ],
     [ "tgbotxx::MessageAutoDeleteTimerChanged", "structtgbotxx_1_1_message_auto_delete_timer_changed.html", null ],
     [ "tgbotxx::MessageEntity", "structtgbotxx_1_1_message_entity.html", null ],
@@ -116,5 +124,6 @@ var hierarchy =
     [ "tgbotxx::Voice", "structtgbotxx_1_1_voice.html", null ],
     [ "tgbotxx::WebAppData", "structtgbotxx_1_1_web_app_data.html", null ],
     [ "tgbotxx::WebAppInfo", "structtgbotxx_1_1_web_app_info.html", null ],
+    [ "tgbotxx::WebhookInfo", "structtgbotxx_1_1_webhook_info.html", null ],
     [ "tgbotxx::WriteAccessAllowed", "structtgbotxx_1_1_write_access_allowed.html", null ]
 ];

@@ -19,6 +19,15 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "BotCommandScopeChatAdministrators", "structtgbotxx_1_1_bot_command_scope_chat_administrators.html", "structtgbotxx_1_1_bot_command_scope_chat_administrators" ],
       [ "BotCommandScopeChatMember", "structtgbotxx_1_1_bot_command_scope_chat_member.html", "structtgbotxx_1_1_bot_command_scope_chat_member" ]
     ] ],
+    [ "BotDescription.hpp", "_bot_description_8hpp.html", [
+      [ "BotDescription", "structtgbotxx_1_1_bot_description.html", "structtgbotxx_1_1_bot_description" ]
+    ] ],
+    [ "BotName.hpp", "_bot_name_8hpp.html", [
+      [ "BotName", "structtgbotxx_1_1_bot_name.html", "structtgbotxx_1_1_bot_name" ]
+    ] ],
+    [ "BotShortDescription.hpp", "_bot_short_description_8hpp.html", [
+      [ "BotShortDescription", "structtgbotxx_1_1_bot_short_description.html", "structtgbotxx_1_1_bot_short_description" ]
+    ] ],
     [ "CallbackGame.hpp", "_callback_game_8hpp.html", [
       [ "CallbackGame", "structtgbotxx_1_1_callback_game.html", "structtgbotxx_1_1_callback_game" ]
     ] ],
@@ -153,6 +162,12 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "MaskPosition.hpp", "_mask_position_8hpp.html", [
       [ "MaskPosition", "structtgbotxx_1_1_mask_position.html", "structtgbotxx_1_1_mask_position" ]
     ] ],
+    [ "MenuButton.hpp", "_menu_button_8hpp.html", [
+      [ "MenuButton", "structtgbotxx_1_1_menu_button.html", "structtgbotxx_1_1_menu_button" ],
+      [ "MenuButtonDefault", "structtgbotxx_1_1_menu_button_default.html", "structtgbotxx_1_1_menu_button_default" ],
+      [ "MenuButtonWebApp", "structtgbotxx_1_1_menu_button_web_app.html", "structtgbotxx_1_1_menu_button_web_app" ],
+      [ "MenuButtonCommands", "structtgbotxx_1_1_menu_button_commands.html", "structtgbotxx_1_1_menu_button_commands" ]
+    ] ],
     [ "Message.hpp", "_message_8hpp.html", [
       [ "Message", "structtgbotxx_1_1_message.html", "structtgbotxx_1_1_message" ]
     ] ],
@@ -258,6 +273,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "WebAppInfo.hpp", "_web_app_info_8hpp.html", [
       [ "WebAppInfo", "structtgbotxx_1_1_web_app_info.html", "structtgbotxx_1_1_web_app_info" ]
+    ] ],
+    [ "WebhookInfo.hpp", "_webhook_info_8hpp.html", [
+      [ "WebhookInfo", "structtgbotxx_1_1_webhook_info.html", "structtgbotxx_1_1_webhook_info" ]
     ] ],
     [ "WriteAccessAllowed.hpp", "_write_access_allowed_8hpp.html", [
       [ "WriteAccessAllowed", "structtgbotxx_1_1_write_access_allowed.html", "structtgbotxx_1_1_write_access_allowed" ]

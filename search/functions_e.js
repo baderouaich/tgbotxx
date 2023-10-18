@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['reopenforumtopic_1022',['reopenForumTopic',['../classtgbotxx_1_1_api.html#af4886e108ffa2f51abb7a8f5f1415952',1,'tgbotxx::Api']]],
-  ['replace_1023',['replace',['../namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e',1,'tgbotxx::StringUtils']]],
-  ['replacecopy_1024',['replaceCopy',['../namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2',1,'tgbotxx::StringUtils']]],
-  ['replykeyboardmarkup_1025',['ReplyKeyboardMarkup',['../structtgbotxx_1_1_reply_keyboard_markup.html#a2e4ea10518cd80487995296c3298207c',1,'tgbotxx::ReplyKeyboardMarkup::ReplyKeyboardMarkup()=default'],['../structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4',1,'tgbotxx::ReplyKeyboardMarkup::ReplyKeyboardMarkup(const nl::json &amp;json)']]],
-  ['replykeyboardremove_1026',['ReplyKeyboardRemove',['../structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d',1,'tgbotxx::ReplyKeyboardRemove::ReplyKeyboardRemove()=default'],['../structtgbotxx_1_1_reply_keyboard_remove.html#ac73cccccda48d0598e328e5671e812fc',1,'tgbotxx::ReplyKeyboardRemove::ReplyKeyboardRemove(const nl::json &amp;json)']]],
-  ['restrictchatmember_1027',['restrictChatMember',['../classtgbotxx_1_1_api.html#abd0da5b9e81debbf9beb736d71a06538',1,'tgbotxx::Api']]],
-  ['revokechatinvitelink_1028',['revokeChatInviteLink',['../classtgbotxx_1_1_api.html#aa85b780c893c4d48a3b90424eed64c4b',1,'tgbotxx::Api']]],
-  ['rtrim_1029',['rtrim',['../namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58',1,'tgbotxx::StringUtils']]],
-  ['rtrimcopy_1030',['rtrimCopy',['../namespacetgbotxx_1_1_string_utils.html#ad7c80e7ef45fa92f57e2baf36dbbf869',1,'tgbotxx::StringUtils']]]
+  ['passportdata_1095',['PassportData',['../structtgbotxx_1_1_passport_data.html#a1c9d7d75bc1cc2da47f0e3f408d1d1b0',1,'tgbotxx::PassportData::PassportData(const nl::json &amp;json)'],['../structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e',1,'tgbotxx::PassportData::PassportData()=default']]],
+  ['passportfile_1096',['PassportFile',['../structtgbotxx_1_1_passport_file.html#a17e085052e3ad9b79b457cb57ac06433',1,'tgbotxx::PassportFile::PassportFile()=default'],['../structtgbotxx_1_1_passport_file.html#af9a8156ea4c1a618160b3cb11b5ff342',1,'tgbotxx::PassportFile::PassportFile(const nl::json &amp;json)']]],
+  ['photosize_1097',['PhotoSize',['../structtgbotxx_1_1_photo_size.html#a24f75c6c6a5920661ccf92e6ebf17e77',1,'tgbotxx::PhotoSize::PhotoSize()=default'],['../structtgbotxx_1_1_photo_size.html#ac084766aa167749f2d9085400642721e',1,'tgbotxx::PhotoSize::PhotoSize(const nl::json &amp;json)']]],
+  ['pinchatmessage_1098',['pinChatMessage',['../classtgbotxx_1_1_api.html#a149dc6d669364ba7c61cd878743a1bc6',1,'tgbotxx::Api']]],
+  ['poll_1099',['Poll',['../structtgbotxx_1_1_poll.html#a7ee76194a546ab3410ba2bb122e85180',1,'tgbotxx::Poll::Poll()=default'],['../structtgbotxx_1_1_poll.html#a4650629f5ac0418d4628faf3e7c5e2e0',1,'tgbotxx::Poll::Poll(const nl::json &amp;json)']]],
+  ['pollanswer_1100',['PollAnswer',['../structtgbotxx_1_1_poll_answer.html#afae1eec21711d0b9f77ba779769f70d6',1,'tgbotxx::PollAnswer::PollAnswer()=default'],['../structtgbotxx_1_1_poll_answer.html#aa26b7b29649acc9d97e01e88783b6e1f',1,'tgbotxx::PollAnswer::PollAnswer(const nl::json &amp;json)']]],
+  ['polloption_1101',['PollOption',['../structtgbotxx_1_1_poll_option.html#a8c950ef78cc5666c02e35be8e449b5a7',1,'tgbotxx::PollOption::PollOption()=default'],['../structtgbotxx_1_1_poll_option.html#a738298ac72212ca9c6e823bb72ae21ca',1,'tgbotxx::PollOption::PollOption(const nl::json &amp;json)']]],
+  ['precheckoutquery_1102',['PreCheckoutQuery',['../structtgbotxx_1_1_pre_checkout_query.html#a83898f960c278b68ba1cf0ea94adadd6',1,'tgbotxx::PreCheckoutQuery::PreCheckoutQuery()=default'],['../structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79',1,'tgbotxx::PreCheckoutQuery::PreCheckoutQuery(const nl::json &amp;json)']]],
+  ['promotechatmember_1103',['promoteChatMember',['../classtgbotxx_1_1_api.html#af27374f9d5994ab6f7422d03835bcb5d',1,'tgbotxx::Api']]],
+  ['proximityalerttriggered_1104',['ProximityAlertTriggered',['../structtgbotxx_1_1_proximity_alert_triggered.html#ac8d44ba6a3db0404193ff530fe11b8bd',1,'tgbotxx::ProximityAlertTriggered::ProximityAlertTriggered()=default'],['../structtgbotxx_1_1_proximity_alert_triggered.html#abd91ae1b3bed83c37fd94d21ee0b5003',1,'tgbotxx::ProximityAlertTriggered::ProximityAlertTriggered(const nl::json &amp;json)']]]
 ];

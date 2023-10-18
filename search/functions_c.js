@@ -1,21 +1,13 @@
 var searchData=
 [
-  ['onanymessage_994',['onAnyMessage',['../classtgbotxx_1_1_bot.html#a6c84a180cc2ac4bae2e631364f7be5af',1,'tgbotxx::Bot']]],
-  ['oncallbackquery_995',['onCallbackQuery',['../classtgbotxx_1_1_bot.html#a120b097882c3644aec9925216b979c9b',1,'tgbotxx::Bot']]],
-  ['onchatjoinrequest_996',['onChatJoinRequest',['../classtgbotxx_1_1_bot.html#a155ae2121ea1fdf0da0532e9b1655f6b',1,'tgbotxx::Bot']]],
-  ['onchatmember_997',['onChatMember',['../classtgbotxx_1_1_bot.html#a57b90a6b8958e6a3aa3f2698952c5eed',1,'tgbotxx::Bot']]],
-  ['onchoseninlineresult_998',['onChosenInlineResult',['../classtgbotxx_1_1_bot.html#a90729040aeb9f2775ccafa36dd9214d3',1,'tgbotxx::Bot']]],
-  ['oncommand_999',['onCommand',['../classtgbotxx_1_1_bot.html#a224e82e90511d547b5ef19e5b8836ab9',1,'tgbotxx::Bot']]],
-  ['oneditedmessage_1000',['onEditedMessage',['../classtgbotxx_1_1_bot.html#af2adb7129c0474d8ba91bd1cf391912c',1,'tgbotxx::Bot']]],
-  ['oninlinequery_1001',['onInlineQuery',['../classtgbotxx_1_1_bot.html#a65a9c461e7d54f8688631a92b2fe1124',1,'tgbotxx::Bot']]],
-  ['onmychatmember_1002',['onMyChatMember',['../classtgbotxx_1_1_bot.html#a62453ec07a1b15ebd84de97926017584',1,'tgbotxx::Bot']]],
-  ['onnoncommandmessage_1003',['onNonCommandMessage',['../classtgbotxx_1_1_bot.html#ae6b3bc2790f55bc39cc7b840af5d6f55',1,'tgbotxx::Bot']]],
-  ['onpoll_1004',['onPoll',['../classtgbotxx_1_1_bot.html#a2df030ddecb6cf01d9b4766af97c27d5',1,'tgbotxx::Bot']]],
-  ['onpollanswer_1005',['onPollAnswer',['../classtgbotxx_1_1_bot.html#ae6f0bb6a57910708fb964d44872d70fa',1,'tgbotxx::Bot']]],
-  ['onprecheckoutquery_1006',['onPreCheckoutQuery',['../classtgbotxx_1_1_bot.html#a886779c1fdb679dd231b614a5eb4d5f3',1,'tgbotxx::Bot']]],
-  ['onshippingquery_1007',['onShippingQuery',['../classtgbotxx_1_1_bot.html#acee4ed2ab5bab2edcd617342a47a72e7',1,'tgbotxx::Bot']]],
-  ['onstart_1008',['onStart',['../classtgbotxx_1_1_bot.html#ac426258ee47b337978ab15cfc448c18b',1,'tgbotxx::Bot']]],
-  ['onstop_1009',['onStop',['../classtgbotxx_1_1_bot.html#aa401af85581921f1ed4512f6b8c2b3ee',1,'tgbotxx::Bot']]],
-  ['onunknowncommand_1010',['onUnknownCommand',['../classtgbotxx_1_1_bot.html#a2567fe220fc80b8e4adc6cdc35ecbe64',1,'tgbotxx::Bot']]],
-  ['orderinfo_1011',['OrderInfo',['../structtgbotxx_1_1_order_info.html#a95dafad248cbba95ec0c764a0a47bdc3',1,'tgbotxx::OrderInfo::OrderInfo()=default'],['../structtgbotxx_1_1_order_info.html#a3fb1b7df2e7937c129ce61edfd7673ae',1,'tgbotxx::OrderInfo::OrderInfo(const nl::json &amp;json)']]]
+  ['makeptr_1067',['makePtr',['../namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99',1,'tgbotxx']]],
+  ['maskposition_1068',['MaskPosition',['../structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29',1,'tgbotxx::MaskPosition::MaskPosition(const nl::json &amp;json)'],['../structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe',1,'tgbotxx::MaskPosition::MaskPosition()=default']]],
+  ['menubutton_1069',['MenuButton',['../structtgbotxx_1_1_menu_button.html#ab5db22eeac14c4a486ea419cddc8952e',1,'tgbotxx::MenuButton::MenuButton(const nl::json &amp;json)'],['../structtgbotxx_1_1_menu_button.html#a693bed5579c61d0b743e56969e247c94',1,'tgbotxx::MenuButton::MenuButton()=default']]],
+  ['menubuttoncommands_1070',['MenuButtonCommands',['../structtgbotxx_1_1_menu_button_commands.html#af0be8a2b5963c5b91e4564e8ee6c3215',1,'tgbotxx::MenuButtonCommands::MenuButtonCommands()'],['../structtgbotxx_1_1_menu_button_commands.html#a723152e80d1ce54ee126e58593e6f4f1',1,'tgbotxx::MenuButtonCommands::MenuButtonCommands(const nl::json &amp;json)']]],
+  ['menubuttondefault_1071',['MenuButtonDefault',['../structtgbotxx_1_1_menu_button_default.html#a3ba34e4e35fb4ca6eae387f285f7d5f7',1,'tgbotxx::MenuButtonDefault::MenuButtonDefault()'],['../structtgbotxx_1_1_menu_button_default.html#a2646e2d9fddf6b72a95f5f97c618d17c',1,'tgbotxx::MenuButtonDefault::MenuButtonDefault(const nl::json &amp;json)']]],
+  ['menubuttonwebapp_1072',['MenuButtonWebApp',['../structtgbotxx_1_1_menu_button_web_app.html#ae52f20708507f31444787cb6400293c4',1,'tgbotxx::MenuButtonWebApp::MenuButtonWebApp()'],['../structtgbotxx_1_1_menu_button_web_app.html#a69b13612ca46e475be176192f0ca3751',1,'tgbotxx::MenuButtonWebApp::MenuButtonWebApp(const nl::json &amp;json)']]],
+  ['message_1073',['Message',['../structtgbotxx_1_1_message.html#a2957928b4eaba8e1b70cd969763c6d4b',1,'tgbotxx::Message::Message()=default'],['../structtgbotxx_1_1_message.html#a194be6eadfba1097d67876d27b991179',1,'tgbotxx::Message::Message(const nl::json &amp;json)']]],
+  ['messageautodeletetimerchanged_1074',['MessageAutoDeleteTimerChanged',['../structtgbotxx_1_1_message_auto_delete_timer_changed.html#ab0b7ee1545252dee4f64cd3e31dcf99c',1,'tgbotxx::MessageAutoDeleteTimerChanged::MessageAutoDeleteTimerChanged()=default'],['../structtgbotxx_1_1_message_auto_delete_timer_changed.html#af052c2a9b7d026db13e75b65609452b7',1,'tgbotxx::MessageAutoDeleteTimerChanged::MessageAutoDeleteTimerChanged(const nl::json &amp;json)']]],
+  ['messageentity_1075',['MessageEntity',['../structtgbotxx_1_1_message_entity.html#a2145cbcf67bd56f5e4054041bb2d7387',1,'tgbotxx::MessageEntity::MessageEntity()=default'],['../structtgbotxx_1_1_message_entity.html#acb08b5355326da87069cc148a2f510b4',1,'tgbotxx::MessageEntity::MessageEntity(const nl::json &amp;json)']]],
+  ['messageid_1076',['MessageId',['../structtgbotxx_1_1_message_id.html#a9f150580c578333a77316202862ddcee',1,'tgbotxx::MessageId::MessageId()=default'],['../structtgbotxx_1_1_message_id.html#a2c7949fd69e652dd3d4564105bef1a3c',1,'tgbotxx::MessageId::MessageId(const nl::json &amp;json)']]]
 ];
