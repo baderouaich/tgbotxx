@@ -75,14 +75,17 @@ bool Api::close() const {
   return sendRequest("close");
 }
 
-Ptr<Message> Api::sendMessage(std::int64_t chatId, const std::string& text, std::int32_t messageThreadId,
+Ptr<Message> Api::sendMessage(const std::variant<std::int64_t, std::string>& chatId, const std::string& text, std::int32_t messageThreadId,
                               const std::string& parseMode, const std::vector<Ptr<MessageEntity>>& entities,
                               bool disableWebPagePreview, bool disableNotification, bool protectContent,
                               std::int32_t replyToMessageId, bool allowSendingWithoutReply,
                               const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  data.parts.emplace_back("chat_id", std::to_string(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  if (chatId.index() == 0)                                                   // std::int64_t id
+    data.parts.emplace_back("chat_id", std::to_string(std::get<0>(chatId))); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  else                                                                       // std::string channel username (in the format @channelusername)
+    data.parts.emplace_back("chat_id", std::get<1>(chatId));
   data.parts.emplace_back("text", text);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -112,15 +115,15 @@ Ptr<Message> Api::sendMessage(std::int64_t chatId, const std::string& text, std:
   return message;
 }
 
-Ptr<MessageId> Api::copyMessage(std::int64_t chatId, std::int64_t fromChatId, std::int32_t messageId,
+Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& chatId, const std::variant<std::int64_t, std::string>& fromChatId, std::int32_t messageId,
                                 std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
                                 const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification,
                                 bool protectContent, std::int32_t replyToMessageId, bool allowSendingWithoutReply,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));          // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));              // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("message_id", messageId);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -150,12 +153,12 @@ Ptr<MessageId> Api::copyMessage(std::int64_t chatId, std::int64_t fromChatId, st
   return messageIdObj;
 }
 
-Ptr<Message> Api::forwardMessage(std::int64_t chatId, std::int64_t fromChatId, std::int32_t messageId, std::int32_t messageThreadId,
+Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& chatId, const std::variant<std::int64_t, std::string>& fromChatId, std::int32_t messageId, std::int32_t messageThreadId,
                                  bool disableNotification, bool protectContent) const {
   cpr::Multipart data{};
   data.parts.reserve(6);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));          // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit fromChatId to 32bit integer gets overflown and sends wrong fromChatId which causes Bad Request: chat not found
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));              // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("message_id", messageId);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -169,13 +172,13 @@ Ptr<Message> Api::forwardMessage(std::int64_t chatId, std::int64_t fromChatId, s
   return message;
 }
 
-Ptr<Message> Api::sendPhoto(std::int64_t chatId, std::variant<cpr::File, std::string> photo,
+Ptr<Message> Api::sendPhoto(const std::variant<std::int64_t, std::string>& chatId, const std::variant<cpr::File, std::string>& photo,
                             std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
                             const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification, bool protectContent,
                             std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   if (photo.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(photo);
     data.parts.emplace_back("photo", cpr::Files{file});
@@ -211,7 +214,7 @@ Ptr<Message> Api::sendPhoto(std::int64_t chatId, std::variant<cpr::File, std::st
   return message;
 }
 
-Ptr<Message> Api::sendAudio(std::int64_t chatId,
+Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatId,
                             std::variant<cpr::File, std::string> audio,
                             std::int32_t messageThreadId,
                             const std::string& caption,
@@ -228,7 +231,7 @@ Ptr<Message> Api::sendAudio(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(15);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (audio.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(audio);
     data.parts.emplace_back("audio", cpr::Files{file});
@@ -278,8 +281,8 @@ Ptr<Message> Api::sendAudio(std::int64_t chatId,
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
-Ptr<Message> Api::sendDocument(std::int64_t chatId,
-                               std::variant<cpr::File, std::string> document,
+Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& chatId,
+                               const std::variant<cpr::File, std::string>& document,
                                std::int32_t messageThreadId,
                                std::optional<std::variant<cpr::File, std::string>> thumbnail,
                                const std::string& caption,
@@ -292,7 +295,7 @@ Ptr<Message> Api::sendDocument(std::int64_t chatId,
                                const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (document.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(document);
     data.parts.emplace_back("document", cpr::Files{file});
@@ -373,8 +376,8 @@ std::string Api::downloadFile(const std::string& filePath, const std::function<b
   throw Exception("Failed to download file " + filePath + " with status code: " + std::to_string(res.status_code));
 }
 
-Ptr<Message> Api::sendVideo(std::int64_t chatId,
-                            std::variant<cpr::File, std::string> video,
+Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatId,
+                            const std::variant<cpr::File, std::string>& video,
                             std::int32_t messageThreadId,
                             std::int32_t duration,
                             std::int32_t width,
@@ -392,7 +395,7 @@ Ptr<Message> Api::sendVideo(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(17);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (video.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(video);
     data.parts.emplace_back("video", cpr::Files{file});
@@ -447,8 +450,8 @@ Ptr<Message> Api::sendVideo(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendAnimation(std::int64_t chatId,
-                                std::variant<cpr::File, std::string> animation,
+Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& chatId,
+                                const std::variant<cpr::File, std::string>& animation,
                                 std::int32_t messageThreadId,
                                 std::int32_t duration,
                                 std::int32_t width,
@@ -465,7 +468,7 @@ Ptr<Message> Api::sendAnimation(std::int64_t chatId,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(16);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (animation.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(animation);
     data.parts.emplace_back("animation", cpr::Files{file});
@@ -518,8 +521,8 @@ Ptr<Message> Api::sendAnimation(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendVoice(std::int64_t chatId,
-                            std::variant<cpr::File, std::string> voice,
+Ptr<Message> Api::sendVoice(const std::variant<std::int64_t, std::string>& chatId,
+                            const std::variant<cpr::File, std::string>& voice,
                             std::int32_t messageThreadId,
                             const std::string& caption,
                             const std::string& parseMode,
@@ -532,7 +535,7 @@ Ptr<Message> Api::sendVoice(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (voice.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(voice);
     data.parts.emplace_back("voice", cpr::Files{file});
@@ -570,8 +573,8 @@ Ptr<Message> Api::sendVoice(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
-                                std::variant<cpr::File, std::string> videoNote,
+Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& chatId,
+                                const std::variant<cpr::File, std::string>& videoNote,
                                 std::int32_t messageThreadId,
                                 std::int32_t duration,
                                 std::int32_t length,
@@ -583,7 +586,7 @@ Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
                                 const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (videoNote.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(videoNote);
     data.parts.emplace_back("video_note", cpr::Files{file});
@@ -622,7 +625,7 @@ Ptr<Message> Api::sendVideoNote(std::int64_t chatId,
   return message;
 }
 
-std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
+std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, std::string>& chatId,
                                               const std::vector<Ptr<InputMedia>>& media,
                                               std::int32_t messageThreadId,
                                               bool disableNotification,
@@ -631,7 +634,7 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
                                               bool allowSendingWithoutReply) const {
   cpr::Multipart data{};
   data.parts.reserve(7);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (media.size() > 10 or media.size() < 2)
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
   nl::json mediaJson = nl::json::array();
@@ -659,7 +662,7 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(std::int64_t chatId,
   return sentMessages;
 }
 
-Ptr<Message> Api::sendLocation(std::int64_t chatId,
+Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& chatId,
                                float latitude,
                                float longitude,
                                std::int32_t messageThreadId,
@@ -674,7 +677,7 @@ Ptr<Message> Api::sendLocation(std::int64_t chatId,
                                const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(13);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("latitude", latitude);
   data.parts.emplace_back("longitude", longitude);
   if (messageThreadId)
@@ -703,7 +706,7 @@ Ptr<Message> Api::sendLocation(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendVenue(std::int64_t chatId,
+Ptr<Message> Api::sendVenue(const std::variant<std::int64_t, std::string>& chatId,
                             float latitude,
                             float longitude,
                             const std::string& title,
@@ -720,7 +723,7 @@ Ptr<Message> Api::sendVenue(std::int64_t chatId,
                             const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(15);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("latitude", latitude);
   data.parts.emplace_back("longitude", longitude);
   data.parts.emplace_back("title", title);
@@ -751,7 +754,7 @@ Ptr<Message> Api::sendVenue(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendContact(std::int64_t chatId,
+Ptr<Message> Api::sendContact(const std::variant<std::int64_t, std::string>& chatId,
                               const std::string& phoneNumber,
                               const std::string& firstName,
                               const std::string& lastName,
@@ -764,7 +767,7 @@ Ptr<Message> Api::sendContact(std::int64_t chatId,
                               const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("phone_number", phoneNumber);
   data.parts.emplace_back("first_name", firstName);
   if (not lastName.empty())
@@ -789,7 +792,7 @@ Ptr<Message> Api::sendContact(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendPoll(std::int64_t chatId,
+Ptr<Message> Api::sendPoll(const std::variant<std::int64_t, std::string>& chatId,
                            const std::string& question,
                            const std::vector<std::string>& options,
                            bool isAnonymous,
@@ -810,7 +813,7 @@ Ptr<Message> Api::sendPoll(std::int64_t chatId,
                            const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(19);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("question", question);
   data.parts.emplace_back("options", nl::json(options).dump());
   if (not isAnonymous)
@@ -855,7 +858,7 @@ Ptr<Message> Api::sendPoll(std::int64_t chatId,
   return message;
 }
 
-Ptr<Message> Api::sendDice(std::int64_t chatId,
+Ptr<Message> Api::sendDice(const std::variant<std::int64_t, std::string>& chatId,
                            const std::string& emoji,
                            std::int32_t messageThreadId,
                            bool disableNotification,
@@ -865,7 +868,7 @@ Ptr<Message> Api::sendDice(std::int64_t chatId,
                            const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(8);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (not emoji.empty())
     data.parts.emplace_back("emoji", emoji);
   if (messageThreadId)
@@ -886,12 +889,12 @@ Ptr<Message> Api::sendDice(std::int64_t chatId,
   return message;
 }
 
-bool Api::sendChatAction(std::int64_t chatId,
+bool Api::sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                          const std::string& action,
                          std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("action", action);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -915,13 +918,13 @@ Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
   return userProfilePhotos;
 }
 
-bool Api::banChatMember(std::int64_t chatId,
+bool Api::banChatMember(const std::variant<std::int64_t, std::string>& chatId,
                         std::int64_t userId,
                         std::time_t untilDate,
                         bool revokeMessages) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (untilDate)
     data.parts.emplace_back("until_date", untilDate);
@@ -931,12 +934,12 @@ bool Api::banChatMember(std::int64_t chatId,
   return sendRequest("banChatMember", data);
 }
 
-bool Api::unbanChatMember(std::int64_t chatId,
+bool Api::unbanChatMember(const std::variant<std::int64_t, std::string>& chatId,
                           std::int64_t userId,
                           bool onlyIfBanned) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (onlyIfBanned)
     data.parts.emplace_back("only_if_banned", onlyIfBanned);
@@ -944,14 +947,14 @@ bool Api::unbanChatMember(std::int64_t chatId,
   return sendRequest("unbanChatMember", data);
 }
 
-bool Api::restrictChatMember(std::int64_t chatId,
+bool Api::restrictChatMember(const std::variant<std::int64_t, std::string>& chatId,
                              std::int64_t userId,
                              const Ptr<ChatPermissions>& permissions,
                              bool useIndependentChatPermissions,
                              std::time_t untilDate) const {
   cpr::Multipart data{};
   data.parts.reserve(5);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("permissions", permissions->toJson().dump());
   if (useIndependentChatPermissions)
@@ -962,7 +965,7 @@ bool Api::restrictChatMember(std::int64_t chatId,
   return sendRequest("restrictChatMember", data);
 }
 
-bool Api::promoteChatMember(std::int64_t chatId,
+bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatId,
                             std::int64_t userId,
                             bool isAnonymous,
                             bool canManageChat,
@@ -981,7 +984,7 @@ bool Api::promoteChatMember(std::int64_t chatId,
                             bool canManageTopics) const {
   cpr::Multipart data{};
   data.parts.reserve(17);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (isAnonymous)
     data.parts.emplace_back("is_anonymous", isAnonymous);
@@ -1016,62 +1019,62 @@ bool Api::promoteChatMember(std::int64_t chatId,
   return sendRequest("promoteChatMember", data);
 }
 
-bool Api::setChatAdministratorCustomTitle(std::int64_t chatId,
+bool Api::setChatAdministratorCustomTitle(const std::variant<std::int64_t, std::string>& chatId,
                                           std::int64_t userId,
                                           const std::string& customTitle) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("custom_title", customTitle);
   return sendRequest("setChatAdministratorCustomTitle", data);
 }
 
-bool Api::banChatSenderChat(std::int64_t chatId,
+bool Api::banChatSenderChat(const std::variant<std::int64_t, std::string>& chatId,
                             std::int64_t senderChatId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
   return sendRequest("banChatSenderChat", data);
 }
 
-bool Api::unbanChatSenderChat(std::int64_t chatId,
+bool Api::unbanChatSenderChat(const std::variant<std::int64_t, std::string>& chatId,
                               std::int64_t senderChatId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("sender_chat_id", std::to_string(senderChatId));
   return sendRequest("unbanChatSenderChat", data);
 }
 
-bool Api::setChatPermissions(std::int64_t chatId,
+bool Api::setChatPermissions(const std::variant<std::int64_t, std::string>& chatId,
                              const Ptr<ChatPermissions>& permissions,
                              bool useIndependentChatPermissions) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("permissions", permissions->toJson().dump());
   if (useIndependentChatPermissions)
     data.parts.emplace_back("use_independent_chat_permissions", useIndependentChatPermissions);
   return sendRequest("setChatPermissions", data);
 }
 
-std::string Api::exportChatInviteLink(std::int64_t chatId) const {
+std::string Api::exportChatInviteLink(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("exportChatInviteLink", data);
 }
 
-Ptr<ChatInviteLink> Api::createChatInviteLink(std::int64_t chatId,
+Ptr<ChatInviteLink> Api::createChatInviteLink(const std::variant<std::int64_t, std::string>& chatId,
                                               const std::string& name,
                                               std::time_t expireDate,
                                               std::int32_t memberLimit,
                                               bool createsJoinRequest) const {
   cpr::Multipart data{};
   data.parts.reserve(5);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (not name.empty())
     data.parts.emplace_back("name", name);
   if (expireDate)
@@ -1086,7 +1089,7 @@ Ptr<ChatInviteLink> Api::createChatInviteLink(std::int64_t chatId,
   return chatInviteLink;
 }
 
-Ptr<ChatInviteLink> Api::editChatInviteLink(std::int64_t chatId,
+Ptr<ChatInviteLink> Api::editChatInviteLink(const std::variant<std::int64_t, std::string>& chatId,
                                             const std::string& inviteLink,
                                             const std::string& name,
                                             std::time_t expireDate,
@@ -1094,7 +1097,7 @@ Ptr<ChatInviteLink> Api::editChatInviteLink(std::int64_t chatId,
                                             bool createsJoinRequest) const {
   cpr::Multipart data{};
   data.parts.reserve(6);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("invite_link", inviteLink);
   if (not name.empty())
     data.parts.emplace_back("name", name);
@@ -1110,11 +1113,11 @@ Ptr<ChatInviteLink> Api::editChatInviteLink(std::int64_t chatId,
   return chatInviteLink;
 }
 
-Ptr<ChatInviteLink> Api::revokeChatInviteLink(std::int64_t chatId,
+Ptr<ChatInviteLink> Api::revokeChatInviteLink(const std::variant<std::int64_t, std::string>& chatId,
                                               const std::string& inviteLink) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("invite_link", inviteLink);
 
   nl::json chatInviteLinkObj = sendRequest("revokeChatInviteLink", data);
@@ -1122,104 +1125,104 @@ Ptr<ChatInviteLink> Api::revokeChatInviteLink(std::int64_t chatId,
   return chatInviteLink;
 }
 
-bool Api::approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const {
+bool Api::approveChatJoinRequest(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   return sendRequest("approveChatJoinRequest", data);
 }
 
-bool Api::declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const {
+bool Api::declineChatJoinRequest(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   return sendRequest("declineChatJoinRequest", data);
 }
 
-bool Api::setChatPhoto(std::int64_t chatId, const cpr::File& photo) const {
+bool Api::setChatPhoto(const std::variant<std::int64_t, std::string>& chatId, const cpr::File& photo) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("photo", cpr::Files{photo});
   return sendRequest("setChatPhoto", data);
 }
 
-bool Api::deleteChatPhoto(std::int64_t chatId) const {
+bool Api::deleteChatPhoto(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("deleteChatPhoto", data);
 }
 
-bool Api::setChatTitle(std::int64_t chatId, const std::string& title) const {
+bool Api::setChatTitle(const std::variant<std::int64_t, std::string>& chatId, const std::string& title) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("title", title);
   return sendRequest("setChatTitle", data);
 }
 
-bool Api::setChatDescription(std::int64_t chatId, const std::string& description) const {
+bool Api::setChatDescription(const std::variant<std::int64_t, std::string>& chatId, const std::string& description) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (not description.empty())
     data.parts.emplace_back("description", description);
   return sendRequest("setChatDescription", data);
 }
 
-bool Api::pinChatMessage(std::int64_t chatId,
+bool Api::pinChatMessage(const std::variant<std::int64_t, std::string>& chatId,
                          std::int32_t messageId,
                          bool disableNotification) const {
   cpr::Multipart data{};
   data.parts.reserve(3);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_id", messageId);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
   return sendRequest("pinChatMessage", data);
 }
 
-bool Api::unpinChatMessage(std::int64_t chatId, std::int32_t messageId) const {
+bool Api::unpinChatMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (messageId)
     data.parts.emplace_back("message_id", messageId);
   return sendRequest("unpinChatMessage", data);
 }
 
-bool Api::unpinAllChatMessages(std::int64_t chatId) const {
+bool Api::unpinAllChatMessages(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("unpinAllChatMessages", data);
 }
 
 
-bool Api::leaveChat(std::int64_t chatId) const {
+bool Api::leaveChat(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("leaveChat", data);
 }
 
-Ptr<Chat> Api::getChat(std::int64_t chatId) const {
+Ptr<Chat> Api::getChat(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
 
   nl::json chatObj = sendRequest("getChat", data);
   Ptr<Chat> chat(new Chat(chatObj));
   return chat;
 }
 
-std::vector<Ptr<ChatMember>> Api::getChatAdministrators(std::int64_t chatId) const {
+std::vector<Ptr<ChatMember>> Api::getChatAdministrators(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
 
   nl::json chatMembersArray = sendRequest("getChatAdministrators", data);
   std::vector<Ptr<ChatMember>> chatMembers;
@@ -1231,17 +1234,17 @@ std::vector<Ptr<ChatMember>> Api::getChatAdministrators(std::int64_t chatId) con
   return chatMembers;
 }
 
-std::int32_t Api::getChatMemberCount(std::int64_t chatId) const {
+std::int32_t Api::getChatMemberCount(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("getChatMemberCount", data);
 }
 
-Ptr<ChatMember> Api::getChatMember(std::int64_t chatId, std::int64_t userId) const {
+Ptr<ChatMember> Api::getChatMember(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
 
   nl::json chatMemberObj = sendRequest("getChatMember", data);
@@ -1249,18 +1252,18 @@ Ptr<ChatMember> Api::getChatMember(std::int64_t chatId, std::int64_t userId) con
   return chatMember;
 }
 
-bool Api::setChatStickerSet(std::int64_t chatId, const std::string& stickerSetName) const {
+bool Api::setChatStickerSet(const std::variant<std::int64_t, std::string>& chatId, const std::string& stickerSetName) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("sticker_set_name", stickerSetName);
   return sendRequest("setChatStickerSet", data);
 }
 
-bool Api::deleteChatStickerSet(std::int64_t chatId) const {
+bool Api::deleteChatStickerSet(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("deleteChatStickerSet", data);
 }
 
@@ -1275,13 +1278,13 @@ std::vector<Ptr<Sticker>> Api::getForumTopicIconStickers() const {
   return stickers;
 }
 
-Ptr<ForumTopic> Api::createForumTopic(std::int64_t chatId,
+Ptr<ForumTopic> Api::createForumTopic(const std::variant<std::int64_t, std::string>& chatId,
                                       const std::string& name,
                                       std::int32_t iconColor,
                                       const std::string& iconCustomEmojiId) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("name", name);
   if (iconColor)
     data.parts.emplace_back("icon_color", iconColor);
@@ -1293,13 +1296,13 @@ Ptr<ForumTopic> Api::createForumTopic(std::int64_t chatId,
   return forumTopic;
 }
 
-bool Api::editForumTopic(std::int64_t chatId,
+bool Api::editForumTopic(const std::variant<std::int64_t, std::string>& chatId,
                          std::int32_t messageThreadId,
                          const std::string& name,
                          const std::optional<std::string>& iconCustomEmojiId) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_thread_id", messageThreadId);
   if (not name.empty())
     data.parts.emplace_back("name", name);
@@ -1309,78 +1312,78 @@ bool Api::editForumTopic(std::int64_t chatId,
   return sendRequest("editForumTopic", data);
 }
 
-bool Api::closeForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+bool Api::closeForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_thread_id", messageThreadId);
   return sendRequest("closeForumTopic", data);
 }
 
-bool Api::reopenForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+bool Api::reopenForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_thread_id", messageThreadId);
   return sendRequest("reopenForumTopic", data);
 }
 
-bool Api::deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const {
+bool Api::deleteForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_thread_id", messageThreadId);
   return sendRequest("deleteForumTopic", data);
 }
 
-bool Api::unpinAllForumTopicMessages(std::int64_t chatId, std::int32_t messageThreadId) const {
+bool Api::unpinAllForumTopicMessages(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_thread_id", messageThreadId);
   return sendRequest("unpinAllForumTopicMessages", data);
 }
 
-bool Api::editGeneralForumTopic(std::int64_t chatId, const std::string& name) const {
+bool Api::editGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId, const std::string& name) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("name", name);
   return sendRequest("editGeneralForumTopic", data);
 }
 
-bool Api::closeGeneralForumTopic(std::int64_t chatId) const {
+bool Api::closeGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("closeGeneralForumTopic", data);
 }
 
-bool Api::reopenGeneralForumTopic(std::int64_t chatId) const {
+bool Api::reopenGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("reopenGeneralForumTopic", data);
 }
 
-bool Api::hideGeneralForumTopic(std::int64_t chatId) const {
+bool Api::hideGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("hideGeneralForumTopic", data);
 }
 
-bool Api::unhideGeneralForumTopic(std::int64_t chatId) const {
+bool Api::unhideGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("unhideGeneralForumTopic", data);
 }
 
-bool Api::unpinAllGeneralForumTopicMessages(std::int64_t chatId) const {
+bool Api::unpinAllGeneralForumTopicMessages(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   return sendRequest("unpinAllGeneralForumTopicMessages", data);
 }
 
@@ -1513,22 +1516,23 @@ Ptr<BotShortDescription> Api::getMyShortDescription(const std::string& languageC
   return makePtr<BotShortDescription>(botShortDescObj);
 }
 
-bool Api::setChatMenuButton(std::int64_t chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {
+bool Api::setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  if (chatId)
-    data.parts.emplace_back("chat_id", std::to_string(chatId));
+  std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
+  if (chatIdStr != "0")
+    data.parts.emplace_back("chat_id", chatIdStr);
   if (menuButton)
     data.parts.emplace_back("menu_button", menuButton->toJson().dump());
   return sendRequest("setChatMenuButton", data);
 }
 
-Ptr<MenuButton> Api::getChatMenuButton(std::int64_t chatId) const {
+Ptr<MenuButton> Api::getChatMenuButton(const std::variant<std::int64_t, std::string>& chatId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
-  if (chatId)
-    data.parts.emplace_back("chat_id", std::to_string(chatId));
-
+  std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
+  if (chatIdStr != "0")
+    data.parts.emplace_back("chat_id", chatIdStr);
   nl::json chatMenuObj = sendRequest("getChatMenuButton", data);
   std::string type = chatMenuObj["type"].get<std::string>();
   if (type == "web_app")
@@ -1619,4 +1623,30 @@ Ptr<WebhookInfo> Api::getWebhookInfo() const {
   return makePtr<WebhookInfo>(webhookInfoObj);
 }
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool Api::answerInlineQuery(const std::string& inlineQueryId,
+                            const std::vector<Ptr<InlineQueryResult>>& results,
+                            std::int32_t cacheTime,
+                            bool isPersonal,
+                            const std::string& nextOffset,
+                            const Ptr<InlineQueryResultsButton>& button) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("inline_query_id", inlineQueryId);
+  nl::json resultsArray = nl::json::array();
+  for (const Ptr<InlineQueryResult>& result: results)
+    resultsArray.push_back(result->toJson());
+  data.parts.emplace_back("results", resultsArray.dump());
+  if (cacheTime != 300)
+    data.parts.emplace_back("cache_time", cacheTime);
+  if (isPersonal)
+    data.parts.emplace_back("is_personal", isPersonal);
+  if (not nextOffset.empty())
+    data.parts.emplace_back("next_offset", nextOffset);
+  if (button)
+    data.parts.emplace_back("button", button->toJson().dump());
+
+  return sendRequest("answerInlineQuery", data);
+}

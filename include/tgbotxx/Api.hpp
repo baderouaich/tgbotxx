@@ -50,6 +50,7 @@
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
+#include <tgbotxx/objects/LabeledPrice.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
@@ -135,7 +136,7 @@ namespace tgbotxx {
       bool close() const;
 
       /// @brief Use this method to send text messages. On success, the sent Message is returned.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format @channelusername)
       /// @param text Text of the message to be sent, 1-4096 characters after entities parsing
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
@@ -150,7 +151,7 @@ namespace tgbotxx {
       /// @returns sent Message object on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendmessage
-      Ptr<Message> sendMessage(std::int64_t chatId,
+      Ptr<Message> sendMessage(const std::variant<std::int64_t, std::string>& chatId,
                                const std::string& text,
                                std::int32_t messageThreadId = 0,
                                const std::string& parseMode = "",
@@ -163,8 +164,8 @@ namespace tgbotxx {
                                const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
       /// @brief Use this method to forward messages of any kind. Service messages can't be forwarded.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-      /// @param fromChatId Unique identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param fromChatId Integer or String Unique identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
       /// @param messageId Message identifier in the chat specified in fromChatId
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
@@ -172,8 +173,8 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#forwardmessage
-      Ptr<Message> forwardMessage(std::int64_t chatId,
-                                  std::int64_t fromChatId,
+      Ptr<Message> forwardMessage(const std::variant<std::int64_t, std::string>& chatId,
+                                  const std::variant<std::int64_t, std::string>& fromChatId,
                                   std::int32_t messageId,
                                   std::int32_t messageThreadId = 0,
                                   bool disableNotification = false,
@@ -182,8 +183,8 @@ namespace tgbotxx {
       /// @brief Use this method to copy messages of any kind. Service messages and invoice messages can't be copied.
       /// A quiz poll can be copied only if the value of the field correct_option_id is known to the bot.
       /// The method is analogous to the method forwardMessage, but the copied message doesn't have a link to the original message.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-      /// @param fromChatId Unique identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param fromChatId Integer or String identifier for the chat where the original message was sent (or channel username in the format \@channelusername)
       /// @param messageId Message identifier in the chat specified in fromChatId
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
       /// @param caption Optional. New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept
@@ -199,8 +200,8 @@ namespace tgbotxx {
       /// @returns the MessageId of the sent message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#copymessage
-      Ptr<MessageId> copyMessage(std::int64_t chatId,
-                                 std::int64_t fromChatId,
+      Ptr<MessageId> copyMessage(const std::variant<std::int64_t, std::string>& chatId,
+                                 const std::variant<std::int64_t, std::string>& fromChatId,
                                  std::int32_t messageId,
                                  std::int32_t messageThreadId = 0,
                                  const std::string& caption = "",
@@ -213,7 +214,7 @@ namespace tgbotxx {
                                  const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
       /// @brief Use this method to send photos.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param photo Photo to send. cpr::File or std::string.
       /// Pass a fileId as String to send a photo that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.
@@ -233,8 +234,8 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendphoto
-      Ptr<Message> sendPhoto(std::int64_t chatId,
-                             std::variant<cpr::File, std::string> photo,
+      Ptr<Message> sendPhoto(const std::variant<std::int64_t, std::string>& chatId,
+                             const std::variant<cpr::File, std::string>& photo,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -247,7 +248,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to send audio files, if you want Telegram clients to display them in the music player.
       /// Your audio must be in the .MP3 or .M4A format.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param audio Audio file to send. cpr::File or std::string.
       /// Pass a fileId as String to send an audio file that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data.
@@ -275,7 +276,7 @@ namespace tgbotxx {
       /// @note Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#sendaudio
-      Ptr<Message> sendAudio(std::int64_t chatId,
+      Ptr<Message> sendAudio(const std::variant<std::int64_t, std::string>& chatId,
                              std::variant<cpr::File, std::string> audio,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
@@ -293,7 +294,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send general files.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param document File to send.
       /// Pass a file_id as String to send a file that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.
@@ -318,8 +319,8 @@ namespace tgbotxx {
       /// @note Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#senddocument
-      Ptr<Message> sendDocument(std::int64_t chatId,
-                                std::variant<cpr::File, std::string> document,
+      Ptr<Message> sendDocument(const std::variant<std::int64_t, std::string>& chatId,
+                                const std::variant<cpr::File, std::string>& document,
                                 std::int32_t messageThreadId = 0,
                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
                                 const std::string& caption = "",
@@ -334,7 +335,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as Document using Api::sendDocument()).
       /// Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param video Video to send.
       /// Pass a fileId as String to send a video that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data.
@@ -363,8 +364,8 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideo
-      Ptr<Message> sendVideo(std::int64_t chatId,
-                             std::variant<cpr::File, std::string> video,
+      Ptr<Message> sendVideo(const std::variant<std::int64_t, std::string>& chatId,
+                             const std::variant<cpr::File, std::string>& video,
                              std::int32_t messageThreadId = 0,
                              std::int32_t duration = 0,
                              std::int32_t width = 0,
@@ -384,7 +385,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound).
       /// Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param animation Animation to send.
       /// Pass a fileId as String to send an animation that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a animation from the Internet, or upload a new animation using multipart/form-data.
@@ -412,8 +413,8 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @note Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendanimation
-      Ptr<Message> sendAnimation(std::int64_t chatId,
-                                 std::variant<cpr::File, std::string> animation,
+      Ptr<Message> sendAnimation(const std::variant<std::int64_t, std::string>& chatId,
+                                 const std::variant<cpr::File, std::string>& animation,
                                  std::int32_t messageThreadId = 0,
                                  std::int32_t duration = 0,
                                  std::int32_t width = 0,
@@ -433,7 +434,7 @@ namespace tgbotxx {
       /// @brief Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message.
       /// For this to work, your audio must be in an .OGG file encoded with OPUS (other formats may be sent as Audio or Document).
       /// Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param voice Audio file to send.
       /// Pass a fileId as String to send a file that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new file using multipart/form-data.
@@ -453,8 +454,8 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @note Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvoice
-      Ptr<Message> sendVoice(std::int64_t chatId,
-                             std::variant<cpr::File, std::string> voice,
+      Ptr<Message> sendVoice(const std::variant<std::int64_t, std::string>& chatId,
+                             const std::variant<cpr::File, std::string>& voice,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -469,7 +470,7 @@ namespace tgbotxx {
 
       /// @brief As of v.4.0, Telegram clients support rounded square MPEG4 videos of up to 1 minute long.
       /// Use this method to send video messages. https://telegram.org/blog/video-messages-and-telescope
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param videoNote Video note to send.
       /// Pass a fileId as String to send a video note that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data.
@@ -493,8 +494,8 @@ namespace tgbotxx {
       /// @note Sending video notes by a URL is currently unsupported
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideonote
-      Ptr<Message> sendVideoNote(std::int64_t chatId,
-                                 std::variant<cpr::File, std::string> videoNote,
+      Ptr<Message> sendVideoNote(const std::variant<std::int64_t, std::string>& chatId,
+                                 const std::variant<cpr::File, std::string>& videoNote,
                                  std::int32_t messageThreadId = 0,
                                  std::int32_t duration = 0,
                                  std::int32_t length = 0,
@@ -508,7 +509,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to send a group of photos, videos, documents or audios as an album.
       /// Documents and audio files can be only grouped in an album with messages of the same type.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param media A JSON-serialized array describing messages to be sent, must include 2-10 items.
       /// Array of InputMediaAudio, InputMediaDocument, InputMediaPhoto and InputMediaVideo
       /// https://core.telegram.org/bots/api#inputmedia
@@ -521,7 +522,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @note Documents and audio files can be only grouped in an album with messages of the same type.
       /// @ref https://core.telegram.org/bots/api#sendmediagroup
-      std::vector<Ptr<Message>> sendMediaGroup(std::int64_t chatId,
+      std::vector<Ptr<Message>> sendMediaGroup(const std::variant<std::int64_t, std::string>& chatId,
                                                const std::vector<Ptr<InputMedia>>& media,
                                                std::int32_t messageThreadId = 0,
                                                bool disableNotification = false,
@@ -531,7 +532,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send point on the map.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param latitude Latitude of the location
       /// @param longitude Longitude of the location
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
@@ -548,7 +549,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendlocation
-      Ptr<Message> sendLocation(std::int64_t chatId,
+      Ptr<Message> sendLocation(const std::variant<std::int64_t, std::string>& chatId,
                                 float latitude,
                                 float longitude,
                                 std::int32_t messageThreadId = 0,
@@ -564,7 +565,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send information about a venue.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param latitude Latitude of the venue
       /// @param longitude Longitude of the venue
       /// @param title Name of the venue
@@ -583,7 +584,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendvenue
-      Ptr<Message> sendVenue(std::int64_t chatId,
+      Ptr<Message> sendVenue(const std::variant<std::int64_t, std::string>& chatId,
                              float latitude,
                              float longitude,
                              const std::string& title,
@@ -601,7 +602,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send phone contacts.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param phoneNumber Contact's phone number
       /// @param firstName Contact's first name
       /// @param lastName Optional. Contact's last name
@@ -616,7 +617,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendcontact
-      Ptr<Message> sendContact(std::int64_t chatId,
+      Ptr<Message> sendContact(const std::variant<std::int64_t, std::string>& chatId,
                                const std::string& phoneNumber,
                                const std::string& firstName,
                                const std::string& lastName = "",
@@ -630,7 +631,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send a native poll.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param question Poll question, 1-300 characters
       /// @param options A list of answer options, 2-10 strings 1-100 characters each
       /// @param isAnonymous Optional. True, if the poll needs to be anonymous, defaults to True
@@ -653,7 +654,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendpoll
-      Ptr<Message> sendPoll(std::int64_t chatId,
+      Ptr<Message> sendPoll(const std::variant<std::int64_t, std::string>& chatId,
                             const std::string& question,
                             const std::vector<std::string>& options,
                             bool isAnonymous = true,
@@ -675,7 +676,7 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to send an animated emoji that will display a random value.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param emoji Optional. Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”.
       /// Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
       /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
@@ -688,7 +689,7 @@ namespace tgbotxx {
       /// @returns the sent Message on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#senddice
-      Ptr<Message> sendDice(std::int64_t chatId,
+      Ptr<Message> sendDice(const std::variant<std::int64_t, std::string>& chatId,
                             const std::string& emoji = "🎲",
                             std::int32_t messageThreadId = 0,
                             bool disableNotification = false,
@@ -700,7 +701,7 @@ namespace tgbotxx {
 
       /// @brief Use this method when you need to tell the user that something is happening on the bot's side.
       /// The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status).
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param action Type of action to broadcast. Choose one, depending on what the user is about to receive:
       /// - "typing" for text messages
       /// - "upload_photo" for photos
@@ -719,7 +720,7 @@ namespace tgbotxx {
       /// the bot may use sendChatAction with action = upload_photo. The user will see a “sending photo” status for the bot.
       /// @note We only recommend using this method when a response from the bot will take a noticeable amount of time to arrive.
       /// @ref https://core.telegram.org/bots/api#sendchataction
-      bool sendChatAction(std::int64_t chatId,
+      bool sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                           const std::string& action,
                           std::int32_t messageThreadId = 0) const;
 
@@ -763,7 +764,7 @@ namespace tgbotxx {
       /// @brief Use this method to ban a user in a group, a supergroup or a channel.
       /// In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. https://core.telegram.org/bots/api#unbanchatmember
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @param untilDate Optional. Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. .
       /// AApplied for supergroups and channels only.
@@ -772,7 +773,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @note You can't ban members in private chats
       /// @ref https://core.telegram.org/bots/api#banchatmember
-      bool banChatMember(std::int64_t chatId,
+      bool banChatMember(const std::variant<std::int64_t, std::string>& chatId,
                          std::int64_t userId,
                          std::time_t untilDate = 0,
                          bool revokeMessages = false) const;
@@ -783,13 +784,13 @@ namespace tgbotxx {
       /// The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat,
       /// but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this,
       /// use the parameter onlyIfBanned.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @param onlyIfBanned Optional. Do nothing if the user is not banned
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#unbanchatmember
-      bool unbanChatMember(std::int64_t chatId,
+      bool unbanChatMember(const std::variant<std::int64_t, std::string>& chatId,
                            std::int64_t userId,
                            bool onlyIfBanned = false) const;
 
@@ -797,7 +798,7 @@ namespace tgbotxx {
       /// @brief Use this method to restrict a user in a supergroup.
       /// The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights.
       /// Pass True for all permissions of ChatPermissions object to lift restrictions from a user.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @param permissions A ChatPermissions object for new user permissions
       /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
@@ -807,7 +808,7 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#restrictchatmember
-      bool restrictChatMember(std::int64_t chatId,
+      bool restrictChatMember(const std::variant<std::int64_t, std::string>& chatId,
                               std::int64_t userId,
                               const Ptr<ChatPermissions>& permissions,
                               bool useIndependentChatPermissions = false,
@@ -817,7 +818,7 @@ namespace tgbotxx {
       /// @brief Use this method to promote or demote a user in a supergroup or a channel.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
       /// Pass False for all boolean parameters to demote a user.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @param isAnonymous Optional. Pass True if the administrator's presence in the chat is hidden
       /// @param canManageChat Optional. Pass True if the administrator can access the chat event log, boost list in channels, see channel members,
@@ -838,7 +839,7 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#promotechatmember
-      bool promoteChatMember(std::int64_t chatId,
+      bool promoteChatMember(const std::variant<std::int64_t, std::string>& chatId,
                              std::int64_t userId,
                              bool isAnonymous = false,
                              bool canManageChat = false,
@@ -858,13 +859,13 @@ namespace tgbotxx {
 
 
       /// @brief Use this method to set a custom title for an administrator in a supergroup promoted by the bot.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setchatadministratorcustomtitle
-      bool setChatAdministratorCustomTitle(std::int64_t chatId,
+      bool setChatAdministratorCustomTitle(const std::variant<std::int64_t, std::string>& chatId,
                                            std::int64_t userId,
                                            const std::string& customTitle) const;
 
@@ -872,33 +873,33 @@ namespace tgbotxx {
       /// @brief Use this method to ban a channel chat in a supergroup or a channel.
       /// Until the chat is unbanned, the owner of the banned chat won't be able to send messages on behalf of <b>any of their channels</b>.
       /// The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param senderChatId Unique identifier of the target sender chat
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso unbanChatSenderChat
       /// @ref https://core.telegram.org/bots/api#banchatsenderchat
-      bool banChatSenderChat(std::int64_t chatId,
+      bool banChatSenderChat(const std::variant<std::int64_t, std::string>& chatId,
                              std::int64_t senderChatId) const;
 
 
       /// @brief Use this method to unban a previously banned channel chat in a supergroup or channel.
       /// The bot must be an administrator for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param senderChatId Unique identifier of the target sender chat
       /// @param customTitle New custom title for the administrator; 0-16 characters, emoji are not allowed
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso banChatSenderChat
       /// @ref https://core.telegram.org/bots/api#unbanchatsenderchat
-      bool unbanChatSenderChat(std::int64_t chatId,
+      bool unbanChatSenderChat(const std::variant<std::int64_t, std::string>& chatId,
                                std::int64_t senderChatId) const;
 
 
       /// @brief Use this method to set default chat permissions for all members.
       /// The bot must be an administrator in the group or a supergroup for this to work and must have the canRestrictMembers administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param permissions A ChatPermissions object for new user permissions
       /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
       /// the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios,
@@ -907,14 +908,14 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setchatpermissions
-      bool setChatPermissions(std::int64_t chatId,
+      bool setChatPermissions(const std::variant<std::int64_t, std::string>& chatId,
                               const Ptr<ChatPermissions>& permissions,
                               bool useIndependentChatPermissions = false) const;
 
 
       /// @brief Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param permissions A ChatPermissions object for new user permissions
       /// @param useIndependentChatPermissions Optional. Pass True if chat permissions are set independently. Otherwise,
       /// the canSendOtherMessages and canAddWebPagePreviews permissions will imply the canSendMessages, canSendAudios,
@@ -926,13 +927,13 @@ namespace tgbotxx {
       /// @note Each administrator in a chat generates their own invite links. Bots can't use invite links generated by other administrators.
       /// If you want your bot to work with invite links, it will need to generate its own link using exportChatInviteLink or by calling the getChat method.
       /// If your bot needs to generate a new primary invite link replacing its previous one, use exportChatInviteLink again.
-      std::string exportChatInviteLink(std::int64_t chatId) const;
+      std::string exportChatInviteLink(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to create an additional invite link for a chat.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
       /// The link can be revoked using the method revokeChatInviteLink.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param name Optional. Invite link name; 0-32 characters
       /// @param expireDate Optional. Point in time (Unix timestamp) when the link will expire
       /// @param memberLimit Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
@@ -941,7 +942,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso editChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#createchatinvitelink
-      Ptr<ChatInviteLink> createChatInviteLink(std::int64_t chatId,
+      Ptr<ChatInviteLink> createChatInviteLink(const std::variant<std::int64_t, std::string>& chatId,
                                                const std::string& name = "",
                                                std::time_t expireDate = 0,
                                                std::int32_t memberLimit = 0,
@@ -950,7 +951,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to edit a non-primary invite link created by the bot.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param inviteLink The invite link to edit
       /// @param name Optional. Invite link name; 0-32 characters
       /// @param expireDate Optional. Point in time (Unix timestamp) when the link will expire
@@ -960,7 +961,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso createChatInviteLink revokeChatInviteLink
       /// @ref https://core.telegram.org/bots/api#editchatinvitelink
-      Ptr<ChatInviteLink> editChatInviteLink(std::int64_t chatId,
+      Ptr<ChatInviteLink> editChatInviteLink(const std::variant<std::int64_t, std::string>& chatId,
                                              const std::string& inviteLink,
                                              const std::string& name = "",
                                              std::time_t expireDate = 0,
@@ -970,82 +971,82 @@ namespace tgbotxx {
 
       /// @brief Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param inviteLink The invite link to revoke
       /// @returns The revoked invite link as ChatInviteLink object on success.
       /// @throws Exception on failure
       /// @relatesalso createChatInviteLink editChatInviteLink
       /// @ref https://core.telegram.org/bots/api#revokechatinvitelink
-      Ptr<ChatInviteLink> revokeChatInviteLink(std::int64_t chatId, const std::string& inviteLink) const;
+      Ptr<ChatInviteLink> revokeChatInviteLink(const std::variant<std::int64_t, std::string>& chatId, const std::string& inviteLink) const;
 
 
       /// @brief Use this method to approve a chat join request.
       /// The bot must be an administrator in the chat for this to work and must have the canInviteUsers administrator right.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso declineChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#approvechatjoinrequest
-      bool approveChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
+      bool approveChatJoinRequest(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const;
 
 
       /// @brief Use this method to decline a chat join request.
       /// The bot must be an administrator in the chat for this to work and must have the canInviteUsers administrator right.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso approveChatJoinRequest
       /// @ref https://core.telegram.org/bots/api#declinechatjoinrequest
-      bool declineChatJoinRequest(std::int64_t chatId, std::int64_t userId) const;
+      bool declineChatJoinRequest(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const;
 
 
       /// @brief Use this method to set a new profile photo for the chat. Photos can't be changed for private chats.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param photo New chat photo, uploaded using multipart/form-data
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso deleteChatPhoto
       /// @ref https://core.telegram.org/bots/api#setchatphoto
-      bool setChatPhoto(std::int64_t chatId, const cpr::File& photo) const;
+      bool setChatPhoto(const std::variant<std::int64_t, std::string>& chatId, const cpr::File& photo) const;
 
 
       /// @brief Use this method to delete a chat photo. Photos can't be changed for private chats.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso setChatPhoto
       /// @ref https://core.telegram.org/bots/api#deletechatphoto
-      bool deleteChatPhoto(std::int64_t chatId) const;
+      bool deleteChatPhoto(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to change the title of a chat. Titles can't be changed for private chats.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param title New chat title, 1-128 characters
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setchattitle
-      bool setChatTitle(std::int64_t chatId, const std::string& title) const;
+      bool setChatTitle(const std::variant<std::int64_t, std::string>& chatId, const std::string& title) const;
 
 
       /// @brief Use this method to change the description of a group, a supergroup or a channel.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param description Optional. New chat description, 0-255 characters
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setchatdescription
-      bool setChatDescription(std::int64_t chatId, const std::string& description = "") const;
+      bool setChatDescription(const std::variant<std::int64_t, std::string>& chatId, const std::string& description = "") const;
 
 
       /// @brief Use this method to add a message to the list of pinned messages in a chat.
       /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
       /// in a supergroup or 'canEditMessages' administrator right in a channel.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageId Identifier of a message to pin
       /// @param disableNotification Optional. Pass True if it is not necessary to send a notification to all chat members about the new pinned message.
       /// Notifications are always disabled in channels and private chats.
@@ -1053,7 +1054,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso unpinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#pinchatmessage
-      bool pinChatMessage(std::int64_t chatId,
+      bool pinChatMessage(const std::variant<std::int64_t, std::string>& chatId,
                           std::int32_t messageId,
                           bool disableNotification = false) const;
 
@@ -1061,94 +1062,94 @@ namespace tgbotxx {
       /// @brief Use this method to remove a message from the list of pinned messages in a chat.
       /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
       /// in a supergroup or 'canEditMessages' administrator right in a channel.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageId Optional. Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso pinChatMessage unpinAllChatMessages
       /// @ref https://core.telegram.org/bots/api#unpinchatmessage
-      bool unpinChatMessage(std::int64_t chatId, std::int32_t messageId = 0) const;
+      bool unpinChatMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId = 0) const;
 
 
       /// @brief Use this method to clear the list of pinned messages in a chat.
       /// If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'canPinMessages' administrator right
       /// in a supergroup or 'canEditMessages' administrator right in a channel.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso pinChatMessage unpinChatMessage
       /// @ref https://core.telegram.org/bots/api#unpinallchatmessages
-      bool unpinAllChatMessages(std::int64_t chatId) const;
+      bool unpinAllChatMessages(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method for your bot to leave a group, supergroup or channel.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#leavechat
-      bool leaveChat(std::int64_t chatId) const;
+      bool leaveChat(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.).
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns a Chat object on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchat
-      Ptr<Chat> getChat(std::int64_t chatId) const;
+      Ptr<Chat> getChat(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to get a list of administrators in a chat, which aren't bots.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns an Array of ChatMember objects.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchatadministrators
-      std::vector<Ptr<ChatMember>> getChatAdministrators(std::int64_t chatId) const;
+      std::vector<Ptr<ChatMember>> getChatAdministrators(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to get the number of members in a chat.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns std::int32_t on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchatmembercount
-      std::int32_t getChatMemberCount(std::int64_t chatId) const;
+      std::int32_t getChatMemberCount(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to get information about a member of a chat.
       /// The method is only guaranteed to work for other users if the bot is an administrator in the chat.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param userId Unique identifier of the target user
       /// @returns a ChatMember object on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchatmember
-      Ptr<ChatMember> getChatMember(std::int64_t chatId, std::int64_t userId) const;
+      Ptr<ChatMember> getChatMember(const std::variant<std::int64_t, std::string>& chatId, std::int64_t userId) const;
 
 
       /// @brief Use this method to set a new group sticker set for a supergroup.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
       /// Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param stickerSetName Name of the sticker set to be set as the group sticker set
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso deleteChatStickerSet getForumTopicIconStickers Sticker::setName
       /// @ref https://core.telegram.org/bots/api#setchatstickerset
-      bool setChatStickerSet(std::int64_t chatId, const std::string& stickerSetName) const;
+      bool setChatStickerSet(const std::variant<std::int64_t, std::string>& chatId, const std::string& stickerSetName) const;
 
 
       /// @brief Use this method to delete a group sticker set from a supergroup.
       /// The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights.
       /// Use the field canSetStickerSet optionally returned in getChat requests to check if the bot can use this method.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso setChatStickerSet getForumTopicIconStickers Sticker::setName
       /// @ref https://core.telegram.org/bots/api#deletechatstickerset
-      bool deleteChatStickerSet(std::int64_t chatId) const;
+      bool deleteChatStickerSet(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user.
       /// Requires no parameters.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns an Array of Sticker objects.
       /// @throws Exception on failure
       /// @relatesalso setChatStickerSet deleteChatStickerSet
@@ -1159,7 +1160,7 @@ namespace tgbotxx {
       /// @brief Use this method to create a topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param name Topic name, 1-128 characters
       /// @param iconColor Optional. Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)
       /// @param iconCustomEmojiId Optional. Unique identifier of the custom emoji shown as the topic icon. Use getForumTopicIconStickers to get all allowed custom emoji identifiers. https://core.telegram.org/bots/api#getforumtopiciconstickers
@@ -1167,7 +1168,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#createforumtopic
-      Ptr<ForumTopic> createForumTopic(std::int64_t chatId,
+      Ptr<ForumTopic> createForumTopic(const std::variant<std::int64_t, std::string>& chatId,
                                        const std::string& name,
                                        std::int32_t iconColor = 0x000000,
                                        const std::string& iconCustomEmojiId = "") const;
@@ -1176,7 +1177,7 @@ namespace tgbotxx {
       /// @brief Use this method to edit name and icon of a topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @param name Optional. New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept
       /// @param iconCustomEmojiId Optional. New unique identifier of the custom emoji shown as the topic icon.
@@ -1186,7 +1187,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso createForumTopic closeForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#editforumtopic
-      bool editForumTopic(std::int64_t chatId,
+      bool editForumTopic(const std::variant<std::int64_t, std::string>& chatId,
                           std::int32_t messageThreadId,
                           const std::string& name,
                           const std::optional<std::string>& iconCustomEmojiId = std::nullopt) const;
@@ -1195,103 +1196,103 @@ namespace tgbotxx {
       /// @brief Use this method to close an open topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso createForumTopic editForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#closeforumtopic
-      bool closeForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
+      bool closeForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const;
 
 
       /// @brief Use this method to reopen a closed topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso createForumTopic editForumTopic closeForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#reopenforumtopic
-      bool reopenForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
+      bool reopenForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const;
 
 
       /// @brief Use this method to delete a forum topic along with all its messages in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
       /// https://core.telegram.org/bots/api#forumtopic
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic
       /// @ref https://core.telegram.org/bots/api#deleteforumtopic
-      bool deleteForumTopic(std::int64_t chatId, std::int32_t messageThreadId) const;
+      bool deleteForumTopic(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const;
 
 
       /// @brief Use this method to clear the list of pinned messages in a forum topic.
       /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param messageThreadId Unique identifier for the target message thread of the forum topic
       /// @returns True on success.
       /// @throws Exception on failure
       /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
       /// @ref https://core.telegram.org/bots/api#unpinallforumtopicmessages
-      bool unpinAllForumTopicMessages(std::int64_t chatId, std::int32_t messageThreadId) const;
+      bool unpinAllForumTopicMessages(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageThreadId) const;
 
 
       /// @brief Use this method to edit the name of the 'General' topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @param name New topic name, 1-128 characters
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#editgeneralforumtopic
-      bool editGeneralForumTopic(std::int64_t chatId, const std::string& name) const;
+      bool editGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId, const std::string& name) const;
 
 
       /// @brief Use this method to close an open 'General' topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#closegeneralforumtopic
-      bool closeGeneralForumTopic(std::int64_t chatId) const;
+      bool closeGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to reopen a closed 'General' topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#reopengeneralforumtopic
-      bool reopenGeneralForumTopic(std::int64_t chatId) const;
+      bool reopenGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to hide the 'General' topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#hidegeneralforumtopic
-      bool hideGeneralForumTopic(std::int64_t chatId) const;
+      bool hideGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to unhide the 'General' topic in a forum supergroup chat.
       /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#unhidegeneralforumtopic
-      bool unhideGeneralForumTopic(std::int64_t chatId) const;
+      bool unhideGeneralForumTopic(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to clear the list of pinned messages in a General forum topic.
       /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
-      /// @param chatId Integer Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#unpinallgeneralforumtopicmessages
-      bool unpinAllGeneralForumTopicMessages(std::int64_t chatId) const;
+      bool unpinAllGeneralForumTopicMessages(const std::variant<std::int64_t, std::string>& chatId) const;
 
 
       /// @brief Use this method to send answers to callback queries sent from inline keyboards.
@@ -1405,14 +1406,14 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setmyshortdescription
-      bool setChatMenuButton(std::int64_t chatId = 0, const Ptr<MenuButton>& menuButton = makePtr<MenuButtonDefault>()) const;
+      bool setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::int64_t{0}, const Ptr<MenuButton>& menuButton = makePtr<MenuButtonDefault>()) const;
 
       /// @brief Use this method to get the current value of the bot's menu button in a private chat, or the default menu button.
-      /// @param chatId Optional. Unique identifier for the target private chat. If not specified, default bot's menu button will be returned
+      /// @param chatId Optional. Integer or String Unique identifier for the target private chat. If not specified, default bot's menu button will be returned
       /// @returns MenuButton object on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchatmenubutton
-      Ptr<MenuButton> getChatMenuButton(std::int64_t chatId = 0) const;
+      Ptr<MenuButton> getChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::int64_t{0}) const;
 
       /// @brief Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels.
       /// These rights will be suggested to users, but they are free to modify the list before adding the bot.
@@ -1429,7 +1430,6 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getmydefaultadministratorrights
       Ptr<ChatAdministratorRights> getMyDefaultAdministratorRights(bool forChannels = false) const;
-
 
 
     public: /// Updates methods  https://core.telegram.org/bots/api#getting-updates
@@ -1504,9 +1504,26 @@ namespace tgbotxx {
       Ptr<WebhookInfo> getWebhookInfo() const;
 
 
-
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
-
+      /// @brief Use this method to send answers to an inline query.
+      /// No more than 50 results per query are allowed.
+      /// @param inlineQueryId Unique identifier for the answered query
+      /// @param results A JSON-serialized array of results for the inline query
+      /// @param cacheTime Optional. The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300..
+      /// @param isPersonal Optional. Pass True if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query.
+      /// @param nextOffset Optional. Pass the offset that a client should send in the next query with the same text to receive more results.
+      /// Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.
+      /// @param button Optional. A JSON-serialized object describing a button to be shown above inline query results
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @note No more than 50 results per query are allowed.
+      /// @ref https://core.telegram.org/bots/api#answerinlinequery
+      bool answerInlineQuery(const std::string& inlineQueryId,
+                             const std::vector<Ptr<InlineQueryResult>>& results,
+                             std::int32_t cacheTime = 300,
+                             bool isPersonal = false,
+                             const std::string& nextOffset = "",
+                             const Ptr<InlineQueryResultsButton>& button = nullptr) const;
 
     private:
       nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
