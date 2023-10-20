@@ -89,6 +89,11 @@ private:
       }
     }
     
+    /// Called when long polling fails
+    void onLongPollError(const std::string& reason) override {
+      std::cerr <<  "Long polling error: " << reason << std::endl;
+    }
+    
     // Other callbacks (optional overload)
     /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
     void onNonCommandMessage(const Ptr<Message> &message) override {}
