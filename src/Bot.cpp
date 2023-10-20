@@ -22,7 +22,7 @@ void Bot::start() {
   /// Callback -> onStart
   this->onStart();
 
-  /// Long Poll
+  /// Start the Long Polling loop...
   while (m_running) {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)

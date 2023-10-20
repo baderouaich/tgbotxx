@@ -2,6 +2,7 @@
 /// Available objects: https://core.telegram.org/bots/api#available-types
 #include <type_traits>
 #include <cstdint>
+#include <ctime>
 #include <iostream>
 #include <memory>
 #include <nlohmann/json.hpp>

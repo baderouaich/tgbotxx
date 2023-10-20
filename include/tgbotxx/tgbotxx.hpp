@@ -42,12 +42,15 @@
 #include <tgbotxx/objects/InlineKeyboardButton.hpp>
 #include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/InlineQueryResult.hpp>
+#include <tgbotxx/objects/InlineQueryResultsButton.hpp>
 #include <tgbotxx/objects/InputMedia.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
+#include <tgbotxx/objects/LabeledPrice.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
 #include <tgbotxx/objects/MaskPosition.hpp>
@@ -90,6 +93,7 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
+
 
 /// Utils
 #include <tgbotxx/utils/DateTimeUtils.hpp>

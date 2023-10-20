@@ -30,7 +30,7 @@ namespace tgbotxx {
       /// @brief Optional. Google Places identifier of the venue
       std::string googlePlaceId;
 
-      /// @brief Optional. Google Places type of the venue. (See supported types.)
+      /// @brief Optional. Google Places type of the venue. (See supported types.) https://developers.google.com/places/web-service/supported_types
       std::string googlePlaceType;
 
 

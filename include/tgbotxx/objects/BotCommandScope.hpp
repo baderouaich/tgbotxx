@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include <tgbotxx/objects/Object.hpp>
 
 namespace tgbotxx {

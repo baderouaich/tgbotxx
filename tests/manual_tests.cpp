@@ -331,12 +331,15 @@ static std::string getToken() {
   throw std::runtime_error("Couldn't find TESTS_BOT_TOKEN in the env; please export an environment variable TESTS_BOT_TOKEN with your bot token");
 }
 
-int main() {
+int main() try {
   static MyBot bot(getToken());
   std::signal(SIGINT, [](int) {
     std::cout << "Stopping Bot. Please wait...\n";
     bot.stop();
   });
   bot.start();
-  return 0;
+  return EXIT_SUCCESS;
+} catch (const std::exception& e){
+  std::cerr << e.what() << std::endl;
+  return EXIT_FAILURE;
 }

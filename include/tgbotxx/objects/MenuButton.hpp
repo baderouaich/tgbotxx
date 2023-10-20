@@ -68,10 +68,10 @@ namespace tgbotxx {
       Ptr<WebAppInfo> webApp;
 
       nl::json toJson() const override {
-        nl::json scope = MenuButton::toJson();
-        OBJECT_SERIALIZE_FIELD(scope, "text", text);
-        OBJECT_SERIALIZE_FIELD_PTR(scope, "web_app", webApp, nl::json::object());
-        return scope;
+        nl::json json = MenuButton::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "text", text);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp, nl::json::object());
+        return json;
       }
 
       void fromJson(const nl::json& json) override {
