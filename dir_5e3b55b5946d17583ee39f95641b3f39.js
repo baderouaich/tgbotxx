@@ -127,6 +127,17 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "InlineQuery.hpp", "_inline_query_8hpp.html", [
       [ "InlineQuery", "structtgbotxx_1_1_inline_query.html", "structtgbotxx_1_1_inline_query" ]
     ] ],
+    [ "InlineQueryResult.hpp", "_inline_query_result_8hpp.html", [
+      [ "InlineQueryResult", "structtgbotxx_1_1_inline_query_result.html", "structtgbotxx_1_1_inline_query_result" ],
+      [ "InlineQueryResultArticle", "structtgbotxx_1_1_inline_query_result_article.html", "structtgbotxx_1_1_inline_query_result_article" ],
+      [ "InlineQueryResultPhoto", "structtgbotxx_1_1_inline_query_result_photo.html", "structtgbotxx_1_1_inline_query_result_photo" ],
+      [ "InlineQueryResultGif", "structtgbotxx_1_1_inline_query_result_gif.html", "structtgbotxx_1_1_inline_query_result_gif" ],
+      [ "InlineQueryResultMpeg4Gif", "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html", "structtgbotxx_1_1_inline_query_result_mpeg4_gif" ],
+      [ "InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", "structtgbotxx_1_1_inline_query_result_video" ]
+    ] ],
+    [ "InlineQueryResultsButton.hpp", "_inline_query_results_button_8hpp.html", [
+      [ "InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", "structtgbotxx_1_1_inline_query_results_button" ]
+    ] ],
     [ "InputMedia.hpp", "_input_media_8hpp.html", [
       [ "InputMedia", "structtgbotxx_1_1_input_media.html", "structtgbotxx_1_1_input_media" ],
       [ "InputMediaAnimation", "structtgbotxx_1_1_input_media_animation.html", "structtgbotxx_1_1_input_media_animation" ],
@@ -134,6 +145,14 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "InputMediaAudio", "structtgbotxx_1_1_input_media_audio.html", "structtgbotxx_1_1_input_media_audio" ],
       [ "InputMediaPhoto", "structtgbotxx_1_1_input_media_photo.html", "structtgbotxx_1_1_input_media_photo" ],
       [ "InputMediaVideo", "structtgbotxx_1_1_input_media_video.html", "structtgbotxx_1_1_input_media_video" ]
+    ] ],
+    [ "InputMessageContent.hpp", "_input_message_content_8hpp.html", [
+      [ "InputMessageContent", "structtgbotxx_1_1_input_message_content.html", "structtgbotxx_1_1_input_message_content" ],
+      [ "InputTextMessageContent", "structtgbotxx_1_1_input_text_message_content.html", "structtgbotxx_1_1_input_text_message_content" ],
+      [ "InputLocationMessageContent", "structtgbotxx_1_1_input_location_message_content.html", "structtgbotxx_1_1_input_location_message_content" ],
+      [ "InputVenueMessageContent", "structtgbotxx_1_1_input_venue_message_content.html", "structtgbotxx_1_1_input_venue_message_content" ],
+      [ "InputContactMessageContent", "structtgbotxx_1_1_input_contact_message_content.html", "structtgbotxx_1_1_input_contact_message_content" ],
+      [ "InputInvoiceMessageContent", "structtgbotxx_1_1_input_invoice_message_content.html", "structtgbotxx_1_1_input_invoice_message_content" ]
     ] ],
     [ "Invoice.hpp", "_invoice_8hpp.html", [
       [ "Invoice", "structtgbotxx_1_1_invoice.html", "structtgbotxx_1_1_invoice" ]
@@ -152,6 +171,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "KeyboardButtonRequestUser.hpp", "_keyboard_button_request_user_8hpp.html", [
       [ "KeyboardButtonRequestUser", "structtgbotxx_1_1_keyboard_button_request_user.html", "structtgbotxx_1_1_keyboard_button_request_user" ]
+    ] ],
+    [ "LabeledPrice.hpp", "_labeled_price_8hpp.html", [
+      [ "LabeledPrice", "structtgbotxx_1_1_labeled_price.html", "structtgbotxx_1_1_labeled_price" ]
     ] ],
     [ "Location.hpp", "_location_8hpp.html", [
       [ "Location", "structtgbotxx_1_1_location.html", "structtgbotxx_1_1_location" ]

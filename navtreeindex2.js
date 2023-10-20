@@ -1,5 +1,16 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_bot_command_scope_all_group_chats.html":[1,0,0,9],
+"structtgbotxx_1_1_bot_command_scope_all_group_chats.html#a04e74bd6ee0e4fb9d0e5291f667eda55":[1,0,0,9,1],
+"structtgbotxx_1_1_bot_command_scope_all_group_chats.html#acdb71c31800ec84d6024472c054c545c":[1,0,0,9,0],
+"structtgbotxx_1_1_bot_command_scope_all_private_chats.html":[1,0,0,8],
+"structtgbotxx_1_1_bot_command_scope_all_private_chats.html#a7192bb6a5c3626928a60107f1432a863":[1,0,0,8,1],
+"structtgbotxx_1_1_bot_command_scope_all_private_chats.html#aa170179bff0e7874a820a681b1e78699":[1,0,0,8,0],
+"structtgbotxx_1_1_bot_command_scope_chat.html":[1,0,0,11],
+"structtgbotxx_1_1_bot_command_scope_chat.html#a2d61ae68271183d37802f708e1bb867b":[1,0,0,11,4],
+"structtgbotxx_1_1_bot_command_scope_chat.html#a430af478333b13af0586e78ff6c3b312":[1,0,0,11,1],
+"structtgbotxx_1_1_bot_command_scope_chat.html#a8d81ff79a718466b8bc4847aebe1eb0b":[1,0,0,11,0],
+"structtgbotxx_1_1_bot_command_scope_chat.html#ac1b0531bfeee0edc053102c4bbe60aac":[1,0,0,11,2],
 "structtgbotxx_1_1_bot_command_scope_chat.html#adb7cd8eae8e917d169610298e0cbe509":[1,0,0,11,3],
 "structtgbotxx_1_1_bot_command_scope_chat_administrators.html":[1,0,0,12],
 "structtgbotxx_1_1_bot_command_scope_chat_administrators.html#a093cd77b81ddd9c2388106be66703df7":[1,0,0,12,2],
@@ -238,16 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_chat_permissions.html#a84fb9b62e33728f1e15a4fe714cf1a77":[1,0,0,32,0],
 "structtgbotxx_1_1_chat_permissions.html#a8532f779f273c7437ff22026837a244d":[1,0,0,32,11],
 "structtgbotxx_1_1_chat_permissions.html#a93f774d96025481e1db4a03f47c9d247":[1,0,0,32,9],
-"structtgbotxx_1_1_chat_permissions.html#aa98c9add3ce983a6e324c3a5717c79a8":[1,0,0,32,17],
-"structtgbotxx_1_1_chat_permissions.html#ab3573233cabdb9142f3269cbc1d87f4a":[1,0,0,32,13],
-"structtgbotxx_1_1_chat_permissions.html#ab844ce078ecec7c7b8c58ad27988d28e":[1,0,0,32,15],
-"structtgbotxx_1_1_chat_permissions.html#ad137d761402cbc23b1fbc2c9312f7b2b":[1,0,0,32,12],
-"structtgbotxx_1_1_chat_permissions.html#ad7327d42e87a344c214be4162e6a161f":[1,0,0,32,1],
-"structtgbotxx_1_1_chat_permissions.html#add9540ac82969a9807dee1cc224dbff6":[1,0,0,32,14],
-"structtgbotxx_1_1_chat_permissions.html#ae87243ed81ba1b249fabd835ace12694":[1,0,0,32,10],
-"structtgbotxx_1_1_chat_photo.html":[1,0,0,33],
-"structtgbotxx_1_1_chat_photo.html#a0273b89a7da2040b8eed346db3e4c3da":[1,0,0,33,2],
-"structtgbotxx_1_1_chat_photo.html#a10ad9869fe92a95ff301a7bd343d5632":[1,0,0,33,7],
-"structtgbotxx_1_1_chat_photo.html#a2f53a7862f0d0a464687414d09b972b5":[1,0,0,33,4],
-"structtgbotxx_1_1_chat_photo.html#a849b5055c7252c475295bbb4613032e8":[1,0,0,33,5]
+"structtgbotxx_1_1_chat_permissions.html#aa98c9add3ce983a6e324c3a5717c79a8":[1,0,0,32,17]
 };

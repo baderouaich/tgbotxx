@@ -118,6 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6996505f3bd6b75bdee5a26e99619641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d402a4efc4a685645fe9f0a75120105"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a7d402a4efc4a685645fe9f0a75120105">BotCommandScope</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:a7d402a4efc4a685645fe9f0a75120105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac13e6baf0c533f68d0752749e16268f5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#ac13e6baf0c533f68d0752749e16268f5">~BotCommandScope</a> ()=default</td></tr>
+<tr class="separator:ac13e6baf0c533f68d0752749e16268f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f450c9792a2c9a7dac5c6f5420433fb"><td class="memItemLeft" align="right" valign="top">virtual nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a8f450c9792a2c9a7dac5c6f5420433fb">toJson</a> () const</td></tr>
 <tr class="separator:a8f450c9792a2c9a7dac5c6f5420433fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4ed52dc6417ddb4b95013ef609502b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html#a5f4ed52dc6417ddb4b95013ef609502b">fromJson</a> (const nl::json &amp;json)</td></tr>
@@ -132,7 +134,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class of all bot commands scopes This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported: <a class="el" href="structtgbotxx_1_1_bot_command_scope_default.html" title="Represents the default scope of bot commands. Default commands are used if no commands with a narrowe...">BotCommandScopeDefault</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_all_private_chats.html" title="Represents the scope of bot commands, covering all private chats.">BotCommandScopeAllPrivateChats</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_all_group_chats.html" title="Represents the scope of bot commands, covering all group and supergroup chats.">BotCommandScopeAllGroupChats</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_all_chat_administrators.html" title="Represents the scope of bot commands, covering all group and supergroup chat administrators.">BotCommandScopeAllChatAdministrators</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_chat.html" title="Represents the scope of bot commands, covering a specific chat.">BotCommandScopeChat</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_chat_administrators.html" title="Represents the scope of bot commands, covering all administrators of a specific group or supergroup c...">BotCommandScopeChatAdministrators</a> <a class="el" href="structtgbotxx_1_1_bot_command_scope_chat_member.html" title="Represents the scope of bot commands, covering a specific member of a group or supergroup chat.">BotCommandScopeChatMember</a> <a href="https://core.telegram.org/bots/api#botcommandscope">https://core.telegram.org/bots/api#botcommandscope</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00016">16</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00015">15</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6996505f3bd6b75bdee5a26e99619641"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6996505f3bd6b75bdee5a26e99619641">&#9670;&nbsp;</a></span>BotCommandScope() <span class="overload">[1/2]</span></h2>
@@ -183,7 +185,32 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00018">18</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bot_command_scope_8hpp_source.html#l00017">17</a> of file <a class="el" href="_bot_command_scope_8hpp_source.html">BotCommandScope.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac13e6baf0c533f68d0752749e16268f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac13e6baf0c533f68d0752749e16268f5">&#9670;&nbsp;</a></span>~BotCommandScope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual tgbotxx::BotCommandScope::~BotCommandScope </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -275,7 +302,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_bot_command_scope.html">BotCommandScope</a></li>
-    <li class="footer">Generated on Wed Oct 18 2023 11:20:33 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 20 2023 21:15:41 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -12,6 +12,7 @@ var classtgbotxx_1_1_bot =
     [ "onCommand", "classtgbotxx_1_1_bot.html#a224e82e90511d547b5ef19e5b8836ab9", null ],
     [ "onEditedMessage", "classtgbotxx_1_1_bot.html#af2adb7129c0474d8ba91bd1cf391912c", null ],
     [ "onInlineQuery", "classtgbotxx_1_1_bot.html#a65a9c461e7d54f8688631a92b2fe1124", null ],
+    [ "onLongPollError", "classtgbotxx_1_1_bot.html#a8428de62d85f6af3042fd208fed9db08", null ],
     [ "onMyChatMember", "classtgbotxx_1_1_bot.html#a62453ec07a1b15ebd84de97926017584", null ],
     [ "onNonCommandMessage", "classtgbotxx_1_1_bot.html#ae6b3bc2790f55bc39cc7b840af5d6f55", null ],
     [ "onPoll", "classtgbotxx_1_1_bot.html#a2df030ddecb6cf01d9b4766af97c27d5", null ],

@@ -56,12 +56,27 @@ var hierarchy =
     [ "tgbotxx::GeneralForumTopicUnhidden", "structtgbotxx_1_1_general_forum_topic_unhidden.html", null ],
     [ "tgbotxx::InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html", null ],
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
+    [ "tgbotxx::InlineQueryResult", "structtgbotxx_1_1_inline_query_result.html", [
+      [ "tgbotxx::InlineQueryResultArticle", "structtgbotxx_1_1_inline_query_result_article.html", null ],
+      [ "tgbotxx::InlineQueryResultGif", "structtgbotxx_1_1_inline_query_result_gif.html", null ],
+      [ "tgbotxx::InlineQueryResultMpeg4Gif", "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html", null ],
+      [ "tgbotxx::InlineQueryResultPhoto", "structtgbotxx_1_1_inline_query_result_photo.html", null ],
+      [ "tgbotxx::InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", null ]
+    ] ],
+    [ "tgbotxx::InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", null ],
     [ "tgbotxx::InputMedia", "structtgbotxx_1_1_input_media.html", [
       [ "tgbotxx::InputMediaAnimation", "structtgbotxx_1_1_input_media_animation.html", null ],
       [ "tgbotxx::InputMediaAudio", "structtgbotxx_1_1_input_media_audio.html", null ],
       [ "tgbotxx::InputMediaDocument", "structtgbotxx_1_1_input_media_document.html", null ],
       [ "tgbotxx::InputMediaPhoto", "structtgbotxx_1_1_input_media_photo.html", null ],
       [ "tgbotxx::InputMediaVideo", "structtgbotxx_1_1_input_media_video.html", null ]
+    ] ],
+    [ "tgbotxx::InputMessageContent", "structtgbotxx_1_1_input_message_content.html", [
+      [ "tgbotxx::InputContactMessageContent", "structtgbotxx_1_1_input_contact_message_content.html", null ],
+      [ "tgbotxx::InputInvoiceMessageContent", "structtgbotxx_1_1_input_invoice_message_content.html", null ],
+      [ "tgbotxx::InputLocationMessageContent", "structtgbotxx_1_1_input_location_message_content.html", null ],
+      [ "tgbotxx::InputTextMessageContent", "structtgbotxx_1_1_input_text_message_content.html", null ],
+      [ "tgbotxx::InputVenueMessageContent", "structtgbotxx_1_1_input_venue_message_content.html", null ]
     ] ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
@@ -74,6 +89,7 @@ var hierarchy =
     [ "tgbotxx::KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html", null ],
     [ "tgbotxx::KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html", null ],
     [ "tgbotxx::KeyboardButtonRequestUser", "structtgbotxx_1_1_keyboard_button_request_user.html", null ],
+    [ "tgbotxx::LabeledPrice", "structtgbotxx_1_1_labeled_price.html", null ],
     [ "tgbotxx::Location", "structtgbotxx_1_1_location.html", null ],
     [ "tgbotxx::LoginUrl", "structtgbotxx_1_1_login_url.html", null ],
     [ "tgbotxx::MaskPosition", "structtgbotxx_1_1_mask_position.html", null ],
