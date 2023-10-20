@@ -16,6 +16,7 @@ namespace tgbotxx {
       explicit MenuButton(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~MenuButton() = default;
 
       /// @brief Type of the button
       std::string type;

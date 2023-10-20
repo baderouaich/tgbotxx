@@ -17,6 +17,7 @@ namespace tgbotxx {
       explicit InputMessageContent(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~InputMessageContent() = default;
 
       /// @brief Type of this content
       std::string type;

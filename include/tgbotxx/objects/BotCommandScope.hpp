@@ -17,6 +17,7 @@ namespace tgbotxx {
       explicit BotCommandScope(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~BotCommandScope() = default;
 
       /// @brief Scope type.
       std::string type;
