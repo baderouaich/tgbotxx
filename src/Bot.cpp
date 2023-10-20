@@ -1,5 +1,7 @@
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
+#include <tgbotxx/Exception.hpp>
+#include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
@@ -22,14 +24,24 @@ void Bot::start() {
 
   /// Long Poll
   while (m_running) {
-    // Get updates from Telegram (any new events such as messages, commands, files, ...)
-    m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
-    // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
-    for (const Ptr<Update>& update: m_updates) {
-      if (update->updateId >= m_lastUpdateId) {
-        m_lastUpdateId = update->updateId + 1;
-        this->dispatch(update);
+    try {
+      // Get updates from Telegram (any new events such as messages, commands, files, ...)
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+      // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
+      for (const Ptr<Update>& update: m_updates) {
+        if (update->updateId >= m_lastUpdateId) {
+          m_lastUpdateId = update->updateId + 1;
+          this->dispatch(update);
+        }
       }
+    } catch (const std::exception& err) {
+      /// Callback -> onLongPollError
+      this->onLongPollError(err.what());
+      continue;
+    } catch (...) {
+      /// Callback -> onLongPollError
+      this->onLongPollError("unknown error");
+      continue;
     }
   }
 }
@@ -106,9 +118,8 @@ void Bot::dispatch(const Ptr<Update>& update) {
   }
 }
 
-const Ptr<Api>& Bot::getApi() const noexcept {
-  return m_api;
-}
+const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
+const Ptr<Api>& Bot::api() const noexcept { return m_api; }
 
 void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage

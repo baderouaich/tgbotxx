@@ -1,22 +1,23 @@
 #pragma once
-
-#include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/ChatJoinRequest.hpp>
-#include <tgbotxx/objects/ChatMemberUpdated.hpp>
-#include <tgbotxx/objects/ChosenInlineResult.hpp>
-#include <tgbotxx/objects/InlineQuery.hpp>
-#include <tgbotxx/objects/Poll.hpp>
-#include <tgbotxx/objects/PollAnswer.hpp>
-#include <tgbotxx/objects/PreCheckoutQuery.hpp>
-#include <tgbotxx/objects/ShippingQuery.hpp>
+#include <cstdint>
+#include <string>
 #include <tgbotxx/utils/Ptr.hpp>
 #include <vector>
 
 namespace tgbotxx {
   class Api;
-
   struct Message;
   struct Update;
+  struct BotCommand;
+  struct InlineQuery;
+  struct ChosenInlineResult;
+  struct CallbackQuery;
+  struct ShippingQuery;
+  struct PreCheckoutQuery;
+  struct Poll;
+  struct PollAnswer;
+  struct ChatMemberUpdated;
+  struct ChatJoinRequest;
 
   class Bot {
     private:
@@ -110,16 +111,20 @@ namespace tgbotxx {
       /// @param chatMemberUpdated ChatMemberUpdated object
       virtual void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) {}
 
-      /// @brief Called when a A request to join the chat has been sent.
+      /// @brief Called when a request to join the chat has been sent.
       /// @note The bot must have the can_invite_users administrator right in the chat to receive these updates.
       /// @param chatJoinRequest ChatJoinRequest object
       virtual void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) {}
 
+      /// @brief Called when the long polling getUpdates fails.
+      /// @param reason the reason of failure
+      virtual void onLongPollError(const std::string& reason) {}
 
     protected: /// Getters
-      const Ptr<Api>& getApi() const noexcept;
-
-      const Ptr<Api>& api() const noexcept { return getApi(); }
+      /// @brief Returns Api object
+      [[nodiscard]] const Ptr<Api>& getApi() const noexcept;
+      /// @brief Returns Api object
+      [[nodiscard]] const Ptr<Api>& api() const noexcept;
 
     private:
       /// @brief Dispatch update to callbacks
