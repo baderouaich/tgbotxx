@@ -5,113 +5,55 @@
 #include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
-#include <tgbotxx/objects/Animation.hpp>
-#include <tgbotxx/objects/Audio.hpp>
-#include <tgbotxx/objects/BotCommand.hpp>
-#include <tgbotxx/objects/BotCommandScope.hpp>
-#include <tgbotxx/objects/BotDescription.hpp>
-#include <tgbotxx/objects/BotName.hpp>
-#include <tgbotxx/objects/BotShortDescription.hpp>
-#include <tgbotxx/objects/CallbackGame.hpp>
-#include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/Chat.hpp>
-#include <tgbotxx/objects/ChatAdministratorRights.hpp>
-#include <tgbotxx/objects/ChatInviteLink.hpp>
-#include <tgbotxx/objects/ChatJoinRequest.hpp>
-#include <tgbotxx/objects/ChatLocation.hpp>
-#include <tgbotxx/objects/ChatMember.hpp>
-#include <tgbotxx/objects/ChatMemberUpdated.hpp>
-#include <tgbotxx/objects/ChatPermissions.hpp>
-#include <tgbotxx/objects/ChatPhoto.hpp>
-#include <tgbotxx/objects/ChatShared.hpp>
-#include <tgbotxx/objects/ChosenInlineResult.hpp>
-#include <tgbotxx/objects/Contact.hpp>
-#include <tgbotxx/objects/Dice.hpp>
-#include <tgbotxx/objects/Document.hpp>
-#include <tgbotxx/objects/EncryptedCredentials.hpp>
-#include <tgbotxx/objects/EncryptedPassportElement.hpp>
-#include <tgbotxx/objects/File.hpp>
-#include <tgbotxx/objects/ForceReply.hpp>
-#include <tgbotxx/objects/ForumTopic.hpp>
-#include <tgbotxx/objects/ForumTopicClosed.hpp>
-#include <tgbotxx/objects/ForumTopicCreated.hpp>
-#include <tgbotxx/objects/ForumTopicEdited.hpp>
-#include <tgbotxx/objects/ForumTopicReopened.hpp>
-#include <tgbotxx/objects/Game.hpp>
-#include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
-#include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
-#include <tgbotxx/objects/IReplyMarkup.hpp>
-#include <tgbotxx/objects/InlineKeyboardButton.hpp>
-#include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
-#include <tgbotxx/objects/InlineQuery.hpp>
-#include <tgbotxx/objects/InputMedia.hpp>
-#include <tgbotxx/objects/Invoice.hpp>
-#include <tgbotxx/objects/KeyboardButton.hpp>
-#include <tgbotxx/objects/KeyboardButtonPollType.hpp>
-#include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
-#include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
-#include <tgbotxx/objects/LabeledPrice.hpp>
-#include <tgbotxx/objects/Location.hpp>
-#include <tgbotxx/objects/LoginUrl.hpp>
-#include <tgbotxx/objects/MaskPosition.hpp>
-#include <tgbotxx/objects/MenuButton.hpp>
-#include <tgbotxx/objects/Message.hpp>
-#include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
-#include <tgbotxx/objects/MessageEntity.hpp>
-#include <tgbotxx/objects/MessageId.hpp>
-#include <tgbotxx/objects/Object.hpp>
-#include <tgbotxx/objects/OrderInfo.hpp>
-#include <tgbotxx/objects/PassportData.hpp>
-#include <tgbotxx/objects/PassportFile.hpp>
-#include <tgbotxx/objects/PhotoSize.hpp>
-#include <tgbotxx/objects/Poll.hpp>
-#include <tgbotxx/objects/PollAnswer.hpp>
-#include <tgbotxx/objects/PollOption.hpp>
-#include <tgbotxx/objects/PreCheckoutQuery.hpp>
-#include <tgbotxx/objects/ProximityAlertTriggered.hpp>
-#include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
-#include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
-#include <tgbotxx/objects/ShippingAddress.hpp>
-#include <tgbotxx/objects/ShippingQuery.hpp>
-#include <tgbotxx/objects/Sticker.hpp>
-#include <tgbotxx/objects/Story.hpp>
-#include <tgbotxx/objects/SuccessfulPayment.hpp>
-#include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
-#include <tgbotxx/objects/Update.hpp>
-#include <tgbotxx/objects/User.hpp>
-#include <tgbotxx/objects/UserProfilePhotos.hpp>
-#include <tgbotxx/objects/UserShared.hpp>
-#include <tgbotxx/objects/Venue.hpp>
-#include <tgbotxx/objects/Video.hpp>
-#include <tgbotxx/objects/VideoChatEnded.hpp>
-#include <tgbotxx/objects/VideoChatParticipantsInvited.hpp>
-#include <tgbotxx/objects/VideoChatScheduled.hpp>
-#include <tgbotxx/objects/VideoChatStarted.hpp>
-#include <tgbotxx/objects/VideoNote.hpp>
-#include <tgbotxx/objects/Voice.hpp>
-#include <tgbotxx/objects/WebAppData.hpp>
-#include <tgbotxx/objects/WebAppInfo.hpp>
-#include <tgbotxx/objects/WebhookInfo.hpp>
-#include <tgbotxx/objects/WriteAccessAllowed.hpp>
+#include <tgbotxx/utils/DateTimeUtils.hpp>
+#include <tgbotxx/utils/Ptr.hpp>
+#include <tgbotxx/utils/StringUtils.hpp>
 #include <variant>
 namespace nl = nlohmann;
 
 namespace tgbotxx {
+  /// @brief Forward declarations
+  struct User;
+  struct Message;
+  struct Update;
+  struct Chat;
+  struct MessageEntity;
+  struct IReplyMarkup;
+  struct MessageId;
+  struct InputMedia;
+  struct UserProfilePhotos;
+  struct File;
+  struct ChatMember;
+  struct ChatPermissions;
+  struct ChatInviteLink;
+  struct Sticker;
+  struct ForumTopic;
+  struct BotCommand;
+  struct BotCommandScope;
+  struct BotName;
+  struct BotShortDescription;
+  struct BotDescription;
+  struct InlineQueryResult;
+  struct InlineQueryResultsButton;
+  struct MenuButton;
+  struct ChatAdministratorRights;
+  struct WebhookInfo;
+
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
-      inline static const std::string BASE_URL = "https://api.telegram.org";
-      inline static const cpr::Timeout TIMEOUT = 25 * 1000;                // 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
-      inline static const cpr::Timeout FILES_UPLOAD_TIMEOUT = 300 * 1000;  // 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
-      inline static const cpr::ConnectTimeout CONNECT_TIMEOUT = 20 * 1000; // 20s (Telegram server can take up to 20s to connect with us)
-      inline static const std::int32_t LONG_POLL_TIMEOUT = 10;             // 10s (calling getUpdates() every 10 seconds)
-      const std::string m_token;
+      static const std::string BASE_URL;                /// Telegram api base url
+      static const cpr::Timeout TIMEOUT;                /// 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
+      static const cpr::Timeout FILES_UPLOAD_TIMEOUT;   /// 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
+      static const cpr::ConnectTimeout CONNECT_TIMEOUT; /// 20s (Telegram server can take up to 20s to connect with us)
+      static const std::int32_t LONG_POLL_TIMEOUT;      /// 10s (calling getUpdates() every 10 seconds)
+      const std::string m_token;                        /// Bot token from @BotFather
 
     public:
       /// @brief Constructs Api object.
       /// @param token Bot Token from FatherBot.
-      Api(const std::string& token);
+      explicit Api(const std::string& token);
 
     public: /// Bot Api Methods https://core.telegram.org/bots/api#available-methods
       /// @brief A simple method for testing your bot's authentication token.
@@ -1328,7 +1270,7 @@ namespace tgbotxx {
       /// @note Commands must not contain spaces and must be in snake case e.g "do_something" ✅  or "dosomthing" ✅ and not "doSomething" 𐄂 or "do something" 𐄂.
       /// @ref https://core.telegram.org/bots/api#setmycommands
       bool setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
-                         const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(),
+                         const Ptr<BotCommandScope>& scope = nullptr,
                          const std::string& languageCode = "") const;
 
 
@@ -1340,7 +1282,7 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#deletemycommands
-      bool deleteMyCommands(const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
+      bool deleteMyCommands(const Ptr<BotCommandScope>& scope = nullptr, const std::string& languageCode = "") const;
 
 
       /// @brief Use this method to get the current list of the bot's commands for the given scope and user language.
@@ -1349,7 +1291,7 @@ namespace tgbotxx {
       /// @returns an Array of BotCommand objects. If commands aren't set, an empty list is returned.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getmycommands
-      std::vector<Ptr<BotCommand>> getMyCommands(const Ptr<BotCommandScope>& scope = makePtr<BotCommandScopeDefault>(), const std::string& languageCode = "") const;
+      std::vector<Ptr<BotCommand>> getMyCommands(const Ptr<BotCommandScope>& scope = nullptr, const std::string& languageCode = "") const;
 
 
       /// @brief Use this method to change the bot's name.
@@ -1406,14 +1348,14 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setmyshortdescription
-      bool setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::int64_t{0}, const Ptr<MenuButton>& menuButton = makePtr<MenuButtonDefault>()) const;
+      bool setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::string{}, const Ptr<MenuButton>& menuButton = nullptr) const;
 
       /// @brief Use this method to get the current value of the bot's menu button in a private chat, or the default menu button.
       /// @param chatId Optional. Integer or String Unique identifier for the target private chat. If not specified, default bot's menu button will be returned
       /// @returns MenuButton object on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getchatmenubutton
-      Ptr<MenuButton> getChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::int64_t{0}) const;
+      Ptr<MenuButton> getChatMenuButton(const std::variant<std::int64_t, std::string>& chatId = std::string{}) const;
 
       /// @brief Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels.
       /// These rights will be suggested to users, but they are free to modify the list before adding the bot.

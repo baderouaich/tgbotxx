@@ -1,10 +1,105 @@
-#include "tgbotxx/objects/MenuButton.hpp"
-#include "tgbotxx/utils/Ptr.hpp"
 #include <tgbotxx/Api.hpp>
-#include <tgbotxx/Exception.hpp>
-#include <tgbotxx/utils/StringUtils.hpp>
+/// Objects
+#include <tgbotxx/objects/Animation.hpp>
+#include <tgbotxx/objects/Audio.hpp>
+#include <tgbotxx/objects/BotCommand.hpp>
+#include <tgbotxx/objects/BotCommandScope.hpp>
+#include <tgbotxx/objects/BotDescription.hpp>
+#include <tgbotxx/objects/BotName.hpp>
+#include <tgbotxx/objects/BotShortDescription.hpp>
+#include <tgbotxx/objects/CallbackGame.hpp>
+#include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/Chat.hpp>
+#include <tgbotxx/objects/ChatAdministratorRights.hpp>
+#include <tgbotxx/objects/ChatInviteLink.hpp>
+#include <tgbotxx/objects/ChatJoinRequest.hpp>
+#include <tgbotxx/objects/ChatLocation.hpp>
+#include <tgbotxx/objects/ChatMember.hpp>
+#include <tgbotxx/objects/ChatMemberUpdated.hpp>
+#include <tgbotxx/objects/ChatPermissions.hpp>
+#include <tgbotxx/objects/ChatPhoto.hpp>
+#include <tgbotxx/objects/ChatShared.hpp>
+#include <tgbotxx/objects/ChosenInlineResult.hpp>
+#include <tgbotxx/objects/Contact.hpp>
+#include <tgbotxx/objects/Dice.hpp>
+#include <tgbotxx/objects/Document.hpp>
+#include <tgbotxx/objects/EncryptedCredentials.hpp>
+#include <tgbotxx/objects/EncryptedPassportElement.hpp>
+#include <tgbotxx/objects/File.hpp>
+#include <tgbotxx/objects/ForumTopic.hpp>
+#include <tgbotxx/objects/ForumTopicClosed.hpp>
+#include <tgbotxx/objects/ForumTopicCreated.hpp>
+#include <tgbotxx/objects/ForumTopicEdited.hpp>
+#include <tgbotxx/objects/ForumTopicReopened.hpp>
+#include <tgbotxx/objects/Game.hpp>
+#include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
+#include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
+#include <tgbotxx/objects/IReplyMarkup.hpp>
+#include <tgbotxx/objects/InlineKeyboardButton.hpp>
+#include <tgbotxx/objects/InlineKeyboardMarkup.hpp>
+#include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/InlineQueryResult.hpp>
+#include <tgbotxx/objects/InlineQueryResultsButton.hpp>
+#include <tgbotxx/objects/InputMedia.hpp>
+#include <tgbotxx/objects/Invoice.hpp>
+#include <tgbotxx/objects/KeyboardButton.hpp>
+#include <tgbotxx/objects/KeyboardButtonPollType.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
+#include <tgbotxx/objects/LabeledPrice.hpp>
+#include <tgbotxx/objects/Location.hpp>
+#include <tgbotxx/objects/LoginUrl.hpp>
+#include <tgbotxx/objects/MaskPosition.hpp>
+#include <tgbotxx/objects/MenuButton.hpp>
+#include <tgbotxx/objects/Message.hpp>
+#include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
+#include <tgbotxx/objects/MessageEntity.hpp>
+#include <tgbotxx/objects/MessageId.hpp>
+#include <tgbotxx/objects/Object.hpp>
+#include <tgbotxx/objects/OrderInfo.hpp>
+#include <tgbotxx/objects/PassportData.hpp>
+#include <tgbotxx/objects/PassportFile.hpp>
+#include <tgbotxx/objects/PhotoSize.hpp>
+#include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/PollAnswer.hpp>
+#include <tgbotxx/objects/PollOption.hpp>
+#include <tgbotxx/objects/PreCheckoutQuery.hpp>
+#include <tgbotxx/objects/ProximityAlertTriggered.hpp>
+#include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
+#include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
+#include <tgbotxx/objects/ShippingAddress.hpp>
+#include <tgbotxx/objects/ShippingQuery.hpp>
+#include <tgbotxx/objects/Sticker.hpp>
+#include <tgbotxx/objects/Story.hpp>
+#include <tgbotxx/objects/SuccessfulPayment.hpp>
+#include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
+#include <tgbotxx/objects/Update.hpp>
+#include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/UserProfilePhotos.hpp>
+#include <tgbotxx/objects/UserShared.hpp>
+#include <tgbotxx/objects/Venue.hpp>
+#include <tgbotxx/objects/Video.hpp>
+#include <tgbotxx/objects/VideoChatEnded.hpp>
+#include <tgbotxx/objects/VideoChatParticipantsInvited.hpp>
+#include <tgbotxx/objects/VideoChatScheduled.hpp>
+#include <tgbotxx/objects/VideoChatStarted.hpp>
+#include <tgbotxx/objects/VideoNote.hpp>
+#include <tgbotxx/objects/Voice.hpp>
+#include <tgbotxx/objects/WebAppData.hpp>
+#include <tgbotxx/objects/WebAppInfo.hpp>
+#include <tgbotxx/objects/WebhookInfo.hpp>
+#include <tgbotxx/objects/WriteAccessAllowed.hpp>
+
+
 #include <utility>
 using namespace tgbotxx;
+
+/// Static declarations
+const std::string Api::BASE_URL = "https://api.telegram.org"; /// Telegram api base url
+const cpr::Timeout Api::TIMEOUT = 25 * 1000;                  /// 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
+const cpr::Timeout Api::FILES_UPLOAD_TIMEOUT = 300 * 1000;    /// 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
+const cpr::ConnectTimeout Api::CONNECT_TIMEOUT = 20 * 1000;   /// 20s (Telegram server can take up to 20s to connect with us)
+const std::int32_t Api::LONG_POLL_TIMEOUT = 10;               /// 10s (calling getUpdates() every 10 seconds)
 
 Api::Api(const std::string& token) : m_token(token) {}
 
@@ -82,10 +177,7 @@ Ptr<Message> Api::sendMessage(const std::variant<std::int64_t, std::string>& cha
                               const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(11);
-  if (chatId.index() == 0)                                                   // std::int64_t id
-    data.parts.emplace_back("chat_id", std::to_string(std::get<0>(chatId))); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  else                                                                       // std::string channel username (in the format @channelusername)
-    data.parts.emplace_back("chat_id", std::get<1>(chatId));
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("text", text);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -1418,6 +1510,10 @@ bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
   data.parts.emplace_back("commands", commandsJson.dump());
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
+  else {
+    auto defScope = makePtr<BotCommandScopeDefault>();
+    data.parts.emplace_back("scope", defScope->toJson().dump());
+  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
@@ -1430,6 +1526,10 @@ bool Api::deleteMyCommands(const Ptr<BotCommandScope>& scope, const std::string&
   data.parts.reserve(2);
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
+  else {
+    auto defScope = makePtr<BotCommandScopeDefault>();
+    data.parts.emplace_back("scope", defScope->toJson().dump());
+  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
   return sendRequest("deleteMyCommands", data);
@@ -1441,6 +1541,10 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scop
   data.parts.reserve(2);
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
+  else {
+    auto defScope = makePtr<BotCommandScopeDefault>();
+    data.parts.emplace_back("scope", defScope->toJson().dump());
+  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
@@ -1520,10 +1624,14 @@ bool Api::setChatMenuButton(const std::variant<std::int64_t, std::string>& chatI
   cpr::Multipart data{};
   data.parts.reserve(2);
   std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
-  if (chatIdStr != "0")
+  if (not chatIdStr.empty())
     data.parts.emplace_back("chat_id", chatIdStr);
   if (menuButton)
     data.parts.emplace_back("menu_button", menuButton->toJson().dump());
+  else {
+    auto defMenuButton = makePtr<MenuButtonDefault>();
+    data.parts.emplace_back("menu_button", defMenuButton->toJson().dump());
+  }
   return sendRequest("setChatMenuButton", data);
 }
 
@@ -1531,7 +1639,7 @@ Ptr<MenuButton> Api::getChatMenuButton(const std::variant<std::int64_t, std::str
   cpr::Multipart data{};
   data.parts.reserve(1);
   std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
-  if (chatIdStr != "0")
+  if (not chatIdStr.empty())
     data.parts.emplace_back("chat_id", chatIdStr);
   nl::json chatMenuObj = sendRequest("getChatMenuButton", data);
   std::string type = chatMenuObj["type"].get<std::string>();
@@ -1625,7 +1733,6 @@ Ptr<WebhookInfo> Api::getWebhookInfo() const {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-
 bool Api::answerInlineQuery(const std::string& inlineQueryId,
                             const std::vector<Ptr<InlineQueryResult>>& results,
                             std::int32_t cacheTime,
