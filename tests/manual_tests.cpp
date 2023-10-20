@@ -15,6 +15,7 @@ class MyBot : public Bot {
   public:
     MyBot(const std::string& token) : Bot(token) {}
 
+
   private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
@@ -23,8 +24,8 @@ class MyBot : public Bot {
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
 
-      api()->setMyName("tgbotxx manual_tests");
-      api()->setMyDescription("tgbotxx bot manual tests");
+//      api()->setMyName("tgbotxx manual_tests");
+//      api()->setMyDescription("tgbotxx bot manual tests");
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
@@ -113,6 +114,10 @@ class MyBot : public Bot {
     /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
     void onNonCommandMessage(const Ptr<Message>& message) override {
       //std::cout << __func__ << ": " << message->text << std::endl;
+    }
+
+    void onLongPollError(const std::string& reason) override {
+      std::cerr <<  "Long polling error: " << reason << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).
