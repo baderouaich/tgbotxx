@@ -164,6 +164,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">      }</div>
 <div class="line">    }</div>
 <div class="line">    </div>
+<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; reason)<span class="keyword"> override </span>{</div>
+<div class="line">      std::cerr &lt;&lt;  <span class="stringliteral">&quot;Long polling error: &quot;</span> &lt;&lt; reason &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
 <div class="line">    <span class="comment">// Other callbacks (optional overload)</span></div>
 <div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> onNonCommandMessage(<span class="keyword">const</span> Ptr&lt;Message&gt; &amp;message)<span class="keyword"> override </span>{}</div>
 <div class="line">    <span class="keywordtype">void</span> onUnknownCommand(<span class="keyword">const</span> Ptr&lt;Message&gt; &amp;message)<span class="keyword"> override </span>{}</div>
@@ -275,7 +279,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Oct 20 2023 21:15:41 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 20 2023 21:17:23 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
