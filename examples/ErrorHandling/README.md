@@ -16,7 +16,7 @@ class MyBot : public Bot {
       std::cerr << "Long poll error: " << reason << std::endl; 
     }
 
-    void onAnyMessage(const Ptr<Message>& msg) override try {
+    void onAnyMessage(const Ptr<Message>& msg) override {
         try {
           // Your logic
           api()->sendMessage(msg->chat->id, "Possible failure");
