@@ -1,5 +1,6 @@
 ## Bot Error Handling
-This library is using exceptions to manage errors. Using try catch within the callbacks will be the ideal way:
+- This library is using exceptions to manage errors. Wrapping Api methods with a try catch will be the ideal way. 
+- To detect long polling errors, override the `onLongPollError` callback. (Bot will keep running after this callback is triggered, except if you call Bot::stop())
 
 ## Example
 
@@ -9,25 +10,30 @@ using namespace tgbotxx;
 
 class MyBot : public Bot {
   public:
-    void onStart() override try {
-        // Your logic
-    } catch(const std::exception& e) {
-        // handle thrown exceptions from onStart
-        std::cerr << e.what() << std::endl;
+    void onLongPollError(const std::string& reason) override {
+      // Handle long polling error
+      // Note: Bot will keep running even if this callback is triggered, to stop the bot call Bot::stop();
+      std::cerr << "Long poll error: " << reason << std::endl; 
     }
 
     void onAnyMessage(const Ptr<Message>& msg) override try {
-        // Your logic
-    } catch(const std::exception& e) {
-        // handle thrown exceptions from onAnyMessage
-        std::cerr << e.what() << std::endl;
+        try {
+          // Your logic
+          api()->sendMessage(msg->chat->id, "Possible failure");
+        } catch(const Exception& e) {
+          // handle api()->sendMessage() failure
+          std::cerr << "sendMessage failed! reason: " << e.what() << std::endl;
+        }
     }
 
-    void onCommand(const Ptr<Message>& msg) override try {
+    void onCommand(const Ptr<Message>& msg) override {
+      try {
         // Your logic
-    } catch(const std::exception& e) {
-        // handle thrown exceptions from onCommand
-        std::cerr << e.what() << std::endl;
+        api()->sendPoll(msg->chat->id, poll);
+      } catch(const Exception& e) {
+        // handle api()->sendPoll() failure
+        std::cerr << "sendPoll failed! reason: " << e.what() << std::endl;
+      }
     }
     
     // ...
@@ -35,11 +41,6 @@ class MyBot : public Bot {
 
 int main() {
   MyBot bot;
-  try {
-    bot.start();
-  } catch(const std::exception& e) {
-    // handle thrown exceptions from bot api long polling 
-    std::cerr << e.what() << std::endl;
-  }
+  bot.start(); // <- start the bot long polling loop 
 }
 ```
