@@ -20,7 +20,7 @@ private:
       pollCmd->description = "Receive a voting poll";
       Ptr<BotCommand> quizCmd(new BotCommand());
       quizCmd->command = "/quiz";
-      quizCmd->description = "Receive a quiz quiz";
+      quizCmd->description = "Receive a quiz";
       api()->setMyCommands({pollCmd, quizCmd});
 
       std::cout << "Bot " << api()->getMe()->username << " Started\n";
@@ -86,7 +86,7 @@ private:
 
 int main(int argc, const char *argv[]) {
   if (argc < 2) {
-    std::cerr << "Usage:\nphoto_bot \"BOT_TOKEN\"\n";
+    std::cerr << "Usage:\nsend_poll_bot \"BOT_TOKEN\"\n";
     return EXIT_FAILURE;
   }
 
