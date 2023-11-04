@@ -1729,6 +1729,60 @@ Ptr<WebhookInfo> Api::getWebhookInfo() const {
   return makePtr<WebhookInfo>(webhookInfoObj);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+Ptr<Message> Api::editMessageText(const std::string& text,
+                                  const std::variant<std::int64_t, std::string>& chatId,
+                                  std::int32_t messageId,
+                                  std::int32_t inlineMessageId,
+                                  const std::string& parseMode,
+                                  const std::vector<Ptr<MessageEntity>>& entities,
+                                  bool disableWebPagePreview,
+                                  const Ptr<IReplyMarkup>& replyMarkup) const {
+
+
+  cpr::Multipart data{};
+  data.parts.reserve(8);
+  data.parts.emplace_back("text", text);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (inlineMessageId)
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not entities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: entities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("entities", entitiesArray.dump());
+  }
+  if (disableWebPagePreview)
+    data.parts.emplace_back("disable_web_page_preview", disableWebPagePreview);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("editMessageText", data);
+  if (sentMessageObj.contains("message_id")) {
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+  } else {
+    return nullptr;
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Api::answerInlineQuery(const std::string& inlineQueryId,

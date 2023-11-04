@@ -85,7 +85,10 @@ class MyBot : public Bot {
       Ptr<BotCommand> showAdministratorRights(new BotCommand());
       showAdministratorRights->command = "/show_administrator_rights";
       showAdministratorRights->description = "Display bot's default administrator rights in JSON";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> editMessageText(new BotCommand());
+      editMessageText->command = "/edit_message_text";
+      editMessageText->description = "You will receive a message that its text will be edited every second for 10 seconds.";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -263,6 +266,16 @@ class MyBot : public Bot {
       } else if (message->text == "/show_administrator_rights") {
         Ptr<ChatAdministratorRights> chatAdministratorRights = api()->getMyDefaultAdministratorRights();
         api()->sendMessage(message->chat->id, chatAdministratorRights->toJson().dump(2));
+      } else if (message->text == "/edit_message_text") {
+        Ptr<Message> originalMessage = api()->sendMessage(message->chat->id, "Progress started...");
+        for(int i = 0; i <= 100; i += 10) {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            std::ostringstream oss{};
+            oss << "Progress: " << i << '/' << 100;
+            api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
+        }
+        api()->editMessageText("Done.", originalMessage->chat->id, originalMessage->messageId);
+
       }
     }
 
