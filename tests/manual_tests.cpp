@@ -275,7 +275,6 @@ class MyBot : public Bot {
             api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
         }
         api()->editMessageText("Done.", originalMessage->chat->id, originalMessage->messageId);
-
       }
     }
 

@@ -1456,27 +1456,44 @@ namespace tgbotxx {
             /// The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action.
             /// This is most useful for messages with inline keyboards using callback queries, but can also help reduce clutter in conversations with regular chat bots.
             /// Please note, that it is currently only possible to edit messages without reply_markup or with inline keyboards.
-
       /// @brief Use this method to edit text and game messages.
       /// @param text New text of the message, 1-4096 characters after entities parsing
       /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
       /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
-      /// @param inlineMessageId Optional.	Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
       /// @param parseMode Optional. Mode for parsing entities in the message text. See https://core.telegram.org/bots/api#formatting-options for more details.
       /// @param entities Optional. List of special entities that appear in message text, which can be specified instead of parseMode
       /// @param disableWebPagePreview Optional. Disables link previews for links in this message
       /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
-      /// @return On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
+      /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
       /// @ref https://core.telegram.org/bots/api#editmessagetext
       Ptr<Message> editMessageText(const std::string& text,
                                    const std::variant<std::int64_t, std::string>& chatId = 0,
                                    std::int32_t messageId = 0,
-                                   std::int32_t inlineMessageId = 0,
+                                   const std::string& inlineMessageId = "",
                                    const std::string& parseMode = "",
                                    const std::vector<Ptr<MessageEntity>>& entities = std::vector<Ptr<MessageEntity>>(),
                                    bool disableWebPagePreview = false,
                                    const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
+
+      /// @brief Use this method to edit captions of messages.
+      /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param caption Optional. New caption of the message, 0-1024 characters after entities parsing
+      /// @param parseMode Optional. Mode for parsing entities in the message caption. See https://core.telegram.org/bots/api#formatting-options for more details.
+      /// @param captionEntities Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
+      /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
+      /// @ref https://core.telegram.org/bots/api#editmessagecaption
+      Ptr<Message> editMessageCaption(const std::variant<std::int64_t, std::string>& chatId = 0,
+                                      std::int32_t messageId = 0,
+                                      const std::string& inlineMessageId = "",
+                                      const std::string& caption = "",
+                                      const std::string& parseMode = "",
+                                      const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                                      const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.
