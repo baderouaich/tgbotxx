@@ -43,12 +43,19 @@ namespace tgbotxx {
   /// @note All methods in the Bot API are case-insensitive.
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
-      static const std::string BASE_URL;                /// Telegram api base url
-      static const cpr::Timeout TIMEOUT;                /// 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
-      static const cpr::Timeout FILES_UPLOAD_TIMEOUT;   /// 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
-      static const cpr::ConnectTimeout CONNECT_TIMEOUT; /// 20s (Telegram server can take up to 20s to connect with us)
-      static const std::int32_t LONG_POLL_TIMEOUT;      /// 10s (calling getUpdates() every 10 seconds)
-      const std::string m_token;                        /// Bot token from @BotFather
+      static const std::string BASE_URL;                        /// Telegram api base url
+      static const cpr::ConnectTimeout DEFAULT_CONNECT_TIMEOUT; /// 20s (Telegram server can take up to 20s to connect with us)
+      static const cpr::Timeout DEFAULT_TIMEOUT;                /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
+      static const cpr::Timeout DEFAULT_LONG_POLL_TIMEOUT;      /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
+      static const cpr::Timeout DEFAULT_UPLOAD_FILES_TIMEOUT;   /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
+      static const cpr::Timeout DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
+
+      const std::string m_token;                                            /// Bot token from \@BotFather
+      cpr::ConnectTimeout m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;       /// Api connection timeout
+      cpr::Timeout m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
+      cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
+      cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
+      cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
 
     public:
       /// @brief Constructs Api object.
@@ -1394,7 +1401,7 @@ namespace tgbotxx {
       /// @note This method will not work if an outgoing webhook is set up.
       /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
       /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
-      std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, std::int32_t timeout = LONG_POLL_TIMEOUT, const std::vector<std::string>& allowedUpdates = {}) const;
+      std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, const std::vector<std::string>& allowedUpdates = {}) const;
 
       /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
       /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
@@ -1466,6 +1473,33 @@ namespace tgbotxx {
                              bool isPersonal = false,
                              const std::string& nextOffset = "",
                              const Ptr<InlineQueryResultsButton>& button = nullptr) const;
+
+
+    public: /// Timeout setters/getters
+      /// @brief Set long polling timeout.
+      void setLongPollTimeout(const cpr::Timeout& longPollTimeout);
+      /// @brief Get long polling timeout.
+      cpr::Timeout getLongPollTimeout() const noexcept;
+
+      /// @brief Set Api requests connection timeout.
+      void setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept;
+      /// @brief Get Api requests connection timeout.
+      cpr::ConnectTimeout getConnectTimeout() const noexcept;
+
+      /// @brief Set Api requests timeout.
+      void setTimeout(const cpr::Timeout& timeout);
+      /// @brief Get Api requests timeout.
+      cpr::Timeout getTimeout() const noexcept;
+
+      /// @brief Set Api file uploads timeout.
+      void setUploadFilesTimeout(const cpr::Timeout& timeout) noexcept;
+      /// @brief Get Api file uploads timeout.
+      cpr::Timeout getUploadFilesTimeout() const noexcept;
+
+      /// @brief Set Api file downloads timeout.
+      void setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept;
+      /// @brief Get APi file downloads timeout.
+      cpr::Timeout getDownloadFilesTimeout() const noexcept;
 
     private:
       nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;

@@ -1,3 +1,5 @@
+#include "tgbotxx/Exception.hpp"
+#include <chrono>
 #include <tgbotxx/Api.hpp>
 /// Objects
 #include <tgbotxx/objects/Animation.hpp>
@@ -90,16 +92,16 @@
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
 
-
 #include <utility>
 using namespace tgbotxx;
 
 /// Static declarations
-const std::string Api::BASE_URL = "https://api.telegram.org"; /// Telegram api base url
-const cpr::Timeout Api::TIMEOUT = 25 * 1000;                  /// 25s (Telegram server can take up to 25s to reply us (should be longer than long poll timeout)). Max long polling timeout seems to be 50s.
-const cpr::Timeout Api::FILES_UPLOAD_TIMEOUT = 300 * 1000;    /// 5min (Files can take longer time to upload. Setting a shorter timeout can stop the request even if the file isn't fully uploaded)
-const cpr::ConnectTimeout Api::CONNECT_TIMEOUT = 20 * 1000;   /// 20s (Telegram server can take up to 20s to connect with us)
-const std::int32_t Api::LONG_POLL_TIMEOUT = 10;               /// 10s (calling getUpdates() every 10 seconds)
+const std::string Api::BASE_URL = "https://api.telegram.org";                                  /// Telegram api base url
+const cpr::ConnectTimeout Api::DEFAULT_CONNECT_TIMEOUT = std::chrono::milliseconds(20 * 1000); /// 20s (Telegram server can take up to 20s to connect with us)
+const cpr::Timeout Api::DEFAULT_TIMEOUT = std::chrono::seconds(60 + 10);                       /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
+const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);                  /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
+const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
+const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
 Api::Api(const std::string& token) : m_token(token) {}
 
@@ -108,11 +110,8 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
   bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
-  if (hasFiles) // Files can take longer to upload
-    session.SetTimeout(FILES_UPLOAD_TIMEOUT);
-  else
-    session.SetTimeout(TIMEOUT);
-  session.SetConnectTimeout(CONNECT_TIMEOUT);
+  session.SetConnectTimeout(m_connectTimeout);
+  session.SetTimeout(hasFiles ? m_uploadFilesTimeout : m_timeout); // Files can take longer to upload
   session.SetHeader(cpr::Header{
     {"Connection", "close"}, // disable keep-alive
     {"Accept", "application/json"},
@@ -442,13 +441,13 @@ Ptr<File> Api::getFile(const std::string& fileId) const {
 }
 
 std::string Api::downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t, cpr::cpr_off_t)>& progressCallback) const {
-  std::ostringstream oss;
+  std::ostringstream oss{};
   oss << BASE_URL << "/file/bot" << m_token << "/" << filePath;
 
   cpr::Session session{};
   session.SetUrl(cpr::Url{oss.str()});
-  session.SetTimeout(FILES_UPLOAD_TIMEOUT);
-  session.SetConnectTimeout(CONNECT_TIMEOUT);
+  session.SetConnectTimeout(m_connectTimeout);
+  session.SetTimeout(m_downloadFilesTimeout);
   session.SetAcceptEncoding({cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib});
   if (progressCallback) {
     cpr::ProgressCallback pCallback{[&progressCallback](cpr::cpr_off_t downloadTotal,
@@ -1681,13 +1680,12 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::int32_t timeout,
-                                         const std::vector<std::string>& allowedUpdates) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, const std::vector<std::string>& allowedUpdates) const {
   std::vector<Ptr<Update>> updates;
   cpr::Multipart data = {
     {"offset", offset},
     {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
-    {"timeout", timeout},
+    {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(allowedUpdates).dump()},
   };
   nl::json updatesJson = sendRequest("getUpdates", data);
@@ -1757,3 +1755,34 @@ bool Api::answerInlineQuery(const std::string& inlineQueryId,
 
   return sendRequest("answerInlineQuery", data);
 }
+
+void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
+  if (longPollTimeout.ms > m_timeout.ms)
+    throw Exception("Api::setLongPollTimeout: Long poll timeout should always be shorter than api request timeout."
+                    " Otherwise the api request will time out before long polling finishes.");
+  m_longPollTimeout = longPollTimeout;
+}
+cpr::Timeout Api::getLongPollTimeout() const noexcept { return m_longPollTimeout; }
+
+void Api::setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept {
+  m_connectTimeout = timeout;
+}
+cpr::ConnectTimeout Api::getConnectTimeout() const noexcept { return m_connectTimeout; }
+
+void Api::setTimeout(const cpr::Timeout& timeout) {
+  if (timeout.ms <= m_longPollTimeout.ms)
+    throw Exception("Api::setTimeout: Api request timeout should always be longer than long poll timeout."
+                    " Otherwise the api request will time out before long polling finishes.");
+  m_timeout = timeout;
+}
+cpr::Timeout Api::getTimeout() const noexcept { return m_timeout; }
+
+void Api::setUploadFilesTimeout(const cpr::Timeout& timeout) noexcept {
+  m_uploadFilesTimeout = timeout;
+}
+cpr::Timeout Api::getUploadFilesTimeout() const noexcept { return m_uploadFilesTimeout; }
+
+void Api::setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept {
+  m_downloadFilesTimeout = timeout;
+}
+cpr::Timeout Api::getDownloadFilesTimeout() const noexcept { return m_downloadFilesTimeout; }

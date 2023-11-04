@@ -4,7 +4,6 @@
 #include "tgbotxx/objects/WebAppInfo.hpp"
 #include "tgbotxx/objects/WebhookInfo.hpp"
 #include <csignal>
-#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <tgbotxx/tgbotxx.hpp>
@@ -20,10 +19,11 @@ class MyBot : public Bot {
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
+//      api()->setTimeout(std::chrono::seconds(60 * 3));
+//      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
-
 //      api()->setMyName("tgbotxx manual_tests");
 //      api()->setMyDescription("tgbotxx bot manual tests");
 
@@ -336,6 +336,7 @@ int main() try {
   std::signal(SIGINT, [](int) {
     std::cout << "Stopping Bot. Please wait...\n";
     bot.stop();
+    std::exit(EXIT_SUCCESS);
   });
   bot.start();
   return EXIT_SUCCESS;
