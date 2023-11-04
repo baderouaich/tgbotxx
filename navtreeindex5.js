@@ -1,5 +1,15 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,82,1],
+"structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3":[1,0,0,82,3],
+"structtgbotxx_1_1_mask_position.html#ac00c21d7ce9443e71a8d257121171a7b":[1,0,0,82,6],
+"structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00":[1,0,0,82,4],
+"structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3":[1,0,0,82,7],
+"structtgbotxx_1_1_menu_button.html":[1,0,0,83],
+"structtgbotxx_1_1_menu_button.html#a142bc03999193a731b700d857f6b9d92":[1,0,0,83,4],
+"structtgbotxx_1_1_menu_button.html#a2efaa4c41f793fbbe47182f99c401a9f":[1,0,0,83,3],
+"structtgbotxx_1_1_menu_button.html#a5011a6fc195732b7c16a48c2319aacdb":[1,0,0,83,5],
+"structtgbotxx_1_1_menu_button.html#a693bed5579c61d0b743e56969e247c94":[1,0,0,83,0],
 "structtgbotxx_1_1_menu_button.html#ab5db22eeac14c4a486ea419cddc8952e":[1,0,0,83,1],
 "structtgbotxx_1_1_menu_button.html#ae0d05dfd60cf6cf92662b8fef93a9a17":[1,0,0,83,2],
 "structtgbotxx_1_1_menu_button_commands.html":[1,0,0,86],
@@ -239,15 +249,5 @@ var NAVTREEINDEX5 =
 "structtgbotxx_1_1_reply_keyboard_remove.html":[1,0,0,101],
 "structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[1,0,0,101,5],
 "structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d":[1,0,0,101,0],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a78d614f234ae897783371ad8cfe28ac0":[1,0,0,101,2],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a87dacb7213d3848bd059b52451401b82":[1,0,0,101,3],
-"structtgbotxx_1_1_reply_keyboard_remove.html#ac73cccccda48d0598e328e5671e812fc":[1,0,0,101,1],
-"structtgbotxx_1_1_reply_keyboard_remove.html#ac8a30b186904dbb610c9e59c446a8114":[1,0,0,101,4],
-"structtgbotxx_1_1_shipping_address.html":[1,0,0,102],
-"structtgbotxx_1_1_shipping_address.html#a06c7a0b2fac60a0ec73dc9570106014e":[1,0,0,102,4],
-"structtgbotxx_1_1_shipping_address.html#a4ff433b304da9fd350fa20129f1b266c":[1,0,0,102,6],
-"structtgbotxx_1_1_shipping_address.html#a58073500384fffb4354c52df95180fa9":[1,0,0,102,8],
-"structtgbotxx_1_1_shipping_address.html#a7cb094d6bca38bcc10e95f9dd31e7372":[1,0,0,102,3],
-"structtgbotxx_1_1_shipping_address.html#a8139363b4f8c3dc873ba143a511592f6":[1,0,0,102,0],
-"structtgbotxx_1_1_shipping_address.html#ac2139452cb3b98439397422fb42b578d":[1,0,0,102,1]
+"structtgbotxx_1_1_reply_keyboard_remove.html#a78d614f234ae897783371ad8cfe28ac0":[1,0,0,101,2]
 };

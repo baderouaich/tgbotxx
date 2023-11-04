@@ -1,5 +1,15 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#ac2276f876ca9c19b7f8c5f1bf1864b96":[1,0,0,58,14],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#ad199d7c8d767abb54c20c5243c1dd088":[1,0,0,58,3],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#af2ce6386096ef7748cd443cf99eccecc":[1,0,0,58,5],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#aff2130a905bcb9a836b0b85b01812c7e":[1,0,0,58,6],
+"structtgbotxx_1_1_inline_query_result_photo.html":[1,0,0,56],
+"structtgbotxx_1_1_inline_query_result_photo.html#a17844d101657177c5f44063cf236433a":[1,0,0,56,7],
+"structtgbotxx_1_1_inline_query_result_photo.html#a21b4e998ff29cd13c0eb5c57b1b8adf5":[1,0,0,56,5],
+"structtgbotxx_1_1_inline_query_result_photo.html#a2705ee41a2adc90ede8936bf28573e5f":[1,0,0,56,1],
+"structtgbotxx_1_1_inline_query_result_photo.html#a2952fd771845a6acd481c13adfe9157c":[1,0,0,56,13],
+"structtgbotxx_1_1_inline_query_result_photo.html#a58e3c70aae6ac59b95cdd97d9a85c081":[1,0,0,56,2],
 "structtgbotxx_1_1_inline_query_result_photo.html#a67026c6e1909cea37f8be81a0c382067":[1,0,0,56,10],
 "structtgbotxx_1_1_inline_query_result_photo.html#a6e3ef29f1b57a52d8f01083bbe955be8":[1,0,0,56,4],
 "structtgbotxx_1_1_inline_query_result_photo.html#a722e611e2c926cab337af0021752ce96":[1,0,0,56,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_mask_position.html":[1,0,0,82],
 "structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe":[1,0,0,82,0],
 "structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,82,5],
-"structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,82,2],
-"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,82,1],
-"structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3":[1,0,0,82,3],
-"structtgbotxx_1_1_mask_position.html#ac00c21d7ce9443e71a8d257121171a7b":[1,0,0,82,6],
-"structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00":[1,0,0,82,4],
-"structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3":[1,0,0,82,7],
-"structtgbotxx_1_1_menu_button.html":[1,0,0,83],
-"structtgbotxx_1_1_menu_button.html#a142bc03999193a731b700d857f6b9d92":[1,0,0,83,4],
-"structtgbotxx_1_1_menu_button.html#a2efaa4c41f793fbbe47182f99c401a9f":[1,0,0,83,3],
-"structtgbotxx_1_1_menu_button.html#a5011a6fc195732b7c16a48c2319aacdb":[1,0,0,83,5],
-"structtgbotxx_1_1_menu_button.html#a693bed5579c61d0b743e56969e247c94":[1,0,0,83,0]
+"structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,82,2]
 };

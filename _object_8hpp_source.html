@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('_object_8hpp_source.html',''); initRes
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">   68</a></span>&#160;<span class="preprocessor">#define OBJECT_DESERIALIZE_FIELD_PTR(json, json_field, field, optional)                                                \</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">  static_assert(!std::is_const_v&lt;decltype(field)&gt;, &quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;field&#39; must not be const&quot;</span>);         \</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  static_assert(std::is_same_v&lt;decltype(optional), bool&gt;, &quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;optional&#39; must be boolean&quot;); \</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  if (json.contains(json_field)) {                                                                                     \</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    using T = std::remove_reference_t&lt;decltype(field)&gt;;                                                                \</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    using E = T::element_type;                                                                                         \</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    field.reset(new (E)(json[json_field]));                                                                            \</div>
@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('_object_8hpp_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_object_8hpp.html">Object.hpp</a></li>
-    <li class="footer">Generated on Sun Oct 22 2023 21:34:18 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 4 2023 12:22:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

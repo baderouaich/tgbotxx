@@ -1,5 +1,15 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_reply_keyboard_remove.html#a87dacb7213d3848bd059b52451401b82":[1,0,0,101,3],
+"structtgbotxx_1_1_reply_keyboard_remove.html#ac73cccccda48d0598e328e5671e812fc":[1,0,0,101,1],
+"structtgbotxx_1_1_reply_keyboard_remove.html#ac8a30b186904dbb610c9e59c446a8114":[1,0,0,101,4],
+"structtgbotxx_1_1_shipping_address.html":[1,0,0,102],
+"structtgbotxx_1_1_shipping_address.html#a06c7a0b2fac60a0ec73dc9570106014e":[1,0,0,102,4],
+"structtgbotxx_1_1_shipping_address.html#a4ff433b304da9fd350fa20129f1b266c":[1,0,0,102,6],
+"structtgbotxx_1_1_shipping_address.html#a58073500384fffb4354c52df95180fa9":[1,0,0,102,8],
+"structtgbotxx_1_1_shipping_address.html#a7cb094d6bca38bcc10e95f9dd31e7372":[1,0,0,102,3],
+"structtgbotxx_1_1_shipping_address.html#a8139363b4f8c3dc873ba143a511592f6":[1,0,0,102,0],
+"structtgbotxx_1_1_shipping_address.html#ac2139452cb3b98439397422fb42b578d":[1,0,0,102,1],
 "structtgbotxx_1_1_shipping_address.html#ac62a134610b0437109d9aa3aa1256d13":[1,0,0,102,2],
 "structtgbotxx_1_1_shipping_address.html#ae747b6112462d88464321ce757509c60":[1,0,0,102,9],
 "structtgbotxx_1_1_shipping_address.html#af134f7a808798df17ef22c92c5218ace":[1,0,0,102,5],
