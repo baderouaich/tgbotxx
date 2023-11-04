@@ -1788,7 +1788,7 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
                                      const std::string& caption,
                                      const std::string& parseMode,
                                      const std::vector<Ptr<MessageEntity>>& captionEntities,
-                                     const Ptr<tgbotxx::IReplyMarkup>& replyMarkup) const {
+                                     const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(7);
   switch (chatId.index()) {
@@ -1831,6 +1831,191 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
   }
 }
 
+
+Ptr<Message> Api::editMessageMedia(const Ptr<InputMedia>& media,
+                                   const std::variant<std::int64_t, std::string>& chatId,
+                                   std::int32_t messageId,
+                                   const std::string& inlineMessageId,
+                                   const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(5);
+  data.parts.emplace_back("media", media->toJson().dump());
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("editMessageMedia", data);
+  if (sentMessageObj.contains("message_id")) {
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+  } else {
+    return nullptr;
+  }
+}
+
+Ptr<Message> Api::editMessageLiveLocation(float latitude,
+                                          float longitude,
+                                          const std::variant<std::int64_t, std::string>& chatId,
+                                          std::int32_t messageId,
+                                          const std::string& inlineMessageId,
+                                          float horizontalAccuracy,
+                                          std::int32_t heading,
+                                          std::int32_t proximityAlertRadius,
+                                          const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(9);
+  data.parts.emplace_back("latitude", latitude);
+  data.parts.emplace_back("longitude", longitude);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (horizontalAccuracy != 0.0f)
+    data.parts.emplace_back("horizontal_accuracy", horizontalAccuracy);
+  if (heading)
+    data.parts.emplace_back("heading", heading);
+  if (proximityAlertRadius)
+    data.parts.emplace_back("proximity_alert_radius", proximityAlertRadius);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("editMessageLiveLocation", data);
+  if (sentMessageObj.contains("message_id")) {
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+  } else {
+    return nullptr;
+  }
+}
+
+
+Ptr<Message> Api::stopMessageLiveLocation(const std::variant<std::int64_t, std::string>& chatId,
+                                          std::int32_t messageId,
+                                          const std::string& inlineMessageId,
+                                          const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("stopMessageLiveLocation", data);
+  if (sentMessageObj.contains("message_id")) {
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+  } else {
+    return nullptr;
+  }
+}
+
+
+Ptr<Message> Api::editMessageReplyMarkup(const std::variant<std::int64_t, std::string>& chatId,
+                                         std::int32_t messageId,
+                                         const std::string& inlineMessageId,
+                                         const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("editMessageReplyMarkup", data);
+  if (sentMessageObj.contains("message_id")) {
+    Ptr<Message> message(new Message(sentMessageObj));
+    return message;
+  } else {
+    return nullptr;
+  }
+}
+
+Ptr<Poll> Api::stopPoll(const std::variant<std::int64_t, std::string>& chatId,
+                        std::int32_t messageId,
+                        const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json pollObj = sendRequest("stopPoll", data);
+  Ptr<Poll> poll(new Poll(pollObj));
+  return poll;
+}
+
+bool Api::deleteMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("message_id", messageId);
+  return sendRequest("deleteMessage", data);
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Api::answerInlineQuery(const std::string& inlineQueryId,

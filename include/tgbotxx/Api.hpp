@@ -38,6 +38,7 @@ namespace tgbotxx {
   struct MenuButton;
   struct ChatAdministratorRights;
   struct WebhookInfo;
+  struct Poll;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -1456,6 +1457,7 @@ namespace tgbotxx {
             /// The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action.
             /// This is most useful for messages with inline keyboards using callback queries, but can also help reduce clutter in conversations with regular chat bots.
             /// Please note, that it is currently only possible to edit messages without reply_markup or with inline keyboards.
+            /// @ref https://core.telegram.org/bots/api#updating-messages
       /// @brief Use this method to edit text and game messages.
       /// @param text New text of the message, 1-4096 characters after entities parsing
       /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
@@ -1494,6 +1496,101 @@ namespace tgbotxx {
                                       const std::string& parseMode = "",
                                       const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
                                       const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to edit animation, audio, document, photo, or video messages.
+      /// If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise.
+      /// When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its fileId or specify a URL.
+      /// @param media A JSON-serialized object for a new media content of the message
+      /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+      /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
+      /// @ref https://core.telegram.org/bots/api#editmessagemedia
+      Ptr<Message> editMessageMedia(const Ptr<InputMedia>& media,
+                                    const std::variant<std::int64_t, std::string>& chatId = 0,
+                                    std::int32_t messageId = 0,
+                                    const std::string& inlineMessageId = "",
+                                    const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to edit live location messages.
+      /// A location can be edited until its livePeriod expires or editing is explicitly disabled by a call to Api::stopMessageLiveLocation.
+      /// @param latitude Latitude of new location
+      /// @param longitude Longitude of new location
+      /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param horizontalAccuracy Optional. The radius of uncertainty for the location, measured in meters; 0-1500
+      /// @param heading Optional. Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
+      /// @param proximityAlertRadius Optional. The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.
+      /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+      /// @returns On success, the edited Message is returned. Otherwise nullptr is returned.
+      /// @ref https://core.telegram.org/bots/api#editmessagelivelocation
+      Ptr<Message> editMessageLiveLocation(float latitude,
+                                           float longitude,
+                                           const std::variant<std::int64_t, std::string>& chatId = 0,
+                                           std::int32_t messageId = 0,
+                                           const std::string& inlineMessageId = "",
+                                           float horizontalAccuracy = 0.0f,
+                                           std::int32_t heading = 0,
+                                           std::int32_t proximityAlertRadius = 0,
+                                           const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to stop updating a live location message before livePeriod expires.
+      /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message with live location to stop
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+      /// @returns On success, the edited Message is returned. Otherwise nullptr is returned.
+      /// @ref https://core.telegram.org/bots/api#stopmessagelivelocation
+      Ptr<Message> stopMessageLiveLocation(const std::variant<std::int64_t, std::string>& chatId = 0,
+                                           std::int32_t messageId = 0,
+                                           const std::string& inlineMessageId = "",
+                                           const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to edit only the reply markup of messages.
+      /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
+      /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+      /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
+      /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
+      /// @ref https://core.telegram.org/bots/api#editmessagereplymarkup
+      Ptr<Message> editMessageReplyMarkup(const std::variant<std::int64_t, std::string>& chatId = 0,
+                                          std::int32_t messageId = 0,
+                                          const std::string& inlineMessageId = "",
+                                          const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to stop a poll which was sent by the bot.
+      /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Identifier of the original message with the poll
+      /// @param replyMarkup Optional. A JSON-serialized object for a new message inline keyboard.
+      /// @returns On success, the stopped Poll is returned.
+      /// @ref https://core.telegram.org/bots/api#stoppoll
+      Ptr<Poll> stopPoll(const std::variant<std::int64_t, std::string>& chatId,
+                         std::int32_t messageId,
+                         const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+
+      /// @brief Use this method to delete a message, including service messages, with the following limitations:
+      /// - A message can only be deleted if it was sent less than 48 hours ago.
+      /// - Service messages about a supergroup, channel, or forum topic creation can't be deleted.
+      /// - A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.
+      /// - Bots can delete outgoing messages in private chats, groups, and supergroups.
+      /// - Bots can delete incoming messages in private chats.
+      /// - Bots granted canPostMessages permissions can delete outgoing messages in channels.
+      /// - If the bot is an administrator of a group, it can delete any message there.
+      /// - If the bot has canDeleteMessages permission in a supergroup or a channel, it can delete any message there.
+      ///
+      /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param messageId Identifier of the message to delete
+      /// @returns Returns True on success.
+      /// @ref https://core.telegram.org/bots/api#deletemessage
+      bool deleteMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const;
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.

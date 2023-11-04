@@ -88,7 +88,10 @@ class MyBot : public Bot {
       Ptr<BotCommand> editMessageText(new BotCommand());
       editMessageText->command = "/edit_message_text";
       editMessageText->description = "You will receive a message that its text will be edited every second for 10 seconds.";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> deleteMessage(new BotCommand());
+      deleteMessage->command = "/delete_message";
+      deleteMessage->description = "You will receive a message then it will be deleted after 2 seconds.";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText, deleteMessage}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -275,6 +278,10 @@ class MyBot : public Bot {
             api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
         }
         api()->editMessageText("Done.", originalMessage->chat->id, originalMessage->messageId);
+      } else if (message->text == "/delete_message") {
+        Ptr<Message> twoSecondsMsg = api()->sendMessage(message->chat->id, "Hello! my life span is 2 seconds only so I don't have much time. Goodbye!");
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        api()->deleteMessage(twoSecondsMsg->chat->id, twoSecondsMsg->messageId);
       }
     }
 
