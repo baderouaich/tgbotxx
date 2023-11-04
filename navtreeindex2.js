@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structtgbotxx_1_1_bot_command.html#acd31db5a3e6e0426ad9062bbd5d7aab0":[1,0,0,5,1],
 "structtgbotxx_1_1_bot_command_scope.html":[1,0,0,6],
 "structtgbotxx_1_1_bot_command_scope.html#a5f4ed52dc6417ddb4b95013ef609502b":[1,0,0,6,3],
 "structtgbotxx_1_1_bot_command_scope.html#a6996505f3bd6b75bdee5a26e99619641":[1,0,0,6,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_chat_member_updated.html#af472c7608ac55c381a8abaf14114946e":[1,0,0,31,3],
 "structtgbotxx_1_1_chat_member_updated.html#af5ad68f57103fd80e62531a7b22557c8":[1,0,0,31,6],
 "structtgbotxx_1_1_chat_permissions.html":[1,0,0,32],
-"structtgbotxx_1_1_chat_permissions.html#a07d7e34534b14c963e50a3dd143a28d9":[1,0,0,32,3],
-"structtgbotxx_1_1_chat_permissions.html#a0e7caa921ac84c3b9af03e493775c9df":[1,0,0,32,16]
+"structtgbotxx_1_1_chat_permissions.html#a07d7e34534b14c963e50a3dd143a28d9":[1,0,0,32,3]
 };

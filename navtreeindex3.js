@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_chat_permissions.html#a0e7caa921ac84c3b9af03e493775c9df":[1,0,0,32,16],
 "structtgbotxx_1_1_chat_permissions.html#a1829281c7c69512f6ae422d21b1bad9a":[1,0,0,32,7],
 "structtgbotxx_1_1_chat_permissions.html#a1b39f6c9e0a434a286f38c2747132d59":[1,0,0,32,4],
 "structtgbotxx_1_1_chat_permissions.html#a28ec45a8dad96d022e38f17761ce184d":[1,0,0,32,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a694f001670157de172df6782923b68ef":[1,0,0,58,1],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a7897d7d555d523e4a2b9c8da4046e121":[1,0,0,58,4],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a8da9462c61d2bd5f5fbe3b4fb5a5813d":[1,0,0,58,8],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a953f27cf1d1f1b2b888359e2107c3dfd":[1,0,0,58,12],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#abc0a9741db807a0a8af1884cdde792b9":[1,0,0,58,2]
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a953f27cf1d1f1b2b888359e2107c3dfd":[1,0,0,58,12]
 };

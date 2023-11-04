@@ -11,6 +11,7 @@ var classtgbotxx_1_1_api =
     [ "deleteWebhook", "classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962", null ],
     [ "downloadFile", "classtgbotxx_1_1_api.html#ac0773a822572d7787fd91cc15fb307a1", null ],
     [ "editGeneralForumTopic", "classtgbotxx_1_1_api.html#a7b8bd73899d1885d0ffffc4ee886218e", null ],
+    [ "editMessageText", "classtgbotxx_1_1_api.html#ade474d4a145a62c71bf5d6d985a405b0", null ],
     [ "exportChatInviteLink", "classtgbotxx_1_1_api.html#a729f2f7b67113fe7592cb4b1804bc9a4", null ],
     [ "forwardMessage", "classtgbotxx_1_1_api.html#a5b1caf5fa563d0b4434b1a7bcae04fb8", null ],
     [ "getChat", "classtgbotxx_1_1_api.html#ae4bd0363c2108afd151a4a219aaa639f", null ],

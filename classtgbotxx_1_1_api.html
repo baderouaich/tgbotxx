@@ -285,6 +285,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acdef29266a99751d4334934a85ee9fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_webhook_info.html">WebhookInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#acdef29266a99751d4334934a85ee9fe1">getWebhookInfo</a> () const</td></tr>
 <tr class="memdesc:acdef29266a99751d4334934a85ee9fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get current webhook status. Requires no parameters. On success, returns a <a class="el" href="structtgbotxx_1_1_webhook_info.html" title="Describes the current status of a webhook. https://core.telegram.org/bots/api#webhookinfo.">WebhookInfo</a> object. If the bot is using getUpdates, will return an object with the url field empty.  <a href="classtgbotxx_1_1_api.html#acdef29266a99751d4334934a85ee9fe1">More...</a><br /></td></tr>
 <tr class="separator:acdef29266a99751d4334934a85ee9fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade474d4a145a62c71bf5d6d985a405b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ade474d4a145a62c71bf5d6d985a405b0">editMessageText</a> (const std::string &amp;text, const std::variant&lt; std::int64_t, std::string &gt; &amp;chatId=0, std::int32_t messageId=0, std::int32_t inlineMessageId=0, const std::string &amp;parseMode=&quot;&quot;, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;entities=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt;(), bool disableWebPagePreview=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:ade474d4a145a62c71bf5d6d985a405b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to edit text and game messages.  <a href="classtgbotxx_1_1_api.html#ade474d4a145a62c71bf5d6d985a405b0">More...</a><br /></td></tr>
+<tr class="separator:ade474d4a145a62c71bf5d6d985a405b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a100bde418bced0e08911afec297b8f0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">answerInlineQuery</a> (const std::string &amp;inlineQueryId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt;&gt; &amp;results, std::int32_t cacheTime=300, bool isPersonal=false, const std::string &amp;nextOffset=&quot;&quot;, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_results_button.html">InlineQueryResultsButton</a> &gt; &amp;button=nullptr) const</td></tr>
 <tr class="memdesc:a100bde418bced0e08911afec297b8f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send answers to an inline query. No more than 50 results per query are allowed.  <a href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">More...</a><br /></td></tr>
 <tr class="separator:a100bde418bced0e08911afec297b8f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -967,6 +970,86 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ade474d4a145a62c71bf5d6d985a405b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade474d4a145a62c71bf5d6d985a405b0">&#9670;&nbsp;</a></span>editMessageText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::editMessageText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::variant&lt; std::int64_t, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>inlineMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>parseMode</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>entities</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableWebPagePreview</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to edit text and game messages. </p>
+<p>Updating messages The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action. This is most useful for messages with inline keyboards using callback queries, but can also help reduce clutter in conversations with regular chat bots. Please note, that it is currently only possible to edit messages without reply_markup or with inline keyboards. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>New text of the message, 1-4096 characters after entities parsing </td></tr>
+    <tr><td class="paramname">chatId</td><td>Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageId</td><td>Optional. Required if inlineMessageId is not specified. Identifier of the message to edit </td></tr>
+    <tr><td class="paramname">inlineMessageId</td><td>Optional. Required if chatId and messageId are not specified. Identifier of the inline message </td></tr>
+    <tr><td class="paramname">parseMode</td><td>Optional. Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">https://core.telegram.org/bots/api#formatting-options</a> for more details. </td></tr>
+    <tr><td class="paramname">entities</td><td>Optional. List of special entities that appear in message text, which can be specified instead of parseMode </td></tr>
+    <tr><td class="paramname">disableWebPagePreview</td><td>Optional. Disables link previews for links in this message </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. A JSON-serialized object for an inline keyboard. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>On success, if the edited message is not an inline message, the edited <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is returned, otherwise nullptr is returned. <a href="https://core.telegram.org/bots/api#editmessagetext">https://core.telegram.org/bots/api#editmessagetext</a> </dd></dl>
 
 </div>
 </div>
@@ -5779,7 +5862,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Nov 4 2023 12:22:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 4 2023 12:48:25 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
