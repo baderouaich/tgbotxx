@@ -68,7 +68,7 @@ namespace nl = nlohmann;
 #define OBJECT_DESERIALIZE_FIELD_PTR(json, json_field, field, optional)                                                \
   static_assert(!std::is_const_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_PTR: 'field' must not be const");         \
   static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR: 'optional' must be boolean"); \
-  if (json.contains(json_field)) {                                                                                     \
+  if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \
     using T = std::remove_reference_t<decltype(field)>;                                                                \
     using E = T::element_type;                                                                                         \
     field.reset(new (E)(json[json_field]));                                                                            \
