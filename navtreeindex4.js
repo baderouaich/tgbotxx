@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a283eff2e58e9f1580e8638f4b4815f85":[1,0,0,58,0],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a345f3f3648432adc6700119c24625900":[1,0,0,58,9],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a35e7b6735c5092e112f36ef1631d8079":[1,0,0,58,11],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a694f001670157de172df6782923b68ef":[1,0,0,58,1],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a7897d7d555d523e4a2b9c8da4046e121":[1,0,0,58,4],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a8da9462c61d2bd5f5fbe3b4fb5a5813d":[1,0,0,58,8],
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a953f27cf1d1f1b2b888359e2107c3dfd":[1,0,0,58,12],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#abc0a9741db807a0a8af1884cdde792b9":[1,0,0,58,2],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#ac2276f876ca9c19b7f8c5f1bf1864b96":[1,0,0,58,14],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#ad199d7c8d767abb54c20c5243c1dd088":[1,0,0,58,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_login_url.html#a0fe54ed90b2a5e0a1b51bb5958e606be":[1,0,0,81,4],
 "structtgbotxx_1_1_login_url.html#a25ce97fc465a1ea8e0c074475d320b26":[1,0,0,81,5],
 "structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147":[1,0,0,81,6],
-"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d":[1,0,0,81,7],
-"structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8":[1,0,0,81,3],
-"structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2":[1,0,0,81,0],
-"structtgbotxx_1_1_login_url.html#ab678fa67f91107afb5e5764cbae26977":[1,0,0,81,1],
-"structtgbotxx_1_1_login_url.html#abb91873363874cd600c6002b84f2ae8c":[1,0,0,81,2],
-"structtgbotxx_1_1_mask_position.html":[1,0,0,82],
-"structtgbotxx_1_1_mask_position.html#a0f4a8cb7cf1242e7ffa92a9b2d200cfe":[1,0,0,82,0],
-"structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,82,5]
+"structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d":[1,0,0,81,7]
 };

@@ -1,5 +1,12 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_chat_member_updated.html#aa7f64f854a9a517840f84bbe316d6733":[1,0,0,31,4],
+"structtgbotxx_1_1_chat_member_updated.html#aca163a462969d72b5b8d0e5b8ef44a63":[1,0,0,31,8],
+"structtgbotxx_1_1_chat_member_updated.html#ae74e5e5abb8f06d4c6f65d21c551c85b":[1,0,0,31,1],
+"structtgbotxx_1_1_chat_member_updated.html#af472c7608ac55c381a8abaf14114946e":[1,0,0,31,3],
+"structtgbotxx_1_1_chat_member_updated.html#af5ad68f57103fd80e62531a7b22557c8":[1,0,0,31,6],
+"structtgbotxx_1_1_chat_permissions.html":[1,0,0,32],
+"structtgbotxx_1_1_chat_permissions.html#a07d7e34534b14c963e50a3dd143a28d9":[1,0,0,32,3],
 "structtgbotxx_1_1_chat_permissions.html#a0e7caa921ac84c3b9af03e493775c9df":[1,0,0,32,16],
 "structtgbotxx_1_1_chat_permissions.html#a1829281c7c69512f6ae422d21b1bad9a":[1,0,0,32,7],
 "structtgbotxx_1_1_chat_permissions.html#a1b39f6c9e0a434a286f38c2747132d59":[1,0,0,32,4],
@@ -242,12 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html":[1,0,0,58],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a09d872a6eb6482366e52cc86913cc02f":[1,0,0,58,10],
 "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a14a855487e5ae49e055c44dc5d1b1db2":[1,0,0,58,13],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a1faacf491e0ffbaa6e0109f72d7fc651":[1,0,0,58,7],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a283eff2e58e9f1580e8638f4b4815f85":[1,0,0,58,0],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a345f3f3648432adc6700119c24625900":[1,0,0,58,9],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a35e7b6735c5092e112f36ef1631d8079":[1,0,0,58,11],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a694f001670157de172df6782923b68ef":[1,0,0,58,1],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a7897d7d555d523e4a2b9c8da4046e121":[1,0,0,58,4],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a8da9462c61d2bd5f5fbe3b4fb5a5813d":[1,0,0,58,8],
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a953f27cf1d1f1b2b888359e2107c3dfd":[1,0,0,58,12]
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a1faacf491e0ffbaa6e0109f72d7fc651":[1,0,0,58,7]
 };
