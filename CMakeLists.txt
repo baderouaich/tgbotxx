@@ -34,7 +34,7 @@ target_include_directories(${PROJECT_NAME}
         ${OPENSSL_INCLUDE_DIR}
         )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENSSL_LIBRARIES})
-add_compile_definitions(
+target_compile_definitions(${PROJECT_NAME} PUBLIC
         CPPHTTPLIB_OPENSSL_SUPPORT=1
         TGBOTXX_VERSION="${PROJECT_VERSION}"
 )
