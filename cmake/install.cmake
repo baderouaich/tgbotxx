@@ -6,12 +6,13 @@ include(GNUInstallDirs) # Use standard CMake directory variables
 # Install header files (our headers & lib single headers)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/tgbotxx DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include/nlohmann DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/cpp-httplib/include/cpp-httplib DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Enable position-independent code for shared libraries
 set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-# Define export set and associate it with the targets we want to export (cpr)
-install(TARGETS tgbotxx cpr
+# Define export set
+install(TARGETS tgbotxx
         EXPORT tgbotxx-targets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

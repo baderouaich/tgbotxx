@@ -1,5 +1,4 @@
 #include <tgbotxx/tgbotxx.hpp>
-#include <cpr/cpr.h>
 #include <iostream>
 #include <algorithm>
 #include <csignal>
@@ -32,7 +31,7 @@ private:
   {
     if (message->text == "/local_photo")
     {
-      cpr::File image(std::string(PHOTOS_DIR) + "/image1.jpg");
+      fs::path image(std::string(PHOTOS_DIR) + "/image1.jpg");
       api()->sendPhoto(message->chat->id, image);
     }
     else if (message->text == "/network_photo")

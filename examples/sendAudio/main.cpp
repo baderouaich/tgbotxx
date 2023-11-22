@@ -1,5 +1,4 @@
 #include <tgbotxx/tgbotxx.hpp>
-#include <cpr/cpr.h>
 #include <iostream>
 #include <algorithm>
 #include <csignal>
@@ -32,7 +31,7 @@ private:
   {
     if (message->text == "/local_audio")
     {
-      cpr::File audioFile(std::string(AUDIOS_DIR) +  (!(std::rand() % 2) ? "/audio.mp3" : "/audio.m4a"));
+      fs::path audioFile(std::string(AUDIOS_DIR) +  (!(std::rand() % 2) ? "/audio.mp3" : "/audio.m4a"));
       api()->sendAudio(message->chat->id, audioFile);
     }
     else if (message->text == "/network_audio")

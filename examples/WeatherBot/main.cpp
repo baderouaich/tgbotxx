@@ -1,12 +1,9 @@
-#include "cpr/status_codes.h"
-#include <cpr/api.h>
-#include <cpr/response.h>
+#include <cpp-httplib/httplib.h>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <expected>
 #include <tgbotxx/tgbotxx.hpp>
-#include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 #include <csignal>
 
@@ -19,7 +16,7 @@ public:
 
 private:
     std::string m_weatherApiKey;
-    inline static const std::string WEATHER_API_ENDPOINT = "https://api.weatherapi.com/v1";
+    inline static const std::string WEATHER_API_ENDPOINT = "http://api.weatherapi.com/v1";
     inline static const std::map<std::string, std::string> WEATHER_STATUS_EMOTICONS = {
             {"sun",      "🌞"},
             {"rain",     "🌧"},
@@ -32,12 +29,12 @@ private:
 protected:
     nl::json getCurrentWeatherInfo(const std::string &cityName) {
       std::ostringstream oss{};
-      oss << WEATHER_API_ENDPOINT << "/current.json?key=" << m_weatherApiKey << "&q=" << cityName;
-      cpr::Response res = cpr::Get(cpr::Url{oss.str()});
-      switch (res.status_code) {
-        case cpr::status::HTTP_OK:
-        case cpr::status::HTTP_BAD_REQUEST:
-          return nl::json::parse(res.text);
+      oss << "/current.json?key=" << m_weatherApiKey << "&q=" << cityName;
+      httplib::Client cli(WEATHER_API_ENDPOINT);
+      auto res = cli.Get(oss.str());
+      switch (res->status) {
+        case 200:
+          return nl::json::parse(res->body);
         default: {
           nl::json err;
           err["error"]["message"] = "Failed to get weather info";

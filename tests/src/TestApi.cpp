@@ -25,14 +25,14 @@ TEST_CASE("Test Api", "methods")
 
 
     SECTION("timeouts") {
-      cpr::Timeout longPollTimeout = std::chrono::seconds(60);
-      cpr::Timeout timeout = std::chrono::seconds(70); // Must be longer than long polling timeout
+      auto longPollTimeout = std::chrono::seconds(60);
+      auto timeout = std::chrono::seconds(70); // Must be longer than long polling timeout
       API->setLongPollTimeout(longPollTimeout);
       API->setTimeout(timeout);
 
       // Getters & setters
-      REQUIRE(timeout.ms == API->getTimeout().ms);
-      REQUIRE(longPollTimeout.ms == API->getLongPollTimeout().ms);
+      REQUIRE(timeout == API->getTimeout());
+      REQUIRE(longPollTimeout == API->getLongPollTimeout());
 
       // Try set a timeout that is less than long polling timeout
       REQUIRE_THROWS(API->setTimeout(std::chrono::seconds(30)));

@@ -19,13 +19,13 @@ class MyBot : public Bot {
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
-//      api()->setTimeout(std::chrono::seconds(60 * 3));
-//      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
+      //      api()->setTimeout(std::chrono::seconds(60 * 3));
+      //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
-//      api()->setMyName("tgbotxx manual_tests");
-//      api()->setMyDescription("tgbotxx bot manual tests");
+      //      api()->setMyName("tgbotxx manual_tests");
+      //      api()->setMyDescription("tgbotxx bot manual tests");
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
@@ -109,11 +109,13 @@ class MyBot : public Bot {
 
       if (message->document) {
         Ptr<File> docFile = api()->getFile(message->document->fileId);
-        std::string bytes = api()->downloadFile(docFile->filePath, [](cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow) -> bool {
-          std::cout << "Downloading document " << downloadNow << " / " << downloadTotal << " bytes" << std::endl;
-          // return false to cancel the download
-          return true;
-        });
+        std::string bytes = api()->downloadFile(docFile->filePath);
+        std::cout << "downloaded document " << bytes.size() << " bytes\n";
+      }
+      if (not message->photo.empty()) {
+        Ptr<File> docFile = api()->getFile(message->photo[0]->fileId);
+        std::string bytes = api()->downloadFile(docFile->filePath);
+        std::cout << "downloaded image " << bytes.size() << " bytes\n";
       }
     }
 
@@ -123,7 +125,7 @@ class MyBot : public Bot {
     }
 
     void onLongPollError(const std::string& reason) override {
-      std::cerr <<  "Long polling error: " << reason << std::endl;
+      std::cerr << "Long polling error: " << reason << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).
@@ -138,9 +140,9 @@ class MyBot : public Bot {
         getApi()->sendMessage(message->chat->id, "Good day!");
       } else if (message->text == "/photo") {
         getApi()->sendMessage(message->chat->id, "Sending URL photo...");
-        getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
+        getApi()->sendPhoto(message->chat->id, std::string("https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg"));
         getApi()->sendMessage(message->chat->id, "Sending File photo...");
-        getApi()->sendPhoto(message->chat->id, cpr::File{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
+        getApi()->sendPhoto(message->chat->id, fs::path{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
       } else if (message->text == "/buttons") {
         /*
             Create inline keyboard buttons
@@ -165,18 +167,18 @@ class MyBot : public Bot {
         api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, false, 0, false, keyboard);
       } else if (message->text == "/audio") {
         getApi()->sendMessage(message->chat->id, "Sending audio file...");
-        getApi()->sendAudio(message->chat->id, cpr::File{"/media/bader/6296B2EC60F91DB6/Programs & Entertainment/Music/Navy Modern General Quarters Sound Effect.m4a"});
+        getApi()->sendAudio(message->chat->id, fs::path{"/media/bader/6296B2EC60F91DB6/Entertainment/Music/Navy Modern General Quarters Sound Effect.m4a"});
       } else if (message->text == "/document") {
         getApi()->sendMessage(message->chat->id, "Sending local document ...");
-        getApi()->sendDocument(message->chat->id, cpr::File{__FILE__});
+        getApi()->sendDocument(message->chat->id, fs::path{__FILE__});
         getApi()->sendMessage(message->chat->id, "Sending document from the internet ...");
-        getApi()->sendDocument(message->chat->id, "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf");
+        getApi()->sendDocument(message->chat->id, std::string("https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf"));
       } else if (message->text == "/animation") {
         getApi()->sendMessage(message->chat->id, "Sending animation ...");
-        getApi()->sendDocument(message->chat->id, "https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif");
+        getApi()->sendDocument(message->chat->id, std::string("https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif"));
       } else if (message->text == "/voice") {
         getApi()->sendMessage(message->chat->id, "Sending voice message ...");
-        getApi()->sendDocument(message->chat->id, "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg");
+        getApi()->sendDocument(message->chat->id, std::string("https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg"));
       } else if (message->text == "/media_group") {
         {
           getApi()->sendMessage(message->chat->id, "Sending pdf media group ...");
@@ -217,12 +219,9 @@ class MyBot : public Bot {
         for (const std::vector<Ptr<PhotoSize>>& photoResolutions: userProfilePhotos->photos) {
           for (const Ptr<PhotoSize>& photo: photoResolutions) {
             Ptr<File> photoFile = api()->getFile(photo->fileId);
-            std::string bytes = api()->downloadFile(photoFile->filePath, [](cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow) -> bool {
-              std::cout << "Downloading Photo " << downloadNow << " / " << downloadTotal << " bytes" << std::endl;
-              // return false to cancel the download
-              return true;
-            });
+            std::string bytes = api()->downloadFile(photoFile->filePath);
             std::ofstream{photoFile->fileUniqueId + ".jpg"} << bytes;
+            std::cout << "Downloaded.\n";
           }
         }
       } else if (message->text == "/ban") {
@@ -271,11 +270,11 @@ class MyBot : public Bot {
         api()->sendMessage(message->chat->id, chatAdministratorRights->toJson().dump(2));
       } else if (message->text == "/edit_message_text") {
         Ptr<Message> originalMessage = api()->sendMessage(message->chat->id, "Progress started...");
-        for(int i = 0; i <= 100; i += 10) {
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            std::ostringstream oss{};
-            oss << "Progress: " << i << '/' << 100;
-            api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
+        for (int i = 0; i <= 100; i += 10) {
+          std::this_thread::sleep_for(std::chrono::seconds(1));
+          std::ostringstream oss{};
+          oss << "Progress: " << i << '/' << 100;
+          api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
         }
         api()->editMessageText("Done.", originalMessage->chat->id, originalMessage->messageId);
       } else if (message->text == "/delete_message") {
@@ -359,7 +358,7 @@ int main() try {
   });
   bot.start();
   return EXIT_SUCCESS;
-} catch (const std::exception& e){
+} catch (const std::exception& e) {
   std::cerr << e.what() << std::endl;
   return EXIT_FAILURE;
 }

@@ -14,6 +14,10 @@ Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
+### Dependencies
+- nlohmann json (header only - included)
+- cpp-httplib (header only - included)
+
 ### CI Status
 | Operating system | Build status                                                                                                                                                                                      |
 | ---------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -120,7 +124,7 @@ private:
     void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
     /// Called when a chat member's status was updated in a chat.
     void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
-    /// Called when a A request to join the chat has been sent.
+    /// Called when a request to join the chat has been sent.
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
 };
 

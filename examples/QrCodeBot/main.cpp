@@ -46,7 +46,7 @@ class QrCodeBot : public Bot {
       } else if (not message->text.empty()) { // Did user send a text ?
         // Convert text to QrCode image
         api()->sendChatAction(message->chat->id, "upload_photo");
-        cpr::File qrCodePhoto = convertTextToQrCodeImage(message->text);
+        fs::path qrCodePhoto = convertTextToQrCodeImage(message->text);
         api()->sendPhoto(message->chat->id, qrCodePhoto);
       }
     } catch (const std::exception& e) {
@@ -109,8 +109,8 @@ class QrCodeBot : public Bot {
 
     /// Converts @text to a QR Code image
     /// @param text UTF-8 Text to convert
-    /// @returns cpr::File filename of the generated image
-    cpr::File convertTextToQrCodeImage(const std::string& text) {
+    /// @returns fs::path filename of the generated image
+    fs::path convertTextToQrCodeImage(const std::string& text) {
       ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
       writer.setMargin(-1);
       writer.setEncoding(ZXing::CharacterSet::UTF8);
@@ -125,7 +125,7 @@ class QrCodeBot : public Bot {
       if (!success) {
         throw Exception("Failed to write image: " + photoPath.string());
       }
-      return cpr::File(photoPath.string());
+      return fs::path(photoPath.string());
     }
 };
 

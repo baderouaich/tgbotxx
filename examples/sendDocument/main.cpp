@@ -1,5 +1,4 @@
 #include <tgbotxx/tgbotxx.hpp>
-#include <cpr/cpr.h>
 #include <iostream>
 #include <csignal>
 using namespace tgbotxx;
@@ -29,7 +28,7 @@ private:
   {
     if (message->text == "/local_document")
     {
-      cpr::File documentFile(__FILE__);
+      fs::path documentFile(__FILE__);
       api()->sendDocument(message->chat->id, documentFile);
     }
     else if (message->text == "/network_document")

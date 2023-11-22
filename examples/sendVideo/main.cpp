@@ -1,5 +1,4 @@
 #include <tgbotxx/tgbotxx.hpp>
-#include <cpr/cpr.h>
 #include <iostream>
 #include <algorithm>
 #include <csignal>
@@ -32,7 +31,7 @@ private:
   {
     if (message->text == "/local_video")
     {
-      cpr::File video(std::string(VIDEOS_DIR) + "/video.mp4");
+      fs::path video(std::string(VIDEOS_DIR) + "/video.mp4");
       api()->sendVideo(message->chat->id, video);
     }
     else if (message->text == "/network_video")

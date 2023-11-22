@@ -1,11 +1,13 @@
 #pragma once
-#include <cpr/cpr.h>
+#include <chrono>
+#include <cpp-httplib/httplib.h>
 #include <cstdint>
 #include <functional>
 #include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
 #include <tgbotxx/utils/DateTimeUtils.hpp>
+#include <tgbotxx/utils/FileUtils.hpp>
 #include <tgbotxx/utils/Ptr.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 #include <variant>
@@ -44,19 +46,20 @@ namespace tgbotxx {
   /// @note All methods in the Bot API are case-insensitive.
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
-      static const std::string BASE_URL;                        /// Telegram api base url
-      static const cpr::ConnectTimeout DEFAULT_CONNECT_TIMEOUT; /// 20s (Telegram server can take up to 20s to connect with us)
-      static const cpr::Timeout DEFAULT_TIMEOUT;                /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
-      static const cpr::Timeout DEFAULT_LONG_POLL_TIMEOUT;      /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
-      static const cpr::Timeout DEFAULT_UPLOAD_FILES_TIMEOUT;   /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
-      static const cpr::Timeout DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
+      static const std::string BASE_URL;                                               /// Telegram api base url
+      static const std::chrono::system_clock::duration DEFAULT_CONNECT_TIMEOUT;        /// 20s (Telegram server can take up to 20s to connect with us)
+      static const std::chrono::system_clock::duration DEFAULT_TIMEOUT;                /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
+      static const std::chrono::system_clock::duration DEFAULT_LONG_POLL_TIMEOUT;      /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
+      static const std::chrono::system_clock::duration DEFAULT_UPLOAD_FILES_TIMEOUT;   /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
+      static const std::chrono::system_clock::duration DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
-      const std::string m_token;                                            /// Bot token from \@BotFather
-      cpr::ConnectTimeout m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;       /// Api connection timeout
-      cpr::Timeout m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
-      cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
-      cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
-      cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
+      const std::string m_token;                                                                   /// Bot token from \@BotFather
+      std::chrono::system_clock::duration m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;              /// Api connection timeout
+      std::chrono::system_clock::duration m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
+      std::chrono::system_clock::duration m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
+      std::chrono::system_clock::duration m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
+      std::chrono::system_clock::duration m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
+
 
     public:
       /// @brief Constructs Api object.
@@ -165,7 +168,7 @@ namespace tgbotxx {
 
       /// @brief Use this method to send photos.
       /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-      /// @param photo Photo to send. cpr::File or std::string.
+      /// @param photo Photo to send. fs::path or std::string.
       /// Pass a fileId as String to send a photo that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.
       /// The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total.
@@ -185,7 +188,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#sendphoto
       Ptr<Message> sendPhoto(const std::variant<std::int64_t, std::string>& chatId,
-                             const std::variant<cpr::File, std::string>& photo,
+                             const std::variant<fs::path, std::string>& photo,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -199,7 +202,7 @@ namespace tgbotxx {
       /// @brief Use this method to send audio files, if you want Telegram clients to display them in the music player.
       /// Your audio must be in the .MP3 or .M4A format.
       /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-      /// @param audio Audio file to send. cpr::File or std::string.
+      /// @param audio Audio file to send. fs::path or std::string.
       /// Pass a fileId as String to send an audio file that exists on the Telegram servers (recommended),
       /// Pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data.
       /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
@@ -227,7 +230,7 @@ namespace tgbotxx {
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#sendaudio
       Ptr<Message> sendAudio(const std::variant<std::int64_t, std::string>& chatId,
-                             std::variant<cpr::File, std::string> audio,
+                             std::variant<fs::path, std::string> audio,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -235,7 +238,7 @@ namespace tgbotxx {
                              std::int32_t duration = 0,
                              const std::string& performer = "",
                              const std::string& title = "",
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             std::optional<std::variant<fs::path, std::string>> thumbnail = std::nullopt,
                              bool disableNotification = false,
                              bool protectContent = false,
                              std::int32_t replyToMessageId = 0,
@@ -270,9 +273,9 @@ namespace tgbotxx {
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#senddocument
       Ptr<Message> sendDocument(const std::variant<std::int64_t, std::string>& chatId,
-                                const std::variant<cpr::File, std::string>& document,
+                                const std::variant<fs::path, std::string>& document,
                                 std::int32_t messageThreadId = 0,
-                                std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                std::optional<std::variant<fs::path, std::string>> thumbnail = std::nullopt,
                                 const std::string& caption = "",
                                 const std::string& parseMode = "",
                                 const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -315,12 +318,12 @@ namespace tgbotxx {
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideo
       Ptr<Message> sendVideo(const std::variant<std::int64_t, std::string>& chatId,
-                             const std::variant<cpr::File, std::string>& video,
+                             const std::variant<fs::path, std::string>& video,
                              std::int32_t messageThreadId = 0,
                              std::int32_t duration = 0,
                              std::int32_t width = 0,
                              std::int32_t height = 0,
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             std::optional<std::variant<fs::path, std::string>> thumbnail = std::nullopt,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
                              const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -364,12 +367,12 @@ namespace tgbotxx {
       /// @note Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendanimation
       Ptr<Message> sendAnimation(const std::variant<std::int64_t, std::string>& chatId,
-                                 const std::variant<cpr::File, std::string>& animation,
+                                 const std::variant<fs::path, std::string>& animation,
                                  std::int32_t messageThreadId = 0,
                                  std::int32_t duration = 0,
                                  std::int32_t width = 0,
                                  std::int32_t height = 0,
-                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 std::optional<std::variant<fs::path, std::string>> thumbnail = std::nullopt,
                                  const std::string& caption = "",
                                  const std::string& parseMode = "",
                                  const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -405,7 +408,7 @@ namespace tgbotxx {
       /// @note Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvoice
       Ptr<Message> sendVoice(const std::variant<std::int64_t, std::string>& chatId,
-                             const std::variant<cpr::File, std::string>& voice,
+                             const std::variant<fs::path, std::string>& voice,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -445,11 +448,11 @@ namespace tgbotxx {
       /// @note Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
       /// @ref https://core.telegram.org/bots/api#sendvideonote
       Ptr<Message> sendVideoNote(const std::variant<std::int64_t, std::string>& chatId,
-                                 const std::variant<cpr::File, std::string>& videoNote,
+                                 const std::variant<fs::path, std::string>& videoNote,
                                  std::int32_t messageThreadId = 0,
                                  std::int32_t duration = 0,
                                  std::int32_t length = 0,
-                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 std::optional<std::variant<fs::path, std::string>> thumbnail = std::nullopt,
                                  bool disableNotification = false,
                                  bool protectContent = false,
                                  std::int32_t replyToMessageId = 0,
@@ -703,12 +706,11 @@ namespace tgbotxx {
       /// For the moment, bots can download files of up to 20MB in size. See Api::getFile.
       /// The file can then be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken from the response.
       /// @param filePath Telegram file path from Api::getFile(fileId) -> File::filePath
-      /// @param progressCallback Optional. Download progress callback. Callback shall return true to continue downloading, or false to cancel the download.
       /// @returns std::string contains downloaded file contents.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getfile
       /// @throws Exception on failure
-      std::string downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t downloadTotal, cpr::cpr_off_t downloadNow)>& progressCallback = nullptr) const;
+      std::string downloadFile(const std::string& filePath) const;
 
 
       /// @brief Use this method to ban a user in a group, a supergroup or a channel.
@@ -960,7 +962,7 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @relatesalso deleteChatPhoto
       /// @ref https://core.telegram.org/bots/api#setchatphoto
-      bool setChatPhoto(const std::variant<std::int64_t, std::string>& chatId, const cpr::File& photo) const;
+      bool setChatPhoto(const std::variant<std::int64_t, std::string>& chatId, const fs::path& photo) const;
 
 
       /// @brief Use this method to delete a chat photo. Photos can't be changed for private chats.
@@ -1430,7 +1432,7 @@ namespace tgbotxx {
       /// If you're having any trouble setting up webhooks, please check out this amazing guide to webhooks. https://core.telegram.org/bots/webhooks
       /// @ref https://core.telegram.org/bots/api#setwebhook
       bool setWebhook(const std::string& url,
-                      const std::optional<cpr::File>& certificate = std::nullopt,
+                      const std::optional<fs::path>& certificate = std::nullopt,
                       const std::string& ipAddress = "",
                       std::int32_t maxConnections = 40,
                       const std::vector<std::string>& allowedUpdates = std::vector<std::string>(),
@@ -1616,31 +1618,31 @@ namespace tgbotxx {
 
     public: /// Timeout setters/getters
       /// @brief Set long polling timeout.
-      void setLongPollTimeout(const cpr::Timeout& longPollTimeout);
+      void setLongPollTimeout(const std::chrono::system_clock::duration& longPollTimeout);
       /// @brief Get long polling timeout.
-      cpr::Timeout getLongPollTimeout() const noexcept;
+      std::chrono::system_clock::duration getLongPollTimeout() const noexcept;
 
       /// @brief Set Api requests connection timeout.
-      void setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept;
+      void setConnectTimeout(const std::chrono::system_clock::duration& timeout) noexcept;
       /// @brief Get Api requests connection timeout.
-      cpr::ConnectTimeout getConnectTimeout() const noexcept;
+      std::chrono::system_clock::duration getConnectTimeout() const noexcept;
 
       /// @brief Set Api requests timeout.
-      void setTimeout(const cpr::Timeout& timeout);
+      void setTimeout(const std::chrono::system_clock::duration& timeout);
       /// @brief Get Api requests timeout.
-      cpr::Timeout getTimeout() const noexcept;
+      std::chrono::system_clock::duration getTimeout() const noexcept;
 
       /// @brief Set Api file uploads timeout.
-      void setUploadFilesTimeout(const cpr::Timeout& timeout) noexcept;
+      void setUploadFilesTimeout(const std::chrono::system_clock::duration& timeout) noexcept;
       /// @brief Get Api file uploads timeout.
-      cpr::Timeout getUploadFilesTimeout() const noexcept;
+      std::chrono::system_clock::duration getUploadFilesTimeout() const noexcept;
 
       /// @brief Set Api file downloads timeout.
-      void setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept;
+      void setDownloadFilesTimeout(const std::chrono::system_clock::duration& timeout) noexcept;
       /// @brief Get APi file downloads timeout.
-      cpr::Timeout getDownloadFilesTimeout() const noexcept;
+      std::chrono::system_clock::duration getDownloadFilesTimeout() const noexcept;
 
     private:
-      nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
+      nl::json sendRequest(const std::string& endpoint, const httplib::MultipartFormDataItems& data = httplib::MultipartFormDataItems{}) const;
   };
 }

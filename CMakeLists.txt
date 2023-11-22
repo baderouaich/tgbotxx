@@ -11,8 +11,11 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 
 
 ################## Libraries ##########################
-## libcpr curl
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
+## For cpp-httplib SSLClient
+find_package(OpenSSL REQUIRED)
+if (NOT OPENSSL_FOUND)
+    message(FATAL_ERROR "OpenSSL not found")
+endif()
 ######################################################
 
 
@@ -27,10 +30,14 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include> # nlohmann json (single include)
-        ${CPR_INCLUDE_DIRS}                                             # libcpr includes
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/cpp-httplib/include> # cpp-httplib (single include)
+        ${OPENSSL_INCLUDE_DIR}
         )
-target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
-add_compile_definitions(TGBOTXX_VERSION="${PROJECT_VERSION}")
+target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENSSL_LIBRARIES})
+add_compile_definitions(
+        CPPHTTPLIB_OPENSSL_SUPPORT=1
+        TGBOTXX_VERSION="${PROJECT_VERSION}"
+)
 #if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 #    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
 #elseif (MSVC)
