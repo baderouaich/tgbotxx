@@ -5,6 +5,12 @@ var namespacetgbotxx =
       [ "fromString", "namespacetgbotxx_1_1_date_time_utils.html#a9d31f333c31fc323f7be8a7aeceef454", null ],
       [ "toString", "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951", null ]
     ] ],
+    [ "FileUtils", "namespacetgbotxx_1_1_file_utils.html", [
+      [ "read", "namespacetgbotxx_1_1_file_utils.html#a6e49cd1a5b4d2ac0b2957e872d790f67", null ],
+      [ "readChunks", "namespacetgbotxx_1_1_file_utils.html#aeee389abafece9e215a34caba932e620", null ],
+      [ "readLines", "namespacetgbotxx_1_1_file_utils.html#a78c958c94ceb9c9bf489d97e1e5d1c11", null ],
+      [ "write", "namespacetgbotxx_1_1_file_utils.html#a0bba37cb5ad158f23bc757ea438f8fe4", null ]
+    ] ],
     [ "StringUtils", "namespacetgbotxx_1_1_string_utils.html", [
       [ "endsWith", "namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb", null ],
       [ "join", "namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8", null ],

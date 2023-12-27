@@ -1,5 +1,16 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_keyboard_button_request_user.html#af2d68a85b5a4f78c52b3bc70fb52d283":[1,0,0,78,1],
+"structtgbotxx_1_1_labeled_price.html":[1,0,0,79],
+"structtgbotxx_1_1_labeled_price.html#a2e92bc031857fba74004959ebf8ef035":[1,0,0,79,3],
+"structtgbotxx_1_1_labeled_price.html#a4cddf856539c9a5f07b300522f3754f6":[1,0,0,79,4],
+"structtgbotxx_1_1_labeled_price.html#a4e094a8bd9c6a29d73a94488ba4327ae":[1,0,0,79,1],
+"structtgbotxx_1_1_labeled_price.html#aa52fee538013b4a7bffaf37103378680":[1,0,0,79,2],
+"structtgbotxx_1_1_labeled_price.html#ab574bb4ac2bf17fcdf257843a6a94060":[1,0,0,79,0],
+"structtgbotxx_1_1_labeled_price.html#af8bc0545cd33eab893cfee704e348281":[1,0,0,79,5],
+"structtgbotxx_1_1_location.html":[1,0,0,80],
+"structtgbotxx_1_1_location.html#a10ad4cdc6e3b988a2487d65a0a755dfe":[1,0,0,80,7],
+"structtgbotxx_1_1_location.html#a191954bd8e69b998b0969664f962499e":[1,0,0,80,4],
 "structtgbotxx_1_1_location.html#a4bfa07dcb7d3932220862298425c0847":[1,0,0,80,0],
 "structtgbotxx_1_1_location.html#a6ef4d4196521450a654803a5bd253984":[1,0,0,80,5],
 "structtgbotxx_1_1_location.html#a854696948bbc27f98fdd3fbe3440b524":[1,0,0,80,1],
@@ -238,16 +249,5 @@ var NAVTREEINDEX5 =
 "structtgbotxx_1_1_poll_option.html#acf41f05f0cbe5cd117221851e2cc1e31":[1,0,0,97,3],
 "structtgbotxx_1_1_pre_checkout_query.html":[1,0,0,98],
 "structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c":[1,0,0,98,3],
-"structtgbotxx_1_1_pre_checkout_query.html#a63c595e8d3c85c51d45db22c022176db":[1,0,0,98,4],
-"structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79":[1,0,0,98,1],
-"structtgbotxx_1_1_pre_checkout_query.html#a83898f960c278b68ba1cf0ea94adadd6":[1,0,0,98,0],
-"structtgbotxx_1_1_pre_checkout_query.html#ab5b5c59f4574530edb95a47a0f3f7280":[1,0,0,98,5],
-"structtgbotxx_1_1_pre_checkout_query.html#ac6e7d2e9c703d1a91e9719c33805bcee":[1,0,0,98,8],
-"structtgbotxx_1_1_pre_checkout_query.html#aca806e359521b52114dc98d11cbba141":[1,0,0,98,9],
-"structtgbotxx_1_1_pre_checkout_query.html#acf470b4d0abf2fabb3f70a0405757f9d":[1,0,0,98,10],
-"structtgbotxx_1_1_pre_checkout_query.html#acf655b09cc9985555175e3b1efdb37fa":[1,0,0,98,7],
-"structtgbotxx_1_1_pre_checkout_query.html#ae049fdf597f47d0754d56ddf6fcff07b":[1,0,0,98,6],
-"structtgbotxx_1_1_pre_checkout_query.html#aea89569df1c64926ab3fe06d330739d3":[1,0,0,98,2],
-"structtgbotxx_1_1_proximity_alert_triggered.html":[1,0,0,99],
-"structtgbotxx_1_1_proximity_alert_triggered.html#a15a4c1bd9fffcdbf87a36c9e5fa39c8a":[1,0,0,99,5]
+"structtgbotxx_1_1_pre_checkout_query.html#a63c595e8d3c85c51d45db22c022176db":[1,0,0,98,4]
 };
