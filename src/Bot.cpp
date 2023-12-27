@@ -27,13 +27,6 @@ void Bot::start() {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)
       m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
-      // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
-      for (const Ptr<Update>& update: m_updates) {
-        if (update->updateId >= m_lastUpdateId) {
-          m_lastUpdateId = update->updateId + 1;
-          this->dispatch(update);
-        }
-      }
     } catch (const std::exception& err) {
       /// Callback -> onLongPollError
       this->onLongPollError(err.what());
@@ -42,6 +35,13 @@ void Bot::start() {
       /// Callback -> onLongPollError
       this->onLongPollError("unknown error");
       continue;
+    }
+    // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
+    for (const Ptr<Update>& update: m_updates) {
+      if (update->updateId >= m_lastUpdateId) {
+        m_lastUpdateId = update->updateId + 1;
+        this->dispatch(update);
+      }
     }
   }
 }
