@@ -273,6 +273,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0b99a43cd4b35e26e6d12efa1997afa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat_administrator_rights.html">ChatAdministratorRights</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ac0b99a43cd4b35e26e6d12efa1997afa">getMyDefaultAdministratorRights</a> (bool forChannels=false) const</td></tr>
 <tr class="memdesc:ac0b99a43cd4b35e26e6d12efa1997afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get the current default administrator rights of the bot.  <a href="classtgbotxx_1_1_api.html#ac0b99a43cd4b35e26e6d12efa1997afa">More...</a><br /></td></tr>
 <tr class="separator:ac0b99a43cd4b35e26e6d12efa1997afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804450e5213831d4aa5a2e852ea68951"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a804450e5213831d4aa5a2e852ea68951">sendInvoice</a> (const std::variant&lt; std::int64_t, std::string &gt; &amp;chatId, const std::string &amp;title, const std::string &amp;description, const std::string &amp;payload, const std::string &amp;providerToken, const std::string &amp;currency, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_labeled_price.html">LabeledPrice</a> &gt;&gt; &amp;prices, std::int32_t messageThreadId=0, std::int32_t maxTipAmount=0, const std::vector&lt; std::int32_t &gt; &amp;suggestedTipAmounts=std::vector&lt; std::int32_t &gt;(), const std::string &amp;startParameter=&quot;&quot;, const std::string &amp;providerData=&quot;&quot;, const std::string &amp;photoUrl=&quot;&quot;, std::int32_t photoSize=0, std::int32_t photoWidth=0, std::int32_t photoHeight=0, bool needName=false, bool needPhoneNumber=false, bool needEmail=false, bool needShippingAddress=false, bool sendPhoneNumberToProvider=false, bool sendEmailToProvider=false, bool isFlexible=false, bool disableNotification=false, bool protectContent=false, std::int32_t replyToMessageId=0, bool allowSendingWithoutReply=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:a804450e5213831d4aa5a2e852ea68951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send invoices.  <a href="classtgbotxx_1_1_api.html#a804450e5213831d4aa5a2e852ea68951">More...</a><br /></td></tr>
+<tr class="separator:a804450e5213831d4aa5a2e852ea68951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_update.html">Update</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">getUpdates</a> (std::int32_t offset, std::int32_t limit=100, const std::vector&lt; std::string &gt; &amp;allowedUpdates={}) const</td></tr>
 <tr class="memdesc:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to receive incoming updates using long polling.  <a href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">More...</a><br /></td></tr>
 <tr class="separator:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -417,7 +420,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00046">46</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00047">47</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -3174,6 +3177,232 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future. </dd>
 <dd>
 For sending voice messages, use the sendVoice method instead. <a href="https://core.telegram.org/bots/api#senddocument">https://core.telegram.org/bots/api#senddocument</a> </dd></dl>
+
+</div>
+</div>
+<a id="a804450e5213831d4aa5a2e852ea68951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804450e5213831d4aa5a2e852ea68951">&#9670;&nbsp;</a></span>sendInvoice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendInvoice </td>
+          <td>(</td>
+          <td class="paramtype">const std::variant&lt; std::int64_t, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>payload</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>providerToken</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>currency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_labeled_price.html">LabeledPrice</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>prices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>maxTipAmount</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::int32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>suggestedTipAmounts</em> = <code>std::vector&lt;&#160;std::int32_t&#160;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>startParameter</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>providerData</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>photoUrl</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>photoSize</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>photoWidth</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>photoHeight</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needName</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needPhoneNumber</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needEmail</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needShippingAddress</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sendPhoneNumberToProvider</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sendEmailToProvider</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isFlexible</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>replyToMessageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowSendingWithoutReply</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send invoices. </p>
+<p>Payments methods <a href="https://core.telegram.org/bots/api#payments">https://core.telegram.org/bots/api#payments</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer or String Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">title</td><td>Product name, 1-32 characters </td></tr>
+    <tr><td class="paramname">description</td><td>Product description, 1-255 characters </td></tr>
+    <tr><td class="paramname">payload</td><td>Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes. </td></tr>
+    <tr><td class="paramname">providerToken</td><td>Payment provider token, obtained via @BotFather </td></tr>
+    <tr><td class="paramname">currency</td><td>Three-letter ISO 4217 currency code, <a href="https://core.telegram.org/bots/payments#supported-currencies">see more on currencies</a> </td></tr>
+    <tr><td class="paramname">prices</td><td>Array of <a class="el" href="structtgbotxx_1_1_labeled_price.html" title="This object represents a portion of the price for goods or services. https://core....">LabeledPrice</a>, Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.) </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">maxTipAmount</td><td>Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0 </td></tr>
+    <tr><td class="paramname">suggestedTipAmounts</td><td>Optional. A JSON-serialized array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed maxTipAmount. </td></tr>
+    <tr><td class="paramname">startParameter</td><td>Optional. Unique deep-linking parameter. If left empty, forwarded copies of the sent message will have a Pay button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter </td></tr>
+    <tr><td class="paramname">providerData</td><td>Optional. JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider. </td></tr>
+    <tr><td class="paramname">photoUrl</td><td>Optional. URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for. </td></tr>
+    <tr><td class="paramname">photoSize</td><td>Optional. Photo size in bytes </td></tr>
+    <tr><td class="paramname">photoWidth</td><td>Optional. Photo width </td></tr>
+    <tr><td class="paramname">photoHeight</td><td>Optional. Photo height </td></tr>
+    <tr><td class="paramname">needName</td><td>Optional. Pass True if you require the user's full name to complete the order </td></tr>
+    <tr><td class="paramname">needPhoneNumber</td><td>Optional. Pass True if you require the user's phone number to complete the order </td></tr>
+    <tr><td class="paramname">needEmail</td><td>Optional. Pass True if you require the user's email address to complete the order </td></tr>
+    <tr><td class="paramname">needShippingAddress</td><td>Optional. Pass True if you require the user's shipping address to complete the order </td></tr>
+    <tr><td class="paramname">sendPhoneNumberToProvider</td><td>Optional. Pass True if the user's phone number should be sent to provider </td></tr>
+    <tr><td class="paramname">sendEmailToProvider</td><td>Optional. Pass True if the user's email address should be sent to provider </td></tr>
+    <tr><td class="paramname">isFlexible</td><td>Optional. Pass True if the final price depends on the shipping method </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyToMessageId</td><td>Optional. If the message is a reply, ID of the original message </td></tr>
+    <tr><td class="paramname">allowSendingWithoutReply</td><td>Optional. Pass True if the message should be sent even if the specified replied-to message is not found </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. A JSON-serialized object for an inline keyboard. If empty, one 'Pay total price' button will be shown. If not empty, the first button must be a Pay button. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html" title="Upon receiving a message with this object, Telegram clients will display a reply interface to the use...">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendinvoice">https://core.telegram.org/bots/api#sendinvoice</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -6299,7 +6528,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Nov 4 2023 14:04:06 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Dec 27 2023 13:22:09 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

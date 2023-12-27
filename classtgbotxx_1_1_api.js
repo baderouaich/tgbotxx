@@ -51,6 +51,7 @@ var classtgbotxx_1_1_api =
     [ "sendContact", "classtgbotxx_1_1_api.html#a3b213fec538b1dd22fe4e4420e4a7370", null ],
     [ "sendDice", "classtgbotxx_1_1_api.html#a428b7366093f43b5704b70054e499a19", null ],
     [ "sendDocument", "classtgbotxx_1_1_api.html#a990c4827f2274118baeaf9e029f8032e", null ],
+    [ "sendInvoice", "classtgbotxx_1_1_api.html#a804450e5213831d4aa5a2e852ea68951", null ],
     [ "sendLocation", "classtgbotxx_1_1_api.html#aba0a91e74b5c588641b73b0322e93b69", null ],
     [ "sendMediaGroup", "classtgbotxx_1_1_api.html#a53d9e46b89d60f6480f917189e657f6c", null ],
     [ "sendMessage", "classtgbotxx_1_1_api.html#acf69d025e972c95abcaf17d88cd01f10", null ],
