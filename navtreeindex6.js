@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7":[1,0,0,100,5],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497":[1,0,0,100,6],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2":[1,0,0,100,2],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4":[1,0,0,100,1],

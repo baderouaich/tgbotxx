@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orderinfo_906',['OrderInfo',['../structtgbotxx_1_1_order_info.html',1,'tgbotxx']]]
+  ['orderinfo_903',['OrderInfo',['../structtgbotxx_1_1_order_info.html',1,'tgbotxx']]]
 ];

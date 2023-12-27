@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_login_url.html#a308f7bbf388d437fbe8e62aee66dc147":[1,0,0,81,6],
 "structtgbotxx_1_1_login_url.html#a4db3e17d460a016d4e73572a040ba79d":[1,0,0,81,7],
 "structtgbotxx_1_1_login_url.html#a8396f39eab6b5fd421f8547a3ee64fd8":[1,0,0,81,3],
 "structtgbotxx_1_1_login_url.html#ab2f7a6cbab7bc633f09761c047ec22c2":[1,0,0,81,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53":[1,0,0,100,7],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2e4ea10518cd80487995296c3298207c":[1,0,0,100,0],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415":[1,0,0,100,8],
-"structtgbotxx_1_1_reply_keyboard_markup.html#a4fa6195ebecab597590682207746e47b":[1,0,0,100,9],
-"structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7":[1,0,0,100,5]
+"structtgbotxx_1_1_reply_keyboard_markup.html#a4fa6195ebecab597590682207746e47b":[1,0,0,100,9]
 };

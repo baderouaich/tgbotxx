@@ -7,6 +7,7 @@ var classtgbotxx_1_1_api =
     [ "close", "classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2", null ],
     [ "closeGeneralForumTopic", "classtgbotxx_1_1_api.html#aee99319aef8fd3b2015456c8fc539a42", null ],
     [ "copyMessage", "classtgbotxx_1_1_api.html#a2f33af5ea58d3a5d254cdf490977696f", null ],
+    [ "createInvoiceLink", "classtgbotxx_1_1_api.html#a37dd3e5eed50e508cba3ef2d3c96a5ec", null ],
     [ "deleteMessage", "classtgbotxx_1_1_api.html#aaea1d495673ef95fe5e63b957dd26c56", null ],
     [ "deleteMyCommands", "classtgbotxx_1_1_api.html#a820e8439cd9a248ed7973096f1d6edc6", null ],
     [ "deleteWebhook", "classtgbotxx_1_1_api.html#a5afff3c96f3812ccb323f66f9b938962", null ],
