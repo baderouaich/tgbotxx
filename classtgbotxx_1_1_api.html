@@ -279,6 +279,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a37dd3e5eed50e508cba3ef2d3c96a5ec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a37dd3e5eed50e508cba3ef2d3c96a5ec">createInvoiceLink</a> (const std::string &amp;title, const std::string &amp;description, const std::string &amp;payload, const std::string &amp;providerToken, const std::string &amp;currency, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_labeled_price.html">LabeledPrice</a> &gt;&gt; &amp;prices, std::int32_t maxTipAmount=0, const std::vector&lt; std::int32_t &gt; &amp;suggestedTipAmounts=std::vector&lt; std::int32_t &gt;(), const std::string &amp;providerData=&quot;&quot;, const std::string &amp;photoUrl=&quot;&quot;, std::int32_t photoSize=0, std::int32_t photoWidth=0, std::int32_t photoHeight=0, bool needName=false, bool needPhoneNumber=false, bool needEmail=false, bool needShippingAddress=false, bool sendPhoneNumberToProvider=false, bool sendEmailToProvider=false, bool isFlexible=false) const</td></tr>
 <tr class="memdesc:a37dd3e5eed50e508cba3ef2d3c96a5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to create a link for an invoice. Returns the created invoice link as std::string on success.  <a href="classtgbotxx_1_1_api.html#a37dd3e5eed50e508cba3ef2d3c96a5ec">More...</a><br /></td></tr>
 <tr class="separator:a37dd3e5eed50e508cba3ef2d3c96a5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b736f5bd33ff89a014b0564c2f7046"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af6b736f5bd33ff89a014b0564c2f7046">answerShippingQuery</a> (const std::string &amp;shippingQueryId, bool ok, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_shipping_option.html">ShippingOption</a> &gt;&gt; &amp;shippingOptions=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_shipping_option.html">ShippingOption</a> &gt;&gt;(), const std::string &amp;errorMessage=&quot;&quot;) const</td></tr>
+<tr class="memdesc:af6b736f5bd33ff89a014b0564c2f7046"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you sent an invoice requesting a shipping address and the parameter isFlexible was specified, the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API will send an <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> with a shippingQuery field to the bot. Use this method to reply to shipping queries. On success, True is returned.  <a href="classtgbotxx_1_1_api.html#af6b736f5bd33ff89a014b0564c2f7046">More...</a><br /></td></tr>
+<tr class="separator:af6b736f5bd33ff89a014b0564c2f7046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021">answerPreCheckoutQuery</a> (const std::string &amp;preCheckoutQueryId, bool ok, const std::string &amp;errorMessage=&quot;&quot;) const</td></tr>
+<tr class="memdesc:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Once the user has confirmed their payment and shipping details, the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API sends the final confirmation in the form of an <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> with the field preCheckoutQuery. Use this method to respond to such pre-checkout queries. On success, True is returned.  <a href="classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021">More...</a><br /></td></tr>
+<tr class="separator:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_update.html">Update</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">getUpdates</a> (std::int32_t offset, std::int32_t limit=100, const std::vector&lt; std::string &gt; &amp;allowedUpdates={}) const</td></tr>
 <tr class="memdesc:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to receive incoming updates using long polling.  <a href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">More...</a><br /></td></tr>
 <tr class="separator:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -423,7 +429,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00047">47</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00048">48</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -595,6 +601,116 @@ We support GET and POST HTTP methods. Use either URL query string or application
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>No more than 50 results per query are allowed. <a href="https://core.telegram.org/bots/api#answerinlinequery">https://core.telegram.org/bots/api#answerinlinequery</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab9cedaad1f8ccba7b3b9a5f8da5b2021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9cedaad1f8ccba7b3b9a5f8da5b2021">&#9670;&nbsp;</a></span>answerPreCheckoutQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::answerPreCheckoutQuery </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>preCheckoutQueryId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ok</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>errorMessage</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Once the user has confirmed their payment and shipping details, the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API sends the final confirmation in the form of an <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> with the field preCheckoutQuery. Use this method to respond to such pre-checkout queries. On success, True is returned. </p>
+<dl class="section note"><dt>Note</dt><dd>: The <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API must receive an answer within 10 seconds after the pre-checkout query was sent. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">preCheckoutQueryId</td><td>Unique identifier for the query to be answered </td></tr>
+    <tr><td class="paramname">ok</td><td>Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems. </td></tr>
+    <tr><td class="paramname">errorMessage</td><td>Optional. Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#answerprecheckoutquery">https://core.telegram.org/bots/api#answerprecheckoutquery</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af6b736f5bd33ff89a014b0564c2f7046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6b736f5bd33ff89a014b0564c2f7046">&#9670;&nbsp;</a></span>answerShippingQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::answerShippingQuery </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>shippingQueryId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ok</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_shipping_option.html">ShippingOption</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>shippingOptions</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_shipping_option.html">ShippingOption</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>errorMessage</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If you sent an invoice requesting a shipping address and the parameter isFlexible was specified, the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API will send an <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> with a shippingQuery field to the bot. Use this method to reply to shipping queries. On success, True is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shippingQueryId</td><td>Unique identifier for the query to be answered </td></tr>
+    <tr><td class="paramname">ok</td><td>Pass True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible) </td></tr>
+    <tr><td class="paramname">shippingOptions</td><td>Optional. Array of <a class="el" href="structtgbotxx_1_1_shipping_option.html" title="This object represents one shipping option. https://core.telegram.org/bots/api#shippingoption.">ShippingOption</a>, Required if ok is True. A JSON-serialized array of available shipping options. </td></tr>
+    <tr><td class="paramname">errorMessage</td><td>Optional. Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#answershippingquery">https://core.telegram.org/bots/api#answershippingquery</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -6702,7 +6818,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Wed Dec 27 2023 13:33:49 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Dec 27 2023 14:01:48 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

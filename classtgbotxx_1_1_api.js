@@ -3,6 +3,8 @@ var classtgbotxx_1_1_api =
     [ "Api", "classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095", null ],
     [ "answerCallbackQuery", "classtgbotxx_1_1_api.html#a91077a91b1792d1aa251fb8a7945ed8c", null ],
     [ "answerInlineQuery", "classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d", null ],
+    [ "answerPreCheckoutQuery", "classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021", null ],
+    [ "answerShippingQuery", "classtgbotxx_1_1_api.html#af6b736f5bd33ff89a014b0564c2f7046", null ],
     [ "banChatMember", "classtgbotxx_1_1_api.html#ad87e26bfb5d468e94a7e2ddb929409af", null ],
     [ "close", "classtgbotxx_1_1_api.html#af2dc121a5a4329150d91cf9e60df12e2", null ],
     [ "closeGeneralForumTopic", "classtgbotxx_1_1_api.html#aee99319aef8fd3b2015456c8fc539a42", null ],

@@ -239,6 +239,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "ShippingAddress.hpp", "_shipping_address_8hpp.html", [
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ]
     ] ],
+    [ "ShippingOption.hpp", "_shipping_option_8hpp.html", [
+      [ "ShippingOption", "structtgbotxx_1_1_shipping_option.html", "structtgbotxx_1_1_shipping_option" ]
+    ] ],
     [ "ShippingQuery.hpp", "_shipping_query_8hpp.html", [
       [ "ShippingQuery", "structtgbotxx_1_1_shipping_query.html", "structtgbotxx_1_1_shipping_query" ]
     ] ],

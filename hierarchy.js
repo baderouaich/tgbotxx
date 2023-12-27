@@ -115,6 +115,7 @@ var hierarchy =
       [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", null ]
     ] ],
     [ "tgbotxx::ShippingAddress", "structtgbotxx_1_1_shipping_address.html", null ],
+    [ "tgbotxx::ShippingOption", "structtgbotxx_1_1_shipping_option.html", null ],
     [ "tgbotxx::ShippingQuery", "structtgbotxx_1_1_shipping_query.html", null ],
     [ "tgbotxx::Sticker", "structtgbotxx_1_1_sticker.html", null ],
     [ "tgbotxx::Story", "structtgbotxx_1_1_story.html", null ],

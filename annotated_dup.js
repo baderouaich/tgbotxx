@@ -104,6 +104,7 @@ var annotated_dup =
       [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", "structtgbotxx_1_1_reply_keyboard_markup" ],
       [ "ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", "structtgbotxx_1_1_reply_keyboard_remove" ],
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ],
+      [ "ShippingOption", "structtgbotxx_1_1_shipping_option.html", "structtgbotxx_1_1_shipping_option" ],
       [ "ShippingQuery", "structtgbotxx_1_1_shipping_query.html", "structtgbotxx_1_1_shipping_query" ],
       [ "Sticker", "structtgbotxx_1_1_sticker.html", "structtgbotxx_1_1_sticker" ],
       [ "Story", "structtgbotxx_1_1_story.html", "structtgbotxx_1_1_story" ],
