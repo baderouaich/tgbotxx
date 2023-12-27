@@ -19,13 +19,13 @@ class MyBot : public Bot {
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
-//      api()->setTimeout(std::chrono::seconds(60 * 3));
-//      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
+      //      api()->setTimeout(std::chrono::seconds(60 * 3));
+      //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
-//      api()->setMyName("tgbotxx manual_tests");
-//      api()->setMyDescription("tgbotxx bot manual tests");
+      //      api()->setMyName("tgbotxx manual_tests");
+      //      api()->setMyDescription("tgbotxx bot manual tests");
 
       // Register bot commands ...
       Ptr<BotCommand> greet(new BotCommand());
@@ -91,7 +91,13 @@ class MyBot : public Bot {
       Ptr<BotCommand> deleteMessage(new BotCommand());
       deleteMessage->command = "/delete_message";
       deleteMessage->description = "You will receive a message then it will be deleted after 2 seconds.";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup, location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName, menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText, deleteMessage}); // The above commands will be shown in the bot chat menu (bottom left)
+      Ptr<BotCommand> sendInvoice(new BotCommand());
+      sendInvoice->command = "/send_invoice";
+      sendInvoice->description = "You will receive a test invoice";
+      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup,
+                               location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
+                               menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
+                               deleteMessage, sendInvoice}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -123,7 +129,7 @@ class MyBot : public Bot {
     }
 
     void onLongPollError(const std::string& reason) override {
-      std::cerr <<  "Long polling error: " << reason << std::endl;
+      std::cerr << "Long polling error: " << reason << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).
@@ -271,17 +277,29 @@ class MyBot : public Bot {
         api()->sendMessage(message->chat->id, chatAdministratorRights->toJson().dump(2));
       } else if (message->text == "/edit_message_text") {
         Ptr<Message> originalMessage = api()->sendMessage(message->chat->id, "Progress started...");
-        for(int i = 0; i <= 100; i += 10) {
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            std::ostringstream oss{};
-            oss << "Progress: " << i << '/' << 100;
-            api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
+        for (int i = 0; i <= 100; i += 10) {
+          std::this_thread::sleep_for(std::chrono::seconds(1));
+          std::ostringstream oss{};
+          oss << "Progress: " << i << '/' << 100;
+          api()->editMessageText(oss.str(), originalMessage->chat->id, originalMessage->messageId);
         }
         api()->editMessageText("Done.", originalMessage->chat->id, originalMessage->messageId);
       } else if (message->text == "/delete_message") {
         Ptr<Message> twoSecondsMsg = api()->sendMessage(message->chat->id, "Hello! my life span is 2 seconds only so I don't have much time. Goodbye!");
         std::this_thread::sleep_for(std::chrono::seconds(2));
         api()->deleteMessage(twoSecondsMsg->chat->id, twoSecondsMsg->messageId);
+      } else if (message->text == "/send_invoice") {
+        const std::string providerToken = getPaymentProviderToken();
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "Original price";
+        originalPrice->amount = 150; // 1.50$
+        prices.push_back(originalPrice);
+        Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
+        discountPrice->label = "Discount";
+        discountPrice->amount = -50; // -0.5$
+        prices.push_back(discountPrice);
+        api()->sendInvoice(message->chat->id, "Product name", "Product description", "payload", providerToken, "USD", prices);
       }
     }
 
@@ -342,7 +360,15 @@ class MyBot : public Bot {
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {
       std::cout << __func__ << ": " << chatJoinRequest->from->username << std::endl;
     }
+
+  private:
+    static std::string getPaymentProviderToken(){
+      if (char *token = std::getenv("TESTS_PAYMENT_PROVIDER_TOKEN"); token != nullptr)
+        return std::string(token);
+      throw std::runtime_error("Couldn't find PAYMENT_PROVIDER_TOKEN in the env; please export an environment variable PAYMENT_PROVIDER_TOKEN with your payment provider token");
+    }
 };
+
 
 static std::string getToken() {
   if (char *token = std::getenv("TESTS_BOT_TOKEN"); token != nullptr)
@@ -359,7 +385,7 @@ int main() try {
   });
   bot.start();
   return EXIT_SUCCESS;
-} catch (const std::exception& e){
+} catch (const std::exception& e) {
   std::cerr << e.what() << std::endl;
   return EXIT_FAILURE;
 }

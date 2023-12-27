@@ -2073,3 +2073,107 @@ void Api::setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept {
   m_downloadFilesTimeout = timeout;
 }
 cpr::Timeout Api::getDownloadFilesTimeout() const noexcept { return m_downloadFilesTimeout; }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& chatId,
+                              const std::string& title,
+                              const std::string& description,
+                              const std::string& payload,
+                              const std::string& providerToken,
+                              const std::string& currency,
+                              const std::vector<Ptr<LabeledPrice>>& prices,
+                              std::int32_t messageThreadId,
+                              std::int32_t maxTipAmount,
+                              const std::vector<std::int32_t>& suggestedTipAmounts,
+                              const std::string& startParameter,
+                              const std::string& providerData,
+                              const std::string& photoUrl,
+                              std::int32_t photoSize,
+                              std::int32_t photoWidth,
+                              std::int32_t photoHeight,
+                              bool needName,
+                              bool needPhoneNumber,
+                              bool needEmail,
+                              bool needShippingAddress,
+                              bool sendPhoneNumberToProvider,
+                              bool sendEmailToProvider,
+                              bool isFlexible,
+                              bool disableNotification,
+                              bool protectContent,
+                              std::int32_t replyToMessageId,
+                              bool allowSendingWithoutReply,
+                              const Ptr<IReplyMarkup>& replyMarkup) const {
+
+  cpr::Multipart data{};
+  data.parts.reserve(28);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  data.parts.emplace_back("title", title);
+  data.parts.emplace_back("description", description);
+  data.parts.emplace_back("payload", payload);
+  data.parts.emplace_back("provider_token", providerToken);
+  data.parts.emplace_back("currency", currency);
+  nl::json pricesJson = nl::json::array();
+  for (const Ptr<LabeledPrice>& price: prices)
+    pricesJson.push_back(price->toJson());
+  data.parts.emplace_back("prices", pricesJson.dump());
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (maxTipAmount)
+    data.parts.emplace_back("max_tip_amount", maxTipAmount);
+  if (not suggestedTipAmounts.empty())
+    data.parts.emplace_back("suggested_tip_amounts", nl::json(suggestedTipAmounts).dump());
+  if (not startParameter.empty())
+    data.parts.emplace_back("start_parameter", startParameter);
+  if (not providerData.empty())
+    data.parts.emplace_back("provider_data", providerData);
+  if (not photoUrl.empty())
+    data.parts.emplace_back("photo_url", photoUrl);
+  if (photoSize)
+    data.parts.emplace_back("photo_size", photoSize);
+  if (photoWidth)
+    data.parts.emplace_back("photo_width", photoWidth);
+  if (photoHeight)
+    data.parts.emplace_back("photo_height", photoHeight);
+  if (needName)
+    data.parts.emplace_back("need_name", needName);
+  if (needPhoneNumber)
+    data.parts.emplace_back("need_phone_number", needPhoneNumber);
+  if (needEmail)
+    data.parts.emplace_back("need_email", needEmail);
+  if (needShippingAddress)
+    data.parts.emplace_back("need_shipping_address", needShippingAddress);
+  if (sendPhoneNumberToProvider)
+    data.parts.emplace_back("send_phone_number_to_provider", sendPhoneNumberToProvider);
+  if (sendEmailToProvider)
+    data.parts.emplace_back("send_email_to_provider", sendEmailToProvider);
+  if (isFlexible)
+    data.parts.emplace_back("is_flexible", isFlexible);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyToMessageId)
+    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
+  if (allowSendingWithoutReply)
+    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendInvoice", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
