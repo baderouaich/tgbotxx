@@ -94,10 +94,13 @@ class MyBot : public Bot {
       Ptr<BotCommand> sendInvoice(new BotCommand());
       sendInvoice->command = "/send_invoice";
       sendInvoice->description = "You will receive a test invoice";
+      Ptr<BotCommand> createInvoiceLink(new BotCommand());
+      createInvoiceLink->command = "/create_invoice_link";
+      createInvoiceLink->description = "You will receive a test invoice link";
       getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup,
                                location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                                menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
-                               deleteMessage, sendInvoice}); // The above commands will be shown in the bot chat menu (bottom left)
+                               deleteMessage, sendInvoice, createInvoiceLink}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -300,6 +303,21 @@ class MyBot : public Bot {
         discountPrice->amount = -50; // -0.5$
         prices.push_back(discountPrice);
         api()->sendInvoice(message->chat->id, "Product name", "Product description", "payload", providerToken, "USD", prices);
+      } else if (message->text == "/create_invoice_link") {
+        // Create invoice link
+        const std::string providerToken = getPaymentProviderToken();
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "Original price";
+        originalPrice->amount = 150; // 1.50$
+        prices.push_back(originalPrice);
+        Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
+        discountPrice->label = "Discount";
+        discountPrice->amount = -50; // -0.5$
+        prices.push_back(discountPrice);
+        std::string link = api()->createInvoiceLink("Product name", "Product description", "payload", providerToken, "USD", prices);
+        // Send link to user
+        api()->sendMessage(message->chat->id, link);
       }
     }
 

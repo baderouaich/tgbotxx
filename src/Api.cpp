@@ -2177,3 +2177,68 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
+
+
+std::string Api::createInvoiceLink(const std::string& title,
+                                   const std::string& description,
+                                   const std::string& payload,
+                                   const std::string& providerToken,
+                                   const std::string& currency,
+                                   const std::vector<Ptr<LabeledPrice>>& prices,
+                                   std::int32_t maxTipAmount,
+                                   const std::vector<std::int32_t>& suggestedTipAmounts,
+                                   const std::string& providerData,
+                                   const std::string& photoUrl,
+                                   std::int32_t photoSize,
+                                   std::int32_t photoWidth,
+                                   std::int32_t photoHeight,
+                                   bool needName,
+                                   bool needPhoneNumber,
+                                   bool needEmail,
+                                   bool needShippingAddress,
+                                   bool sendPhoneNumberToProvider,
+                                   bool sendEmailToProvider,
+                                   bool isFlexible) const {
+
+  cpr::Multipart data{};
+  data.parts.reserve(20);
+  data.parts.emplace_back("title", title);
+  data.parts.emplace_back("description", description);
+  data.parts.emplace_back("payload", payload);
+  data.parts.emplace_back("provider_token", providerToken);
+  data.parts.emplace_back("currency", currency);
+  nl::json pricesJson = nl::json::array();
+  for (const Ptr<LabeledPrice>& price: prices)
+    pricesJson.push_back(price->toJson());
+  data.parts.emplace_back("prices", pricesJson.dump());
+  if (maxTipAmount)
+    data.parts.emplace_back("max_tip_amount", maxTipAmount);
+  if (not suggestedTipAmounts.empty())
+    data.parts.emplace_back("suggested_tip_amounts", nl::json(suggestedTipAmounts).dump());
+  if (not providerData.empty())
+    data.parts.emplace_back("provider_data", providerData);
+  if (not photoUrl.empty())
+    data.parts.emplace_back("photo_url", photoUrl);
+  if (photoSize)
+    data.parts.emplace_back("photo_size", photoSize);
+  if (photoWidth)
+    data.parts.emplace_back("photo_width", photoWidth);
+  if (photoHeight)
+    data.parts.emplace_back("photo_height", photoHeight);
+  if (needName)
+    data.parts.emplace_back("need_name", needName);
+  if (needPhoneNumber)
+    data.parts.emplace_back("need_phone_number", needPhoneNumber);
+  if (needEmail)
+    data.parts.emplace_back("need_email", needEmail);
+  if (needShippingAddress)
+    data.parts.emplace_back("need_shipping_address", needShippingAddress);
+  if (sendPhoneNumberToProvider)
+    data.parts.emplace_back("send_phone_number_to_provider", sendPhoneNumberToProvider);
+  if (sendEmailToProvider)
+    data.parts.emplace_back("send_email_to_provider", sendEmailToProvider);
+  if (isFlexible)
+    data.parts.emplace_back("is_flexible", isFlexible);
+
+  return sendRequest("createInvoiceLink", data);
+}
