@@ -1,5 +1,12 @@
 var NAVTREEINDEX3 =
 {
+"structtgbotxx_1_1_chat_member_restricted.html#acaa951fb036b6cccf6951634ddb1ab4c":[1,0,0,28,19],
+"structtgbotxx_1_1_chat_member_restricted.html#adabc914e02b9738e2e488412068efd82":[1,0,0,28,17],
+"structtgbotxx_1_1_chat_member_restricted.html#adf496658a692facc4b43f4ce918981f7":[1,0,0,28,14],
+"structtgbotxx_1_1_chat_member_restricted.html#ae33d09dbee7941e878d0a61bbdaff285":[1,0,0,28,6],
+"structtgbotxx_1_1_chat_member_restricted.html#afd325bc4e70223e7665bea1b5bf5070c":[1,0,0,28,8],
+"structtgbotxx_1_1_chat_member_restricted.html#afdca9fa6e0b5853c323c0685ee632610":[1,0,0,28,1],
+"structtgbotxx_1_1_chat_member_updated.html":[1,0,0,31],
 "structtgbotxx_1_1_chat_member_updated.html#a05a012ec933c6ed86ea024153229137b":[1,0,0,31,7],
 "structtgbotxx_1_1_chat_member_updated.html#a08a1ef891364b9166f4484163ca08812":[1,0,0,31,2],
 "structtgbotxx_1_1_chat_member_updated.html#a17df890628c0017197d40d4d419d19f9":[1,0,0,31,10],
@@ -242,12 +249,5 @@ var NAVTREEINDEX3 =
 "structtgbotxx_1_1_inline_query_result_gif.html#a2f29a224214cf77b5eed14480d279691":[1,0,0,57,0],
 "structtgbotxx_1_1_inline_query_result_gif.html#a3458d30799954ad802b48ac3a9156e0c":[1,0,0,57,4],
 "structtgbotxx_1_1_inline_query_result_gif.html#a431c9be4a003fd7562fbc28b776a4886":[1,0,0,57,8],
-"structtgbotxx_1_1_inline_query_result_gif.html#a6d316684e60946ca0782c132a1ab4bb2":[1,0,0,57,9],
-"structtgbotxx_1_1_inline_query_result_gif.html#a8d2edcc7bfb53d64c5d905f3e4a3a6d6":[1,0,0,57,2],
-"structtgbotxx_1_1_inline_query_result_gif.html#a987b85da7d6cf1df5b876ff7f862d4cd":[1,0,0,57,5],
-"structtgbotxx_1_1_inline_query_result_gif.html#a9cb5cf0aab459d11ebe244b7d8aad69c":[1,0,0,57,13],
-"structtgbotxx_1_1_inline_query_result_gif.html#ab72be6c075ade3c6b130c6579d38e9db":[1,0,0,57,7],
-"structtgbotxx_1_1_inline_query_result_gif.html#acdb87ba6788d0c2f47115ea261c99e3c":[1,0,0,57,6],
-"structtgbotxx_1_1_inline_query_result_gif.html#ad11e79d8d2d0d8f7eafcb582d46db80c":[1,0,0,57,1],
-"structtgbotxx_1_1_inline_query_result_gif.html#aee9a4a3afeed133b109ea66dc9fa795e":[1,0,0,57,12]
+"structtgbotxx_1_1_inline_query_result_gif.html#a6d316684e60946ca0782c132a1ab4bb2":[1,0,0,57,9]
 };

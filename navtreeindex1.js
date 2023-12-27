@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"classtgbotxx_1_1_api.html#a2429db5a6daafa0e45945771e9f59ed7":[1,0,0,0,65],
+"classtgbotxx_1_1_api.html#a260616aa88702530337abba7562dfd33":[1,0,0,0,81],
+"classtgbotxx_1_1_api.html#a275409b9f940aa612d379f2626556c2d":[1,0,0,0,26],
+"classtgbotxx_1_1_api.html#a278084e042cc7b31b7c43538335eb4d0":[1,0,0,0,97],
 "classtgbotxx_1_1_api.html#a281a643cfe451f59698a0e22417c5db7":[1,0,0,0,35],
 "classtgbotxx_1_1_api.html#a2d2be0aa109fe1f5f47c5baf6d3e150e":[1,0,0,0,28],
 "classtgbotxx_1_1_api.html#a2f33af5ea58d3a5d254cdf490977696f":[1,0,0,0,8],
@@ -113,10 +117,13 @@ var NAVTREEINDEX1 =
 "classtgbotxx_1_1_bot.html#aff8f11497ae56bb196d01770e083f206":[1,0,0,1,1],
 "classtgbotxx_1_1_exception.html":[1,0,0,2],
 "classtgbotxx_1_1_exception.html#afe062038ff8ed9792aab45a316ba759a":[1,0,0,2,0],
-"dir_0a686d04ada01e782ce20d676fccf00f.html":[2,0,0,0,1],
-"dir_5e3b55b5946d17583ee39f95641b3f39.html":[2,0,0,0,0],
-"dir_77ee4c6df0abeb13cf2435b661623a0a.html":[2,0,0,0],
-"dir_d44c64559bbebec7f509842c48db8b23.html":[2,0,0],
+"dir_0a686d04ada01e782ce20d676fccf00f.html":[2,0,1,0,1],
+"dir_2dd86a87d4366abbe81fcefcf5c6c7fc.html":[2,0,0,0,0],
+"dir_5e3b55b5946d17583ee39f95641b3f39.html":[2,0,1,0,0],
+"dir_77ee4c6df0abeb13cf2435b661623a0a.html":[2,0,1,0],
+"dir_d28a4824dc47e487b107a5db32ef43c4.html":[2,0,0],
+"dir_d44c64559bbebec7f509842c48db8b23.html":[2,0,1],
+"dir_fe91ba04b55adc7de3ed5eb7924c16a0.html":[2,0,0,0],
 "files.html":[2,0],
 "functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
@@ -242,12 +249,5 @@ var NAVTREEINDEX1 =
 "structtgbotxx_1_1_animation.html#ae756cda4bc5f6de837f1b815c84d0c21":[1,0,0,3,3],
 "structtgbotxx_1_1_animation.html#aefee980e3de8d727fdb279512f984f28":[1,0,0,3,9],
 "structtgbotxx_1_1_animation.html#af5aa6b9714c7a27b5674bc975ab51e73":[1,0,0,3,6],
-"structtgbotxx_1_1_animation.html#af6d8055a88c5ed1f8fbdd6052eb56975":[1,0,0,3,2],
-"structtgbotxx_1_1_audio.html":[1,0,0,4],
-"structtgbotxx_1_1_audio.html#a075e7f064468a8a28f0b7152592d4288":[1,0,0,4,8],
-"structtgbotxx_1_1_audio.html#a1a226f238b687ea71a8af75f7e0c0255":[1,0,0,4,2],
-"structtgbotxx_1_1_audio.html#a38a72946140cd2f4f70c652dba27df18":[1,0,0,4,6],
-"structtgbotxx_1_1_audio.html#a5a44dac13f358a6f5bcf9a4e495f0ef5":[1,0,0,4,11],
-"structtgbotxx_1_1_audio.html#a71ae7821dd9ff725a2a8f40ba3f06854":[1,0,0,4,7],
-"structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70":[1,0,0,4,0]
+"structtgbotxx_1_1_animation.html#af6d8055a88c5ed1f8fbdd6052eb56975":[1,0,0,3,2]
 };

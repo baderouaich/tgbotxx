@@ -131,5 +131,6 @@ var annotated_dup =
       [ "isPtr< CPtr< T > >", "structtgbotxx_1_1is_ptr_3_01_c_ptr_3_01_t_01_4_01_4.html", null ],
       [ "isPtr< PtrC< T > >", "structtgbotxx_1_1is_ptr_3_01_ptr_c_3_01_t_01_4_01_4.html", null ],
       [ "isPtr< CPtrC< T > >", "structtgbotxx_1_1is_ptr_3_01_c_ptr_c_3_01_t_01_4_01_4.html", null ]
-    ] ]
+    ] ],
+    [ "PaidSubscriptionBot", "class_paid_subscription_bot.html", "class_paid_subscription_bot" ]
 ];

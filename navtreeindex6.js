@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf":[1,0,0,99,6],
+"structtgbotxx_1_1_proximity_alert_triggered.html#a69a2986e4ea434ca5a481888fee02c64":[1,0,0,99,2],
+"structtgbotxx_1_1_proximity_alert_triggered.html#aabc1f18655b3489488aea2feee1d5ebc":[1,0,0,99,3],
+"structtgbotxx_1_1_proximity_alert_triggered.html#abd91ae1b3bed83c37fd94d21ee0b5003":[1,0,0,99,1],
+"structtgbotxx_1_1_proximity_alert_triggered.html#ac8d44ba6a3db0404193ff530fe11b8bd":[1,0,0,99,0],
+"structtgbotxx_1_1_proximity_alert_triggered.html#ae8663942dd510ef2a4cc52c5b388e7e4":[1,0,0,99,4],
+"structtgbotxx_1_1_reply_keyboard_markup.html":[1,0,0,100],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2c8081f0b46d1e76bfff2bd1c0849d53":[1,0,0,100,7],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2e4ea10518cd80487995296c3298207c":[1,0,0,100,0],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415":[1,0,0,100,8],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_webhook_info.html#a8fed627d82fbf7ea14a64c863a89d794":[1,0,0,123,6],
 "structtgbotxx_1_1_webhook_info.html#aaa8939c5a6d08538fed518bd760ad0b7":[1,0,0,123,5],
 "structtgbotxx_1_1_webhook_info.html#ad902605ad606f09ef1d4590c5bdcbad1":[1,0,0,123,3],
-"structtgbotxx_1_1_webhook_info.html#ae5f07c732272864b1cb2b40ec1a21619":[1,0,0,123,8],
-"structtgbotxx_1_1_webhook_info.html#afc2d1487f11438386da737103c210ee5":[1,0,0,123,4],
-"structtgbotxx_1_1_webhook_info.html#afc6be5c59df7c44bb3feb1caf45246f3":[1,0,0,123,7],
-"structtgbotxx_1_1_write_access_allowed.html":[1,0,0,124],
-"structtgbotxx_1_1_write_access_allowed.html#a0cd26bb6adabaac2af080016eb5b6f4f":[1,0,0,124,2],
-"structtgbotxx_1_1_write_access_allowed.html#a0f5df4c52b445e423b31b096d4fd5822":[1,0,0,124,1],
-"structtgbotxx_1_1_write_access_allowed.html#a2a64a347358aaeb3045fecfec5c218c9":[1,0,0,124,5],
-"structtgbotxx_1_1_write_access_allowed.html#a4721205abd1ecbf67d48bcc68090260b":[1,0,0,124,4]
+"structtgbotxx_1_1_webhook_info.html#ae5f07c732272864b1cb2b40ec1a21619":[1,0,0,123,8]
 };

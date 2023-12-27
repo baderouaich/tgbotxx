@@ -3,7 +3,9 @@ var hierarchy =
     [ "tgbotxx::Animation", "structtgbotxx_1_1_animation.html", null ],
     [ "tgbotxx::Api", "classtgbotxx_1_1_api.html", null ],
     [ "tgbotxx::Audio", "structtgbotxx_1_1_audio.html", null ],
-    [ "tgbotxx::Bot", "classtgbotxx_1_1_bot.html", null ],
+    [ "tgbotxx::Bot", "classtgbotxx_1_1_bot.html", [
+      [ "PaidSubscriptionBot", "class_paid_subscription_bot.html", null ]
+    ] ],
     [ "tgbotxx::BotCommand", "structtgbotxx_1_1_bot_command.html", null ],
     [ "tgbotxx::BotCommandScope", "structtgbotxx_1_1_bot_command_scope.html", [
       [ "tgbotxx::BotCommandScopeAllChatAdministrators", "structtgbotxx_1_1_bot_command_scope_all_chat_administrators.html", null ],
