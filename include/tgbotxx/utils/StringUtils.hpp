@@ -133,6 +133,10 @@ namespace tgbotxx {
       return str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
     }
 
+    /// Replaces a token within a string with another string
+    /// @param str String that contains tokens to replace
+    /// @param search Token to replace
+    /// @param replace New value to replace token with
     static void replace(std::string& str, const std::string& search, const std::string& replace) {
       if (search.empty()) return; // Avoid infinite loops
       std::size_t pos{0};
@@ -142,6 +146,12 @@ namespace tgbotxx {
       }
     }
 
+
+    /// Replaces a token within a string with another string and return a new copy
+    /// @param str String that contains tokens to replace
+    /// @param search Token to replace
+    /// @param replace New value to replace token with
+    /// @return new replaced tokens string
     static std::string replaceCopy(std::string str, const std::string& search, const std::string& replace) {
       if (search.empty()) return str; // Avoid infinite loops
       std::size_t pos{0};
@@ -151,5 +161,18 @@ namespace tgbotxx {
       }
       return str;
     }
+
+    /// Convert a string to T type
+    /// @tparam T desired type
+    /// @param str string to convert
+    /// @return converted string to T
+    template<typename T>
+    static T to(const std::string& str) {
+      T v{};
+      std::istringstream oss{str};
+      oss >> v;
+      return v;
+    }
+
   };
 }
