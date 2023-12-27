@@ -91,6 +91,7 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
+#include <tgbotxx/objects/ShippingOption.hpp>
 
 #include <utility>
 using namespace tgbotxx;
@@ -2241,4 +2242,37 @@ std::string Api::createInvoiceLink(const std::string& title,
     data.parts.emplace_back("is_flexible", isFlexible);
 
   return sendRequest("createInvoiceLink", data);
+}
+
+bool Api::answerShippingQuery(const std::string& shippingQueryId,
+                              bool ok,
+                              const std::vector<Ptr<ShippingOption>>& shippingOptions,
+                              const std::string& errorMessage) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("shipping_query_id", shippingQueryId);
+  data.parts.emplace_back("ok", ok);
+  if(not shippingOptions.empty()) {
+    nl::json shippingOptionsJson = nl::json::array();
+    for(const Ptr<ShippingOption>& opt : shippingOptions)
+      shippingOptionsJson.push_back(opt->toJson());
+    data.parts.emplace_back("shipping_options", shippingOptionsJson.dump());
+  }
+  if(not errorMessage.empty())
+    data.parts.emplace_back("error_message", errorMessage);
+
+  return sendRequest("answerShippingQuery", data);
+}
+
+bool Api::answerPreCheckoutQuery(const std::string& preCheckoutQueryId,
+                                 bool ok,
+                                 const std::string& errorMessage) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("pre_checkout_query_id", preCheckoutQueryId);
+  data.parts.emplace_back("ok", ok);
+  if(not errorMessage.empty())
+    data.parts.emplace_back("error_message", errorMessage);
+
+  return sendRequest("answerPreCheckoutQuery", data);
 }

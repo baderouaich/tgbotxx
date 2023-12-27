@@ -40,6 +40,7 @@ namespace tgbotxx {
   struct WebhookInfo;
   struct Poll;
   struct LabeledPrice;
+  struct ShippingOption;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -1499,6 +1500,39 @@ namespace tgbotxx {
                                     bool sendPhoneNumberToProvider = false,
                                     bool sendEmailToProvider = false,
                                     bool isFlexible = false) const;
+
+
+      /// @brief If you sent an invoice requesting a shipping address and the parameter isFlexible was specified,
+      /// the Bot API will send an Update with a shippingQuery field to the bot.
+      /// Use this method to reply to shipping queries. On success, True is returned.
+      /// @param shippingQueryId Unique identifier for the query to be answered
+      /// @param ok Pass True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)
+      /// @param shippingOptions Optional. Array of ShippingOption, Required if ok is True. A JSON-serialized array of available shipping options.
+      /// @param errorMessage Optional. Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable').
+      /// Telegram will display this message to the user.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#answershippingquery
+      bool answerShippingQuery(const std::string& shippingQueryId,
+                               bool ok,
+                               const std::vector<Ptr<ShippingOption>>& shippingOptions = std::vector<Ptr<ShippingOption>>(),
+                               const std::string& errorMessage = "") const;
+
+
+      /// @brief Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an Update with the field preCheckoutQuery.
+      /// Use this method to respond to such pre-checkout queries. On success, True is returned.
+      /// @note: The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.
+      /// @param preCheckoutQueryId Unique identifier for the query to be answered
+      /// @param ok Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems.
+      /// @param errorMessage Optional. Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout
+      /// (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!").
+      /// Telegram will display this message to the user.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#answerprecheckoutquery
+      bool answerPreCheckoutQuery(const std::string& preCheckoutQueryId,
+                                  bool ok,
+                                  const std::string& errorMessage = "") const;
 
 
     public: /// Updates methods  https://core.telegram.org/bots/api#getting-updates
