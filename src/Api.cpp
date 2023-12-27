@@ -1,6 +1,6 @@
-#include "tgbotxx/Exception.hpp"
 #include <chrono>
 #include <tgbotxx/Api.hpp>
+#include <tgbotxx/Exception.hpp>
 /// Objects
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
@@ -70,6 +70,7 @@
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
+#include <tgbotxx/objects/ShippingOption.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/Sticker.hpp>
 #include <tgbotxx/objects/Story.hpp>
@@ -91,7 +92,6 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
-#include <tgbotxx/objects/ShippingOption.hpp>
 
 #include <utility>
 using namespace tgbotxx;
@@ -2252,13 +2252,13 @@ bool Api::answerShippingQuery(const std::string& shippingQueryId,
   data.parts.reserve(4);
   data.parts.emplace_back("shipping_query_id", shippingQueryId);
   data.parts.emplace_back("ok", ok);
-  if(not shippingOptions.empty()) {
+  if (not shippingOptions.empty()) {
     nl::json shippingOptionsJson = nl::json::array();
-    for(const Ptr<ShippingOption>& opt : shippingOptions)
+    for (const Ptr<ShippingOption>& opt: shippingOptions)
       shippingOptionsJson.push_back(opt->toJson());
     data.parts.emplace_back("shipping_options", shippingOptionsJson.dump());
   }
-  if(not errorMessage.empty())
+  if (not errorMessage.empty())
     data.parts.emplace_back("error_message", errorMessage);
 
   return sendRequest("answerShippingQuery", data);
@@ -2271,7 +2271,7 @@ bool Api::answerPreCheckoutQuery(const std::string& preCheckoutQueryId,
   data.parts.reserve(3);
   data.parts.emplace_back("pre_checkout_query_id", preCheckoutQueryId);
   data.parts.emplace_back("ok", ok);
-  if(not errorMessage.empty())
+  if (not errorMessage.empty())
     data.parts.emplace_back("error_message", errorMessage);
 
   return sendRequest("answerPreCheckoutQuery", data);
