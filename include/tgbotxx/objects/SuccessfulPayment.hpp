@@ -24,11 +24,11 @@ namespace tgbotxx {
       /// @brief Bot specified invoice payload
       std::string invoicePayload;
 
-      /// @brief Optional. Order information provided by the user
-      Ptr<OrderInfo> orderInfo;
-
       /// @brief Optional. Identifier of the shipping option chosen by the user
       std::string shippingOptionId;
+
+      /// @brief Optional. Order information provided by the user
+      Ptr<OrderInfo> orderInfo;
 
       /// @brief Telegram payment identifier
       std::string telegramPaymentChargeId;
@@ -44,8 +44,8 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "currency", currency);
         OBJECT_SERIALIZE_FIELD(json, "total_amount", totalAmount);
         OBJECT_SERIALIZE_FIELD(json, "invoice_payload", invoicePayload);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "order_info", orderInfo, nl::json::object());
         OBJECT_SERIALIZE_FIELD(json, "shipping_option_id", shippingOptionId);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "order_info", orderInfo, nl::json::object());
         OBJECT_SERIALIZE_FIELD(json, "telegram_payment_charge_id", telegramPaymentChargeId);
         OBJECT_SERIALIZE_FIELD(json, "provider_payment_charge_id", providerPaymentChargeId);
         return json;
@@ -56,8 +56,8 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "currency", currency, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "total_amount", totalAmount, 0, false);
         OBJECT_DESERIALIZE_FIELD(json, "invoice_payload", invoicePayload, "", false);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "order_info", orderInfo, false);
-        OBJECT_DESERIALIZE_FIELD(json, "shipping_option_id", shippingOptionId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "shipping_option_id", shippingOptionId, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "order_info", orderInfo, true);
         OBJECT_DESERIALIZE_FIELD(json, "telegram_payment_charge_id", telegramPaymentChargeId, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "provider_payment_charge_id", providerPaymentChargeId, "", false);
       }
