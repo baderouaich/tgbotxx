@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c":[1,0,0,98,3],
+"structtgbotxx_1_1_pre_checkout_query.html#a63c595e8d3c85c51d45db22c022176db":[1,0,0,98,4],
 "structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79":[1,0,0,98,1],
 "structtgbotxx_1_1_pre_checkout_query.html#a83898f960c278b68ba1cf0ea94adadd6":[1,0,0,98,0],
 "structtgbotxx_1_1_pre_checkout_query.html#ab5b5c59f4574530edb95a47a0f3f7280":[1,0,0,98,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_web_app_info.html#a13e5852429d71a5b77aeeb63d27a4b27":[1,0,0,122,1],
 "structtgbotxx_1_1_web_app_info.html#a61fe0b92a1438df14ace3e714fca8e99":[1,0,0,122,3],
 "structtgbotxx_1_1_web_app_info.html#a7768a1646a6ff988f8e8e971454fc1fb":[1,0,0,122,4],
-"structtgbotxx_1_1_web_app_info.html#a7d0af1aec595b052ad80455f41a80d91":[1,0,0,122,2],
-"structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36":[1,0,0,122,0],
-"structtgbotxx_1_1_webhook_info.html":[1,0,0,123]
+"structtgbotxx_1_1_web_app_info.html#a7d0af1aec595b052ad80455f41a80d91":[1,0,0,122,2]
 };

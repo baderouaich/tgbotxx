@@ -23,6 +23,7 @@ var namespacetgbotxx =
       [ "rtrimCopy", "namespacetgbotxx_1_1_string_utils.html#ad7c80e7ef45fa92f57e2baf36dbbf869", null ],
       [ "split", "namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005", null ],
       [ "startsWith", "namespacetgbotxx_1_1_string_utils.html#a0e1c43908f57edb496b00522dee6ea80", null ],
+      [ "to", "namespacetgbotxx_1_1_string_utils.html#afdad1b1777a5871c9bcfc1a43b0b259e", null ],
       [ "toLower", "namespacetgbotxx_1_1_string_utils.html#afc42b7404576d60f1df95de386c12bfc", null ],
       [ "toUpper", "namespacetgbotxx_1_1_string_utils.html#ac3baf8c01cbc8dda83c51d877b292160", null ],
       [ "trim", "namespacetgbotxx_1_1_string_utils.html#a61b0ab25ca04c0c97d7517473ec2dc69", null ],

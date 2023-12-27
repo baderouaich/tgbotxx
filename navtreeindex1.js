@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classtgbotxx_1_1_api.html#a13159c489d7f24fbd0f90045c6043e1c":[1,0,0,0,61],
 "classtgbotxx_1_1_api.html#a131f363bfdfc17711a1f902c846fda08":[1,0,0,0,102],
 "classtgbotxx_1_1_api.html#a13bff65224b9e6f57919bff41b3c3e44":[1,0,0,0,32],
 "classtgbotxx_1_1_api.html#a18e1193a92fe56d37f00a49dd37cb41e":[1,0,0,0,66],
@@ -236,18 +237,17 @@ var NAVTREEINDEX1 =
 "namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58":[0,0,0,2,7],
 "namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2":[0,0,0,2,6],
 "namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6":[0,0,0,2,2],
-"namespacetgbotxx_1_1_string_utils.html#a5425a24ccb70d4786c6c2cc703fac713":[0,0,0,2,14],
-"namespacetgbotxx_1_1_string_utils.html#a61b0ab25ca04c0c97d7517473ec2dc69":[0,0,0,2,13],
+"namespacetgbotxx_1_1_string_utils.html#a5425a24ccb70d4786c6c2cc703fac713":[0,0,0,2,15],
+"namespacetgbotxx_1_1_string_utils.html#a61b0ab25ca04c0c97d7517473ec2dc69":[0,0,0,2,14],
 "namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005":[0,0,0,2,9],
 "namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e":[0,0,0,2,5],
 "namespacetgbotxx_1_1_string_utils.html#a83bc9425583fd6fe7a1b7f0d63ca9aee":[0,0,0,2,4],
-"namespacetgbotxx_1_1_string_utils.html#ac3baf8c01cbc8dda83c51d877b292160":[0,0,0,2,12],
+"namespacetgbotxx_1_1_string_utils.html#ac3baf8c01cbc8dda83c51d877b292160":[0,0,0,2,13],
 "namespacetgbotxx_1_1_string_utils.html#ac76641e3294d564151a3caab70d526f2":[0,0,0,2,3],
 "namespacetgbotxx_1_1_string_utils.html#ad7c80e7ef45fa92f57e2baf36dbbf869":[0,0,0,2,8],
 "namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb":[0,0,0,2,0],
-"namespacetgbotxx_1_1_string_utils.html#afc42b7404576d60f1df95de386c12bfc":[0,0,0,2,11],
+"namespacetgbotxx_1_1_string_utils.html#afc42b7404576d60f1df95de386c12bfc":[0,0,0,2,12],
+"namespacetgbotxx_1_1_string_utils.html#afdad1b1777a5871c9bcfc1a43b0b259e":[0,0,0,2,11],
 "pages.html":[],
-"structtgbotxx_1_1_animation.html":[1,0,0,3],
-"structtgbotxx_1_1_animation.html#a3330c23b5fee6b43c4f686d0f101f3b5":[1,0,0,3,8],
-"structtgbotxx_1_1_animation.html#a370ffd45d6d4d1fa0182ecdb1109e71d":[1,0,0,3,1]
+"structtgbotxx_1_1_animation.html":[1,0,0,3]
 };

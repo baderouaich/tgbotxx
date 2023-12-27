@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_keyboard_button_request_user.html#abf2b09675c577ecf00ccbb53b7231db4":[1,0,0,78,3],
+"structtgbotxx_1_1_keyboard_button_request_user.html#ad3b990a4fef058e64e81aaf2a82ba938":[1,0,0,78,0],
 "structtgbotxx_1_1_keyboard_button_request_user.html#af2d68a85b5a4f78c52b3bc70fb52d283":[1,0,0,78,1],
 "structtgbotxx_1_1_labeled_price.html":[1,0,0,79],
 "structtgbotxx_1_1_labeled_price.html#a2e92bc031857fba74004959ebf8ef035":[1,0,0,79,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "structtgbotxx_1_1_poll_option.html#a8c950ef78cc5666c02e35be8e449b5a7":[1,0,0,97,0],
 "structtgbotxx_1_1_poll_option.html#a8ce05141dba29e7ff043bb66a0f4006e":[1,0,0,97,2],
 "structtgbotxx_1_1_poll_option.html#acf41f05f0cbe5cd117221851e2cc1e31":[1,0,0,97,3],
-"structtgbotxx_1_1_pre_checkout_query.html":[1,0,0,98],
-"structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c":[1,0,0,98,3],
-"structtgbotxx_1_1_pre_checkout_query.html#a63c595e8d3c85c51d45db22c022176db":[1,0,0,98,4]
+"structtgbotxx_1_1_pre_checkout_query.html":[1,0,0,98]
 };

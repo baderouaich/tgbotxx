@@ -139,6 +139,9 @@ Functions</h2></td></tr>
 <tr class="separator:a6f0112b79199930cc9a09606c1e3640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2">replaceCopy</a> (std::string str, const std::string &amp;search, const std::string &amp;<a class="el" href="namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e">replace</a>)</td></tr>
 <tr class="separator:a50fc52e61bbe0e73c63a25e354bae3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdad1b1777a5871c9bcfc1a43b0b259e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afdad1b1777a5871c9bcfc1a43b0b259e"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx_1_1_string_utils.html#afdad1b1777a5871c9bcfc1a43b0b259e">to</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:afdad1b1777a5871c9bcfc1a43b0b259e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace contains useful string related utility functions. </p>
@@ -399,8 +402,16 @@ template&lt;typename T , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Replaces a token within a string with another string </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String that contains tokens to replace </td></tr>
+    <tr><td class="paramname">search</td><td>Token to replace </td></tr>
+    <tr><td class="paramname">replace</td><td>New value to replace token with </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00136">136</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00140">140</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -443,8 +454,17 @@ template&lt;typename T , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Replaces a token within a string with another string and return a new copy </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String that contains tokens to replace </td></tr>
+    <tr><td class="paramname">search</td><td>Token to replace </td></tr>
+    <tr><td class="paramname">replace</td><td>New value to replace token with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>new replaced tokens string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00145">145</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00155">155</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
 
 </div>
 </div>
@@ -624,6 +644,49 @@ template&lt;typename T , typename D &gt; </div>
 
 </div>
 </div>
+<a id="afdad1b1777a5871c9bcfc1a43b0b259e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdad1b1777a5871c9bcfc1a43b0b259e">&#9670;&nbsp;</a></span>to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T tgbotxx::StringUtils::to </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Convert a string to T type </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>desired type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>string to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>converted string to T </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_string_utils_8hpp_source.html#l00170">170</a> of file <a class="el" href="_string_utils_8hpp_source.html">StringUtils.hpp</a>.</p>
+
+</div>
+</div>
 <a id="afc42b7404576d60f1df95de386c12bfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc42b7404576d60f1df95de386c12bfc">&#9670;&nbsp;</a></span>toLower()</h2>
 
@@ -777,7 +840,7 @@ template&lt;typename T , typename D &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="namespacetgbotxx_1_1_string_utils.html">StringUtils</a></li>
-    <li class="footer">Generated on Wed Dec 27 2023 22:35:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Dec 27 2023 22:40:42 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

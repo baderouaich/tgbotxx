@@ -57,13 +57,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
-"classtgbotxx_1_1_api.html#a131f363bfdfc17711a1f902c846fda08",
-"structtgbotxx_1_1_animation.html#a4db8520b57ae1f4cbfa801c5cd5ff843",
-"structtgbotxx_1_1_chat_member_restricted.html#a3640882366c23ef79fb27e4b2a8c33bc",
-"structtgbotxx_1_1_inline_query_result_article.html#acdd8a07f6e02263f510b6b9b9b5cf34f",
-"structtgbotxx_1_1_keyboard_button_request_user.html#af2d68a85b5a4f78c52b3bc70fb52d283",
-"structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79",
-"structtgbotxx_1_1_webhook_info.html#a08d5e3bd9c7f550fb88a31a9d1c7e20f"
+"classtgbotxx_1_1_api.html#a13159c489d7f24fbd0f90045c6043e1c",
+"structtgbotxx_1_1_animation.html#a3330c23b5fee6b43c4f686d0f101f3b5",
+"structtgbotxx_1_1_chat_member_restricted.html#a1430118d5796176a99ebc338946f0725",
+"structtgbotxx_1_1_inline_query_result_article.html#aa91f70d187ad6c79957b24374b25a507",
+"structtgbotxx_1_1_keyboard_button_request_user.html#abf2b09675c577ecf00ccbb53b7231db4",
+"structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c",
+"structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
