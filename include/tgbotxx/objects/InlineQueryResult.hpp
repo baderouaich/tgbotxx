@@ -272,7 +272,6 @@ namespace tgbotxx {
       }
   };
 
-
   /// @brief Represents a link to a video animation (H.264/MPEG-4 AVC video without sound).
   /// By default, this animated MPEG-4 file will be sent by the user with optional caption.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the animation.
@@ -379,7 +378,7 @@ namespace tgbotxx {
       /// @brief Optional. Caption of the video to be sent, 0-1024 characters after entities parsing
       std::string caption;
 
-      /// @brief Optional. Mode for parsing entities in the video caption.. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      /// @brief Optional. Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
       std::string parseMode;
 
       /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
@@ -432,6 +431,369 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "video_duration", videoDuration, 0, true);
         OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to an MP3 audio file.
+  /// By default, this audio file will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the audio.
+  struct InlineQueryResultAudio : InlineQueryResult {
+      InlineQueryResultAudio() {
+        InlineQueryResult::type = "audio";
+      }
+      explicit InlineQueryResultAudio(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "audio";
+      }
+
+      /// @brief A valid URL for the audio file
+      std::string audioUrl;
+
+      /// @brief Title
+      std::string title;
+
+      /// @brief Optional. Caption, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Performer
+      std::string performer;
+
+      /// @brief Optional. Audio duration in seconds
+      std::int32_t audioDuration{};
+
+      /// @brief Optional. Content of the message to be sent instead of the video.
+      /// This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
+      Ptr<InputMessageContent> inputMessageContent;
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "audio_url", audioUrl);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD(json, "performer", performer);
+        OBJECT_SERIALIZE_FIELD(json, "audio_duration", audioDuration);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "audio_url", audioUrl, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD(json, "performer", performer, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "audio_duration", audioDuration, 0, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to a voice recording in an .OGG container encoded with OPUS.
+  /// By default, this voice recording will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the voice message.
+  /// @note: This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
+  struct InlineQueryResultVoice : InlineQueryResult {
+      InlineQueryResultVoice() {
+        InlineQueryResult::type = "voice";
+      }
+      explicit InlineQueryResultVoice(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "voice";
+      }
+
+      /// @brief A valid URL for the voice recording
+      std::string voiceUrl;
+
+      /// @brief Recording title
+      std::string title;
+
+      /// @brief Optional. Caption, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Performer
+      std::string performer;
+
+      /// @brief Optional. Recording duration in seconds
+      std::int32_t voiceDuration{};
+
+      /// @brief Optional. Content of the message to be sent instead of the video.
+      /// This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
+      Ptr<InputMessageContent> inputMessageContent;
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "voice_url", voiceUrl);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD(json, "performer", performer);
+        OBJECT_SERIALIZE_FIELD(json, "voice_duration", voiceDuration);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "audio_url", voiceUrl, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD(json, "performer", performer, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "voice_duration", voiceDuration, 0, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+  /// @brief Represents a link to a file. By default, this file will be sent by the user with an optional caption.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the file.
+  /// Currently, only .PDF and .ZIP files can be sent using this method.
+  /// @note: This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
+  struct InlineQueryResultDocument : InlineQueryResult {
+      InlineQueryResultDocument() {
+        InlineQueryResult::type = "document";
+      }
+      explicit InlineQueryResultDocument(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "document";
+      }
+
+      /// @brief Title for the result
+      std::string title;
+
+      /// @brief Optional. Caption of the document to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief A valid URL for the file
+      std::string documentUrl;
+
+      /// @brief MIME type of the content of the file, either “application/pdf” or “application/zip”
+      std::string mimeType;
+
+      /// @brief Optional. Short description of the result
+      std::string description;
+
+      /// @brief Optional. Content of the message to be sent instead of the video.
+      /// This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
+      Ptr<InputMessageContent> inputMessageContent;
+
+      /// @brief Optional. URL of the thumbnail (JPEG only) for the file
+      std::string thumbnailUrl;
+
+      /// @brief Optional. Thumbnail width;
+      std::int32_t thumbnailWidth{};
+
+      /// @brief Optional. Thumbnail height;
+      std::int32_t thumbnailHeight{};
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD(json, "document_url", documentUrl);
+        OBJECT_SERIALIZE_FIELD(json, "mime_type", mimeType);
+        OBJECT_SERIALIZE_FIELD(json, "description", description);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD(json, "document_url", documentUrl, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "mime_type", mimeType, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight, 0, true);
+      }
+  };
+
+  /// @brief Represents a location on a map.
+  /// By default, the location will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the location.
+  struct InlineQueryResultLocation : InlineQueryResult {
+      InlineQueryResultLocation() {
+        InlineQueryResult::type = "location";
+      }
+      explicit InlineQueryResultLocation(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "location";
+      }
+
+      /// @brief Location latitude in degrees
+      float latitude{};
+
+      /// @brief Location longitude in degrees
+      float longitude{};
+
+      /// @brief Location title
+      std::string title;
+
+      /// @brief Optional. The radius of uncertainty for the location, measured in meters; 0-1500
+      float horizontalAccuracy{};
+
+      /// @brief Optional. Period in seconds for which the location can be updated, should be between 60 and 86400.
+      std::int32_t livePeriod{};
+
+      /// @brief Optional. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
+      std::int32_t heading{};
+
+      /// @brief Optional. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters.
+      /// Must be between 1 and 100000 if specified.
+      std::int32_t proximityAlertRadius{};
+
+      /// @brief Optional. Content of the message to be sent instead of the location.
+      Ptr<InputMessageContent> inputMessageContent;
+
+      /// @brief Optional. URL of the thumbnail (JPEG only) for the file
+      std::string thumbnailUrl;
+
+      /// @brief Optional. Thumbnail width;
+      std::int32_t thumbnailWidth{};
+
+      /// @brief Optional. Thumbnail height;
+      std::int32_t thumbnailHeight{};
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "latitude", latitude);
+        OBJECT_SERIALIZE_FIELD(json, "longitude", longitude);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "horizontal_accuracy", horizontalAccuracy);
+        OBJECT_SERIALIZE_FIELD(json, "live_period", livePeriod);
+        OBJECT_SERIALIZE_FIELD(json, "heading", heading);
+        OBJECT_SERIALIZE_FIELD(json, "proximity_alert_radius", proximityAlertRadius);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "latitude", latitude, 0.0f, false);
+        OBJECT_DESERIALIZE_FIELD(json, "longitude", longitude, 0.0f, false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "horizontal_accuracy", horizontalAccuracy, 0.0f, true);
+        OBJECT_DESERIALIZE_FIELD(json, "live_period", livePeriod, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "heading", heading, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "proximity_alert_radius", proximityAlertRadius, 0, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight, 0, true);
+      }
+  };
+
+  /// @brief Represents a venue. By default, the venue will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the venue.
+  struct InlineQueryResultVenue : InlineQueryResult {
+      InlineQueryResultVenue() {
+        InlineQueryResult::type = "venue";
+      }
+      explicit InlineQueryResultVenue(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "venue";
+      }
+
+      /// @brief Latitude of the venue location in degrees
+      float latitude{};
+
+      /// @brief Longitude of the venue location in degrees
+      float longitude{};
+
+      /// @brief Title of the venue
+      std::string title;
+
+      /// @brief Address of the venue
+      std::string address;
+
+      /// @brief Optional. Foursquare identifier of the venue if known
+      std::string foursquareId;
+
+      /// @brief Optional. Foursquare type of the venue, if known.
+      /// (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
+      std::string foursquareType;
+
+      /// @brief Optional. Google Places identifier of the venue
+      std::string googlePlaceId;
+
+      /// @brief Optional. Google Places type of the venue. (See [supported types](https://developers.google.com/places/web-service/supported_types).)
+      std::string googlePlaceType;
+
+      /// @brief Optional. Content of the message to be sent instead of the venue.
+      Ptr<InputMessageContent> inputMessageContent;
+
+      /// @brief Optional. URL of the thumbnail (JPEG only) for the file
+      std::string thumbnailUrl;
+
+      /// @brief Optional. Thumbnail width;
+      std::int32_t thumbnailWidth{};
+
+      /// @brief Optional. Thumbnail height;
+      std::int32_t thumbnailHeight{};
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "latitude", latitude);
+        OBJECT_SERIALIZE_FIELD(json, "longitude", longitude);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "address", address);
+        OBJECT_SERIALIZE_FIELD(json, "foursquare_id", foursquareId);
+        OBJECT_SERIALIZE_FIELD(json, "foursquare_type", foursquareType);
+        OBJECT_SERIALIZE_FIELD(json, "google_place_id", googlePlaceId);
+        OBJECT_SERIALIZE_FIELD(json, "google_place_type", googlePlaceType);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "latitude", latitude, 0.0f, false);
+        OBJECT_DESERIALIZE_FIELD(json, "longitude", longitude, 0.0f, false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "address", address, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "foursquare_id", foursquareId, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "foursquare_type", foursquareType, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "google_place_id", googlePlaceId, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "google_place_type", googlePlaceType, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight, 0, true);
       }
   };
 
