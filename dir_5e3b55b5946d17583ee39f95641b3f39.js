@@ -133,7 +133,12 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "InlineQueryResultPhoto", "structtgbotxx_1_1_inline_query_result_photo.html", "structtgbotxx_1_1_inline_query_result_photo" ],
       [ "InlineQueryResultGif", "structtgbotxx_1_1_inline_query_result_gif.html", "structtgbotxx_1_1_inline_query_result_gif" ],
       [ "InlineQueryResultMpeg4Gif", "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html", "structtgbotxx_1_1_inline_query_result_mpeg4_gif" ],
-      [ "InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", "structtgbotxx_1_1_inline_query_result_video" ]
+      [ "InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", "structtgbotxx_1_1_inline_query_result_video" ],
+      [ "InlineQueryResultAudio", "structtgbotxx_1_1_inline_query_result_audio.html", "structtgbotxx_1_1_inline_query_result_audio" ],
+      [ "InlineQueryResultVoice", "structtgbotxx_1_1_inline_query_result_voice.html", "structtgbotxx_1_1_inline_query_result_voice" ],
+      [ "InlineQueryResultDocument", "structtgbotxx_1_1_inline_query_result_document.html", "structtgbotxx_1_1_inline_query_result_document" ],
+      [ "InlineQueryResultLocation", "structtgbotxx_1_1_inline_query_result_location.html", "structtgbotxx_1_1_inline_query_result_location" ],
+      [ "InlineQueryResultVenue", "structtgbotxx_1_1_inline_query_result_venue.html", "structtgbotxx_1_1_inline_query_result_venue" ]
     ] ],
     [ "InlineQueryResultsButton.hpp", "_inline_query_results_button_8hpp.html", [
       [ "InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", "structtgbotxx_1_1_inline_query_results_button" ]

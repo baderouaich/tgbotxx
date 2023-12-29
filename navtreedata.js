@@ -61,9 +61,9 @@ var NAVTREEINDEX =
 "structtgbotxx_1_1_animation.html#a3330c23b5fee6b43c4f686d0f101f3b5",
 "structtgbotxx_1_1_chat_member_restricted.html#a1430118d5796176a99ebc338946f0725",
 "structtgbotxx_1_1_inline_query_result_article.html#aa91f70d187ad6c79957b24374b25a507",
-"structtgbotxx_1_1_keyboard_button_request_user.html#abf2b09675c577ecf00ccbb53b7231db4",
-"structtgbotxx_1_1_pre_checkout_query.html#a3bea73190d762e649a7b8698c542665c",
-"structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36"
+"structtgbotxx_1_1_input_message_content.html",
+"structtgbotxx_1_1_message_id.html#a2c7949fd69e652dd3d4564105bef1a3c",
+"structtgbotxx_1_1_venue.html#a89499161ce42bedf987a78ad283d52ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

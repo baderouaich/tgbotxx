@@ -60,10 +60,15 @@ var hierarchy =
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
     [ "tgbotxx::InlineQueryResult", "structtgbotxx_1_1_inline_query_result.html", [
       [ "tgbotxx::InlineQueryResultArticle", "structtgbotxx_1_1_inline_query_result_article.html", null ],
+      [ "tgbotxx::InlineQueryResultAudio", "structtgbotxx_1_1_inline_query_result_audio.html", null ],
+      [ "tgbotxx::InlineQueryResultDocument", "structtgbotxx_1_1_inline_query_result_document.html", null ],
       [ "tgbotxx::InlineQueryResultGif", "structtgbotxx_1_1_inline_query_result_gif.html", null ],
+      [ "tgbotxx::InlineQueryResultLocation", "structtgbotxx_1_1_inline_query_result_location.html", null ],
       [ "tgbotxx::InlineQueryResultMpeg4Gif", "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html", null ],
       [ "tgbotxx::InlineQueryResultPhoto", "structtgbotxx_1_1_inline_query_result_photo.html", null ],
-      [ "tgbotxx::InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", null ]
+      [ "tgbotxx::InlineQueryResultVenue", "structtgbotxx_1_1_inline_query_result_venue.html", null ],
+      [ "tgbotxx::InlineQueryResultVideo", "structtgbotxx_1_1_inline_query_result_video.html", null ],
+      [ "tgbotxx::InlineQueryResultVoice", "structtgbotxx_1_1_inline_query_result_voice.html", null ]
     ] ],
     [ "tgbotxx::InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", null ],
     [ "tgbotxx::InputMedia", "structtgbotxx_1_1_input_media.html", [
