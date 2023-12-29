@@ -798,5 +798,144 @@ namespace tgbotxx {
   };
 
 
+  /// @brief Represents a venue. By default, the venue will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the venue.
+  struct InlineQueryResultContact : InlineQueryResult {
+      InlineQueryResultContact() {
+        InlineQueryResult::type = "contact";
+      }
+      explicit InlineQueryResultContact(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "contact";
+      }
+
+      /// @brief Contact's phone number
+      std::string phoneNumber;
+
+      /// @brief Contact's first name
+      std::string firstName;
+
+      /// @brief Optional. Contact's last name
+      std::string lastName;
+
+      /// @brief Optional. Additional data about the contact in the form of a vCard, 0-2048 bytes
+      std::string vcard;
+
+      /// @brief Optional. Content of the message to be sent instead of the contact.
+      Ptr<InputMessageContent> inputMessageContent;
+
+      /// @brief Optional. Url of the thumbnail for the result
+      std::string thumbnailUrl;
+
+      /// @brief Optional. Thumbnail width;
+      std::int32_t thumbnailWidth{};
+
+      /// @brief Optional. Thumbnail height;
+      std::int32_t thumbnailHeight{};
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "phone_number", phoneNumber);
+        OBJECT_SERIALIZE_FIELD(json, "first_name", firstName);
+        OBJECT_SERIALIZE_FIELD(json, "last_name", lastName);
+        OBJECT_SERIALIZE_FIELD(json, "vcard", vcard);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
+        OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "phone_number", phoneNumber, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "last_name", lastName, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "vcard", vcard, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight, 0, true);
+      }
+  };
+
+
+  /// @brief Represents a Game.
+  /// @note This will only work in Telegram versions released after October 1, 2016. Older clients will not display any inline results if a game result is among them.
+  struct InlineQueryResultGame : InlineQueryResult {
+      InlineQueryResultGame() {
+        InlineQueryResult::type = "game";
+      }
+      explicit InlineQueryResultGame(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "game";
+      }
+
+      /// @brief Short name of the game
+      std::string gameShortName;
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "game_short_name", gameShortName);
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "game_short_name", gameShortName, "", false);
+      }
+  };
+
+
+  /// @brief Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
+  struct InlineQueryResultCachedPhoto : InlineQueryResult {
+      InlineQueryResultCachedPhoto() {
+        InlineQueryResult::type = "photo";
+      }
+      explicit InlineQueryResultCachedPhoto(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "photo";
+      }
+
+      /// @brief A valid file identifier of the photo
+      std::string photoFileId;
+
+      /// @brief Optional. Title for the result
+      std::string title;
+
+      /// @brief Optional. Short description of the result
+      std::string description;
+
+      /// @brief Optional. Caption of the photo to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. Content of the message to be sent instead of the photo.
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "photo_file_id", photoFileId);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "description", description);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "photo_file_id", photoFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
   // TODO: InlineQueryResult*
 }
