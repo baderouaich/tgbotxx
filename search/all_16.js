@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['watcher_815',['watcher',['../structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf',1,'tgbotxx::ProximityAlertTriggered']]],
-  ['webapp_816',['webApp',['../structtgbotxx_1_1_menu_button_web_app.html#a666256c53254df6d462d80f60956be74',1,'tgbotxx::MenuButtonWebApp::webApp()'],['../structtgbotxx_1_1_keyboard_button.html#aac94b1c881fa1984aed732d484dd0faa',1,'tgbotxx::KeyboardButton::webApp()'],['../structtgbotxx_1_1_inline_keyboard_button.html#ac6acc69322e4a94a2b1d9ed5b6d4bf03',1,'tgbotxx::InlineKeyboardButton::webApp()'],['../structtgbotxx_1_1_inline_query_results_button.html#ac489c9b120c19490562e2c6986ec3b93',1,'tgbotxx::InlineQueryResultsButton::webApp()']]],
-  ['webappdata_817',['WebAppData',['../structtgbotxx_1_1_web_app_data.html',1,'tgbotxx']]],
-  ['webappdata_818',['webAppData',['../structtgbotxx_1_1_message.html#a9d67c84794b0cf9ecd7922f0556b0028',1,'tgbotxx::Message']]],
-  ['webappdata_819',['WebAppData',['../structtgbotxx_1_1_web_app_data.html#ae6ae74a8e49464221b1439656081ed11',1,'tgbotxx::WebAppData::WebAppData(const nl::json &amp;json)'],['../structtgbotxx_1_1_web_app_data.html#a65596f3c1c525311781235a93b7f54e8',1,'tgbotxx::WebAppData::WebAppData()=default']]],
+  ['watcher_816',['watcher',['../structtgbotxx_1_1_proximity_alert_triggered.html#a66f05e6fca51835f146739cc215628bf',1,'tgbotxx::ProximityAlertTriggered']]],
+  ['webapp_817',['webApp',['../structtgbotxx_1_1_menu_button_web_app.html#a666256c53254df6d462d80f60956be74',1,'tgbotxx::MenuButtonWebApp::webApp()'],['../structtgbotxx_1_1_keyboard_button.html#aac94b1c881fa1984aed732d484dd0faa',1,'tgbotxx::KeyboardButton::webApp()'],['../structtgbotxx_1_1_inline_keyboard_button.html#ac6acc69322e4a94a2b1d9ed5b6d4bf03',1,'tgbotxx::InlineKeyboardButton::webApp()'],['../structtgbotxx_1_1_inline_query_results_button.html#ac489c9b120c19490562e2c6986ec3b93',1,'tgbotxx::InlineQueryResultsButton::webApp()']]],
+  ['webappdata_818',['WebAppData',['../structtgbotxx_1_1_web_app_data.html',1,'tgbotxx::WebAppData'],['../structtgbotxx_1_1_web_app_data.html#ae6ae74a8e49464221b1439656081ed11',1,'tgbotxx::WebAppData::WebAppData(const nl::json &amp;json)'],['../structtgbotxx_1_1_web_app_data.html#a65596f3c1c525311781235a93b7f54e8',1,'tgbotxx::WebAppData::WebAppData()=default']]],
+  ['webappdata_819',['webAppData',['../structtgbotxx_1_1_message.html#a9d67c84794b0cf9ecd7922f0556b0028',1,'tgbotxx::Message']]],
   ['webappdata_2ehpp_820',['WebAppData.hpp',['../_web_app_data_8hpp.html',1,'']]],
   ['webappinfo_821',['WebAppInfo',['../structtgbotxx_1_1_web_app_info.html',1,'tgbotxx::WebAppInfo'],['../structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36',1,'tgbotxx::WebAppInfo::WebAppInfo()=default'],['../structtgbotxx_1_1_web_app_info.html#a13e5852429d71a5b77aeeb63d27a4b27',1,'tgbotxx::WebAppInfo::WebAppInfo(const nl::json &amp;json)']]],
   ['webappinfo_2ehpp_822',['WebAppInfo.hpp',['../_web_app_info_8hpp.html',1,'']]],

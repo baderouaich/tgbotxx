@@ -23,11 +23,10 @@ var searchData=
   ['api_20',['Api',['../classtgbotxx_1_1_api.html',1,'tgbotxx']]],
   ['api_2ehpp_21',['Api.hpp',['../_api_8hpp.html',1,'']]],
   ['approvechatjoinrequest_22',['approveChatJoinRequest',['../classtgbotxx_1_1_api.html#adb7036feed0a679d243e789263e2cd0b',1,'tgbotxx::Api']]],
-  ['audio_23',['Audio',['../structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70',1,'tgbotxx::Audio::Audio()=default'],['../structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b',1,'tgbotxx::Audio::Audio(const nl::json &amp;json)']]],
-  ['audio_24',['audio',['../structtgbotxx_1_1_message.html#ae3c9ff13afb53e3737a20de5d1c958c2',1,'tgbotxx::Message']]],
-  ['audio_25',['Audio',['../structtgbotxx_1_1_audio.html',1,'tgbotxx']]],
-  ['audio_2ehpp_26',['Audio.hpp',['../_audio_8hpp.html',1,'']]],
-  ['audioduration_27',['audioDuration',['../structtgbotxx_1_1_inline_query_result_audio.html#a778b9fe54735423e86d8a14a144993c0',1,'tgbotxx::InlineQueryResultAudio']]],
-  ['audiourl_28',['audioUrl',['../structtgbotxx_1_1_inline_query_result_audio.html#ab53488c40a49477a582e9ab7fe312208',1,'tgbotxx::InlineQueryResultAudio']]],
-  ['authorsignature_29',['authorSignature',['../structtgbotxx_1_1_message.html#a37579ad478a4a65a35139a2ac5f55868',1,'tgbotxx::Message']]]
+  ['audio_23',['audio',['../structtgbotxx_1_1_message.html#ae3c9ff13afb53e3737a20de5d1c958c2',1,'tgbotxx::Message']]],
+  ['audio_24',['Audio',['../structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70',1,'tgbotxx::Audio::Audio()=default'],['../structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b',1,'tgbotxx::Audio::Audio(const nl::json &amp;json)'],['../structtgbotxx_1_1_audio.html',1,'tgbotxx::Audio']]],
+  ['audio_2ehpp_25',['Audio.hpp',['../_audio_8hpp.html',1,'']]],
+  ['audioduration_26',['audioDuration',['../structtgbotxx_1_1_inline_query_result_audio.html#a778b9fe54735423e86d8a14a144993c0',1,'tgbotxx::InlineQueryResultAudio']]],
+  ['audiourl_27',['audioUrl',['../structtgbotxx_1_1_inline_query_result_audio.html#ab53488c40a49477a582e9ab7fe312208',1,'tgbotxx::InlineQueryResultAudio']]],
+  ['authorsignature_28',['authorSignature',['../structtgbotxx_1_1_message.html#a37579ad478a4a65a35139a2ac5f55868',1,'tgbotxx::Message']]]
 ];

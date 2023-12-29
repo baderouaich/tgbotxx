@@ -61,7 +61,10 @@ var hierarchy =
     [ "tgbotxx::InlineQueryResult", "structtgbotxx_1_1_inline_query_result.html", [
       [ "tgbotxx::InlineQueryResultArticle", "structtgbotxx_1_1_inline_query_result_article.html", null ],
       [ "tgbotxx::InlineQueryResultAudio", "structtgbotxx_1_1_inline_query_result_audio.html", null ],
+      [ "tgbotxx::InlineQueryResultCachedPhoto", "structtgbotxx_1_1_inline_query_result_cached_photo.html", null ],
+      [ "tgbotxx::InlineQueryResultContact", "structtgbotxx_1_1_inline_query_result_contact.html", null ],
       [ "tgbotxx::InlineQueryResultDocument", "structtgbotxx_1_1_inline_query_result_document.html", null ],
+      [ "tgbotxx::InlineQueryResultGame", "structtgbotxx_1_1_inline_query_result_game.html", null ],
       [ "tgbotxx::InlineQueryResultGif", "structtgbotxx_1_1_inline_query_result_gif.html", null ],
       [ "tgbotxx::InlineQueryResultLocation", "structtgbotxx_1_1_inline_query_result_location.html", null ],
       [ "tgbotxx::InlineQueryResultMpeg4Gif", "structtgbotxx_1_1_inline_query_result_mpeg4_gif.html", null ],

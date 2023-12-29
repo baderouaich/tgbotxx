@@ -138,7 +138,10 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "InlineQueryResultVoice", "structtgbotxx_1_1_inline_query_result_voice.html", "structtgbotxx_1_1_inline_query_result_voice" ],
       [ "InlineQueryResultDocument", "structtgbotxx_1_1_inline_query_result_document.html", "structtgbotxx_1_1_inline_query_result_document" ],
       [ "InlineQueryResultLocation", "structtgbotxx_1_1_inline_query_result_location.html", "structtgbotxx_1_1_inline_query_result_location" ],
-      [ "InlineQueryResultVenue", "structtgbotxx_1_1_inline_query_result_venue.html", "structtgbotxx_1_1_inline_query_result_venue" ]
+      [ "InlineQueryResultVenue", "structtgbotxx_1_1_inline_query_result_venue.html", "structtgbotxx_1_1_inline_query_result_venue" ],
+      [ "InlineQueryResultContact", "structtgbotxx_1_1_inline_query_result_contact.html", "structtgbotxx_1_1_inline_query_result_contact" ],
+      [ "InlineQueryResultGame", "structtgbotxx_1_1_inline_query_result_game.html", "structtgbotxx_1_1_inline_query_result_game" ],
+      [ "InlineQueryResultCachedPhoto", "structtgbotxx_1_1_inline_query_result_cached_photo.html", "structtgbotxx_1_1_inline_query_result_cached_photo" ]
     ] ],
     [ "InlineQueryResultsButton.hpp", "_inline_query_results_button_8hpp.html", [
       [ "InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", "structtgbotxx_1_1_inline_query_results_button" ]

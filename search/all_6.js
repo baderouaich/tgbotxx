@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['game_271',['Game',['../structtgbotxx_1_1_game.html#acdba6534b1fe46c115ff67d94bbe5b7e',1,'tgbotxx::Game::Game()=default'],['../structtgbotxx_1_1_game.html#a342390bb3ff784f5f2948455d0149e8c',1,'tgbotxx::Game::Game(const nl::json &amp;json)']]],
-  ['game_272',['game',['../structtgbotxx_1_1_message.html#af4231e1aea52361caba0383ead314cb1',1,'tgbotxx::Message']]],
-  ['game_273',['Game',['../structtgbotxx_1_1_game.html',1,'tgbotxx']]],
-  ['game_2ehpp_274',['Game.hpp',['../_game_8hpp.html',1,'']]],
-  ['gameshortname_275',['gameShortName',['../structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2',1,'tgbotxx::CallbackQuery']]],
+  ['game_271',['game',['../structtgbotxx_1_1_message.html#af4231e1aea52361caba0383ead314cb1',1,'tgbotxx::Message']]],
+  ['game_272',['Game',['../structtgbotxx_1_1_game.html#acdba6534b1fe46c115ff67d94bbe5b7e',1,'tgbotxx::Game::Game()=default'],['../structtgbotxx_1_1_game.html#a342390bb3ff784f5f2948455d0149e8c',1,'tgbotxx::Game::Game(const nl::json &amp;json)'],['../structtgbotxx_1_1_game.html',1,'tgbotxx::Game']]],
+  ['game_2ehpp_273',['Game.hpp',['../_game_8hpp.html',1,'']]],
+  ['gameshortname_274',['gameShortName',['../structtgbotxx_1_1_inline_query_result_game.html#a9fde3e0c340ec34739ca0e07490f3e73',1,'tgbotxx::InlineQueryResultGame::gameShortName()'],['../structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2',1,'tgbotxx::CallbackQuery::gameShortName()']]],
+  ['generalforumtopichidden_275',['GeneralForumTopicHidden',['../structtgbotxx_1_1_general_forum_topic_hidden.html#a78863999f049618e875c2c52905ae697',1,'tgbotxx::GeneralForumTopicHidden::GeneralForumTopicHidden(const nl::json &amp;json)'],['../structtgbotxx_1_1_general_forum_topic_hidden.html#a69194e040aaa6b462000e3403730fe6d',1,'tgbotxx::GeneralForumTopicHidden::GeneralForumTopicHidden()=default']]],
   ['generalforumtopichidden_276',['generalForumTopicHidden',['../structtgbotxx_1_1_message.html#a653b3c538c8ced17511dbc1a121d9eb2',1,'tgbotxx::Message']]],
-  ['generalforumtopichidden_277',['GeneralForumTopicHidden',['../structtgbotxx_1_1_general_forum_topic_hidden.html#a78863999f049618e875c2c52905ae697',1,'tgbotxx::GeneralForumTopicHidden::GeneralForumTopicHidden(const nl::json &amp;json)'],['../structtgbotxx_1_1_general_forum_topic_hidden.html#a69194e040aaa6b462000e3403730fe6d',1,'tgbotxx::GeneralForumTopicHidden::GeneralForumTopicHidden()=default'],['../structtgbotxx_1_1_general_forum_topic_hidden.html',1,'tgbotxx::GeneralForumTopicHidden']]],
+  ['generalforumtopichidden_277',['GeneralForumTopicHidden',['../structtgbotxx_1_1_general_forum_topic_hidden.html',1,'tgbotxx']]],
   ['generalforumtopichidden_2ehpp_278',['GeneralForumTopicHidden.hpp',['../_general_forum_topic_hidden_8hpp.html',1,'']]],
   ['generalforumtopicunhidden_279',['GeneralForumTopicUnhidden',['../structtgbotxx_1_1_general_forum_topic_unhidden.html#aacff1d72a685ec43c520ce37bb7f0905',1,'tgbotxx::GeneralForumTopicUnhidden::GeneralForumTopicUnhidden()=default'],['../structtgbotxx_1_1_general_forum_topic_unhidden.html#af57a5fe28a2a564a6678f1ae1ca0efa0',1,'tgbotxx::GeneralForumTopicUnhidden::GeneralForumTopicUnhidden(const nl::json &amp;json)']]],
   ['generalforumtopicunhidden_280',['generalForumTopicUnhidden',['../structtgbotxx_1_1_message.html#af65e6a4dc4c29fb9ff35c819e20aac0b',1,'tgbotxx::Message']]],
