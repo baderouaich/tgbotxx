@@ -137,8 +137,11 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a489b38a59480ac4f75cbf0cf23ed021c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Caption of the photo to be sent, 0-1024 characters after entities parsing.  <a href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a489b38a59480ac4f75cbf0cf23ed021c">More...</a><br /></td></tr>
 <tr class="separator:a489b38a59480ac4f75cbf0cf23ed021c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86c5cb486598122f4966ade666abcbe3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a86c5cb486598122f4966ade666abcbe3">parseMode</a></td></tr>
-<tr class="memdesc:a86c5cb486598122f4966ade666abcbe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.  <a href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a86c5cb486598122f4966ade666abcbe3">More...</a><br /></td></tr>
+<tr class="memdesc:a86c5cb486598122f4966ade666abcbe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.  <a href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a86c5cb486598122f4966ade666abcbe3">More...</a><br /></td></tr>
 <tr class="separator:a86c5cb486598122f4966ade666abcbe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad80bfde3ec41ba26e337b14f434c270b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_query_result_cached_photo.html#ad80bfde3ec41ba26e337b14f434c270b">captionEntities</a></td></tr>
+<tr class="memdesc:ad80bfde3ec41ba26e337b14f434c270b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. List of special entities that appear in the caption, which can be specified instead of parseMode.  <a href="structtgbotxx_1_1_inline_query_result_cached_photo.html#ad80bfde3ec41ba26e337b14f434c270b">More...</a><br /></td></tr>
+<tr class="separator:ad80bfde3ec41ba26e337b14f434c270b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52c97a1dba0e8b7e050197d88d2b192d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_input_message_content.html">InputMessageContent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a52c97a1dba0e8b7e050197d88d2b192d">inputMessageContent</a></td></tr>
 <tr class="memdesc:a52c97a1dba0e8b7e050197d88d2b192d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Content of the message to be sent instead of the photo.  <a href="structtgbotxx_1_1_inline_query_result_cached_photo.html#a52c97a1dba0e8b7e050197d88d2b192d">More...</a><br /></td></tr>
 <tr class="separator:a52c97a1dba0e8b7e050197d88d2b192d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,7 +243,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="structtgbotxx_1_1_inline_query_result.html#a578ef1e06c9a8b12ac12777a2d513a9a">tgbotxx::InlineQueryResult</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00928">928</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00932">932</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +272,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="structtgbotxx_1_1_inline_query_result.html#a565057c3ab9f13251e7b552fbdd6a0c1">tgbotxx::InlineQueryResult</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00917">917</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00920">920</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,6 +292,24 @@ Public Attributes</h2></td></tr>
 <p>Optional. Caption of the photo to be sent, 0-1024 characters after entities parsing. </p>
 
 <p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00908">908</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad80bfde3ec41ba26e337b14f434c270b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80bfde3ec41ba26e337b14f434c270b">&#9670;&nbsp;</a></span>captionEntities</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message_entity.html">MessageEntity</a>&gt; &gt; tgbotxx::InlineQueryResultCachedPhoto::captionEntities</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. List of special entities that appear in the caption, which can be specified instead of parseMode. </p>
+
+<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00914">914</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
 
 </div>
 </div>
@@ -324,7 +345,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Content of the message to be sent instead of the photo. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00914">914</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00917">917</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +361,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. </p>
+<p>Optional. Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. </p>
 
 <p class="definition">Definition at line <a class="el" href="_inline_query_result_8hpp_source.html#l00911">911</a> of file <a class="el" href="_inline_query_result_8hpp_source.html">InlineQueryResult.hpp</a>.</p>
 
@@ -391,7 +412,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_inline_query_result_cached_photo.html">InlineQueryResultCachedPhoto</a></li>
-    <li class="footer">Generated on Fri Dec 29 2023 21:27:16 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 30 2023 13:09:12 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

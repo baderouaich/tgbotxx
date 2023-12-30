@@ -5,6 +5,7 @@ var structtgbotxx_1_1_inline_query_result_cached_photo =
     [ "fromJson", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a3757a7bf22f8b5600ee5fb1a4dd9c366", null ],
     [ "toJson", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a154803ca8d11779fe057112cb0381d4d", null ],
     [ "caption", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a489b38a59480ac4f75cbf0cf23ed021c", null ],
+    [ "captionEntities", "structtgbotxx_1_1_inline_query_result_cached_photo.html#ad80bfde3ec41ba26e337b14f434c270b", null ],
     [ "description", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a7544309b5e37af42d8ad61a0fc5f3e97", null ],
     [ "inputMessageContent", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a52c97a1dba0e8b7e050197d88d2b192d", null ],
     [ "parseMode", "structtgbotxx_1_1_inline_query_result_cached_photo.html#a86c5cb486598122f4966ade666abcbe3", null ],

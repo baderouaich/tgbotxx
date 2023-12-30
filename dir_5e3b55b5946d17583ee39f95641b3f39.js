@@ -141,7 +141,14 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "InlineQueryResultVenue", "structtgbotxx_1_1_inline_query_result_venue.html", "structtgbotxx_1_1_inline_query_result_venue" ],
       [ "InlineQueryResultContact", "structtgbotxx_1_1_inline_query_result_contact.html", "structtgbotxx_1_1_inline_query_result_contact" ],
       [ "InlineQueryResultGame", "structtgbotxx_1_1_inline_query_result_game.html", "structtgbotxx_1_1_inline_query_result_game" ],
-      [ "InlineQueryResultCachedPhoto", "structtgbotxx_1_1_inline_query_result_cached_photo.html", "structtgbotxx_1_1_inline_query_result_cached_photo" ]
+      [ "InlineQueryResultCachedPhoto", "structtgbotxx_1_1_inline_query_result_cached_photo.html", "structtgbotxx_1_1_inline_query_result_cached_photo" ],
+      [ "InlineQueryResultCachedGif", "structtgbotxx_1_1_inline_query_result_cached_gif.html", "structtgbotxx_1_1_inline_query_result_cached_gif" ],
+      [ "InlineQueryResultCachedMpeg4Gif", "structtgbotxx_1_1_inline_query_result_cached_mpeg4_gif.html", "structtgbotxx_1_1_inline_query_result_cached_mpeg4_gif" ],
+      [ "InlineQueryResultCachedSticker", "structtgbotxx_1_1_inline_query_result_cached_sticker.html", "structtgbotxx_1_1_inline_query_result_cached_sticker" ],
+      [ "InlineQueryResultCachedDocument", "structtgbotxx_1_1_inline_query_result_cached_document.html", "structtgbotxx_1_1_inline_query_result_cached_document" ],
+      [ "InlineQueryResultCachedVideo", "structtgbotxx_1_1_inline_query_result_cached_video.html", "structtgbotxx_1_1_inline_query_result_cached_video" ],
+      [ "InlineQueryResultCachedVoice", "structtgbotxx_1_1_inline_query_result_cached_voice.html", "structtgbotxx_1_1_inline_query_result_cached_voice" ],
+      [ "InlineQueryResultCachedAudio", "structtgbotxx_1_1_inline_query_result_cached_audio.html", "structtgbotxx_1_1_inline_query_result_cached_audio" ]
     ] ],
     [ "InlineQueryResultsButton.hpp", "_inline_query_results_button_8hpp.html", [
       [ "InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", "structtgbotxx_1_1_inline_query_results_button" ]
