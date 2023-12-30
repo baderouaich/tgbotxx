@@ -5,6 +5,7 @@
 #include "tgbotxx/objects/WebhookInfo.hpp"
 #include <csignal>
 #include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <tgbotxx/tgbotxx.hpp>
 
@@ -338,9 +339,28 @@ class MyBot : public Bot {
     void onEditedMessage(const Ptr<Message>& editedMessage) override {
       std::cout << __func__ << ": " << editedMessage->text << std::endl;
     }
-    /// Called when a new incoming inline query is received
+    /// Called when a new incoming inline query is received (when user writes in the chat text box: @botname QUERY)
     void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {
       std::cout << __func__ << ": " << inlineQuery->query << std::endl;
+      std::string query = inlineQuery->query;
+
+      if(query.starts_with("photo")) {
+        std::vector<Ptr<InlineQueryResult>> inlineQueryResults;
+        for (const std::string_view photoURL: {"https://images.alphacoders.com/129/1299740.jpg",
+                                               "https://images2.alphacoders.com/112/1128233.jpg",
+                                               "https://images2.alphacoders.com/131/1311487.jpg"}) {
+          auto photoPtr = makePtr<InlineQueryResultPhoto>();
+          photoPtr->id = StringUtils::random(16);
+          photoPtr->photoUrl = photoURL;
+          photoPtr->thumbnailUrl = photoURL;
+          inlineQueryResults.push_back(std::move(photoPtr));
+        }
+        try {
+          api()->answerInlineQuery(inlineQuery->id, inlineQueryResults, 300, "");
+        } catch(const std::exception& e) {
+          std::cerr << e.what() << std::endl;
+        }
+      }
     }
     /// Called when the result of an inline query that was chosen by a user and sent to their chat partner.
     void onChosenInlineResult(const Ptr<ChosenInlineResult>& chosenInlineResult) override {
