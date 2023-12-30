@@ -131,6 +131,7 @@ var hierarchy =
     [ "std::runtime_error", null, [
       [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", null ]
     ] ],
+    [ "tgbotxx::SentWebAppMessage", "structtgbotxx_1_1_sent_web_app_message.html", null ],
     [ "tgbotxx::ShippingAddress", "structtgbotxx_1_1_shipping_address.html", null ],
     [ "tgbotxx::ShippingOption", "structtgbotxx_1_1_shipping_option.html", null ],
     [ "tgbotxx::ShippingQuery", "structtgbotxx_1_1_shipping_query.html", null ],

@@ -251,6 +251,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "ReplyKeyboardRemove.hpp", "_reply_keyboard_remove_8hpp.html", [
       [ "ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", "structtgbotxx_1_1_reply_keyboard_remove" ]
     ] ],
+    [ "SentWebAppMessage.hpp", "_sent_web_app_message_8hpp.html", [
+      [ "SentWebAppMessage", "structtgbotxx_1_1_sent_web_app_message.html", "structtgbotxx_1_1_sent_web_app_message" ]
+    ] ],
     [ "ShippingAddress.hpp", "_shipping_address_8hpp.html", [
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ]
     ] ],

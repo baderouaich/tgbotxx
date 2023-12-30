@@ -324,6 +324,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a100bde418bced0e08911afec297b8f0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">answerInlineQuery</a> (const std::string &amp;inlineQueryId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt;&gt; &amp;results, std::int32_t cacheTime=300, bool isPersonal=false, const std::string &amp;nextOffset=&quot;&quot;, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_results_button.html">InlineQueryResultsButton</a> &gt; &amp;button=nullptr) const</td></tr>
 <tr class="memdesc:a100bde418bced0e08911afec297b8f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send answers to an inline query. No more than 50 results per query are allowed.  <a href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">More...</a><br /></td></tr>
 <tr class="separator:a100bde418bced0e08911afec297b8f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1581c3e1651db9cc459cc9026ffaa111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_sent_web_app_message.html">SentWebAppMessage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a1581c3e1651db9cc459cc9026ffaa111">answerWebAppQuery</a> (const std::string &amp;webAppQueryId, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt; &amp;result) const</td></tr>
+<tr class="memdesc:a1581c3e1651db9cc459cc9026ffaa111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set the result of an interaction with a Web App and send a corresponding message on behalf of the user to the chat from which the query originated.  <a href="classtgbotxx_1_1_api.html#a1581c3e1651db9cc459cc9026ffaa111">More...</a><br /></td></tr>
+<tr class="separator:a1581c3e1651db9cc459cc9026ffaa111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3ebd029c881a7bb301edb007e2c456d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ac3ebd029c881a7bb301edb007e2c456d">setLongPollTimeout</a> (const cpr::Timeout &amp;longPollTimeout)</td></tr>
 <tr class="memdesc:ac3ebd029c881a7bb301edb007e2c456d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set long polling timeout.  <a href="classtgbotxx_1_1_api.html#ac3ebd029c881a7bb301edb007e2c456d">More...</a><br /></td></tr>
 <tr class="separator:ac3ebd029c881a7bb301edb007e2c456d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -429,7 +432,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00048">48</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00049">49</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -586,7 +589,7 @@ We support GET and POST HTTP methods. Use either URL query string or application
   <table class="params">
     <tr><td class="paramname">inlineQueryId</td><td>Unique identifier for the answered query </td></tr>
     <tr><td class="paramname">results</td><td>A JSON-serialized array of results for the inline query </td></tr>
-    <tr><td class="paramname">cacheTime</td><td>Optional. The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.. </td></tr>
+    <tr><td class="paramname">cacheTime</td><td>Optional. The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300. </td></tr>
     <tr><td class="paramname">isPersonal</td><td>Optional. Pass True if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query. </td></tr>
     <tr><td class="paramname">nextOffset</td><td>Optional. Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes. </td></tr>
     <tr><td class="paramname">button</td><td>Optional. A JSON-serialized object describing a button to be shown above inline query results </td></tr>
@@ -708,6 +711,50 @@ We support GET and POST HTTP methods. Use either URL query string or application
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#answershippingquery">https://core.telegram.org/bots/api#answershippingquery</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1581c3e1651db9cc459cc9026ffaa111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1581c3e1651db9cc459cc9026ffaa111">&#9670;&nbsp;</a></span>answerWebAppQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_sent_web_app_message.html">SentWebAppMessage</a>&gt; tgbotxx::Api::answerWebAppQuery </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>webAppQueryId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to set the result of an interaction with a Web App and send a corresponding message on behalf of the user to the chat from which the query originated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">webAppQueryId</td><td>Unique identifier for the query to be answered </td></tr>
+    <tr><td class="paramname">result</td><td>A JSON-serialized object describing the message to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <a class="el" href="structtgbotxx_1_1_sent_web_app_message.html" title="Describes an inline message sent by a Web App on behalf of a user. https://core.telegram....">SentWebAppMessage</a> object on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#answerwebappquery">https://core.telegram.org/bots/api#answerwebappquery</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -6818,7 +6865,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sat Dec 30 2023 13:09:12 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 30 2023 14:18:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

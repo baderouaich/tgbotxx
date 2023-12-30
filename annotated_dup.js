@@ -118,6 +118,7 @@ var annotated_dup =
       [ "ProximityAlertTriggered", "structtgbotxx_1_1_proximity_alert_triggered.html", "structtgbotxx_1_1_proximity_alert_triggered" ],
       [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", "structtgbotxx_1_1_reply_keyboard_markup" ],
       [ "ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", "structtgbotxx_1_1_reply_keyboard_remove" ],
+      [ "SentWebAppMessage", "structtgbotxx_1_1_sent_web_app_message.html", "structtgbotxx_1_1_sent_web_app_message" ],
       [ "ShippingAddress", "structtgbotxx_1_1_shipping_address.html", "structtgbotxx_1_1_shipping_address" ],
       [ "ShippingOption", "structtgbotxx_1_1_shipping_option.html", "structtgbotxx_1_1_shipping_option" ],
       [ "ShippingQuery", "structtgbotxx_1_1_shipping_query.html", "structtgbotxx_1_1_shipping_query" ],

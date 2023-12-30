@@ -57,13 +57,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
-"classtgbotxx_1_1_api.html#a13159c489d7f24fbd0f90045c6043e1c",
-"structtgbotxx_1_1_animation.html#a3330c23b5fee6b43c4f686d0f101f3b5",
-"structtgbotxx_1_1_chat_member_restricted.html#a1430118d5796176a99ebc338946f0725",
-"structtgbotxx_1_1_inline_query_result_article.html#aa91f70d187ad6c79957b24374b25a507",
-"structtgbotxx_1_1_inline_query_result_voice.html#af845d21d321478d672d038297c07d08d",
-"structtgbotxx_1_1_message.html#a1831381fbe2808765ac9dbf06556d640",
-"structtgbotxx_1_1_sticker.html#a2791a955ed3433a2c12964d1836fcf52"
+"classtgbotxx_1_1_api.html#a0f5c3bf790d58181f08d7f09af9fe8f8",
+"namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb",
+"structtgbotxx_1_1_chat_member_owner.html#a2294d2e9ec0f8cb644443148a7c97501",
+"structtgbotxx_1_1_inline_query_result_article.html#a1c598ace85df634e5bbca743435964e4",
+"structtgbotxx_1_1_inline_query_result_voice.html#a5bc8a28ac9ccdbf72bfe53f0d5eedfa9",
+"structtgbotxx_1_1_message.html#a06d20ff589151e96d26cf36a70a5b602",
+"structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
