@@ -32,7 +32,7 @@ namespace tgbotxx {
       bool oneTimeKeyboard{};
 
       /// @brief Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters
-      bool inputFieldPlaceholder{};
+      std::string inputFieldPlaceholder;
 
       /// @brief Optional. Use this parameter if you want to show the keyboard to specific users only.
       /// Targets:
@@ -62,7 +62,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "is_persistent", isPersistent, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "resize_keyboard", resizeKeyboard, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "one_time_keyboard", oneTimeKeyboard, false, true);
-        OBJECT_DESERIALIZE_FIELD(json, "input_field_placeholder", inputFieldPlaceholder, false, true);
+        OBJECT_DESERIALIZE_FIELD(json, "input_field_placeholder", inputFieldPlaceholder, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "selective", selective, false, true);
       }
 

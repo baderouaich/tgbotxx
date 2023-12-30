@@ -20,6 +20,7 @@ endforeach ()
 add_executable(manual_tests manual_tests.cpp)
 target_compile_features(manual_tests PRIVATE cxx_std_20)
 target_link_libraries(manual_tests PRIVATE tgbotxx ${TGBOTXX_LIBRARIES})
+#target_compile_definitions(manual_tests PRIVATE RES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/res")
 if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests_bot_token.sh)
     add_custom_command(
             TARGET manual_tests PRE_BUILD
