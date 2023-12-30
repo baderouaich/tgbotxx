@@ -69,6 +69,7 @@
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
+#include <tgbotxx/objects/SentWebAppMessage.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
 #include <tgbotxx/objects/ShippingOption.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
@@ -2032,11 +2033,11 @@ bool Api::answerInlineQuery(const std::string& inlineQueryId,
   for (const Ptr<InlineQueryResult>& result: results)
     resultsArray.push_back(result->toJson());
   data.parts.emplace_back("results", resultsArray.dump());
-  if (cacheTime != 300)
+  if (cacheTime)
     data.parts.emplace_back("cache_time", cacheTime);
   if (isPersonal)
     data.parts.emplace_back("is_personal", isPersonal);
-  if (not nextOffset.empty())
+  if(not nextOffset.empty())
     data.parts.emplace_back("next_offset", nextOffset);
   if (button)
     data.parts.emplace_back("button", button->toJson().dump());
@@ -2044,6 +2045,19 @@ bool Api::answerInlineQuery(const std::string& inlineQueryId,
   return sendRequest("answerInlineQuery", data);
 }
 
+Ptr<SentWebAppMessage> Api::answerWebAppQuery(const std::string& webAppQueryId, const Ptr<InlineQueryResult>& result) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("web_app_query_id", webAppQueryId);
+  data.parts.emplace_back("result", result->toJson().dump());
+
+  nl::json sendWebAppMsgObj = sendRequest("answerWebAppQuery", data);
+  Ptr<SentWebAppMessage> ret(new SentWebAppMessage(sendWebAppMsgObj));
+  return ret;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
   if (longPollTimeout.ms > m_timeout.ms)
     throw Exception("Api::setLongPollTimeout: Long poll timeout should always be shorter than api request timeout."

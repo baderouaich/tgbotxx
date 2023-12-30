@@ -41,6 +41,7 @@ namespace tgbotxx {
   struct Poll;
   struct LabeledPrice;
   struct ShippingOption;
+  struct SentWebAppMessage;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -1750,7 +1751,7 @@ namespace tgbotxx {
       /// No more than 50 results per query are allowed.
       /// @param inlineQueryId Unique identifier for the answered query
       /// @param results A JSON-serialized array of results for the inline query
-      /// @param cacheTime Optional. The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300..
+      /// @param cacheTime Optional. The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.
       /// @param isPersonal Optional. Pass True if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query.
       /// @param nextOffset Optional. Pass the offset that a client should send in the next query with the same text to receive more results.
       /// Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.
@@ -1766,6 +1767,15 @@ namespace tgbotxx {
                              const std::string& nextOffset = "",
                              const Ptr<InlineQueryResultsButton>& button = nullptr) const;
 
+
+      /// @brief Use this method to set the result of an interaction with a Web App
+      /// and send a corresponding message on behalf of the user to the chat from which the query originated.
+      /// @param webAppQueryId Unique identifier for the query to be answered
+      /// @param result A JSON-serialized object describing the message to be sent
+      /// @returns a SentWebAppMessage object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#answerwebappquery
+      Ptr<SentWebAppMessage> answerWebAppQuery(const std::string& webAppQueryId, const Ptr<InlineQueryResult>& result) const;
 
     public: /// Timeout setters/getters
       /// @brief Set long polling timeout.
