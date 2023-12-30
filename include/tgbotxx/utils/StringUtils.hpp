@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <random>
 #include <span>
 #include <sstream>
 #include <string>
@@ -174,5 +175,32 @@ namespace tgbotxx {
       return v;
     }
 
+    static std::string random(std::size_t length)
+    {
+      static std::random_device seed{};
+      static std::default_random_engine engine{seed()};
+      static std::uniform_int_distribution<short> choice(0, 2);
+      static std::uniform_int_distribution<char> lowercaseAlpha('a', 'z');
+      static std::uniform_int_distribution<char> uppercaseAlpha('A', 'Z');
+      static std::uniform_int_distribution<char> digits('0', '9');
+
+      std::string str(length, '\000');
+      for(char& c : str) {
+        switch(choice(engine)) {
+          case 0: // a-z
+            c = lowercaseAlpha(engine);
+            break;
+          case 1: // A-Z
+            c = uppercaseAlpha(engine);
+            break;
+          case 2: // 0-9
+            c = digits(engine);
+            break;
+          default:
+            break;
+        }
+      }
+      return str;
+    }
   };
 }

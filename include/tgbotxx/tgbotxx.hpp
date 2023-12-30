@@ -97,5 +97,6 @@
 
 /// Utils
 #include <tgbotxx/utils/DateTimeUtils.hpp>
+#include <tgbotxx/utils/FileUtils.hpp>
 #include <tgbotxx/utils/Ptr.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
