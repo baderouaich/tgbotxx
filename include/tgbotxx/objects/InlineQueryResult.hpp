@@ -519,7 +519,7 @@ namespace tgbotxx {
       /// @brief Optional. Caption, 0-1024 characters after entities parsing
       std::string caption;
 
-      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      /// @brief Optional. Mode for parsing entities in the voice caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
       std::string parseMode;
 
       /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
@@ -907,8 +907,11 @@ namespace tgbotxx {
       /// @brief Optional. Caption of the photo to be sent, 0-1024 characters after entities parsing
       std::string caption;
 
-      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      /// @brief Optional. Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
       std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
 
       /// @brief Optional. Content of the message to be sent instead of the photo.
       Ptr<InputMessageContent> inputMessageContent;
@@ -921,6 +924,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "description", description);
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
         OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
         return json;
       }
@@ -932,10 +936,369 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
       }
   };
 
 
-  // TODO: InlineQueryResult*
+  /// @brief Represents a link to an animated GIF file stored on the Telegram servers.
+  /// By default, this animated GIF file will be sent by the user with an optional caption.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
+  struct InlineQueryResultCachedGif : InlineQueryResult {
+      InlineQueryResultCachedGif() {
+        InlineQueryResult::type = "gif";
+      }
+      explicit InlineQueryResultCachedGif(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "gif";
+      }
+
+      /// @brief A valid file identifier for the GIF file
+      std::string gifFileId;
+
+      /// @brief Optional. Title for the result
+      std::string title;
+
+      /// @brief Optional. Caption of the GIF file to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the GIF caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Content of the message to be sent instead of the GIF.
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "gif_file_id", gifFileId);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "gif_file_id", gifFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+  /// @brief Represents a link to a video animation (H.264/MPEG-4 AVC video without sound) stored on the Telegram servers.
+  /// By default, this animated MPEG-4 file will be sent by the user with an optional caption.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
+  struct InlineQueryResultCachedMpeg4Gif : InlineQueryResult {
+      InlineQueryResultCachedMpeg4Gif() {
+        InlineQueryResult::type = "mpeg4_gif";
+      }
+      explicit InlineQueryResultCachedMpeg4Gif(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "mpeg4_gif";
+      }
+
+      /// @brief A valid file identifier for the MPEG4 file
+      std::string mpeg4FileId;
+
+      /// @brief Optional. Title for the result
+      std::string title;
+
+      /// @brief Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the MPEG-4 caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Optional. Content of the message to be sent instead of the video animation
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "mpeg4_file_id", mpeg4FileId);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "mpeg4_file_id", mpeg4FileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+  /// @brief Represents a link to a sticker stored on the Telegram servers.
+  /// By default, this sticker will be sent by the user.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
+  /// @note This will only work in Telegram versions released after 9 April, 2016 for static stickers and after 06 July, 2019 for animated stickers. Older clients will ignore them.
+  struct InlineQueryResultCachedSticker : InlineQueryResult {
+      InlineQueryResultCachedSticker() {
+        InlineQueryResult::type = "sticker";
+      }
+      explicit InlineQueryResultCachedSticker(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "sticker";
+      }
+
+      /// @brief A valid file identifier of the sticker
+      std::string stickerFileId;
+
+      /// @brief Optional. Optional. Content of the message to be sent instead of the sticker
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "sticker_file_id", stickerFileId);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "sticker_file_id", stickerFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to a file stored on the Telegram servers.
+  /// By default, this file will be sent by the user with an optional caption.
+  /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
+  /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
+  struct InlineQueryResultCachedDocument : InlineQueryResult {
+      InlineQueryResultCachedDocument() {
+        InlineQueryResult::type = "document";
+      }
+      explicit InlineQueryResultCachedDocument(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "document";
+      }
+
+      /// @brief Title for the result
+      std::string title;
+
+      /// @brief A valid file identifier for the file
+      std::string documentFileId;
+
+      /// @brief Optional. Short description of the result
+      std::string description;
+
+      /// @brief Optional. Caption of the document to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Content of the message to be sent instead of the document.
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "document_file_id", documentFileId);
+        OBJECT_SERIALIZE_FIELD(json, "description", description);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "document_file_id", documentFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to a video file stored on the Telegram servers.
+  /// By default, this video file will be sent by the user with an optional caption
+  struct InlineQueryResultCachedVideo : InlineQueryResult {
+      InlineQueryResultCachedVideo() {
+        InlineQueryResult::type = "video";
+      }
+      explicit InlineQueryResultCachedVideo(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "video";
+      }
+
+      /// @brief A valid file identifier for the video file
+      std::string videoFileId;
+
+      /// @brief Title for the result
+      std::string title;
+
+      /// @brief Optional. Short description of the result
+      std::string description;
+
+      /// @brief Optional. Caption of the video to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the video caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Content of the message to be sent instead of the video.
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "video_file_id", videoFileId);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "description", description);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "video_file_id", videoFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to a voice message stored on the Telegram servers.
+  /// By default, this voice message will be sent by the user.
+  /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
+  struct InlineQueryResultCachedVoice : InlineQueryResult {
+      InlineQueryResultCachedVoice() {
+        InlineQueryResult::type = "voice";
+      }
+      explicit InlineQueryResultCachedVoice(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "voice";
+      }
+
+      /// @brief A valid file identifier for the voice message
+      std::string voiceFileId;
+
+      /// @brief Voice message title
+      std::string title;
+
+      /// @brief Optional. Short description of the result
+      std::string description;
+
+      /// @brief Optional. Caption of the voice to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the voice caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the voice caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Content of the message to be sent instead of the voice.
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "voice_file_id", voiceFileId);
+        OBJECT_SERIALIZE_FIELD(json, "title", title);
+        OBJECT_SERIALIZE_FIELD(json, "description", description);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "voice_file_id", voiceFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "title", title, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "description", description, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
+
+  /// @brief Represents a link to an MP3 audio file stored on the Telegram servers.
+  /// By default, this audio file will be sent by the user.
+  /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
+  struct InlineQueryResultCachedAudio : InlineQueryResult {
+      InlineQueryResultCachedAudio() {
+        InlineQueryResult::type = "audio";
+      }
+      explicit InlineQueryResultCachedAudio(const nl::json& json) : InlineQueryResult(json) {
+        InlineQueryResult::type = "audio";
+      }
+
+      /// @brief A valid file identifier for the audio file
+      std::string audioFileId;
+
+      /// @brief Optional. Caption of the audio to be sent, 0-1024 characters after entities parsing
+      std::string caption;
+
+      /// @brief Optional. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api#formatting-options) for more details.
+      std::string parseMode;
+
+      /// @brief Optional. List of special entities that appear in the voice caption, which can be specified instead of parseMode
+      std::vector<Ptr<MessageEntity>> captionEntities;
+
+      /// @brief Optional. Content of the message to be sent instead of the audio
+      Ptr<InputMessageContent> inputMessageContent;
+
+
+      nl::json toJson() const override {
+        nl::json json = InlineQueryResult::toJson();
+        OBJECT_SERIALIZE_FIELD(json, "audio_file_id", audioFileId);
+        OBJECT_SERIALIZE_FIELD(json, "caption", caption);
+        OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        return json;
+      }
+
+      void fromJson(const nl::json& json) override {
+        InlineQueryResult::fromJson(json);
+        OBJECT_DESERIALIZE_FIELD(json, "audio_file_id", audioFileId, "", false);
+        OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, true);
+      }
+  };
+
 }
