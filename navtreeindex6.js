@@ -214,7 +214,7 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497":[1,0,0,115,6],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2":[1,0,0,115,2],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4":[1,0,0,115,1],
-"structtgbotxx_1_1_reply_keyboard_markup.html#ac3439c2a759f50f6ced23dcea88a449e":[1,0,0,115,4],
+"structtgbotxx_1_1_reply_keyboard_markup.html#aaab41a447cb0c3db009715f8fe907257":[1,0,0,115,4],
 "structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898":[1,0,0,115,3],
 "structtgbotxx_1_1_reply_keyboard_remove.html":[1,0,0,116],
 "structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[1,0,0,116,5],

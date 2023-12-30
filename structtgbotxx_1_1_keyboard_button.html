@@ -136,8 +136,15 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object represents one button of the reply keyboard. For simple text buttons, String can be used instead of this object to specify the button text. The optional fields web_app, request_user, request_chat, request_contact, request_location, and request_poll are mutually exclusive. <a href="https://core.telegram.org/bots/api#keyboardbutton">https://core.telegram.org/bots/api#keyboardbutton</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>request_contact and request_location options will only work in Telegram versions released after 9 April, 2016. Older clients will display unsupported message. </dd>
+<dd>
+request_poll option will only work in Telegram versions released after 23 January, 2020. Older clients will display unsupported message. </dd>
+<dd>
+web_app option will only work in Telegram versions released after 16 April, 2022. Older clients will display unsupported message. </dd>
+<dd>
+request_user and request_chat options will only work in Telegram versions released after 3 February, 2023. Older clients will display unsupported message. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00013">13</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00017">17</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad64ba05cae8a55d04b281b7e2c4d8b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad64ba05cae8a55d04b281b7e2c4d8b3e">&#9670;&nbsp;</a></span>KeyboardButton() <span class="overload">[1/2]</span></h2>
@@ -188,7 +195,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00015">15</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00019">19</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -219,7 +226,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00065">65</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00069">69</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -249,7 +256,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00056">56</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +276,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00030">30</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -288,7 +295,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's phone number will be sent as a contact when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +314,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's current location will be sent when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -326,7 +333,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00046">46</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -345,7 +352,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00029">29</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -363,7 +370,7 @@ Public Attributes</h2></td></tr>
 
 <p>Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00020">20</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00024">24</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -382,7 +389,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the described Web App will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +402,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_keyboard_button.html">KeyboardButton</a></li>
-    <li class="footer">Generated on Sat Dec 30 2023 14:18:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 30 2023 17:10:06 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

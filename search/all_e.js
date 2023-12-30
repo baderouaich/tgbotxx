@@ -6,7 +6,7 @@ var searchData=
   ['object_5fdeserialize_5ffield_5fptr_5farray_511',['OBJECT_DESERIALIZE_FIELD_PTR_ARRAY',['../_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7',1,'Object.hpp']]],
   ['object_5fdeserialize_5ffield_5fptr_5farray_5farray_512',['OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY',['../_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2',1,'Object.hpp']]],
   ['object_5fserialize_5ffield_513',['OBJECT_SERIALIZE_FIELD',['../_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3',1,'Object.hpp']]],
-  ['object_5fserialize_5ffield_5fptr_514',['OBJECT_SERIALIZE_FIELD_PTR',['../_object_8hpp.html#ab46c79079559432ca7c005b6d81bfe3d',1,'Object.hpp']]],
+  ['object_5fserialize_5ffield_5fptr_514',['OBJECT_SERIALIZE_FIELD_PTR',['../_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602',1,'Object.hpp']]],
   ['object_5fserialize_5ffield_5fptr_5farray_515',['OBJECT_SERIALIZE_FIELD_PTR_ARRAY',['../_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31',1,'Object.hpp']]],
   ['object_5fserialize_5ffield_5fptr_5farray_5farray_516',['OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY',['../_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83',1,'Object.hpp']]],
   ['offset_517',['offset',['../structtgbotxx_1_1_message_entity.html#add31a98286e1188b6adcde8290065dfb',1,'tgbotxx::MessageEntity::offset()'],['../structtgbotxx_1_1_inline_query.html#a41e4078a3d9d9bec3114c56b041dfe25',1,'tgbotxx::InlineQuery::offset()']]],
