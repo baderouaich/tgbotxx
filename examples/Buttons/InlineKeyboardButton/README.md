@@ -1,4 +1,4 @@
-## Buttons
+## Inline Buttons
 This example shows how to program a basic Telegram Bot that uses inline keyboard buttons to interact with users.
 
 ### Run
@@ -6,7 +6,7 @@ This example shows how to program a basic Telegram Bot that uses inline keyboard
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j8
-./buttons YOUR_BOT_TOKEN
+./inline_buttons YOUR_BOT_TOKEN
 ```
 
 ### How to create a new Bot and obtain its private token ?
