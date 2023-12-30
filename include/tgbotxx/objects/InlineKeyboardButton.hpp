@@ -66,12 +66,12 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "text", text);
         OBJECT_SERIALIZE_FIELD(json, "url", url);
         OBJECT_SERIALIZE_FIELD(json, "callback_data", callbackData);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "login_url", loginUrl, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "login_url", loginUrl);
         OBJECT_SERIALIZE_FIELD(json, "switch_inline_query", switchInlineQuery);
         OBJECT_SERIALIZE_FIELD(json, "switch_inline_query_current_chat", switchInlineQueryCurrentChat);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "switch_inline_query_chosen_chat", switchInlineQueryChosenChat, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "callback_game", callbackGame, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "switch_inline_query_chosen_chat", switchInlineQueryChosenChat);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "callback_game", callbackGame);
         OBJECT_SERIALIZE_FIELD(json, "pay", pay);
         return json;
       }

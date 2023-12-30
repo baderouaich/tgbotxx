@@ -29,7 +29,7 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "status", status);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
         return json;
       }
 

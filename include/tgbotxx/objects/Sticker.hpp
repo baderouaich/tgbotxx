@@ -90,11 +90,11 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "height", height);
         OBJECT_SERIALIZE_FIELD(json, "is_animated", isAnimated);
         OBJECT_SERIALIZE_FIELD(json, "is_video", isVideo);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail);
         OBJECT_SERIALIZE_FIELD(json, "emoji", emoji);
         OBJECT_SERIALIZE_FIELD(json, "set_name", setName);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "premium_animation", premiumAnimation, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "mask_position", maskPosition, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "premium_animation", premiumAnimation);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "mask_position", maskPosition);
         OBJECT_SERIALIZE_FIELD(json, "custom_emoji_id", customEmojiId);
         OBJECT_SERIALIZE_FIELD(json, "needs_repainting", needsRepainting);
         OBJECT_SERIALIZE_FIELD(json, "file_size", fileSize);

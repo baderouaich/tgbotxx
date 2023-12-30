@@ -44,7 +44,7 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "invite_link", inviteLink);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "creator", creator, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "creator", creator);
         OBJECT_SERIALIZE_FIELD(json, "creates_join_request", createsJoinRequest);
         OBJECT_SERIALIZE_FIELD(json, "is_primary", isPrimary);
         OBJECT_SERIALIZE_FIELD(json, "is_revoked", isRevoked);

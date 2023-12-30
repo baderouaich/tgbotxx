@@ -65,9 +65,9 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "phone_number", phoneNumber);
         OBJECT_SERIALIZE_FIELD(json, "email", email);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "files", files);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "front_side", frontSide, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "reverse_side", reverseSide, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "selfie", selfie, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "front_side", frontSide);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "reverse_side", reverseSide);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "selfie", selfie);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "translation", translation);
         OBJECT_SERIALIZE_FIELD(json, "hash", hash);
         return json;

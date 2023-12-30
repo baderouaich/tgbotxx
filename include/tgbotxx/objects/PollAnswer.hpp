@@ -30,8 +30,8 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "poll_id", pollId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "voter_chat", voterChat, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "voter_chat", voterChat);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
         OBJECT_SERIALIZE_FIELD(json, "option_ids", optionIds);
         return json;
       }

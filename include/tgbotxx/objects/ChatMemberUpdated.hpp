@@ -41,12 +41,12 @@ namespace tgbotxx {
       /// @returns JSON representation of this object
       nl::json toJson() const {
         nl::json json = nl::json::object();
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat", chat, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "chat", chat);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from);
         OBJECT_SERIALIZE_FIELD(json, "date", date);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "old_chat_member", oldChatMember, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "new_chat_member", newChatMember, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "invite_link", inviteLink, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "old_chat_member", oldChatMember);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "new_chat_member", newChatMember);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "invite_link", inviteLink);
         OBJECT_SERIALIZE_FIELD(json, "via_chat_folder_invite_link", viaChatFolderInviteLink);
         return json;
       }

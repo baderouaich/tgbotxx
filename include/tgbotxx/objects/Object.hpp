@@ -19,8 +19,10 @@ namespace nl = nlohmann;
 #define OBJECT_SERIALIZE_FIELD(json, json_field, field) \
   json[json_field] = field;
 
-#define OBJECT_SERIALIZE_FIELD_PTR(json, json_field, field, default_value) \
-  json[json_field] = field ? field->toJson() : default_value
+#define OBJECT_SERIALIZE_FIELD_PTR(json, json_field, field) \
+  if (field) {                                              \
+    json[json_field] = field->toJson();                     \
+  }
 
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field) \
   json[json_field] = nl::json::array();                                 \

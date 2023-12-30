@@ -141,7 +141,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "first_name", firstName);
         OBJECT_SERIALIZE_FIELD(json, "last_name", lastName);
         OBJECT_SERIALIZE_FIELD(json, "is_forum", isForum);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "photo", photo, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "photo", photo);
         OBJECT_SERIALIZE_FIELD(json, "active_usernames", activeUsernames);
         OBJECT_SERIALIZE_FIELD(json, "emoji_status_custom_emoji_id", emojiStatusCustomEmojiId);
         OBJECT_SERIALIZE_FIELD(json, "emoji_status_expiration_date", emojiStatusExpirationDate);
@@ -152,8 +152,8 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "join_by_request", joinByRequest);
         OBJECT_SERIALIZE_FIELD(json, "description", description);
         OBJECT_SERIALIZE_FIELD(json, "invite_link", inviteLink);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "pinned_message", pinnedMessage, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "permissions", permissions, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "pinned_message", pinnedMessage);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "permissions", permissions);
         OBJECT_SERIALIZE_FIELD(json, "slow_mode_delay", slowModeDelay);
         OBJECT_SERIALIZE_FIELD(json, "message_auto_delete_time", messageAutoDeleteTime);
         OBJECT_SERIALIZE_FIELD(json, "has_aggressive_anti_spam_enabled", hasAggressiveAntiSpamEnabled);
@@ -162,7 +162,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "sticker_set_name", stickerSetName);
         OBJECT_SERIALIZE_FIELD(json, "can_set_sticker_set", canSetStickerSet);
         OBJECT_SERIALIZE_FIELD(json, "linked_chat_id", linkedChatId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
         return json;
       }
 

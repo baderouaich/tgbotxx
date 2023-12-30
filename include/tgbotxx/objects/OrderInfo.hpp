@@ -30,7 +30,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "name", name);
         OBJECT_SERIALIZE_FIELD(json, "phone_number", phoneNumber);
         OBJECT_SERIALIZE_FIELD(json, "email", email);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_address", shippingAddress, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_address", shippingAddress);
         return json;
       }
 

@@ -38,11 +38,11 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "id", id);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from);
         OBJECT_SERIALIZE_FIELD(json, "query", query);
         OBJECT_SERIALIZE_FIELD(json, "offset", offset);
         OBJECT_SERIALIZE_FIELD(json, "chat_type", chatType);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
         return json;
       }
 

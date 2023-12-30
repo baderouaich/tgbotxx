@@ -71,7 +71,7 @@ namespace tgbotxx {
       nl::json toJson() const override {
         nl::json json = MenuButton::toJson();
         OBJECT_SERIALIZE_FIELD(json, "text", text);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp);
         return json;
       }
 

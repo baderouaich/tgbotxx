@@ -76,20 +76,20 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "update_id", updateId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "message", message, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_message", editedMessage, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "channel_post", channelPost, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "poll", poll, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_member", chatMember, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "message", message);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_message", editedMessage);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "channel_post", channelPost);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "poll", poll);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_member", chatMember);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest);
         return json;
       }
 

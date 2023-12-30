@@ -44,7 +44,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "photo", photo);
         OBJECT_SERIALIZE_FIELD(json, "text", text);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "text_entities", textEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "animation", animation, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "animation", animation);
         return json;
       }
 

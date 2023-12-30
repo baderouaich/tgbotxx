@@ -48,7 +48,7 @@ namespace tgbotxx {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "type", type);
         OBJECT_SERIALIZE_FIELD(json, "id", id);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "reply_markup", replyMarkup, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "reply_markup", replyMarkup);
         return json;
       }
 
@@ -102,7 +102,7 @@ namespace tgbotxx {
       nl::json toJson() const override {
         nl::json json = InlineQueryResult::toJson();
         OBJECT_SERIALIZE_FIELD(json, "title", title);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         OBJECT_SERIALIZE_FIELD(json, "url", url);
         OBJECT_SERIALIZE_FIELD(json, "hide_url", hideUrl);
         OBJECT_SERIALIZE_FIELD(json, "description", description);
@@ -177,7 +177,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -252,7 +252,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -329,7 +329,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -413,7 +413,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "video_height", videoHeight);
         OBJECT_SERIALIZE_FIELD(json, "video_duration", videoDuration);
         OBJECT_SERIALIZE_FIELD(json, "description", description);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -480,7 +480,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
         OBJECT_SERIALIZE_FIELD(json, "performer", performer);
         OBJECT_SERIALIZE_FIELD(json, "audio_duration", audioDuration);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -544,7 +544,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
         OBJECT_SERIALIZE_FIELD(json, "performer", performer);
         OBJECT_SERIALIZE_FIELD(json, "voice_duration", voiceDuration);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -616,7 +616,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "document_url", documentUrl);
         OBJECT_SERIALIZE_FIELD(json, "mime_type", mimeType);
         OBJECT_SERIALIZE_FIELD(json, "description", description);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
@@ -693,7 +693,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "live_period", livePeriod);
         OBJECT_SERIALIZE_FIELD(json, "heading", heading);
         OBJECT_SERIALIZE_FIELD(json, "proximity_alert_radius", proximityAlertRadius);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
@@ -773,7 +773,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "foursquare_type", foursquareType);
         OBJECT_SERIALIZE_FIELD(json, "google_place_id", googlePlaceId);
         OBJECT_SERIALIZE_FIELD(json, "google_place_type", googlePlaceType);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
@@ -838,7 +838,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "first_name", firstName);
         OBJECT_SERIALIZE_FIELD(json, "last_name", lastName);
         OBJECT_SERIALIZE_FIELD(json, "vcard", vcard);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_url", thumbnailUrl);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_width", thumbnailWidth);
         OBJECT_SERIALIZE_FIELD(json, "thumbnail_height", thumbnailHeight);
@@ -925,7 +925,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -979,7 +979,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1031,7 +1031,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1068,7 +1068,7 @@ namespace tgbotxx {
       nl::json toJson() const override {
         nl::json json = InlineQueryResult::toJson();
         OBJECT_SERIALIZE_FIELD(json, "sticker_file_id", stickerFileId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1122,7 +1122,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1179,7 +1179,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1237,7 +1237,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 
@@ -1287,7 +1287,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "input_message_content", inputMessageContent);
         return json;
       }
 

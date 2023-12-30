@@ -10,6 +10,10 @@ namespace tgbotxx {
   /// String can be used instead of this object to specify the button text.
   /// The optional fields web_app, request_user, request_chat, request_contact, request_location, and request_poll are mutually exclusive.
   /// @ref https://core.telegram.org/bots/api#keyboardbutton
+  /// @note request_contact and request_location options will only work in Telegram versions released after 9 April, 2016. Older clients will display unsupported message.
+  /// @note request_poll option will only work in Telegram versions released after 23 January, 2020. Older clients will display unsupported message.
+  /// @note web_app option will only work in Telegram versions released after 16 April, 2022. Older clients will display unsupported message.
+  /// @note request_user and request_chat options will only work in Telegram versions released after 3 February, 2023. Older clients will display unsupported message.
   struct KeyboardButton {
       KeyboardButton() = default;
       explicit KeyboardButton(const nl::json& json) {
@@ -52,12 +56,12 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "text", text);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "request_user", requestUser, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "request_chat", requestChat, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "request_user", requestUser);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "request_chat", requestChat);
         OBJECT_SERIALIZE_FIELD(json, "request_contact", requestContact);
         OBJECT_SERIALIZE_FIELD(json, "request_location", requestLocation);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "request_poll", requestPoll, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "request_poll", requestPoll);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp);
         return json;
       }
 

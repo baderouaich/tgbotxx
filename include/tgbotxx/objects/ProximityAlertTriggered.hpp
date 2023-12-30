@@ -25,8 +25,8 @@ namespace tgbotxx {
       /// @returns JSON representation of this object
       nl::json toJson() const {
         nl::json json = nl::json::object();
-        OBJECT_SERIALIZE_FIELD_PTR(json, "traveler", traveler, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "watcher", watcher, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "traveler", traveler);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "watcher", watcher);
         OBJECT_SERIALIZE_FIELD(json, "distance", distance);
         return json;
       }

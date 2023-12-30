@@ -113,7 +113,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "offset", offset);
         OBJECT_SERIALIZE_FIELD(json, "length", length);
         OBJECT_SERIALIZE_FIELD(json, "url", url);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
         OBJECT_SERIALIZE_FIELD(json, "language", language);
         OBJECT_SERIALIZE_FIELD(json, "custom_emoji_id", customEmojiId);
         return json;

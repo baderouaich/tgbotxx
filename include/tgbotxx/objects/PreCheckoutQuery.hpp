@@ -42,12 +42,12 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "id", id);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "from", from);
         OBJECT_SERIALIZE_FIELD(json, "currency", currency);
         OBJECT_SERIALIZE_FIELD(json, "total_amount", totalAmount);
         OBJECT_SERIALIZE_FIELD(json, "invoice_payload", invoicePayload);
         OBJECT_SERIALIZE_FIELD(json, "shipping_option_id", shippingOptionId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "order_info", orderInfo, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "order_info", orderInfo);
         return json;
       }
 

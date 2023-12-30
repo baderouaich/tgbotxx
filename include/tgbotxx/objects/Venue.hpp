@@ -38,7 +38,7 @@ namespace tgbotxx {
       /// @returns JSON representation of this object
       nl::json toJson() const {
         nl::json json = nl::json::object();
-        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
         OBJECT_SERIALIZE_FIELD(json, "title", title);
         OBJECT_SERIALIZE_FIELD(json, "address", address);
         OBJECT_SERIALIZE_FIELD(json, "foursquare_id", foursquareId);

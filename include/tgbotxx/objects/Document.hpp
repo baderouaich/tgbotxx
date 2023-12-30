@@ -44,7 +44,7 @@ namespace tgbotxx {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "file_id", fileId);
         OBJECT_SERIALIZE_FIELD(json, "file_unique_id", fileUniqueId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail);
         OBJECT_SERIALIZE_FIELD(json, "file_name", fileName);
         OBJECT_SERIALIZE_FIELD(json, "mime_type", mimeType);
         OBJECT_SERIALIZE_FIELD(json, "file_size", fileSize);

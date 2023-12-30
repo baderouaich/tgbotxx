@@ -54,8 +54,8 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "chat_is_forum", chatIsForum);
         OBJECT_SERIALIZE_FIELD(json, "chat_has_username", chatHasUsername);
         OBJECT_SERIALIZE_FIELD(json, "chat_is_created", chatIsCreated);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "user_administrator_rights", userAdministratorRights, nl::json::object());
-        OBJECT_SERIALIZE_FIELD_PTR(json, "bot_administrator_rights", botAdministratorRights, nl::json::object());
+        OBJECT_SERIALIZE_FIELD_PTR(json, "user_administrator_rights", userAdministratorRights);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "bot_administrator_rights", botAdministratorRights);
         OBJECT_SERIALIZE_FIELD(json, "bot_is_member", botIsMember);
         return json;
       }
