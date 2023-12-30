@@ -38,9 +38,12 @@ class MyBot : public Bot {
       Ptr<BotCommand> photo(new BotCommand());
       photo->command = "/photo";
       photo->description = "You will receive a photo using Api::sendPhoto method";
-      Ptr<BotCommand> buttons(new BotCommand());
-      buttons->command = "/buttons";
-      buttons->description = "You will receive an inline keyboard markup";
+      Ptr<BotCommand> inlineButtons(new BotCommand());
+      inlineButtons->command = "/inline_buttons";
+      inlineButtons->description = "You will receive an inline keyboard markup";
+      Ptr<BotCommand> replyKeyboardButtons(new BotCommand());
+      replyKeyboardButtons->command = "/reply_keyboard_buttons";
+      replyKeyboardButtons->description = "You will receive a reply keyboard markup buttons (buttons will be placed in place of keyboard)";
       Ptr<BotCommand> audio(new BotCommand());
       audio->command = "/audio";
       audio->description = "You will receive an audio";
@@ -98,7 +101,7 @@ class MyBot : public Bot {
       Ptr<BotCommand> createInvoiceLink(new BotCommand());
       createInvoiceLink->command = "/create_invoice_link";
       createInvoiceLink->description = "You will receive a test invoice link";
-      getApi()->setMyCommands({greet, stop, photo, buttons, audio, document, animation, voice, mediaGroup,
+      getApi()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
                                location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                                menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
                                deleteMessage, sendInvoice, createInvoiceLink}); // The above commands will be shown in the bot chat menu (bottom left)
@@ -151,7 +154,7 @@ class MyBot : public Bot {
         getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
         getApi()->sendMessage(message->chat->id, "Sending File photo...");
         getApi()->sendPhoto(message->chat->id, cpr::File{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
-      } else if (message->text == "/buttons") {
+      } else if (message->text == "/inline_buttons") {
         /*
             Create inline keyboard buttons
                7 8 9
@@ -173,9 +176,41 @@ class MyBot : public Bot {
         }
         std::reverse(keyboard->inlineKeyboard.begin(), keyboard->inlineKeyboard.end());
         api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, false, 0, false, keyboard);
+      } else if (message->text == "/reply_keyboard_buttons") {
+        /*
+         * Bots are able to interpret free text input from users, but offering specific suggestions is often more intuitive –
+         * this is where custom keyboards can be extremely useful.
+          Whenever your bot sends a message, it can display a special keyboard with predefined reply options (see ReplyKeyboardMarkup).
+          Telegram apps that receive the message will display your keyboard to the user. Using any of the buttons will immediately send the respective text.
+          This way you can drastically simplify and streamline user interaction with your bot.
+
+            Create a reply keyboard buttons
+             button1 button2
+             button3 button4
+           */
+        Ptr<ReplyKeyboardMarkup> replyKeyboardMarkup(new ReplyKeyboardMarkup());
+        replyKeyboardMarkup->oneTimeKeyboard = true;
+        replyKeyboardMarkup->resizeKeyboard = true;
+        std::vector<Ptr<KeyboardButton>> row1, row2;
+        Ptr<KeyboardButton> button1(new KeyboardButton());
+        button1->text = "Button1";
+        row1.push_back(button1);
+        Ptr<KeyboardButton> button2(new KeyboardButton());
+        button2->text = "Button2";
+        row1.push_back(button2);
+        Ptr<KeyboardButton> button3(new KeyboardButton());
+        button3->text = "Button3";
+        row2.push_back(button3);
+        Ptr<KeyboardButton> button4(new KeyboardButton());
+        button4->text = "Button4";
+        row2.push_back(button4);
+        replyKeyboardMarkup->keyboard.push_back(row1);
+        replyKeyboardMarkup->keyboard.push_back(row2);
+
+        api()->sendMessage(message->chat->id, "Keyboard buttons:", 0, "", {}, false, false, false, 0, false, replyKeyboardMarkup);
       } else if (message->text == "/audio") {
         getApi()->sendMessage(message->chat->id, "Sending audio file...");
-        getApi()->sendAudio(message->chat->id, cpr::File{"/media/bader/6296B2EC60F91DB6/Programs & Entertainment/Music/Navy Modern General Quarters Sound Effect.m4a"});
+        getApi()->sendAudio(message->chat->id, "https://samples-files.com/samples/Audio/mp3/sample-file-1.mp3");
       } else if (message->text == "/document") {
         getApi()->sendMessage(message->chat->id, "Sending local document ...");
         getApi()->sendDocument(message->chat->id, cpr::File{__FILE__});
@@ -344,7 +379,7 @@ class MyBot : public Bot {
       std::cout << __func__ << ": " << inlineQuery->query << std::endl;
       std::string query = inlineQuery->query;
 
-      if(query.starts_with("photo")) {
+      if (query.starts_with("photo")) {
         std::vector<Ptr<InlineQueryResult>> inlineQueryResults;
         for (const std::string_view photoURL: {"https://images.alphacoders.com/129/1299740.jpg",
                                                "https://images2.alphacoders.com/112/1128233.jpg",
@@ -357,7 +392,7 @@ class MyBot : public Bot {
         }
         try {
           api()->answerInlineQuery(inlineQuery->id, inlineQueryResults, 300, "");
-        } catch(const std::exception& e) {
+        } catch (const std::exception& e) {
           std::cerr << e.what() << std::endl;
         }
       }
@@ -400,7 +435,7 @@ class MyBot : public Bot {
     }
 
   private:
-    static std::string getPaymentProviderToken(){
+    static std::string getPaymentProviderToken() {
       if (char *token = std::getenv("TESTS_PAYMENT_PROVIDER_TOKEN"); token != nullptr)
         return std::string(token);
       throw std::runtime_error("Couldn't find PAYMENT_PROVIDER_TOKEN in the env; please export an environment variable PAYMENT_PROVIDER_TOKEN with your payment provider token");
