@@ -5,6 +5,7 @@
 namespace tgbotxx {
   /// @brief Represents a result of an inline query that was chosen by the user and sent to their chat partner.
   /// @ref https://core.telegram.org/bots/api#choseninlineresult
+  /// @note It is necessary to enable [inline feedback](https://core.telegram.org/bots/inline#collecting-feedback) via @BotFather in order to receive these objects in updates.
   struct ChosenInlineResult {
       ChosenInlineResult() = default;
       explicit ChosenInlineResult(const nl::json& json) {
