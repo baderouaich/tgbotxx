@@ -175,6 +175,7 @@ namespace tgbotxx {
       return v;
     }
 
+    /// Returns a random string of length characters
     static std::string random(std::size_t length)
     {
       static std::random_device seed{};
