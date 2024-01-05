@@ -153,7 +153,7 @@ class MyBot : public Bot {
         getApi()->sendMessage(message->chat->id, "Sending URL photo...");
         getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
         getApi()->sendMessage(message->chat->id, "Sending File photo...");
-        getApi()->sendPhoto(message->chat->id, cpr::File{fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg"});
+        getApi()->sendPhoto(message->chat->id, cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg").string()});
       } else if (message->text == "/inline_buttons") {
         /*
             Create inline keyboard buttons
@@ -247,7 +247,7 @@ class MyBot : public Bot {
           for (const fs::path& localPhotoPath: {fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg",
                                                   fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image2.jpg"}) {
             Ptr<InputMediaPhoto> photo(new InputMediaPhoto());
-            photo->media = cpr::File{localPhotoPath}; // Local
+            photo->media = cpr::File{localPhotoPath.string()}; // Local
             photo->hasSpoiler = false;
             mediaGroup.push_back(photo);
           }
