@@ -136,9 +136,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aec604fb4dc7526c2fb17fadaf09fc56a inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#aec604fb4dc7526c2fb17fadaf09fc56a">type</a></td></tr>
 <tr class="memdesc:aec604fb4dc7526c2fb17fadaf09fc56a inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the result.  <a href="structtgbotxx_1_1_input_media.html#aec604fb4dc7526c2fb17fadaf09fc56a">More...</a><br /></td></tr>
 <tr class="separator:aec604fb4dc7526c2fb17fadaf09fc56a inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55dd591cbdcf30ac719207233bb5668d inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d">media</a></td></tr>
-<tr class="memdesc:a55dd591cbdcf30ac719207233bb5668d inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), Pass an HTTP URL for Telegram to get a file from the Internet, or Pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a>.  <a href="structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d">More...</a><br /></td></tr>
-<tr class="separator:a55dd591cbdcf30ac719207233bb5668d inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2c2ddf7b745728281748c7357fa9f4 inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memItemLeft" align="right" valign="top">std::variant&lt; cpr::File, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4">media</a> {&quot;&quot;}</td></tr>
+<tr class="memdesc:ade2c2ddf7b745728281748c7357fa9f4 inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send.  <a href="structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4">More...</a><br /></td></tr>
+<tr class="separator:ade2c2ddf7b745728281748c7357fa9f4 inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af66d1f4e0997ff1c3817275d1672985f inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#af66d1f4e0997ff1c3817275d1672985f">caption</a></td></tr>
 <tr class="memdesc:af66d1f4e0997ff1c3817275d1672985f inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Caption of the media to be sent, 0-1024 characters after entities parsing.  <a href="structtgbotxx_1_1_input_media.html#af66d1f4e0997ff1c3817275d1672985f">More...</a><br /></td></tr>
 <tr class="separator:af66d1f4e0997ff1c3817275d1672985f inherit pub_attribs_structtgbotxx_1_1_input_media"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,7 +152,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a general file to be sent. <a href="https://core.telegram.org/bots/api#inputmediadocument">https://core.telegram.org/bots/api#inputmediadocument</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00119">119</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00126">126</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3acba303da9f31b7afcbe98f68e2762e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3acba303da9f31b7afcbe98f68e2762e">&#9670;&nbsp;</a></span>InputMediaDocument() <span class="overload">[1/2]</span></h2>
@@ -177,7 +177,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00120">120</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00127">127</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00123">123</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00130">130</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -238,7 +238,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="structtgbotxx_1_1_input_media.html#a5d9c0d93e58faac87c659d97e0a11046">tgbotxx::InputMedia</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00145">145</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00152">152</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -270,7 +270,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="structtgbotxx_1_1_input_media.html#ae2befa5debd5928f450d6ab00ee2cf39">tgbotxx::InputMedia</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00139">139</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00146">146</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +289,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always True, if the document is sent as part of an album. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00136">136</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00143">143</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +307,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00132">132</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00139">139</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +320,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_input_media_document.html">InputMediaDocument</a></li>
-    <li class="footer">Generated on Sat Dec 30 2023 17:41:03 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 5 2024 20:48:00 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

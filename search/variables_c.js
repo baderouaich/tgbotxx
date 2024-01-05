@@ -3,7 +3,7 @@ var searchData=
   ['maskposition_1616',['maskPosition',['../structtgbotxx_1_1_sticker.html#ae9f2ccd3bbdbc472fcbc62d9a33aae46',1,'tgbotxx::Sticker']]],
   ['maxconnections_1617',['maxConnections',['../structtgbotxx_1_1_webhook_info.html#a3ac4dca0c220427c71fc418211917c6e',1,'tgbotxx::WebhookInfo']]],
   ['maxtipamount_1618',['maxTipAmount',['../structtgbotxx_1_1_input_invoice_message_content.html#ace880bf2f9c90f545d1d2d83f435b30a',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['media_1619',['media',['../structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d',1,'tgbotxx::InputMedia']]],
+  ['media_1619',['media',['../structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4',1,'tgbotxx::InputMedia']]],
   ['mediagroupid_1620',['mediaGroupId',['../structtgbotxx_1_1_message.html#a5363a698df5f1dfe9c4360ffb353bceb',1,'tgbotxx::Message']]],
   ['memberlimit_1621',['memberLimit',['../structtgbotxx_1_1_chat_invite_link.html#a43191eacf396fb40d2a35ec7f5489db7',1,'tgbotxx::ChatInviteLink']]],
   ['message_1622',['message',['../structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d',1,'tgbotxx::CallbackQuery::message()'],['../structtgbotxx_1_1_update.html#a06b46ec0f6a8d9a54c25e5d5e3c4b474',1,'tgbotxx::Update::message()']]],

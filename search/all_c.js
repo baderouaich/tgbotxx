@@ -7,7 +7,7 @@ var searchData=
   ['maskposition_2ehpp_462',['MaskPosition.hpp',['../_mask_position_8hpp.html',1,'']]],
   ['maxconnections_463',['maxConnections',['../structtgbotxx_1_1_webhook_info.html#a3ac4dca0c220427c71fc418211917c6e',1,'tgbotxx::WebhookInfo']]],
   ['maxtipamount_464',['maxTipAmount',['../structtgbotxx_1_1_input_invoice_message_content.html#ace880bf2f9c90f545d1d2d83f435b30a',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['media_465',['media',['../structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d',1,'tgbotxx::InputMedia']]],
+  ['media_465',['media',['../structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4',1,'tgbotxx::InputMedia']]],
   ['mediagroupid_466',['mediaGroupId',['../structtgbotxx_1_1_message.html#a5363a698df5f1dfe9c4360ffb353bceb',1,'tgbotxx::Message']]],
   ['memberlimit_467',['memberLimit',['../structtgbotxx_1_1_chat_invite_link.html#a43191eacf396fb40d2a35ec7f5489db7',1,'tgbotxx::ChatInviteLink']]],
   ['mention_468',['Mention',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a53463656b8197ce564e370d296827252',1,'tgbotxx::MessageEntity']]],

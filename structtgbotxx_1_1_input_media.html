@@ -128,9 +128,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aec604fb4dc7526c2fb17fadaf09fc56a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#aec604fb4dc7526c2fb17fadaf09fc56a">type</a></td></tr>
 <tr class="memdesc:aec604fb4dc7526c2fb17fadaf09fc56a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the result.  <a href="structtgbotxx_1_1_input_media.html#aec604fb4dc7526c2fb17fadaf09fc56a">More...</a><br /></td></tr>
 <tr class="separator:aec604fb4dc7526c2fb17fadaf09fc56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55dd591cbdcf30ac719207233bb5668d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d">media</a></td></tr>
-<tr class="memdesc:a55dd591cbdcf30ac719207233bb5668d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), Pass an HTTP URL for Telegram to get a file from the Internet, or Pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a>.  <a href="structtgbotxx_1_1_input_media.html#a55dd591cbdcf30ac719207233bb5668d">More...</a><br /></td></tr>
-<tr class="separator:a55dd591cbdcf30ac719207233bb5668d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2c2ddf7b745728281748c7357fa9f4"><td class="memItemLeft" align="right" valign="top">std::variant&lt; cpr::File, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4">media</a> {&quot;&quot;}</td></tr>
+<tr class="memdesc:ade2c2ddf7b745728281748c7357fa9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send.  <a href="structtgbotxx_1_1_input_media.html#ade2c2ddf7b745728281748c7357fa9f4">More...</a><br /></td></tr>
+<tr class="separator:ade2c2ddf7b745728281748c7357fa9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af66d1f4e0997ff1c3817275d1672985f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_media.html#af66d1f4e0997ff1c3817275d1672985f">caption</a></td></tr>
 <tr class="memdesc:af66d1f4e0997ff1c3817275d1672985f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Caption of the media to be sent, 0-1024 characters after entities parsing.  <a href="structtgbotxx_1_1_input_media.html#af66d1f4e0997ff1c3817275d1672985f">More...</a><br /></td></tr>
 <tr class="separator:af66d1f4e0997ff1c3817275d1672985f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -235,7 +235,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="structtgbotxx_1_1_input_media_video.html#aea9cdaf097c22b02133bb1e2d1576af6">tgbotxx::InputMediaVideo</a>, <a class="el" href="structtgbotxx_1_1_input_media_photo.html#a548eccebc85f733d5fc79a5b2c7a8865">tgbotxx::InputMediaPhoto</a>, <a class="el" href="structtgbotxx_1_1_input_media_audio.html#abdf463038e48915407773bd21b5a7222">tgbotxx::InputMediaAudio</a>, <a class="el" href="structtgbotxx_1_1_input_media_document.html#acba245a1487e9579dae6c4c77b7c90ea">tgbotxx::InputMediaDocument</a>, and <a class="el" href="structtgbotxx_1_1_input_media_animation.html#ab14713fa0f8edaf650f5fb897f866b74">tgbotxx::InputMediaAnimation</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00052">52</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00058">58</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +267,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="structtgbotxx_1_1_input_media_video.html#ab56db8847df643a81eb5c70c329a8fac">tgbotxx::InputMediaVideo</a>, <a class="el" href="structtgbotxx_1_1_input_media_photo.html#a44041d21fe155337e99191e29657ea12">tgbotxx::InputMediaPhoto</a>, <a class="el" href="structtgbotxx_1_1_input_media_audio.html#acee5feecb44b387485a07b7ab871dd3f">tgbotxx::InputMediaAudio</a>, <a class="el" href="structtgbotxx_1_1_input_media_document.html#a3844707ca031e7c54e17ffeb5bd6d9e3">tgbotxx::InputMediaDocument</a>, and <a class="el" href="structtgbotxx_1_1_input_media_animation.html#a47b5a6427b97b725162585c417c3a4f6">tgbotxx::InputMediaAnimation</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00041">41</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00043">43</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Caption of the media to be sent, 0-1024 characters after entities parsing. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00029">29</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00031">31</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -304,25 +304,30 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. List of special entities that appear in the caption, which can be specified instead of parseMode. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00036">36</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00038">38</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a55dd591cbdcf30ac719207233bb5668d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55dd591cbdcf30ac719207233bb5668d">&#9670;&nbsp;</a></span>media</h2>
+<a id="ade2c2ddf7b745728281748c7357fa9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade2c2ddf7b745728281748c7357fa9f4">&#9670;&nbsp;</a></span>media</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string tgbotxx::InputMedia::media</td>
+          <td class="memname">std::variant&lt;cpr::File, std::string&gt; tgbotxx::InputMedia::media {&quot;&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), Pass an HTTP URL for Telegram to get a file from the Internet, or Pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a>. </p>
+<p><a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> to send. </p>
+<ul>
+<li>Pass a file_id std::string to send a file that exists on the Telegram servers (recommended),</li>
+<li>Pass an HTTP URL std::string for Telegram to get a file from the Internet, or</li>
+<li>Pass a cpr::File to upload a local file The latter will internally use “attach://&lt;file_attach_name&gt;” with multipart/form-data under &lt;file_attach_name&gt; name to upload the local file. More information on Sending Files » <a href="https://core.telegram.org/bots/api#sending-files">https://core.telegram.org/bots/api#sending-files</a> </li>
+</ul>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00026">26</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00028">28</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +345,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Mode for parsing entities in the media caption. See <a href="https://core.telegram.org/bots/api#formatting-options">https://core.telegram.org/bots/api#formatting-options</a> for more details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00033">33</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_media_8hpp_source.html#l00035">35</a> of file <a class="el" href="_input_media_8hpp_source.html">InputMedia.hpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +376,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_input_media.html">InputMedia</a></li>
-    <li class="footer">Generated on Sat Dec 30 2023 17:41:03 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 5 2024 20:48:00 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
