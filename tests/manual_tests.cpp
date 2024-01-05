@@ -153,7 +153,7 @@ class MyBot : public Bot {
         getApi()->sendMessage(message->chat->id, "Sending URL photo...");
         getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
         getApi()->sendMessage(message->chat->id, "Sending File photo...");
-        getApi()->sendPhoto(message->chat->id, cpr::File{"/home/bader/Pictures/2021/05/30/thumb-1920-642642.jpg"});
+        getApi()->sendPhoto(message->chat->id, cpr::File{fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg"});
       } else if (message->text == "/inline_buttons") {
         /*
             Create inline keyboard buttons
@@ -226,7 +226,7 @@ class MyBot : public Bot {
         {
           getApi()->sendMessage(message->chat->id, "Sending pdf media group ...");
           std::vector<Ptr<InputMedia>> mediaGroup;
-          for (const std::string_view docURL: {"https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4928.pdf",
+          for (const std::string docURL: {"https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4928.pdf",
                                                "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4933.pdf",
                                                "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4934.pdf",
                                                "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2759r0.pdf"}) {
@@ -234,20 +234,32 @@ class MyBot : public Bot {
             document->media = docURL;
             mediaGroup.push_back(document);
           }
+          // add extra local doc
+          Ptr<InputMediaDocument> localDoc(new InputMediaDocument());
+          localDoc->media = cpr::File{__FILE__};
+          mediaGroup.push_back(localDoc);
+
           api()->sendMediaGroup(message->chat->id, mediaGroup);
         }
         {
           getApi()->sendMessage(message->chat->id, "Sending photo media group ...");
           std::vector<Ptr<InputMedia>> mediaGroup;
-          for (const std::string_view photoURL: {"https://images.alphacoders.com/129/1299740.jpg",
-                                                 "https://images2.alphacoders.com/112/1128233.jpg",
-                                                 "https://images2.alphacoders.com/131/1311487.jpg",
-                                                 "https://images5.alphacoders.com/129/1295587.jpg",
-                                                 "https://images5.alphacoders.com/121/1217119.png",
-                                                 "https://images6.alphacoders.com/510/510365.jpg"}) {
+          for (const fs::path& localPhotoPath: {fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg",
+                                                  fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image2.jpg"}) {
             Ptr<InputMediaPhoto> photo(new InputMediaPhoto());
-            photo->media = photoURL;
-            photo->hasSpoiler = !!(std::rand() % 3);
+            photo->media = cpr::File{localPhotoPath}; // Local
+            photo->hasSpoiler = false;
+            mediaGroup.push_back(photo);
+          }
+          for (const std::string photoURL: {"https://images.alphacoders.com/129/1299740.jpg",
+                   "https://images2.alphacoders.com/112/1128233.jpg",
+                   "https://images2.alphacoders.com/131/1311487.jpg",
+                   "https://images5.alphacoders.com/129/1295587.jpg",
+                   "https://images5.alphacoders.com/121/1217119.png",
+                   "https://images6.alphacoders.com/510/510365.jpg"}) {
+            Ptr<InputMediaPhoto> photo(new InputMediaPhoto());
+            photo->media = photoURL; // URL
+            photo->hasSpoiler = false;
             mediaGroup.push_back(photo);
           }
           api()->sendMediaGroup(message->chat->id, mediaGroup);

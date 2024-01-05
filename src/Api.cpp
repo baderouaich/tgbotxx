@@ -731,8 +731,27 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
   if (media.size() > 10 or media.size() < 2)
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
   nl::json mediaJson = nl::json::array();
+  // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
   for (const Ptr<InputMedia>& m: media)
-    mediaJson.push_back(m->toJson());
+  {
+    nl::json mJson = m->toJson();
+    switch(m->media.index()) {
+      case 0: // cpr::File (Local File)
+      {
+        const cpr::File& file = std::get<cpr::File>(m->media);
+        std::string fileKey = StringUtils::random(8);
+        mJson["media"] = "attach://" + fileKey;
+        data.parts.emplace_back(fileKey, cpr::Files{file});
+        break;
+      }
+      case 1: // std::string (URL, File ID)
+      {
+        // do nothing as toJson will export the "media": "URL or file ID" object.
+        break;
+      }
+    }
+    mediaJson.push_back(mJson);
+  }
   data.parts.emplace_back("media", mediaJson.dump());
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);

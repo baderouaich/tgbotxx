@@ -19,11 +19,13 @@ namespace tgbotxx {
       /// @brief Type of the result.
       std::string type;
 
-      /// @brief File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended),
-      /// Pass an HTTP URL for Telegram to get a file from the Internet, or
-      /// Pass “attach://<file_attach_name>” to upload a new one using multipart/form-data under <file_attach_name> name.
+      /// @brief File to send.
+      /// - Pass a file_id std::string to send a file that exists on the Telegram servers (recommended),
+      /// - Pass an HTTP URL std::string for Telegram to get a file from the Internet, or
+      /// - Pass a cpr::File to upload a local file
+      /// The latter will internally use “attach://<file_attach_name>” with multipart/form-data under <file_attach_name> name to upload the local file.
       /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-      std::string media;
+      std::variant<cpr::File, std::string> media{""};
 
       /// @brief Optional. Caption of the media to be sent, 0-1024 characters after entities parsing
       std::string caption;
@@ -41,7 +43,11 @@ namespace tgbotxx {
       virtual nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "type", type);
-        OBJECT_SERIALIZE_FIELD(json, "media", media);
+        // media variant
+        if (auto idx = media.index(); idx == 0)
+          json["media"] = std::get<cpr::File>(media).filepath;
+        else if (idx == 1)
+          json["media"] = std::get<std::string>(media);
         OBJECT_SERIALIZE_FIELD(json, "caption", caption);
         OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
@@ -51,7 +57,8 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       virtual void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
-        OBJECT_DESERIALIZE_FIELD(json, "media", media, "", false);
+        // media variant, we can't get a local file from remote, so it's always a URL or file id std::string.
+        OBJECT_DESERIALIZE_FIELD(json, "media", std::get<std::string>(media), "", false);
         OBJECT_DESERIALIZE_FIELD(json, "caption", caption, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "parse_mode", parseMode, "", true);
         OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities, true);
