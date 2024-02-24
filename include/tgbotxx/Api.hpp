@@ -47,14 +47,15 @@ namespace tgbotxx {
   /// @note All methods in the Bot API are case-insensitive.
   /// @note We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in Bot API requests.
   class Api {
-      static const std::string BASE_URL;                        /// Telegram api base url
+      static const std::string DEFAULT_API_URL;                 /// Telegram api base url
       static const cpr::ConnectTimeout DEFAULT_CONNECT_TIMEOUT; /// 20s (Telegram server can take up to 20s to connect with us)
       static const cpr::Timeout DEFAULT_TIMEOUT;                /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
-      static const cpr::Timeout DEFAULT_LONG_POLL_TIMEOUT;      /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
+      static const cpr::Timeout DEFAULT_LONG_POLL_TIMEOUT;      /// 60s (long polling getUpdates() every 60 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
       static const cpr::Timeout DEFAULT_UPLOAD_FILES_TIMEOUT;   /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
       static const cpr::Timeout DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
       const std::string m_token;                                            /// Bot token from \@BotFather
+      std::string m_apiUrl = DEFAULT_API_URL;                               /// Api URL. Either DEFAULT_API_URL or local Telegram Bot server URL (example: http://0.0.0.0:8081). See how to build and start your own tg bot server locally https://t.ly/ZmqK3
       cpr::ConnectTimeout m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;       /// Api connection timeout
       cpr::Timeout m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
       cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
@@ -1778,6 +1779,11 @@ namespace tgbotxx {
       Ptr<SentWebAppMessage> answerWebAppQuery(const std::string& webAppQueryId, const Ptr<InlineQueryResult>& result) const;
 
     public: /// Timeout setters/getters
+      /// @brief Set Api URL.
+      void setUrl(const std::string& url) noexcept;
+      /// @brief Get Api URL.
+      const std::string& getUrl() const noexcept;
+
       /// @brief Set long polling timeout.
       void setLongPollTimeout(const cpr::Timeout& longPollTimeout);
       /// @brief Get long polling timeout.

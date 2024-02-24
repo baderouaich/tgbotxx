@@ -98,10 +98,10 @@
 using namespace tgbotxx;
 
 /// Static declarations
-const std::string Api::BASE_URL = "https://api.telegram.org";                                  /// Telegram api base url
+const std::string Api::DEFAULT_API_URL = "https://api.telegram.org";                           /// Telegram Api Url (Use api()->setUrl("http..") to set your self-hosted url)
 const cpr::ConnectTimeout Api::DEFAULT_CONNECT_TIMEOUT = std::chrono::milliseconds(20 * 1000); /// 20s (Telegram server can take up to 20s to connect with us)
 const cpr::Timeout Api::DEFAULT_TIMEOUT = std::chrono::seconds(60 + 10);                       /// 70s (Telegram server can take up to 70s to reply us (should be longer than long poll timeout)).
-const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);                  /// 60s (long polling getUpdates() every 30 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
+const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);                  /// 60s (long polling getUpdates() every 60 seconds) Telegram's guidelines recommended a timeout between 30 and 90 seconds for long polling.
 const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
 const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
@@ -121,7 +121,7 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
     {"Content-Type", "application/x-www-form-urlencoded"},
   });
   std::ostringstream url{};
-  url << BASE_URL << "/bot" << m_token << '/' << endpoint; // Note: token should have a prefix botTOKEN.
+  url << m_apiUrl << "/bot" << m_token << '/' << endpoint; // Note: token should have a prefix botTOKEN.
   session.SetUrl(cpr::Url{url.str()});
   bool isMultipart = not data.parts.empty();
   if (isMultipart) {
@@ -444,7 +444,7 @@ Ptr<File> Api::getFile(const std::string& fileId) const {
 
 std::string Api::downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t, cpr::cpr_off_t)>& progressCallback) const {
   std::ostringstream oss{};
-  oss << BASE_URL << "/file/bot" << m_token << "/" << filePath;
+  oss << m_apiUrl << "/file/bot" << m_token << "/" << filePath;
 
   cpr::Session session{};
   session.SetUrl(cpr::Url{oss.str()});
@@ -2077,6 +2077,13 @@ Ptr<SentWebAppMessage> Api::answerWebAppQuery(const std::string& webAppQueryId, 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+void Api::setUrl(const std::string& url) noexcept {
+  m_apiUrl = url;
+}
+const std::string& Api::getUrl() const noexcept {
+  return m_apiUrl;
+}
+
 void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
   if (longPollTimeout.ms > m_timeout.ms)
     throw Exception("Api::setLongPollTimeout: Long poll timeout should always be shorter than api request timeout."
