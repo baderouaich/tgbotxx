@@ -101,10 +101,13 @@ class MyBot : public Bot {
       Ptr<BotCommand> createInvoiceLink(new BotCommand());
       createInvoiceLink->command = "/create_invoice_link";
       createInvoiceLink->description = "You will receive a test invoice link";
+      Ptr<BotCommand> sendSticker(new BotCommand());
+      sendSticker->command = "/send_sticker";
+      sendSticker->description = "You will receive a sticker";
       getApi()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
                                location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                                menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
-                               deleteMessage, sendInvoice, createInvoiceLink}); // The above commands will be shown in the bot chat menu (bottom left)
+                               deleteMessage, sendInvoice, createInvoiceLink, sendSticker}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -366,6 +369,8 @@ class MyBot : public Bot {
         std::string link = api()->createInvoiceLink("Product name", "Product description", "payload", providerToken, "USD", prices);
         // Send link to user
         api()->sendMessage(message->chat->id, link);
+      } else if (message->text == "/send_sticker") {
+        api()->sendSticker(message->chat->id, "https://t.ly/uQ6Zx");
       }
     }
 

@@ -42,6 +42,8 @@ namespace tgbotxx {
   struct LabeledPrice;
   struct ShippingOption;
   struct SentWebAppMessage;
+  struct ReplyParameters;
+  struct StickerSet;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -63,6 +65,7 @@ namespace tgbotxx {
       cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
 
       friend class Bot;
+
     public:
       /// @brief Constructs Api object.
       /// @param token Bot Token from FatherBot.
@@ -232,7 +235,7 @@ namespace tgbotxx {
       /// @note For sending voice messages, use the sendVoice method instead.
       /// @ref https://core.telegram.org/bots/api#sendaudio
       Ptr<Message> sendAudio(const std::variant<std::int64_t, std::string>& chatId,
-                             std::variant<cpr::File, std::string> audio,
+                             const std::variant<cpr::File, std::string>& audio,
                              std::int32_t messageThreadId = 0,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
@@ -1747,6 +1750,40 @@ namespace tgbotxx {
       /// @returns Returns True on success.
       /// @ref https://core.telegram.org/bots/api#deletemessage
       bool deleteMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const;
+
+    public: /// Stickers
+      /// @brief Use this method to send static .WEBP, animated .TGS, or video .WEBM stickers. On success, the sent Message is returned.
+      /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+      /// @param sticker Sticker to send.
+      /// - Pass a file_id std::string to send a file that exists on the Telegram servers (recommended),
+      /// - Pass an HTTP URL as an std::string for Telegram to get a .WEBP sticker from the Internet, or
+      /// - Pass a cpr::File to upload a new .WEBP or .TGS sticker
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param emoji Optional. Emoji associated with the sticker; only for just uploaded stickers
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyParameters Optional. Description of the message to reply to
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns sent Message object on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#sendsticker
+      Ptr<Message> sendSticker(const std::variant<std::int64_t, std::string>& chatId,
+                               const std::variant<cpr::File, std::string>& sticker,
+                               std::int32_t messageThreadId = 0,
+                               const std::string& emoji = "",
+                               bool disableNotification = false,
+                               bool protectContent = false,
+                               const Ptr<ReplyParameters>& replyParameters = nullptr,
+                               const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+      /// @brief Use this method to get a sticker set. On success, a StickerSet object is returned.
+      /// @param name Name of the sticker set
+      /// @returns StickerSet object is returned on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getstickerset
+      Ptr<StickerSet> getStickerSet(const std::string& name) const;
+
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.

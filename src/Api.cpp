@@ -12,6 +12,7 @@
 #include <tgbotxx/objects/BotShortDescription.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/StickerSet.hpp>
 #include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/ChatAdministratorRights.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
@@ -70,6 +71,7 @@
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
+#include <tgbotxx/objects/ReplyParameters.hpp>
 #include <tgbotxx/objects/SentWebAppMessage.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
 #include <tgbotxx/objects/ShippingOption.hpp>
@@ -309,7 +311,7 @@ Ptr<Message> Api::sendPhoto(const std::variant<std::int64_t, std::string>& chatI
 }
 
 Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatId,
-                            std::variant<cpr::File, std::string> audio,
+                            const std::variant<cpr::File, std::string>& audio,
                             std::int32_t messageThreadId,
                             const std::string& caption,
                             const std::string& parseMode,
@@ -733,10 +735,9 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
   nl::json mediaJson = nl::json::array();
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
-  for (const Ptr<InputMedia>& m: media)
-  {
+  for (const Ptr<InputMedia>& m: media) {
     nl::json mJson = m->toJson();
-    switch(m->media.index()) {
+    switch (m->media.index()) {
       case 0: // cpr::File (Local File)
       {
         const cpr::File& file = std::get<cpr::File>(m->media);
@@ -2057,7 +2058,7 @@ bool Api::answerInlineQuery(const std::string& inlineQueryId,
     data.parts.emplace_back("cache_time", cacheTime);
   if (isPersonal)
     data.parts.emplace_back("is_personal", isPersonal);
-  if(not nextOffset.empty())
+  if (not nextOffset.empty())
     data.parts.emplace_back("next_offset", nextOffset);
   if (button)
     data.parts.emplace_back("button", button->toJson().dump());
@@ -2077,6 +2078,67 @@ Ptr<SentWebAppMessage> Api::answerWebAppQuery(const std::string& webAppQueryId, 
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+Ptr<Message> Api::sendSticker(const std::variant<std::int64_t, std::string>& chatId,
+                              const std::variant<cpr::File, std::string>& sticker,
+                              std::int32_t messageThreadId,
+                              const std::string& emoji,
+                              bool disableNotification,
+                              bool protectContent,
+                              const Ptr<tgbotxx::ReplyParameters>& replyParameters,
+                              const Ptr<tgbotxx::IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(8);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (sticker.index() == 0) /* cpr::File */ {
+    const cpr::File& file = std::get<cpr::File>(sticker);
+    data.parts.emplace_back("sticker", cpr::Files{file});
+  } else /* std::string (fileId or Url) */ {
+    const std::string& fileIdOrUrl = std::get<std::string>(sticker);
+    data.parts.emplace_back("sticker", fileIdOrUrl);
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not emoji.empty())
+    data.parts.emplace_back("emoji", emoji);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendSticker", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+
+Ptr<StickerSet> Api::getStickerSet(const std::string& name) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("name", name);
+
+  nl::json stickerSetObj = sendRequest("getStickerSet", data);
+  Ptr<StickerSet> stickerSet(new StickerSet(stickerSetObj));
+  return stickerSet;
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void Api::setUrl(const std::string& url) noexcept {
   m_apiUrl = url;
