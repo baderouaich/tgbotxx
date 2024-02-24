@@ -29,7 +29,9 @@ void Bot::start() {
       m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
     } catch (const std::exception& err) {
       /// Callback -> onLongPollError
-      this->onLongPollError(err.what());
+      std::string errStr = err.what();
+      StringUtils::replace(errStr, m_api->m_token, "***HIDDEN_BOT_TOKEN***"); // Hide bot token in the exception message for security reasons
+      this->onLongPollError(errStr);
       continue;
     } catch (...) {
       /// Callback -> onLongPollError

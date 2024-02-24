@@ -1,5 +1,6 @@
 #include <chrono>
 #include <tgbotxx/Api.hpp>
+#include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
 /// Objects
 #include <tgbotxx/objects/Animation.hpp>

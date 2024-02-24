@@ -62,6 +62,7 @@ namespace tgbotxx {
       cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
       cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
 
+      friend class Bot;
     public:
       /// @brief Constructs Api object.
       /// @param token Bot Token from FatherBot.
