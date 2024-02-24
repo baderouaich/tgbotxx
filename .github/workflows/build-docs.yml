@@ -13,7 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-        
+    
+    - name: Update apt repositories 
+      run: sudo apt update
+      
     - name: Install Doxygen & CMake & ninja
       run: |
         sudo apt install doxygen cmake ninja-build
