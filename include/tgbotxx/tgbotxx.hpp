@@ -30,6 +30,7 @@
 #include <tgbotxx/objects/EncryptedCredentials.hpp>
 #include <tgbotxx/objects/EncryptedPassportElement.hpp>
 #include <tgbotxx/objects/File.hpp>
+#include <tgbotxx/objects/ForceReply.hpp>
 #include <tgbotxx/objects/ForumTopic.hpp>
 #include <tgbotxx/objects/ForumTopicClosed.hpp>
 #include <tgbotxx/objects/ForumTopicCreated.hpp>
@@ -45,6 +46,8 @@
 #include <tgbotxx/objects/InlineQueryResult.hpp>
 #include <tgbotxx/objects/InlineQueryResultsButton.hpp>
 #include <tgbotxx/objects/InputMedia.hpp>
+#include <tgbotxx/objects/InputMessageContent.hpp>
+#include <tgbotxx/objects/InputSticker.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
@@ -71,9 +74,13 @@
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
+#include <tgbotxx/objects/ReplyParameters.hpp>
+#include <tgbotxx/objects/SentWebAppMessage.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
+#include <tgbotxx/objects/ShippingOption.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/Sticker.hpp>
+#include <tgbotxx/objects/StickerSet.hpp>
 #include <tgbotxx/objects/Story.hpp>
 #include <tgbotxx/objects/SuccessfulPayment.hpp>
 #include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
@@ -93,7 +100,6 @@
 #include <tgbotxx/objects/WebAppInfo.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
-
 
 /// Utils
 #include <tgbotxx/utils/DateTimeUtils.hpp>
