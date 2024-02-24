@@ -1,5 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"namespacetgbotxx_1_1_string_utils.html#a4c131fdd91255871f5b5144441c50a58":[0,0,0,2,8],
+"namespacetgbotxx_1_1_string_utils.html#a50fc52e61bbe0e73c63a25e354bae3b2":[0,0,0,2,7],
+"namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6":[0,0,0,2,2],
+"namespacetgbotxx_1_1_string_utils.html#a5425a24ccb70d4786c6c2cc703fac713":[0,0,0,2,16],
+"namespacetgbotxx_1_1_string_utils.html#a61b0ab25ca04c0c97d7517473ec2dc69":[0,0,0,2,15],
+"namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005":[0,0,0,2,10],
+"namespacetgbotxx_1_1_string_utils.html#a6f0112b79199930cc9a09606c1e3640e":[0,0,0,2,6],
+"namespacetgbotxx_1_1_string_utils.html#a7fd24770e720e5645130a643b9fae448":[0,0,0,2,5],
 "namespacetgbotxx_1_1_string_utils.html#a83bc9425583fd6fe7a1b7f0d63ca9aee":[0,0,0,2,4],
 "namespacetgbotxx_1_1_string_utils.html#ac3baf8c01cbc8dda83c51d877b292160":[0,0,0,2,14],
 "namespacetgbotxx_1_1_string_utils.html#ac76641e3294d564151a3caab70d526f2":[0,0,0,2,3],
@@ -241,13 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_chat_member_banned.html":[1,0,0,30],
 "structtgbotxx_1_1_chat_member_banned.html#a729f3c2909099e5ee48bb3b936babcc5":[1,0,0,30,2],
 "structtgbotxx_1_1_chat_member_banned.html#a744b811281e8234b0e3335e5e496b659":[1,0,0,30,4],
-"structtgbotxx_1_1_chat_member_banned.html#a8e77a9638aa17d845909735babee3a94":[1,0,0,30,1],
-"structtgbotxx_1_1_chat_member_banned.html#ae0e509330ddd9a3ce42c43512e56d6e5":[1,0,0,30,0],
-"structtgbotxx_1_1_chat_member_banned.html#af4c20f0244d5b29c36be1773a1013547":[1,0,0,30,3],
-"structtgbotxx_1_1_chat_member_left.html":[1,0,0,29],
-"structtgbotxx_1_1_chat_member_left.html#a50181b0a6661183eb21746d5a5b254fa":[1,0,0,29,1],
-"structtgbotxx_1_1_chat_member_left.html#a84b331d2c64d6217e5aea3d8fd6b3ad2":[1,0,0,29,0],
-"structtgbotxx_1_1_chat_member_member.html":[1,0,0,27],
-"structtgbotxx_1_1_chat_member_member.html#a49f45e87dd34f64057d546ff432d2066":[1,0,0,27,1],
-"structtgbotxx_1_1_chat_member_member.html#aa8168064ceb53f43022991d7a8743587":[1,0,0,27,0]
+"structtgbotxx_1_1_chat_member_banned.html#a8e77a9638aa17d845909735babee3a94":[1,0,0,30,1]
 };

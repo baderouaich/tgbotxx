@@ -1,5 +1,13 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_inline_query.html#afa14867507bf1f4f70f1574bd24b1bb0":[1,0,0,53,4],
+"structtgbotxx_1_1_inline_query.html#afacfcd0595323f147a2d333825f54115":[1,0,0,53,6],
+"structtgbotxx_1_1_inline_query_result.html":[1,0,0,54],
+"structtgbotxx_1_1_inline_query_result.html#a476160c5ed92c8af9b786a6ad0bdefcd":[1,0,0,54,1],
+"structtgbotxx_1_1_inline_query_result.html#a4ae2f657a22951e87c7be9654708dd3c":[1,0,0,54,6],
+"structtgbotxx_1_1_inline_query_result.html#a565057c3ab9f13251e7b552fbdd6a0c1":[1,0,0,54,3],
+"structtgbotxx_1_1_inline_query_result.html#a578ef1e06c9a8b12ac12777a2d513a9a":[1,0,0,54,2],
+"structtgbotxx_1_1_inline_query_result.html#a6e6b4a69cbe4ba1dc2b758b01d01f82f":[1,0,0,54,0],
 "structtgbotxx_1_1_inline_query_result.html#ac55e29165ca9f40f0fb46550490fb68b":[1,0,0,54,5],
 "structtgbotxx_1_1_inline_query_result.html#af82675bd2e5baa102ffa004eb9eff5e2":[1,0,0,54,4],
 "structtgbotxx_1_1_inline_query_result_article.html":[1,0,0,55],
@@ -241,13 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_inline_query_result_video.html#a79195bad0b9605a1117ec477c23b8885":[1,0,0,59,6],
 "structtgbotxx_1_1_inline_query_result_video.html#a80fd93f4c1c87fc7fe42003eea55a172":[1,0,0,59,10],
 "structtgbotxx_1_1_inline_query_result_video.html#a8557b1dd0fcbe2639ed267428024859b":[1,0,0,59,13],
-"structtgbotxx_1_1_inline_query_result_video.html#a8d2a645eb2ae0d822f250fa7ee315011":[1,0,0,59,7],
-"structtgbotxx_1_1_inline_query_result_video.html#aa029f343c6bc85f2513d3179544b1cf7":[1,0,0,59,1],
-"structtgbotxx_1_1_inline_query_result_video.html#ab078d0c6aa95bfbcffb0afb3fc5d2296":[1,0,0,59,14],
-"structtgbotxx_1_1_inline_query_result_video.html#ab6d9bc8fd9e74f7e19e22d03d485f3f0":[1,0,0,59,3],
-"structtgbotxx_1_1_inline_query_result_video.html#ac52b749b350a7456a074fd6fe5752fc9":[1,0,0,59,2],
-"structtgbotxx_1_1_inline_query_result_video.html#ae4560b620349900113ba3f79e496726b":[1,0,0,59,12],
-"structtgbotxx_1_1_inline_query_result_voice.html":[1,0,0,61],
-"structtgbotxx_1_1_inline_query_result_voice.html#a1a53f9a39749d2aca2db5f42186c887a":[1,0,0,61,7],
-"structtgbotxx_1_1_inline_query_result_voice.html#a1fce79184f2e2dd0040d702a9c769f1a":[1,0,0,61,5]
+"structtgbotxx_1_1_inline_query_result_video.html#a8d2a645eb2ae0d822f250fa7ee315011":[1,0,0,59,7]
 };

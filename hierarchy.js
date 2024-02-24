@@ -95,6 +95,7 @@ var hierarchy =
       [ "tgbotxx::InputTextMessageContent", "structtgbotxx_1_1_input_text_message_content.html", null ],
       [ "tgbotxx::InputVenueMessageContent", "structtgbotxx_1_1_input_venue_message_content.html", null ]
     ] ],
+    [ "tgbotxx::InputSticker", "structtgbotxx_1_1_input_sticker.html", null ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
       [ "tgbotxx::ForceReply", "structtgbotxx_1_1_force_reply.html", null ],
@@ -128,6 +129,7 @@ var hierarchy =
     [ "tgbotxx::PollOption", "structtgbotxx_1_1_poll_option.html", null ],
     [ "tgbotxx::PreCheckoutQuery", "structtgbotxx_1_1_pre_checkout_query.html", null ],
     [ "tgbotxx::ProximityAlertTriggered", "structtgbotxx_1_1_proximity_alert_triggered.html", null ],
+    [ "tgbotxx::ReplyParameters", "structtgbotxx_1_1_reply_parameters.html", null ],
     [ "std::runtime_error", null, [
       [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", null ]
     ] ],
@@ -136,6 +138,7 @@ var hierarchy =
     [ "tgbotxx::ShippingOption", "structtgbotxx_1_1_shipping_option.html", null ],
     [ "tgbotxx::ShippingQuery", "structtgbotxx_1_1_shipping_query.html", null ],
     [ "tgbotxx::Sticker", "structtgbotxx_1_1_sticker.html", null ],
+    [ "tgbotxx::StickerSet", "structtgbotxx_1_1_sticker_set.html", null ],
     [ "tgbotxx::Story", "structtgbotxx_1_1_story.html", null ],
     [ "tgbotxx::SuccessfulPayment", "structtgbotxx_1_1_successful_payment.html", null ],
     [ "tgbotxx::SwitchInlineQueryChosenChat", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html", null ],

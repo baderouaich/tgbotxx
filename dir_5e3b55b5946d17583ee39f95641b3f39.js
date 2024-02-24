@@ -169,6 +169,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
       [ "InputContactMessageContent", "structtgbotxx_1_1_input_contact_message_content.html", "structtgbotxx_1_1_input_contact_message_content" ],
       [ "InputInvoiceMessageContent", "structtgbotxx_1_1_input_invoice_message_content.html", "structtgbotxx_1_1_input_invoice_message_content" ]
     ] ],
+    [ "InputSticker.hpp", "_input_sticker_8hpp.html", [
+      [ "InputSticker", "structtgbotxx_1_1_input_sticker.html", "structtgbotxx_1_1_input_sticker" ]
+    ] ],
     [ "Invoice.hpp", "_invoice_8hpp.html", [
       [ "Invoice", "structtgbotxx_1_1_invoice.html", "structtgbotxx_1_1_invoice" ]
     ] ],
@@ -251,6 +254,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "ReplyKeyboardRemove.hpp", "_reply_keyboard_remove_8hpp.html", [
       [ "ReplyKeyboardRemove", "structtgbotxx_1_1_reply_keyboard_remove.html", "structtgbotxx_1_1_reply_keyboard_remove" ]
     ] ],
+    [ "ReplyParameters.hpp", "_reply_parameters_8hpp.html", [
+      [ "ReplyParameters", "structtgbotxx_1_1_reply_parameters.html", "structtgbotxx_1_1_reply_parameters" ]
+    ] ],
     [ "SentWebAppMessage.hpp", "_sent_web_app_message_8hpp.html", [
       [ "SentWebAppMessage", "structtgbotxx_1_1_sent_web_app_message.html", "structtgbotxx_1_1_sent_web_app_message" ]
     ] ],
@@ -265,6 +271,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "Sticker.hpp", "_sticker_8hpp.html", [
       [ "Sticker", "structtgbotxx_1_1_sticker.html", "structtgbotxx_1_1_sticker" ]
+    ] ],
+    [ "StickerSet.hpp", "_sticker_set_8hpp.html", [
+      [ "StickerSet", "structtgbotxx_1_1_sticker_set.html", "structtgbotxx_1_1_sticker_set" ]
     ] ],
     [ "Story.hpp", "_story_8hpp.html", [
       [ "Story", "structtgbotxx_1_1_story.html", "structtgbotxx_1_1_story" ]
