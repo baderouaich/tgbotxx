@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_message.html#a006ee6b2791ca0af6e596df66a03273a":[1,0,0,102,47],
+"structtgbotxx_1_1_message.html#a0169c153397b640d4dc8899ac3dfc19b":[1,0,0,102,9],
+"structtgbotxx_1_1_message.html#a04c9d0f1696894351cfe29e3b4d970f2":[1,0,0,102,35],
+"structtgbotxx_1_1_message.html#a057aeea088bd95a5a9e0b5911bc02024":[1,0,0,102,53],
 "structtgbotxx_1_1_message.html#a06d20ff589151e96d26cf36a70a5b602":[1,0,0,102,19],
 "structtgbotxx_1_1_message.html#a07948815e7211c5bc0d284c669d17c01":[1,0,0,102,71],
 "structtgbotxx_1_1_message.html#a0a56092415f85f43f8fa6aee2cf2cac7":[1,0,0,102,26],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_shipping_option.html#a458d38df33ab8c1fc8e0224146de6520":[1,0,0,119,0],
 "structtgbotxx_1_1_shipping_option.html#a4936097f2ac8b6c93209927822fe4239":[1,0,0,119,2],
 "structtgbotxx_1_1_shipping_option.html#a86d099f82f142eaae142ed1e45880a47":[1,0,0,119,5],
-"structtgbotxx_1_1_shipping_option.html#ab64cfae4b43352e334db71fa2c125ba1":[1,0,0,119,4],
-"structtgbotxx_1_1_shipping_option.html#abf890fd48907f7671f943ec683336423":[1,0,0,119,3],
-"structtgbotxx_1_1_shipping_option.html#ad530d58469a5d86cbd669f16afe83eec":[1,0,0,119,1],
-"structtgbotxx_1_1_shipping_query.html":[1,0,0,120],
-"structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d":[1,0,0,120,0]
+"structtgbotxx_1_1_shipping_option.html#ab64cfae4b43352e334db71fa2c125ba1":[1,0,0,119,4]
 };

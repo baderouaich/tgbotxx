@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"structtgbotxx_1_1_shipping_option.html#abf890fd48907f7671f943ec683336423":[1,0,0,119,3],
+"structtgbotxx_1_1_shipping_option.html#ad530d58469a5d86cbd669f16afe83eec":[1,0,0,119,1],
+"structtgbotxx_1_1_shipping_query.html":[1,0,0,120],
+"structtgbotxx_1_1_shipping_query.html#a1d239a18c29d667c36446d889662377d":[1,0,0,120,0],
 "structtgbotxx_1_1_shipping_query.html#a5248f5bd3312a96b5aea1cb36041899c":[1,0,0,120,1],
 "structtgbotxx_1_1_shipping_query.html#a6a23fb3dee7b8e8de3b8e08ead8acff2":[1,0,0,120,2],
 "structtgbotxx_1_1_shipping_query.html#a72c1ddaade24af6b5d2fd107ee7c05d7":[1,0,0,120,5],

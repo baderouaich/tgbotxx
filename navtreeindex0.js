@@ -244,10 +244,10 @@ var NAVTREEINDEX0 =
 "class_paid_subscription_bot.html#aa95e7bc59df67a0766f49f27a503c32f":[1,0,1,0],
 "classes.html":[1,1],
 "classtgbotxx_1_1_api.html":[1,0,0,0],
-"classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519":[1,0,0,0,45],
-"classtgbotxx_1_1_api.html#a0287f2d05dbe404897c90e5734130d6a":[1,0,0,0,69],
-"classtgbotxx_1_1_api.html#a08ef442ea3dfd64cff5fb63f368efcb8":[1,0,0,0,95],
-"classtgbotxx_1_1_api.html#a08ff02d8f227e1b56fcbb77e7decdca3":[1,0,0,0,47],
+"classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519":[1,0,0,0,46],
+"classtgbotxx_1_1_api.html#a0287f2d05dbe404897c90e5734130d6a":[1,0,0,0,70],
+"classtgbotxx_1_1_api.html#a08ef442ea3dfd64cff5fb63f368efcb8":[1,0,0,0,98],
+"classtgbotxx_1_1_api.html#a08ff02d8f227e1b56fcbb77e7decdca3":[1,0,0,0,48],
 "classtgbotxx_1_1_api.html#a0b22a8188c236c7e3fa12d83a7c1f2ac":[1,0,0,0,38],
-"classtgbotxx_1_1_api.html#a0c51110aa805e3a7428dd5ddff90fc49":[1,0,0,0,101]
+"classtgbotxx_1_1_api.html#a0c51110aa805e3a7428dd5ddff90fc49":[1,0,0,0,104]
 };

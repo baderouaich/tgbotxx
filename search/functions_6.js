@@ -23,6 +23,7 @@ var searchData=
   ['gettimeout_1220',['getTimeout',['../classtgbotxx_1_1_api.html#a0b22a8188c236c7e3fa12d83a7c1f2ac',1,'tgbotxx::Api']]],
   ['getupdates_1221',['getUpdates',['../classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb',1,'tgbotxx::Api']]],
   ['getuploadfilestimeout_1222',['getUploadFilesTimeout',['../classtgbotxx_1_1_api.html#aa87ad659e695d2ca0798cdce028aeae2',1,'tgbotxx::Api']]],
-  ['getuserprofilephotos_1223',['getUserProfilePhotos',['../classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d',1,'tgbotxx::Api']]],
-  ['getwebhookinfo_1224',['getWebhookInfo',['../classtgbotxx_1_1_api.html#acdef29266a99751d4334934a85ee9fe1',1,'tgbotxx::Api']]]
+  ['geturl_1223',['getUrl',['../classtgbotxx_1_1_api.html#afb816516e24a620245fe570a728425f0',1,'tgbotxx::Api']]],
+  ['getuserprofilephotos_1224',['getUserProfilePhotos',['../classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d',1,'tgbotxx::Api']]],
+  ['getwebhookinfo_1225',['getWebhookInfo',['../classtgbotxx_1_1_api.html#acdef29266a99751d4334934a85ee9fe1',1,'tgbotxx::Api']]]
 ];
