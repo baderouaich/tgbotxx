@@ -12,7 +12,6 @@
 #include <tgbotxx/objects/BotShortDescription.hpp>
 #include <tgbotxx/objects/CallbackGame.hpp>
 #include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/StickerSet.hpp>
 #include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/ChatAdministratorRights.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
@@ -45,6 +44,7 @@
 #include <tgbotxx/objects/InlineQueryResult.hpp>
 #include <tgbotxx/objects/InlineQueryResultsButton.hpp>
 #include <tgbotxx/objects/InputMedia.hpp>
+#include <tgbotxx/objects/InputSticker.hpp>
 #include <tgbotxx/objects/Invoice.hpp>
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
@@ -77,6 +77,7 @@
 #include <tgbotxx/objects/ShippingOption.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/Sticker.hpp>
+#include <tgbotxx/objects/StickerSet.hpp>
 #include <tgbotxx/objects/Story.hpp>
 #include <tgbotxx/objects/SuccessfulPayment.hpp>
 #include <tgbotxx/objects/SwitchInlineQueryChosenChat.hpp>
@@ -319,7 +320,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
                             std::int32_t duration,
                             const std::string& performer,
                             const std::string& title,
-                            std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                             bool disableNotification,
                             bool protectContent,
                             std::int32_t replyToMessageId,
@@ -380,7 +381,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
 Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                                const std::variant<cpr::File, std::string>& document,
                                std::int32_t messageThreadId,
-                               std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                                const std::string& caption,
                                const std::string& parseMode,
                                const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -478,7 +479,7 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
                             std::int32_t duration,
                             std::int32_t width,
                             std::int32_t height,
-                            std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                             const std::string& caption,
                             const std::string& parseMode,
                             const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -552,7 +553,7 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
                                 std::int32_t duration,
                                 std::int32_t width,
                                 std::int32_t height,
-                                std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                                 const std::string& caption,
                                 const std::string& parseMode,
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -674,7 +675,7 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
                                 std::int32_t messageThreadId,
                                 std::int32_t duration,
                                 std::int32_t length,
-                                std::optional<std::variant<cpr::File, std::string>> thumbnail,
+                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                                 bool disableNotification,
                                 bool protectContent,
                                 std::int32_t replyToMessageId,
@@ -2129,7 +2130,6 @@ Ptr<Message> Api::sendSticker(const std::variant<std::int64_t, std::string>& cha
   return message;
 }
 
-
 Ptr<StickerSet> Api::getStickerSet(const std::string& name) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
@@ -2138,6 +2138,141 @@ Ptr<StickerSet> Api::getStickerSet(const std::string& name) const {
   nl::json stickerSetObj = sendRequest("getStickerSet", data);
   Ptr<StickerSet> stickerSet(new StickerSet(stickerSetObj));
   return stickerSet;
+}
+
+std::vector<Ptr<Sticker>> Api::getCustomEmojiStickers(const std::vector<std::string>& customEmojiIds) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("custom_emoji_ids", nl::json(customEmojiIds).dump());
+  nl::json stickersArray = sendRequest("getCustomEmojiStickers", data);
+
+  std::vector<Ptr<Sticker>> result;
+  result.reserve(stickersArray.size());
+  for (const nl::json& stickerObj: stickersArray) {
+    Ptr<Sticker> sticker = makePtr<Sticker>(stickerObj);
+    result.push_back(std::move(sticker));
+  }
+  return result;
+}
+
+Ptr<File> Api::uploadStickerFile(std::int64_t userId,
+                                 const cpr::File& sticker,
+                                 const std::string& stickerFormat) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("sticker", cpr::Files{sticker});
+  data.parts.emplace_back("sticker_format", stickerFormat);
+
+  nl::json fileObj = sendRequest("uploadStickerFile", data);
+  Ptr<File> file(new File(fileObj));
+  return file;
+}
+
+bool Api::createNewStickerSet(std::int64_t userId,
+                              const std::string& name,
+                              const std::string& title,
+                              const std::vector<Ptr<InputSticker>>& stickers,
+                              const std::string& stickerFormat,
+                              const std::string& stickerType,
+                              bool needsRepainting) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("name", name);
+  data.parts.emplace_back("title", title);
+  nl::json stickersJson = nl::json::array();
+  for (const Ptr<InputSticker>& inputSticker: stickers)
+    stickersJson.push_back(inputSticker->toJson());
+  data.parts.emplace_back("stickers", stickersJson.dump());
+  data.parts.emplace_back("sticker_format", stickerFormat);
+  data.parts.emplace_back("sticker_type", stickerType);
+  if (needsRepainting)
+    data.parts.emplace_back("needs_repainting", needsRepainting);
+
+  return sendRequest("createNewStickerSet", data);
+}
+
+bool Api::addStickerToSet(std::int64_t userId,
+                          const std::string& name,
+                          const Ptr<tgbotxx::InputSticker>& sticker) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("name", name);
+  data.parts.emplace_back("sticker", sticker->toJson().dump());
+  return sendRequest("addStickerToSet", data);
+}
+
+bool Api::setStickerPositionInSet(const std::string& sticker, std::int32_t position) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("sticker", sticker);
+  data.parts.emplace_back("position", position);
+  return sendRequest("setStickerPositionInSet", data);
+}
+
+bool Api::deleteStickerFromSet(const std::string& sticker) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("sticker", sticker);
+  return sendRequest("deleteStickerFromSet", data);
+}
+
+bool Api::setStickerEmojiList(const std::string& sticker, const std::vector<std::string>& emojiList) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("sticker", sticker);
+  data.parts.emplace_back("emoji_list", nl::json(emojiList).dump());
+  return sendRequest("setStickerEmojiList", data);
+}
+
+bool Api::setStickerKeywords(const std::string& sticker, const std::vector<std::string>& keywords) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("sticker", sticker);
+  if (not keywords.empty()) {
+    data.parts.emplace_back("keywords", nl::json(keywords).dump());
+  }
+  return sendRequest("setStickerKeywords", data);
+}
+
+bool Api::setStickerMaskPosition(const std::string& sticker,
+                                 const Ptr<tgbotxx::MaskPosition>& maskPosition) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("sticker", sticker);
+  if (maskPosition) {
+    data.parts.emplace_back("mask_position", maskPosition->toJson().dump());
+  }
+  return sendRequest("setStickerMaskPosition", data);
+}
+
+bool Api::setStickerSetTitle(const std::string& name, const std::string& title) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("name", name);
+  data.parts.emplace_back("title", title);
+  return sendRequest("setStickerSetTitle", data);
+}
+
+bool Api::setStickerSetThumbnail(const std::string& name,
+                                 const std::string& title,
+                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("name", name);
+  data.parts.emplace_back("title", title);
+  if (thumbnail.has_value()) {
+    if (thumbnail->index() == 0) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+      data.parts.emplace_back("thumbnail", cpr::Files{file});
+    } else /* std::string (fileId or Url) */ {
+      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      data.parts.emplace_back("thumbnail", fileIdOrUrl);
+    }
+  }
+  return sendRequest("setStickerSetTitle", data);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void Api::setUrl(const std::string& url) noexcept {

@@ -44,6 +44,8 @@ namespace tgbotxx {
   struct SentWebAppMessage;
   struct ReplyParameters;
   struct StickerSet;
+  struct InputSticker;
+  struct MaskPosition;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -243,7 +245,7 @@ namespace tgbotxx {
                              std::int32_t duration = 0,
                              const std::string& performer = "",
                              const std::string& title = "",
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
                              bool disableNotification = false,
                              bool protectContent = false,
                              std::int32_t replyToMessageId = 0,
@@ -280,7 +282,7 @@ namespace tgbotxx {
       Ptr<Message> sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                                 const std::variant<cpr::File, std::string>& document,
                                 std::int32_t messageThreadId = 0,
-                                std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
                                 const std::string& caption = "",
                                 const std::string& parseMode = "",
                                 const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -328,7 +330,7 @@ namespace tgbotxx {
                              std::int32_t duration = 0,
                              std::int32_t width = 0,
                              std::int32_t height = 0,
-                             std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                             const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
                              const std::string& caption = "",
                              const std::string& parseMode = "",
                              const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -377,7 +379,7 @@ namespace tgbotxx {
                                  std::int32_t duration = 0,
                                  std::int32_t width = 0,
                                  std::int32_t height = 0,
-                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
                                  const std::string& caption = "",
                                  const std::string& parseMode = "",
                                  const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -457,7 +459,7 @@ namespace tgbotxx {
                                  std::int32_t messageThreadId = 0,
                                  std::int32_t duration = 0,
                                  std::int32_t length = 0,
-                                 std::optional<std::variant<cpr::File, std::string>> thumbnail = std::nullopt,
+                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
                                  bool disableNotification = false,
                                  bool protectContent = false,
                                  std::int32_t replyToMessageId = 0,
@@ -1783,6 +1785,133 @@ namespace tgbotxx {
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#getstickerset
       Ptr<StickerSet> getStickerSet(const std::string& name) const;
+
+      /// @brief Use this method to get information about custom emoji stickers by their identifiers.
+      /// @param customEmojiIds List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+      /// @returns an Array of Sticker objects on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getcustomemojistickers
+      std::vector<Ptr<Sticker>> getCustomEmojiStickers(const std::vector<std::string>& customEmojiIds) const;
+
+      /// @brief Use this method to upload a file with a sticker for later use in the createNewStickerSet and
+      /// addStickerToSet methods (the file can be used multiple times).
+      /// @param userId User identifier of sticker file owner
+      /// @param sticker A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format.
+      /// See https://core.telegram.org/stickers for technical requirements. [More information on Sending Files »](https://core.telegram.org/bots/api#sending-files)
+      /// @param stickerFormat Format of the sticker, must be one of “static”, “animated”, “video”
+      /// @returns the uploaded File on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#uploadstickerfile
+      Ptr<File> uploadStickerFile(std::int64_t userId,
+                                  const cpr::File& sticker,
+                                  const std::string& stickerFormat) const;
+
+      /// @brief Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created.
+      /// @param userId User identifier of created sticker set owner
+      /// @param name Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals).
+      /// Can contain only English letters, digits and underscores.
+      /// Must begin with a letter, can't contain consecutive underscores and must end in "_by_<bot_username>".
+      /// <bot_username> is case insensitive. 1-64 characters.
+      /// @param title Sticker set title, 1-64 characters
+      /// @param stickers A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
+      /// @param stickerFormat Format of stickers in the set, must be one of “static”, “animated”, “video”
+      /// @param stickerType Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.
+      /// @param needsRepainting Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages,
+      /// the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#createnewstickerset
+      bool createNewStickerSet(std::int64_t userId,
+                               const std::string& name,
+                               const std::string& title,
+                               const std::vector<Ptr<InputSticker>>& stickers,
+                               const std::string& stickerFormat,
+                               const std::string& stickerType = "regular",
+                               bool needsRepainting = false) const;
+
+      /// @brief Use this method to add a new sticker to a set created by the bot.
+      /// The format of the added sticker must match the format of the other stickers in the set.
+      /// Emoji sticker sets can have up to 200 stickers. Animated and video sticker sets can have up to 50 stickers.
+      /// Static sticker sets can have up to 120 stickers.
+      /// @param userId User identifier of created sticker set owner
+      /// @param name Sticker set name
+      /// @param sticker A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#addstickertoset
+      bool addStickerToSet(std::int64_t userId,
+                           const std::string& name,
+                           const Ptr<InputSticker>& sticker) const;
+
+      /// @brief Use this method to move a sticker in a set created by the bot to a specific position.
+      /// @param sticker File identifier of the sticker
+      /// @param position New sticker position in the set, zero-based
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickerpositioninset
+      bool setStickerPositionInSet(const std::string& sticker, std::int32_t position) const;
+
+      /// @brief Use this method to delete a sticker from a set created by the bot.
+      /// @param sticker File identifier of the sticker
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#deletestickerfromset
+      bool deleteStickerFromSet(const std::string& sticker) const;
+
+      /// @brief Use this method to change the list of emoji assigned to a regular or custom emoji sticker.
+      /// The sticker must belong to a sticker set created by the bot.
+      /// @param sticker File identifier of the sticker
+      /// @param emojiList A JSON-serialized list of 1-20 emoji associated with the sticker
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickeremojilist
+      bool setStickerEmojiList(const std::string& sticker, const std::vector<std::string>& emojiList) const;
+
+      /// @brief Use this method to change search keywords assigned to a regular or custom emoji sticker.
+      /// The sticker must belong to a sticker set created by the bot.
+      /// @param sticker File identifier of the sticker
+      /// @param keywords Optional. A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickerkeywords
+      bool setStickerKeywords(const std::string& sticker, const std::vector<std::string>& keywords = std::vector<std::string>()) const;
+
+      /// @brief Use this method to change the mask position of a mask sticker.
+      /// The sticker must belong to a sticker set that was created by the bot.
+      /// @param sticker File identifier of the sticker
+      /// @param maskPosition Optional. A JSON-serialized object with the position where the mask should be placed on faces. Omit the parameter to remove the mask position.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickermaskposition
+      bool setStickerMaskPosition(const std::string& sticker,
+                                  const Ptr<MaskPosition>& maskPosition = nullptr) const;
+
+      /// @brief Use this method to set the title of a created sticker set.
+      /// @param name Sticker set name
+      /// @param title Sticker set title, 1-64 characters
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickersettitle
+      bool setStickerSetTitle(const std::string& name, const std::string& title) const;
+
+      /// @brief Use this method to set the thumbnail of a regular or mask sticker set.
+      /// The format of the thumbnail file must match the format of the stickers in the set.
+      /// @param name Sticker set name
+      /// @param userId User identifier of created sticker set owner
+      /// @param thumbnail Optional. A .WEBP or .PNG image with the thumbnail, must be up to 128 kilobytes in size and have a width and height
+      /// of exactly 100px, or a .TGS animation with a thumbnail up to 32 kilobytes in size
+      /// (see https://core.telegram.org/stickers#animated-sticker-requirements for animated sticker technical requirements),
+      /// or a WEBM video with the thumbnail up to 32 kilobytes in size; see https://core.telegram.org/stickers#video-sticker-requirements
+      /// for video sticker technical requirements. Pass a file_id as a String to send a file that already exists on the Telegram servers,
+      /// pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.
+      /// More information on Sending Files ». Animated and video sticker set thumbnails can't be uploaded via HTTP URL.
+      /// If omitted, then the thumbnail is dropped and the first sticker is used as the thumbnail.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setstickersetthumbnail
+      bool setStickerSetThumbnail(const std::string& name,
+                                  const std::string& title,
+                                  const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt) const;
 
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
