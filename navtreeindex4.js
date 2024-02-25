@@ -1,5 +1,16 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef":[1,0,0,52,4],
+"structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac":[1,0,0,52,5],
+"structtgbotxx_1_1_inline_query.html":[1,0,0,53],
+"structtgbotxx_1_1_inline_query.html#a2eef2ab84c6dce67d924d4ad3abbc9ce":[1,0,0,53,3],
+"structtgbotxx_1_1_inline_query.html#a3a56a9740fdf4e9d8d587639b9499281":[1,0,0,53,0],
+"structtgbotxx_1_1_inline_query.html#a41e4078a3d9d9bec3114c56b041dfe25":[1,0,0,53,8],
+"structtgbotxx_1_1_inline_query.html#a57ecad4d40c2d5e3124e96140760310b":[1,0,0,53,9],
+"structtgbotxx_1_1_inline_query.html#a63993c5779088813989e1168b5264474":[1,0,0,53,1],
+"structtgbotxx_1_1_inline_query.html#a6d1cd1d02fdb4501af9d2d315bc2ffca":[1,0,0,53,7],
+"structtgbotxx_1_1_inline_query.html#ad95bf56c14696d512f0222871151c963":[1,0,0,53,2],
+"structtgbotxx_1_1_inline_query.html#af45dd6f18915093a6fea75c25657ec5c":[1,0,0,53,5],
 "structtgbotxx_1_1_inline_query.html#afa14867507bf1f4f70f1574bd24b1bb0":[1,0,0,53,4],
 "structtgbotxx_1_1_inline_query.html#afacfcd0595323f147a2d333825f54115":[1,0,0,53,6],
 "structtgbotxx_1_1_inline_query_result.html":[1,0,0,54],
@@ -238,16 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_inline_query_result_venue.html#a91e63b38e94e1231b20e5c34cb8ff39a":[1,0,0,64,1],
 "structtgbotxx_1_1_inline_query_result_venue.html#ac18b1f012323bbc4d17e1d9a25b9626a":[1,0,0,64,2],
 "structtgbotxx_1_1_inline_query_result_venue.html#acc398e7677956385c8a0289b866ebc9c":[1,0,0,64,13],
-"structtgbotxx_1_1_inline_query_result_video.html":[1,0,0,59],
-"structtgbotxx_1_1_inline_query_result_video.html#a059227bcc9b879c62328b9ddc74d18dc":[1,0,0,59,0],
-"structtgbotxx_1_1_inline_query_result_video.html#a09e150bab7955b5ad885835713336734":[1,0,0,59,11],
-"structtgbotxx_1_1_inline_query_result_video.html#a457f87ae595625e678388ad74fdd03f3":[1,0,0,59,15],
-"structtgbotxx_1_1_inline_query_result_video.html#a50a2e517942bf4e01f0c272bfcb6a765":[1,0,0,59,5],
-"structtgbotxx_1_1_inline_query_result_video.html#a5d4146896ba415ce9b45ce643e0f3309":[1,0,0,59,8],
-"structtgbotxx_1_1_inline_query_result_video.html#a60931f4d39c5eb4c6e91c09199e00684":[1,0,0,59,9],
-"structtgbotxx_1_1_inline_query_result_video.html#a6eb2d212b42ec7c0652bd8e03a99c57c":[1,0,0,59,4],
-"structtgbotxx_1_1_inline_query_result_video.html#a79195bad0b9605a1117ec477c23b8885":[1,0,0,59,6],
-"structtgbotxx_1_1_inline_query_result_video.html#a80fd93f4c1c87fc7fe42003eea55a172":[1,0,0,59,10],
-"structtgbotxx_1_1_inline_query_result_video.html#a8557b1dd0fcbe2639ed267428024859b":[1,0,0,59,13],
-"structtgbotxx_1_1_inline_query_result_video.html#a8d2a645eb2ae0d822f250fa7ee315011":[1,0,0,59,7]
+"structtgbotxx_1_1_inline_query_result_video.html":[1,0,0,59]
 };

@@ -1,5 +1,16 @@
 var NAVTREEINDEX7 =
 {
+"structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d":[1,0,0,117,0],
+"structtgbotxx_1_1_reply_keyboard_remove.html#a78d614f234ae897783371ad8cfe28ac0":[1,0,0,117,2],
+"structtgbotxx_1_1_reply_keyboard_remove.html#a87dacb7213d3848bd059b52451401b82":[1,0,0,117,3],
+"structtgbotxx_1_1_reply_keyboard_remove.html#ac73cccccda48d0598e328e5671e812fc":[1,0,0,117,1],
+"structtgbotxx_1_1_reply_keyboard_remove.html#ac8a30b186904dbb610c9e59c446a8114":[1,0,0,117,4],
+"structtgbotxx_1_1_reply_parameters.html":[1,0,0,118],
+"structtgbotxx_1_1_reply_parameters.html#a1e022b50e6c2a690336a00fb93dd61c2":[1,0,0,118,3],
+"structtgbotxx_1_1_reply_parameters.html#a2b119545f6e521727f3b094b1bd5e00e":[1,0,0,118,2],
+"structtgbotxx_1_1_reply_parameters.html#a4d29067c0c7b47599d1b3339708076f8":[1,0,0,118,1],
+"structtgbotxx_1_1_reply_parameters.html#a7180842f69120d69f9aa58f6e7c4bd28":[1,0,0,118,8],
+"structtgbotxx_1_1_reply_parameters.html#aa675eac1cb3881984a2d462f8f801da4":[1,0,0,118,7],
 "structtgbotxx_1_1_reply_parameters.html#aa89f2e1a749c101cff84e1d0213b2c38":[1,0,0,118,6],
 "structtgbotxx_1_1_reply_parameters.html#aae07e625d8456a2835bc41107697317f":[1,0,0,118,9],
 "structtgbotxx_1_1_reply_parameters.html#abc9a7598bcdc1a10e77050856c4d0b90":[1,0,0,118,5],
@@ -238,16 +249,5 @@ var NAVTREEINDEX7 =
 "structtgbotxx_1_1_web_app_info.html#a7768a1646a6ff988f8e8e971454fc1fb":[1,0,0,141,4],
 "structtgbotxx_1_1_web_app_info.html#a7d0af1aec595b052ad80455f41a80d91":[1,0,0,141,2],
 "structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36":[1,0,0,141,0],
-"structtgbotxx_1_1_webhook_info.html":[1,0,0,142],
-"structtgbotxx_1_1_webhook_info.html#a08d5e3bd9c7f550fb88a31a9d1c7e20f":[1,0,0,142,12],
-"structtgbotxx_1_1_webhook_info.html#a0f03c65ca0bd5bb6dd26b77e41ea6d99":[1,0,0,142,1],
-"structtgbotxx_1_1_webhook_info.html#a31cc41576251a1062813353efdb20f15":[1,0,0,142,0],
-"structtgbotxx_1_1_webhook_info.html#a3ac4dca0c220427c71fc418211917c6e":[1,0,0,142,10],
-"structtgbotxx_1_1_webhook_info.html#a3b028b07f4419df7924058257bf01fb2":[1,0,0,142,11],
-"structtgbotxx_1_1_webhook_info.html#a66fbe7f62e186a21fb4b9236f67a17df":[1,0,0,142,9],
-"structtgbotxx_1_1_webhook_info.html#a68fdf4c20c7d8b07536f02a5da195913":[1,0,0,142,2],
-"structtgbotxx_1_1_webhook_info.html#a8fed627d82fbf7ea14a64c863a89d794":[1,0,0,142,6],
-"structtgbotxx_1_1_webhook_info.html#aaa8939c5a6d08538fed518bd760ad0b7":[1,0,0,142,5],
-"structtgbotxx_1_1_webhook_info.html#ad902605ad606f09ef1d4590c5bdcbad1":[1,0,0,142,3],
-"structtgbotxx_1_1_webhook_info.html#ae5f07c732272864b1cb2b40ec1a21619":[1,0,0,142,8]
+"structtgbotxx_1_1_webhook_info.html":[1,0,0,142]
 };

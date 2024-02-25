@@ -1,5 +1,16 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0":[1,0,0,98,5],
+"structtgbotxx_1_1_mask_position.html#a88f8b8f1596783840cc51db4eab36ea5":[1,0,0,98,2],
+"structtgbotxx_1_1_mask_position.html#ab974d9ec42ffc949be466f4344e22c29":[1,0,0,98,1],
+"structtgbotxx_1_1_mask_position.html#abefb06912bd80816f26d9b7946f4bcc3":[1,0,0,98,3],
+"structtgbotxx_1_1_mask_position.html#ac00c21d7ce9443e71a8d257121171a7b":[1,0,0,98,6],
+"structtgbotxx_1_1_mask_position.html#ac8088197bc95b5c50ee1e596e27a6e00":[1,0,0,98,4],
+"structtgbotxx_1_1_mask_position.html#ae5a1a1106a831ec2e7c5b54afcb978a3":[1,0,0,98,7],
+"structtgbotxx_1_1_menu_button.html":[1,0,0,99],
+"structtgbotxx_1_1_menu_button.html#a142bc03999193a731b700d857f6b9d92":[1,0,0,99,4],
+"structtgbotxx_1_1_menu_button.html#a2efaa4c41f793fbbe47182f99c401a9f":[1,0,0,99,3],
+"structtgbotxx_1_1_menu_button.html#a5011a6fc195732b7c16a48c2319aacdb":[1,0,0,99,5],
 "structtgbotxx_1_1_menu_button.html#a693bed5579c61d0b743e56969e247c94":[1,0,0,99,0],
 "structtgbotxx_1_1_menu_button.html#ab5db22eeac14c4a486ea419cddc8952e":[1,0,0,99,1],
 "structtgbotxx_1_1_menu_button.html#ae0d05dfd60cf6cf92662b8fef93a9a17":[1,0,0,99,2],
@@ -238,16 +249,5 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_reply_keyboard_markup.html#aaab41a447cb0c3db009715f8fe907257":[1,0,0,116,4],
 "structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898":[1,0,0,116,3],
 "structtgbotxx_1_1_reply_keyboard_remove.html":[1,0,0,117],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[1,0,0,117,5],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d":[1,0,0,117,0],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a78d614f234ae897783371ad8cfe28ac0":[1,0,0,117,2],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a87dacb7213d3848bd059b52451401b82":[1,0,0,117,3],
-"structtgbotxx_1_1_reply_keyboard_remove.html#ac73cccccda48d0598e328e5671e812fc":[1,0,0,117,1],
-"structtgbotxx_1_1_reply_keyboard_remove.html#ac8a30b186904dbb610c9e59c446a8114":[1,0,0,117,4],
-"structtgbotxx_1_1_reply_parameters.html":[1,0,0,118],
-"structtgbotxx_1_1_reply_parameters.html#a1e022b50e6c2a690336a00fb93dd61c2":[1,0,0,118,3],
-"structtgbotxx_1_1_reply_parameters.html#a2b119545f6e521727f3b094b1bd5e00e":[1,0,0,118,2],
-"structtgbotxx_1_1_reply_parameters.html#a4d29067c0c7b47599d1b3339708076f8":[1,0,0,118,1],
-"structtgbotxx_1_1_reply_parameters.html#a7180842f69120d69f9aa58f6e7c4bd28":[1,0,0,118,8],
-"structtgbotxx_1_1_reply_parameters.html#aa675eac1cb3881984a2d462f8f801da4":[1,0,0,118,7]
+"structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[1,0,0,117,5]
 };
