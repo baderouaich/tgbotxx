@@ -793,8 +793,8 @@ Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& ch
   cpr::Multipart data{};
   data.parts.reserve(13);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
-  data.parts.emplace_back("latitude", latitude);
-  data.parts.emplace_back("longitude", longitude);
+  data.parts.emplace_back("latitude", std::to_string(latitude));
+  data.parts.emplace_back("longitude", std::to_string(longitude));
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
   if (horizontalAccuracy != 0.0f)
@@ -839,8 +839,8 @@ Ptr<Message> Api::sendVenue(const std::variant<std::int64_t, std::string>& chatI
   cpr::Multipart data{};
   data.parts.reserve(15);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
-  data.parts.emplace_back("latitude", latitude);
-  data.parts.emplace_back("longitude", longitude);
+  data.parts.emplace_back("latitude", std::to_string(latitude));
+  data.parts.emplace_back("longitude", std::to_string(longitude));
   data.parts.emplace_back("title", title);
   data.parts.emplace_back("address", address);
   if (messageThreadId)
@@ -1905,8 +1905,8 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
                                           const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
   data.parts.reserve(9);
-  data.parts.emplace_back("latitude", latitude);
-  data.parts.emplace_back("longitude", longitude);
+  data.parts.emplace_back("latitude", std::to_string(latitude));
+  data.parts.emplace_back("longitude", std::to_string(longitude));
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
