@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('_file_utils_8hpp_source.html',''); ini
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          ifs.read(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span> *<span class="keyword">&gt;</span>(chunk.data()), chunk.size());</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          <span class="comment">// resize chunk if we read bytes less than max_chunk_size</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> bytes_read = ifs.gcount();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> bytes_read = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(ifs.gcount());</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          <span class="keywordflow">if</span> (bytes_read &lt; maxChunkSize)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            chunk.resize(bytes_read);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('_file_utils_8hpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_0a686d04ada01e782ce20d676fccf00f.html">utils</a></li><li class="navelem"><a class="el" href="_file_utils_8hpp.html">FileUtils.hpp</a></li>
-    <li class="footer">Generated on Sun Feb 25 2024 21:48:28 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 7 2024 22:41:04 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
