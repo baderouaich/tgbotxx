@@ -49,7 +49,7 @@ namespace tgbotxx {
           ifs.read(reinterpret_cast<char *>(chunk.data()), chunk.size());
 
           // resize chunk if we read bytes less than max_chunk_size
-          const auto bytes_read = ifs.gcount();
+          const auto bytes_read = static_cast<std::size_t>(ifs.gcount());
           if (bytes_read < maxChunkSize)
             chunk.resize(bytes_read);
 
