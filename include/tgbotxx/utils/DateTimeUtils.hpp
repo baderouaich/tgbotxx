@@ -13,8 +13,13 @@ namespace tgbotxx {
     /// @returns time as string date time with the specific format
     static std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
       char buffer[64]{};
-      std::tm *tm_ = std::localtime(&time);
-      std::strftime(buffer, sizeof(buffer), format.data(), tm_);
+      tm tm_{};
+#ifdef _WIN32
+      localtime_s(&tm_, &time);
+#else
+      tm_ = *std::localtime(&time);
+#endif
+      std::strftime(buffer, sizeof(buffer), format.data(), &tm_);
       return std::string{buffer};
     }
 
