@@ -2272,8 +2272,27 @@ bool Api::setStickerSetThumbnail(const std::string& name,
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
-  return sendRequest("setStickerSetTitle", data);
+  return sendRequest("setStickerSetThumbnail", data);
 }
+
+bool Api::setCustomEmojiStickerSetThumbnail(const std::string& name, const std::optional<std::string>& customEmojiId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("name", name);
+  if(customEmojiId.has_value()) {
+    data.parts.emplace_back("custom_emoji_id", customEmojiId.value());
+  }
+  return sendRequest("setCustomEmojiStickerSetThumbnail", data);
+}
+
+bool Api::deleteStickerSet(const std::string& name) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("name", name);
+  return sendRequest("deleteStickerSet", data);
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void Api::setUrl(const std::string& url) noexcept {
   m_apiUrl = url;

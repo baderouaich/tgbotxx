@@ -1913,6 +1913,22 @@ namespace tgbotxx {
                                   const std::string& title,
                                   const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt) const;
 
+      /// @brief Use this method to set the thumbnail of a custom emoji sticker set.
+      /// @param name Sticker set name
+      /// @param customEmojiId Optional. Custom emoji identifier of a sticker from the sticker set;
+      /// Pass an empty string to drop the thumbnail and use the first sticker as the thumbnail.
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setcustomemojistickersetthumbnail
+      bool setCustomEmojiStickerSetThumbnail(const std::string& name, const std::optional<std::string>& customEmojiId = std::nullopt) const;
+
+      /// @brief Use this method to delete a sticker set that was created by the bot.
+      /// @param name Sticker set name
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#deletestickerset
+      bool deleteStickerSet(const std::string& name) const;
+
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.
