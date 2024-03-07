@@ -798,7 +798,7 @@ Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& ch
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
   if (horizontalAccuracy != 0.0f)
-    data.parts.emplace_back("horizontal_accuracy", horizontalAccuracy);
+    data.parts.emplace_back("horizontal_accuracy", std::to_string(horizontalAccuracy));
   if (livePeriod)
     data.parts.emplace_back("live_period", livePeriod);
   if (heading)
@@ -1042,7 +1042,7 @@ bool Api::banChatMember(const std::variant<std::int64_t, std::string>& chatId,
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (untilDate)
-    data.parts.emplace_back("until_date", untilDate);
+    data.parts.emplace_back("until_date", std::to_string(untilDate));
   if (revokeMessages)
     data.parts.emplace_back("revoke_messages", revokeMessages);
 
@@ -1075,7 +1075,7 @@ bool Api::restrictChatMember(const std::variant<std::int64_t, std::string>& chat
   if (useIndependentChatPermissions)
     data.parts.emplace_back("use_independent_chat_permissions", useIndependentChatPermissions);
   if (untilDate)
-    data.parts.emplace_back("until_date", untilDate);
+    data.parts.emplace_back("until_date", std::to_string(untilDate));
 
   return sendRequest("restrictChatMember", data);
 }
@@ -1193,7 +1193,7 @@ Ptr<ChatInviteLink> Api::createChatInviteLink(const std::variant<std::int64_t, s
   if (not name.empty())
     data.parts.emplace_back("name", name);
   if (expireDate)
-    data.parts.emplace_back("expire_date", expireDate);
+    data.parts.emplace_back("expire_date", std::to_string(expireDate));
   if (memberLimit)
     data.parts.emplace_back("member_limit", memberLimit);
   if (createsJoinRequest)
@@ -1217,7 +1217,7 @@ Ptr<ChatInviteLink> Api::editChatInviteLink(const std::variant<std::int64_t, std
   if (not name.empty())
     data.parts.emplace_back("name", name);
   if (expireDate)
-    data.parts.emplace_back("expire_date", expireDate);
+    data.parts.emplace_back("expire_date", std::to_string(expireDate));
   if (memberLimit)
     data.parts.emplace_back("member_limit", memberLimit);
   if (createsJoinRequest)
@@ -1598,7 +1598,6 @@ Ptr<BotName> Api::getMyName(const std::string& languageCode) const {
     data.parts.emplace_back("language_code", languageCode);
 
   nl::json botNameObj = sendRequest("getMyName", data);
-  ;
   return makePtr<BotName>(botNameObj);
 }
 
@@ -1926,7 +1925,7 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
   if (not inlineMessageId.empty())
     data.parts.emplace_back("inline_message_id", inlineMessageId);
   if (horizontalAccuracy != 0.0f)
-    data.parts.emplace_back("horizontal_accuracy", horizontalAccuracy);
+    data.parts.emplace_back("horizontal_accuracy", std::to_string(horizontalAccuracy));
   if (heading)
     data.parts.emplace_back("heading", heading);
   if (proximityAlertRadius)
