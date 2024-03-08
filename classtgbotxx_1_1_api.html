@@ -361,6 +361,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a63094a16c11c23295a909f9daee16442"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a63094a16c11c23295a909f9daee16442">setStickerSetThumbnail</a> (const std::string &amp;name, const std::string &amp;title, const std::optional&lt; std::variant&lt; cpr::File, std::string &gt;&gt; &amp;thumbnail=std::nullopt) const</td></tr>
 <tr class="memdesc:a63094a16c11c23295a909f9daee16442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set the thumbnail of a regular or mask sticker set. The format of the thumbnail file must match the format of the stickers in the set.  <a href="classtgbotxx_1_1_api.html#a63094a16c11c23295a909f9daee16442">More...</a><br /></td></tr>
 <tr class="separator:a63094a16c11c23295a909f9daee16442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a772ca6f97bf0730a3e2890559aa80a33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a772ca6f97bf0730a3e2890559aa80a33">setCustomEmojiStickerSetThumbnail</a> (const std::string &amp;name, const std::optional&lt; std::string &gt; &amp;customEmojiId=std::nullopt) const</td></tr>
+<tr class="memdesc:a772ca6f97bf0730a3e2890559aa80a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set the thumbnail of a custom emoji sticker set.  <a href="classtgbotxx_1_1_api.html#a772ca6f97bf0730a3e2890559aa80a33">More...</a><br /></td></tr>
+<tr class="separator:a772ca6f97bf0730a3e2890559aa80a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a226bc5751ec9eee5dcb9a9e941b65b5f">deleteStickerSet</a> (const std::string &amp;name) const</td></tr>
+<tr class="memdesc:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to delete a sticker set that was created by the bot.  <a href="classtgbotxx_1_1_api.html#a226bc5751ec9eee5dcb9a9e941b65b5f">More...</a><br /></td></tr>
+<tr class="separator:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a100bde418bced0e08911afec297b8f0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">answerInlineQuery</a> (const std::string &amp;inlineQueryId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt;&gt; &amp;results, std::int32_t cacheTime=300, bool isPersonal=false, const std::string &amp;nextOffset=&quot;&quot;, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_results_button.html">InlineQueryResultsButton</a> &gt; &amp;button=nullptr) const</td></tr>
 <tr class="memdesc:a100bde418bced0e08911afec297b8f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send answers to an inline query. No more than 50 results per query are allowed.  <a href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">More...</a><br /></td></tr>
 <tr class="separator:a100bde418bced0e08911afec297b8f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1466,6 +1472,39 @@ We support GET and POST HTTP methods. Use either URL query string or application
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#deletestickerfromset">https://core.telegram.org/bots/api#deletestickerfromset</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a226bc5751ec9eee5dcb9a9e941b65b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226bc5751ec9eee5dcb9a9e941b65b5f">&#9670;&nbsp;</a></span>deleteStickerSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::deleteStickerSet </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to delete a sticker set that was created by the bot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> set name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#deletestickerset">https://core.telegram.org/bots/api#deletestickerset</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -5492,6 +5531,50 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a772ca6f97bf0730a3e2890559aa80a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a772ca6f97bf0730a3e2890559aa80a33">&#9670;&nbsp;</a></span>setCustomEmojiStickerSetThumbnail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::setCustomEmojiStickerSetThumbnail </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::optional&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customEmojiId</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to set the thumbnail of a custom emoji sticker set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> set name </td></tr>
+    <tr><td class="paramname">customEmojiId</td><td>Optional. Custom emoji identifier of a sticker from the sticker set; Pass an empty string to drop the thumbnail and use the first sticker as the thumbnail. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setcustomemojistickersetthumbnail">https://core.telegram.org/bots/api#setcustomemojistickersetthumbnail</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a439a5f38de7145cd2a5f2f82f592605c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a439a5f38de7145cd2a5f2f82f592605c">&#9670;&nbsp;</a></span>setDownloadFilesTimeout()</h2>
 
@@ -7640,7 +7723,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Thu Mar 7 2024 22:41:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 8 2024 11:08:14 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

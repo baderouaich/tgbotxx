@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[0,0,0,153],
+"namespacetgbotxx_1_1_date_time_utils.html":[0,0,0,0],
 "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951":[0,0,0,0,2],
 "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339":[0,0,0,0,0],
 "namespacetgbotxx_1_1_date_time_utils.html#a9d31f333c31fc323f7be8a7aeceef454":[0,0,0,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_chat_member_administrator.html#a98f9e09f72d261a9a2989a20ec7178cb":[1,0,0,26,6],
 "structtgbotxx_1_1_chat_member_administrator.html#a9e61e72c7e991d79ec941774a40dfb9e":[1,0,0,26,3],
 "structtgbotxx_1_1_chat_member_administrator.html#aa6ed12fe99cf9a7a7fc89d6aa184f23a":[1,0,0,26,19],
-"structtgbotxx_1_1_chat_member_administrator.html#aab5caa462d81b31b7f24d5343ee571b2":[1,0,0,26,5],
-"structtgbotxx_1_1_chat_member_administrator.html#aac555120068c128b98f527ccc6652e36":[1,0,0,26,14],
-"structtgbotxx_1_1_chat_member_administrator.html#aafb5c5616fd85528cfa46c778e69084f":[1,0,0,26,2]
+"structtgbotxx_1_1_chat_member_administrator.html#aab5caa462d81b31b7f24d5343ee571b2":[1,0,0,26,5]
 };

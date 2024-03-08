@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36":[1,0,0,141,0],
+"structtgbotxx_1_1_webhook_info.html":[1,0,0,142],
 "structtgbotxx_1_1_webhook_info.html#a08d5e3bd9c7f550fb88a31a9d1c7e20f":[1,0,0,142,12],
 "structtgbotxx_1_1_webhook_info.html#a0f03c65ca0bd5bb6dd26b77e41ea6d99":[1,0,0,142,1],
 "structtgbotxx_1_1_webhook_info.html#a31cc41576251a1062813353efdb20f15":[1,0,0,142,0],

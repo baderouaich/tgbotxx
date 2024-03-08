@@ -59,13 +59,13 @@ var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
 "classtgbotxx_1_1_api.html#a01924065be568549dfdae959370db519",
-"namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951",
-"structtgbotxx_1_1_chat_member_administrator.html#ab887be6b2227ae98a107c53c26cff75b",
-"structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef",
-"structtgbotxx_1_1_inline_query_result_video.html#a059227bcc9b879c62328b9ddc74d18dc",
-"structtgbotxx_1_1_mask_position.html#a427851ca61e1773910421671849162d0",
-"structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d",
-"structtgbotxx_1_1_webhook_info.html#a08d5e3bd9c7f550fb88a31a9d1c7e20f"
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e",
+"structtgbotxx_1_1_chat_member_administrator.html#aac555120068c128b98f527ccc6652e36",
+"structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6",
+"structtgbotxx_1_1_inline_query_result_venue.html#acc398e7677956385c8a0289b866ebc9c",
+"structtgbotxx_1_1_mask_position.html",
+"structtgbotxx_1_1_reply_keyboard_remove.html",
+"structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
