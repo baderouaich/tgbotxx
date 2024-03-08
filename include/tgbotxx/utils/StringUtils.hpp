@@ -181,9 +181,9 @@ namespace tgbotxx {
       static std::random_device seed{};
       static std::default_random_engine engine{seed()};
       static std::uniform_int_distribution<short> choice(0, 2);
-      static std::uniform_int_distribution<char> lowercaseAlpha('a', 'z');
-      static std::uniform_int_distribution<char> uppercaseAlpha('A', 'Z');
-      static std::uniform_int_distribution<char> digits('0', '9');
+      static std::uniform_int_distribution<int> lowercaseAlpha('a', 'z');
+      static std::uniform_int_distribution<int> uppercaseAlpha('A', 'Z');
+      static std::uniform_int_distribution<int> digits('0', '9');
 
       std::string str(length, '\000');
       for(char& c : str) {
