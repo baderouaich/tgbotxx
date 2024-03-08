@@ -10,38 +10,85 @@
 [![Language](https://img.shields.io/badge/C++-20-blue.svg?style=flat&logo=c%2B%2B)](https://img.shields.io/badge/C++-20-blue.svg?style=flat&logo=c%2B%2B)
 
 # tgbotxx
+
 Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
 ### CI Status
+
 | Operating system | Build status                                                                                                                                                                                      |
-| ---------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ubuntu (x64)     | [![Ubuntu](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-ubuntu.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-ubuntu.yml)    |
 | Windows (x64)    | [![Windows](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-windows.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-windows.yml) |
 | macOS            | [![macOS](https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main)](https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml)       | 
 
 ### Examples
-see [examples](examples/) for more:
 
-| Example                                                  | Description                                                                                                                                            |                                           Preview                                           |
-|:---------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------:|
-| [WeatherBot](examples/WeatherBot)                        | This example shows how to program a Telegram Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/). |          <img src="examples/WeatherBot/img/preview.jpg" alt="preview" width="200">          |
-| [EarthquakeBot](examples/EarthquakeBot)                  | This example shows how to program a Telegram Bot that will alert you if there is a recent earthquake somewhere in the world.                           |         <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">         |
-| [QrCodeBot](examples/QrCodeBot)                          | This example shows how to program a Telegram Bot that can generate QrCode images from text and extract text from QrCode Images.                        |           <img src="examples/QrCodeBot/img/encode.jpg" alt="preview" width="200">           |
-| [UrlShortenerBot](examples/UrlShortenerBot)              | This example shows how to program Telegram Bot for shortening URLs.                                                                                    |       <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200">        |
-| [Inline Buttons](examples/Buttons/InlineKeyboardButton)  | This example shows how to program a basic Telegram Bot that uses inline keyboard buttons to interact with users.                                       | <img src="examples/Buttons/InlineKeyboardButton/img/preview.jpg" alt="preview" width="200"> |
-| [Keyboard Buttons](examples/Buttons/ReplyKeyboardMarkup) | This example shows how to program a basic Telegram Bot that uses keyboard buttons to interact with users.                                              | <img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200">  |
-| [PaidSubscriptionBot](examples/PaidSubscriptionBot)      | This example shows how to program a basic Telegram Bot that offers it's services for a paid subscription.                                              |   <img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200">   |
+> see [examples](examples/) for more
 
+| Example                                                  | Description                                                                                               |                                           Preview                                           |
+|:---------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------:|
+| [WeatherBot](examples/WeatherBot)                        | Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/). |          <img src="examples/WeatherBot/img/preview.jpg" alt="preview" width="200">          |
+| [EarthquakeBot](examples/EarthquakeBot)                  | Bot that will alert you if there is a recent earthquake somewhere in the world.                           |         <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">         |
+| [QrCodeBot](examples/QrCodeBot)                          | Bot that can generate QrCode images from text and extract text from QrCode Images.                        |           <img src="examples/QrCodeBot/img/encode.jpg" alt="preview" width="200">           |
+| [UrlShortenerBot](examples/UrlShortenerBot)              | Bot for shortening URLs.                                                                                  |       <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200">        |
+| [Inline Buttons](examples/Buttons/InlineKeyboardButton)  | Bot that uses inline keyboard buttons to interact with users.                                             | <img src="examples/Buttons/InlineKeyboardButton/img/preview.jpg" alt="preview" width="200"> |
+| [Keyboard Buttons](examples/Buttons/ReplyKeyboardMarkup) | Bot that uses keyboard buttons to interact with users.                                                    | <img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200">  |
+| [PaidSubscriptionBot](examples/PaidSubscriptionBot)      | Bot that offers it's services for a paid subscription.                                                    |   <img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200">   |
 
-### Usage
-This library is using Inheritance-Based Extensibility technique providing a Bot class which you can inherit from 
-and optionally override callback events depending on your Bot needs.
+[//]: # (### Usage)
 
-This also allows you to instantiate multiple bots in the same program. Just make sure each Bot is running on a separate thread.
+[//]: # ()
 
-Usage example: Creating a new Bot called `MyBot` that overrides all callbacks:
+[//]: # (This library is using Inheritance-Based Extensibility technique providing a Bot class which you can inherit from)
+
+[//]: # (and optionally override callback events depending on your Bot needs.)
+
+[//]: # ()
+
+[//]: # (This also allows you to instantiate multiple bots in the same program. Just make sure each Bot is running on a separate)
+
+[//]: # (thread. )
+
+#### Basic sample
+> see [examples](examples/) for more
+```cpp
+#include <tgbotxx/tgbotxx.hpp>
+#include <iostream>
+using namespace tgbotxx;
+
+class MyBot : public Bot {
+public:
+    MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {}
+    
+private:
+    void onStart() override {
+        std::cout << "Bot Started\n";
+    }
+    void onStop() override {
+        std::cout << "Bot Stopped\n";
+    }
+    void onAnyMessage(const Ptr<Message>& message) override {
+        // NB: a Ptr<T> is just an alias to std::shared_ptr<T>
+        api()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
+    }
+    // override other callbacks if needed...
+};
+
+int main() {
+  MyBot bot;
+  bot.start();
+  return 0;
+}
+```
+
+#### Extensive sample
+
+Creating a new Bot called `MyBot` that overrides all callbacks:
+<details>
+<summary>Show</summary>
+
 ```cpp
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
@@ -122,7 +169,7 @@ private:
     void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
     /// Called when a chat member's status was updated in a chat.
     void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
-    /// Called when a A request to join the chat has been sent.
+    /// Called when a request to join the chat has been sent.
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
 };
 
@@ -132,10 +179,15 @@ int main() {
   return 0;
 }
 ```
+
+</details>
+
 ### Usage (4 approaches)
+
 #### 1. `FetchContent` *(recommended)*
 
 Simply use CMake's `FetchContent` in your project's `CMakeLists.txt` as below:
+
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 project(my_bot)
@@ -146,8 +198,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 FetchContent_Declare(tgbotxx
         GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-        GIT_TAG         main
-        )
+        GIT_TAG main
+)
 FetchContent_MakeAvailable(tgbotxx)
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -155,6 +207,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx)
 ```
 
 #### 2. `PkgConfig`: clone and install the library locally, then use PkgConfig:
+
 <details>
   <summary>example</summary>
 
@@ -176,20 +229,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(tgbotxx REQUIRED tgbotxx)
 
-if(NOT tgbotxx_FOUND)
-  message(FATAL_ERROR "Did you install tgbotxx locally?")
-endif()
+if (NOT tgbotxx_FOUND)
+    message(FATAL_ERROR "Did you install tgbotxx locally?")
+endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARY_DIRS})
 target_include_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME} PUBLIC ${tgbotxx_CFLAGS_OTHER})
-target_link_libraries(${PROJECT_NAME} PUBLIC  ${tgbotxx_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARIES})
 ```
 
 </details>
 
 #### 3. `find_package`: clone and install the library locally, then use find_package(tgbotxx REQUIRED):
+
 <details>
   <summary>example</summary>
 
@@ -202,20 +256,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(tgbotxx REQUIRED)
 
-if(NOT tgbotxx_FOUND)
-  message(FATAL_ERROR "Did you install tgbotxx locally?")
-endif()
+if (NOT tgbotxx_FOUND)
+    message(FATAL_ERROR "Did you install tgbotxx locally?")
+endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARY_DIRS})
 target_include_directories(${PROJECT_NAME} PUBLIC ${tgbotxx_INCLUDE_DIRS})
 target_compile_options(${PROJECT_NAME} PUBLIC ${tgbotxx_CFLAGS_OTHER})
-target_link_libraries(${PROJECT_NAME} PUBLIC  ${tgbotxx_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARIES})
 ```
 
 </details>
 
 #### 4. `Submodule`: Use tgbotxx as a project submodule (without installation)
+
 <details>
   <summary>example</summary>
 
@@ -225,12 +280,15 @@ Use git clone or git submodule add the library:
 ```shell
 git submodule add https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
 ```
-or 
+
+or
+
 ```shell
 git clone https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
 ```
 
 Then add `add_subdirectory(lib/tgbotxx)` in your `CMakeLists.txt`.
+
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 project(my_bot)
@@ -244,6 +302,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link with tgbotxx
 </details>
 
 ### Ref:
+
 [Telegram Api Documentation](https://core.telegram.org/bots/api)
 
 [Telegram Api Schema](https://core.telegram.org/schema) [Json Schema](https://core.telegram.org/schema/json)
