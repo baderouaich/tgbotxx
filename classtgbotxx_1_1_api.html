@@ -367,6 +367,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a226bc5751ec9eee5dcb9a9e941b65b5f">deleteStickerSet</a> (const std::string &amp;name) const</td></tr>
 <tr class="memdesc:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to delete a sticker set that was created by the bot.  <a href="classtgbotxx_1_1_api.html#a226bc5751ec9eee5dcb9a9e941b65b5f">More...</a><br /></td></tr>
 <tr class="separator:a226bc5751ec9eee5dcb9a9e941b65b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6cf8cff90c47ff7cfcad2c4da2e5c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a5b6cf8cff90c47ff7cfcad2c4da2e5c8">setPassportDataErrors</a> (std::int64_t userId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_passport_element_error.html">PassportElementError</a> &gt;&gt; &amp;errors) const</td></tr>
+<tr class="memdesc:a5b6cf8cff90c47ff7cfcad2c4da2e5c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.  <a href="classtgbotxx_1_1_api.html#a5b6cf8cff90c47ff7cfcad2c4da2e5c8">More...</a><br /></td></tr>
+<tr class="separator:a5b6cf8cff90c47ff7cfcad2c4da2e5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f972bed6f8ae633f6b8365e8eed7b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#aa3f972bed6f8ae633f6b8365e8eed7b0">sendGame</a> (const std::variant&lt; std::int64_t, std::string &gt; &amp;chatId, const std::string &amp;gameShortName, std::int32_t messageThreadId=0, bool disableNotification=false, bool protectContent=false, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_reply_parameters.html">ReplyParameters</a> &gt; &amp;replyParameters=nullptr, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;replyMarkup=nullptr) const</td></tr>
+<tr class="memdesc:aa3f972bed6f8ae633f6b8365e8eed7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send a game.  <a href="classtgbotxx_1_1_api.html#aa3f972bed6f8ae633f6b8365e8eed7b0">More...</a><br /></td></tr>
+<tr class="separator:aa3f972bed6f8ae633f6b8365e8eed7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b66a0d7f9fa71a7196fc76234ac10d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a36b66a0d7f9fa71a7196fc76234ac10d">setGameScore</a> (std::int64_t userId, std::int32_t score, bool force=false, bool disableEditMessage=false, std::int64_t chatId=0, std::int32_t messageId=0, const std::string &amp;inlineMessageId=&quot;&quot;) const</td></tr>
+<tr class="memdesc:a36b66a0d7f9fa71a7196fc76234ac10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to set the score of the specified user in a game message.  <a href="classtgbotxx_1_1_api.html#a36b66a0d7f9fa71a7196fc76234ac10d">More...</a><br /></td></tr>
+<tr class="separator:a36b66a0d7f9fa71a7196fc76234ac10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a717a1be420e5af72e46f82a6155e2c40"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_game_high_score.html">GameHighScore</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a717a1be420e5af72e46f82a6155e2c40">getGameHighScores</a> (std::int64_t userId, std::int64_t chatId=0, std::int32_t messageId=0, const std::string &amp;inlineMessageId=&quot;&quot;) const</td></tr>
+<tr class="memdesc:a717a1be420e5af72e46f82a6155e2c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get data for high score tables.  <a href="classtgbotxx_1_1_api.html#a717a1be420e5af72e46f82a6155e2c40">More...</a><br /></td></tr>
+<tr class="separator:a717a1be420e5af72e46f82a6155e2c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a100bde418bced0e08911afec297b8f0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">answerInlineQuery</a> (const std::string &amp;inlineQueryId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_result.html">InlineQueryResult</a> &gt;&gt; &amp;results, std::int32_t cacheTime=300, bool isPersonal=false, const std::string &amp;nextOffset=&quot;&quot;, const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_inline_query_results_button.html">InlineQueryResultsButton</a> &gt; &amp;button=nullptr) const</td></tr>
 <tr class="memdesc:a100bde418bced0e08911afec297b8f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to send answers to an inline query. No more than 50 results per query are allowed.  <a href="classtgbotxx_1_1_api.html#a100bde418bced0e08911afec297b8f0d">More...</a><br /></td></tr>
 <tr class="separator:a100bde418bced0e08911afec297b8f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -490,7 +502,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00053">53</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00055">55</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -2394,6 +2406,65 @@ This function may not preserve the original file name and MIME type. You should 
 
 </div>
 </div>
+<a id="a717a1be420e5af72e46f82a6155e2c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a717a1be420e5af72e46f82a6155e2c40">&#9670;&nbsp;</a></span>getGameHighScores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_game_high_score.html">GameHighScore</a>&gt; &gt; tgbotxx::Api::getGameHighScores </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inlineMessageId</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to get data for high score tables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td>Target user id </td></tr>
+    <tr><td class="paramname">chatId</td><td>Required if inlineMessageId is not specified. Unique identifier for the target chat </td></tr>
+    <tr><td class="paramname">messageId</td><td>Required if inlineMessageId is not specified. Identifier of the sent message </td></tr>
+    <tr><td class="paramname">inlineMessageId</td><td>Required if chat_id and messageId are not specified. Identifier of the inline message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an Array of <a class="el" href="structtgbotxx_1_1_game_high_score.html" title="This object represents one row of the high scores table for a game. https://core.telegram....">GameHighScore</a> objects. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#getgamehighscores">https://core.telegram.org/bots/api#getgamehighscores</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a949dabb123a993d7cdbbc7adba23244e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a949dabb123a993d7cdbbc7adba23244e">&#9670;&nbsp;</a></span>getLongPollTimeout()</h2>
 
@@ -3861,6 +3932,85 @@ For sending voice messages, use the sendVoice method instead. <a href="https://c
 <dl class="section note"><dt>Note</dt><dd>Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future. </dd>
 <dd>
 For sending voice messages, use the sendVoice method instead. <a href="https://core.telegram.org/bots/api#senddocument">https://core.telegram.org/bots/api#senddocument</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa3f972bed6f8ae633f6b8365e8eed7b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f972bed6f8ae633f6b8365e8eed7b0">&#9670;&nbsp;</a></span>sendGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::sendGame </td>
+          <td>(</td>
+          <td class="paramtype">const std::variant&lt; std::int64_t, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>gameShortName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageThreadId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableNotification</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>protectContent</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_reply_parameters.html">ReplyParameters</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyParameters</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>replyMarkup</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to send a game. </p>
+<p>Games </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Unique identifier for the target chat </td></tr>
+    <tr><td class="paramname">gameShortName</td><td>Short name of the game, serves as the unique identifier for the game. Set up your games via @BotFather. </td></tr>
+    <tr><td class="paramname">messageThreadId</td><td>Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only </td></tr>
+    <tr><td class="paramname">disableNotification</td><td>Optional. Sends the message silently. Users will receive a notification with no sound. </td></tr>
+    <tr><td class="paramname">protectContent</td><td>Optional. Protects the contents of the sent message from forwarding and saving </td></tr>
+    <tr><td class="paramname">replyParameters</td><td>Optional. Description of the message to reply to </td></tr>
+    <tr><td class="paramname">replyMarkup</td><td>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. One of <a class="el" href="structtgbotxx_1_1_inline_keyboard_markup.html" title="This object represents an inline keyboard that appears right next to the message it belongs to....">InlineKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_markup.html" title="This object represents a custom keyboard with reply options (see Introduction to bots for details and...">ReplyKeyboardMarkup</a> or <a class="el" href="structtgbotxx_1_1_reply_keyboard_remove.html" title="Upon receiving a message with this object, Telegram clients will remove the current custom keyboard a...">ReplyKeyboardRemove</a> or <a class="el" href="structtgbotxx_1_1_force_reply.html" title="Upon receiving a message with this object, Telegram clients will display a reply interface to the use...">ForceReply</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sent <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#sendgame">https://core.telegram.org/bots/api#sendgame</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -5603,6 +5753,85 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a36b66a0d7f9fa71a7196fc76234ac10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b66a0d7f9fa71a7196fc76234ac10d">&#9670;&nbsp;</a></span>setGameScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::Api::setGameScore </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>force</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableEditMessage</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>chatId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageId</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inlineMessageId</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to set the score of the specified user in a game message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td><a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a> identifier </td></tr>
+    <tr><td class="paramname">score</td><td>New score, must be non-negative </td></tr>
+    <tr><td class="paramname">force</td><td>Optional. Pass True if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters </td></tr>
+    <tr><td class="paramname">disableEditMessage</td><td>Optional. Pass True if the game message should not be automatically edited to include the current scoreboard </td></tr>
+    <tr><td class="paramname">chatId</td><td>Required if inlineMessageId is not specified. Unique identifier for the target chat </td></tr>
+    <tr><td class="paramname">messageId</td><td>Required if inlineMessageId is not specified. Identifier of the sent message </td></tr>
+    <tr><td class="paramname">inlineMessageId</td><td>Required if chat_id and messageId are not specified. Identifier of the inline message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>On success, if the message is not an inline message, the <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> is returned, otherwise True is returned. Returns an error, if the new score is not greater than the user's current score in the chat and force is False. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setgamescore">https://core.telegram.org/bots/api#setgamescore</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac3ebd029c881a7bb301edb007e2c456d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3ebd029c881a7bb301edb007e2c456d">&#9670;&nbsp;</a></span>setLongPollTimeout()</h2>
 
@@ -5845,6 +6074,50 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setmyshortdescription">https://core.telegram.org/bots/api#setmyshortdescription</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b6cf8cff90c47ff7cfcad2c4da2e5c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6cf8cff90c47ff7cfcad2c4da2e5c8">&#9670;&nbsp;</a></span>setPassportDataErrors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::setPassportDataErrors </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_passport_element_error.html">PassportElementError</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>errors</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues. </p>
+<p>Passport </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userId</td><td><a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a> identifier </td></tr>
+    <tr><td class="paramname">errors</td><td>A JSON-serialized array describing the errors </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setpassportdataerrors">https://core.telegram.org/bots/api#setpassportdataerrors</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -6678,7 +6951,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 
 <p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> files download timeout. </p>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00069">69</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00071">71</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 
 </div>
 </div>
@@ -7723,7 +7996,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Fri Mar 8 2024 11:08:14 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 10 2024 20:29:56 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

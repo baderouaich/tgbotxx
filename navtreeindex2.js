@@ -1,6 +1,14 @@
 var NAVTREEINDEX2 =
 {
-"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[0,0,0,153],
+"namespacemembers_func.html":[0,1,1],
+"namespacemembers_type.html":[0,1,2],
+"namespaces.html":[0,0],
+"namespacetgbotxx.html":[0,0,0],
+"namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4":[0,0,0,166],
+"namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43":[0,0,0,165],
+"namespacetgbotxx.html#a7045b1368e131049fa327bbf4e778bcb":[0,0,0,163],
+"namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99":[0,0,0,167],
+"namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e":[0,0,0,164],
 "namespacetgbotxx_1_1_date_time_utils.html":[0,0,0,0],
 "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951":[0,0,0,0,2],
 "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339":[0,0,0,0,0],
@@ -241,13 +249,5 @@ var NAVTREEINDEX2 =
 "structtgbotxx_1_1_chat_member_administrator.html#a03883bdc70dd16d56bc481a497b9e9ea":[1,0,0,26,13],
 "structtgbotxx_1_1_chat_member_administrator.html#a048e012a774607a81439448d22ff3d94":[1,0,0,26,18],
 "structtgbotxx_1_1_chat_member_administrator.html#a0a93906aec19f6c1960cfd078d24b217":[1,0,0,26,1],
-"structtgbotxx_1_1_chat_member_administrator.html#a405ac6074697823ba6a04c7c19e086e1":[1,0,0,26,4],
-"structtgbotxx_1_1_chat_member_administrator.html#a6afcc887d5b65c88414a1b69d0ca13ca":[1,0,0,26,0],
-"structtgbotxx_1_1_chat_member_administrator.html#a709d201ab99ab8a2c3cdba383c5b53d9":[1,0,0,26,7],
-"structtgbotxx_1_1_chat_member_administrator.html#a8229c4fb01c0a760148576091ce58882":[1,0,0,26,11],
-"structtgbotxx_1_1_chat_member_administrator.html#a98bc5a481c20cc6d8c597c484a2c328b":[1,0,0,26,8],
-"structtgbotxx_1_1_chat_member_administrator.html#a98f9e09f72d261a9a2989a20ec7178cb":[1,0,0,26,6],
-"structtgbotxx_1_1_chat_member_administrator.html#a9e61e72c7e991d79ec941774a40dfb9e":[1,0,0,26,3],
-"structtgbotxx_1_1_chat_member_administrator.html#aa6ed12fe99cf9a7a7fc89d6aa184f23a":[1,0,0,26,19],
-"structtgbotxx_1_1_chat_member_administrator.html#aab5caa462d81b31b7f24d5343ee571b2":[1,0,0,26,5]
+"structtgbotxx_1_1_chat_member_administrator.html#a405ac6074697823ba6a04c7c19e086e1":[1,0,0,26,4]
 };

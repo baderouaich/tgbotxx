@@ -112,6 +112,9 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "Game.hpp", "_game_8hpp.html", [
       [ "Game", "structtgbotxx_1_1_game.html", "structtgbotxx_1_1_game" ]
     ] ],
+    [ "GameHighScore.hpp", "_game_high_score_8hpp.html", [
+      [ "GameHighScore", "structtgbotxx_1_1_game_high_score.html", "structtgbotxx_1_1_game_high_score" ]
+    ] ],
     [ "GeneralForumTopicHidden.hpp", "_general_forum_topic_hidden_8hpp.html", [
       [ "GeneralForumTopicHidden", "structtgbotxx_1_1_general_forum_topic_hidden.html", "structtgbotxx_1_1_general_forum_topic_hidden" ]
     ] ],
@@ -226,6 +229,18 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "PassportData.hpp", "_passport_data_8hpp.html", [
       [ "PassportData", "structtgbotxx_1_1_passport_data.html", "structtgbotxx_1_1_passport_data" ]
+    ] ],
+    [ "PassportElementError.hpp", "_passport_element_error_8hpp.html", [
+      [ "PassportElementError", "structtgbotxx_1_1_passport_element_error.html", "structtgbotxx_1_1_passport_element_error" ],
+      [ "PassportElementErrorDataField", "structtgbotxx_1_1_passport_element_error_data_field.html", "structtgbotxx_1_1_passport_element_error_data_field" ],
+      [ "PassportElementErrorFrontSide", "structtgbotxx_1_1_passport_element_error_front_side.html", "structtgbotxx_1_1_passport_element_error_front_side" ],
+      [ "PassportElementErrorReverseSide", "structtgbotxx_1_1_passport_element_error_reverse_side.html", "structtgbotxx_1_1_passport_element_error_reverse_side" ],
+      [ "PassportElementErrorSelfie", "structtgbotxx_1_1_passport_element_error_selfie.html", "structtgbotxx_1_1_passport_element_error_selfie" ],
+      [ "PassportElementErrorFile", "structtgbotxx_1_1_passport_element_error_file.html", "structtgbotxx_1_1_passport_element_error_file" ],
+      [ "PassportElementErrorFiles", "structtgbotxx_1_1_passport_element_error_files.html", "structtgbotxx_1_1_passport_element_error_files" ],
+      [ "PassportElementErrorTranslationFile", "structtgbotxx_1_1_passport_element_error_translation_file.html", "structtgbotxx_1_1_passport_element_error_translation_file" ],
+      [ "PassportElementErrorTranslationFiles", "structtgbotxx_1_1_passport_element_error_translation_files.html", "structtgbotxx_1_1_passport_element_error_translation_files" ],
+      [ "PassportElementErrorUnspecified", "structtgbotxx_1_1_passport_element_error_unspecified.html", "structtgbotxx_1_1_passport_element_error_unspecified" ]
     ] ],
     [ "PassportFile.hpp", "_passport_file_8hpp.html", [
       [ "PassportFile", "structtgbotxx_1_1_passport_file.html", "structtgbotxx_1_1_passport_file" ]
