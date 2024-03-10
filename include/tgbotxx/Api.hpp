@@ -47,6 +47,7 @@ namespace tgbotxx {
   struct InputSticker;
   struct MaskPosition;
   struct PassportElementError;
+  struct GameHighScore;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -1942,7 +1943,64 @@ namespace tgbotxx {
       /// @returns True on success.
       /// @throws Exception on failure
       /// @ref https://core.telegram.org/bots/api#setpassportdataerrors
-      bool setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors);
+      bool setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors) const;
+
+    public: /// Games
+      /// @brief Use this method to send a game.
+      /// @param chatId Unique identifier for the target chat
+      /// @param gameShortName Short name of the game, serves as the unique identifier for the game. Set up your games via @BotFather.
+      /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+      /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
+      /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+      /// @param replyParameters Optional. Description of the message to reply to
+      /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+      ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+      /// @returns the sent Message on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#sendgame
+      Ptr<Message> sendGame(const std::variant<std::int64_t, std::string>& chatId,
+                            const std::string& gameShortName,
+                            std::int32_t messageThreadId = 0,
+                            bool disableNotification = false,
+                            bool protectContent = false,
+                            const Ptr<ReplyParameters>& replyParameters = nullptr,
+                            const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+
+      /// @brief Use this method to set the score of the specified user in a game message.
+      /// @param userId User identifier
+      /// @param score New score, must be non-negative
+      /// @param force Optional. Pass True if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters
+      /// @param disableEditMessage Optional. Pass True if the game message should not be automatically edited to include the current scoreboard
+      /// @param chatId Required if inlineMessageId is not specified. Unique identifier for the target chat
+      /// @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+      /// @param inlineMessageId Required if chat_id and messageId are not specified. Identifier of the inline message
+      /// @returns On success, if the message is not an inline message, the Message is returned, otherwise True is returned. Returns an error, if the new score is not greater than the user's current score in the chat and force is False.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setgamescore
+      Ptr<Message> setGameScore(std::int64_t userId,
+                                std::int32_t score,
+                                bool force = false,
+                                bool disableEditMessage = false,
+                                std::int64_t chatId = 0,
+                                std::int32_t messageId = 0,
+                                const std::string& inlineMessageId = "") const;
+
+
+      /// @brief Use this method to get data for high score tables.
+      /// @param userId Target user id
+      /// @param chatId Required if inlineMessageId is not specified. Unique identifier for the target chat
+      /// @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+      /// @param inlineMessageId Required if chat_id and messageId are not specified. Identifier of the inline message
+      /// @returns an Array of GameHighScore objects.
+      /// @note This method will currently return scores for the target user, plus two of their closest neighbors on each side.
+      /// Will also return the top three users if the user and their neighbors are not among them.
+      /// Please note that this behavior is subject to change.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#getgamehighscores
+      std::vector<Ptr<GameHighScore>> getGameHighScores(std::int64_t userId,
+                                                        std::int64_t chatId = 0,
+                                                        std::int32_t messageId = 0,
+                                                        const std::string& inlineMessageId = "") const;
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.

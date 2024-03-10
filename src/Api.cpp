@@ -35,6 +35,7 @@
 #include <tgbotxx/objects/ForumTopicEdited.hpp>
 #include <tgbotxx/objects/ForumTopicReopened.hpp>
 #include <tgbotxx/objects/Game.hpp>
+#include <tgbotxx/objects/GameHighScore.hpp>
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
 #include <tgbotxx/objects/IReplyMarkup.hpp>
@@ -2295,18 +2296,113 @@ bool Api::deleteStickerSet(const std::string& name) const {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool Api::setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors) {
+bool Api::setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
   data.parts.emplace_back("user_id", std::to_string(userId));
   nl::json errorsArray = nl::json::array();
-  for(const Ptr<PassportElementError>& err : errors) {
+  for (const Ptr<PassportElementError>& err: errors) {
     errorsArray.push_back(err->toJson());
   }
   data.parts.emplace_back("errors", errorsArray.dump());
   return sendRequest("setPassportDataErrors", data);
 }
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+Ptr<Message> Api::sendGame(const std::variant<std::int64_t, std::string>& chatId,
+                           const std::string& gameShortName,
+                           std::int32_t messageThreadId,
+                           bool disableNotification,
+                           bool protectContent,
+                           const Ptr<tgbotxx::ReplyParameters>& replyParameters,
+                           const Ptr<tgbotxx::IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  data.parts.emplace_back("game_short_name", gameShortName);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  nl::json sentMessageObj = sendRequest("sendGame", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+
+Ptr<Message> Api::setGameScore(std::int64_t userId,
+                               std::int32_t score,
+                               bool force,
+                               bool disableEditMessage,
+                               std::int64_t chatId,
+                               std::int32_t messageId,
+                               const std::string& inlineMessageId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("score", score);
+  if (force)
+    data.parts.emplace_back("force", force);
+  if (disableEditMessage)
+    data.parts.emplace_back("disable_edit_message", disableEditMessage);
+  if (chatId)
+    data.parts.emplace_back("chat_id", std::to_string(chatId));
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+
+  nl::json sentMessageObj = sendRequest("setGameScore", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
+}
+
+std::vector<Ptr<GameHighScore>> Api::getGameHighScores(std::int64_t userId,
+                                                       std::int64_t chatId,
+                                                       std::int32_t messageId,
+                                                       const std::string& inlineMessageId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (chatId)
+    data.parts.emplace_back("chat_id", std::to_string(chatId));
+  if (messageId)
+    data.parts.emplace_back("message_id", messageId);
+  if (not inlineMessageId.empty())
+    data.parts.emplace_back("inline_message_id", inlineMessageId);
+
+  nl::json gameScoresJson = sendRequest("getGameHighScores", data);
+
+  std::vector<Ptr<GameHighScore>> gameScores;
+  gameScores.reserve(gameScoresJson.size());
+  for (const nl::json& gameScoreJson: gameScoresJson) {
+    Ptr<GameHighScore> gameScore = makePtr<GameHighScore>(gameScoreJson);
+    gameScores.push_back(std::move(gameScore));
+  }
+  return gameScores;
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void Api::setUrl(const std::string& url) noexcept {
