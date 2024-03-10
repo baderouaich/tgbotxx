@@ -37,6 +37,7 @@
 #include <tgbotxx/objects/ForumTopicEdited.hpp>
 #include <tgbotxx/objects/ForumTopicReopened.hpp>
 #include <tgbotxx/objects/Game.hpp>
+#include <tgbotxx/objects/GameHighScore.hpp>
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
 #include <tgbotxx/objects/IReplyMarkup.hpp>
