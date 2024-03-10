@@ -65,6 +65,7 @@
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
 #include <tgbotxx/objects/PassportData.hpp>
+#include <tgbotxx/objects/PassportElementError.hpp>
 #include <tgbotxx/objects/PassportFile.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
 #include <tgbotxx/objects/Poll.hpp>

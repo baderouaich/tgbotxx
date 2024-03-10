@@ -62,6 +62,7 @@
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
 #include <tgbotxx/objects/PassportData.hpp>
+#include <tgbotxx/objects/PassportElementError.hpp>
 #include <tgbotxx/objects/PassportFile.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
 #include <tgbotxx/objects/Poll.hpp>
@@ -2278,7 +2279,7 @@ bool Api::setCustomEmojiStickerSetThumbnail(const std::string& name, const std::
   cpr::Multipart data{};
   data.parts.reserve(2);
   data.parts.emplace_back("name", name);
-  if(customEmojiId.has_value()) {
+  if (customEmojiId.has_value()) {
     data.parts.emplace_back("custom_emoji_id", customEmojiId.value());
   }
   return sendRequest("setCustomEmojiStickerSetThumbnail", data);
@@ -2289,6 +2290,21 @@ bool Api::deleteStickerSet(const std::string& name) const {
   data.parts.reserve(1);
   data.parts.emplace_back("name", name);
   return sendRequest("deleteStickerSet", data);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool Api::setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors) {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  nl::json errorsArray = nl::json::array();
+  for(const Ptr<PassportElementError>& err : errors) {
+    errorsArray.push_back(err->toJson());
+  }
+  data.parts.emplace_back("errors", errorsArray.dump());
+  return sendRequest("setPassportDataErrors", data);
 }
 
 

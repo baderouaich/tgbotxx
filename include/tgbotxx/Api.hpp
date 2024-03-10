@@ -46,6 +46,7 @@ namespace tgbotxx {
   struct StickerSet;
   struct InputSticker;
   struct MaskPosition;
+  struct PassportElementError;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -1929,6 +1930,19 @@ namespace tgbotxx {
       /// @ref https://core.telegram.org/bots/api#deletestickerset
       bool deleteStickerSet(const std::string& name) const;
 
+    public: /// Passport
+      /// @brief Informs a user that some of the Telegram Passport elements they provided contains errors.
+      /// The user will not be able to re-submit their Passport to you until the errors are fixed
+      /// (the contents of the field for which you returned the error must change).
+      /// Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason.
+      /// For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc.
+      /// Supply some details in the error message to make sure the user knows how to correct the issues.
+      /// @param userId User identifier
+      /// @param errors A JSON-serialized array describing the errors
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setpassportdataerrors
+      bool setPassportDataErrors(std::int64_t userId, const std::vector<Ptr<PassportElementError>>& errors);
 
     public: /// Inline mode methods. Methods and objects used in the inline mode are described in the Inline mode section. https://core.telegram.org/bots/api#inline-mode
       /// @brief Use this method to send answers to an inline query.
