@@ -71,6 +71,7 @@
 #include <tgbotxx/objects/PollOption.hpp>
 #include <tgbotxx/objects/PreCheckoutQuery.hpp>
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
+#include <tgbotxx/objects/ReactionType.hpp>
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
 #include <tgbotxx/objects/ReplyParameters.hpp>
@@ -1019,6 +1020,26 @@ bool Api::sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
   return sendRequest("sendChatAction", data);
 }
 
+bool Api::setMessageReaction(const std::variant<std::int64_t, std::string>& chatId,
+                             std::int32_t messageId,
+                             const std::vector<Ptr<ReactionType>>& reaction,
+                             bool isBig) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("message_id", messageId);
+  if (not reaction.empty()) {
+    nl::json reactionJson = nl::json::array();
+    for (const Ptr<ReactionType>& reactionType: reaction) {
+      reactionJson.push_back(reactionType->toJson());
+    }
+    data.parts.emplace_back("reaction", reactionJson.dump());
+  }
+  if (isBig)
+    data.parts.emplace_back("is_big", isBig);
+  return sendRequest("setMessageReaction", data);
+}
+
 Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
                                                  std::int32_t offset,
                                                  std::int32_t limit) const {
@@ -1705,18 +1726,18 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, const std::vector<std::string>& allowedUpdates) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit) const {
   std::vector<Ptr<Update>> updates;
   cpr::Multipart data = {
     {"offset", offset},
     {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
-    {"allowed_updates", nl::json(allowedUpdates).dump()},
+    {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
   nl::json updatesJson = sendRequest("getUpdates", data);
   updates.reserve(updatesJson.size());
   for (const nl::json& updateObj: updatesJson) {
-    Ptr<Update> update(new Update(updateObj));
+    Ptr<Update> update = makePtr<Update>(updateObj);
     updates.push_back(std::move(update));
   }
   return updates;
@@ -2443,7 +2464,11 @@ void Api::setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept {
 }
 cpr::Timeout Api::getDownloadFilesTimeout() const noexcept { return m_downloadFilesTimeout; }
 
-
+void Api::setAllowedUpdates(const std::vector<std::string>& allowedUpdates) noexcept {
+  m_allowedUpdates = allowedUpdates;
+}
+/// @brief Get list of the update types you want your bot to receive.
+const std::vector<std::string>& Api::getAllowedUpdates() const noexcept { return m_allowedUpdates; }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& chatId,
                               const std::string& title,

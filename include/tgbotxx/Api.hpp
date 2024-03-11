@@ -48,6 +48,7 @@ namespace tgbotxx {
   struct MaskPosition;
   struct PassportElementError;
   struct GameHighScore;
+  struct ReactionType;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -690,6 +691,23 @@ namespace tgbotxx {
       bool sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                           const std::string& action,
                           std::int32_t messageThreadId = 0) const;
+
+
+      /// @brief Use this method to change the chosen reactions on a message. Service messages can't be reacted to.
+      /// Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel.
+      /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
+      /// @param messageId Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.
+      /// @param reaction Optional. A JSON-serialized list of reaction types to set on the message.
+      /// Currently, as non-premium users, bots can set up to one reaction per message.
+      /// A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.
+      /// @param isBig Optional. Pass True to set the reaction with a big animation
+      /// @returns True on success.
+      /// @throws Exception on failure
+      /// @ref https://core.telegram.org/bots/api#setmessagereaction
+      bool setMessageReaction(const std::variant<std::int64_t, std::string>& chatId,
+                              std::int32_t messageId,
+                              const std::vector<Ptr<ReactionType>>& reaction = std::vector<Ptr<ReactionType>>(),
+                              bool isBig = false) const;
 
 
       /// @brief Use this method to get a list of profile pictures for a user.
