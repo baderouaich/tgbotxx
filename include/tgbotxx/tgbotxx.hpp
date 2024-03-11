@@ -15,6 +15,10 @@
 #include <tgbotxx/objects/CallbackQuery.hpp>
 #include <tgbotxx/objects/Chat.hpp>
 #include <tgbotxx/objects/ChatAdministratorRights.hpp>
+#include <tgbotxx/objects/ChatBoost.hpp>
+#include <tgbotxx/objects/ChatBoostRemoved.hpp>
+#include <tgbotxx/objects/ChatBoostSource.hpp>
+#include <tgbotxx/objects/ChatBoostUpdated.hpp>
 #include <tgbotxx/objects/ChatInviteLink.hpp>
 #include <tgbotxx/objects/ChatJoinRequest.hpp>
 #include <tgbotxx/objects/ChatLocation.hpp>
@@ -63,6 +67,8 @@
 #include <tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/MessageId.hpp>
+#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
+#include <tgbotxx/objects/MessageReactionUpdated.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/OrderInfo.hpp>
 #include <tgbotxx/objects/PassportData.hpp>
@@ -74,6 +80,8 @@
 #include <tgbotxx/objects/PollOption.hpp>
 #include <tgbotxx/objects/PreCheckoutQuery.hpp>
 #include <tgbotxx/objects/ProximityAlertTriggered.hpp>
+#include <tgbotxx/objects/ReactionCount.hpp>
+#include <tgbotxx/objects/ReactionType.hpp>
 #include <tgbotxx/objects/ReplyKeyboardMarkup.hpp>
 #include <tgbotxx/objects/ReplyKeyboardRemove.hpp>
 #include <tgbotxx/objects/ReplyParameters.hpp>

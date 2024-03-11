@@ -1,11 +1,8 @@
 #pragma once
-
-#include <nlohmann/json.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/ShippingAddress.hpp>
 #include <tgbotxx/objects/User.hpp>
 
-namespace nl = nlohmann;
 
 namespace tgbotxx {
   /// @brief This object contains information about an incoming shipping query.

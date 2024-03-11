@@ -10,6 +10,10 @@
 #include <tgbotxx/objects/PollAnswer.hpp>
 #include <tgbotxx/objects/PreCheckoutQuery.hpp>
 #include <tgbotxx/objects/ShippingQuery.hpp>
+#include <tgbotxx/objects/MessageReactionUpdated.hpp>
+#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
+#include <tgbotxx/objects/ChatBoostUpdated.hpp>
+#include <tgbotxx/objects/ChatBoostRemoved.hpp>
 
 namespace tgbotxx {
   /// @brief This object represents an incoming update.
@@ -40,6 +44,16 @@ namespace tgbotxx {
       /// @brief Optional. New version of a channel post that is known to the bot and was edited
       Ptr<Message> editedChannelPost;
 
+      /// @brief Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and
+      /// must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates. The update isn't
+      /// received for reactions set by bots.
+      Ptr<MessageReactionUpdated> messageReaction;
+
+      /// @brief Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the
+      /// chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates.
+      /// The updates are grouped and can be sent with delay up to a few minutes.
+      Ptr<MessageReactionCountUpdated> messageReactionCount;
+
       /// @brief Optional. New incoming inline query
       Ptr<InlineQuery> inlineQuery;
 
@@ -68,8 +82,14 @@ namespace tgbotxx {
       /// @brief Optional. A chat member's status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify “chat_member” in the list of allowed_updates to receive these updates.
       Ptr<ChatMemberUpdated> chatMember;
 
-      /// @brief Optional. Optional. A request to join the chat has been sent. The bot must have the can_invite_users administrator right in the chat to receive these updates.
+      /// @brief Optional. A request to join the chat has been sent. The bot must have the can_invite_users administrator right in the chat to receive these updates.
       Ptr<ChatJoinRequest> chatJoinRequest;
+
+      /// @brief Optional. A chat boost was added or changed. The bot must be an administrator in the chat to receive these updates.
+      Ptr<ChatBoostUpdated> chatBoost;
+
+      /// @brief Optional. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates.
+      Ptr<ChatBoostRemoved> removedChatBoost;
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
@@ -80,6 +100,8 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR(json, "edited_message", editedMessage);
         OBJECT_SERIALIZE_FIELD_PTR(json, "channel_post", channelPost);
         OBJECT_SERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "message_reaction", messageReaction);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "message_reaction_count", messageReactionCount);
         OBJECT_SERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery);
         OBJECT_SERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult);
         OBJECT_SERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery);
@@ -90,6 +112,8 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember);
         OBJECT_SERIALIZE_FIELD_PTR(json, "chat_member", chatMember);
         OBJECT_SERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_boost", chatBoost);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "removed_chat_boost", removedChatBoost);
         return json;
       }
 
@@ -100,6 +124,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_message", editedMessage, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "channel_post", channelPost, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "message_reaction", messageReaction, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery, true);
@@ -110,6 +135,8 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_member", chatMember, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_boost", chatBoost, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "removed_chat_boost", removedChatBoost, true);
       }
   };
 }

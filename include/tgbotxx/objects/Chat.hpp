@@ -4,6 +4,7 @@
 #include <tgbotxx/objects/ChatPhoto.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Object.hpp>
+#include <tgbotxx/objects/ReactionType.hpp>
 
 namespace tgbotxx {
   /// @brief This object represents a chat.
@@ -64,6 +65,22 @@ namespace tgbotxx {
       /// @brief Optional. If non-empty, the list of all active chat usernames; for private chats, supergroups and channels. Returned only in getChat.
       std::vector<std::string> activeUsernames;
 
+      /// @brief Optional. List of available reactions allowed in the chat. If omitted, then all emoji reactions are allowed. Returned only in getChat.
+      std::vector<Ptr<ReactionType>> availableReactions;
+
+      /// @brief Optional. Identifier of the accent color for the chat name and backgrounds of the chat photo, reply header, and link preview.
+      /// See [accent colors](https://core.telegram.org/bots/API#accent-colors) for more details. Returned only in getChat. Always returned in getChat.
+      std::int32_t accentColorId{};
+
+      /// @brief Optional. Custom emoji identifier of emoji chosen by the chat for the reply header and link preview background. Returned only in getChat.
+      std::string backgroundCustomEmojiId;
+
+      /// @brief Optional. Identifier of the accent color for the chat's profile background. See profile accent colors for more details. Returned only in getChat.
+      std::int32_t profileAccentColorId{};
+
+      /// @brief Optional. Custom emoji identifier of the emoji chosen by the chat for its profile background. Returned only in getChat.
+      std::string profileBackgroundCustomEmojiId;
+
       /// @brief Optional. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in getChat.
       /// @link getChat https://core.telegram.org/bots/api#getchat @endlink
       std::string emojiStatusCustomEmojiId;
@@ -102,6 +119,9 @@ namespace tgbotxx {
       /// @brief Optional. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds. Returned only in getChat.
       std::int32_t slowModeDelay{};
 
+      /// @brief Optional. For supergroups, the minimum number of boosts that a non-administrator user needs to add in order to ignore slow mode and chat permissions. Returned only in getChat.
+      std::int32_t unrestrictBoostCount{};
+
       /// @brief Optional. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in getChat.
       std::int32_t messageAutoDeleteTime{};
 
@@ -113,6 +133,9 @@ namespace tgbotxx {
 
       /// @brief Optional. True, if messages from the chat can't be forwarded to other chats. Returned only in getChat.
       bool hasProtectedContent{};
+
+      /// @brief Optional. True, if new chat members will have access to old messages; available only to chat administrators. Returned only in getChat.
+      bool hasVisibleHistory{};
 
       /// @brief Optional. For supergroups, name of group sticker set. Returned only in getChat.
       std::string stickerSetName;
@@ -135,7 +158,7 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "id", id);
-        json["type"] = Type2Str[static_cast<std::size_t>(type)];// enum
+        json["type"] = Type2Str[static_cast<std::size_t>(type)]; // enum
         OBJECT_SERIALIZE_FIELD(json, "title", title);
         OBJECT_SERIALIZE_FIELD(json, "username", username);
         OBJECT_SERIALIZE_FIELD(json, "first_name", firstName);
@@ -143,6 +166,11 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "is_forum", isForum);
         OBJECT_SERIALIZE_FIELD_PTR(json, "photo", photo);
         OBJECT_SERIALIZE_FIELD(json, "active_usernames", activeUsernames);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "available_reactions", availableReactions);
+        OBJECT_SERIALIZE_FIELD(json, "accent_color_id", accentColorId);
+        OBJECT_SERIALIZE_FIELD(json, "background_custom_emoji_id", backgroundCustomEmojiId);
+        OBJECT_SERIALIZE_FIELD(json, "profile_accent_color_id", profileAccentColorId);
+        OBJECT_SERIALIZE_FIELD(json, "profile_background_custom_emoji_id", profileBackgroundCustomEmojiId);
         OBJECT_SERIALIZE_FIELD(json, "emoji_status_custom_emoji_id", emojiStatusCustomEmojiId);
         OBJECT_SERIALIZE_FIELD(json, "emoji_status_expiration_date", emojiStatusExpirationDate);
         OBJECT_SERIALIZE_FIELD(json, "bio", bio);
@@ -159,6 +187,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "has_aggressive_anti_spam_enabled", hasAggressiveAntiSpamEnabled);
         OBJECT_SERIALIZE_FIELD(json, "has_hidden_members", hasHiddenMembers);
         OBJECT_SERIALIZE_FIELD(json, "has_protected_content", hasProtectedContent);
+        OBJECT_SERIALIZE_FIELD(json, "has_visible_history", hasVisibleHistory);
         OBJECT_SERIALIZE_FIELD(json, "sticker_set_name", stickerSetName);
         OBJECT_SERIALIZE_FIELD(json, "can_set_sticker_set", canSetStickerSet);
         OBJECT_SERIALIZE_FIELD(json, "linked_chat_id", linkedChatId);
@@ -169,7 +198,7 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "id", id, 0, false);
-        type = Str2Type(json["type"]);// enum
+        type = Str2Type(json["type"]); // enum
         OBJECT_DESERIALIZE_FIELD(json, "title", title, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "username", username, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "first_name", firstName, "", true);
@@ -177,6 +206,11 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "is_forum", isForum, false, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "photo", photo, true);
         OBJECT_DESERIALIZE_FIELD(json, "active_usernames", activeUsernames, std::vector<std::string>(), true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "available_reactions", availableReactions, true);
+        OBJECT_DESERIALIZE_FIELD(json, "accent_color_id", accentColorId, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "background_custom_emoji_id", backgroundCustomEmojiId, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "profile_accent_color_id", profileAccentColorId, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "profile_background_custom_emoji_id", profileBackgroundCustomEmojiId, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "emoji_status_custom_emoji_id", emojiStatusCustomEmojiId, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "emoji_status_expiration_date", emojiStatusExpirationDate, 0, true);
         OBJECT_DESERIALIZE_FIELD(json, "bio", bio, "", true);
@@ -193,6 +227,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "has_aggressive_anti_spam_enabled", hasAggressiveAntiSpamEnabled, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "has_hidden_members", hasHiddenMembers, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "has_protected_content", hasProtectedContent, false, true);
+        OBJECT_DESERIALIZE_FIELD(json, "has_visible_history", hasVisibleHistory, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "sticker_set_name", stickerSetName, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "can_set_sticker_set", canSetStickerSet, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "linked_chat_id", linkedChatId, 0, true);

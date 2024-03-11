@@ -15,16 +15,20 @@ class MyBot : public Bot {
   public:
     MyBot(const std::string& token) : Bot(token) {}
 
-
   private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
     /// Use this callback to initialize your code, set commands..
     void onStart() override {
+
       //      api()->setTimeout(std::chrono::seconds(60 * 3));
       //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
       getApi()->deleteWebhook(true);
+//      api()->setAllowedUpdates({
+//        "message_reaction",
+//        "message_reaction_count"
+//      });
       //      api()->setMyName("tgbotxx manual_tests");
       //      api()->setMyDescription("tgbotxx bot manual tests");
 
@@ -450,7 +454,22 @@ class MyBot : public Bot {
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {
       std::cout << __func__ << ": " << chatJoinRequest->from->username << std::endl;
     }
-
+    void onMessageReactionUpdated(const Ptr<MessageReactionUpdated>& messageReaction) override {
+      if(messageReaction->newReaction.empty()) {
+        std::cout << __func__ << ": all reactions removed" << std::endl;
+      } else {
+        std::cout << __func__ << ": " << messageReaction->newReaction[0]->type << std::endl;
+      }
+    }
+    void onMessageReactionCountUpdated(const Ptr<MessageReactionCountUpdated>& messageReactionCount) override {
+      std::cout << __func__ << ": " << messageReactionCount->reactions.size() << std::endl;
+    }
+    void onChatBoostUpdated(const Ptr<ChatBoostUpdated>& chatBoostUpdated) override {
+      std::cout << __func__ << ": " << chatBoostUpdated->boost->boostId << std::endl;
+    }
+    void onChatBoostRemoved(const Ptr<ChatBoostRemoved>& chatBoostRemoved) override {
+      std::cout << __func__ << ": " << chatBoostRemoved->boostID << std::endl;
+    }
   private:
     static std::string getPaymentProviderToken() {
       if (char *token = std::getenv("TESTS_PAYMENT_PROVIDER_TOKEN"); token != nullptr)
