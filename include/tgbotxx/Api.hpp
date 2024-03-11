@@ -67,6 +67,11 @@ namespace tgbotxx {
       cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
       cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
       cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
+      std::vector<std::string> m_allowedUpdates;                            /// List of the update types you want your bot to receive.
+                                                                            /// For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types.
+                                                                            /// See Update for a complete list of available update types. Specify an empty list to receive all update types
+                                                                            /// except chat_member (default). If not specified, the previous setting will be used.
+
 
       friend class Bot;
 
@@ -1555,17 +1560,13 @@ namespace tgbotxx {
       /// @param limit Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
       /// @param timeout Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive,
       /// short polling should be used for testing purposes only.
-      /// @param allowedUpdates JSON-serialized list of the update types you want your bot to receive.
-      /// For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types.
-      /// See Update for a complete list of available update types. Specify an empty list to receive all update types
-      /// except chat_member (default). If not specified, the previous setting will be used.
       /// @returns an Array of Update objects.
       /// @throws Exception on failure
       /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
       /// @note This method will not work if an outgoing webhook is set up.
       /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
       /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
-      std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100, const std::vector<std::string>& allowedUpdates = {}) const;
+      std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100) const;
 
       /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
       /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
@@ -2061,8 +2062,16 @@ namespace tgbotxx {
 
       /// @brief Set Api file downloads timeout.
       void setDownloadFilesTimeout(const cpr::Timeout& timeout) noexcept;
-      /// @brief Get APi file downloads timeout.
+      /// @brief Get Api file downloads timeout.
       cpr::Timeout getDownloadFilesTimeout() const noexcept;
+
+      /// @param allowedUpdates JSON-serialized list of the update types you want your bot to receive.
+      /// For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types.
+      /// See Update for a complete list of available update types. Specify an empty list to receive all update types
+      /// except chat_member (default). If not specified, the previous setting will be used.
+      void setAllowedUpdates(const std::vector<std::string>& allowedUpdates) noexcept;
+      /// @brief Get list of the update types you want your bot to receive.
+      const std::vector<std::string>& getAllowedUpdates() const noexcept;
 
     private:
       nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
