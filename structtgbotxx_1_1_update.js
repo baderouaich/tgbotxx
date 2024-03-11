@@ -6,6 +6,7 @@ var structtgbotxx_1_1_update =
     [ "toJson", "structtgbotxx_1_1_update.html#a1c753d0dbbef6d4663939253e7109c2a", null ],
     [ "callbackQuery", "structtgbotxx_1_1_update.html#ac8669c2375cfdb8d6a4aeb44d74fb320", null ],
     [ "channelPost", "structtgbotxx_1_1_update.html#a169335b84e6e7d086225efb8985b6686", null ],
+    [ "chatBoost", "structtgbotxx_1_1_update.html#aa597fe43784165e6770a2283edd99b92", null ],
     [ "chatJoinRequest", "structtgbotxx_1_1_update.html#a20719b0d2990e42e5d85caeaf39f9403", null ],
     [ "chatMember", "structtgbotxx_1_1_update.html#a2f19d6deb2a9124b83c703b7aa7a986e", null ],
     [ "chosenInlineResult", "structtgbotxx_1_1_update.html#adaa13d9ecc849849eb9da03121f86df0", null ],
@@ -13,10 +14,13 @@ var structtgbotxx_1_1_update =
     [ "editedMessage", "structtgbotxx_1_1_update.html#a6135fe2c34f67ef3c585bd169848e325", null ],
     [ "inlineQuery", "structtgbotxx_1_1_update.html#a81dc1831162bcb42aa510ccc79f7b440", null ],
     [ "message", "structtgbotxx_1_1_update.html#a06b46ec0f6a8d9a54c25e5d5e3c4b474", null ],
+    [ "messageReaction", "structtgbotxx_1_1_update.html#a79574e0de96b1ac23529b1b5941af22e", null ],
+    [ "messageReactionCount", "structtgbotxx_1_1_update.html#a1c07b765a5849879675fcc1c4eb20908", null ],
     [ "myChatMember", "structtgbotxx_1_1_update.html#a0a01eb44b680f64fa42b48b24ab22ad6", null ],
     [ "poll", "structtgbotxx_1_1_update.html#acc5bb40ebdaf9972b45add88f0c0679a", null ],
     [ "pollAnswer", "structtgbotxx_1_1_update.html#a2d6e83dc6d27cc0795478afb488146b0", null ],
     [ "preCheckoutQuery", "structtgbotxx_1_1_update.html#a983fcd879d0405bdb112d3fed37a2a6c", null ],
+    [ "removedChatBoost", "structtgbotxx_1_1_update.html#a33be2aa485a601cca3bd40f45a156046", null ],
     [ "shippingQuery", "structtgbotxx_1_1_update.html#a2794c01e378126dfc8e8edac55f4c443", null ],
     [ "updateId", "structtgbotxx_1_1_update.html#aeb974f6a13a456ac808c6ece4901d931", null ]
 ];

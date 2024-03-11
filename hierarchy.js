@@ -23,6 +23,14 @@ var hierarchy =
     [ "tgbotxx::CallbackQuery", "structtgbotxx_1_1_callback_query.html", null ],
     [ "tgbotxx::Chat", "structtgbotxx_1_1_chat.html", null ],
     [ "tgbotxx::ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html", null ],
+    [ "tgbotxx::ChatBoost", "structtgbotxx_1_1_chat_boost.html", null ],
+    [ "tgbotxx::ChatBoostRemoved", "structtgbotxx_1_1_chat_boost_removed.html", null ],
+    [ "tgbotxx::ChatBoostSource", "structtgbotxx_1_1_chat_boost_source.html", [
+      [ "tgbotxx::ChatBoostSourceGiftCode", "structtgbotxx_1_1_chat_boost_source_gift_code.html", null ],
+      [ "tgbotxx::ChatBoostSourceGiveaway", "structtgbotxx_1_1_chat_boost_source_giveaway.html", null ],
+      [ "tgbotxx::ChatBoostSourcePremium", "structtgbotxx_1_1_chat_boost_source_premium.html", null ]
+    ] ],
+    [ "tgbotxx::ChatBoostUpdated", "structtgbotxx_1_1_chat_boost_updated.html", null ],
     [ "tgbotxx::ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html", null ],
     [ "tgbotxx::ChatJoinRequest", "structtgbotxx_1_1_chat_join_request.html", null ],
     [ "tgbotxx::ChatLocation", "structtgbotxx_1_1_chat_location.html", null ],
@@ -121,6 +129,8 @@ var hierarchy =
     [ "tgbotxx::MessageAutoDeleteTimerChanged", "structtgbotxx_1_1_message_auto_delete_timer_changed.html", null ],
     [ "tgbotxx::MessageEntity", "structtgbotxx_1_1_message_entity.html", null ],
     [ "tgbotxx::MessageId", "structtgbotxx_1_1_message_id.html", null ],
+    [ "tgbotxx::MessageReactionCountUpdated", "structtgbotxx_1_1_message_reaction_count_updated.html", null ],
+    [ "tgbotxx::MessageReactionUpdated", "structtgbotxx_1_1_message_reaction_updated.html", null ],
     [ "tgbotxx::OrderInfo", "structtgbotxx_1_1_order_info.html", null ],
     [ "tgbotxx::PassportData", "structtgbotxx_1_1_passport_data.html", null ],
     [ "tgbotxx::PassportElementError", "structtgbotxx_1_1_passport_element_error.html", [
@@ -141,6 +151,11 @@ var hierarchy =
     [ "tgbotxx::PollOption", "structtgbotxx_1_1_poll_option.html", null ],
     [ "tgbotxx::PreCheckoutQuery", "structtgbotxx_1_1_pre_checkout_query.html", null ],
     [ "tgbotxx::ProximityAlertTriggered", "structtgbotxx_1_1_proximity_alert_triggered.html", null ],
+    [ "tgbotxx::ReactionCount", "structtgbotxx_1_1_reaction_count.html", null ],
+    [ "tgbotxx::ReactionType", "structtgbotxx_1_1_reaction_type.html", [
+      [ "tgbotxx::ReactionTypeCustomEmoji", "structtgbotxx_1_1_reaction_type_custom_emoji.html", null ],
+      [ "tgbotxx::ReactionTypeEmoji", "structtgbotxx_1_1_reaction_type_emoji.html", null ]
+    ] ],
     [ "tgbotxx::ReplyParameters", "structtgbotxx_1_1_reply_parameters.html", null ],
     [ "std::runtime_error", null, [
       [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", null ]

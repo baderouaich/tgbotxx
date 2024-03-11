@@ -40,6 +40,21 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "ChatAdministratorRights.hpp", "_chat_administrator_rights_8hpp.html", [
       [ "ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html", "structtgbotxx_1_1_chat_administrator_rights" ]
     ] ],
+    [ "ChatBoost.hpp", "_chat_boost_8hpp.html", [
+      [ "ChatBoost", "structtgbotxx_1_1_chat_boost.html", "structtgbotxx_1_1_chat_boost" ]
+    ] ],
+    [ "ChatBoostRemoved.hpp", "_chat_boost_removed_8hpp.html", [
+      [ "ChatBoostRemoved", "structtgbotxx_1_1_chat_boost_removed.html", "structtgbotxx_1_1_chat_boost_removed" ]
+    ] ],
+    [ "ChatBoostSource.hpp", "_chat_boost_source_8hpp.html", [
+      [ "ChatBoostSource", "structtgbotxx_1_1_chat_boost_source.html", "structtgbotxx_1_1_chat_boost_source" ],
+      [ "ChatBoostSourcePremium", "structtgbotxx_1_1_chat_boost_source_premium.html", "structtgbotxx_1_1_chat_boost_source_premium" ],
+      [ "ChatBoostSourceGiftCode", "structtgbotxx_1_1_chat_boost_source_gift_code.html", "structtgbotxx_1_1_chat_boost_source_gift_code" ],
+      [ "ChatBoostSourceGiveaway", "structtgbotxx_1_1_chat_boost_source_giveaway.html", "structtgbotxx_1_1_chat_boost_source_giveaway" ]
+    ] ],
+    [ "ChatBoostUpdated.hpp", "_chat_boost_updated_8hpp.html", [
+      [ "ChatBoostUpdated", "structtgbotxx_1_1_chat_boost_updated.html", "structtgbotxx_1_1_chat_boost_updated" ]
+    ] ],
     [ "ChatInviteLink.hpp", "_chat_invite_link_8hpp.html", [
       [ "ChatInviteLink", "structtgbotxx_1_1_chat_invite_link.html", "structtgbotxx_1_1_chat_invite_link" ]
     ] ],
@@ -223,6 +238,12 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     [ "MessageId.hpp", "_message_id_8hpp.html", [
       [ "MessageId", "structtgbotxx_1_1_message_id.html", "structtgbotxx_1_1_message_id" ]
     ] ],
+    [ "MessageReactionCountUpdated.hpp", "_message_reaction_count_updated_8hpp.html", [
+      [ "MessageReactionCountUpdated", "structtgbotxx_1_1_message_reaction_count_updated.html", "structtgbotxx_1_1_message_reaction_count_updated" ]
+    ] ],
+    [ "MessageReactionUpdated.hpp", "_message_reaction_updated_8hpp.html", [
+      [ "MessageReactionUpdated", "structtgbotxx_1_1_message_reaction_updated.html", "structtgbotxx_1_1_message_reaction_updated" ]
+    ] ],
     [ "Object.hpp", "_object_8hpp.html", "_object_8hpp" ],
     [ "OrderInfo.hpp", "_order_info_8hpp.html", [
       [ "OrderInfo", "structtgbotxx_1_1_order_info.html", "structtgbotxx_1_1_order_info" ]
@@ -262,6 +283,14 @@ var dir_5e3b55b5946d17583ee39f95641b3f39 =
     ] ],
     [ "ProximityAlertTriggered.hpp", "_proximity_alert_triggered_8hpp.html", [
       [ "ProximityAlertTriggered", "structtgbotxx_1_1_proximity_alert_triggered.html", "structtgbotxx_1_1_proximity_alert_triggered" ]
+    ] ],
+    [ "ReactionCount.hpp", "_reaction_count_8hpp.html", [
+      [ "ReactionCount", "structtgbotxx_1_1_reaction_count.html", "structtgbotxx_1_1_reaction_count" ]
+    ] ],
+    [ "ReactionType.hpp", "_reaction_type_8hpp.html", [
+      [ "ReactionType", "structtgbotxx_1_1_reaction_type.html", "structtgbotxx_1_1_reaction_type" ],
+      [ "ReactionTypeEmoji", "structtgbotxx_1_1_reaction_type_emoji.html", "structtgbotxx_1_1_reaction_type_emoji" ],
+      [ "ReactionTypeCustomEmoji", "structtgbotxx_1_1_reaction_type_custom_emoji.html", "structtgbotxx_1_1_reaction_type_custom_emoji" ]
     ] ],
     [ "ReplyKeyboardMarkup.hpp", "_reply_keyboard_markup_8hpp.html", [
       [ "ReplyKeyboardMarkup", "structtgbotxx_1_1_reply_keyboard_markup.html", "structtgbotxx_1_1_reply_keyboard_markup" ]

@@ -163,6 +163,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38152ffb7bebf30c8110e5ebd9527d73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a38152ffb7bebf30c8110e5ebd9527d73">sendChatAction</a> (const std::variant&lt; std::int64_t, std::string &gt; &amp;chatId, const std::string &amp;action, std::int32_t messageThreadId=0) const</td></tr>
 <tr class="memdesc:a38152ffb7bebf30c8110e5ebd9527d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status).  <a href="classtgbotxx_1_1_api.html#a38152ffb7bebf30c8110e5ebd9527d73">More...</a><br /></td></tr>
 <tr class="separator:a38152ffb7bebf30c8110e5ebd9527d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d10f087e589207dc8bbdaca0ed6b050"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a0d10f087e589207dc8bbdaca0ed6b050">setMessageReaction</a> (const std::variant&lt; std::int64_t, std::string &gt; &amp;chatId, std::int32_t messageId, const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_reaction_type.html">ReactionType</a> &gt;&gt; &amp;reaction=std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_reaction_type.html">ReactionType</a> &gt;&gt;(), bool isBig=false) const</td></tr>
+<tr class="memdesc:a0d10f087e589207dc8bbdaca0ed6b050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel.  <a href="classtgbotxx_1_1_api.html#a0d10f087e589207dc8bbdaca0ed6b050">More...</a><br /></td></tr>
+<tr class="separator:a0d10f087e589207dc8bbdaca0ed6b050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb13e0c63ac03e210f140f12e08379d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user_profile_photos.html">UserProfilePhotos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d">getUserProfilePhotos</a> (std::int64_t userId, std::int32_t offset=0, std::int32_t limit=100) const</td></tr>
 <tr class="memdesc:a7fb13e0c63ac03e210f140f12e08379d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to get a list of profile pictures for a user.  <a href="classtgbotxx_1_1_api.html#a7fb13e0c63ac03e210f140f12e08379d">More...</a><br /></td></tr>
 <tr class="separator:a7fb13e0c63ac03e210f140f12e08379d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -286,9 +289,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021">answerPreCheckoutQuery</a> (const std::string &amp;preCheckoutQueryId, bool ok, const std::string &amp;errorMessage=&quot;&quot;) const</td></tr>
 <tr class="memdesc:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Once the user has confirmed their payment and shipping details, the <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API sends the final confirmation in the form of an <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> with the field preCheckoutQuery. Use this method to respond to such pre-checkout queries. On success, True is returned.  <a href="classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021">More...</a><br /></td></tr>
 <tr class="separator:ab9cedaad1f8ccba7b3b9a5f8da5b2021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_update.html">Update</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">getUpdates</a> (std::int32_t offset, std::int32_t limit=100, const std::vector&lt; std::string &gt; &amp;allowedUpdates={}) const</td></tr>
-<tr class="memdesc:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to receive incoming updates using long polling.  <a href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb">More...</a><br /></td></tr>
-<tr class="separator:a1a2bbd08cfc4c27b188c87e5c82d7dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ac7c35b09f7455e57d566dec797e04d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_update.html">Update</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a9ac7c35b09f7455e57d566dec797e04d">getUpdates</a> (std::int32_t offset, std::int32_t limit=100) const</td></tr>
+<tr class="memdesc:a9ac7c35b09f7455e57d566dec797e04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to receive incoming updates using long polling.  <a href="classtgbotxx_1_1_api.html#a9ac7c35b09f7455e57d566dec797e04d">More...</a><br /></td></tr>
+<tr class="separator:a9ac7c35b09f7455e57d566dec797e04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8317985d854728b978128c2f952e885"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#af8317985d854728b978128c2f952e885">setWebhook</a> (const std::string &amp;url, const std::optional&lt; cpr::File &gt; &amp;certificate=std::nullopt, const std::string &amp;ipAddress=&quot;&quot;, std::int32_t maxConnections=40, const std::vector&lt; std::string &gt; &amp;allowedUpdates=std::vector&lt; std::string &gt;(), bool dropPendingUpdates=false, const std::string &amp;secretToken=&quot;&quot;) const</td></tr>
 <tr class="memdesc:af8317985d854728b978128c2f952e885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter secret_token. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.  <a href="classtgbotxx_1_1_api.html#af8317985d854728b978128c2f952e885">More...</a><br /></td></tr>
 <tr class="separator:af8317985d854728b978128c2f952e885"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -419,13 +422,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a439a5f38de7145cd2a5f2f82f592605c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> file downloads timeout.  <a href="classtgbotxx_1_1_api.html#a439a5f38de7145cd2a5f2f82f592605c">More...</a><br /></td></tr>
 <tr class="separator:a439a5f38de7145cd2a5f2f82f592605c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d2be0aa109fe1f5f47c5baf6d3e150e"><td class="memItemLeft" align="right" valign="top">cpr::Timeout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a2d2be0aa109fe1f5f47c5baf6d3e150e">getDownloadFilesTimeout</a> () const noexcept</td></tr>
-<tr class="memdesc:a2d2be0aa109fe1f5f47c5baf6d3e150e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get APi file downloads timeout.  <a href="classtgbotxx_1_1_api.html#a2d2be0aa109fe1f5f47c5baf6d3e150e">More...</a><br /></td></tr>
+<tr class="memdesc:a2d2be0aa109fe1f5f47c5baf6d3e150e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> file downloads timeout.  <a href="classtgbotxx_1_1_api.html#a2d2be0aa109fe1f5f47c5baf6d3e150e">More...</a><br /></td></tr>
 <tr class="separator:a2d2be0aa109fe1f5f47c5baf6d3e150e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39013d446e38478c5cf73a8ecba58c36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#a39013d446e38478c5cf73a8ecba58c36">setAllowedUpdates</a> (const std::vector&lt; std::string &gt; &amp;allowedUpdates) noexcept</td></tr>
+<tr class="separator:a39013d446e38478c5cf73a8ecba58c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3001ba706c71014d9381625d20dbc24"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#ae3001ba706c71014d9381625d20dbc24">getAllowedUpdates</a> () const noexcept</td></tr>
+<tr class="memdesc:ae3001ba706c71014d9381625d20dbc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get list of the update types you want your bot to receive.  <a href="classtgbotxx_1_1_api.html#ae3001ba706c71014d9381625d20dbc24">More...</a><br /></td></tr>
+<tr class="separator:ae3001ba706c71014d9381625d20dbc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:afb5d57ac6b56fe83e7894e3b686c3339"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtgbotxx_1_1_api.html#afb5d57ac6b56fe83e7894e3b686c3339">Bot</a></td></tr>
-<tr class="memdesc:afb5d57ac6b56fe83e7894e3b686c3339"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> files download timeout.  <a href="classtgbotxx_1_1_api.html#afb5d57ac6b56fe83e7894e3b686c3339">More...</a><br /></td></tr>
 <tr class="separator:afb5d57ac6b56fe83e7894e3b686c3339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
@@ -502,7 +509,7 @@ Related Functions</h2></td></tr>
 <dd>
 We support GET and POST HTTP methods. Use either URL query string or application/json or application/x-www-form-urlencoded or multipart/form-data for passing parameters in <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> API requests. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00055">55</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00056">56</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f3c10fcdb01039733b30b74d3342095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f3c10fcdb01039733b30b74d3342095">&#9670;&nbsp;</a></span>Api()</h2>
@@ -1555,7 +1562,7 @@ We support GET and POST HTTP methods. Use either URL query string or application
 </dl>
 <dl class="section note"><dt>Note</dt><dd>when <a class="el" href="classtgbotxx_1_1_bot.html">Bot</a> is not running, updates will remain 24 hours in Telegram server before they get deleted or retrieved by BOT </dd>
 <dd>
-In order for <a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb" title="Use this method to receive incoming updates using long polling.">Api::getUpdates()</a> to work, there should be no outgoing webhook set up. See <a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> <a href="https://core.telegram.org/bots/api#deletewebhook">https://core.telegram.org/bots/api#deletewebhook</a> </dd></dl>
+In order for <a class="el" href="classtgbotxx_1_1_api.html#a9ac7c35b09f7455e57d566dec797e04d" title="Use this method to receive incoming updates using long polling.">Api::getUpdates()</a> to work, there should be no outgoing webhook set up. See <a href="https://core.telegram.org/bots/api#getupdates">https://core.telegram.org/bots/api#getupdates</a> <a href="https://core.telegram.org/bots/api#deletewebhook">https://core.telegram.org/bots/api#deletewebhook</a> </dd></dl>
 
 </div>
 </div>
@@ -2107,6 +2114,33 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c
 
 </div>
 </div>
+<a id="ae3001ba706c71014d9381625d20dbc24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3001ba706c71014d9381625d20dbc24">&#9670;&nbsp;</a></span>getAllowedUpdates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;std::string&gt;&amp; tgbotxx::Api::getAllowedUpdates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get list of the update types you want your bot to receive. </p>
+
+</div>
+</div>
 <a id="ae4bd0363c2108afd151a4a219aaa639f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4bd0363c2108afd151a4a219aaa639f">&#9670;&nbsp;</a></span>getChat()</h2>
 
@@ -2366,7 +2400,7 @@ In order for <a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c
 </table>
 </div><div class="memdoc">
 
-<p>Get APi file downloads timeout. </p>
+<p>Get <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> file downloads timeout. </p>
 
 </div>
 </div>
@@ -2754,8 +2788,8 @@ This function may not preserve the original file name and MIME type. You should 
 
 </div>
 </div>
-<a id="a1a2bbd08cfc4c27b188c87e5c82d7dfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a2bbd08cfc4c27b188c87e5c82d7dfb">&#9670;&nbsp;</a></span>getUpdates()</h2>
+<a id="a9ac7c35b09f7455e57d566dec797e04d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac7c35b09f7455e57d566dec797e04d">&#9670;&nbsp;</a></span>getUpdates()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2770,13 +2804,7 @@ This function may not preserve the original file name and MIME type. You should 
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::int32_t&#160;</td>
-          <td class="paramname"><em>limit</em> = <code>100</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>allowedUpdates</em> = <code>{}</code>&#160;</td>
+          <td class="paramname"><em>limit</em> = <code>100</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2792,7 +2820,6 @@ This function may not preserve the original file name and MIME type. You should 
     <tr><td class="paramname">offset</td><td>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id. The negative offset can be specified to retrieve updates starting from -offset update from the end of the updates queue. All previous updates will be forgotten. </td></tr>
     <tr><td class="paramname">limit</td><td>Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100. </td></tr>
     <tr><td class="paramname">timeout</td><td>Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only. </td></tr>
-    <tr><td class="paramname">allowedUpdates</td><td>JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types. See <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> for a complete list of available update types. Specify an empty list to receive all update types except chat_member (default). If not specified, the previous setting will be used. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5419,6 +5446,38 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 
 </div>
 </div>
+<a id="a39013d446e38478c5cf73a8ecba58c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39013d446e38478c5cf73a8ecba58c36">&#9670;&nbsp;</a></span>setAllowedUpdates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tgbotxx::Api::setAllowedUpdates </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>allowedUpdates</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allowedUpdates</td><td>JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types. See <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> for a complete list of available update types. Specify an empty list to receive all update types except chat_member (default). If not specified, the previous setting will be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac2f35904624019cfa4cc35368356ad07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2f35904624019cfa4cc35368356ad07">&#9670;&nbsp;</a></span>setChatAdministratorCustomTitle()</h2>
 
@@ -5849,6 +5908,64 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
 </div><div class="memdoc">
 
 <p>Set long polling timeout. </p>
+
+</div>
+</div>
+<a id="a0d10f087e589207dc8bbdaca0ed6b050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d10f087e589207dc8bbdaca0ed6b050">&#9670;&nbsp;</a></span>setMessageReaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::Api::setMessageReaction </td>
+          <td>(</td>
+          <td class="paramtype">const std::variant&lt; std::int64_t, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>chatId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>messageId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_reaction_type.html">ReactionType</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>reaction</em> = <code>std::vector&lt;&#160;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;&#160;<a class="el" href="structtgbotxx_1_1_reaction_type.html">ReactionType</a>&#160;&gt;&gt;()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBig</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chatId</td><td>Integer or String Unique identifier for the target chat or username of the target channel (in the format @channelusername) </td></tr>
+    <tr><td class="paramname">messageId</td><td>Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead. </td></tr>
+    <tr><td class="paramname">reaction</td><td>Optional. A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators. </td></tr>
+    <tr><td class="paramname">isBig</td><td>Optional. Pass True to set the reaction with a big animation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a></td><td>on failure <a href="https://core.telegram.org/bots/api#setmessagereaction">https://core.telegram.org/bots/api#setmessagereaction</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -6548,7 +6665,7 @@ Bots can currently send video files of up to 50 MB in size, this limit may be ch
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>You will not be able to receive updates using <a class="el" href="classtgbotxx_1_1_api.html#a1a2bbd08cfc4c27b188c87e5c82d7dfb" title="Use this method to receive incoming updates using long polling.">Api::getUpdates</a> for as long as an outgoing webhook is set up. </dd>
+<dl class="section note"><dt>Note</dt><dd>You will not be able to receive updates using <a class="el" href="classtgbotxx_1_1_api.html#a9ac7c35b09f7455e57d566dec797e04d" title="Use this method to receive incoming updates using long polling.">Api::getUpdates</a> for as long as an outgoing webhook is set up. </dd>
 <dd>
 To use a self-signed certificate, you need to upload your public key certificate using certificate parameter. Please upload as InputFile, sending a String will not work. </dd>
 <dd>
@@ -6948,10 +7065,9 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
   </tr>
 </table>
 </div><div class="memdoc">
+<p>List of the update types you want your bot to receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types. See <a class="el" href="structtgbotxx_1_1_update.html" title="This object represents an incoming update. At most one of the optional parameters can be present in a...">Update</a> for a complete list of available update types. Specify an empty list to receive all update types except chat_member (default). If not specified, the previous setting will be used. </p>
 
-<p><a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> files download timeout. </p>
-
-<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00071">71</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_api_8hpp_source.html#l00077">77</a> of file <a class="el" href="_api_8hpp_source.html">Api.hpp</a>.</p>
 
 </div>
 </div>
@@ -7996,7 +8112,7 @@ Ports currently supported for webhooks: 443, 80, 88, 8443. If you're having any 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="classtgbotxx_1_1_api.html">Api</a></li>
-    <li class="footer">Generated on Sun Mar 10 2024 20:29:56 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 11 2024 00:14:24 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
