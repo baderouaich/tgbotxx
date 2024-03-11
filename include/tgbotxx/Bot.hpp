@@ -18,6 +18,10 @@ namespace tgbotxx {
   struct PollAnswer;
   struct ChatMemberUpdated;
   struct ChatJoinRequest;
+  struct MessageReactionUpdated;
+  struct MessageReactionCountUpdated;
+  struct ChatBoostUpdated;
+  struct ChatBoostRemoved;
 
   class Bot {
     private:
@@ -69,6 +73,18 @@ namespace tgbotxx {
       /// @param editedMessage Edited Message object
       virtual void onEditedMessage(const Ptr<Message>& editedMessage) {}
 
+      /// @brief Called when a reaction to a message was changed by a user.
+      /// @note The bot must be an administrator in the chat and must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates using Api::setAllowedUpdates().
+      /// The update isn't received for reactions set by bots.
+      /// @param messageReaction MessageReactionUpdated object
+      virtual void onMessageReactionUpdated(const Ptr<MessageReactionUpdated>& messageReaction) {}
+
+      /// @brief Called when reactions to a message with anonymous reactions were changed.
+      /// @note The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates using Api::setAllowedUpdates().
+      /// The updates are grouped and can be sent with delay up to a few minutes.
+      /// @param messageReactionCount MessageReactionCountUpdated object
+      virtual void onMessageReactionCountUpdated(const Ptr<MessageReactionCountUpdated>& messageReactionCount) {}
+
       /// @brief Called when a new incoming inline query is received
       /// @param inlineQuery InlineQuery object
       virtual void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) {}
@@ -115,6 +131,14 @@ namespace tgbotxx {
       /// @note The bot must have the can_invite_users administrator right in the chat to receive these updates.
       /// @param chatJoinRequest ChatJoinRequest object
       virtual void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) {}
+
+      /// @brief Called when a chat boost was added or changed.
+      /// @param chatBoostUpdated ChatBoostUpdated object
+      virtual void onChatBoostUpdated(const Ptr<ChatBoostUpdated>& chatBoostUpdated) {}
+
+      /// @brief Called when a boost was removed from a chat.
+      /// @param chatBoostRemoved ChatBoostRemoved object
+      virtual void onChatBoostRemoved(const Ptr<ChatBoostRemoved>& chatBoostRemoved) {}
 
       /// @brief Called when the long polling getUpdates fails.
       /// @param reason the reason of failure

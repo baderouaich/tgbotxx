@@ -5,6 +5,19 @@
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
+#include <tgbotxx/objects/ChosenInlineResult.hpp>
+#include <tgbotxx/objects/InlineQuery.hpp>
+#include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/ShippingQuery.hpp>
+#include <tgbotxx/objects/PreCheckoutQuery.hpp>
+#include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/PollAnswer.hpp>
+#include <tgbotxx/objects/ChatMemberUpdated.hpp>
+#include <tgbotxx/objects/ChatJoinRequest.hpp>
+#include <tgbotxx/objects/MessageReactionUpdated.hpp>
+#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
+#include <tgbotxx/objects/ChatBoostUpdated.hpp>
+#include <tgbotxx/objects/ChatBoostRemoved.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
@@ -82,6 +95,14 @@ void Bot::dispatch(const Ptr<Update>& update) {
     /// Callback -> onInlineQuery
     this->onInlineQuery(update->inlineQuery);
   }
+  if (update->messageReaction) {
+    /// Callback -> onMessageReactionUpdated
+    this->onMessageReactionUpdated(update->messageReaction);
+  }
+  if (update->messageReactionCount) {
+    /// Callback -> onMessageReactionCountUpdated
+    this->onMessageReactionCountUpdated(update->messageReactionCount);
+  }
   if (update->chosenInlineResult) {
     /// Callback -> onChosenInlineResult
     this->onChosenInlineResult(update->chosenInlineResult);
@@ -118,6 +139,14 @@ void Bot::dispatch(const Ptr<Update>& update) {
     /// Callback -> onChatJoinRequest
     this->onChatJoinRequest(update->chatJoinRequest);
   }
+  if (update->chatBoost) {
+    /// Callback -> onChatBoostUpdated
+    this->onChatBoostUpdated(update->chatBoost);
+  }
+  if (update->removedChatBoost) {
+    /// Callback -> onChatBoostRemoved
+    this->onChatBoostRemoved(update->removedChatBoost);
+  }
 }
 
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
@@ -127,11 +156,14 @@ void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage
   this->onAnyMessage(message);
 
-  /// Is this message a Command ? (starts with '/' character)
+  // Is this message a Command? (starts with '/' character)
   if (not message->text.empty() and message->text[0] == '/') {
     std::size_t firstSpacePos = message->text.find_first_of(" \t\n\r");
     if (firstSpacePos == std::string::npos)
       firstSpacePos = message->text.size();
+    /// TODO:
+    /// - When a user sends a /command inside a Group chat, to distinguish the sender Bot which can be many with same command names the command is sent in format /command@botname
+    /// - Cache myCommands to avoid multiple api calls
     std::string command = message->text.substr(1, firstSpacePos - 1);
     std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
     bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
