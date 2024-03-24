@@ -4,7 +4,7 @@ using namespace tgbotxx;
 
 class EchoBot : public Bot {
 public:
-    EchoBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") { }
+    EchoBot(const std::string& token) : Bot(token) { }
 
 private:
     /// Called before Bot starts receiving updates (triggered by Bot::start())
@@ -12,20 +12,20 @@ private:
     void onStart() override {
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
-      getApi()->deleteWebhook(true);
-      std::cout << "Bot " << getApi()->getMe()->firstName << " started\n";
+      api()->deleteWebhook(true);
+      std::cout << "Bot " << api()->getMe()->firstName << " started\n";
     }
     
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
     void onStop() override {
       /// Cleanup your code in this callback (close handles, backup data...)
-      std::cout << "Bot " << getApi()->getMe()->firstName << " stopped\n";
+      std::cout << "Bot " << api()->getMe()->firstName << " stopped\n";
     }
     
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
     void onAnyMessage(const Ptr<Message>& message) override {
       std::cout << "Received " << message->text << " from " << message->from->username << std::endl;
-      getApi()->sendMessage(message->chat->id, message->text); // Echo back message
+      api()->sendMessage(message->chat->id, message->text); // Echo back message
     }
     
     /// ============ [OPTIONAL OVERLOAD] =============
