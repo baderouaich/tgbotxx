@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['textlink_2055',['TextLink',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a7f01c2ecef93cd509dab0bb85ff03f49',1,'tgbotxx::MessageEntity']]],
-  ['textmention_2056',['TextMention',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a4ed8233defa4ad141a6a784b45a31c45',1,'tgbotxx::MessageEntity']]]
+  ['phonenumber_2080',['PhoneNumber',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a677befbff0d2028b6eaf673212273a56',1,'tgbotxx::MessageEntity']]],
+  ['pre_2081',['Pre',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9afb55a965b77791b31ffd2bb548f71080',1,'tgbotxx::MessageEntity']]],
+  ['private_2082',['Private',['../structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a47f9082fc380ca62d531096aa1d110f1',1,'tgbotxx::Chat']]]
 ];

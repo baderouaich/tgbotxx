@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('namespacetgbotxx.html',''); initResiza
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">tgbotxx Namespace Reference</div>  </div>
@@ -636,8 +637,34 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ac29a3f0805d59861a311ca7242e1e08e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e">CPtrC</a> = const std::shared_ptr&lt; const T &gt;</td></tr>
 <tr class="separator:ac29a3f0805d59861a311ca7242e1e08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4b250088edff8c46415926d7af74d9af"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> : std::int32_t { <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa03570470bad94692ce93e32700d2e1cb">OTHER</a> = 0
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503">SEE_OTHER</a> = cpr::status::HTTP_SEE_OTHER
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0bbffe9eb8bbfc49246e867fccaefb73">BAD_REQUEST</a> = cpr::status::HTTP_BAD_REQUEST
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0ab06e7c28266cc1ed601325013a874c">UNAUTHORIZED</a> = cpr::status::HTTP_UNAUTHORIZED
+, <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4a76a6ecac6e4077588fd966db329fa3">FORBIDDEN</a> = cpr::status::HTTP_FORBIDDEN
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d">NOT_FOUND</a> = cpr::status::HTTP_NOT_FOUND
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7">NOT_ACCEPTABLE</a> = cpr::status::HTTP_NOT_ACCEPTABLE
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaf255b3d1b20e22e4949d1771ccaa7514">FLOOD</a> = 420
+, <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae">CONFLICT</a> = cpr::status::HTTP_CONFLICT
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17">TOO_MANY_REQUESTS</a> = cpr::status::HTTP_TOO_MANY_REQUESTS
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54">BAD_GATEWAY</a> = cpr::status::HTTP_BAD_GATEWAY
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81">INTERNAL</a> = cpr::status::HTTP_INTERNAL_SERVER_ERROR
+<br />
+ }</td></tr>
+<tr class="memdesc:a4b250088edff8c46415926d7af74d9af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a href="https://core.telegram.org/api/errors">https://core.telegram.org/api/errors</a>  <a href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">More...</a><br /></td></tr>
+<tr class="separator:a4b250088edff8c46415926d7af74d9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7b0b4af74a94b42f677398a31520c0f1"><td class="memItemLeft" align="right" valign="top">static std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a7b0b4af74a94b42f677398a31520c0f1">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> &amp;errorCode) noexcept</td></tr>
+<tr class="separator:a7b0b4af74a94b42f677398a31520c0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33b48f92738c1b891e948e93829a440"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#af33b48f92738c1b891e948e93829a440">isErrorCode</a> (std::int32_t c) noexcept</td></tr>
+<tr class="separator:af33b48f92738c1b891e948e93829a440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa984322ee40df737cb38a0fd13b2ee99"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ... Args&gt; </td></tr>
 <tr class="memitem:aa984322ee40df737cb38a0fd13b2ee99"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99">makePtr</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:aa984322ee40df737cb38a0fd13b2ee99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -715,7 +742,88 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a4b250088edff8c46415926d7af74d9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b250088edff8c46415926d7af74d9af">&#9670;&nbsp;</a></span>ErrorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">tgbotxx::ErrorCode</a> : std::int32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a href="https://core.telegram.org/api/errors">https://core.telegram.org/api/errors</a> </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa03570470bad94692ce93e32700d2e1cb"></a>OTHER&#160;</td><td class="fielddoc"><p>Other error codes non Telegram <a class="el" href="classtgbotxx_1_1_api.html" title="Api Methods https://core.telegram.org/bots/api#available-methods.">Api</a> related (such as https requests failures, json parsing errors..) More information will be provided with <a class="el" href="classtgbotxx_1_1_exception.html" title="tgbotxx::Exception">Exception</a> message </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503"></a>SEE_OTHER&#160;</td><td class="fielddoc"><p>The request must be repeated, but directed to a different data center. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa0bbffe9eb8bbfc49246e867fccaefb73"></a>BAD_REQUEST&#160;</td><td class="fielddoc"><p>The query contains errors. In the event that a request was created using a form and contains user generated data, the user should be notified that the data must be corrected before the query is repeated. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa0ab06e7c28266cc1ed601325013a874c"></a>UNAUTHORIZED&#160;</td><td class="fielddoc"><p>There was an unauthorized attempt to use functionality available only to authorized users. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa4a76a6ecac6e4077588fd966db329fa3"></a>FORBIDDEN&#160;</td><td class="fielddoc"><p>Privacy violation. For example, an attempt to write a message to someone who has blacklisted the current user. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d"></a>NOT_FOUND&#160;</td><td class="fielddoc"><p>An attempt to invoke a non-existent object, such as a method. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7"></a>NOT_ACCEPTABLE&#160;</td><td class="fielddoc"><p>Similar to 400 BAD_REQUEST, but the app must display the error to the user a bit differently. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afaf255b3d1b20e22e4949d1771ccaa7514"></a>FLOOD&#160;</td><td class="fielddoc"><p>The maximum allowed number of attempts to invoke the given method with the given input parameters has been exceeded. For example, in an attempt to request a large number of text messages (SMS) for the same phone number. Error Example: FLOOD_WAIT_X: A wait of X seconds is required (where X is a number) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae"></a>CONFLICT&#160;</td><td class="fielddoc"><p>Conflict: terminated by other long poll or webhook. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17"></a>TOO_MANY_REQUESTS&#160;</td><td class="fielddoc"><p>Too Many Requests: retry after X. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54"></a>BAD_GATEWAY&#160;</td><td class="fielddoc"><p>Bad Gateway. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81"></a>INTERNAL&#160;</td><td class="fielddoc"><p>An internal server error occurred while a request was being processed; for example, there was a disruption while accessing a database or file storage. If a client receives a 500 error, or you believe this error should not have occurred, please collect as much information as possible about the query and error and send it to the developers. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_exception_8hpp_source.html#l00008">8</a> of file <a class="el" href="_exception_8hpp_source.html">Exception.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="af33b48f92738c1b891e948e93829a440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33b48f92738c1b891e948e93829a440">&#9670;&nbsp;</a></span>isErrorCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool tgbotxx::isErrorCode </td>
+          <td>(</td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_exception_8hpp_source.html#l00070">70</a> of file <a class="el" href="_exception_8hpp_source.html">Exception.hpp</a>.</p>
+
+</div>
+</div>
 <a id="aa984322ee40df737cb38a0fd13b2ee99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa984322ee40df737cb38a0fd13b2ee99">&#9670;&nbsp;</a></span>makePtr()</h2>
 
@@ -746,13 +854,51 @@ template&lt;typename T , typename ... Args&gt; </div>
 
 </div>
 </div>
+<a id="a7b0b4af74a94b42f677398a31520c0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b0b4af74a94b42f677398a31520c0f1">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::ostream&amp; tgbotxx::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_exception_8hpp_source.html#l00052">52</a> of file <a class="el" href="_exception_8hpp_source.html">Exception.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li>
-    <li class="footer">Generated on Sun Mar 24 2024 13:03:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 28 2024 03:25:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

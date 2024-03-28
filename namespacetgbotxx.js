@@ -207,5 +207,21 @@ var namespacetgbotxx =
     [ "CPtrC", "namespacetgbotxx.html#ac29a3f0805d59861a311ca7242e1e08e", null ],
     [ "Ptr", "namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43", null ],
     [ "PtrC", "namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4", null ],
-    [ "makePtr", "namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99", null ]
+    [ "ErrorCode", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af", [
+      [ "OTHER", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa03570470bad94692ce93e32700d2e1cb", null ],
+      [ "SEE_OTHER", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503", null ],
+      [ "BAD_REQUEST", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0bbffe9eb8bbfc49246e867fccaefb73", null ],
+      [ "UNAUTHORIZED", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0ab06e7c28266cc1ed601325013a874c", null ],
+      [ "FORBIDDEN", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4a76a6ecac6e4077588fd966db329fa3", null ],
+      [ "NOT_FOUND", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d", null ],
+      [ "NOT_ACCEPTABLE", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7", null ],
+      [ "FLOOD", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaf255b3d1b20e22e4949d1771ccaa7514", null ],
+      [ "CONFLICT", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae", null ],
+      [ "TOO_MANY_REQUESTS", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17", null ],
+      [ "BAD_GATEWAY", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54", null ],
+      [ "INTERNAL", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
+    ] ],
+    [ "isErrorCode", "namespacetgbotxx.html#af33b48f92738c1b891e948e93829a440", null ],
+    [ "makePtr", "namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99", null ],
+    [ "operator<<", "namespacetgbotxx.html#a7b0b4af74a94b42f677398a31520c0f1", null ]
 ];

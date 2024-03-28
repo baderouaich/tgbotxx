@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hashtag_2044',['Hashtag',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a6adba5b578887376a318ad96235cc0b4',1,'tgbotxx::MessageEntity']]]
+  ['group_2071',['Group',['../structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a03937134cedab9078be39a77ee3a48a0',1,'tgbotxx::Chat']]]
 ];

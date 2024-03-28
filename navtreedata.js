@@ -30,7 +30,8 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -58,14 +59,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
-"_video_chat_scheduled_8hpp_source.html",
-"functions_vars_l.html",
-"structtgbotxx_1_1_chat_boost_removed.html#a742b7e9104a492513d2c1abccad8fb56",
-"structtgbotxx_1_1_file.html#a88b672a4eb039787398f8656f5cd3c02",
-"structtgbotxx_1_1_inline_query_result_document.html#a57539c8525d3f36658b0671cf6558779",
-"structtgbotxx_1_1_input_text_message_content.html#a1fc11abd29e4e8774c2d521644d9dbac",
-"structtgbotxx_1_1_message_reaction_count_updated.html#a5e550982dfd3cb003cac84697035f06a",
-"structtgbotxx_1_1_shipping_option.html"
+"_user_8hpp.html",
+"functions_rela.html",
+"structtgbotxx_1_1_chat_administrator_rights.html#a029dd0525f0632b817e60bc57a3bd76e",
+"structtgbotxx_1_1_document.html#ac634df957b3c5e3a3e0e6e4f137a2c64",
+"structtgbotxx_1_1_inline_query_result_cached_video.html#aaabd9de1fd0f2627a0a57b474c4f7262",
+"structtgbotxx_1_1_input_media_photo.html#a0a256d5227e7c5fea357982f39180876",
+"structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a114c3050111d8b8ddd830b99ccebd246",
+"structtgbotxx_1_1_reply_keyboard_remove.html#a78d614f234ae897783371ad8cfe28ac0",
+"structtgbotxx_1_1_web_app_info.html#a7d0af1aec595b052ad80455f41a80d91"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

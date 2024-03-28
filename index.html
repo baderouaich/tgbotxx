@@ -123,7 +123,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><a href="examples/Buttons/ReplyKeyboardMarkup">Keyboard Buttons</a>   </td><td class="markdownTableBodyLeft">Bot that uses keyboard buttons to interact with users.   </td><td class="markdownTableBodyCenter"><img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200" class="inline"/>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a href="examples/PaidSubscriptionBot">PaidSubscriptionBot</a>   </td><td class="markdownTableBodyLeft">Bot that offers it's services for a paid subscription.   </td><td class="markdownTableBodyCenter"><img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200" class="inline"/>   </td></tr>
+<td class="markdownTableBodyLeft"><a href="examples/PaidSubscriptionBot">PaidSubscriptionBot</a>   </td><td class="markdownTableBodyLeft">Bot that offers it's services for a paid subscription.   </td><td class="markdownTableBodyCenter"><img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="examples/ThreadPoolBot">ThreadPoolBot</a>   </td><td class="markdownTableBodyLeft">Bot that uses a ThreadPool to handle thousands of requests simultaneously.   </td><td class="markdownTableBodyCenter"><img src="examples/ThreadPoolBot/img/preview2.png" alt="preview" width="200" class="inline"/>   </td></tr>
 </table>
 <h4>Basic sample</h4>
 <blockquote class="doxtable">
@@ -135,20 +137,25 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>MyBot : <span class="keyword">public</span> Bot {</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    MyBot() : Bot(<span class="stringliteral">&quot;BOT_TOKEN_FROM_BOT_FATHER&quot;</span>) {}</div>
+<div class="line">  MyBot() : Bot(<span class="stringliteral">&quot;BOT_TOKEN_FROM_BOT_FATHER&quot;</span>) {}</div>
 <div class="line">    </div>
 <div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> onStart()<span class="keyword"> override </span>{</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Started\n&quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">void</span> onStop()<span class="keyword"> override </span>{</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Stopped\n&quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> Ptr&lt;Message&gt;&amp; message)<span class="keyword"> override </span>{</div>
-<div class="line">        <span class="comment">// NB: a Ptr&lt;T&gt; is just an alias to std::shared_ptr&lt;T&gt;</span></div>
-<div class="line">        api()-&gt;sendMessage(message-&gt;chat-&gt;id, <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName + <span class="stringliteral">&quot;!, got your message!&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    <span class="comment">// override other callbacks if needed...</span></div>
+<div class="line">  <span class="keywordtype">void</span> onStart()<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// Called before Bot starts receiving updates</span></div>
+<div class="line">    <span class="comment">// Initialize your code here...</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Started\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> onStop()<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// Called before Bot shuts down (triggered by Bot::stop())</span></div>
+<div class="line">    <span class="comment">// Cleanup your code here</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Stopped\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> Ptr&lt;Message&gt;&amp; message)<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// Called when Bot receives a new message of any kind</span></div>
+<div class="line">    <span class="comment">// NB: a Ptr&lt;T&gt; is just an alias to std::shared_ptr&lt;T&gt;</span></div>
+<div class="line">    api()-&gt;sendMessage(message-&gt;chat-&gt;id, <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName + <span class="stringliteral">&quot;!, got your message!&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">// override other callbacks if needed... </span></div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
@@ -240,8 +247,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"> </div>
 <div class="line">include(FetchContent)</div>
 <div class="line">FetchContent_Declare(tgbotxx</div>
-<div class="line">        GIT_REPOSITORY &quot;https://github.com/baderouaich/tgbotxx&quot;</div>
-<div class="line">        GIT_TAG main</div>
+<div class="line">  GIT_REPOSITORY &quot;https://github.com/baderouaich/tgbotxx&quot;</div>
+<div class="line">  GIT_TAG main</div>
 <div class="line">)</div>
 <div class="line">FetchContent_MakeAvailable(tgbotxx)</div>
 <div class="line"> </div>
@@ -265,7 +272,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">pkg_check_modules(tgbotxx REQUIRED tgbotxx)</div>
 <div class="line"> </div>
 <div class="line">if (NOT tgbotxx_FOUND)</div>
-<div class="line">    message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
+<div class="line">  message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
 <div class="line">endif ()</div>
 <div class="line"> </div>
 <div class="line">add_executable(${PROJECT_NAME} main.cpp)</div>
@@ -286,7 +293,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">find_package(tgbotxx REQUIRED)</div>
 <div class="line"> </div>
 <div class="line">if (NOT tgbotxx_FOUND)</div>
-<div class="line">    message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
+<div class="line">  message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
 <div class="line">endif ()</div>
 <div class="line"> </div>
 <div class="line">add_executable(${PROJECT_NAME} main.cpp)</div>
@@ -311,16 +318,20 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">add_executable(${PROJECT_NAME} main.cpp)</div>
 <div class="line">target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # &lt;-- link with tgbotxx</div>
 </div><!-- fragment --><p>&lt;/details&gt;</p>
-<h3>Ref:</h3>
-<p><a href="https://core.telegram.org/bots/api">Telegram Api Documentation</a></p>
-<p><a href="https://core.telegram.org/schema">Telegram Api Schema</a> <a href="https://core.telegram.org/schema/json">Json Schema</a> </p>
+<h3>Other actively maintained Telegram Bot C++ Libraries</h3>
+<ul>
+<li><a href="https://github.com/reo7sp/tgbot-cpp">tgbot-cpp</a>: C++ library for Telegram bot API</li>
+<li><a href="https://github.com/egorpugin/tgbot">tgbot</a>: C++ library for Telegram Bot API with generated API types and methods</li>
+</ul>
+<h3>Refs:</h3>
+<p><a href="https://core.telegram.org/bots/api">Telegram Api Documentation</a> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Mar 24 2024 13:03:21 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 28 2024 03:25:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

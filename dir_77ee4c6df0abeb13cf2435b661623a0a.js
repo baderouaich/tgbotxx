@@ -8,8 +8,6 @@ var dir_77ee4c6df0abeb13cf2435b661623a0a =
     [ "Bot.hpp", "_bot_8hpp.html", [
       [ "Bot", "classtgbotxx_1_1_bot.html", "classtgbotxx_1_1_bot" ]
     ] ],
-    [ "Exception.hpp", "_exception_8hpp.html", [
-      [ "Exception", "classtgbotxx_1_1_exception.html", "classtgbotxx_1_1_exception" ]
-    ] ],
+    [ "Exception.hpp", "_exception_8hpp.html", "_exception_8hpp" ],
     [ "tgbotxx.hpp", "tgbotxx_8hpp.html", null ]
 ];

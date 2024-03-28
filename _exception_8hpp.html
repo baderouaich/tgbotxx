@@ -85,12 +85,15 @@ $(document).ready(function(){initNavTree('_exception_8hpp.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Exception.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
+<div class="textblock"><code>#include &lt;cpr/status_codes.h&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="_exception_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -105,6 +108,35 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetgbotxx"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4b250088edff8c46415926d7af74d9af"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">tgbotxx::ErrorCode</a> : std::int32_t { <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa03570470bad94692ce93e32700d2e1cb">tgbotxx::OTHER</a> = 0
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503">tgbotxx::SEE_OTHER</a> = cpr::status::HTTP_SEE_OTHER
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0bbffe9eb8bbfc49246e867fccaefb73">tgbotxx::BAD_REQUEST</a> = cpr::status::HTTP_BAD_REQUEST
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0ab06e7c28266cc1ed601325013a874c">tgbotxx::UNAUTHORIZED</a> = cpr::status::HTTP_UNAUTHORIZED
+, <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4a76a6ecac6e4077588fd966db329fa3">tgbotxx::FORBIDDEN</a> = cpr::status::HTTP_FORBIDDEN
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d">tgbotxx::NOT_FOUND</a> = cpr::status::HTTP_NOT_FOUND
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7">tgbotxx::NOT_ACCEPTABLE</a> = cpr::status::HTTP_NOT_ACCEPTABLE
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaf255b3d1b20e22e4949d1771ccaa7514">tgbotxx::FLOOD</a> = 420
+, <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae">tgbotxx::CONFLICT</a> = cpr::status::HTTP_CONFLICT
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17">tgbotxx::TOO_MANY_REQUESTS</a> = cpr::status::HTTP_TOO_MANY_REQUESTS
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54">tgbotxx::BAD_GATEWAY</a> = cpr::status::HTTP_BAD_GATEWAY
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81">tgbotxx::INTERNAL</a> = cpr::status::HTTP_INTERNAL_SERVER_ERROR
+<br />
+ }</td></tr>
+<tr class="memdesc:a4b250088edff8c46415926d7af74d9af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a href="https://core.telegram.org/api/errors">https://core.telegram.org/api/errors</a>  <a href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">More...</a><br /></td></tr>
+<tr class="separator:a4b250088edff8c46415926d7af74d9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a7b0b4af74a94b42f677398a31520c0f1"><td class="memItemLeft" align="right" valign="top">static std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a7b0b4af74a94b42f677398a31520c0f1">tgbotxx::operator&lt;&lt;</a> (std::ostream &amp;os, const ErrorCode &amp;errorCode) noexcept</td></tr>
+<tr class="separator:a7b0b4af74a94b42f677398a31520c0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33b48f92738c1b891e948e93829a440"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#af33b48f92738c1b891e948e93829a440">tgbotxx::isErrorCode</a> (std::int32_t c) noexcept</td></tr>
+<tr class="separator:af33b48f92738c1b891e948e93829a440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -112,7 +144,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="_exception_8hpp.html">Exception.hpp</a></li>
-    <li class="footer">Generated on Sun Mar 24 2024 13:03:20 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 28 2024 03:25:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

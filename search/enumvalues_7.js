@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['phonenumber_2048',['PhoneNumber',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a677befbff0d2028b6eaf673212273a56',1,'tgbotxx::MessageEntity']]],
-  ['pre_2049',['Pre',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9afb55a965b77791b31ffd2bb548f71080',1,'tgbotxx::MessageEntity']]],
-  ['private_2050',['Private',['../structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a47f9082fc380ca62d531096aa1d110f1',1,'tgbotxx::Chat']]]
+  ['mask_2075',['Mask',['../structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101a4a18312b5b75f549d5551e5912ad6ebf',1,'tgbotxx::Sticker']]],
+  ['mention_2076',['Mention',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a53463656b8197ce564e370d296827252',1,'tgbotxx::MessageEntity']]]
 ];
