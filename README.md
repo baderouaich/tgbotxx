@@ -52,7 +52,9 @@ Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegra
 [//]: # (thread. )
 
 #### Basic sample
+
 > see [examples](examples/) for more
+
 ```cpp
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
@@ -60,20 +62,25 @@ using namespace tgbotxx;
 
 class MyBot : public Bot {
 public:
-    MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {}
+  MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {}
     
 private:
-    void onStart() override {
-        std::cout << "Bot Started\n";
-    }
-    void onStop() override {
-        std::cout << "Bot Stopped\n";
-    }
-    void onAnyMessage(const Ptr<Message>& message) override {
-        // NB: a Ptr<T> is just an alias to std::shared_ptr<T>
-        api()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
-    }
-    // override other callbacks if needed...
+  void onStart() override {
+    // Called before Bot starts receiving updates
+    // Initialize your code here...
+    std::cout << "Bot Started\n";
+  }
+  void onStop() override {
+    // Called before Bot shuts down (triggered by Bot::stop())
+    // Cleanup your code here
+    std::cout << "Bot Stopped\n";
+  }
+  void onAnyMessage(const Ptr<Message>& message) override {
+    // Called when Bot receives a new message of any kind
+    // NB: a Ptr<T> is just an alias to std::shared_ptr<T>
+    api()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
+  }
+  // override other callbacks if needed... 
 };
 
 int main() {
@@ -197,8 +204,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 FetchContent_Declare(tgbotxx
-        GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-        GIT_TAG main
+  GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
+  GIT_TAG main
 )
 FetchContent_MakeAvailable(tgbotxx)
 
@@ -230,7 +237,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(tgbotxx REQUIRED tgbotxx)
 
 if (NOT tgbotxx_FOUND)
-    message(FATAL_ERROR "Did you install tgbotxx locally?")
+  message(FATAL_ERROR "Did you install tgbotxx locally?")
 endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -257,7 +264,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(tgbotxx REQUIRED)
 
 if (NOT tgbotxx_FOUND)
-    message(FATAL_ERROR "Did you install tgbotxx locally?")
+  message(FATAL_ERROR "Did you install tgbotxx locally?")
 endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
