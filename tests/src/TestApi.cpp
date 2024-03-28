@@ -43,3 +43,18 @@ TEST_CASE("Test Api", "methods")
     }
 
 }
+
+TEST_CASE("Test Api ErrorCodes", "ErrorCode") {
+  SECTION("ErrorCode::BAD_REQUEST") {
+    try {
+      auto invalid_chat_id = 0;
+      API->sendMessage(invalid_chat_id, "test msg");
+    } catch (const tgbotxx::Exception& e) {
+      std::cerr << e.what() << " (" << (int)e.errorCode() << ") " << std::endl;
+      REQUIRE(e.errorCode() == ErrorCode::BAD_REQUEST);
+      REQUIRE(std::string(e.what()) == "Bad Request: chat not found");
+    }
+  }
+
+  // Other error codes to be tested in manual_tests.cpp
+}

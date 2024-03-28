@@ -108,10 +108,13 @@ class MyBot : public Bot {
       Ptr<BotCommand> sendSticker(new BotCommand());
       sendSticker->command = "/send_sticker";
       sendSticker->description = "You will receive a sticker";
+      Ptr<BotCommand> testBotBlockedByUser(new BotCommand());
+      testBotBlockedByUser->command = "/test_bot_blocked_by_user";
+      testBotBlockedByUser->description = "Block the bot within 10s after u receive a message";
       getApi()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
                                location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                                menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
-                               deleteMessage, sendInvoice, createInvoiceLink, sendSticker}); // The above commands will be shown in the bot chat menu (bottom left)
+                               deleteMessage, sendInvoice, createInvoiceLink, sendSticker, testBotBlockedByUser}); // The above commands will be shown in the bot chat menu (bottom left)
 
       std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
     }
@@ -142,8 +145,8 @@ class MyBot : public Bot {
       //std::cout << __func__ << ": " << message->text << std::endl;
     }
 
-    void onLongPollError(const std::string& reason) override {
-      std::cerr << "Long polling error: " << reason << std::endl;
+    void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {
+      std::cerr << "Long polling error: " << errorMessage << " (" << (int)errorCode << ")" << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).
@@ -375,6 +378,15 @@ class MyBot : public Bot {
         api()->sendMessage(message->chat->id, link);
       } else if (message->text == "/send_sticker") {
         api()->sendSticker(message->chat->id, "https://t.ly/uQ6Zx");
+      } else if (message->text == "/test_bot_blocked_by_user") {
+        try {
+          api()->sendMessage(message->from->id, "Block me now, I will try to send you a msg after 10 seconds");
+          std::this_thread::sleep_for(std::chrono::seconds(10));
+          api()->sendMessage(message->from->id, "You shouldn't receive this msg if you have blocked me");
+        } catch(const tgbotxx::Exception& e){
+          std::cerr << __func__ <<": " << e.what() << " (error_code: " << (int)e.errorCode()<< ')'<< std::endl;
+          assert(e.errorCode() == ErrorCode::FORBIDDEN && std::string(e.what()) == "Forbidden: bot was blocked by the user");
+        }
       }
     }
 

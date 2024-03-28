@@ -1,4 +1,5 @@
 #pragma once
+#include "Exception.hpp"
 #include <cstdint>
 #include <string>
 #include <tgbotxx/utils/Ptr.hpp>
@@ -141,8 +142,9 @@ namespace tgbotxx {
       virtual void onChatBoostRemoved(const Ptr<ChatBoostRemoved>& chatBoostRemoved) {}
 
       /// @brief Called when the long polling getUpdates fails.
-      /// @param reason the reason of failure
-      virtual void onLongPollError(const std::string& reason) {}
+      /// @param errorMessage the reason of failure
+      /// @param errorCode ErrorCode enum from Telegram Api
+      virtual void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) {}
 
     protected: /// Getters
       /// @brief Returns Api object

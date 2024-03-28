@@ -2,22 +2,22 @@
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
-#include <tgbotxx/objects/Message.hpp>
-#include <tgbotxx/objects/Update.hpp>
-#include <tgbotxx/utils/StringUtils.hpp>
+#include <tgbotxx/objects/CallbackQuery.hpp>
+#include <tgbotxx/objects/ChatBoostRemoved.hpp>
+#include <tgbotxx/objects/ChatBoostUpdated.hpp>
+#include <tgbotxx/objects/ChatJoinRequest.hpp>
+#include <tgbotxx/objects/ChatMemberUpdated.hpp>
 #include <tgbotxx/objects/ChosenInlineResult.hpp>
 #include <tgbotxx/objects/InlineQuery.hpp>
-#include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/ShippingQuery.hpp>
-#include <tgbotxx/objects/PreCheckoutQuery.hpp>
+#include <tgbotxx/objects/Message.hpp>
+#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
+#include <tgbotxx/objects/MessageReactionUpdated.hpp>
 #include <tgbotxx/objects/Poll.hpp>
 #include <tgbotxx/objects/PollAnswer.hpp>
-#include <tgbotxx/objects/ChatMemberUpdated.hpp>
-#include <tgbotxx/objects/ChatJoinRequest.hpp>
-#include <tgbotxx/objects/MessageReactionUpdated.hpp>
-#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
-#include <tgbotxx/objects/ChatBoostUpdated.hpp>
-#include <tgbotxx/objects/ChatBoostRemoved.hpp>
+#include <tgbotxx/objects/PreCheckoutQuery.hpp>
+#include <tgbotxx/objects/ShippingQuery.hpp>
+#include <tgbotxx/objects/Update.hpp>
+#include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
@@ -40,15 +40,21 @@ void Bot::start() {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)
       m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+    } catch (const Exception& err) {
+      /// Callback -> onLongPollError
+      std::string errStr{err.what()};
+      StringUtils::replace(errStr, m_api->m_token, "***HIDDEN_BOT_TOKEN***"); // Hide bot token in the exception message for security reasons
+      this->onLongPollError(errStr, err.errorCode());
+      continue;
     } catch (const std::exception& err) {
       /// Callback -> onLongPollError
-      std::string errStr = err.what();
+      std::string errStr{err.what()};
       StringUtils::replace(errStr, m_api->m_token, "***HIDDEN_BOT_TOKEN***"); // Hide bot token in the exception message for security reasons
-      this->onLongPollError(errStr);
+      this->onLongPollError(errStr, ErrorCode::OTHER);
       continue;
     } catch (...) {
       /// Callback -> onLongPollError
-      this->onLongPollError("unknown error");
+      this->onLongPollError("UNKNOWN ERROR", ErrorCode::OTHER);
       continue;
     }
     // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)

@@ -138,10 +138,10 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
 
   cpr::Response res = isMultipart ? session.Post() : session.Get();
   if (res.status_code == 0) [[unlikely]] {
-    throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?");
+    throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?", ErrorCode::OTHER);
   }
   if (!res.text.compare(0, 6, "<html>")) [[unlikely]] {
-    throw Exception(endpoint + ": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?");
+    throw Exception(endpoint + ": Failed to get a JSON response from Telegram API. Did you enter the correct bot token?", ErrorCode::OTHER);
   }
 
   try {
@@ -150,10 +150,11 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
       return response["result"];
     } else {
       std::string desc = response["description"];
-      if (response["error_code"] == cpr::status::HTTP_NOT_FOUND) {
+      std::int32_t errorCode = response["error_code"];
+      if (errorCode == cpr::status::HTTP_NOT_FOUND) {
         desc += ". Did you enter the correct bot token?";
       }
-      throw Exception(desc);
+      throw Exception(desc, static_cast<ErrorCode>(errorCode));
     }
   } catch (const nl::json::exception& e) {
     throw Exception(endpoint + ": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
@@ -473,7 +474,7 @@ std::string Api::downloadFile(const std::string& filePath, const std::function<b
   if (res.status_code == cpr::status::HTTP_OK) {
     return res.text;
   }
-  throw Exception("Failed to download file " + filePath + " with status code: " + std::to_string(res.status_code));
+  throw Exception("Failed to download file '" + filePath + "' contents", isErrorCode(res.status_code) ? static_cast<ErrorCode>(res.status_code) : ErrorCode::OTHER);
 }
 
 Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatId,
