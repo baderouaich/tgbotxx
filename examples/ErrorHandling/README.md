@@ -7,6 +7,7 @@
 ```cpp
 #include <tgbotxx/tgbotxx.hpp>
 using namespace tgbotxx;
+using namespace std::chrono_literals;
 
 class MyBot : public Bot {
   public:
@@ -14,6 +15,23 @@ class MyBot : public Bot {
       // Handle long polling error
       // Note: Bot will keep running even if this callback is triggered, to stop the bot call Bot::stop();
       std::cerr << "Long poll error: " << errorMessage << " (error_code: " << (int)errorCode << ")" << std::endl;
+      
+      // Handle error codes accordingly...
+      switch(errorCode) {
+        case ErrorCode::BAD_GATEWAY: // Mostly caused by server overloads and network problems
+          std::cout << "Bad gateway, Bot will sleep for 2s before next long poll request...\n";
+          std::this_thread::sleep_for(2s);
+          break;
+        case ErrorCode::FLOOD: 
+          std::cout << "Flood, Bot will sleep for 20s before next long poll request...\n";
+          std::this_thread::sleep_for(20s);
+          break;
+        case ErrorCode::TOO_MANY_REQUESTS: 
+          std::cout << "Too many requests, Bot will sleep for 10s before next long poll request...\n";
+          std::this_thread::sleep_for(10s);
+          break;
+        // ...
+      }
     }
 
     void onAnyMessage(const Ptr<Message>& msg) override {
@@ -28,7 +46,10 @@ class MyBot : public Bot {
                 std::cerr << "Blocked by user\n";
                 break;
             case ErrorCode::FLOOD:
-                std::cout << "Flood, try again later..\n";
+            case ErrorCode::BAD_GATEWAY:
+            case ErrorCode::TOO_MANY_REQUESTS:
+                std::cout << "Network issue or server overload, trying again later...\n";
+                // Retry sending message...
                 break;
             case ErrorCode::UNAUTHORIZED:
                 std::cout << "Need permission..\n";
