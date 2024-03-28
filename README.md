@@ -308,8 +308,12 @@ target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link with tgbotxx
 
 </details>
 
-### Ref:
+
+### Other actively maintained Telegram Bot C++ Libraries
+- [tgbot-cpp](https://github.com/reo7sp/tgbot-cpp): C++ library for Telegram bot API
+- [tgbot](https://github.com/egorpugin/tgbot): C++ library for Telegram Bot API with generated API types and methods
+
+### Refs:
 
 [Telegram Api Documentation](https://core.telegram.org/bots/api)
 
-[Telegram Api Schema](https://core.telegram.org/schema) [Json Schema](https://core.telegram.org/schema/json)
