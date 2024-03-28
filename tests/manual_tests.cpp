@@ -146,7 +146,7 @@ class MyBot : public Bot {
     }
 
     void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {
-      std::cerr << "Long polling error: " << errorMessage << " (" << (int)errorCode << ")" << std::endl;
+      std::cerr << "Long polling error: " << errorMessage << " (" << (int)errorCode << ") (" << errorCode << ")" << std::endl;
     }
 
     /// Called when a new command is received (messages with leading '/' char).

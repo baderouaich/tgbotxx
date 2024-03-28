@@ -49,6 +49,23 @@ namespace tgbotxx {
     /// please collect as much information as possible about the query and error and send it to the developers.
     INTERNAL = cpr::status::HTTP_INTERNAL_SERVER_ERROR
   };
+  static std::ostream& operator<<(std::ostream& os, const ErrorCode& errorCode) noexcept {
+     switch (errorCode) {
+       case ErrorCode::OTHER: return os << "OTHER";
+       case ErrorCode::SEE_OTHER: return os << "SEE_OTHER";
+       case ErrorCode::BAD_REQUEST: return os << "BAD_REQUEST";
+       case ErrorCode::UNAUTHORIZED: return os << "UNAUTHORIZED";
+       case ErrorCode::FORBIDDEN: return os << "FORBIDDEN";
+       case ErrorCode::NOT_FOUND: return os << "NOT_FOUND";
+       case ErrorCode::NOT_ACCEPTABLE: return os << "NOT_ACCEPTABLE";
+       case ErrorCode::FLOOD: return os << "FLOOD";
+       case ErrorCode::CONFLICT: return os << "CONFLICT";
+       case ErrorCode::TOO_MANY_REQUESTS: return os << "TOO_MANY_REQUESTS";
+       case ErrorCode::BAD_GATEWAY: return os << "BAD_GATEWAY";
+       case ErrorCode::INTERNAL: return os << "INTERNAL";
+       default: return os << "Unknown ErrorCode (" << (std::int32_t)errorCode << ')';
+     }
+  }
 
   static bool isErrorCode(std::int32_t c) noexcept {
     switch (c) {
