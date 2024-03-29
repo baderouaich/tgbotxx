@@ -54,7 +54,7 @@ void Bot::start() {
       continue;
     } catch (...) {
       /// Callback -> onLongPollError
-      this->onLongPollError("UNKNOWN ERROR", ErrorCode::OTHER);
+      this->onLongPollError("Unknown error", ErrorCode::OTHER);
       continue;
     }
     // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)

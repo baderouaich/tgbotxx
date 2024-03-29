@@ -15,8 +15,7 @@ private:
   void onStop() override;
   /// Called when a new incoming pre-checkout query is received. Contains full information about checkout
   void onPreCheckoutQuery(const tgbotxx::Ptr<tgbotxx::PreCheckoutQuery> &preCheckoutQuery) override;
-  void onLongPollError(const std::string &reason) override;
-
+  void onLongPollError(const std::string& errorMessage, tgbotxx::ErrorCode errorCode) override;
 private:
   bool isUserAlreadySubscribed(UserId id);
   void subscribeNewUser(ChatId chatId, tgbotxx::Ptr<tgbotxx::User> newUser);

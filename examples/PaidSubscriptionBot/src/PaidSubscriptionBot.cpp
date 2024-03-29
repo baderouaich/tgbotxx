@@ -125,8 +125,8 @@ void PaidSubscriptionBot::loadSubscribedUsersIds() {
   std::cout << "Loaded " << m_subscribers.size() << " subscribers" << std::endl;
 }
 
-void PaidSubscriptionBot::onLongPollError(const std::string &reason) {
-  std::cerr << __func__ << ": " << reason << std::endl;
+void PaidSubscriptionBot::onLongPollError(const std::string& errorMessage, ErrorCode errorCode) {
+  std::cerr <<  "Long polling error: " << errorMessage << ". Error code: " << errorCode << std::endl;
 }
 
 void PaidSubscriptionBot::onAnyMessage(const Ptr<Message> &message) {

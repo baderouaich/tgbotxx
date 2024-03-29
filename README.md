@@ -147,38 +147,75 @@ private:
     }
     
     /// Called when long polling fails
-    void onLongPollError(const std::string& reason) override {
-      std::cerr <<  "Long polling error: " << reason << std::endl;
+    void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {
+      std::cerr <<  "Long polling error: " << errorMessage << ". Error code: " << errorCode << std::endl;
     }
     
-    // Other callbacks (optional overload)
-    /// Called when a non-command message is received of any kind - text, photo, sticker, etc.
-    void onNonCommandMessage(const Ptr<Message> &message) override {}
-    /// Called when an unknown command is received (messages with leading '/' char).
-    /// Known commands are set with Bot::setCommands()
-    void onUnknownCommand(const Ptr<Message> &message) override {}
-    /// Called when a new version of a message that is known to the bot and was edited
+    /// @brief Called when a non-command message is received of any kind - text, photo, sticker, etc.
+    void onNonCommandMessage(const Ptr<Message>& message) override {}
+    
+    /// @brief Called when an unknown command is received (messages with leading '/' char).
+    /// @note Known commands are set with Bot::setCommands()
+    void onUnknownCommand(const Ptr<Message>& message) override {}
+
+    /// @brief Called when a new version of a message that is known to the bot and was edited
     void onEditedMessage(const Ptr<Message>& editedMessage) override {}
-    /// Called when a new incoming inline query is received
+
+    /// @brief Called when a reaction to a message was changed by a user.
+    /// @note The bot must be an administrator in the chat and must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates using Api::setAllowedUpdates().
+    /// The update isn't received for reactions set by bots.
+    void onMessageReactionUpdated(const Ptr<MessageReactionUpdated>& messageReaction) override {}
+
+    /// @brief Called when reactions to a message with anonymous reactions were changed.
+    /// @note The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates using Api::setAllowedUpdates().
+    /// The updates are grouped and can be sent with delay up to a few minutes.
+    void onMessageReactionCountUpdated(const Ptr<MessageReactionCountUpdated>& messageReactionCount) override {}
+
+    /// @brief Called when a new incoming inline query is received
     void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {}
-    /// Called when the result of an inline query that was chosen by a user and sent to their chat partner.
+
+    /// @brief Called when the result of an inline query that was chosen by a user and sent to their chat partner.
+    /// @note Please see our documentation on the feedback collecting for details on how to enable these updates for your bot. https://core.telegram.org/bots/inline#collecting-feedback
     void onChosenInlineResult(const Ptr<ChosenInlineResult>& chosenInlineResult) override {}
-    /// Called when a new incoming callback query is received
+
+    /// @brief Called when a new incoming callback query is received
     void onCallbackQuery(const Ptr<CallbackQuery>& callbackQuery) override {}
-    /// Called when a new incoming shipping query is received.
+
+    /// @brief Called when a new incoming shipping query is received.
+    /// @note Only for invoices with flexible price
     void onShippingQuery(const Ptr<ShippingQuery>& shippingQuery) override {}
-    /// Called when a new incoming pre-checkout query is received. Contains full information about checkout
+
+    /// @brief Called when a new incoming pre-checkout query is received. Contains full information about checkout
     void onPreCheckoutQuery(const Ptr<PreCheckoutQuery>& preCheckoutQuery) override {}
-    /// Called when a new poll state is received.
+
+    /// @brief Called when a new poll state is received.
+    /// @note Bots receive only updates about stopped polls and polls, which are sent by the bot
     void onPoll(const Ptr<Poll>& poll) override {}
-    /// Called when a user changed their answer in a non-anonymous poll.
+
+    /// @brief Called when a user changed their answer in a non-anonymous poll.
+    /// @note Bots receive new votes only in polls that were sent by the bot itself.
     void onPollAnswer(const Ptr<PollAnswer>& pollAnswer) override {}
-    /// Called when the bot's chat member status was updated in a chat.
+
+    /// @brief Called when the bot's chat member status was updated in a chat.
+    /// @note For private chats, this update is received only when the bot is blocked or unblocked by the user.
     void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
-    /// Called when a chat member's status was updated in a chat.
+
+    /// @brief Called when a chat member's status was updated in a chat.
+    /// @note The bot must be an administrator in the chat and must explicitly specify “chat_member” in the list of allowed_updates to receive these updates.
     void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
-    /// Called when a request to join the chat has been sent.
+
+    /// @brief Called when a request to join the chat has been sent.
+    /// @note The bot must have the can_invite_users administrator right in the chat to receive these updates.
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
+
+    /// @brief Called when a chat boost was added or changed.
+    void onChatBoostUpdated(const Ptr<ChatBoostUpdated>& chatBoostUpdated) override {}
+
+    /// @brief Called when a boost was removed from a chat.
+    void onChatBoostRemoved(const Ptr<ChatBoostRemoved>& chatBoostRemoved) override {}
+
+    /// @brief Called when the long polling getUpdates fails.
+    void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {}
 };
 
 int main() {
