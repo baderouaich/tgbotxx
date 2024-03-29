@@ -209,24 +209,45 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">      }</div>
 <div class="line">    }</div>
 <div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; reason)<span class="keyword"> override </span>{</div>
-<div class="line">      std::cerr &lt;&lt;  <span class="stringliteral">&quot;Long polling error: &quot;</span> &lt;&lt; reason &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; errorMessage, <a class="code" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> errorCode)<span class="keyword"> override </span>{</div>
+<div class="line">      std::cerr &lt;&lt;  <span class="stringliteral">&quot;Long polling error: &quot;</span> &lt;&lt; errorMessage &lt;&lt; <span class="stringliteral">&quot;. Error code: &quot;</span> &lt;&lt; errorCode &lt;&lt; std::endl;</div>
 <div class="line">    }</div>
 <div class="line">    </div>
-<div class="line">    <span class="comment">// Other callbacks (optional overload)</span></div>
-<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> onNonCommandMessage(<span class="keyword">const</span> Ptr&lt;Message&gt; &amp;message)<span class="keyword"> override </span>{}</div>
-<div class="line">    <span class="keywordtype">void</span> onUnknownCommand(<span class="keyword">const</span> Ptr&lt;Message&gt; &amp;message)<span class="keyword"> override </span>{}</div>
+<div class="line">    <span class="keywordtype">void</span> onNonCommandMessage(<span class="keyword">const</span> Ptr&lt;Message&gt;&amp; message)<span class="keyword"> override </span>{}</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordtype">void</span> onUnknownCommand(<span class="keyword">const</span> Ptr&lt;Message&gt;&amp; message)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onEditedMessage(<span class="keyword">const</span> Ptr&lt;Message&gt;&amp; editedMessage)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onMessageReactionUpdated(<span class="keyword">const</span> Ptr&lt;MessageReactionUpdated&gt;&amp; messageReaction)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onMessageReactionCountUpdated(<span class="keyword">const</span> Ptr&lt;MessageReactionCountUpdated&gt;&amp; messageReactionCount)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onInlineQuery(<span class="keyword">const</span> Ptr&lt;InlineQuery&gt;&amp; inlineQuery)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onChosenInlineResult(<span class="keyword">const</span> Ptr&lt;ChosenInlineResult&gt;&amp; chosenInlineResult)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onCallbackQuery(<span class="keyword">const</span> Ptr&lt;CallbackQuery&gt;&amp; callbackQuery)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onShippingQuery(<span class="keyword">const</span> Ptr&lt;ShippingQuery&gt;&amp; shippingQuery)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onPreCheckoutQuery(<span class="keyword">const</span> Ptr&lt;PreCheckoutQuery&gt;&amp; preCheckoutQuery)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onPoll(<span class="keyword">const</span> Ptr&lt;Poll&gt;&amp; poll)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onPollAnswer(<span class="keyword">const</span> Ptr&lt;PollAnswer&gt;&amp; pollAnswer)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onMyChatMember(<span class="keyword">const</span> Ptr&lt;ChatMemberUpdated&gt;&amp; myChatMemberUpdated)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onChatMember(<span class="keyword">const</span> Ptr&lt;ChatMemberUpdated&gt;&amp; chatMemberUpdated)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> onChatJoinRequest(<span class="keyword">const</span> Ptr&lt;ChatJoinRequest&gt;&amp; chatJoinRequest)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onChatBoostUpdated(<span class="keyword">const</span> Ptr&lt;ChatBoostUpdated&gt;&amp; chatBoostUpdated)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onChatBoostRemoved(<span class="keyword">const</span> Ptr&lt;ChatBoostRemoved&gt;&amp; chatBoostRemoved)<span class="keyword"> override </span>{}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; errorMessage, <a class="code" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> errorCode)<span class="keyword"> override </span>{}</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
@@ -235,6 +256,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a530f1ad81b670b6e5af123667b09df22"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a530f1ad81b670b6e5af123667b09df22">tgbotxx::Bot::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stop the long polling.</div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a4b250088edff8c46415926d7af74d9af"><div class="ttname"><a href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">tgbotxx::ErrorCode</a></div><div class="ttdeci">ErrorCode</div><div class="ttdoc">https://core.telegram.org/api/errors</div><div class="ttdef"><b>Definition:</b> <a href="_exception_8hpp_source.html#l00008">Exception.hpp:8</a></div></div>
 </div><!-- fragment --><p>&lt;/details&gt;</p>
 <h3>Usage (4 approaches)</h3>
 <h4>1. <code>FetchContent</code> *(recommended)*</h4>
@@ -331,7 +353,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Mar 28 2024 03:25:10 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 29 2024 03:32:43 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
