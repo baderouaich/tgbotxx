@@ -2435,9 +2435,11 @@ const std::string& Api::getUrl() const noexcept {
 }
 
 void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
-  if (longPollTimeout.ms > m_timeout.ms)
-    throw Exception("Api::setLongPollTimeout: Long poll timeout should always be shorter than api request timeout."
-                    " Otherwise the api request will time out before long polling finishes.");
+  using namespace std::chrono_literals;
+  if (longPollTimeout.ms >= m_timeout.ms)
+    // Api request timeout should always be longer than long poll timeout.
+    // Otherwise, the api request will time out before long polling finishes
+    m_timeout.ms = longPollTimeout.ms + 1s;
   m_longPollTimeout = longPollTimeout;
 }
 cpr::Timeout Api::getLongPollTimeout() const noexcept { return m_longPollTimeout; }
@@ -2448,10 +2450,13 @@ void Api::setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept {
 cpr::ConnectTimeout Api::getConnectTimeout() const noexcept { return m_connectTimeout; }
 
 void Api::setTimeout(const cpr::Timeout& timeout) {
-  if (timeout.ms <= m_longPollTimeout.ms)
-    throw Exception("Api::setTimeout: Api request timeout should always be longer than long poll timeout."
-                    " Otherwise the api request will time out before long polling finishes.");
-  m_timeout = timeout;
+  using namespace std::chrono_literals;
+  cpr::Timeout newTimeout{timeout.ms};
+  if (newTimeout.ms <= m_longPollTimeout.ms)
+    // Api request timeout should always be longer than long poll timeout.
+    // Otherwise, the api request will time out before long polling finishes.
+    newTimeout.ms = m_longPollTimeout.ms + 1s;
+  m_timeout = newTimeout;
 }
 cpr::Timeout Api::getTimeout() const noexcept { return m_timeout; }
 
