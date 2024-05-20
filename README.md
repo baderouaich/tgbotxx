@@ -36,7 +36,8 @@ Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegra
 | [Inline Buttons](examples/Buttons/InlineKeyboardButton)  | Bot that uses inline keyboard buttons to interact with users.                                             | <img src="examples/Buttons/InlineKeyboardButton/img/preview.jpg" alt="preview" width="200"> |
 | [Keyboard Buttons](examples/Buttons/ReplyKeyboardMarkup) | Bot that uses keyboard buttons to interact with users.                                                    | <img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200">  |
 | [PaidSubscriptionBot](examples/PaidSubscriptionBot)      | Bot that offers it's services for a paid subscription.                                                    |   <img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200">   |
-| [ThreadPoolBot](examples/ThreadPoolBot)                  | Bot that uses a ThreadPool to handle thousands of requests simultaneously.                                |        <img src="examples/ThreadPoolBot/img/preview2.png" alt="preview" width="200">        |
+| [ThreadPoolBot](examples/ThreadPoolBot)                  | Bot that uses a ThreadPool to handle multiple requests simultaneously.                                    |        <img src="examples/ThreadPoolBot/img/preview2.png" alt="preview" width="200">        |
+| [GitWatcherBot](https://github.com/baderouaich/GitWatcherBot)                | Real world Bot that you can use to watch repositories changes and get notified about (stars, forks, issues, watchers and pulls).                                |        <img src="https://i.ibb.co/XDXV2PZ/NEW.jpg" alt="preview" width="200">        |
 
 [//]: # (### Usage)
 
