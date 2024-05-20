@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"structtgbotxx_1_1_input_media_document.html#a3844707ca031e7c54e17ffeb5bd6d9e3":[1,0,0,86,3],
+"structtgbotxx_1_1_input_media_document.html#a3acba303da9f31b7afcbe98f68e2762e":[1,0,0,86,0],
+"structtgbotxx_1_1_input_media_document.html#a72a795c5375cecc240326c063778eee1":[1,0,0,86,5],
+"structtgbotxx_1_1_input_media_document.html#abe2ce20d6ecb6dfd661282022b335d5e":[1,0,0,86,1],
+"structtgbotxx_1_1_input_media_document.html#acba245a1487e9579dae6c4c77b7c90ea":[1,0,0,86,2],
+"structtgbotxx_1_1_input_media_document.html#ad3298fc513e3963b3ce3016108dd7b6d":[1,0,0,86,4],
+"structtgbotxx_1_1_input_media_photo.html":[1,0,0,88],
 "structtgbotxx_1_1_input_media_photo.html#a0a256d5227e7c5fea357982f39180876":[1,0,0,88,4],
 "structtgbotxx_1_1_input_media_photo.html#a44041d21fe155337e99191e29657ea12":[1,0,0,88,3],
 "structtgbotxx_1_1_input_media_photo.html#a548eccebc85f733d5fc79a5b2c7a8865":[1,0,0,88,2],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "structtgbotxx_1_1_message_auto_delete_timer_changed.html#ab0b7ee1545252dee4f64cd3e31dcf99c":[1,0,0,112,0],
 "structtgbotxx_1_1_message_auto_delete_timer_changed.html#ac3f5a88d77968d4e8baa1f4a751f2fb4":[1,0,0,112,4],
 "structtgbotxx_1_1_message_auto_delete_timer_changed.html#af052c2a9b7d026db13e75b65609452b7":[1,0,0,112,1],
-"structtgbotxx_1_1_message_entity.html":[1,0,0,113],
-"structtgbotxx_1_1_message_entity.html#a1b5ee432ab3cd34377ddb624896c9946":[1,0,0,113,8],
-"structtgbotxx_1_1_message_entity.html#a2145cbcf67bd56f5e4054041bb2d7387":[1,0,0,113,1],
-"structtgbotxx_1_1_message_entity.html#a34baf9334cda6c38951a00f0a15cbd6c":[1,0,0,113,5],
-"structtgbotxx_1_1_message_entity.html#a3ee1d0d7ba9b97269b89b31124d4efc9":[1,0,0,113,12],
-"structtgbotxx_1_1_message_entity.html#a5cd87fa1f6817a993fc28e59963f47fd":[1,0,0,113,3],
-"structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9":[1,0,0,113,0],
-"structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a02a3a357710cc2a5dfdfb74ed012fb59":[1,0,0,113,0,4]
+"structtgbotxx_1_1_message_entity.html":[1,0,0,113]
 };

@@ -9,5 +9,5 @@ var _ptr_8hpp =
     [ "CPtrC", "_ptr_8hpp.html#ac29a3f0805d59861a311ca7242e1e08e", null ],
     [ "Ptr", "_ptr_8hpp.html#a441cf8fce5bff655d159cf6aebc6ca43", null ],
     [ "PtrC", "_ptr_8hpp.html#a3d5e50731a4b4523cf062132107f91a4", null ],
-    [ "makePtr", "_ptr_8hpp.html#aa984322ee40df737cb38a0fd13b2ee99", null ]
+    [ "makePtr", "_ptr_8hpp.html#ad9373655775cde9cdbd6a93afd6307ef", null ]
 ];

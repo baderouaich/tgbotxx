@@ -3,6 +3,7 @@ var namespacetgbotxx =
     [ "DateTimeUtils", "namespacetgbotxx_1_1_date_time_utils.html", [
       [ "currentDateTime", "namespacetgbotxx_1_1_date_time_utils.html#a859e64342f377102da429d1318ffa339", null ],
       [ "fromString", "namespacetgbotxx_1_1_date_time_utils.html#a9d31f333c31fc323f7be8a7aeceef454", null ],
+      [ "now", "namespacetgbotxx_1_1_date_time_utils.html#a0d8cc54f991dcacae6056d4508ccb658", null ],
       [ "toString", "namespacetgbotxx_1_1_date_time_utils.html#a61b23e05aecfa4f548fce5ba274b2951", null ]
     ] ],
     [ "FileUtils", "namespacetgbotxx_1_1_file_utils.html", [
@@ -25,8 +26,10 @@ var namespacetgbotxx =
       [ "split", "namespacetgbotxx_1_1_string_utils.html#a6d65a9679afbc01aa6785fba77616005", null ],
       [ "startsWith", "namespacetgbotxx_1_1_string_utils.html#a0e1c43908f57edb496b00522dee6ea80", null ],
       [ "to", "namespacetgbotxx_1_1_string_utils.html#afdad1b1777a5871c9bcfc1a43b0b259e", null ],
-      [ "toLower", "namespacetgbotxx_1_1_string_utils.html#afc42b7404576d60f1df95de386c12bfc", null ],
-      [ "toUpper", "namespacetgbotxx_1_1_string_utils.html#ac3baf8c01cbc8dda83c51d877b292160", null ],
+      [ "toLower", "namespacetgbotxx_1_1_string_utils.html#a25c61880c312dc6b4af7d42beaa1dbfd", null ],
+      [ "toLowerCopy", "namespacetgbotxx_1_1_string_utils.html#af472b5a2cd4b77066ecae29b01925b37", null ],
+      [ "toUpper", "namespacetgbotxx_1_1_string_utils.html#ab875c0306558d23e592ebb6350fe82c5", null ],
+      [ "toUpperCopy", "namespacetgbotxx_1_1_string_utils.html#a3517e566b976017ecc5939930cc4761e", null ],
       [ "trim", "namespacetgbotxx_1_1_string_utils.html#a61b0ab25ca04c0c97d7517473ec2dc69", null ],
       [ "trimCopy", "namespacetgbotxx_1_1_string_utils.html#a5425a24ccb70d4786c6c2cc703fac713", null ]
     ] ],
@@ -222,6 +225,6 @@ var namespacetgbotxx =
       [ "INTERNAL", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
     ] ],
     [ "isErrorCode", "namespacetgbotxx.html#af33b48f92738c1b891e948e93829a440", null ],
-    [ "makePtr", "namespacetgbotxx.html#aa984322ee40df737cb38a0fd13b2ee99", null ],
+    [ "makePtr", "namespacetgbotxx.html#ad9373655775cde9cdbd6a93afd6307ef", null ],
     [ "operator<<", "namespacetgbotxx.html#a7b0b4af74a94b42f677398a31520c0f1", null ]
 ];

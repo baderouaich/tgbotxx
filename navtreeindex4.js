@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"structtgbotxx_1_1_dice.html#aaab0994b577d12d081fb026b164918bb":[1,0,0,44,4],
+"structtgbotxx_1_1_dice.html#addefe1eeef4b0b8f6de3e07492e606e7":[1,0,0,44,5],
+"structtgbotxx_1_1_document.html":[1,0,0,45],
+"structtgbotxx_1_1_document.html#a355879a73bd4d9454e339ec322e492f1":[1,0,0,45,7],
+"structtgbotxx_1_1_document.html#a4b18b26b6b7ada0dde6917ded908fa7a":[1,0,0,45,1],
+"structtgbotxx_1_1_document.html#a940fe2c5c13099358e9073942c237abe":[1,0,0,45,9],
+"structtgbotxx_1_1_document.html#abb520b7c79f8f50f1bbc0a69f7b898d0":[1,0,0,45,2],
 "structtgbotxx_1_1_document.html#ac634df957b3c5e3a3e0e6e4f137a2c64":[1,0,0,45,4],
 "structtgbotxx_1_1_document.html#ad9a731b39b41eb9b07a6fa8050820e66":[1,0,0,45,5],
 "structtgbotxx_1_1_document.html#ae1fdb6dcd2e7d71594b717f5737d7a00":[1,0,0,45,0],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "structtgbotxx_1_1_inline_query_result_cached_sticker.html#a68b3813e1711b0cf6eafd3e39dec6393":[1,0,0,78,4],
 "structtgbotxx_1_1_inline_query_result_cached_sticker.html#a8be532843e5a25f92950525048120aab":[1,0,0,78,5],
 "structtgbotxx_1_1_inline_query_result_cached_sticker.html#ab72a48b5207b5af58afae8c38b738967":[1,0,0,78,1],
-"structtgbotxx_1_1_inline_query_result_cached_video.html":[1,0,0,80],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a06e8592105cc9e01043620a874923b84":[1,0,0,80,5],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a4b291d024804713bdb3c3c9b5083e2f6":[1,0,0,80,10],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a4ba020f788d91eefae5c63d9fb791c63":[1,0,0,80,0],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a4e884628d7df106b819cf84255791d95":[1,0,0,80,6],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a579be84eeb9faece762abe214594a871":[1,0,0,80,2],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a57ed35b91bc39b6450ce149c9ca01802":[1,0,0,80,1],
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a78e45130a995d595f99c3c037ca4a06f":[1,0,0,80,7]
+"structtgbotxx_1_1_inline_query_result_cached_video.html":[1,0,0,80]
 };

@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('_file_utils_8hpp_source.html',''); ini
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetgbotxx.html">tgbotxx</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_file_utils.html">   12</a></span>&#160;  <span class="keyword">namespace </span>FileUtils {</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_file_utils.html#a6e49cd1a5b4d2ac0b2957e872d790f67">   15</a></span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="namespacetgbotxx_1_1_file_utils.html#a6e49cd1a5b4d2ac0b2957e872d790f67">read</a>(<span class="keyword">const</span> fs::path&amp; filename) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_file_utils.html#a6e49cd1a5b4d2ac0b2957e872d790f67">   15</a></span>&#160;    [[nodiscard]] <span class="keyword">static</span> std::string <a class="code" href="namespacetgbotxx_1_1_file_utils.html#a6e49cd1a5b4d2ac0b2957e872d790f67">read</a>(<span class="keyword">const</span> fs::path&amp; filename) {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="keywordflow">if</span> (std::ifstream ifs{filename, std::ios::ate | std::ios::binary}) {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::string buffer(ifs.tellg(), <span class="charliteral">&#39;\000&#39;</span>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        ifs.seekg(0, std::ios::beg);</div>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('_file_utils_8hpp_source.html',''); ini
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_file_utils.html#a78c958c94ceb9c9bf489d97e1e5d1c11">   29</a></span>&#160;    <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="namespacetgbotxx_1_1_file_utils.html#a78c958c94ceb9c9bf489d97e1e5d1c11">readLines</a>(<span class="keyword">const</span> fs::path&amp; filename) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacetgbotxx_1_1_file_utils.html#a78c958c94ceb9c9bf489d97e1e5d1c11">   29</a></span>&#160;    [[nodiscard]] <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="namespacetgbotxx_1_1_file_utils.html#a78c958c94ceb9c9bf489d97e1e5d1c11">readLines</a>(<span class="keyword">const</span> fs::path&amp; filename) {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordflow">if</span> (std::ifstream ifs{filename, std::ios::binary}) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::vector&lt;std::string&gt; lines{};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::string line{};</div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('_file_utils_8hpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_0a686d04ada01e782ce20d676fccf00f.html">utils</a></li><li class="navelem"><a class="el" href="_file_utils_8hpp.html">FileUtils.hpp</a></li>
-    <li class="footer">Generated on Wed May 1 2024 16:49:13 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon May 20 2024 19:17:26 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,12 @@
 var NAVTREEINDEX9 =
 {
+"structtgbotxx_1_1_web_app_data.html#acf8ab54bdd80b4bcb44e5bde9960a004":[1,0,0,164,3],
+"structtgbotxx_1_1_web_app_data.html#ae6ae74a8e49464221b1439656081ed11":[1,0,0,164,1],
+"structtgbotxx_1_1_web_app_data.html#aeec9f01451e77ed0a60f774e75362281":[1,0,0,164,5],
+"structtgbotxx_1_1_web_app_info.html":[1,0,0,165],
+"structtgbotxx_1_1_web_app_info.html#a13e5852429d71a5b77aeeb63d27a4b27":[1,0,0,165,1],
+"structtgbotxx_1_1_web_app_info.html#a61fe0b92a1438df14ace3e714fca8e99":[1,0,0,165,3],
+"structtgbotxx_1_1_web_app_info.html#a7768a1646a6ff988f8e8e971454fc1fb":[1,0,0,165,4],
 "structtgbotxx_1_1_web_app_info.html#a7d0af1aec595b052ad80455f41a80d91":[1,0,0,165,2],
 "structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36":[1,0,0,165,0],
 "structtgbotxx_1_1_webhook_info.html":[1,0,0,166],

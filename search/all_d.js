@@ -1,16 +1,17 @@
 var searchData=
 [
-  ['name_555',['name',['../structtgbotxx_1_1_chat_invite_link.html#a4ecd7e97a51feddba4865887c259575c',1,'tgbotxx::ChatInviteLink::name()'],['../structtgbotxx_1_1_forum_topic.html#aedc5e544671009a805d5198052d6d988',1,'tgbotxx::ForumTopic::name()'],['../structtgbotxx_1_1_forum_topic_created.html#a4e5f54993b0394000b20f0e3283d0750',1,'tgbotxx::ForumTopicCreated::name()'],['../structtgbotxx_1_1_forum_topic_edited.html#a7d4135e5b36538658d00530224489adb',1,'tgbotxx::ForumTopicEdited::name()'],['../structtgbotxx_1_1_order_info.html#a4476ff7b2f64b7197a8d87cda6cece6c',1,'tgbotxx::OrderInfo::name()'],['../structtgbotxx_1_1_sticker_set.html#a9e7b527e388ca101afde99beef1fbc81',1,'tgbotxx::StickerSet::name()'],['../structtgbotxx_1_1_bot_name.html#ad984131ae201ed49370eb5d52953cea0',1,'tgbotxx::BotName::name()']]],
-  ['needemail_556',['needEmail',['../structtgbotxx_1_1_input_invoice_message_content.html#a89c1f5dc460cd890a996f552b0c336ef',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['needname_557',['needName',['../structtgbotxx_1_1_input_invoice_message_content.html#a44166d062f0108e6efc30ea411f7df3f',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['needphonenumber_558',['needPhoneNumber',['../structtgbotxx_1_1_input_invoice_message_content.html#a4a30d652dc646d7f97ab07e23c6f66ca',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['needshippingaddress_559',['needShippingAddress',['../structtgbotxx_1_1_input_invoice_message_content.html#a656160d8265c808406836d95571d22a3',1,'tgbotxx::InputInvoiceMessageContent']]],
-  ['needsrepainting_560',['needsRepainting',['../structtgbotxx_1_1_sticker.html#a9353352d108d18cd872ebddad5ece616',1,'tgbotxx::Sticker']]],
-  ['newchatmember_561',['newChatMember',['../structtgbotxx_1_1_chat_member_updated.html#aca163a462969d72b5b8d0e5b8ef44a63',1,'tgbotxx::ChatMemberUpdated']]],
-  ['newchatmembers_562',['newChatMembers',['../structtgbotxx_1_1_message.html#afee3f5fa90528dd8779b692f29bdb4e7',1,'tgbotxx::Message']]],
-  ['newchatphoto_563',['newChatPhoto',['../structtgbotxx_1_1_message.html#ad9c8f5275f1b371590f8494daee90f43',1,'tgbotxx::Message']]],
-  ['newchattitle_564',['newChatTitle',['../structtgbotxx_1_1_message.html#a53ceb8312ebc9e1f042414ac504e61a5',1,'tgbotxx::Message']]],
-  ['newreaction_565',['newReaction',['../structtgbotxx_1_1_message_reaction_updated.html#a23325c97530550f68d96c8e040010d9c',1,'tgbotxx::MessageReactionUpdated']]],
-  ['not_5facceptable_566',['NOT_ACCEPTABLE',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7',1,'tgbotxx']]],
-  ['not_5ffound_567',['NOT_FOUND',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d',1,'tgbotxx']]]
+  ['name_552',['name',['../structtgbotxx_1_1_chat_invite_link.html#a4ecd7e97a51feddba4865887c259575c',1,'tgbotxx::ChatInviteLink::name()'],['../structtgbotxx_1_1_forum_topic.html#aedc5e544671009a805d5198052d6d988',1,'tgbotxx::ForumTopic::name()'],['../structtgbotxx_1_1_forum_topic_created.html#a4e5f54993b0394000b20f0e3283d0750',1,'tgbotxx::ForumTopicCreated::name()'],['../structtgbotxx_1_1_forum_topic_edited.html#a7d4135e5b36538658d00530224489adb',1,'tgbotxx::ForumTopicEdited::name()'],['../structtgbotxx_1_1_order_info.html#a4476ff7b2f64b7197a8d87cda6cece6c',1,'tgbotxx::OrderInfo::name()'],['../structtgbotxx_1_1_sticker_set.html#a9e7b527e388ca101afde99beef1fbc81',1,'tgbotxx::StickerSet::name()'],['../structtgbotxx_1_1_bot_name.html#ad984131ae201ed49370eb5d52953cea0',1,'tgbotxx::BotName::name()']]],
+  ['needemail_553',['needEmail',['../structtgbotxx_1_1_input_invoice_message_content.html#a89c1f5dc460cd890a996f552b0c336ef',1,'tgbotxx::InputInvoiceMessageContent']]],
+  ['needname_554',['needName',['../structtgbotxx_1_1_input_invoice_message_content.html#a44166d062f0108e6efc30ea411f7df3f',1,'tgbotxx::InputInvoiceMessageContent']]],
+  ['needphonenumber_555',['needPhoneNumber',['../structtgbotxx_1_1_input_invoice_message_content.html#a4a30d652dc646d7f97ab07e23c6f66ca',1,'tgbotxx::InputInvoiceMessageContent']]],
+  ['needshippingaddress_556',['needShippingAddress',['../structtgbotxx_1_1_input_invoice_message_content.html#a656160d8265c808406836d95571d22a3',1,'tgbotxx::InputInvoiceMessageContent']]],
+  ['needsrepainting_557',['needsRepainting',['../structtgbotxx_1_1_sticker.html#a9353352d108d18cd872ebddad5ece616',1,'tgbotxx::Sticker']]],
+  ['newchatmember_558',['newChatMember',['../structtgbotxx_1_1_chat_member_updated.html#aca163a462969d72b5b8d0e5b8ef44a63',1,'tgbotxx::ChatMemberUpdated']]],
+  ['newchatmembers_559',['newChatMembers',['../structtgbotxx_1_1_message.html#afee3f5fa90528dd8779b692f29bdb4e7',1,'tgbotxx::Message']]],
+  ['newchatphoto_560',['newChatPhoto',['../structtgbotxx_1_1_message.html#ad9c8f5275f1b371590f8494daee90f43',1,'tgbotxx::Message']]],
+  ['newchattitle_561',['newChatTitle',['../structtgbotxx_1_1_message.html#a53ceb8312ebc9e1f042414ac504e61a5',1,'tgbotxx::Message']]],
+  ['newreaction_562',['newReaction',['../structtgbotxx_1_1_message_reaction_updated.html#a23325c97530550f68d96c8e040010d9c',1,'tgbotxx::MessageReactionUpdated']]],
+  ['not_5facceptable_563',['NOT_ACCEPTABLE',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa9846b1a1c52dfc91442151cd7f3fd4e7',1,'tgbotxx']]],
+  ['not_5ffound_564',['NOT_FOUND',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa8c02547a8a3b02382bac3557bcb2280d',1,'tgbotxx']]],
+  ['now_565',['now',['../namespacetgbotxx_1_1_date_time_utils.html#a0d8cc54f991dcacae6056d4508ccb658',1,'tgbotxx::DateTimeUtils']]]
 ];

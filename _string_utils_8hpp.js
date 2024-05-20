@@ -13,8 +13,10 @@ var _string_utils_8hpp =
     [ "split", "_string_utils_8hpp.html#a6d65a9679afbc01aa6785fba77616005", null ],
     [ "startsWith", "_string_utils_8hpp.html#a0e1c43908f57edb496b00522dee6ea80", null ],
     [ "to", "_string_utils_8hpp.html#afdad1b1777a5871c9bcfc1a43b0b259e", null ],
-    [ "toLower", "_string_utils_8hpp.html#afc42b7404576d60f1df95de386c12bfc", null ],
-    [ "toUpper", "_string_utils_8hpp.html#ac3baf8c01cbc8dda83c51d877b292160", null ],
+    [ "toLower", "_string_utils_8hpp.html#a25c61880c312dc6b4af7d42beaa1dbfd", null ],
+    [ "toLowerCopy", "_string_utils_8hpp.html#af472b5a2cd4b77066ecae29b01925b37", null ],
+    [ "toUpper", "_string_utils_8hpp.html#ab875c0306558d23e592ebb6350fe82c5", null ],
+    [ "toUpperCopy", "_string_utils_8hpp.html#a3517e566b976017ecc5939930cc4761e", null ],
     [ "trim", "_string_utils_8hpp.html#a61b0ab25ca04c0c97d7517473ec2dc69", null ],
     [ "trimCopy", "_string_utils_8hpp.html#a5425a24ccb70d4786c6c2cc703fac713", null ]
 ];

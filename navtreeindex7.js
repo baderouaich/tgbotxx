@@ -1,5 +1,12 @@
 var NAVTREEINDEX7 =
 {
+"structtgbotxx_1_1_message_entity.html#a1b5ee432ab3cd34377ddb624896c9946":[1,0,0,113,8],
+"structtgbotxx_1_1_message_entity.html#a2145cbcf67bd56f5e4054041bb2d7387":[1,0,0,113,1],
+"structtgbotxx_1_1_message_entity.html#a34baf9334cda6c38951a00f0a15cbd6c":[1,0,0,113,5],
+"structtgbotxx_1_1_message_entity.html#a3ee1d0d7ba9b97269b89b31124d4efc9":[1,0,0,113,12],
+"structtgbotxx_1_1_message_entity.html#a5cd87fa1f6817a993fc28e59963f47fd":[1,0,0,113,3],
+"structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9":[1,0,0,113,0],
+"structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a02a3a357710cc2a5dfdfb74ed012fb59":[1,0,0,113,0,4],
 "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a114c3050111d8b8ddd830b99ccebd246":[1,0,0,113,0,7],
 "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a1d874710ccdcd46b95397049d2e7500c":[1,0,0,113,0,8],
 "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a4ed8233defa4ad141a6a784b45a31c45":[1,0,0,113,0,15],
@@ -242,12 +249,5 @@ var NAVTREEINDEX7 =
 "structtgbotxx_1_1_reply_keyboard_markup.html#a2f15cd0b85f4fb391fd03b0d672fd415":[1,0,0,140,8],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a4fa6195ebecab597590682207746e47b":[1,0,0,140,9],
 "structtgbotxx_1_1_reply_keyboard_markup.html#a63a865b6625920bf4d0df2225cf4f1b7":[1,0,0,140,5],
-"structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497":[1,0,0,140,6],
-"structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2":[1,0,0,140,2],
-"structtgbotxx_1_1_reply_keyboard_markup.html#a85bcf2048b4c3ede47b7f8a8ad5c2cf4":[1,0,0,140,1],
-"structtgbotxx_1_1_reply_keyboard_markup.html#aaab41a447cb0c3db009715f8fe907257":[1,0,0,140,4],
-"structtgbotxx_1_1_reply_keyboard_markup.html#aff823f6e5b960ff4a3e2df66a4c2c898":[1,0,0,140,3],
-"structtgbotxx_1_1_reply_keyboard_remove.html":[1,0,0,141],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a65d4e15f9ce1244b8a917d34a24b0bf8":[1,0,0,141,5],
-"structtgbotxx_1_1_reply_keyboard_remove.html#a6a2e476fcf4b94ad6f6570617cb5816d":[1,0,0,141,0]
+"structtgbotxx_1_1_reply_keyboard_markup.html#a6895353ad4cedc5cce981438f67b0497":[1,0,0,140,6]
 };

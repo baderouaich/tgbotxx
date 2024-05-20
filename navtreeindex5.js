@@ -1,5 +1,12 @@
 var NAVTREEINDEX5 =
 {
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a06e8592105cc9e01043620a874923b84":[1,0,0,80,5],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a4b291d024804713bdb3c3c9b5083e2f6":[1,0,0,80,10],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a4ba020f788d91eefae5c63d9fb791c63":[1,0,0,80,0],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a4e884628d7df106b819cf84255791d95":[1,0,0,80,6],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a579be84eeb9faece762abe214594a871":[1,0,0,80,2],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a57ed35b91bc39b6450ce149c9ca01802":[1,0,0,80,1],
+"structtgbotxx_1_1_inline_query_result_cached_video.html#a78e45130a995d595f99c3c037ca4a06f":[1,0,0,80,7],
 "structtgbotxx_1_1_inline_query_result_cached_video.html#aaabd9de1fd0f2627a0a57b474c4f7262":[1,0,0,80,9],
 "structtgbotxx_1_1_inline_query_result_cached_video.html#ab4120c1c7b7ac4df2f5b71dd48c90ea7":[1,0,0,80,3],
 "structtgbotxx_1_1_inline_query_result_cached_video.html#abc9beafcd2798521d5137f84a961ec43":[1,0,0,80,8],
@@ -242,12 +249,5 @@ var NAVTREEINDEX5 =
 "structtgbotxx_1_1_input_media_audio.html#acee5feecb44b387485a07b7ab871dd3f":[1,0,0,87,3],
 "structtgbotxx_1_1_input_media_audio.html#ad635d715569f691e35b14dbe07978575":[1,0,0,87,6],
 "structtgbotxx_1_1_input_media_audio.html#aefa0228033644a144e42e14dfc75bc8d":[1,0,0,87,1],
-"structtgbotxx_1_1_input_media_document.html":[1,0,0,86],
-"structtgbotxx_1_1_input_media_document.html#a3844707ca031e7c54e17ffeb5bd6d9e3":[1,0,0,86,3],
-"structtgbotxx_1_1_input_media_document.html#a3acba303da9f31b7afcbe98f68e2762e":[1,0,0,86,0],
-"structtgbotxx_1_1_input_media_document.html#a72a795c5375cecc240326c063778eee1":[1,0,0,86,5],
-"structtgbotxx_1_1_input_media_document.html#abe2ce20d6ecb6dfd661282022b335d5e":[1,0,0,86,1],
-"structtgbotxx_1_1_input_media_document.html#acba245a1487e9579dae6c4c77b7c90ea":[1,0,0,86,2],
-"structtgbotxx_1_1_input_media_document.html#ad3298fc513e3963b3ce3016108dd7b6d":[1,0,0,86,4],
-"structtgbotxx_1_1_input_media_photo.html":[1,0,0,88]
+"structtgbotxx_1_1_input_media_document.html":[1,0,0,86]
 };

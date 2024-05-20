@@ -115,10 +115,10 @@ $(document).ready(function(){initNavTree('_bot_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classtgbotxx_1_1_bot.html">   27</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Api&gt;</a> m_api;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      std::vector&lt;Ptr&lt;Update&gt;&gt; m_updates;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      std::int32_t m_lastUpdateId;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordtype">bool</span> m_running;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Api&gt;</a> m_api{};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      std::vector&lt;Ptr&lt;Update&gt;&gt; m_updates{};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      std::int32_t m_lastUpdateId{};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      std::atomic&lt;bool&gt; m_running{};</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classtgbotxx_1_1_bot.html#a1ebb9fd1e98cb5d0c32e811b7081582e">   37</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="classtgbotxx_1_1_bot.html#a1ebb9fd1e98cb5d0c32e811b7081582e">Bot</a>(<span class="keyword">const</span> std::string&amp; token);</div>
@@ -177,18 +177,21 @@ $(document).ready(function(){initNavTree('_bot_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885">  151</a></span>&#160;      [[nodiscard]] <span class="keyword">const</span> <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Api&gt;</a>&amp; <a class="code" href="classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885">getApi</a>() const noexcept;</div>
 <div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classtgbotxx_1_1_bot.html#a22bb788ca3f247f896461a9641004e10">  153</a></span>&#160;      [[nodiscard]] const <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="code" href="classtgbotxx_1_1_api.html">Api</a>&gt;&amp; <a class="code" href="classtgbotxx_1_1_bot.html#a22bb788ca3f247f896461a9641004e10">api</a>() const noexcept;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    private:</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordtype">void</span> dispatch(const <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="code" href="structtgbotxx_1_1_update.html">Update</a>&gt;&amp; update);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      <span class="keywordtype">void</span> dispatchMessage(const <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="code" href="structtgbotxx_1_1_message.html">Message</a>&gt;&amp; message);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  };</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classtgbotxx_1_1_bot.html#a1eb49017c722158d92fe12508be3274e">  156</a></span>&#160;      [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classtgbotxx_1_1_bot.html#a1eb49017c722158d92fe12508be3274e">isRunning</a>() const noexcept;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    private:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      <span class="keywordtype">void</span> dispatch(const <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="code" href="structtgbotxx_1_1_update.html">Update</a>&gt;&amp; update);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keywordtype">void</span> dispatchMessage(const <a class="code" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="code" href="structtgbotxx_1_1_message.html">Message</a>&gt;&amp; message);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  };</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
 <div class="ttc" id="a_exception_8hpp_html"><div class="ttname"><a href="_exception_8hpp.html">Exception.hpp</a></div></div>
 <div class="ttc" id="a_ptr_8hpp_html"><div class="ttname"><a href="_ptr_8hpp.html">Ptr.hpp</a></div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_api_html"><div class="ttname"><a href="classtgbotxx_1_1_api.html">tgbotxx::Api</a></div><div class="ttdoc">Api Methods https://core.telegram.org/bots/api#available-methods.</div><div class="ttdef"><b>Definition:</b> <a href="_api_8hpp_source.html#l00056">Api.hpp:56</a></div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html"><div class="ttname"><a href="classtgbotxx_1_1_bot.html">tgbotxx::Bot</a></div><div class="ttdef"><b>Definition:</b> <a href="_bot_8hpp_source.html#l00027">Bot.hpp:27</a></div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a120b097882c3644aec9925216b979c9b"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a120b097882c3644aec9925216b979c9b">tgbotxx::Bot::onCallbackQuery</a></div><div class="ttdeci">virtual void onCallbackQuery(const Ptr&lt; CallbackQuery &gt; &amp;callbackQuery)</div><div class="ttdoc">Called when a new incoming callback query is received.</div><div class="ttdef"><b>Definition:</b> <a href="_bot_8hpp_source.html#l00100">Bot.hpp:100</a></div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a155ae2121ea1fdf0da0532e9b1655f6b"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a155ae2121ea1fdf0da0532e9b1655f6b">tgbotxx::Bot::onChatJoinRequest</a></div><div class="ttdeci">virtual void onChatJoinRequest(const Ptr&lt; ChatJoinRequest &gt; &amp;chatJoinRequest)</div><div class="ttdoc">Called when a request to join the chat has been sent.</div><div class="ttdef"><b>Definition:</b> <a href="_bot_8hpp_source.html#l00134">Bot.hpp:134</a></div></div>
+<div class="ttc" id="aclasstgbotxx_1_1_bot_html_a1eb49017c722158d92fe12508be3274e"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a1eb49017c722158d92fe12508be3274e">tgbotxx::Bot::isRunning</a></div><div class="ttdeci">bool isRunning() const noexcept</div><div class="ttdoc">Returns true if the Bot long polling is currently running.</div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a1ebb9fd1e98cb5d0c32e811b7081582e"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a1ebb9fd1e98cb5d0c32e811b7081582e">tgbotxx::Bot::Bot</a></div><div class="ttdeci">Bot(const std::string &amp;token)</div><div class="ttdoc">Constructs a new Bot object.</div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a20673814ebbfdac14b3367bec9ca1183"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a20673814ebbfdac14b3367bec9ca1183">tgbotxx::Bot::onChatBoostRemoved</a></div><div class="ttdeci">virtual void onChatBoostRemoved(const Ptr&lt; ChatBoostRemoved &gt; &amp;chatBoostRemoved)</div><div class="ttdoc">Called when a boost was removed from a chat.</div><div class="ttdef"><b>Definition:</b> <a href="_bot_8hpp_source.html#l00142">Bot.hpp:142</a></div></div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html_a224e82e90511d547b5ef19e5b8836ab9"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#a224e82e90511d547b5ef19e5b8836ab9">tgbotxx::Bot::onCommand</a></div><div class="ttdeci">virtual void onCommand(const Ptr&lt; Message &gt; &amp;command)</div><div class="ttdoc">Called when a new command is received (messages with leading '/' char).</div><div class="ttdef"><b>Definition:</b> <a href="_bot_8hpp_source.html#l00066">Bot.hpp:66</a></div></div>
@@ -226,7 +229,7 @@ $(document).ready(function(){initNavTree('_bot_8hpp_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="_bot_8hpp.html">Bot.hpp</a></li>
-    <li class="footer">Generated on Wed May 1 2024 16:49:13 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon May 20 2024 19:17:26 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

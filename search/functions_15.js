@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['_7ebot_1634',['~Bot',['../classtgbotxx_1_1_bot.html#aff8f11497ae56bb196d01770e083f206',1,'tgbotxx::Bot']]],
-  ['_7ebotcommandscope_1635',['~BotCommandScope',['../structtgbotxx_1_1_bot_command_scope.html#ac13e6baf0c533f68d0752749e16268f5',1,'tgbotxx::BotCommandScope']]],
-  ['_7einlinekeyboardmarkup_1636',['~InlineKeyboardMarkup',['../structtgbotxx_1_1_inline_keyboard_markup.html#a42baa93a930ba156edab69afe5108e3a',1,'tgbotxx::InlineKeyboardMarkup']]],
-  ['_7einputmessagecontent_1637',['~InputMessageContent',['../structtgbotxx_1_1_input_message_content.html#a0bb711196b92336fc2bde1efa91f690d',1,'tgbotxx::InputMessageContent']]],
-  ['_7emenubutton_1638',['~MenuButton',['../structtgbotxx_1_1_menu_button.html#ae0d05dfd60cf6cf92662b8fef93a9a17',1,'tgbotxx::MenuButton']]]
+  ['webappdata_1630',['WebAppData',['../structtgbotxx_1_1_web_app_data.html#a65596f3c1c525311781235a93b7f54e8',1,'tgbotxx::WebAppData::WebAppData()=default'],['../structtgbotxx_1_1_web_app_data.html#ae6ae74a8e49464221b1439656081ed11',1,'tgbotxx::WebAppData::WebAppData(const nl::json &amp;json)']]],
+  ['webappinfo_1631',['WebAppInfo',['../structtgbotxx_1_1_web_app_info.html#a7f241cf17ff976f39fe19979c4f2ac36',1,'tgbotxx::WebAppInfo::WebAppInfo()=default'],['../structtgbotxx_1_1_web_app_info.html#a13e5852429d71a5b77aeeb63d27a4b27',1,'tgbotxx::WebAppInfo::WebAppInfo(const nl::json &amp;json)']]],
+  ['webhookinfo_1632',['WebhookInfo',['../structtgbotxx_1_1_webhook_info.html#a31cc41576251a1062813353efdb20f15',1,'tgbotxx::WebhookInfo::WebhookInfo()=default'],['../structtgbotxx_1_1_webhook_info.html#a0f03c65ca0bd5bb6dd26b77e41ea6d99',1,'tgbotxx::WebhookInfo::WebhookInfo(const nl::json &amp;json)']]],
+  ['write_1633',['write',['../namespacetgbotxx_1_1_file_utils.html#a0bba37cb5ad158f23bc757ea438f8fe4',1,'tgbotxx::FileUtils']]],
+  ['writeaccessallowed_1634',['WriteAccessAllowed',['../structtgbotxx_1_1_write_access_allowed.html#a929947c26223a67272814d849150c928',1,'tgbotxx::WriteAccessAllowed::WriteAccessAllowed()=default'],['../structtgbotxx_1_1_write_access_allowed.html#a0f5df4c52b445e423b31b096d4fd5822',1,'tgbotxx::WriteAccessAllowed::WriteAccessAllowed(const nl::json &amp;json)']]]
 ];
