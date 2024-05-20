@@ -157,6 +157,7 @@ void Bot::dispatch(const Ptr<Update>& update) {
 
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
 const Ptr<Api>& Bot::api() const noexcept { return m_api; }
+bool Bot::isRunning() const noexcept { return m_running; }
 
 void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage

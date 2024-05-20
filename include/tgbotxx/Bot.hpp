@@ -26,10 +26,10 @@ namespace tgbotxx {
 
   class Bot {
     private:
-      Ptr<Api> m_api;
-      std::vector<Ptr<Update>> m_updates;
-      std::int32_t m_lastUpdateId;
-      bool m_running;
+      Ptr<Api> m_api{};
+      std::vector<Ptr<Update>> m_updates{};
+      std::int32_t m_lastUpdateId{};
+      std::atomic<bool> m_running{};
 
     public:
       /// @brief Constructs a new Bot object
@@ -151,6 +151,9 @@ namespace tgbotxx {
       [[nodiscard]] const Ptr<Api>& getApi() const noexcept;
       /// @brief Returns Api object
       [[nodiscard]] const Ptr<Api>& api() const noexcept;
+
+      /// @brief Returns true if the Bot long polling is currently running
+      [[nodiscard]] bool isRunning() const noexcept;
 
     private:
       /// @brief Dispatch update to callbacks

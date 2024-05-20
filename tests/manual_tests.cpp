@@ -24,7 +24,7 @@ class MyBot : public Bot {
       //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
       // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
       // in Telegram server before they get deleted or retrieved by BOT)
-      getApi()->deleteWebhook(true);
+      api()->deleteWebhook(true);
 //      api()->setAllowedUpdates({
 //        "message_reaction",
 //        "message_reaction_count"
@@ -111,7 +111,7 @@ class MyBot : public Bot {
       Ptr<BotCommand> testBotBlockedByUser(new BotCommand());
       testBotBlockedByUser->command = "/test_bot_blocked_by_user";
       testBotBlockedByUser->description = "Block the bot within 10s after u receive a message";
-      getApi()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
+      api()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
                                location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                                menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
                                deleteMessage, sendInvoice, createInvoiceLink, sendSticker, testBotBlockedByUser}); // The above commands will be shown in the bot chat menu (bottom left)
@@ -122,13 +122,13 @@ class MyBot : public Bot {
     /// Called when Bot is about to be stopped (triggered by Bot::stop())
     /// Cleanup your code in this callback (close handles, backup data...)
     void onStop() override {
-      std::cout << __func__ << ": " << getApi()->getMe()->firstName << " bot stopping..." << std::endl;
+      std::cout << __func__ << ": " << api()->getMe()->firstName << " bot stopping..." << std::endl;
     }
 
     /// Called when a new message is received of any kind - text, photo, sticker, etc.
     void onAnyMessage(const Ptr<Message>& message) override {
       //std::cout << __func__ << ": " << message->toJson().dump(2) << std::endl;
-      //Ptr<Message> msg = getApi()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
+      //Ptr<Message> msg = api()->sendMessage(message->chat->id, "Hi "+ message->from->firstName +", got ur msg");
 
       if (message->document) {
         Ptr<File> docFile = api()->getFile(message->document->fileId);
@@ -153,17 +153,21 @@ class MyBot : public Bot {
     void onCommand(const Ptr<Message>& message) override {
       //std::cout << __func__ << ": " << message->text << std::endl;
       if (message->text == "/stop") {
-        Bot::stop();
+        if(Bot::isRunning()) {
+          Bot::stop();
+        } else {
+          api()->sendMessage(message->chat->id, "Stopping... Please wait.");
+        }
         return;
       } else if (message->text == "/start") {
-        getApi()->sendMessage(message->chat->id, "Welcome " + message->from->firstName + "!");
+        api()->sendMessage(message->chat->id, "Welcome " + message->from->firstName + "!");
       } else if (message->text == "/greet") {
-        getApi()->sendMessage(message->chat->id, "Good day!");
+        api()->sendMessage(message->chat->id, "Good day!");
       } else if (message->text == "/photo") {
-        getApi()->sendMessage(message->chat->id, "Sending URL photo...");
-        getApi()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
-        getApi()->sendMessage(message->chat->id, "Sending File photo...");
-        getApi()->sendPhoto(message->chat->id, cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg").string()});
+        api()->sendMessage(message->chat->id, "Sending URL photo...");
+        api()->sendPhoto(message->chat->id, "https://www.hdwallpapers.in/download/landscape_view_of_sunset_under_yellow_black_cloudy_sky_4k_5k_hd_nature-5120x2880.jpg");
+        api()->sendMessage(message->chat->id, "Sending File photo...");
+        api()->sendPhoto(message->chat->id, cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg").string()});
       } else if (message->text == "/inline_buttons") {
         /*
             Create inline keyboard buttons
@@ -219,22 +223,22 @@ class MyBot : public Bot {
 
         api()->sendMessage(message->chat->id, "Keyboard buttons:", 0, "", {}, false, false, false, 0, false, replyKeyboardMarkup);
       } else if (message->text == "/audio") {
-        getApi()->sendMessage(message->chat->id, "Sending audio file...");
-        getApi()->sendAudio(message->chat->id, "https://samples-files.com/samples/Audio/mp3/sample-file-1.mp3");
+        api()->sendMessage(message->chat->id, "Sending audio file...");
+        api()->sendAudio(message->chat->id, "https://samples-files.com/samples/Audio/mp3/sample-file-1.mp3");
       } else if (message->text == "/document") {
-        getApi()->sendMessage(message->chat->id, "Sending local document ...");
-        getApi()->sendDocument(message->chat->id, cpr::File{__FILE__});
-        getApi()->sendMessage(message->chat->id, "Sending document from the internet ...");
-        getApi()->sendDocument(message->chat->id, "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf");
+        api()->sendMessage(message->chat->id, "Sending local document ...");
+        api()->sendDocument(message->chat->id, cpr::File{__FILE__});
+        api()->sendMessage(message->chat->id, "Sending document from the internet ...");
+        api()->sendDocument(message->chat->id, "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2816r0.pdf");
       } else if (message->text == "/animation") {
-        getApi()->sendMessage(message->chat->id, "Sending animation ...");
-        getApi()->sendDocument(message->chat->id, "https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif");
+        api()->sendMessage(message->chat->id, "Sending animation ...");
+        api()->sendDocument(message->chat->id, "https://media2.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif");
       } else if (message->text == "/voice") {
-        getApi()->sendMessage(message->chat->id, "Sending voice message ...");
-        getApi()->sendDocument(message->chat->id, "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg");
+        api()->sendMessage(message->chat->id, "Sending voice message ...");
+        api()->sendDocument(message->chat->id, "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_OGG.ogg");
       } else if (message->text == "/media_group") {
         {
-          getApi()->sendMessage(message->chat->id, "Sending pdf media group ...");
+          api()->sendMessage(message->chat->id, "Sending pdf media group ...");
           std::vector<Ptr<InputMedia>> mediaGroup;
           for (const std::string docURL: {"https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4928.pdf",
                                                "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4933.pdf",
@@ -252,7 +256,7 @@ class MyBot : public Bot {
           api()->sendMediaGroup(message->chat->id, mediaGroup);
         }
         {
-          getApi()->sendMessage(message->chat->id, "Sending photo media group ...");
+          api()->sendMessage(message->chat->id, "Sending photo media group ...");
           std::vector<Ptr<InputMedia>> mediaGroup;
           for (const fs::path& localPhotoPath: {fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image1.jpg",
                                                   fs::path(__FILE__).parent_path().parent_path() / "examples/sendPhoto/photos/image2.jpg"}) {
@@ -275,8 +279,8 @@ class MyBot : public Bot {
           api()->sendMediaGroup(message->chat->id, mediaGroup);
         }
       } else if (message->text == "/location") {
-        getApi()->sendMessage(message->chat->id, "Sending location ...");
-        getApi()->sendLocation(message->chat->id, 65.590261f, -17.303453f); // Iceland
+        api()->sendMessage(message->chat->id, "Sending location ...");
+        api()->sendLocation(message->chat->id, 65.590261f, -17.303453f); // Iceland
       } else if (message->text == "/user_profile_photos") {
         std::int64_t userId = message->from->id;
         Ptr<UserProfilePhotos> userProfilePhotos = api()->getUserProfilePhotos(userId);
