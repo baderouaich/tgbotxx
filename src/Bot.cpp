@@ -2,20 +2,7 @@
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/objects/BotCommand.hpp>
-#include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/ChatBoostRemoved.hpp>
-#include <tgbotxx/objects/ChatBoostUpdated.hpp>
-#include <tgbotxx/objects/ChatJoinRequest.hpp>
-#include <tgbotxx/objects/ChatMemberUpdated.hpp>
-#include <tgbotxx/objects/ChosenInlineResult.hpp>
-#include <tgbotxx/objects/InlineQuery.hpp>
 #include <tgbotxx/objects/Message.hpp>
-#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
-#include <tgbotxx/objects/MessageReactionUpdated.hpp>
-#include <tgbotxx/objects/Poll.hpp>
-#include <tgbotxx/objects/PollAnswer.hpp>
-#include <tgbotxx/objects/PreCheckoutQuery.hpp>
-#include <tgbotxx/objects/ShippingQuery.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
