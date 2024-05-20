@@ -15,7 +15,7 @@ namespace tgbotxx {
     /// Example: array = [1,2,3]
     ///           StringUtils::join(array, ",") -> "1,2,3"
     template<typename T, typename D>
-    static std::string join(const std::span<T>& con, const D& delim) {
+    [[nodiscard]] static std::string join(const std::span<T>& con, const D& delim) {
       std::ostringstream oss{};
       for (std::size_t i = 0; i < con.size(); ++i) {
         oss << con[i];
@@ -26,7 +26,7 @@ namespace tgbotxx {
       return oss.str();
     }
     template<typename T, typename D>
-    static std::string join(const std::vector<T>& con, const D& delim) {
+    [[nodiscard]] static std::string join(const std::vector<T>& con, const D& delim) {
       return join(std::span{con}, delim);
     }
 
@@ -34,7 +34,7 @@ namespace tgbotxx {
     /// @param str: String to split
     /// @param delim: Split by delimiter
     /// @return std::vector of chunks
-    static std::vector<std::string> split(const std::string& str, char delim) {
+    [[nodiscard]] static std::vector<std::string> split(const std::string& str, char delim) {
       std::vector<std::string> res;
       std::stringstream ss{str};
       std::string chunk;
@@ -45,18 +45,30 @@ namespace tgbotxx {
 
     /// @brief Lowercase a string
     /// @param str string to lowercase
-    /// @return lowercase version of str
-    static std::string toLower(std::string str) {
+    /// @return Lowercase copy of str
+    [[nodiscard]] static std::string toLowerCopy(std::string str) {
       std::transform(str.begin(), str.end(), str.begin(), ::tolower);
       return str;
     }
 
+    /// @brief Lowercase original string str
+    /// @param str string to lowercase
+    static void toLower(std::string& str) {
+      std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    }
+
     /// @brief Uppercase a string
     /// @param str string to uppercase
-    /// @return uppercase version of str
-    static std::string toUpper(std::string str) {
+    /// @return Uppercase copy of str
+    [[nodiscard]] static std::string toUpperCopy(std::string str) {
       std::transform(str.begin(), str.end(), str.begin(), ::toupper);
       return str;
+    }
+
+    /// @brief Uppercase original string str
+    /// @param str string to uppercase
+    static void toUpper(std::string& str) {
+      std::transform(str.begin(), str.end(), str.begin(), ::toupper);
     }
 
     /// @brief Left trim a string from start (in place)
@@ -87,7 +99,7 @@ namespace tgbotxx {
     /// @brief Left trim a string from start (copy)
     /// @param str: string to trim from the left
     /// @returns Copy of left trimmed string
-    static std::string ltrimCopy(std::string s) {
+    [[nodiscard]] static std::string ltrimCopy(std::string s) {
       ltrim(s);
       return s;
     }
@@ -95,7 +107,7 @@ namespace tgbotxx {
     /// @brief Right trim a string from end (copy)
     /// @param str: string to trim from the right
     /// @returns Copy of right trimmed string
-    static std::string rtrimCopy(std::string s) {
+    [[nodiscard]] static std::string rtrimCopy(std::string s) {
       rtrim(s);
       return s;
     }
@@ -103,7 +115,7 @@ namespace tgbotxx {
     /// @brief Left and Right trim a string from start and end (copy)
     /// @param str: string to trim from the left and right
     /// @returns Copy of trimmed string
-    static std::string trimCopy(std::string s) {
+    [[nodiscard]] static std::string trimCopy(std::string s) {
       trim(s);
       return s;
     }
@@ -113,7 +125,7 @@ namespace tgbotxx {
     /// @param prefix: prefix to check if str starts with it
     /// @param ignoreCase: Case sensitivity, default: false
     /// @returns true if str starts with prefix
-    static bool startsWith(const std::string& str, const std::string& prefix, bool ignoreCase = false) {
+    [[nodiscard]] static bool startsWith(const std::string& str, const std::string& prefix, bool ignoreCase = false) {
       if (str.size() < prefix.size()) return false;
       if (ignoreCase)
         return std::equal(prefix.begin(), prefix.end(), str.begin(),
@@ -126,7 +138,7 @@ namespace tgbotxx {
     /// @param suffix: suffix to check if str ends with it
     /// @param ignoreCase: Case sensitivity, default: false
     /// @returns true if str ends with suffix
-    static bool endsWith(const std::string& str, const std::string& suffix, bool ignoreCase = false) {
+    [[nodiscard]] static bool endsWith(const std::string& str, const std::string& suffix, bool ignoreCase = false) {
       if (str.size() < suffix.size()) return false;
       if (ignoreCase)
         return std::equal(suffix.begin(), suffix.end(), str.begin() + str.size() - suffix.size(),
@@ -153,7 +165,7 @@ namespace tgbotxx {
     /// @param search Token to replace
     /// @param replace New value to replace token with
     /// @return new replaced tokens string
-    static std::string replaceCopy(std::string str, const std::string& search, const std::string& replace) {
+    [[nodiscard]] static std::string replaceCopy(std::string str, const std::string& search, const std::string& replace) {
       if (search.empty()) return str; // Avoid infinite loops
       std::size_t pos{0};
       while ((pos = str.find(search, pos)) != std::string::npos) {
@@ -168,7 +180,7 @@ namespace tgbotxx {
     /// @param str string to convert
     /// @return converted string to T
     template<typename T>
-    static T to(const std::string& str) {
+    [[nodiscard]] static T to(const std::string& str) {
       T v{};
       std::istringstream oss{str};
       oss >> v;
@@ -176,8 +188,7 @@ namespace tgbotxx {
     }
 
     /// Returns a random string of length characters
-    static std::string random(std::size_t length)
-    {
+    [[nodiscard]] static std::string random(std::size_t length) {
       static std::random_device seed{};
       static std::default_random_engine engine{seed()};
       static std::uniform_int_distribution<short> choice(0, 2);
@@ -186,8 +197,8 @@ namespace tgbotxx {
       static std::uniform_int_distribution<int> digits('0', '9');
 
       std::string str(length, '\000');
-      for(char& c : str) {
-        switch(choice(engine)) {
+      for (char& c: str) {
+        switch (choice(engine)) {
           case 0: // a-z
             c = lowercaseAlpha(engine);
             break;
