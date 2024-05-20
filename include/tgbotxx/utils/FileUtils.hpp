@@ -12,7 +12,7 @@ namespace tgbotxx {
   namespace FileUtils {
     /// @brief Read entire file into an std::string
     /// @throws Exception on failure
-    static std::string read(const fs::path& filename) {
+    [[nodiscard]] static std::string read(const fs::path& filename) {
       if (std::ifstream ifs{filename, std::ios::ate | std::ios::binary}) {
         std::string buffer(ifs.tellg(), '\000');
         ifs.seekg(0, std::ios::beg);
@@ -26,7 +26,7 @@ namespace tgbotxx {
 
     /// @brief Read entire file lines into std::vector<std::string>
     /// @throws Exception on failure
-    static std::vector<std::string> readLines(const fs::path& filename) {
+    [[nodiscard]] static std::vector<std::string> readLines(const fs::path& filename) {
       if (std::ifstream ifs{filename, std::ios::binary}) {
         std::vector<std::string> lines{};
         std::string line{};

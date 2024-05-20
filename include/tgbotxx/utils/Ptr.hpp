@@ -27,8 +27,8 @@ namespace tgbotxx {
   struct isPtr<CPtrC<T>> : std::true_type {};
 
 
-  template<typename T, typename ... Args>
-  static Ptr<T> makePtr(Args&& ... args) {
-    return Ptr<T>(new T(std::forward<Args>(args)...));
+  template<typename T, typename... Args>
+  [[nodiscard]] static Ptr<T> makePtr(Args&&...args) {
+    return std::make_shared<T>(std::forward<Args>(args)...);
   }
 }
