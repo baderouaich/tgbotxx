@@ -58,7 +58,7 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
-  bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
+  const bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
   session.SetConnectTimeout(m_connectTimeout);
   session.SetTimeout(hasFiles ? m_uploadFilesTimeout : m_timeout); // Files can take longer to upload
   session.SetHeader(cpr::Header{
@@ -70,13 +70,13 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   std::ostringstream url{};
   url << m_apiUrl << "/bot" << m_token << '/' << endpoint; // Note: token should have a prefix botTOKEN.
   session.SetUrl(cpr::Url{url.str()});
-  bool isMultipart = not data.parts.empty();
+  const bool isMultipart = not data.parts.empty();
   if (isMultipart) {
     session.SetMultipart(data);
     session.UpdateHeader(cpr::Header{{{"Content-Type", "multipart/form-data"}}});
   }
 
-  cpr::Response res = isMultipart ? session.Post() : session.Get();
+  const cpr::Response res = isMultipart ? session.Post() : session.Get();
   if (res.status_code == 0) [[unlikely]] {
     throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?", ErrorCode::OTHER);
   }
@@ -85,12 +85,12 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 
   try {
-    nl::json response = nl::json::parse(res.text);
+    const nl::json response = nl::json::parse(res.text);
     if (response["ok"].get<bool>()) {
       return response["result"];
     } else {
       std::string desc = response["description"];
-      std::int32_t errorCode = response["error_code"];
+      const std::int32_t errorCode = response["error_code"];
       if (errorCode == cpr::status::HTTP_NOT_FOUND) {
         desc += ". Did you enter the correct bot token?";
       }
@@ -99,9 +99,9 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   } catch (const nl::json::exception& e) {
     throw Exception(endpoint + ": Failed to parse JSON response: " + res.text + "\nreason: " + e.what());
   } catch (const Exception&) {
-    std::rethrow_exception(std::current_exception()); // rethrow e
+    throw; // rethrow Exception
   } catch (const std::exception&) {
-    std::rethrow_exception(std::current_exception()); // rethrow e
+    throw; // rethrow std::exception
   }
 }
 
