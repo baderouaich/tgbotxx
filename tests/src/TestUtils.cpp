@@ -51,16 +51,16 @@ TEST_CASE("StringUtils", "all functions") {
 
 TEST_CASE("DateTimeUtils", "all functions") {
   SECTION("currentDateTime") {
-    std::string nowStr = DateTimeUtils::currentDateTime();
+    std::string nowStr = DateTimeUtils::now();
     Catch::cout() << nowStr << std::endl;
     REQUIRE(nowStr.find('-') != std::string::npos);
     REQUIRE(nowStr.find(':') != std::string::npos);
 
-    std::string dateOnly = DateTimeUtils::currentDateTime("%Y-%m-%d");
+    std::string dateOnly = DateTimeUtils::now("%Y-%m-%d");
     Catch::cout() << dateOnly << std::endl;
     REQUIRE(dateOnly.find('-') != std::string::npos);
 
-    std::string timeOnly = DateTimeUtils::currentDateTime("%H:%M:%S");
+    std::string timeOnly = DateTimeUtils::now("%H:%M:%S");
     Catch::cout() << timeOnly << std::endl;
     REQUIRE(timeOnly.find(':') != std::string::npos);
   }

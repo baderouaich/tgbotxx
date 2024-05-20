@@ -11,8 +11,8 @@ namespace tgbotxx {
     /// @param time std::time_t value to convert
     /// @param format Format of the date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05) https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
     /// @returns time as string date time with the specific format
-    static std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
-      char buffer[64]{};
+    [[nodiscard]] static std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+      char buffer[128]{};
       tm tm_{};
 #ifdef _WIN32
       localtime_s(&tm_, &time);
@@ -27,21 +27,25 @@ namespace tgbotxx {
     /// @param dateTimeStr String date time to convert
     /// @param format Format of the string date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05) https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
     /// @returns std::time_t
-    static std::time_t fromString(const std::string& dateTimeStr, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+    [[nodiscard]] static std::time_t fromString(const std::string& dateTimeStr, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
       std::tm tm{};
-      std::istringstream iss{};
-      iss.str(dateTimeStr);
+      std::istringstream iss{dateTimeStr};
       iss >> std::get_time(&tm, format.data());
-      std::time_t dateTime = std::mktime(&tm);
-      return dateTime;
+      return std::mktime(&tm);
     }
 
     /// @brief returns current date and time as a string with a specific format
     /// @param format Format of the date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05) https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
     /// @returns current date time string
-    static std::string currentDateTime(const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
-      std::time_t now = std::time(nullptr);
-      return toString(now, format);
+    [[nodiscard]] static std::string now(const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+      const std::time_t tm = std::time(nullptr);
+      return toString(tm, format);
     }
+
+    [[deprecated("Use DateTimeUtils::now() instead")]]
+    [[nodiscard]] static std::string currentDateTime(const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+      return now(format);
+    }
+
   }
 }
