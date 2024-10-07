@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  TESTS_BOT_TOKEN: ${{ secrets.TESTS_BOT_TOKEN }}
+  
 jobs:
   build:
     # https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
