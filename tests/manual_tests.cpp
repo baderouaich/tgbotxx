@@ -503,7 +503,7 @@ static std::string getToken() {
 
 int main() try {
   static MyBot bot(getToken());
-  std::signal(SIGINT, [](int) {
+  std::signal(SIGINT | SIGTERM, [](int) {
     std::cout << "Stopping Bot. Please wait...\n";
     bot.stop();
     std::exit(EXIT_SUCCESS);

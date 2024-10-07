@@ -15,6 +15,10 @@ Telegram Bot C++ Library
 
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
+[//]: # (### Third party libs)
+[//]: # (- [nlohmann-json]&#40;https://github.com/nlohmann/json&#41; for JSON parsing)
+[//]: # (- [cpr]&#40;https://github.com/libcpr/cpr&#41; for HTTP client)
+
 ### CI Status
 
 | Operating system | Build status                                                                                                                                                                                      |
