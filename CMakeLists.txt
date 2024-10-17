@@ -12,6 +12,9 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 
 ################## Libraries ##########################
 ## libcpr curl
+set(USE_LIBIDN2 OFF CACHE BOOL "Curl option - Use libidn2 for IDN support" FORCE)
+set(CURL_USE_LIBPSL OFF CACHE BOOL "Curl option - Use libpsl" FORCE)
+set(BUILD_CURL_EXE OFF CACHE BOOL "Curl option - Build curl executable" FORCE)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
 ######################################################
 

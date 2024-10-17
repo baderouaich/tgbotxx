@@ -25,8 +25,7 @@ jobs:
       run: |
         brew update
         brew install ninja
-        brew install libidn2
-          
+
     - name: Ensure deps are installed
       run: |
         cmake --version
