@@ -1,8 +1,15 @@
 #include "cpr/threadpool.h"
+#include <chrono>
+#include <cstddef>
+#include <ctime>
+#include <memory>
+#include <mutex>
+#include <thread>
+#include <utility>
 
 namespace cpr {
 
-ThreadPool::ThreadPool(size_t min_threads, size_t max_threads, std::chrono::milliseconds max_idle_ms) : min_thread_num(min_threads), max_thread_num(max_threads), max_idle_time(max_idle_ms), status(STOP), cur_thread_num(0), idle_thread_num(0) {}
+ThreadPool::ThreadPool(size_t min_threads, size_t max_threads, std::chrono::milliseconds max_idle_ms) : min_thread_num(min_threads), max_thread_num(max_threads), max_idle_time(max_idle_ms) {}
 
 ThreadPool::~ThreadPool() {
     Stop();
@@ -26,16 +33,21 @@ int ThreadPool::Start(size_t start_threads) {
 }
 
 int ThreadPool::Stop() {
+    const std::unique_lock status_lock(status_wait_mutex);
     if (status == STOP) {
         return -1;
     }
+
     status = STOP;
+    status_wait_cond.notify_all();
     task_cond.notify_all();
+
     for (auto& i : threads) {
         if (i.thread->joinable()) {
             i.thread->join();
         }
     }
+
     threads.clear();
     cur_thread_num = 0;
     idle_thread_num = 0;
@@ -50,8 +62,10 @@ int ThreadPool::Pause() {
 }
 
 int ThreadPool::Resume() {
+    const std::unique_lock status_lock(status_wait_mutex);
     if (status == PAUSE) {
         status = RUNNING;
+        status_wait_cond.notify_all();
     }
     return 0;
 }
@@ -73,8 +87,9 @@ bool ThreadPool::CreateThread() {
     std::thread* thread = new std::thread([this] {
         bool initialRun = true;
         while (status != STOP) {
-            while (status == PAUSE) {
-                std::this_thread::yield();
+            {
+                std::unique_lock status_lock(status_wait_mutex);
+                status_wait_cond.wait(status_lock, [this]() { return status != Status::PAUSE; });
             }
 
             Task task;
@@ -117,14 +132,15 @@ void ThreadPool::AddThread(std::thread* thread) {
     data.thread = std::shared_ptr<std::thread>(thread);
     data.id = thread->get_id();
     data.status = RUNNING;
-    data.start_time = time(nullptr);
-    data.stop_time = 0;
+    data.start_time = std::chrono::steady_clock::now();
+    data.stop_time = std::chrono::steady_clock::time_point::max();
     threads.emplace_back(data);
     thread_mutex.unlock();
 }
 
 void ThreadPool::DelThread(std::thread::id id) {
-    const time_t now = time(nullptr);
+    const std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
+
     thread_mutex.lock();
     --cur_thread_num;
     --idle_thread_num;
@@ -138,7 +154,7 @@ void ThreadPool::DelThread(std::thread::id id) {
             }
         } else if (iter->id == id) {
             iter->status = STOP;
-            iter->stop_time = time(nullptr);
+            iter->stop_time = std::chrono::steady_clock::now();
         }
         ++iter;
     }

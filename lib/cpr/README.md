@@ -93,7 +93,7 @@ Add the following to your `CMakeLists.txt`.
 ```cmake
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
-                         GIT_TAG 0817715923c9705e68994eb52ef9df3f6845beba) # The commit hash for 1.10.x. Replace with the latest from: https://github.com/libcpr/cpr/releases
+                         GIT_TAG 3b15fa82ea74739b574d705fea44959b58142eb8) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
 FetchContent_MakeAvailable(cpr)
 ```
 
@@ -112,17 +112,37 @@ If you prefer not to use `fetch_content`, you can download, build, and install t
 
 **Note:** this feature is feasible only if CPR_USE_SYSTEM_CURL is set. (see [#645](https://github.com/libcpr/cpr/pull/645))
 ```Bash
-$ git clone https://github.com/libcpr/cpr.git
-$ cd cpr && mkdir build && cd build
-$ cmake .. -DCPR_USE_SYSTEM_CURL=ON
-$ cmake --build .
-$ sudo cmake --install .
+git clone https://github.com/libcpr/cpr.git
+cd cpr && mkdir build && cd build
+cmake .. -DCPR_USE_SYSTEM_CURL=ON
+cmake --build . --parallel
+sudo cmake --install .
 ```
+#### Build Static Library
+As an alternative if you want to switch between a static or shared version of cpr use ['-DBUILD_SHARED_LIBS=ON/OFF'](https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html).
+```Bash
+git clone https://github.com/libcpr/cpr.git
+cd cpr && mkdir build && cd build
+cmake .. -DCPR_USE_SYSTEM_CURL=ON -DBUILD_SHARED_LIBS=OFF
+cmake --build . --parallel
+sudo cmake --install .
+```
+
 In your `CMakeLists.txt`:
 ```cmake
 find_package(cpr REQUIRED)
 add_executable(your_target_name your_target_name.cpp)
 target_link_libraries(your_target_name PRIVATE cpr::cpr)
+```
+
+#### Tests
+`cpr` provides a bunch of tests that can be executed via the following commands.
+```Bash
+git clone https://github.com/libcpr/cpr.git
+cd cpr && mkdir build && cd build
+cmake .. -DCPR_BUILD_TESTS=ON # There are other test related options like 'CPR_BUILD_TESTS_SSL' and 'CPR_BUILD_TESTS_PROXY'
+cmake --build . --parallel
+ctest -VV # -VV is optional since it enables verbose output
 ```
 
 ### Bazel
@@ -136,6 +156,7 @@ Alternatively, you may install a package specific to your Linux distribution. Si
 Currently, we are aware of packages for the following distributions:
 
 * [Arch Linux (AUR)](https://aur.archlinux.org/packages/cpr)
+* [Fedora Linux](https://src.fedoraproject.org/rpms/cpr)
 
 If there's no package for your distribution, try making one! If you do, and it is added to your distribution's repositories, please submit a pull request to add it to the list above. However, please only do this if you plan to actively maintain the package.
 
@@ -145,6 +166,10 @@ For Windows, there is also a libcpr NuGet package available. Currently, x86 and 
 
 The package can be found here: [NuGet.org](https://www.nuget.org/packages/libcpr/)
 
+### Port for macOS
+
+On macOS you may install cpr via [MacPorts.org](https://ports.macports.org/port/cpr) (arm64, x86_64, powerpc)
+
 ## Requirements
 
 The only explicit requirements are:
@@ -152,6 +177,7 @@ The only explicit requirements are:
 * a `C++17` compatible compiler such as Clang or GCC. The minimum required version of GCC is unknown, so if anyone has trouble building this library with a specific version of GCC, do let us know
 * in case you only have a `C++11` compatible compiler available, all versions below cpr 1.9.x are for you. The 1.10.0 release of cpr switches to `C++17` as a requirement.
 * If you would like to perform https requests `OpenSSL` and its development libraries are required.
+* If you do not use the build in version of [curl](https://github.com/curl/curl) but instead use your systems version, make sure you use a version `>= 7.64.0`. Lower versions are not supported. This means you need Debian `>= 10` or Ubuntu `>= 20.04 LTS`.
 
 ## Building cpr - Using vcpkg
 

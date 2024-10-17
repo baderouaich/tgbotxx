@@ -1,29 +1,43 @@
 #include "cpr/util.h"
-
+#include "cpr/callback.h"
+#include "cpr/cookies.h"
+#include "cpr/cprtypes.h"
+#include "cpr/curlholder.h"
 #include <algorithm>
-#include <cassert>
 #include <cctype>
 #include <chrono>
 #include <cstdint>
+#include <ctime>
+#include <curl/curl.h>
 #include <fstream>
-#include <iomanip>
 #include <ios>
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #if defined(_Win32)
 #include <Windows.h>
 #else
+#ifdef __clang__
+#pragma clang diagnostic push
+#if __has_warning("-Wreserved-macro-identifier") // Not all versions of clang support this flag like the one used on Ubuntu 18.04
+#pragma clang diagnostic ignored "-Wreserved-macro-identifier"
+#endif
+#pragma clang diagnostic ignored "-Wunused-macros"
+#endif
 // https://en.cppreference.com/w/c/string/byte/memset
 // NOLINTNEXTLINE(bugprone-reserved-identifier, cert-dcl37-c, cert-dcl51-cpp, cppcoreguidelines-macro-usage)
 #define __STDC_WANT_LIB_EXT1__ 1
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #include <cstring>
 #endif
 
 namespace cpr::util {
 
-enum class CurlHTTPCookieField : size_t {
+enum class CurlHTTPCookieField : uint8_t {
     Domain = 0,
     IncludeSubdomains,
     Path,
@@ -41,7 +55,7 @@ Cookies parseCookies(curl_slist* raw_cookies) {
         while (tokens.size() < CURL_HTTP_COOKIE_SIZE) {
             tokens.emplace_back("");
         }
-        const std::time_t expires = static_cast<time_t>(std::stoul(tokens.at(static_cast<size_t>(CurlHTTPCookieField::Expires))));
+        const std::time_t expires = sTimestampToT(tokens.at(static_cast<size_t>(CurlHTTPCookieField::Expires)));
         cookies.emplace_back(Cookie{
                 tokens.at(static_cast<size_t>(CurlHTTPCookieField::Name)),
                 tokens.at(static_cast<size_t>(CurlHTTPCookieField::Value)),
@@ -57,16 +71,9 @@ Cookies parseCookies(curl_slist* raw_cookies) {
 
 Header parseHeader(const std::string& headers, std::string* status_line, std::string* reason) {
     Header header;
-    std::vector<std::string> lines;
     std::istringstream stream(headers);
-    {
-        std::string line;
-        while (std::getline(stream, line, '\n')) {
-            lines.push_back(line);
-        }
-    }
-
-    for (std::string& line : lines) {
+    std::string line;
+    while (std::getline(stream, line, '\n')) {
         if (line.substr(0, 5) == "HTTP/") {
             // set the status_line if it was given
             if ((status_line != nullptr) || (reason != nullptr)) {
@@ -91,7 +98,7 @@ Header parseHeader(const std::string& headers, std::string* status_line, std::st
             header.clear();
         }
 
-        if (line.length() > 0) {
+        if (!line.empty()) {
             const size_t found = line.find(':');
             if (found != std::string::npos) {
                 std::string value = line.substr(found + 1);
@@ -221,8 +228,27 @@ void secureStringClear(std::string& s) {
 
 bool isTrue(const std::string& s) {
     std::string temp_string{s};
-    std::transform(temp_string.begin(), temp_string.end(), temp_string.begin(), [](unsigned char c) { return std::tolower(c); });
+    std::transform(temp_string.begin(), temp_string.end(), temp_string.begin(), [](unsigned char c) { return static_cast<unsigned char>(std::tolower(c)); });
     return temp_string == "true";
+}
+
+time_t sTimestampToT(const std::string& st) {
+    // NOLINTNEXTLINE(google-runtime-int)
+    if (std::is_same_v<time_t, unsigned long>) {
+        return static_cast<time_t>(std::stoul(st));
+    }
+    // NOLINTNEXTLINE(google-runtime-int)
+    if (std::is_same_v<time_t, unsigned long long>) {
+        return static_cast<time_t>(std::stoull(st));
+    }
+    if (std::is_same_v<time_t, int>) {
+        return static_cast<time_t>(std::stoi(st));
+    }
+    // NOLINTNEXTLINE(google-runtime-int)
+    if (std::is_same_v<time_t, long>) {
+        return static_cast<time_t>(std::stol(st));
+    }
+    return static_cast<time_t>(std::stoll(st));
 }
 
 } // namespace cpr::util
