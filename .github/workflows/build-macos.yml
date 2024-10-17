@@ -25,11 +25,8 @@ jobs:
       run: |
         brew update
         brew install ninja
-        brew install llvm@18
-        echo 'export PATH="/opt/homebrew/opt/llvm@18/bin:$PATH"' >> /Users/runner/.bash_profile
-        export LDFLAGS="-L/opt/homebrew/opt/llvm@18/lib"
-        export CPPFLAGS="-I/opt/homebrew/opt/llvm@18/include"
-  
+        brew install libidn2
+          
     - name: Ensure deps are installed
       run: |
         cmake --version
