@@ -24,11 +24,12 @@ jobs:
     - name: Install deps
       run: |
         brew install ninja
+        brew install llvm@18
 
     - name: Ensure deps are installed
       run: |
         cmake --version
-        clang++ --version
+        clang++-18 --version
         ninja --version
 
     - name: Print system information
@@ -37,7 +38,7 @@ jobs:
     - name: Build & run CText flow
       run: |
         mkdir cmake-build-debug && cd cmake-build-debug
-        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
+        cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON -DCMAKE_CXX_COMPILER=clang++-18 -DCMAKE_C_COMPILER=clang-18
         export TESTS_BOT_TOKEN=${{ secrets.TESTS_BOT_TOKEN }}
         ninja tests/all -j$(sysctl -n hw.logicalcpu)
         ninja test
