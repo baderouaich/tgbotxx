@@ -1,7 +1,5 @@
-# Generated from CLion C/C++ Code Style settings
-BasedOnStyle: LLVM
+BasedOnStyle: Google
 AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: None
 AlignOperands: Align
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
@@ -14,7 +12,6 @@ AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterReturnType: None
 AlwaysBreakTemplateDeclarations: Yes
-BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
@@ -38,6 +35,9 @@ ContinuationIndentWidth: 2
 IndentCaseLabels: true
 IndentPPDirectives: None
 IndentWidth: 2
+BracedInitializerIndentWidth: 2
+PPIndentWidth: 2
+ConstructorInitializerIndentWidth: 2
 KeepEmptyLinesAtTheStartOfBlocks: true
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
@@ -63,7 +63,13 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 TabWidth: 2
 UseTab: Never
-IndentAccessModifiers: true
-AccessModifierOffset: 0
+AccessModifierOffset: -2
 ReferenceAlignment: Left
 FixNamespaceComments: false
+IndentAccessModifiers: false
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+BreakBeforeBraces: Attach
+SortIncludes: Never
