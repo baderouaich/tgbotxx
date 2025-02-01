@@ -2,8 +2,8 @@ var classtgbotxx_1_1_bot =
 [
     [ "Bot", "classtgbotxx_1_1_bot.html#a1ebb9fd1e98cb5d0c32e811b7081582e", null ],
     [ "~Bot", "classtgbotxx_1_1_bot.html#aff8f11497ae56bb196d01770e083f206", null ],
-    [ "api", "classtgbotxx_1_1_bot.html#a22bb788ca3f247f896461a9641004e10", null ],
-    [ "getApi", "classtgbotxx_1_1_bot.html#a6d761bb5f4173d2599203d4cae349885", null ],
+    [ "api", "classtgbotxx_1_1_bot.html#a5d712cbbb0580bb30e0ee7047f0cdad8", null ],
+    [ "getApi", "classtgbotxx_1_1_bot.html#add8287db127a2816dabf09f88ba6347d", null ],
     [ "isRunning", "classtgbotxx_1_1_bot.html#a1eb49017c722158d92fe12508be3274e", null ],
     [ "onAnyMessage", "classtgbotxx_1_1_bot.html#a6c84a180cc2ac4bae2e631364f7be5af", null ],
     [ "onCallbackQuery", "classtgbotxx_1_1_bot.html#a120b097882c3644aec9925216b979c9b", null ],

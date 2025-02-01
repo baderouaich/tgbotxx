@@ -1,6 +1,6 @@
 var _exception_8hpp =
 [
-    [ "Exception", "classtgbotxx_1_1_exception.html", "classtgbotxx_1_1_exception" ],
+    [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", "classtgbotxx_1_1_exception" ],
     [ "ErrorCode", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9af", [
       [ "OTHER", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa03570470bad94692ce93e32700d2e1cb", null ],
       [ "SEE_OTHER", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503", null ],
@@ -16,5 +16,5 @@ var _exception_8hpp =
       [ "INTERNAL", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
     ] ],
     [ "isErrorCode", "_exception_8hpp.html#af33b48f92738c1b891e948e93829a440", null ],
-    [ "operator<<", "_exception_8hpp.html#a7b0b4af74a94b42f677398a31520c0f1", null ]
+    [ "operator<<", "_exception_8hpp.html#a68c2dd07dbf43290d68e1d21b16f948c", null ]
 ];

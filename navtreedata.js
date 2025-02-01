@@ -43,7 +43,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -60,14 +60,21 @@ var NAVTREEINDEX =
 [
 "_animation_8hpp.html",
 "_switch_inline_query_chosen_chat_8hpp_source.html",
-"functions_o.html",
-"structtgbotxx_1_1_chat.html#ae26a1521f46808377a8b94e3265cabaa",
-"structtgbotxx_1_1_dice.html#aaab0994b577d12d081fb026b164918bb",
-"structtgbotxx_1_1_inline_query_result_cached_video.html#a06e8592105cc9e01043620a874923b84",
-"structtgbotxx_1_1_input_media_document.html#a3844707ca031e7c54e17ffeb5bd6d9e3",
-"structtgbotxx_1_1_message_entity.html#a1b5ee432ab3cd34377ddb624896c9946",
-"structtgbotxx_1_1_reply_keyboard_markup.html#a6993072d0422493b5297a51ae316b4f2",
-"structtgbotxx_1_1_web_app_data.html#acf8ab54bdd80b4bcb44e5bde9960a004"
+"classtgbotxx_1_1_api.html#acc02dd712b3724f7a91c55f4ea630cf5",
+"namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8",
+"structtgbotxx_1_1_chat.html#a3fe55ec157658bcb4437fe24dc474e36",
+"structtgbotxx_1_1_chat_join_request.html",
+"structtgbotxx_1_1_chat_photo.html#aec7f812968eee512e74b0e311b1f6ef5",
+"structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d",
+"structtgbotxx_1_1_inline_query_result_cached_gif.html#ac1d351eeae5f77b0c0883a0df9003a16",
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a09d872a6eb6482366e52cc86913cc02f",
+"structtgbotxx_1_1_input_location_message_content.html#ac4cd1387790f7cef9b631deaf1159bb8",
+"structtgbotxx_1_1_keyboard_button_request_chat.html#a5c18a3ac18c513e68fff83c2911417c7",
+"structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494",
+"structtgbotxx_1_1_passport_element_error_file.html#a794b87bdc27bc19d34366ba79e634caf",
+"structtgbotxx_1_1_proximity_alert_triggered.html#ac8d44ba6a3db0404193ff530fe11b8bd",
+"structtgbotxx_1_1_sticker_set.html#aa7bee8f1dea71de9b00186dfece318c1",
+"structtgbotxx_1_1_video_chat_scheduled.html#aacaa4d966037bccf94339c314efdc241"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

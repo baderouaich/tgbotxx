@@ -10,7 +10,7 @@ var _string_utils_8hpp =
     [ "replaceCopy", "_string_utils_8hpp.html#a50fc52e61bbe0e73c63a25e354bae3b2", null ],
     [ "rtrim", "_string_utils_8hpp.html#a4c131fdd91255871f5b5144441c50a58", null ],
     [ "rtrimCopy", "_string_utils_8hpp.html#ad7c80e7ef45fa92f57e2baf36dbbf869", null ],
-    [ "split", "_string_utils_8hpp.html#a6d65a9679afbc01aa6785fba77616005", null ],
+    [ "split", "_string_utils_8hpp.html#a67285a466869e2623323aaebf1d3170b", null ],
     [ "startsWith", "_string_utils_8hpp.html#a0e1c43908f57edb496b00522dee6ea80", null ],
     [ "to", "_string_utils_8hpp.html#afdad1b1777a5871c9bcfc1a43b0b259e", null ],
     [ "toLower", "_string_utils_8hpp.html#a25c61880c312dc6b4af7d42beaa1dbfd", null ],
