@@ -20,7 +20,7 @@ namespace tgbotxx {
       std::int32_t iconColor{};
 
       /// @brief Optional. Unique identifier of the custom emoji shown as the topic icon
-      std::int32_t iconCustomEmojiId{};
+      std::string iconCustomEmojiId{};
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
@@ -38,7 +38,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "message_thread_id", messageThreadId, 0, false);
         OBJECT_DESERIALIZE_FIELD(json, "name", name, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "icon_color", iconColor, 0x000000, false);
-        OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, 0, true);
+        OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, "", true);
       }
   };
 }
