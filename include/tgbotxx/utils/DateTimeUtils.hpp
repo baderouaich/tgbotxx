@@ -31,6 +31,7 @@ namespace tgbotxx {
       std::tm tm{};
       std::istringstream iss{dateTimeStr};
       iss >> std::get_time(&tm, format.data());
+      tm.tm_isdst = -1; // let mktime() determine DST correctly
       return std::mktime(&tm);
     }
 
