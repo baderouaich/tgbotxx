@@ -16,7 +16,9 @@ Telegram Bot C++ Library
 Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
 
 [//]: # (### Third party libs)
+
 [//]: # (- [nlohmann-json]&#40;https://github.com/nlohmann/json&#41; for JSON parsing)
+
 [//]: # (- [cpr]&#40;https://github.com/libcpr/cpr&#41; for HTTP client)
 
 ### CI Status
@@ -31,17 +33,17 @@ Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegra
 
 > see [examples](examples/) for more
 
-| Example                                                  | Description                                                                                               |                                           Preview                                           |
-|:---------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------:|
-| [WeatherBot](examples/WeatherBot)                        | Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/). |          <img src="examples/WeatherBot/img/preview.jpg" alt="preview" width="200">          |
-| [EarthquakeBot](examples/EarthquakeBot)                  | Bot that will alert you if there is a recent earthquake somewhere in the world.                           |         <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">         |
-| [QrCodeBot](examples/QrCodeBot)                          | Bot that can generate QrCode images from text and extract text from QrCode Images.                        |           <img src="examples/QrCodeBot/img/encode.jpg" alt="preview" width="200">           |
-| [UrlShortenerBot](examples/UrlShortenerBot)              | Bot for shortening URLs.                                                                                  |       <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200">        |
-| [Inline Buttons](examples/Buttons/InlineKeyboardButton)  | Bot that uses inline keyboard buttons to interact with users.                                             | <img src="examples/Buttons/InlineKeyboardButton/img/preview.jpg" alt="preview" width="200"> |
-| [Keyboard Buttons](examples/Buttons/ReplyKeyboardMarkup) | Bot that uses keyboard buttons to interact with users.                                                    | <img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200">  |
-| [PaidSubscriptionBot](examples/PaidSubscriptionBot)      | Bot that offers it's services for a paid subscription.                                                    |   <img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200">   |
-| [ThreadPoolBot](examples/ThreadPoolBot)                  | Bot that uses a ThreadPool to handle multiple requests simultaneously.                                    |        <img src="examples/ThreadPoolBot/img/preview2.png" alt="preview" width="200">        |
-| [GitWatcherBot](https://github.com/baderouaich/GitWatcherBot)                | Real world Bot that you can use to watch repositories changes and get notified about (stars, forks, issues, watchers and pulls).                                |        <img src="https://i.ibb.co/XDXV2PZ/NEW.jpg" alt="preview" width="200">        |
+| Example                                                       | Description                                                                                                                      |                                           Preview                                           |
+|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------:|
+| [WeatherBot](examples/WeatherBot)                             | Bot that displays the weather information of a city using the [weather api](https://www.weatherapi.com/).                        |          <img src="examples/WeatherBot/img/preview.jpg" alt="preview" width="200">          |
+| [EarthquakeBot](examples/EarthquakeBot)                       | Bot that will alert you if there is a recent earthquake somewhere in the world.                                                  |         <img src="examples/EarthquakeBot/img/alerts.jpg" alt="preview" width="200">         |
+| [QrCodeBot](examples/QrCodeBot)                               | Bot that can generate QrCode images from text and extract text from QrCode Images.                                               |           <img src="examples/QrCodeBot/img/encode.jpg" alt="preview" width="200">           |
+| [UrlShortenerBot](examples/UrlShortenerBot)                   | Bot for shortening URLs.                                                                                                         |       <img src="examples/UrlShortenerBot/img/preview.jpg" alt="preview" width="200">        |
+| [Inline Buttons](examples/Buttons/InlineKeyboardButton)       | Bot that uses inline keyboard buttons to interact with users.                                                                    | <img src="examples/Buttons/InlineKeyboardButton/img/preview.jpg" alt="preview" width="200"> |
+| [Keyboard Buttons](examples/Buttons/ReplyKeyboardMarkup)      | Bot that uses keyboard buttons to interact with users.                                                                           | <img src="examples/Buttons/ReplyKeyboardMarkup/img/preview.jpg" alt="preview" width="200">  |
+| [PaidSubscriptionBot](examples/PaidSubscriptionBot)           | Bot that offers it's services for a paid subscription.                                                                           |   <img src="examples/PaidSubscriptionBot/photos/checkout2.jpg" alt="preview" width="200">   |
+| [ThreadPoolBot](examples/ThreadPoolBot)                       | Bot that uses a ThreadPool to handle multiple requests simultaneously.                                                           |        <img src="examples/ThreadPoolBot/img/preview2.png" alt="preview" width="200">        |
+| [GitWatcherBot](https://github.com/baderouaich/GitWatcherBot) | Real world Bot that you can use to watch repositories changes and get notified about (stars, forks, issues, watchers and pulls). |           <img src="https://i.ibb.co/XDXV2PZ/NEW.jpg" alt="preview" width="200">            |
 
 [//]: # (### Usage)
 
@@ -68,24 +70,29 @@ using namespace tgbotxx;
 
 class MyBot : public Bot {
 public:
-  MyBot() : Bot("BOT_TOKEN_FROM_BOT_FATHER") {}
+  MyBot() : Bot("Bot token here from @BotFather") {}
     
 private:
+  // Called before Bot starts receiving updates
   void onStart() override {
-    // Called before Bot starts receiving updates
     // Initialize your code here...
     std::cout << "Bot Started\n";
   }
+  
+  // Called before Bot shuts down (triggered by Bot::stop())
   void onStop() override {
-    // Called before Bot shuts down (triggered by Bot::stop())
     // Cleanup your code here
     std::cout << "Bot Stopped\n";
   }
+  
+  // Called when Bot receives a new message of any kind
+  // NB: Ptr<T> = std::shared_ptr<T>
   void onAnyMessage(const Ptr<Message>& message) override {
-    // Called when Bot receives a new message of any kind
-    // NB: a Ptr<T> is just an alias to std::shared_ptr<T>
-    api()->sendMessage(message->chat->id, "Hi " + message->from->firstName + "!, got your message!");
+    std::string reply = "Hi " + message->from->firstName
+                        + "!, got your message!";
+    api()->sendMessage(message->chat->id, reply);
   }
+  
   // override other callbacks if needed... 
 };
 
@@ -247,8 +254,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 FetchContent_Declare(tgbotxx
-  GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-  GIT_TAG main
+        GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
+        GIT_TAG "main"
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        EXCLUDE_FROM_ALL
 )
 FetchContent_MakeAvailable(tgbotxx)
 
@@ -280,7 +290,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(tgbotxx REQUIRED tgbotxx)
 
 if (NOT tgbotxx_FOUND)
-  message(FATAL_ERROR "Did you install tgbotxx locally?")
+    message(FATAL_ERROR "Did you install tgbotxx locally?")
 endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -307,7 +317,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(tgbotxx REQUIRED)
 
 if (NOT tgbotxx_FOUND)
-  message(FATAL_ERROR "Did you install tgbotxx locally?")
+    message(FATAL_ERROR "Did you install tgbotxx locally?")
 endif ()
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -351,8 +361,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC tgbotxx) # <-- link with tgbotxx
 
 </details>
 
-
 ### Other actively maintained Telegram Bot C++ Libraries
+
 - [tgbot-cpp](https://github.com/reo7sp/tgbot-cpp): C++ library for Telegram bot API
 - [tgbot](https://github.com/egorpugin/tgbot): C++ library for Telegram Bot API with generated API types and methods
 
