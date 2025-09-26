@@ -34,12 +34,11 @@ target_include_directories(${PROJECT_NAME}
         )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
 add_compile_definitions(TGBOTXX_VERSION="${PROJECT_VERSION}")
-#if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-#    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
-#elseif (MSVC)
-#    target_compile_options(${PROJECT_NAME} PRIVATE /W4)
-#endif()
-
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Wno-unused-function -Wno-unused-parameter)
+elseif (MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /wd4100 /wd4505)
+endif()
 ###### Installation ######
 include(cmake/install.cmake)
 ############################
