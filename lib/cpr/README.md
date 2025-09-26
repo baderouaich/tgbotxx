@@ -15,8 +15,7 @@
 | master   | `cpp17` | ![alt text][preview] | |
 | 1.11.x   | `cpp17` | ![alt text][supported] | |
 | 1.10.x   | `cpp17` | ![alt text][unsupported] | |
-| 1.9.x    | `cpp11` | ![alt text][supported] | Supported until 01.01.2025 |
-| <= 1.8.x | `cpp11` | ![alt text][unsupported] | |
+| <= 1.9.x | `cpp11` | ![alt text][unsupported] | |
 
 [unsupported]: https://img.shields.io/badge/-unsupported-red "unsupported"
 [supported]: https://img.shields.io/badge/-supported-green "supported"
@@ -26,7 +25,7 @@
 
 C++ Requests is a simple wrapper around [libcurl](http://curl.haxx.se/libcurl) inspired by the excellent [Python Requests](https://github.com/kennethreitz/requests) project.
 
-Despite its name, libcurl's easy interface is anything but, and making mistakes, misusing it is a common source of error and frustration. Using the more expressive language facilities of `C++17` (or `C++11` in case you use cpr < 1.10.0), this library captures the essence of making network calls into a few concise idioms.
+Despite its name, libcurl's easy interface is far from simple, and errors and frustration often arise from mistakes or misuse. By leveraging the more expressive features of `C++17` (or `C++11` if using cpr <`= 1.9.x), this library distills the process of making network calls into a few clear and concise idioms.
 
 Here's a quick GET request:
 
@@ -94,7 +93,7 @@ Add the following to your `CMakeLists.txt`.
 ```cmake
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
-                         GIT_TAG bb01c8db702fb41e5497aee9c0559ddf4bf13749) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
+                         GIT_TAG dec9422db3af470641f8b0d90e4b451c4daebf64) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
 FetchContent_MakeAvailable(cpr)
 ```
 
@@ -147,8 +146,48 @@ ctest -VV # -VV is optional since it enables verbose output
 ```
 
 ### Bazel
+Please refer to [hedronvision/bazel-make-cc-https-easy](https://github.com/hedronvision/bazel-make-cc-https-easy) or 
 
-Please refer to [hedronvision/bazel-make-cc-https-easy](https://github.com/hedronvision/bazel-make-cc-https-easy).
+`cpr` can be added as an extension by adding the following lines to your bazel MODULE file (tested with Bazel 8). Edit the versions as needed.
+```starlark
+bazel_dep(name = "curl", version = "8.8.0.bcr.3")
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "zlib", version = "1.3.1.bcr.5")
+bazel_dep(name = "boringssl", version = "0.20250212.0")
+bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "cpr",
+    url = "https://github.com/libcpr/cpr/archive/refs/tags/1.11.2.tar.gz",
+    strip_prefix = "cpr-1.11.2",
+    sha256 = "3795a3581109a9ba5e48fbb50f9efe3399a3ede22f2ab606b71059a615cd6084",
+    build_file_content = """
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+filegroup(
+    name = "srcs",
+    srcs = glob(["**"], ["bazel-*/**"]),
+    visibility = ["//visibility:public"],
+)
+
+cmake(
+    name = "cpr",
+    cache_entries = {
+    },
+    tags = ["requires-network"],
+    includes = ["include/cpr"],
+    lib_source = ":srcs",
+    out_shared_libs = select({
+        "@platforms//os:macos": ["libcpr.dylib"],
+        "@platforms//os:windows": ["libcpr.dll"],
+        "//conditions:default": ["libcpr.so.1"],
+    }),
+    visibility = ["//visibility:public"],
+)
+"""
+)
+```
 
 ### Packages for Linux Distributions
 

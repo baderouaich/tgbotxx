@@ -115,6 +115,17 @@ void Session::prepareHeader() {
     curl_->chunk = chunk;
 }
 
+void Session::prepareProxy() {
+    const std::string protocol = url_.str().substr(0, url_.str().find(':'));
+    if (proxies_.has(protocol)) {
+        curl_easy_setopt(curl_->handle, CURLOPT_PROXY, proxies_[protocol].c_str());
+        if (proxyAuth_.has(protocol)) {
+            curl_easy_setopt(curl_->handle, CURLOPT_PROXYUSERNAME, proxyAuth_.GetUsername(protocol));
+            curl_easy_setopt(curl_->handle, CURLOPT_PROXYPASSWORD, proxyAuth_.GetPassword(protocol));
+        }
+    }
+}
+
 // Only supported with libcurl >= 7.61.0.
 // As an alternative use SetHeader and add the token manually.
 #if LIBCURL_VERSION_NUM >= 0x073D00
@@ -172,14 +183,7 @@ void Session::prepareCommonShared() {
     }
 
     // Proxy:
-    const std::string protocol = url_.str().substr(0, url_.str().find(':'));
-    if (proxies_.has(protocol)) {
-        curl_easy_setopt(curl_->handle, CURLOPT_PROXY, proxies_[protocol].c_str());
-        if (proxyAuth_.has(protocol)) {
-            curl_easy_setopt(curl_->handle, CURLOPT_PROXYUSERNAME, proxyAuth_.GetUsername(protocol));
-            curl_easy_setopt(curl_->handle, CURLOPT_PROXYPASSWORD, proxyAuth_.GetPassword(protocol));
-        }
-    }
+    prepareProxy();
 
 #if LIBCURL_VERSION_NUM >= 0x071506 // 7.21.6
     if (acceptEncoding_.empty()) {
@@ -256,6 +260,26 @@ Response Session::makeRequest() {
 void Session::SetLimitRate(const LimitRate& limit_rate) {
     curl_easy_setopt(curl_->handle, CURLOPT_MAX_RECV_SPEED_LARGE, limit_rate.downrate);
     curl_easy_setopt(curl_->handle, CURLOPT_MAX_SEND_SPEED_LARGE, limit_rate.uprate);
+}
+
+const Content& Session::GetContent() const {
+    return content_;
+}
+
+void Session::RemoveContent() {
+    // inverse function to prepareBodyPayloadOrMultipart()
+    if (std::holds_alternative<cpr::Payload>(content_) || std::holds_alternative<cpr::Body>(content_)) {
+        // set default values, so curl does not send a body in subsequent requests
+        curl_easy_setopt(curl_->handle, CURLOPT_POSTFIELDSIZE_LARGE, -1);
+        curl_easy_setopt(curl_->handle, CURLOPT_COPYPOSTFIELDS, nullptr);
+    } else if (std::holds_alternative<cpr::Multipart>(content_)) {
+        if (curl_->multipart) {
+            // remove multipart data
+            curl_mime_free(curl_->multipart);
+            curl_->multipart = nullptr;
+        }
+    }
+    content_ = std::monostate{};
 }
 
 void Session::SetReadCallback(const ReadCallback& read) {
@@ -337,6 +361,14 @@ void Session::UpdateHeader(const Header& header) {
     for (const std::pair<const std::string, std::string>& item : header) {
         header_[item.first] = item.second;
     }
+}
+
+Header& Session::GetHeader() {
+    return header_;
+}
+
+const Header& Session::GetHeader() const {
+    return header_;
 }
 
 void Session::SetTimeout(const Timeout& timeout) {
@@ -438,8 +470,8 @@ void Session::SetBody(Body&& body) {
 }
 
 void Session::SetLowSpeed(const LowSpeed& low_speed) {
-    curl_easy_setopt(curl_->handle, CURLOPT_LOW_SPEED_LIMIT, low_speed.limit);
-    curl_easy_setopt(curl_->handle, CURLOPT_LOW_SPEED_TIME, low_speed.time);
+    curl_easy_setopt(curl_->handle, CURLOPT_LOW_SPEED_LIMIT, static_cast<long>(low_speed.limit));
+    curl_easy_setopt(curl_->handle, CURLOPT_LOW_SPEED_TIME, static_cast<long>(low_speed.time)); // cppcheck-suppress y2038-unsafe-call
 }
 
 void Session::SetVerifySsl(const VerifySsl& verify) {
@@ -473,6 +505,7 @@ void Session::SetSslOptions(const SslOptions& options) {
         // NOLINTNEXTLINE (readability-container-data-pointer)
         blob.data = &key_blob[0];
         blob.len = key_blob.length();
+        blob.flags = CURL_BLOB_COPY;
         curl_easy_setopt(curl_->handle, CURLOPT_SSLKEY_BLOB, &blob);
         if (!options.key_type.empty()) {
             curl_easy_setopt(curl_->handle, CURLOPT_SSLKEYTYPE, options.key_type.c_str());
@@ -542,7 +575,7 @@ void Session::SetSslOptions(const SslOptions& options) {
     }
 #if SUPPORT_TLSv13_CIPHERS
     if (!options.tls13_ciphers.empty()) {
-        curl_easy_setopt(curl_->handle, CURLOPT_TLS13_CIPHERS, options.ciphers.c_str());
+        curl_easy_setopt(curl_->handle, CURLOPT_TLS13_CIPHERS, options.tls13_ciphers.c_str());
     }
 #endif
 #if SUPPORT_SESSIONID_CACHE
@@ -639,14 +672,7 @@ cpr_off_t Session::GetDownloadFileLength() {
     cpr_off_t downloadFileLength = -1;
     curl_easy_setopt(curl_->handle, CURLOPT_URL, url_.c_str());
 
-    const std::string protocol = url_.str().substr(0, url_.str().find(':'));
-    if (proxies_.has(protocol)) {
-        curl_easy_setopt(curl_->handle, CURLOPT_PROXY, proxies_[protocol].c_str());
-        if (proxyAuth_.has(protocol)) {
-            curl_easy_setopt(curl_->handle, CURLOPT_PROXYUSERNAME, proxyAuth_.GetUsername(protocol));
-            curl_easy_setopt(curl_->handle, CURLOPT_PROXYPASSWORD, proxyAuth_.GetPassword(protocol));
-        }
-    }
+    prepareProxy();
 
     curl_easy_setopt(curl_->handle, CURLOPT_HTTPGET, 1);
     curl_easy_setopt(curl_->handle, CURLOPT_NOBODY, 1);
@@ -911,7 +937,7 @@ const std::optional<Response> Session::intercept() {
 }
 
 void Session::prepareBodyPayloadOrMultipart() const {
-    // Either a body, multipart or a payload is allowed.
+    // Either a body, multipart or a payload is allowed. Inverse function to RemoveContent()
 
     if (std::holds_alternative<cpr::Payload>(content_)) {
         const std::string payload = std::get<cpr::Payload>(content_).GetContent(*curl_);
