@@ -35,7 +35,7 @@ namespace tgbotxx {
       /// @brief Constructs a new Bot object
       /// @param token Bot token from the BotFather
       explicit Bot(const std::string& token);
-      ~Bot();
+      virtual ~Bot();
 
       /// @brief Start the long polling
       /// @throws Exception on failure
@@ -164,5 +164,6 @@ namespace tgbotxx {
       /// A Message can be a Command, EditedMessage, Normal Message, Channel Post... this function will dispatch accordingly
       /// @param message: Message to dispatch
       void dispatchMessage(const Ptr<Message>& message);
+      void dispatchMessageOLD(const Ptr<Message>& message);
   };
 }

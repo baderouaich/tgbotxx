@@ -1,14 +1,13 @@
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
-#include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-    : m_api(new Api(token)), m_lastUpdateId(0), m_running(false) {
+  : m_api{new Api(token)}, m_updates{}, m_lastUpdateId{0}, m_running{false} {
 }
 
 Bot::~Bot() {
@@ -30,13 +29,13 @@ void Bot::start() {
     } catch (const Exception& err) {
       /// Callback -> onLongPollError
       std::string errStr{err.what()};
-      StringUtils::replace(errStr, m_api->m_token, "***HIDDEN_BOT_TOKEN***"); // Hide bot token in the exception message for security reasons
+      StringUtils::replace(errStr, m_api->m_token, "***REDACTED***"); // Hide bot token in the exception message for security reasons
       this->onLongPollError(errStr, err.errorCode());
       continue;
     } catch (const std::exception& err) {
       /// Callback -> onLongPollError
       std::string errStr{err.what()};
-      StringUtils::replace(errStr, m_api->m_token, "***HIDDEN_BOT_TOKEN***"); // Hide bot token in the exception message for security reasons
+      StringUtils::replace(errStr, m_api->m_token, "***REDACTED***"); // Hide bot token in the exception message for security reasons
       this->onLongPollError(errStr, ErrorCode::OTHER);
       continue;
     } catch (...) {
@@ -66,7 +65,7 @@ void Bot::stop() {
 void Bot::dispatch(const Ptr<Update>& update) {
   /// A Message can be a Command, EditedMessage, Normal Message, Channel Post...
   if (update->message) {
-    /// ... this function will dispatch accordingly
+    /// ... dispatch the message accordingly
     this->dispatchMessage(update->message);
   }
 
@@ -150,28 +149,34 @@ void Bot::dispatchMessage(const Ptr<Message>& message) {
   /// Callback -> onAnyMessage
   this->onAnyMessage(message);
 
-  // Is this message a Command? (starts with '/' character)
-  if (not message->text.empty() and message->text[0] == '/') {
-    std::size_t firstSpacePos = message->text.find_first_of(" \t\n\r");
-    if (firstSpacePos == std::string::npos)
-      firstSpacePos = message->text.size();
-    /// TODO:
-    /// - When a user sends a /command inside a Group chat, to distinguish the sender Bot which can be many with same command names the command is sent in format /command@botname
-    /// - Cache myCommands to avoid multiple api calls
-    std::string command = message->text.substr(1, firstSpacePos - 1);
-    std::vector<Ptr<BotCommand>> myCommands = m_api->getMyCommands();
-    bool isKnownCommand = std::any_of(myCommands.begin(), myCommands.end(), [&command](const Ptr<BotCommand>& cmd) noexcept {
-      return cmd->command == command;
-    });
-    if (isKnownCommand) {
-      /// Callback -> onCommand
-      this->onCommand(message);
-    } else {
-      /// Callback -> onUnknownCommand
-      this->onUnknownCommand(message);
-    }
-  } else {
+  const std::string_view text = message->text;
+  if (text.empty()) [[unlikely]]
+    return;
+
+  if (text[0] != '/') {
     /// Callback -> onNonCommandMessage
     this->onNonCommandMessage(message);
+    return;
+  }
+
+  const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [this, chatType = message->chat->type, &text](const std::string& cmd) noexcept {
+    // Handle both /start (in private chats)  /start@botusername (in groups)
+    if (chatType == Chat::Type::Private) {
+      // In private chats, it's always /command (without a username)
+      return (text == cmd);
+    } else {
+      // In group chats, this bot must be mentioned with the command to avoid
+      // conflicts with other bots having the same command
+      if (text.find('@') != std::string_view::npos && text == (cmd + '@' + m_api->m_cache.botUsername))
+        return true;
+    }
+    return false;
+  });
+  if (isKnownCommand) {
+    /// Callback -> onCommand
+    this->onCommand(message);
+  } else {
+    /// Callback -> onUnknownCommand
+    this->onUnknownCommand(message);
   }
 }

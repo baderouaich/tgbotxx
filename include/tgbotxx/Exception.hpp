@@ -63,11 +63,11 @@ namespace tgbotxx {
        case ErrorCode::TOO_MANY_REQUESTS: return os << "TOO_MANY_REQUESTS";
        case ErrorCode::BAD_GATEWAY: return os << "BAD_GATEWAY";
        case ErrorCode::INTERNAL: return os << "INTERNAL";
-       default: return os << "Unknown ErrorCode (" << (std::int32_t)errorCode << ')';
+       default: return os << "Unknown ErrorCode (" << static_cast<std::int32_t>(errorCode) << ')';
      }
   }
 
-  static bool isErrorCode(std::int32_t c) noexcept {
+  static bool isErrorCode(const std::int32_t c) noexcept {
     switch (c) {
       case static_cast<std::int32_t>(ErrorCode::OTHER):
       case static_cast<std::int32_t>(ErrorCode::SEE_OTHER):

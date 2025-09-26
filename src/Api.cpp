@@ -2,7 +2,9 @@
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
+#include <tgbotxx/utils/StringUtils.hpp>
 #include <utility>
+#include <ranges>
 /// Objects
 #include <tgbotxx/objects/BotCommand.hpp>
 #include <tgbotxx/objects/BotCommandScope.hpp>
@@ -52,13 +54,27 @@ const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);   
 const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
 const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
-Api::Api(const std::string& token) : m_token(token) {}
+void Api::Cache::refresh(const Api* api) {
+  // Cache Bot's username & commands
+  botUsername = api->getMe()->username;
+  if (const auto cmds = api->getMyCommands(); !cmds.empty()) {
+    botCommands.reserve(cmds.size());
+    for (const auto& cmd: cmds) {
+      botCommands.push_back(cmd->command);
+    }
+  }
+}
+
+Api::Api(const std::string& token) : m_token(token) {
+  m_cache.refresh(this);
+}
 
 nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
   cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
-  const bool hasFiles = std::any_of(data.parts.begin(), data.parts.end(), [](const cpr::Part& part) noexcept { return part.is_file; });
+  const bool hasFiles = std::ranges::any_of(data.parts, [](const cpr::Part& part) noexcept { return part.is_file; });
+  session.SetProxies(m_proxies);
   session.SetConnectTimeout(m_connectTimeout);
   session.SetTimeout(hasFiles ? m_uploadFilesTimeout : m_timeout); // Files can take longer to upload
   session.SetHeader(cpr::Header{
@@ -108,6 +124,8 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
 Ptr<User> Api::getMe() const {
   nl::json json = sendRequest("getMe");
   Ptr<User> me(new User(json));
+  // Cache Bot's username
+  m_cache.botUsername = me->username;
   return me;
 }
 
@@ -395,6 +413,7 @@ std::string Api::downloadFile(const std::string& filePath, const std::function<b
   oss << m_apiUrl << "/file/bot" << m_token << "/" << filePath;
 
   cpr::Session session{};
+  session.SetProxies(m_proxies);
   session.SetUrl(cpr::Url{oss.str()});
   session.SetConnectTimeout(m_connectTimeout);
   session.SetTimeout(m_downloadFilesTimeout);
@@ -1505,7 +1524,16 @@ bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
     data.parts.emplace_back("language_code", languageCode);
 
 
-  return sendRequest("setMyCommands", data);
+  const bool ok = sendRequest("setMyCommands", data);
+  if (ok) {
+    // Cache commands locally to avoid calling getMyCommands() each time we receive a new message,
+    // and we want to determine if it is a Command.
+    m_cache.botCommands.clear();
+    m_cache.botCommands.reserve(commands.size());
+    for (const Ptr<BotCommand>& command: commands)
+      m_cache.botCommands.push_back(command->command);
+  }
+  return ok;
 }
 
 bool Api::deleteMyCommands(const Ptr<BotCommandScope>& scope, const std::string& languageCode) const {
@@ -1535,11 +1563,16 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scop
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
-  nl::json commandsJson = sendRequest("getMyCommands", data);
+  const nl::json commandsJson = sendRequest("getMyCommands", data);
+  m_cache.botCommands.clear();
   if (commandsJson.empty()) return commands;
   commands.reserve(commandsJson.size());
+  m_cache.botCommands.reserve(commandsJson.size());
   for (const nl::json& commandObj: commandsJson) {
     Ptr<BotCommand> cmd(new BotCommand(commandObj));
+    // Cache commands locally to avoid calling getMyCommands() each time we receive a new message,
+    // and we want to determine if it is a Command.
+    m_cache.botCommands.push_back(cmd->command);
     commands.push_back(std::move(cmd));
   }
   return commands;
@@ -2399,6 +2432,9 @@ void Api::setTimeout(const cpr::Timeout& timeout) {
   m_timeout = newTimeout;
 }
 cpr::Timeout Api::getTimeout() const noexcept { return m_timeout; }
+
+void Api::setProxies(const cpr::Proxies& proxies) { m_proxies = proxies; }
+const cpr::Proxies& Api::getProxies() const noexcept { return m_proxies; }
 
 void Api::setUploadFilesTimeout(const cpr::Timeout& timeout) noexcept {
   m_uploadFilesTimeout = timeout;
