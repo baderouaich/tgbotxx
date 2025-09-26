@@ -11,6 +11,7 @@ namespace tgbotxx {
       explicit ReactionType(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~ReactionType() = default;
 
       /// @brief Type of the reaction, one of “emoji”, "custom_emoji
       std::string type;

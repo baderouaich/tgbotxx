@@ -7,5 +7,6 @@ namespace tgbotxx {
   struct IReplyMarkup {
       virtual nl::json toJson() const = 0;
       virtual void fromJson(const nl::json&) = 0;
+      virtual ~IReplyMarkup() = default;
   };
 }

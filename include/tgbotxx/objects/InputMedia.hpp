@@ -15,6 +15,7 @@ namespace tgbotxx {
       explicit InputMedia(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~InputMedia() = default;
 
       /// @brief Type of the result.
       std::string type;

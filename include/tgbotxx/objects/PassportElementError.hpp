@@ -19,6 +19,7 @@ namespace tgbotxx {
       explicit PassportElementError(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~PassportElementError() = default;
 
       /// @brief Error source
       std::string source;

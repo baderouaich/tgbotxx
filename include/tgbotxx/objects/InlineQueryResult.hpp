@@ -34,6 +34,7 @@ namespace tgbotxx {
       explicit InlineQueryResult(const nl::json& json) {
         _fromJson(json);
       }
+      virtual ~InlineQueryResult() = default;
 
       /// @brief Type of the result
       std::string type;
