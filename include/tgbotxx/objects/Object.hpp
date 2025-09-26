@@ -39,6 +39,8 @@ namespace nl = nlohmann;
     json[json_field].push_back(arr);                                                \
   }
 
+#define OBJECT_SERIALIZE_FIELD_ENUM(json, enum_name, json_field, field) \
+  json[json_field] = enum_name##ToString(field)
 
 /// Deserialize
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)                \
@@ -130,4 +132,34 @@ namespace nl = nlohmann;
       throw Exception(err.str());                                                                                                      \
     }                                                                                                                                  \
     array_array_field.clear();                                                                                                         \
+  }
+
+#define OBJECT_DESERIALIZE_FIELD_ENUM(json, enum_name, json_field, field, default_value, optional)              \
+  static_assert(std::is_enum_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_ENUM: 'field' must be an enum");     \
+  static_assert(!std::is_const_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_ENUM: 'field' must not be const"); \
+  if (json.contains(json_field)) {                                                                              \
+    try {                                                                                                       \
+      if (auto opt = StringTo##enum_name(json[json_field]))                                                     \
+        type = *opt;                                                                                            \
+      else                                                                                                      \
+        throw Exception("Could not convert string \"" + json[json_field].get<std::string>() + "\" to enum");    \
+    } catch (const std::exception& e) {                                                                         \
+      std::ostringstream err{};                                                                                 \
+      err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Failed to deserialize \""                \
+          << json_field << "\" from json object: " << json.dump(2) << "\nReason: " << e.what();                 \
+      throw Exception(err.str());                                                                               \
+    } catch (...) {                                                                                             \
+      std::ostringstream err{};                                                                                 \
+      err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Failed to deserialize \""                \
+          << json_field << "\" from json object: " << json.dump(2);                                             \
+      throw Exception(err.str());                                                                               \
+    }                                                                                                           \
+  } else {                                                                                                      \
+    if (not(optional)) {                                                                                        \
+      std::ostringstream err{};                                                                                 \
+      err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Missing required field \""               \
+          << json_field << "\" from json object: " << json.dump(2);                                             \
+      throw Exception(err.str());                                                                               \
+    }                                                                                                           \
+    field = static_cast<enum_name>(default_value);                                                              \
   }
