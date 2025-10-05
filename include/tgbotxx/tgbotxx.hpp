@@ -57,7 +57,7 @@
 #include <tgbotxx/objects/KeyboardButton.hpp>
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
-#include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestUsers.hpp>
 #include <tgbotxx/objects/LabeledPrice.hpp>
 #include <tgbotxx/objects/Location.hpp>
 #include <tgbotxx/objects/LoginUrl.hpp>
@@ -97,7 +97,7 @@
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
-#include <tgbotxx/objects/UserShared.hpp>
+#include <tgbotxx/objects/UsersShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
 #include <tgbotxx/objects/Video.hpp>
 #include <tgbotxx/objects/VideoChatEnded.hpp>

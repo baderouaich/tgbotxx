@@ -33,6 +33,7 @@
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/PassportElementError.hpp>
 #include <tgbotxx/objects/Poll.hpp>
+#include <tgbotxx/objects/InputPollOption.hpp>
 #include <tgbotxx/objects/ReactionType.hpp>
 #include <tgbotxx/objects/ReplyParameters.hpp>
 #include <tgbotxx/objects/SentWebAppMessage.hpp>
@@ -43,6 +44,11 @@
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
+#include <tgbotxx/objects/LinkPreviewOptions.hpp>
+#include <tgbotxx/objects/SuggestedPostParameters.hpp>
+#include <tgbotxx/objects/InputChecklist.hpp>
+#include <tgbotxx/objects/ChatBoosts.hpp>
+#include <tgbotxx/objects/Gifts.hpp>
 
 using namespace tgbotxx;
 
@@ -137,13 +143,23 @@ bool Api::close() const {
   return sendRequest("close");
 }
 
-Ptr<Message> Api::sendMessage(const std::variant<std::int64_t, std::string>& chatId, const std::string& text, std::int32_t messageThreadId,
-                              const std::string& parseMode, const std::vector<Ptr<MessageEntity>>& entities,
-                              bool disableWebPagePreview, bool disableNotification, bool protectContent,
-                              std::int32_t replyToMessageId, bool allowSendingWithoutReply,
-                              const Ptr<IReplyMarkup>& replyMarkup) const {
+Ptr<Message> Api::sendMessage(const std::variant<std::int64_t, std::string>& chatId,
+                              const std::string& text,
+                              std::int32_t messageThreadId,
+                              const std::string& parseMode,
+                              const std::vector<Ptr<MessageEntity>>& entities,
+                              bool disableNotification,
+                              bool protectContent,
+                              const Ptr<IReplyMarkup>& replyMarkup,
+                              const std::string& businessConnectionId,
+                              std::int32_t directMessagesTopicId,
+                              const Ptr<LinkPreviewOptions>& linkPreviewOptions,
+                              bool allowPaidBroadcast,
+                              const std::string& messageEffectId,
+                              const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                              const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(11);
+  data.parts.reserve(15);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("text", text);
   if (messageThreadId)
@@ -156,33 +172,115 @@ Ptr<Message> Api::sendMessage(const std::variant<std::int64_t, std::string>& cha
       entitiesArray.push_back(entity->toJson());
     data.parts.emplace_back("entities", entitiesArray.dump());
   }
-  if (disableWebPagePreview)
-    data.parts.emplace_back("disable_web_page_preview", disableWebPagePreview);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (linkPreviewOptions)
+    data.parts.emplace_back("link_preview_options", linkPreviewOptions->toJson().dump());
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendMessage", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendMessage", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
-Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& chatId, const std::variant<std::int64_t, std::string>& fromChatId, std::int32_t messageId,
-                                std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
-                                const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification,
-                                bool protectContent, std::int32_t replyToMessageId, bool allowSendingWithoutReply,
-                                const Ptr<IReplyMarkup>& replyMarkup) const {
+Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& chatId,
+                                 const std::variant<std::int64_t, std::string>& fromChatId,
+                                 std::int32_t messageId,
+                                 std::int32_t messageThreadId,
+                                 bool disableNotification,
+                                 bool protectContent,
+                                 std::int32_t directMessagesTopicId,
+                                 std::time_t videoStartTimestamp,
+                                 const Ptr<SuggestedPostParameters>& suggestedPostParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
-  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));              // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  data.parts.emplace_back("from_chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.reserve(6);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("message_id", messageId);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (videoStartTimestamp)
+    data.parts.emplace_back("video_start_timestamp", videoStartTimestamp);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+
+  const nl::json fwdMsgObj = sendRequest("forwardMessage", data);
+  Ptr<Message> message(new Message(fwdMsgObj));
+  return message;
+}
+
+std::vector<Ptr<MessageId>> Api::forwardMessages(const std::variant<std::int64_t, std::string>& chatId,
+                                                 const std::variant<std::int64_t, std::string>& fromChatId,
+                                                 const std::vector<std::int32_t>& messageIds,
+                                                 std::int32_t messageThreadId,
+                                                 bool disableNotification,
+                                                 bool protectContent,
+                                                 std::int32_t directMessagesTopicId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("message_ids", nl::json(messageIds).dump());
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+
+  const nl::json msgIds = sendRequest("forwardMessages", data);
+  std::vector<Ptr<MessageId>> ret;
+  ret.reserve(msgIds.size());
+  for (const nl::json& msgIdObj: msgIds) {
+    Ptr<MessageId> msgId(new MessageId(msgIdObj));
+    ret.emplace_back(std::move(msgId));
+  }
+  return ret;
+}
+
+Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& chatId,
+                                const std::variant<std::int64_t, std::string>& fromChatId,
+                                std::int32_t messageId,
+                                std::int32_t messageThreadId,
+                                const std::string& caption,
+                                const std::string& parseMode,
+                                const std::vector<Ptr<MessageEntity>>& captionEntities,
+                                bool disableNotification,
+                                bool protectContent,
+                                const Ptr<IReplyMarkup>& replyMarkup,
+                                std::int32_t directMessagesTopicId,
+                                std::time_t videoStartTimestamp,
+                                bool showCaptionAboveMedia,
+                                bool allowPaidBroadcast,
+                                const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                                const Ptr<ReplyParameters>& replyParameters) const {
+  cpr::Multipart data{};
+  data.parts.reserve(18);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("message_id", messageId);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
@@ -200,43 +298,81 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
   if (allowSendingWithoutReply)
     data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (videoStartTimestamp)
+    data.parts.emplace_back("video_start_timestamp", videoStartTimestamp);
+  if (showCaptionAboveMedia)
+    data.parts.emplace_back("show_caption_above_media", showCaptionAboveMedia);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json msgIdJson = sendRequest("copyMessage", data);
+  const nl::json msgIdJson = sendRequest("copyMessage", data);
   Ptr<MessageId> messageIdObj(new MessageId(msgIdJson));
   return messageIdObj;
 }
 
-Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& chatId, const std::variant<std::int64_t, std::string>& fromChatId, std::int32_t messageId, std::int32_t messageThreadId,
-                                 bool disableNotification, bool protectContent) const {
+std::vector<Ptr<MessageId>> Api::copyMessages(const std::variant<std::int64_t, std::string>& chatId,
+                                              const std::variant<std::int64_t, std::string>& fromChatId,
+                                              const std::vector<std::int32_t>& messageIds,
+                                              std::int32_t messageThreadId,
+                                              std::int32_t directMessagesTopicId,
+                                              bool disableNotification,
+                                              bool protectContent,
+                                              bool removeCaption) const {
   cpr::Multipart data{};
-  data.parts.reserve(6);
-  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));              // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  data.parts.emplace_back("from_chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
-  data.parts.emplace_back("message_id", messageId);
+  data.parts.reserve(8);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
+  data.parts.emplace_back("message_ids", nl::json(messageIds).dump());
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
+  if (removeCaption)
+    data.parts.emplace_back("remove_caption", removeCaption);
 
-  nl::json sentMessageObj = sendRequest("sendMessage", data);
-  Ptr<Message> message(new Message(sentMessageObj));
-  return message;
+  const nl::json msgIds = sendRequest("copyMessages", data);
+  std::vector<Ptr<MessageId>> ret;
+  ret.reserve(msgIds.size());
+  for (const nl::json& msgIdObj: msgIds) {
+    Ptr<MessageId> msgId(new MessageId(msgIdObj));
+    ret.emplace_back(std::move(msgId));
+  }
+  return ret;
 }
 
-Ptr<Message> Api::sendPhoto(const std::variant<std::int64_t, std::string>& chatId, const std::variant<cpr::File, std::string>& photo,
-                            std::int32_t messageThreadId, const std::string& caption, const std::string& parseMode,
-                            const std::vector<Ptr<MessageEntity>>& captionEntities, bool disableNotification, bool protectContent,
-                            std::int32_t replyToMessageId, bool allowSendingWithoutReply, const Ptr<IReplyMarkup>& replyMarkup) const {
+Ptr<Message> Api::sendPhoto(const std::variant<std::int64_t, std::string>& chatId,
+                            const std::variant<cpr::File, std::string>& photo,
+                            std::int32_t messageThreadId,
+                            const std::string& caption,
+                            const std::string& parseMode,
+                            const std::vector<Ptr<MessageEntity>>& captionEntities,
+                            bool disableNotification,
+                            bool protectContent,
+                            const Ptr<IReplyMarkup>& replyMarkup,
+                            const std::string& businessConnectionId,
+                            std::int32_t directMessagesTopicId,
+                            bool showCaptionAboveMedia,
+                            bool hasSpoiler,
+                            bool allowPaidBroadcast,
+                            const std::string& messageEffectId,
+                            const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                            const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
+  data.parts.reserve(17);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   if (photo.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(photo);
@@ -261,15 +397,27 @@ Ptr<Message> Api::sendPhoto(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (showCaptionAboveMedia)
+    data.parts.emplace_back("show_caption_above_media", showCaptionAboveMedia);
+  if (hasSpoiler)
+    data.parts.emplace_back("has_spoiler", hasSpoiler);
+  if (hasSpoiler)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendPhoto", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendPhoto", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
@@ -279,17 +427,21 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
                             const std::string& caption,
                             const std::string& parseMode,
                             const std::vector<Ptr<MessageEntity>>& captionEntities,
-                            std::int32_t duration,
+                            std::time_t duration,
                             const std::string& performer,
                             const std::string& title,
                             const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                             bool disableNotification,
                             bool protectContent,
-                            std::int32_t replyToMessageId,
-                            bool allowSendingWithoutReply,
-                            const Ptr<IReplyMarkup>& replyMarkup) const {
+                            const Ptr<IReplyMarkup>& replyMarkup,
+                            const std::string& businessConnectionId,
+                            std::int32_t directMessagesTopicId,
+                            bool allowPaidBroadcast,
+                            const std::string& messageEffectId,
+                            const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                            const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(15);
+  data.parts.reserve(19);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (audio.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(audio);
@@ -329,17 +481,26 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendAudio", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendAudio", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
+
 Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                                const std::variant<cpr::File, std::string>& document,
                                std::int32_t messageThreadId,
@@ -349,11 +510,16 @@ Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& ch
                                const std::vector<Ptr<MessageEntity>>& captionEntities,
                                bool disableNotification,
                                bool protectContent,
-                               std::int32_t replyToMessageId,
-                               bool allowSendingWithoutReply,
-                               const Ptr<IReplyMarkup>& replyMarkup) const {
+                               const Ptr<IReplyMarkup>& replyMarkup,
+                               const std::string& businessConnectionId,
+                               std::int32_t directMessagesTopicId,
+                               bool disableContentTypeDetection,
+                               bool allowPaidBroadcast,
+                               const std::string& messageEffectId,
+                               const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                               const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
+  data.parts.reserve(17);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (document.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(document);
@@ -387,74 +553,55 @@ Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& ch
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (disableContentTypeDetection)
+    data.parts.emplace_back("disable_content_type_detection", disableContentTypeDetection);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendDocument", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendDocument", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
-Ptr<File> Api::getFile(const std::string& fileId) const {
-  cpr::Multipart data{};
-  data.parts.reserve(1);
-  data.parts.emplace_back("file_id", fileId);
-  nl::json fileObj = sendRequest("getFile", data);
-  Ptr<File> file(new File(fileObj));
-  return file;
-}
-
-std::string Api::downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t, cpr::cpr_off_t)>& progressCallback) const {
-  std::ostringstream oss{};
-  oss << m_apiUrl << "/file/bot" << m_token << "/" << filePath;
-
-  cpr::Session session{};
-  session.SetProxies(m_proxies);
-  session.SetUrl(cpr::Url{oss.str()});
-  session.SetConnectTimeout(m_connectTimeout);
-  session.SetTimeout(m_downloadFilesTimeout);
-  session.SetAcceptEncoding({cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib});
-  if (progressCallback) {
-    cpr::ProgressCallback pCallback{[&progressCallback](cpr::cpr_off_t downloadTotal,
-                                                        cpr::cpr_off_t downloadNow,
-                                                        [[maybe_unused]] cpr::cpr_off_t uploadTotal,
-                                                        [[maybe_unused]] cpr::cpr_off_t uploadNow,
-                                                        [[maybe_unused]] std::intptr_t userdata) -> bool {
-                                      return progressCallback(downloadTotal, downloadNow);
-                                    },
-                                    0};
-    session.SetProgressCallback(pCallback);
-  }
-  cpr::Response res = session.Get();
-  if (res.status_code == cpr::status::HTTP_OK) {
-    return res.text;
-  }
-  throw Exception("Failed to download file '" + filePath + "' contents", isErrorCode(res.status_code) ? static_cast<ErrorCode>(res.status_code) : ErrorCode::OTHER);
-}
 
 Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatId,
                             const std::variant<cpr::File, std::string>& video,
                             std::int32_t messageThreadId,
-                            std::int32_t duration,
+                            std::time_t duration,
                             std::int32_t width,
                             std::int32_t height,
                             const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                            const std::optional<std::variant<cpr::File, std::string>>& cover,
+                            std::time_t startTimestamp,
                             const std::string& caption,
                             const std::string& parseMode,
                             const std::vector<Ptr<MessageEntity>>& captionEntities,
+                            bool showCaptionAboveMedia,
                             bool hasSpoiler,
                             bool supportsStreaming,
                             bool disableNotification,
                             bool protectContent,
-                            std::int32_t replyToMessageId,
-                            bool allowSendingWithoutReply,
-                            const Ptr<IReplyMarkup>& replyMarkup) const {
+                            const Ptr<IReplyMarkup>& replyMarkup,
+                            const std::string& businessConnectionId,
+                            std::int32_t directMessagesTopicId,
+                            bool allowPaidBroadcast,
+                            const std::string& messageEffectId,
+                            const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                            const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(17);
+  data.parts.reserve(24);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (video.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(video);
@@ -480,6 +627,17 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
+  if (cover.has_value()) {
+    if (cover->index() == 0) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(*cover);
+      data.parts.emplace_back("cover", cpr::Files{file});
+    } else /* std::string (fileId or Url) */ {
+      const std::string& fileIdOrUrl = std::get<std::string>(*cover);
+      data.parts.emplace_back("cover", fileIdOrUrl);
+    }
+  }
+  if (startTimestamp)
+    data.parts.emplace_back("start_timestamp", startTimestamp);
   if (not caption.empty())
     data.parts.emplace_back("caption", caption);
   if (not parseMode.empty())
@@ -490,6 +648,8 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
       entitiesArray.push_back(entity->toJson());
     data.parts.emplace_back("caption_entities", entitiesArray.dump());
   }
+  if (showCaptionAboveMedia)
+    data.parts.emplace_back("show_caption_above_media", showCaptionAboveMedia);
   if (hasSpoiler)
     data.parts.emplace_back("has_spoiler", hasSpoiler);
   if (supportsStreaming)
@@ -498,36 +658,47 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendVideo", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendVideo", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
 Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& chatId,
                                 const std::variant<cpr::File, std::string>& animation,
                                 std::int32_t messageThreadId,
-                                std::int32_t duration,
+                                std::time_t duration,
                                 std::int32_t width,
                                 std::int32_t height,
                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                                 const std::string& caption,
                                 const std::string& parseMode,
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
-                                bool hasSpoiler,
                                 bool disableNotification,
                                 bool protectContent,
-                                std::int32_t replyToMessageId,
-                                bool allowSendingWithoutReply,
-                                const Ptr<IReplyMarkup>& replyMarkup) const {
+                                const Ptr<IReplyMarkup>& replyMarkup,
+                                const std::string& businessConnectionId,
+                                std::int32_t directMessagesTopicId,
+                                bool allowPaidBroadcast,
+                                const std::string& messageEffectId,
+                                const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                                const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(16);
+  data.parts.reserve(21);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (animation.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(animation);
@@ -563,21 +734,27 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
       entitiesArray.push_back(entity->toJson());
     data.parts.emplace_back("caption_entities", entitiesArray.dump());
   }
-  if (hasSpoiler)
-    data.parts.emplace_back("has_spoiler", hasSpoiler);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendAnimation", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendAnimation", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
@@ -587,14 +764,18 @@ Ptr<Message> Api::sendVoice(const std::variant<std::int64_t, std::string>& chatI
                             const std::string& caption,
                             const std::string& parseMode,
                             const std::vector<Ptr<MessageEntity>>& captionEntities,
-                            std::int32_t duration,
+                            std::time_t duration,
                             bool disableNotification,
                             bool protectContent,
-                            std::int32_t replyToMessageId,
-                            bool allowSendingWithoutReply,
-                            const Ptr<IReplyMarkup>& replyMarkup) const {
+                            const Ptr<IReplyMarkup>& replyMarkup,
+                            const std::string& businessConnectionId,
+                            std::int32_t directMessagesTopicId,
+                            bool allowPaidBroadcast,
+                            const std::string& messageEffectId,
+                            const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                            const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(12);
+  data.parts.reserve(16);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (voice.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(voice);
@@ -621,31 +802,44 @@ Ptr<Message> Api::sendVoice(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendVoice", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendVoice", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
+
 
 Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& chatId,
                                 const std::variant<cpr::File, std::string>& videoNote,
                                 std::int32_t messageThreadId,
-                                std::int32_t duration,
+                                std::time_t duration,
                                 std::int32_t length,
                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
                                 bool disableNotification,
                                 bool protectContent,
-                                std::int32_t replyToMessageId,
-                                bool allowSendingWithoutReply,
-                                const Ptr<IReplyMarkup>& replyMarkup) const {
+                                const Ptr<IReplyMarkup>& replyMarkup,
+                                const std::string& businessConnectionId,
+                                std::int32_t directMessagesTopicId,
+                                bool allowPaidBroadcast,
+                                const std::string& messageEffectId,
+                                const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                                const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(11);
+  data.parts.reserve(15);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (videoNote.index() == 0) /* cpr::File */ {
     const cpr::File& file = std::get<cpr::File>(videoNote);
@@ -673,15 +867,107 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendVideoNote", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendVideoNote", data);
+  Ptr<Message> message(new Message(sentMsgObj));
+  return message;
+}
+
+Ptr<Message> Api::sendPaidMedia(const std::variant<std::int64_t, std::string>& chatId,
+                                std::int32_t starCount,
+                                const std::vector<Ptr<InputMedia>>& media,
+                                const std::string& payload,
+                                std::int32_t messageThreadId,
+                                const std::string& caption,
+                                const std::string& parseMode,
+                                const std::vector<Ptr<MessageEntity>>& captionEntities,
+                                bool showCaptionAboveMedia,
+                                bool disableNotification,
+                                bool protectContent,
+                                bool allowPaidBroadcast,
+                                const Ptr<IReplyMarkup>& replyMarkup,
+                                const std::string& businessConnectionId,
+                                std::int32_t directMessagesTopicId,
+                                const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                                const Ptr<ReplyParameters>& replyParameters) const {
+  cpr::Multipart data{};
+  data.parts.reserve(17);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("star_count", starCount);
+  nl::json mediaJson = nl::json::array();
+  // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
+  for (const Ptr<InputMedia>& m: media) {
+    nl::json mJson = m->toJson();
+    switch (m->media.index()) {
+      case 0: // cpr::File (Local File)
+      {
+        const cpr::File& file = std::get<cpr::File>(m->media);
+        std::string fileKey = StringUtils::random(8);
+        mJson["media"] = "attach://" + fileKey;
+        data.parts.emplace_back(fileKey, cpr::Files{file});
+        break;
+      }
+      case 1: // std::string (URL, File ID)
+      {
+        // do nothing as toJson will export the "media": "URL or file ID" object.
+        break;
+      }
+      default:
+        break;
+    }
+    mediaJson.push_back(mJson);
+  }
+  data.parts.emplace_back("media", mediaJson.dump());
+  if (not payload.empty())
+    data.parts.emplace_back("payload", payload);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (showCaptionAboveMedia)
+    data.parts.emplace_back("show_caption_above_media", showCaptionAboveMedia);
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
+
+
+  const nl::json sentMsgObj = sendRequest("sendPaidMedia", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
@@ -690,10 +976,13 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
                                               std::int32_t messageThreadId,
                                               bool disableNotification,
                                               bool protectContent,
-                                              std::int32_t replyToMessageId,
-                                              bool allowSendingWithoutReply) const {
+                                              const std::string& businessConnectionId,
+                                              std::int32_t directMessagesTopicId,
+                                              bool allowPaidBroadcast,
+                                              const std::string& messageEffectId,
+                                              const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(7);
+  data.parts.reserve(10);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (media.size() > 10 or media.size() < 2)
     throw Exception("Api::sendMediaGroup(): media must include 2-10 items. See https://core.telegram.org/bots/api#sendmediagroup");
@@ -715,6 +1004,8 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
         // do nothing as toJson will export the "media": "URL or file ID" object.
         break;
       }
+      default:
+        break;
     }
     mediaJson.push_back(mJson);
   }
@@ -725,12 +1016,18 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessagesArray = sendRequest("sendMediaGroup", data);
+  const nl::json sentMessagesArray = sendRequest("sendMediaGroup", data);
   std::vector<Ptr<Message>> sentMessages;
   sentMessages.reserve(sentMessagesArray.size());
   for (const nl::json& msgObj: sentMessagesArray) {
@@ -739,6 +1036,7 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
   }
   return sentMessages;
 }
+
 
 Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& chatId,
                                float latitude,
@@ -750,11 +1048,15 @@ Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& ch
                                std::int32_t proximityAlertRadius,
                                bool disableNotification,
                                bool protectContent,
-                               std::int32_t replyToMessageId,
-                               bool allowSendingWithoutReply,
-                               const Ptr<IReplyMarkup>& replyMarkup) const {
+                               const Ptr<IReplyMarkup>& replyMarkup,
+                               const std::string& businessConnectionId,
+                               std::int32_t directMessagesTopicId,
+                               bool allowPaidBroadcast,
+                               const std::string& messageEffectId,
+                               const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                               const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(13);
+  data.parts.reserve(17);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("latitude", std::to_string(latitude));
   data.parts.emplace_back("longitude", std::to_string(longitude));
@@ -772,17 +1074,26 @@ Ptr<Message> Api::sendLocation(const std::variant<std::int64_t, std::string>& ch
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendLocation", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendLocation", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
+
 
 Ptr<Message> Api::sendVenue(const std::variant<std::int64_t, std::string>& chatId,
                             float latitude,
@@ -796,11 +1107,15 @@ Ptr<Message> Api::sendVenue(const std::variant<std::int64_t, std::string>& chatI
                             const std::string& googlePlaceType,
                             bool disableNotification,
                             bool protectContent,
-                            std::int32_t replyToMessageId,
-                            bool allowSendingWithoutReply,
-                            const Ptr<IReplyMarkup>& replyMarkup) const {
+                            const Ptr<IReplyMarkup>& replyMarkup,
+                            const std::string& businessConnectionId,
+                            std::int32_t directMessagesTopicId,
+                            bool allowPaidBroadcast,
+                            const std::string& messageEffectId,
+                            const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                            const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(15);
+  data.parts.reserve(19);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("latitude", std::to_string(latitude));
   data.parts.emplace_back("longitude", std::to_string(longitude));
@@ -820,17 +1135,26 @@ Ptr<Message> Api::sendVenue(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendVenue", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendVenue", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
+
 
 Ptr<Message> Api::sendContact(const std::variant<std::int64_t, std::string>& chatId,
                               const std::string& phoneNumber,
@@ -840,11 +1164,15 @@ Ptr<Message> Api::sendContact(const std::variant<std::int64_t, std::string>& cha
                               std::int32_t messageThreadId,
                               bool disableNotification,
                               bool protectContent,
-                              std::int32_t replyToMessageId,
-                              bool allowSendingWithoutReply,
-                              const Ptr<IReplyMarkup>& replyMarkup) const {
+                              const Ptr<IReplyMarkup>& replyMarkup,
+                              const std::string& businessConnectionId,
+                              std::int32_t directMessagesTopicId,
+                              bool allowPaidBroadcast,
+                              const std::string& messageEffectId,
+                              const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                              const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(11);
+  data.parts.reserve(15);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("phone_number", phoneNumber);
   data.parts.emplace_back("first_name", firstName);
@@ -858,21 +1186,33 @@ Ptr<Message> Api::sendContact(const std::variant<std::int64_t, std::string>& cha
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendContact", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendContact", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
+
 Ptr<Message> Api::sendPoll(const std::variant<std::int64_t, std::string>& chatId,
                            const std::string& question,
-                           const std::vector<std::string>& options,
+                           const std::vector<Ptr<InputPollOption>>& options,
+                           std::int32_t messageThreadId,
+                           const std::string& questionParseMode,
+                           const std::vector<Ptr<MessageEntity>>& questionEntities,
                            bool isAnonymous,
                            const std::string& type,
                            bool allowsMultipleAnswers,
@@ -880,20 +1220,36 @@ Ptr<Message> Api::sendPoll(const std::variant<std::int64_t, std::string>& chatId
                            const std::string& explanation,
                            const std::string& explanationParseMode,
                            const std::vector<Ptr<MessageEntity>>& explanationEntities,
-                           std::int32_t openPeriod,
-                           std::int32_t closeDate,
+                           std::time_t openPeriod,
+                           std::time_t closeDate,
                            bool isClosed,
-                           std::int32_t messageThreadId,
                            bool disableNotification,
                            bool protectContent,
-                           std::int32_t replyToMessageId,
-                           bool allowSendingWithoutReply,
-                           const Ptr<IReplyMarkup>& replyMarkup) const {
+                           const Ptr<IReplyMarkup>& replyMarkup,
+                           const std::string& businessConnectionId,
+                           bool allowPaidBroadcast,
+                           const std::string& messageEffectId,
+                           const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(19);
+  data.parts.reserve(23);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("question", question);
-  data.parts.emplace_back("options", nl::json(options).dump());
+  if (not options.empty()) {
+    nl::json optionsArray = nl::json::array();
+    for (const Ptr<InputPollOption>& option: options)
+      optionsArray.push_back(option->toJson());
+    data.parts.emplace_back("options", optionsArray.dump());
+  }
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not questionParseMode.empty())
+    data.parts.emplace_back("question_parse_mode", questionParseMode);
+  if (not questionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: questionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("question_entities", entitiesArray.dump());
+  }
   if (not isAnonymous)
     data.parts.emplace_back("is_anonymous", isAnonymous);
   if (not type.empty())
@@ -918,21 +1274,53 @@ Ptr<Message> Api::sendPoll(const std::variant<std::int64_t, std::string>& chatId
     data.parts.emplace_back("close_date", closeDate);
   if (isClosed)
     data.parts.emplace_back("is_closed", isClosed);
-  if (messageThreadId)
-    data.parts.emplace_back("message_thread_id", messageThreadId);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendPoll", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendPoll", data);
+  Ptr<Message> message(new Message(sentMsgObj));
+  return message;
+}
+
+
+Ptr<Message> Api::sendChecklist(const std::variant<std::int64_t, std::string>& chatId,
+                                const std::string& businessConnectionId,
+                                const Ptr<InputChecklist>& checklist,
+                                bool disableNotification,
+                                bool protectContent,
+                                const Ptr<IReplyMarkup>& replyMarkup,
+                                const std::string& messageEffectId,
+                                const Ptr<ReplyParameters>& replyParameters) const {
+  cpr::Multipart data{};
+  data.parts.reserve(8);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("checklist", checklist->toJson().dump());
+  if (disableNotification)
+    data.parts.emplace_back("disable_notification", disableNotification);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
+
+  const nl::json sentMsgObj = sendRequest("sendChecklist", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
@@ -941,11 +1329,15 @@ Ptr<Message> Api::sendDice(const std::variant<std::int64_t, std::string>& chatId
                            std::int32_t messageThreadId,
                            bool disableNotification,
                            bool protectContent,
-                           std::int32_t replyToMessageId,
-                           bool allowSendingWithoutReply,
-                           const Ptr<IReplyMarkup>& replyMarkup) const {
+                           const Ptr<IReplyMarkup>& replyMarkup,
+                           const std::string& businessConnectionId,
+                           std::int32_t directMessagesTopicId,
+                           bool allowPaidBroadcast,
+                           const std::string& messageEffectId,
+                           const Ptr<SuggestedPostParameters>& suggestedPostParameters,
+                           const Ptr<ReplyParameters>& replyParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(8);
+  data.parts.reserve(12);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (not emoji.empty())
     data.parts.emplace_back("emoji", emoji);
@@ -955,27 +1347,38 @@ Ptr<Message> Api::sendDice(const std::variant<std::int64_t, std::string>& chatId
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
+  if (replyParameters)
+    data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendDice", data);
-  Ptr<Message> message(new Message(sentMessageObj));
+  const nl::json sentMsgObj = sendRequest("sendDice", data);
+  Ptr<Message> message(new Message(sentMsgObj));
   return message;
 }
 
 bool Api::sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                          const std::string& action,
-                         std::int32_t messageThreadId) const {
+                         std::int32_t messageThreadId,
+                         const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(3);
+  data.parts.reserve(4);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("action", action);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   return sendRequest("sendChatAction", data);
 }
@@ -1011,9 +1414,46 @@ Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
   if (limit)
     data.parts.emplace_back("limit", limit);
 
-  nl::json userProfilePhotosObj = sendRequest("getUserProfilePhotos", data);
+  const nl::json userProfilePhotosObj = sendRequest("getUserProfilePhotos", data);
   Ptr<UserProfilePhotos> userProfilePhotos(new UserProfilePhotos(userProfilePhotosObj));
   return userProfilePhotos;
+}
+
+Ptr<File> Api::getFile(const std::string& fileId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("file_id", fileId);
+  const nl::json fileObj = sendRequest("getFile", data);
+  Ptr<File> file(new File(fileObj));
+  return file;
+}
+
+std::string Api::downloadFile(const std::string& filePath, const std::function<bool(cpr::cpr_off_t, cpr::cpr_off_t)>& progressCallback) const {
+  std::ostringstream oss{};
+  oss << m_apiUrl << "/file/bot" << m_token << "/" << filePath;
+
+  cpr::Session session{};
+  session.SetProxies(m_proxies);
+  session.SetUrl(cpr::Url{oss.str()});
+  session.SetConnectTimeout(m_connectTimeout);
+  session.SetTimeout(m_downloadFilesTimeout);
+  session.SetAcceptEncoding({cpr::AcceptEncodingMethods::deflate, cpr::AcceptEncodingMethods::gzip, cpr::AcceptEncodingMethods::zlib});
+  if (progressCallback) {
+    const cpr::ProgressCallback pCallback{[&progressCallback](cpr::cpr_off_t downloadTotal,
+                                                              cpr::cpr_off_t downloadNow,
+                                                              [[maybe_unused]] cpr::cpr_off_t uploadTotal,
+                                                              [[maybe_unused]] cpr::cpr_off_t uploadNow,
+                                                              [[maybe_unused]] std::intptr_t userdata) -> bool {
+                                            return progressCallback(downloadTotal, downloadNow);
+                                          },
+                                          0};
+    session.SetProgressCallback(pCallback);
+  }
+  cpr::Response res = session.Get();
+  if (res.status_code == cpr::status::HTTP_OK) {
+    return res.text;
+  }
+  throw Exception("Failed to download file '" + filePath + "' contents", isErrorCode(res.status_code) ? static_cast<ErrorCode>(res.status_code) : ErrorCode::OTHER);
 }
 
 bool Api::banChatMember(const std::variant<std::int64_t, std::string>& chatId,
@@ -1079,9 +1519,10 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
                             bool canPostStories,
                             bool canEditStories,
                             bool canDeleteStories,
-                            bool canManageTopics) const {
+                            bool canManageTopics,
+                            bool canManageDirectMessages) const {
   cpr::Multipart data{};
-  data.parts.reserve(17);
+  data.parts.reserve(18);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
   if (isAnonymous)
@@ -1114,6 +1555,8 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("can_delete_stories", canDeleteStories);
   if (canManageTopics)
     data.parts.emplace_back("can_manage_topics", canManageTopics);
+  if (canManageDirectMessages)
+    data.parts.emplace_back("can_manage_direct_messages", canManageDirectMessages);
   return sendRequest("promoteChatMember", data);
 }
 
@@ -1182,7 +1625,7 @@ Ptr<ChatInviteLink> Api::createChatInviteLink(const std::variant<std::int64_t, s
   if (createsJoinRequest)
     data.parts.emplace_back("creates_join_request", createsJoinRequest);
 
-  nl::json chatInviteLinkObj = sendRequest("createChatInviteLink", data);
+  const nl::json chatInviteLinkObj = sendRequest("createChatInviteLink", data);
   Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
   return chatInviteLink;
 }
@@ -1206,7 +1649,39 @@ Ptr<ChatInviteLink> Api::editChatInviteLink(const std::variant<std::int64_t, std
   if (createsJoinRequest)
     data.parts.emplace_back("creates_join_request", createsJoinRequest);
 
-  nl::json chatInviteLinkObj = sendRequest("editChatInviteLink", data);
+  const nl::json chatInviteLinkObj = sendRequest("editChatInviteLink", data);
+  Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
+  return chatInviteLink;
+}
+
+Ptr<ChatInviteLink> Api::createChatSubscriptionInviteLink(const std::variant<std::int64_t, std::string>& chatId,
+                                                          std::time_t subscriptionPeriod,
+                                                          std::int32_t subscriptionPrice,
+                                                          const std::string& name) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("subscription_period", subscriptionPeriod);
+  data.parts.emplace_back("subscription_price", subscriptionPrice);
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+
+  const nl::json chatInviteLinkObj = sendRequest("createChatSubscriptionInviteLink", data);
+  Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
+  return chatInviteLink;
+}
+
+Ptr<ChatInviteLink> Api::editChatSubscriptionInviteLink(const std::variant<std::int64_t, std::string>& chatId,
+                                                        const std::string& inviteLink,
+                                                        const std::string& name) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("invite_link", inviteLink);
+  if (not name.empty())
+    data.parts.emplace_back("name", name);
+
+  const nl::json chatInviteLinkObj = sendRequest("editChatSubscriptionInviteLink", data);
   Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
   return chatInviteLink;
 }
@@ -1218,7 +1693,7 @@ Ptr<ChatInviteLink> Api::revokeChatInviteLink(const std::variant<std::int64_t, s
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("invite_link", inviteLink);
 
-  nl::json chatInviteLinkObj = sendRequest("revokeChatInviteLink", data);
+  const nl::json chatInviteLinkObj = sendRequest("revokeChatInviteLink", data);
   Ptr<ChatInviteLink> chatInviteLink(new ChatInviteLink(chatInviteLinkObj));
   return chatInviteLink;
 }
@@ -1273,22 +1748,30 @@ bool Api::setChatDescription(const std::variant<std::int64_t, std::string>& chat
 
 bool Api::pinChatMessage(const std::variant<std::int64_t, std::string>& chatId,
                          std::int32_t messageId,
-                         bool disableNotification) const {
+                         bool disableNotification,
+                         const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(3);
+  data.parts.reserve(4);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_id", messageId);
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
   return sendRequest("pinChatMessage", data);
 }
 
-bool Api::unpinChatMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const {
+bool Api::unpinChatMessage(const std::variant<std::int64_t, std::string>& chatId,
+                           std::int32_t messageId,
+                           const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(2);
+  data.parts.reserve(3);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (messageId)
     data.parts.emplace_back("message_id", messageId);
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+
   return sendRequest("unpinChatMessage", data);
 }
 
@@ -1312,7 +1795,7 @@ Ptr<Chat> Api::getChat(const std::variant<std::int64_t, std::string>& chatId) co
   data.parts.reserve(1);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
 
-  nl::json chatObj = sendRequest("getChat", data);
+  const nl::json chatObj = sendRequest("getChat", data);
   Ptr<Chat> chat(new Chat(chatObj));
   return chat;
 }
@@ -1322,7 +1805,7 @@ std::vector<Ptr<ChatMember>> Api::getChatAdministrators(const std::variant<std::
   data.parts.reserve(1);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
 
-  nl::json chatMembersArray = sendRequest("getChatAdministrators", data);
+  const nl::json chatMembersArray = sendRequest("getChatAdministrators", data);
   std::vector<Ptr<ChatMember>> chatMembers;
   chatMembers.reserve(chatMembersArray.size());
   for (const nl::json& chatMemberObj: chatMembersArray) {
@@ -1345,7 +1828,7 @@ Ptr<ChatMember> Api::getChatMember(const std::variant<std::int64_t, std::string>
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
 
-  nl::json chatMemberObj = sendRequest("getChatMember", data);
+  const nl::json chatMemberObj = sendRequest("getChatMember", data);
   Ptr<ChatMember> chatMember(new ChatMember(chatMemberObj));
   return chatMember;
 }
@@ -1366,7 +1849,7 @@ bool Api::deleteChatStickerSet(const std::variant<std::int64_t, std::string>& ch
 }
 
 std::vector<Ptr<Sticker>> Api::getForumTopicIconStickers() const {
-  nl::json stickersArray = sendRequest("getForumTopicIconStickers");
+  const nl::json stickersArray = sendRequest("getForumTopicIconStickers");
   std::vector<Ptr<Sticker>> stickers;
   stickers.reserve(stickersArray.size());
   for (const nl::json& stickerObj: stickersArray) {
@@ -1389,7 +1872,7 @@ Ptr<ForumTopic> Api::createForumTopic(const std::variant<std::int64_t, std::stri
   if (not iconCustomEmojiId.empty())
     data.parts.emplace_back("icon_custom_emoji_id", iconCustomEmojiId);
 
-  nl::json forumTopicObj = sendRequest("createForumTopic", data);
+  const nl::json forumTopicObj = sendRequest("createForumTopic", data);
   Ptr<ForumTopic> forumTopic(new ForumTopic(forumTopicObj));
   return forumTopic;
 }
@@ -1489,7 +1972,7 @@ bool Api::answerCallbackQuery(const std::string& callbackQueryId,
                               const std::string& text,
                               bool showAlert,
                               const std::string& url,
-                              std::int32_t cacheTime) const {
+                              std::time_t cacheTime) const {
   cpr::Multipart data{};
   data.parts.reserve(5);
   data.parts.emplace_back("callback_query_id", callbackQueryId);
@@ -1502,6 +1985,15 @@ bool Api::answerCallbackQuery(const std::string& callbackQueryId,
   if (cacheTime)
     data.parts.emplace_back("cache_time", cacheTime);
   return sendRequest("answerCallbackQuery", data);
+}
+
+Ptr<ChatBoosts> Api::getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
+                                       std::int64_t userId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  return makePtr<ChatBoosts>(sendRequest("getUserChatBoosts", data));
 }
 
 bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
@@ -1542,7 +2034,7 @@ bool Api::deleteMyCommands(const Ptr<BotCommandScope>& scope, const std::string&
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
   else {
-    auto defScope = makePtr<BotCommandScopeDefault>();
+    const auto defScope = makePtr<BotCommandScopeDefault>();
     data.parts.emplace_back("scope", defScope->toJson().dump());
   }
   if (not languageCode.empty())
@@ -1557,7 +2049,7 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scop
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
   else {
-    auto defScope = makePtr<BotCommandScopeDefault>();
+    const auto defScope = makePtr<BotCommandScopeDefault>();
     data.parts.emplace_back("scope", defScope->toJson().dump());
   }
   if (not languageCode.empty())
@@ -1594,7 +2086,7 @@ Ptr<BotName> Api::getMyName(const std::string& languageCode) const {
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
-  nl::json botNameObj = sendRequest("getMyName", data);
+  const nl::json botNameObj = sendRequest("getMyName", data);
   return makePtr<BotName>(botNameObj);
 }
 
@@ -1614,8 +2106,7 @@ Ptr<BotDescription> Api::getMyDescription(const std::string& languageCode) const
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
-  nl::json botDescObj = sendRequest("getMyDescription", data);
-  ;
+  const nl::json botDescObj = sendRequest("getMyDescription", data);
   return makePtr<BotDescription>(botDescObj);
 }
 
@@ -1635,20 +2126,20 @@ Ptr<BotShortDescription> Api::getMyShortDescription(const std::string& languageC
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
-  nl::json botShortDescObj = sendRequest("getMyShortDescription", data);
+  const nl::json botShortDescObj = sendRequest("getMyShortDescription", data);
   return makePtr<BotShortDescription>(botShortDescObj);
 }
 
 bool Api::setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
-  std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
+  const std::string chatIdStr = chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId);
   if (not chatIdStr.empty())
     data.parts.emplace_back("chat_id", chatIdStr);
   if (menuButton)
     data.parts.emplace_back("menu_button", menuButton->toJson().dump());
   else {
-    auto defMenuButton = makePtr<MenuButtonDefault>();
+    const auto defMenuButton = makePtr<MenuButtonDefault>();
     data.parts.emplace_back("menu_button", defMenuButton->toJson().dump());
   }
   return sendRequest("setChatMenuButton", data);
@@ -1685,10 +2176,49 @@ Ptr<ChatAdministratorRights> Api::getMyDefaultAdministratorRights(bool forChanne
   data.parts.reserve(1);
   if (forChannels)
     data.parts.emplace_back("for_channels", forChannels);
-  nl::json chatAdministratorRightsObj = sendRequest("getMyDefaultAdministratorRights", data);
+  const nl::json chatAdministratorRightsObj = sendRequest("getMyDefaultAdministratorRights", data);
   return makePtr<ChatAdministratorRights>(chatAdministratorRightsObj);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Ptr<Gifts> Api::getAvailableGifts() const {
+  return makePtr<Gifts>(sendRequest("getAvailableGifts"));
+}
+
+//@TODO
+// [ ] - sendGift
+// [ ] - giftPremiumSubscription
+// [ ] - verifyUser
+// [ ] - verifyChat
+// [ ] - removeUserVerification
+// [ ] - removeChatVerification
+// [ ] - readBusinessMessage
+// [ ] - deleteBusinessMessages
+// [ ] - setBusinessAccountName
+// [ ] - setBusinessAccountUsername
+// [ ] - setBusinessAccountBio
+// [ ] - setBusinessAccountProfilePhoto
+// [ ] - removeBusinessAccountProfilePhoto
+// [ ] - setBusinessAccountGiftSettings
+// [ ] - getBusinessAccountStarBalance
+// [ ] - transferBusinessAccountStars
+// [ ] - getBusinessAccountGifts
+// [ ] - convertGiftToStars
+// [ ] - upgradeGift
+// [ ] - transferGift
+// [ ] - postStory
+// [ ] - editStory
+// [ ] - deleteStory
+// [ ] - Inline mode methods
+// [ ] - Updating messages
+// [ ] - Stickers
+// [ ] - Inline mode
+// [ ] - Payments
+// [ ] - Telegram Passport
+// [ ] - Games
+// [ ] - Update object & callbacks
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool Api::deleteWebhook(bool dropPendingUpdates) const {
@@ -1702,13 +2232,13 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 /// Called every LONG_POOL_TIMEOUT seconds
 std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit) const {
   std::vector<Ptr<Update>> updates;
-  cpr::Multipart data = {
+  const cpr::Multipart data = {
     {"offset", offset},
     {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
-  nl::json updatesJson = sendRequest("getUpdates", data);
+  const nl::json updatesJson = sendRequest("getUpdates", data);
   updates.reserve(updatesJson.size());
   for (const nl::json& updateObj: updatesJson) {
     Ptr<Update> update = makePtr<Update>(updateObj);
@@ -1757,10 +2287,9 @@ Ptr<Message> Api::editMessageText(const std::string& text,
                                   const std::string& inlineMessageId,
                                   const std::string& parseMode,
                                   const std::vector<Ptr<MessageEntity>>& entities,
-                                  bool disableWebPagePreview,
                                   const Ptr<IReplyMarkup>& replyMarkup) const {
   cpr::Multipart data{};
-  data.parts.reserve(8);
+  data.parts.reserve(7);
   data.parts.emplace_back("text", text);
   switch (chatId.index()) {
     case 0: // std::int64_t
@@ -1788,8 +2317,6 @@ Ptr<Message> Api::editMessageText(const std::string& text,
       entitiesArray.push_back(entity->toJson());
     data.parts.emplace_back("entities", entitiesArray.dump());
   }
-  if (disableWebPagePreview)
-    data.parts.emplace_back("disable_web_page_preview", disableWebPagePreview);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
@@ -1798,6 +2325,7 @@ Ptr<Message> Api::editMessageText(const std::string& text,
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -1813,12 +2341,12 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
   data.parts.reserve(7);
   switch (chatId.index()) {
     case 0: // std::int64_t
-      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+      if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
         data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
       }
       break;
     case 1: // std::string
-      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+      if (const std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
         data.parts.emplace_back("chat_id", chatIdStr);
       }
       break;
@@ -1842,11 +2370,12 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("editMessageCaption", data);
+  const nl::json sentMessageObj = sendRequest("editMessageCaption", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -1862,12 +2391,12 @@ Ptr<Message> Api::editMessageMedia(const Ptr<InputMedia>& media,
   data.parts.emplace_back("media", media->toJson().dump());
   switch (chatId.index()) {
     case 0: // std::int64_t
-      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+      if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
         data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
       }
       break;
     case 1: // std::string
-      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+      if (const std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
         data.parts.emplace_back("chat_id", chatIdStr);
       }
       break;
@@ -1881,11 +2410,12 @@ Ptr<Message> Api::editMessageMedia(const Ptr<InputMedia>& media,
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("editMessageMedia", data);
+  const nl::json sentMessageObj = sendRequest("editMessageMedia", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -1905,12 +2435,12 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
   data.parts.emplace_back("longitude", std::to_string(longitude));
   switch (chatId.index()) {
     case 0: // std::int64_t
-      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+      if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
         data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
       }
       break;
     case 1: // std::string
-      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+      if (const std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
         data.parts.emplace_back("chat_id", chatIdStr);
       }
       break;
@@ -1930,11 +2460,12 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("editMessageLiveLocation", data);
+  const nl::json sentMessageObj = sendRequest("editMessageLiveLocation", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -1948,12 +2479,12 @@ Ptr<Message> Api::stopMessageLiveLocation(const std::variant<std::int64_t, std::
   data.parts.reserve(4);
   switch (chatId.index()) {
     case 0: // std::int64_t
-      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+      if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
         data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
       }
       break;
     case 1: // std::string
-      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+      if (const std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
         data.parts.emplace_back("chat_id", chatIdStr);
       }
       break;
@@ -1967,11 +2498,12 @@ Ptr<Message> Api::stopMessageLiveLocation(const std::variant<std::int64_t, std::
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("stopMessageLiveLocation", data);
+  const nl::json sentMessageObj = sendRequest("stopMessageLiveLocation", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -1985,12 +2517,12 @@ Ptr<Message> Api::editMessageReplyMarkup(const std::variant<std::int64_t, std::s
   data.parts.reserve(4);
   switch (chatId.index()) {
     case 0: // std::int64_t
-      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+      if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
         data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
       }
       break;
     case 1: // std::string
-      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+      if (const std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
         data.parts.emplace_back("chat_id", chatIdStr);
       }
       break;
@@ -2004,11 +2536,12 @@ Ptr<Message> Api::editMessageReplyMarkup(const std::variant<std::int64_t, std::s
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("editMessageReplyMarkup", data);
+  const nl::json sentMessageObj = sendRequest("editMessageReplyMarkup", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
+    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -2024,7 +2557,7 @@ Ptr<Poll> Api::stopPoll(const std::variant<std::int64_t, std::string>& chatId,
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json pollObj = sendRequest("stopPoll", data);
+  const nl::json pollObj = sendRequest("stopPoll", data);
   Ptr<Poll> poll(new Poll(pollObj));
   return poll;
 }
@@ -2069,7 +2602,7 @@ Ptr<SentWebAppMessage> Api::answerWebAppQuery(const std::string& webAppQueryId, 
   data.parts.emplace_back("web_app_query_id", webAppQueryId);
   data.parts.emplace_back("result", result->toJson().dump());
 
-  nl::json sendWebAppMsgObj = sendRequest("answerWebAppQuery", data);
+  const nl::json sendWebAppMsgObj = sendRequest("answerWebAppQuery", data);
   Ptr<SentWebAppMessage> ret(new SentWebAppMessage(sendWebAppMsgObj));
   return ret;
 }
@@ -2121,7 +2654,7 @@ Ptr<Message> Api::sendSticker(const std::variant<std::int64_t, std::string>& cha
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendSticker", data);
+  const nl::json sentMessageObj = sendRequest("sendSticker", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
@@ -2131,7 +2664,7 @@ Ptr<StickerSet> Api::getStickerSet(const std::string& name) const {
   data.parts.reserve(1);
   data.parts.emplace_back("name", name);
 
-  nl::json stickerSetObj = sendRequest("getStickerSet", data);
+  const nl::json stickerSetObj = sendRequest("getStickerSet", data);
   Ptr<StickerSet> stickerSet(new StickerSet(stickerSetObj));
   return stickerSet;
 }
@@ -2140,7 +2673,7 @@ std::vector<Ptr<Sticker>> Api::getCustomEmojiStickers(const std::vector<std::str
   cpr::Multipart data{};
   data.parts.reserve(1);
   data.parts.emplace_back("custom_emoji_ids", nl::json(customEmojiIds).dump());
-  nl::json stickersArray = sendRequest("getCustomEmojiStickers", data);
+  const nl::json stickersArray = sendRequest("getCustomEmojiStickers", data);
 
   std::vector<Ptr<Sticker>> result;
   result.reserve(stickersArray.size());
@@ -2160,7 +2693,7 @@ Ptr<File> Api::uploadStickerFile(std::int64_t userId,
   data.parts.emplace_back("sticker", cpr::Files{sticker});
   data.parts.emplace_back("sticker_format", stickerFormat);
 
-  nl::json fileObj = sendRequest("uploadStickerFile", data);
+  const nl::json fileObj = sendRequest("uploadStickerFile", data);
   Ptr<File> file(new File(fileObj));
   return file;
 }
@@ -2253,12 +2786,14 @@ bool Api::setStickerSetTitle(const std::string& name, const std::string& title) 
 }
 
 bool Api::setStickerSetThumbnail(const std::string& name,
-                                 const std::string& title,
+                                 std::int64_t userId,
+                                 const std::string& format,
                                  const std::optional<std::variant<cpr::File, std::string>>& thumbnail) const {
   cpr::Multipart data{};
-  data.parts.reserve(3);
+  data.parts.reserve(4);
   data.parts.emplace_back("name", name);
-  data.parts.emplace_back("title", title);
+  data.parts.emplace_back("user_id", userId);
+  data.parts.emplace_back("format", format);
   if (thumbnail.has_value()) {
     if (thumbnail->index() == 0) /* cpr::File */ {
       const cpr::File& file = std::get<cpr::File>(*thumbnail);
@@ -2341,7 +2876,7 @@ Ptr<Message> Api::sendGame(const std::variant<std::int64_t, std::string>& chatId
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendGame", data);
+  const nl::json sentMessageObj = sendRequest("sendGame", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
@@ -2369,7 +2904,7 @@ Ptr<Message> Api::setGameScore(std::int64_t userId,
   if (not inlineMessageId.empty())
     data.parts.emplace_back("inline_message_id", inlineMessageId);
 
-  nl::json sentMessageObj = sendRequest("setGameScore", data);
+  const nl::json sentMessageObj = sendRequest("setGameScore", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }
@@ -2388,7 +2923,7 @@ std::vector<Ptr<GameHighScore>> Api::getGameHighScores(std::int64_t userId,
   if (not inlineMessageId.empty())
     data.parts.emplace_back("inline_message_id", inlineMessageId);
 
-  nl::json gameScoresJson = sendRequest("getGameHighScores", data);
+  const nl::json gameScoresJson = sendRequest("getGameHighScores", data);
 
   std::vector<Ptr<GameHighScore>> gameScores;
   gameScores.reserve(gameScoresJson.size());
@@ -2477,8 +3012,6 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
                               bool isFlexible,
                               bool disableNotification,
                               bool protectContent,
-                              std::int32_t replyToMessageId,
-                              bool allowSendingWithoutReply,
                               const Ptr<IReplyMarkup>& replyMarkup) const {
 
   cpr::Multipart data{};
@@ -2549,7 +3082,7 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
-  nl::json sentMessageObj = sendRequest("sendInvoice", data);
+  const nl::json sentMessageObj = sendRequest("sendInvoice", data);
   Ptr<Message> message(new Message(sentMessageObj));
   return message;
 }

@@ -21,7 +21,7 @@ namespace nl = nlohmann;
 
 #define OBJECT_SERIALIZE_FIELD_PTR(json, json_field, field) \
   if (field) {                                              \
-    json[json_field] = field->toJson();                     \
+    json[json_field] = (field)->toJson();                     \
   }
 
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field) \
@@ -140,7 +140,7 @@ namespace nl = nlohmann;
   if (json.contains(json_field)) {                                                                              \
     try {                                                                                                       \
       if (auto opt = StringTo##enum_name(json[json_field]))                                                     \
-        type = *opt;                                                                                            \
+        field = *opt;                                                                                            \
       else                                                                                                      \
         throw Exception("Could not convert string \"" + json[json_field].get<std::string>() + "\" to enum");    \
     } catch (const std::exception& e) {                                                                         \

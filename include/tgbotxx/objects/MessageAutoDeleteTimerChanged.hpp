@@ -10,7 +10,7 @@ namespace tgbotxx {
         fromJson(json);
       }
       /// @brief New auto-delete time for messages in the chat; in seconds
-      std::int32_t messageAutoDeleteTime{};
+      std::time_t messageAutoDeleteTime{};
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object

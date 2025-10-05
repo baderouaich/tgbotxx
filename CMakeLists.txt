@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
-project(tgbotxx VERSION "1.1.6.9" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.20)
+project(tgbotxx VERSION "1.1.9.2" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
 # Note: tgbotxx version's patch & build is based on Telegram Bot Api version for compatibility. See https://core.telegram.org/bots/api-changelog
 # <OurMajorVersion>.<OurMinorVersion>.<TelegramBotApiMajorVersion>.<TelegramBotApiMinorVersion>
 

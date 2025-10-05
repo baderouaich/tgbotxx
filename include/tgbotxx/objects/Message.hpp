@@ -1,4 +1,7 @@
 #pragma once
+#include "MaybeInaccessibleMessage.hpp"
+
+
 #include <tgbotxx/objects/Animation.hpp>
 #include <tgbotxx/objects/Audio.hpp>
 #include <tgbotxx/objects/ChatShared.hpp>
@@ -26,7 +29,7 @@
 #include <tgbotxx/objects/Story.hpp>
 #include <tgbotxx/objects/SuccessfulPayment.hpp>
 #include <tgbotxx/objects/User.hpp>
-#include <tgbotxx/objects/UserShared.hpp>
+#include <tgbotxx/objects/UsersShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
 #include <tgbotxx/objects/Video.hpp>
 #include <tgbotxx/objects/VideoChatEnded.hpp>
@@ -37,11 +40,32 @@
 #include <tgbotxx/objects/Voice.hpp>
 #include <tgbotxx/objects/WebAppData.hpp>
 #include <tgbotxx/objects/WriteAccessAllowed.hpp>
+#include <tgbotxx/objects/DirectMessagesTopic.hpp>
+#include <tgbotxx/objects/MessageOrigin.hpp>
+#include <tgbotxx/objects/ExternalReplyInfo.hpp>
+#include <tgbotxx/objects/TextQuote.hpp>
+#include <tgbotxx/objects/SuggestedPostInfo.hpp>
+#include <tgbotxx/objects/RefundedPayment.hpp>
+#include <tgbotxx/objects/GiftInfo.hpp>
+#include <tgbotxx/objects/UniqueGiftInfo.hpp>
+#include <tgbotxx/objects/ChatBoostAdded.hpp>
+#include <tgbotxx/objects/ChatBackground.hpp>
+#include <tgbotxx/objects/DirectMessagePriceChanged.hpp>
+#include <tgbotxx/objects/GiveawayCreated.hpp>
+#include <tgbotxx/objects/PaidMessagePriceChanged.hpp>
 
 namespace tgbotxx {
   /// @brief Forward declarations (to avoid circular dependencies)
   /// @note included in src/objects/Message.cpp
   struct Chat;
+  struct ChecklistTasksDone;
+  struct ChecklistTasksAdded;
+  struct GiveawayCompleted;
+  struct SuggestedPostApproved;
+  struct SuggestedPostApprovalFailed;
+  struct SuggestedPostDeclined;
+  struct SuggestedPostPaid;
+  struct SuggestedPostRefunded;
 
   /// @brief This object represents a message.
   /// @ref https://core.telegram.org/bots/api#message
@@ -57,6 +81,9 @@ namespace tgbotxx {
       /// @brief Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
       std::int32_t messageThreadId{};
 
+      /// @brief Optional. Information about the direct messages chat topic that contains the message
+      Ptr<DirectMessagesTopic> directMessagesTopic;
+
       /// @brief Optional. Sender of the message; empty for messages sent to channels. For backward compatibility,
       /// the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
       Ptr<User> from;
@@ -67,32 +94,25 @@ namespace tgbotxx {
       /// the field from contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
       Ptr<Chat> senderChat;
 
-      /// @brief Date the message was sent in Unix time
+      /// @brief Optional. If the sender of the message boosted the chat, the number of boosts added by the user
+      std::int32_t senderBoostCount{};
+
+      /// @brief Optional. The bot that actually sent the message on behalf of the business account. Available only for outgoing messages sent on behalf of the connected business account.
+      Ptr<User> senderBusinessBot;
+
+      /// @brief Date the message was sent in Unix time. It is always a positive number, representing a valid date.
       std::time_t date{};
+
+      /// @brief Optional. Unique identifier of the business connection from which the message was received.
+      /// If non-empty, the message belongs to a chat of the corresponding business account that is independent
+      /// from any potential bot chat which might share the same identifier.
+      std::string businessConnectionId;
 
       /// @brief Conversation the message belongs to
       Ptr<Chat> chat;
 
-      /// @brief Optional. For forwarded messages, sender of the original message
-      Ptr<User> forwardFrom;
-
-      /// @brief Optional. For messages forwarded from channels or from anonymous administrators,
-      /// information about the original sender chat
-      Ptr<Chat> forwardFromChat;
-
-      /// @brief Optional. For messages forwarded from channels, identifier of the original message in the channel
-      std::int32_t forwardFromMessageId{};
-
-      /// @brief Optional. For forwarded messages that were originally sent in channels or by an anonymous
-      /// chat administrator, signature of the message sender if present
-      std::string forwardSignature;
-
-      /// @brief Optional. Sender's name for messages forwarded from users who disallow adding a link to
-      /// their account in forwarded messages
-      std::string forwardSenderName;
-
-      /// @brief Optional. For forwarded messages, date the original message was sent in Unix time
-      std::time_t forwardDate{};
+      /// @brief Optional. Information about the original message for forwarded messages
+      Ptr<MessageOrigin> forwardOrigin;
 
       /// @brief Optional. True, if the message is sent to a forum topic
       bool isTopicMessage{};
@@ -105,6 +125,18 @@ namespace tgbotxx {
       /// will not contain further reply_to_message fields even if it itself is a reply.
       Ptr<Message> replyToMessage;
 
+      /// @brief Optional. Information about the message that is being replied to, which may come from another chat or forum topic
+      Ptr<ExternalReplyInfo> externalReply;
+
+      /// @brief Optional. For replies that quote part of the original message, the quoted part of the message
+      Ptr<TextQuote> quote{};
+
+      /// @brief Optional. For replies to a story, the original story
+      Ptr<Story> replyToStory;
+
+      /// @brief Optional. Identifier of the specific checklist task that is being replied to
+      std::int32_t replyToChecklistTaskId{};
+
       /// @brief Optional. Bot through which the message was sent
       Ptr<User> viaBot;
 
@@ -114,6 +146,12 @@ namespace tgbotxx {
       /// @brief Optional. True, if the message can't be forwarded
       bool hasProtectedContent{};
 
+      /// @brief Optional. True, if the message was sent by an implicit action, for example, as an away or a greeting business message, or as a scheduled message
+      bool isFromOffline{};
+
+      /// @brief Optional. True, if the message is a paid post. Note that such posts must not be deleted for 24 hours to receive the payment and can't be edited.
+      bool isPaidPost{};
+
       /// @brief Optional. The unique identifier of a media message group this message belongs to
       std::string mediaGroupId;
 
@@ -121,11 +159,23 @@ namespace tgbotxx {
       /// an anonymous group administrator
       std::string authorSignature;
 
+      /// @brief Optional. The number of Telegram Stars that were paid by the sender of the message to send it
+      std::int64_t paidStarCount{};
+
       /// @brief Optional. For text messages, the actual UTF-8 text of the message
       std::string text;
 
       /// @brief Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text
       std::vector<Ptr<MessageEntity>> entities;
+
+      /// @brief Optional. Options used for link preview generation for the message, if it is a text message and link preview options were changed
+      Ptr<LinkPreviewOptions> linkPreviewOptions;
+
+      /// @brief Optional. Information about suggested post parameters if the message is a suggested post in a channel direct messages chat. If the message is an approved or declined suggested post, then it can't be edited.
+      Ptr<SuggestedPostInfo> suggestedPostInfo{};
+
+      /// @brief Optional. Unique identifier of the message effect added to the message
+      std::string effectId;
 
       /// @brief Optional. Message is an animation, information about the animation. For backward compatibility,
       /// when this field is set, the document field will also be set
@@ -161,8 +211,14 @@ namespace tgbotxx {
       /// @brief Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption
       std::vector<Ptr<MessageEntity>> captionEntities;
 
+      /// @brief Optional. True, if the caption must be shown above the message media
+      bool showCaptionAboveMedia{};
+
       /// @brief Optional. True, if the message media is covered by a spoiler animation
       bool hasMediaSpoiler{};
+
+      /// @brief Optional. Message is a checklist
+      Ptr<Checklist> checklist;
 
       /// @brief Optional. Message is a shared contact, information about the contact
       Ptr<Contact> contact;
@@ -194,7 +250,7 @@ namespace tgbotxx {
       std::string newChatTitle;
 
       /// @brief Optional. A chat photo was change to this value
-      Ptr<PhotoSize> newChatPhoto;
+      std::vector<Ptr<PhotoSize>> newChatPhoto;
 
       /// @brief Optional. Service message: the chat photo was deleted
       bool deleteChatPhoto{};
@@ -227,8 +283,8 @@ namespace tgbotxx {
       /// so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
       std::int64_t migrateFromChatId{};
 
-      /// @brief Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.
-      Ptr<Message> pinnedMessage;
+      /// @brief Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
+      MaybeInaccessibleMessage pinnedMessage;
 
       /// @brief Optional. Message is an invoice for a payment, information about the invoice.
       /// @link More about payments » https://core.telegram.org/bots/api#payments @endlink
@@ -238,11 +294,21 @@ namespace tgbotxx {
       /// @link More about payments » https://core.telegram.org/bots/api#payments @endlink
       Ptr<SuccessfulPayment> successfulPayment;
 
-      /// @brief Optional. Service message: a user was shared with the bot
-      Ptr<UserShared> userShared;
+      /// @brief Optional. Message is a service message about a refunded payment, information about the payment.
+      /// @link More about payments » https://core.telegram.org/bots/api#payments @endlink
+      Ptr<RefundedPayment> refundedPayment{};
+
+      /// @brief Optional. Service message: users were shared with the bot
+      Ptr<UsersShared> usersShared;
 
       /// @brief Optional. Service message: a chat was shared with the bot
       Ptr<ChatShared> chatShared;
+
+      /// @brief Optional. Service message: a regular gift was sent or received
+      Ptr<GiftInfo> gift{};
+
+      /// @brief Optional. Service message: a unique gift was sent or received
+      Ptr<UniqueGiftInfo> uniqueGift{};
 
       /// @brief Optional. The domain name of the website on which the user has logged in.
       /// @link More about Telegram Login » https://core.telegram.org/widgets/login @endlink
@@ -257,6 +323,21 @@ namespace tgbotxx {
 
       /// @brief Optional. Service message. A user in the chat triggered another user's proximity alert while sharing Live Location.
       Ptr<ProximityAlertTriggered> proximityAlertTriggered;
+
+      /// @brief Optional. Service message: user boosted the chat
+      Ptr<ChatBoostAdded> boostAdded{};
+
+      /// @brief Optional. Service message: chat background set
+      Ptr<ChatBackground> chatBackgroundSet{};
+
+      /// @brief Optional. Service message: some tasks in a checklist were marked as done or not done
+      Ptr<ChecklistTasksDone> checklistTasksDone;
+
+      /// @brief Optional. Service message: tasks were added to a checklist
+      Ptr<ChecklistTasksAdded> checklistTasksAdded;
+
+      /// @brief Optional. Service message: the price for paid messages in the corresponding direct messages chat of a channel has changed
+      Ptr<DirectMessagePriceChanged> directMessagePriceChanged{};
 
       /// @brief Optional. Service message: forum topic created
       Ptr<ForumTopicCreated> forumTopicCreated;
@@ -275,6 +356,36 @@ namespace tgbotxx {
 
       /// @brief Optional. Service message: the 'General' forum topic unhidden
       Ptr<GeneralForumTopicUnhidden> generalForumTopicUnhidden;
+
+      /// @brief Optional. Service message: a scheduled giveaway was created
+      Ptr<GiveawayCreated> giveawayCreated{};
+
+      /// @brief Optional. The message is a scheduled giveaway message
+      Ptr<Giveaway> giveaway;
+
+      /// @brief Optional. A giveaway with public winners was completed
+      Ptr<GiveawayWinners> giveawayWinners;
+
+      /// @brief Optional. Service message: a giveaway without public winners was completed
+      Ptr<GiveawayCompleted> giveawayCompleted{};
+
+      /// @brief Optional. Service message: the price for paid messages has changed in the chat
+      Ptr<PaidMessagePriceChanged> paidMessagePriceChanged{};
+
+      /// @brief Optional. Service message: a suggested post was approved
+      Ptr<SuggestedPostApproved> suggestedPostApproved{};
+
+      /// @brief Optional. Service message: approval of a suggested post has failed
+      Ptr<SuggestedPostApprovalFailed> suggestedPostApprovalFailed{};
+
+      /// @brief Optional. Service message: a suggested post was declined
+      Ptr<SuggestedPostDeclined> suggestedPostDeclined{};
+
+      /// @brief Optional. Service message: payment for a suggested post was received
+      Ptr<SuggestedPostPaid> suggestedPostPaid{};
+
+      /// @brief Optional. Service message: payment for a suggested post was refunded
+      Ptr<SuggestedPostRefunded> suggestedPostRefunded{};
 
       /// @brief Optional. Service message: video chat scheduled
       Ptr<VideoChatScheduled> videoChatScheduled;
@@ -297,7 +408,7 @@ namespace tgbotxx {
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
-      nl::json toJson() const;
+      [[nodiscard]] nl::json toJson() const;
 
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json);

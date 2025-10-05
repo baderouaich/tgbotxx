@@ -4,7 +4,8 @@
 #include <tgbotxx/objects/Object.hpp>
 
 namespace tgbotxx {
-  /// @brief This object represents a [custom keyboard](https://core.telegram.org/bots/features#keyboards) with reply options (see [Introduction to bots](https://core.telegram.org/bots/features#keyboards) for details and examples).
+  /// @brief This object represents a [custom keyboard](https://core.telegram.org/bots/features#keyboards) with reply options
+  /// (see [Introduction to bots](https://core.telegram.org/bots/features#keyboards) for details and examples).
   /// @ref https://core.telegram.org/bots/api#replykeyboardmarkup
   struct ReplyKeyboardMarkup : IReplyMarkup {
       ReplyKeyboardMarkup() = default;

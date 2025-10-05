@@ -13,7 +13,7 @@
 
 Telegram Bot C++ Library
 
-Compatible with Telegram [Bot API 6.9 (September 22, 2023)](https://core.telegram.org/bots/api-changelog)
+Compatible with Telegram [Bot API 9.2 (August 15, 2025)](https://core.telegram.org/bots/api-changelog)
 
 [//]: # (### Third party libs)
 
@@ -246,7 +246,7 @@ int main() {
 Simply use CMake's `FetchContent` in your project's `CMakeLists.txt` as below:
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(my_bot)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -255,7 +255,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 FetchContent_Declare(tgbotxx
         GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-        GIT_TAG "main"
+        GIT_TAG "v1.1.9.2" # Compatible with Telegram Api 9.2
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         EXCLUDE_FROM_ALL
@@ -280,7 +280,7 @@ sudo make install
 ```
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(my_bot)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -308,7 +308,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${tgbotxx_LIBRARIES})
   <summary>example</summary>
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(my_bot)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -350,7 +350,7 @@ git clone https://github.com/baderouaich/tgbotxx ./lib/tgbotxx
 Then add `add_subdirectory(lib/tgbotxx)` in your `CMakeLists.txt`.
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(my_bot)
 
 add_subdirectory(lib/tgbotxx) # <-- clone tgbotxx in your project's lib/ directory

@@ -28,7 +28,7 @@ namespace tgbotxx {
       /// But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
       std::int64_t fileSize{};
 
-      /// @brief Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.
+      /// @brief Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file (with Api::downloadFile() method)
       std::string filePath;
 
       /// @brief Serializes this object to JSON

@@ -1,19 +1,15 @@
 #pragma once
 #include <tgbotxx/objects/KeyboardButtonPollType.hpp>
 #include <tgbotxx/objects/KeyboardButtonRequestChat.hpp>
-#include <tgbotxx/objects/KeyboardButtonRequestUser.hpp>
+#include <tgbotxx/objects/KeyboardButtonRequestUsers.hpp>
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/WebAppInfo.hpp>
 
 namespace tgbotxx {
-  /// @brief This object represents one button of the reply keyboard. For simple text buttons,
-  /// String can be used instead of this object to specify the button text.
-  /// The optional fields web_app, request_user, request_chat, request_contact, request_location, and request_poll are mutually exclusive.
+  /// @brief This object represents one button of the reply keyboard.
+  /// At most one of the optional fields must be used to specify type of the button.
+  /// For simple text buttons, String can be used instead of this object to specify the button text.
   /// @ref https://core.telegram.org/bots/api#keyboardbutton
-  /// @note request_contact and request_location options will only work in Telegram versions released after 9 April, 2016. Older clients will display unsupported message.
-  /// @note request_poll option will only work in Telegram versions released after 23 January, 2020. Older clients will display unsupported message.
-  /// @note web_app option will only work in Telegram versions released after 16 April, 2022. Older clients will display unsupported message.
-  /// @note request_user and request_chat options will only work in Telegram versions released after 3 February, 2023. Older clients will display unsupported message.
   struct KeyboardButton {
       KeyboardButton() = default;
       explicit KeyboardButton(const nl::json& json) {
@@ -26,7 +22,7 @@ namespace tgbotxx {
       /// @brief Optional. If specified, pressing the button will open a list of suitable users.
       /// Tapping on any user will send their identifier to the bot in a “user_shared” service message.
       /// @note Available in private chats only.
-      Ptr<KeyboardButtonRequestUser> requestUser;
+      Ptr<KeyboardButtonRequestUsers> requestUsers;
 
       /// @brief Optional. If specified, pressing the button will open a list of suitable chats.
       /// Tapping on a chat will send its identifier to the bot in a “chat_shared” service message.
@@ -56,7 +52,7 @@ namespace tgbotxx {
       nl::json toJson() const {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "text", text);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "request_user", requestUser);
+        OBJECT_SERIALIZE_FIELD_PTR(json, "request_users", requestUsers);
         OBJECT_SERIALIZE_FIELD_PTR(json, "request_chat", requestChat);
         OBJECT_SERIALIZE_FIELD(json, "request_contact", requestContact);
         OBJECT_SERIALIZE_FIELD(json, "request_location", requestLocation);
@@ -68,7 +64,7 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) {
         OBJECT_DESERIALIZE_FIELD(json, "text", text, "", false);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "request_user", requestUser, true);
+        OBJECT_DESERIALIZE_FIELD_PTR(json, "request_users", requestUsers, true);
         OBJECT_DESERIALIZE_FIELD_PTR(json, "request_chat", requestChat, true);
         OBJECT_DESERIALIZE_FIELD(json, "request_contact", requestContact, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "request_location", requestLocation, false, true);
