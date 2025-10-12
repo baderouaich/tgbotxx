@@ -81,7 +81,7 @@ namespace tgbotxx {
     void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "id", id, "", false);
       OBJECT_DESERIALIZE_FIELD(json, "question", question, "", false);
-      OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "question_entities", questionEntities, false);
+      OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "question_entities", questionEntities, true);
       OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "options", options, false);
       OBJECT_DESERIALIZE_FIELD(json, "total_voter_count", totalVoterCount, 0, false);
       OBJECT_DESERIALIZE_FIELD(json, "is_closed", isClosed, false, false);

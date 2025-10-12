@@ -1,29 +1,32 @@
 #pragma once
-#include <tgbotxx/objects/CallbackQuery.hpp>
-#include <tgbotxx/objects/ChatJoinRequest.hpp>
-#include <tgbotxx/objects/ChatMemberUpdated.hpp>
-#include <tgbotxx/objects/ChosenInlineResult.hpp>
-#include <tgbotxx/objects/InlineQuery.hpp>
-#include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Object.hpp>
-#include <tgbotxx/objects/Poll.hpp>
-#include <tgbotxx/objects/PollAnswer.hpp>
-#include <tgbotxx/objects/PreCheckoutQuery.hpp>
-#include <tgbotxx/objects/ShippingQuery.hpp>
-#include <tgbotxx/objects/MessageReactionUpdated.hpp>
-#include <tgbotxx/objects/MessageReactionCountUpdated.hpp>
-#include <tgbotxx/objects/ChatBoostUpdated.hpp>
-#include <tgbotxx/objects/ChatBoostRemoved.hpp>
 
 namespace tgbotxx {
+  /// @brief Forward declarations
+  struct CallbackQuery;
+  struct ChatJoinRequest;
+  struct ChatMemberUpdated;
+  struct ChosenInlineResult;
+  struct InlineQuery;
+  struct Message;
+  struct Poll;
+  struct PollAnswer;
+  struct PreCheckoutQuery;
+  struct ShippingQuery;
+  struct MessageReactionUpdated;
+  struct MessageReactionCountUpdated;
+  struct ChatBoostUpdated;
+  struct ChatBoostRemoved;
+  struct BusinessConnection;
+  struct BusinessMessagesDeleted;
+  struct PaidMediaPurchased;
+
   /// @brief This object represents an incoming update.
   /// At most one of the optional parameters can be present in any given update.
   /// @ref https://core.telegram.org/bots/api#update
   struct Update {
       Update() = default;
-      explicit Update(const nl::json& json) {
-        fromJson(json);
-      }
+      explicit Update(const nl::json& json);
 
       /// @brief The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially.
       /// This ID becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates
@@ -43,6 +46,18 @@ namespace tgbotxx {
 
       /// @brief Optional. New version of a channel post that is known to the bot and was edited
       Ptr<Message> editedChannelPost;
+
+      /// @brief Optional. The bot was connected to or disconnected from a business account, or a user edited an existing connection with the bot
+      Ptr<BusinessConnection> businessConnection;
+
+      /// @brief Optional. New message from a connected business account
+      Ptr<Message> businessMessage;
+
+      /// @brief Optional. New version of a message from a connected business account
+      Ptr<Message> editedBusinessMessage;
+
+      /// @brief Optional. Messages were deleted from a connected business account
+      Ptr<BusinessMessagesDeleted> deletedBusinessMessages;
 
       /// @brief Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and
       /// must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates. The update isn't
@@ -70,6 +85,9 @@ namespace tgbotxx {
       /// @brief Optional. New incoming pre-checkout query. Contains full information about checkout
       Ptr<PreCheckoutQuery> preCheckoutQuery;
 
+      /// @brief Optional. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat
+      Ptr<PaidMediaPurchased> purchasedPaidMedia;
+
       /// @brief Optional. New poll state. Bots receive only updates about stopped polls and polls, which are sent by the bot
       Ptr<Poll> poll;
 
@@ -93,50 +111,9 @@ namespace tgbotxx {
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
-      nl::json toJson() const {
-        nl::json json = nl::json::object();
-        OBJECT_SERIALIZE_FIELD(json, "update_id", updateId);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "message", message);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_message", editedMessage);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "channel_post", channelPost);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "message_reaction", messageReaction);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "message_reaction_count", messageReactionCount);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "poll", poll);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_member", chatMember);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "chat_boost", chatBoost);
-        OBJECT_SERIALIZE_FIELD_PTR(json, "removed_chat_boost", removedChatBoost);
-        return json;
-      }
+      [[nodiscard]] nl::json toJson() const;
 
       /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json& json) {
-        OBJECT_DESERIALIZE_FIELD(json, "update_id", updateId, 0, false);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "message", message, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_message", editedMessage, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "channel_post", channelPost, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "edited_channel_post", editedChannelPost, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "message_reaction", messageReaction, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "inline_query", inlineQuery, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "chosen_inline_result", chosenInlineResult, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "callback_query", callbackQuery, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "shipping_query", shippingQuery, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "pre_checkout_query", preCheckoutQuery, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "poll", poll, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "poll_answer", pollAnswer, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "my_chat_member", myChatMember, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_member", chatMember, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_join_request", chatJoinRequest, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_boost", chatBoost, true);
-        OBJECT_DESERIALIZE_FIELD_PTR(json, "removed_chat_boost", removedChatBoost, true);
-      }
+      void fromJson(const nl::json& json);
   };
 }

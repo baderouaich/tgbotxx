@@ -1,6 +1,9 @@
 #include "tgbotxx/objects/ChatAdministratorRights.hpp"
+#include "tgbotxx/objects/InputPaidMedia.hpp"
+#include "tgbotxx/objects/InputPollOption.hpp"
 #include "tgbotxx/objects/MenuButton.hpp"
 #include "tgbotxx/objects/PollOption.hpp"
+#include "tgbotxx/objects/InputPollOption.hpp"
 #include "tgbotxx/objects/WebAppInfo.hpp"
 #include "tgbotxx/objects/WebhookInfo.hpp"
 #include <csignal>
@@ -111,10 +114,13 @@ private:
     Ptr<BotCommand> testBotBlockedByUser(new BotCommand());
     testBotBlockedByUser->command = "/test_bot_blocked_by_user";
     testBotBlockedByUser->description = "Block the bot within 10s after u receive a message";
+    Ptr<BotCommand> sendPaidMedia(new BotCommand());
+    sendPaidMedia->command = "/send_paid_media";
+    sendPaidMedia->description = "send paid media to be unlocked with stars";
     api()->setMyCommands({greet, stop, photo, inlineButtons, replyKeyboardButtons, audio, document, animation, voice, mediaGroup,
                           location, userProfilePhotos, ban, poll, quiz, webhookInfo, botName,
                           menuButtonWebApp, menuButtonDefault, showAdministratorRights, editMessageText,
-                          deleteMessage, sendInvoice, createInvoiceLink, sendSticker, testBotBlockedByUser}); // The above commands will be shown in the bot chat menu (bottom left)
+                          deleteMessage, sendInvoice, createInvoiceLink, sendSticker, testBotBlockedByUser, sendPaidMedia}); // The above commands will be shown in the bot chat menu (bottom left)
 
     std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
   }
@@ -199,7 +205,7 @@ private:
         }
       }
       std::reverse(keyboard->inlineKeyboard.begin(), keyboard->inlineKeyboard.end());
-      api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, false, 0, false, keyboard);
+      api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, keyboard);
     } else if (message->text == "/reply_keyboard_buttons") {
       /*
          * Bots are able to interpret free text input from users, but offering specific suggestions is often more intuitive –
@@ -231,7 +237,7 @@ private:
       replyKeyboardMarkup->keyboard.push_back(row1);
       replyKeyboardMarkup->keyboard.push_back(row2);
 
-      api()->sendMessage(message->chat->id, "Keyboard buttons:", 0, "", {}, false, false, false, 0, false, replyKeyboardMarkup);
+      api()->sendMessage(message->chat->id, "Keyboard buttons:", 0, "", {}, false, false, replyKeyboardMarkup);
     } else if (message->text == "/audio") {
       api()->sendMessage(message->chat->id, "Sending audio file...");
       api()->sendAudio(message->chat->id, "https://samples-files.com/samples/Audio/mp3/sample-file-1.mp3");
@@ -312,26 +318,38 @@ private:
       api()->sendMessage(message->chat->id, "Banning you for 1 minute. You will be able to use this bot after " + DateTimeUtils::toString(oneMinuteAfter));
       api()->banChatMember(message->chat->id, message->from->id, oneMinuteAfter);
     } else if (message->text == "/poll") {
-      std::vector<std::string> options = {
-        "Answer 1",
-        "Answer 2",
-        "Answer 3",
-      };
+      std::vector<Ptr<InputPollOption>> options;
+      Ptr<InputPollOption> option1 = makePtr<InputPollOption>();
+      option1->text = "Answer 1";
+      options.push_back(option1);
+      Ptr<InputPollOption> option2 = makePtr<InputPollOption>();
+      option2->text = "Answer 2";
+      options.push_back(option2);
+      Ptr<InputPollOption> option3 = makePtr<InputPollOption>();
+      option3->text = "Answer 3";
+      options.push_back(option3);
       api()->sendPoll(message->chat->id, "Please choose an answer", options);
     } else if (message->text == "/quiz") {
       std::string question = "Which of the following empires had no written language: Incan, Aztec, Egyptian, Roman? ";
-      std::vector<std::string> possibleAnswers = {
-        "Aztec",
-        "Egyptian",
-        "Incan", // CORRECT answer index = 2
-        "Roman",
-      };
+      std::vector<Ptr<InputPollOption>> options;
+      Ptr<InputPollOption> option1 = makePtr<InputPollOption>();
+      option1->text = "Aztec";
+      options.push_back(option1);
+      Ptr<InputPollOption> option2 = makePtr<InputPollOption>();
+      option2->text = "Egyptian";
+      options.push_back(option2);
+      Ptr<InputPollOption> option3 = makePtr<InputPollOption>();
+      option3->text = "Incan"; // CORRECT answer index = 2
+      options.push_back(option3);
+      Ptr<InputPollOption> option4 = makePtr<InputPollOption>();
+      option4->text = "Roman";
+      options.push_back(option4);
       std::int32_t correctAnswerIndex = 2;
       std::string explanation =
         "The Incas didn't have a written language in the way you might expect."
         " Instead, the way they recorded information was through a system of "
         "different knots tied in ropes attached to a longer cord."; // optional (0-200 character explanation will be shown to user as a notification after answer>)
-      api()->sendPoll(message->chat->id, question, possibleAnswers, false, "quiz", false, correctAnswerIndex, explanation);
+      api()->sendPoll(message->chat->id, question, options, 0, "", {}, false, "quiz", false, correctAnswerIndex, explanation);
     } else if (message->text == "/webhook_info") {
       Ptr<WebhookInfo> info = api()->getWebhookInfo();
       api()->sendMessage(message->chat->id, info->toJson().dump(2));
@@ -366,31 +384,55 @@ private:
       api()->deleteMessage(twoSecondsMsg->chat->id, twoSecondsMsg->messageId);
     } else if (message->text == "/send_invoice") {
       const std::string providerToken = getPaymentProviderToken();
-      std::vector<Ptr<LabeledPrice>> prices;
-      Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
-      originalPrice->label = "Original price";
-      originalPrice->amount = 150; // 1.50$
-      prices.push_back(originalPrice);
-      Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
-      discountPrice->label = "Discount";
-      discountPrice->amount = -50; // -0.5$
-      prices.push_back(discountPrice);
-      api()->sendInvoice(message->chat->id, "Product name", "Product description", "payload", providerToken, "USD", prices);
+      if (providerToken.empty()) // Create telegram invoice that will be paid using stars
+      {
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "STARS";
+        originalPrice->amount = 1000;
+        prices.push_back(originalPrice);
+        api()->sendInvoice(message->chat->id, "Product name", "Product description", "payload", "XTR", prices, providerToken);
+      } else {
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "Original price";
+        originalPrice->amount = 150; // 1.50$
+        prices.push_back(originalPrice);
+        Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
+        discountPrice->label = "Discount";
+        discountPrice->amount = -50; // -0.5$
+        prices.push_back(discountPrice);
+        api()->sendInvoice(message->chat->id, "Product name", "Product description", "payload", "USD", prices, providerToken);
+      }
+
     } else if (message->text == "/create_invoice_link") {
       // Create invoice link
       const std::string providerToken = getPaymentProviderToken();
-      std::vector<Ptr<LabeledPrice>> prices;
-      Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
-      originalPrice->label = "Original price";
-      originalPrice->amount = 150; // 1.50$
-      prices.push_back(originalPrice);
-      Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
-      discountPrice->label = "Discount";
-      discountPrice->amount = -50; // -0.5$
-      prices.push_back(discountPrice);
-      std::string link = api()->createInvoiceLink("Product name", "Product description", "payload", providerToken, "USD", prices);
-      // Send link to user
-      api()->sendMessage(message->chat->id, link);
+      if (providerToken.empty()) // Create telegram invoice that will be paid using stars
+      {
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "STARS";
+        originalPrice->amount = 1000;
+        prices.push_back(originalPrice);
+        std::string link = api()->createInvoiceLink("Product name", "Product description", "payload", "XTR", prices, "", providerToken);
+        // Send link to user
+        api()->sendMessage(message->chat->id, link);
+      } else {
+        std::vector<Ptr<LabeledPrice>> prices;
+        Ptr<LabeledPrice> originalPrice = std::make_shared<LabeledPrice>();
+        originalPrice->label = "Original price";
+        originalPrice->amount = 150; // 1.50$
+        prices.push_back(originalPrice);
+        Ptr<LabeledPrice> discountPrice = std::make_shared<LabeledPrice>();
+        discountPrice->label = "Discount";
+        discountPrice->amount = -50; // -0.5$
+        prices.push_back(discountPrice);
+        std::string link = api()->createInvoiceLink("Product name", "Product description", "payload", "USD", prices,
+                                                    "", providerToken);
+        // Send link to user
+        api()->sendMessage(message->chat->id, link);
+      }
     } else if (message->text == "/send_sticker") {
       api()->sendSticker(message->chat->id, "https://t.ly/uQ6Zx");
     } else if (message->text == "/test_bot_blocked_by_user") {
@@ -402,13 +444,34 @@ private:
         std::cerr << __func__ << ": " << e.what() << " (error_code: " << (int) e.errorCode() << ')' << std::endl;
         assert(e.errorCode() == ErrorCode::FORBIDDEN && std::string(e.what()) == "Forbidden: bot was blocked by the user");
       }
+    } else if (message->text == "/send_paid_media") {
+      std::vector<Ptr<InputPaidMedia>> paidMedia;
+      for (const std::string url: {"https://images.alphacoders.com/129/1299740.jpg",
+                                   "https://images2.alphacoders.com/112/1128233.jpg",
+                                   "https://images2.alphacoders.com/131/1311487.jpg"}) {
+        Ptr<InputPaidMediaPhoto> photo(new InputPaidMediaPhoto());
+        photo->media = url;
+        paidMedia.push_back(photo);
+      }
+      // add local video to the order list
+      Ptr<InputPaidMediaVideo> video(new InputPaidMediaVideo());
+      video->media = cpr::File{fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4"}; // Local
+      video->startTimestamp = 3; // start from 3rd second
+      video->supportsStreaming = true;
+      paidMedia.push_back(video);
+
+      constexpr std::int32_t starsPrice = 100;
+      std::string payload = "some payload to receive back if this got purchased";
+      api()->sendPaidMedia(message->from->id, starsPrice, paidMedia, payload);
+      // the user will get access to the photos only after the payment is completed
     }
   }
 
   /// Called when a new incoming callback query is received (e.g inline button callback query)
   void onCallbackQuery(const Ptr<CallbackQuery>& callbackQuery) override {
     std::cout << "You have clicked #" << callbackQuery->data << " button!" << std::endl;
-    api()->sendMessage(callbackQuery->message->chat->id, "You have clicked #" + callbackQuery->data + " button!");
+    auto chat = std::visit([](auto& msg) { return msg->chat; }, callbackQuery->message);
+    api()->sendMessage(chat->id, "You have clicked #" + callbackQuery->data + " button!");
   }
 
   /// Called when an unknown command is received (messages with leading '/' char).
@@ -419,7 +482,7 @@ private:
 
   // Other callbacks (optional overload)
   /// Called when a new version of a message that is known to the bot and was edited
-  void onEditedMessage(const Ptr<Message>& editedMessage) override {
+  void onMessageEdited(const Ptr<Message>& editedMessage) override {
     std::cout << __func__ << ": " << editedMessage->text << std::endl;
   }
   /// Called when a new incoming inline query is received (when user writes in the chat text box: @botname QUERY)
@@ -470,11 +533,11 @@ private:
     std::cout << __func__ << ": " << pollAnswer->optionIds.front() << std::endl;
   }
   /// Called when the bot's chat member status was updated in a chat.
-  void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {
+  void onMyChatMemberUpdated(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {
     std::cout << __func__ << ": " << myChatMemberUpdated->from->username << std::endl;
   }
   /// Called when a chat member's status was updated in a chat.
-  void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {
+  void onChatMemberUpdated(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {
     std::cout << __func__ << ": " << chatMemberUpdated->from->username << std::endl;
   }
   /// Called when a A request to join the chat has been sent.
@@ -502,7 +565,8 @@ private:
   static std::string getPaymentProviderToken() {
     if (char* token = std::getenv("TESTS_PAYMENT_PROVIDER_TOKEN"); token != nullptr)
       return std::string(token);
-    throw std::runtime_error("Couldn't find PAYMENT_PROVIDER_TOKEN in the env; please export an environment variable PAYMENT_PROVIDER_TOKEN with your payment provider token");
+    return {};
+    // throw std::runtime_error("Couldn't find PAYMENT_PROVIDER_TOKEN in the env; please export an environment variable PAYMENT_PROVIDER_TOKEN with your payment provider token");
   }
 };
 
