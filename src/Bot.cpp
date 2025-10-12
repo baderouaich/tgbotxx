@@ -4,6 +4,9 @@
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
+#include <tgbotxx/objects/BusinessMessagesDeleted.hpp>
+#include <tgbotxx/objects/PaidMediaPurchased.hpp>
+#include <tgbotxx/objects/BusinessConnection.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
@@ -61,122 +64,138 @@ void Bot::stop() {
   this->onStop();
 }
 
-
-void Bot::dispatch(const Ptr<Update>& update) {
-  /// A Message can be a Command, EditedMessage, Normal Message, Channel Post...
-  if (update->message) {
-    /// ... dispatch the message accordingly
-    this->dispatchMessage(update->message);
-  }
-
-  if (update->editedMessage) {
-    /// Callback -> onEditedMessage
-    this->onEditedMessage(update->editedMessage);
-  }
-
-  if (update->channelPost) {
-    this->dispatchMessage(update->channelPost);
-  }
-
-  if (update->editedChannelPost) {
-    /// Callback -> onEditedMessage
-    this->onEditedMessage(update->editedChannelPost);
-  }
-
-  if (update->inlineQuery) {
-    /// Callback -> onInlineQuery
-    this->onInlineQuery(update->inlineQuery);
-  }
-  if (update->messageReaction) {
-    /// Callback -> onMessageReactionUpdated
-    this->onMessageReactionUpdated(update->messageReaction);
-  }
-  if (update->messageReactionCount) {
-    /// Callback -> onMessageReactionCountUpdated
-    this->onMessageReactionCountUpdated(update->messageReactionCount);
-  }
-  if (update->chosenInlineResult) {
-    /// Callback -> onChosenInlineResult
-    this->onChosenInlineResult(update->chosenInlineResult);
-  }
-  if (update->callbackQuery) {
-    /// Callback -> onCallbackQuery
-    this->onCallbackQuery(update->callbackQuery);
-  }
-  if (update->shippingQuery) {
-    /// Callback -> onShippingQuery
-    this->onShippingQuery(update->shippingQuery);
-  }
-  if (update->preCheckoutQuery) {
-    /// Callback -> onPreCheckoutQuery
-    this->onPreCheckoutQuery(update->preCheckoutQuery);
-  }
-  if (update->poll) {
-    /// Callback -> onPoll
-    this->onPoll(update->poll);
-  }
-  if (update->pollAnswer) {
-    /// Callback -> onPollAnswer
-    this->onPollAnswer(update->pollAnswer);
-  }
-  if (update->myChatMember) {
-    /// Callback -> onMyChatMember
-    this->onMyChatMember(update->myChatMember);
-  }
-  if (update->chatMember) {
-    /// Callback -> onChatMember
-    this->onChatMember(update->chatMember);
-  }
-  if (update->chatJoinRequest) {
-    /// Callback -> onChatJoinRequest
-    this->onChatJoinRequest(update->chatJoinRequest);
-  }
-  if (update->chatBoost) {
-    /// Callback -> onChatBoostUpdated
-    this->onChatBoostUpdated(update->chatBoost);
-  }
-  if (update->removedChatBoost) {
-    /// Callback -> onChatBoostRemoved
-    this->onChatBoostRemoved(update->removedChatBoost);
-  }
-}
-
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
 const Ptr<Api>& Bot::api() const noexcept { return m_api; }
 bool Bot::isRunning() const noexcept { return m_running; }
 
-void Bot::dispatchMessage(const Ptr<Message>& message) {
-  /// Callback -> onAnyMessage
-  this->onAnyMessage(message);
+void Bot::dispatch(const Ptr<Update>& update) {
+  this->dispatchMessages(update);
+  this->dispatchChannel(update);
+  this->dispatchBusiness(update);
+  this->dispatchMessageReaction(update);
+  this->dispatchInlineMode(update);
+  this->dispatchPayments(update);
+  this->dispatchPoll(update);
+  this->dispatchChat(update);
+}
 
-  const std::string_view text = message->text;
-  if (text.empty()) [[unlikely]]
-    return;
+void Bot::dispatchMessages(const Ptr<Update>& update) {
+  /// A Message can be a Command, EditedMessage, Normal Message, Channel Post...
+  if (update->message) {
+    const Ptr<Message>& message = update->message;
+    /// ... dispatch the message accordingly
+    /// Callback -> onAnyMessage
+    this->onAnyMessage(message);
 
-  if (text[0] != '/') {
-    /// Callback -> onNonCommandMessage
-    this->onNonCommandMessage(message);
-    return;
+    const std::string_view text = message->text;
+    if (not text.empty()) {
+      if (text[0] != '/') {
+        /// Callback -> onNonCommandMessage
+        this->onNonCommandMessage(message);
+      } else {
+        const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [this, chatType = message->chat->type, &text](const std::string& cmd) noexcept {
+          // Handle both /start (in private chats)  /start@botusername (in groups)
+          if (chatType == Chat::Type::Private) {
+            // In private chats, it's always /command (without a username)
+            return (text == cmd);
+          } else {
+            // In group chats, this bot must be mentioned with the command to avoid
+            // conflicts with other bots having the same command
+            if (text.find('@') != std::string_view::npos && text == (cmd + '@' + m_api->m_cache.botUsername))
+              return true;
+          }
+          return false;
+        });
+        if (isKnownCommand) {
+          /// Callback -> onCommand
+          this->onCommand(message);
+        } else {
+          /// Callback -> onUnknownCommand
+          this->onUnknownCommand(message);
+        }
+      }
+    }
   }
 
-  const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [this, chatType = message->chat->type, &text](const std::string& cmd) noexcept {
-    // Handle both /start (in private chats)  /start@botusername (in groups)
-    if (chatType == Chat::Type::Private) {
-      // In private chats, it's always /command (without a username)
-      return (text == cmd);
-    } else {
-      // In group chats, this bot must be mentioned with the command to avoid
-      // conflicts with other bots having the same command
-      if (text.find('@') != std::string_view::npos && text == (cmd + '@' + m_api->m_cache.botUsername))
-        return true;
-    }
-    return false;
-  });
-  if (isKnownCommand) {
-    /// Callback -> onCommand
-    this->onCommand(message);
-  } else {
-    /// Callback -> onUnknownCommand
-    this->onUnknownCommand(message);
+  if (update->editedMessage) {
+    /// Callback -> onMessageEdited
+    this->onMessageEdited(update->editedMessage);
+  }
+}
+void Bot::dispatchChannel(const Ptr<Update>& update) {
+  if (update->channelPost) {
+    this->onChannelPost(update->channelPost);
+  }
+  if (update->editedChannelPost) {
+    this->onChannelPostEdited(update->editedChannelPost);
+  }
+}
+void Bot::dispatchBusiness(const Ptr<Update>& update) {
+  if (update->businessConnection) {
+    this->onBusinessConnection(update->businessConnection);
+  }
+  if (update->businessMessage) {
+    this->onBusinessMessage(update->businessMessage);
+  }
+  if (update->editedBusinessMessage) {
+    this->onBusinessMessageEdited(update->editedBusinessMessage);
+  }
+  if (update->deletedBusinessMessages) {
+    this->onBusinessMessagesDeleted(update->deletedBusinessMessages);
+  }
+}
+void Bot::dispatchMessageReaction(const Ptr<Update>& update) {
+  if (update->messageReaction) {
+    this->onMessageReactionUpdated(update->messageReaction);
+  }
+  if (update->messageReactionCount) {
+    this->onMessageReactionCountUpdated(update->messageReactionCount);
+  }
+}
+void Bot::dispatchInlineMode(const Ptr<Update>& update) {
+  if (update->inlineQuery) {
+    this->onInlineQuery(update->inlineQuery);
+  }
+  if (update->chosenInlineResult) {
+    this->onChosenInlineResult(update->chosenInlineResult);
+  }
+  if (update->callbackQuery) {
+    this->onCallbackQuery(update->callbackQuery);
+  }
+  if (update->shippingQuery) {
+    this->onShippingQuery(update->shippingQuery);
+  }
+  if (update->preCheckoutQuery) {
+    this->onPreCheckoutQuery(update->preCheckoutQuery);
+  }
+}
+void Bot::dispatchPayments(const Ptr<Update>& update) {
+  if (update->purchasedPaidMedia) {
+    this->onPaidMediaPurchased(update->purchasedPaidMedia);
+  }
+}
+void Bot::dispatchPoll(const Ptr<Update>& update) {
+  if (update->poll) {
+    this->onPoll(update->poll);
+  }
+  if (update->pollAnswer) {
+    this->onPollAnswer(update->pollAnswer);
+  }
+}
+void Bot::dispatchChat(const Ptr<Update>& update) {
+  if (update->myChatMember) {
+    this->onMyChatMemberUpdated(update->myChatMember);
+  }
+  if (update->chatMember) {
+    this->onChatMemberUpdated(update->chatMember);
+  }
+  if (update->chatJoinRequest) {
+    this->onChatJoinRequest(update->chatJoinRequest);
+  }
+  if (update->chatBoost) {
+    this->onChatBoostUpdated(update->chatBoost);
+  }
+  if (update->removedChatBoost) {
+    this->onChatBoostRemoved(update->removedChatBoost);
   }
 }
