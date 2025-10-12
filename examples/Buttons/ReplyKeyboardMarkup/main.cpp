@@ -48,8 +48,7 @@ private:
 
       // User will click a button, and we will receive button text as a message:
       api()->sendMessage(message->chat->id, "Please answer by clicking one of the buttons:",
-                         0, "", {}, false, false, false, 0, false, replyKeyboardMarkup);
-
+                         0, "", {}, false, false, replyKeyboardMarkup);
     }
   }
 

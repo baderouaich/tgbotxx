@@ -34,21 +34,21 @@ private:
       row.push_back(yesButton);
       Ptr<InlineKeyboardButton> noButton(new InlineKeyboardButton());
       noButton->text = "No";
-      noButton->callbackData = "NoButton";  // will be received by below onCallbackQuery() method if the 'No' button was clicked.
+      noButton->callbackData = "NoButton"; // will be received by below onCallbackQuery() method if the 'No' button was clicked.
       row.push_back(noButton);
       keyboard->inlineKeyboard.push_back(row);
 
-      api()->sendMessage(message->chat->id, "Hello! Please click a button:", 0, "", {}, false, false, false, 0, false, keyboard);
+      api()->sendMessage(message->chat->id, "Hello! Please click a button:", 0, "", {}, false, false, keyboard);
     }
   }
 
   void onCallbackQuery(const Ptr<CallbackQuery> &callbackQuery) override {
-    if (callbackQuery->data == "YesButton")  // callbackQuery->data will hold the InlineKeyboardButton::callbackData set above
+    auto chat = std::visit([](auto& msg) { return msg->chat; }, callbackQuery->message);
+    if (callbackQuery->data == "YesButton") // callbackQuery->data will hold the InlineKeyboardButton::callbackData set above
     {
-      api()->sendMessage(callbackQuery->message->chat->id, "You have clicked the 'Yes' button!");
-    }
-    else if (callbackQuery->data == "NoButton") {
-      api()->sendMessage(callbackQuery->message->chat->id, "You have clicked the 'No' button!");
+      api()->sendMessage(chat->id, "You have clicked the 'Yes' button!");
+    } else if (callbackQuery->data == "NoButton") {
+      api()->sendMessage(chat->id, "You have clicked the 'No' button!");
     }
   }
 

@@ -1,5 +1,6 @@
 #include <tgbotxx/tgbotxx.hpp>
 #include <iostream>
+#include <csignal>
 using namespace tgbotxx;
 
 class EchoBot : public Bot {
@@ -37,7 +38,7 @@ private:
     /// Known commands are set with Bot::setCommands()
     void onUnknownCommand(const Ptr<Message> &message) override {}
     /// Called when a new version of a message that is known to the bot and was edited
-    void onEditedMessage(const Ptr<Message>& editedMessage) override {}
+    void onMessageEdited(const Ptr<Message>& editedMessage) override {}
     /// Called when a new incoming inline query is received
     void onInlineQuery(const Ptr<InlineQuery>& inlineQuery) override {}
     /// Called when the result of an inline query that was chosen by a user and sent to their chat partner.
@@ -53,9 +54,9 @@ private:
     /// Called when a user changed their answer in a non-anonymous poll.
     void onPollAnswer(const Ptr<PollAnswer>& pollAnswer) override {}
     /// Called when the bot's chat member status was updated in a chat.
-    void onMyChatMember(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
+    void onMyChatMemberUpdated(const Ptr<ChatMemberUpdated>& myChatMemberUpdated) override {}
     /// Called when a chat member's status was updated in a chat.
-    void onChatMember(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
+    void onChatMemberUpdated(const Ptr<ChatMemberUpdated>& chatMemberUpdated) override {}
     /// Called when a A request to join the chat has been sent.
     void onChatJoinRequest(const Ptr<ChatJoinRequest>& chatJoinRequest) override {}
 };
