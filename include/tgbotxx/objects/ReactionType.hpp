@@ -56,12 +56,12 @@ namespace tgbotxx {
 
 
       nl::json toJson() const override {
-        nl::json json = ReactionTypeEmoji::toJson();
+        nl::json json = ReactionType::toJson();
         OBJECT_SERIALIZE_FIELD(json, "emoji", emoji);
         return json;
       }
       void fromJson(const nl::json& json) override {
-        ReactionTypeEmoji::fromJson(json);
+        ReactionType::fromJson(json);
         OBJECT_DESERIALIZE_FIELD(json, "emoji", emoji, "", false);
       }
   };
