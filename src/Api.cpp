@@ -47,8 +47,17 @@
 #include <tgbotxx/objects/LinkPreviewOptions.hpp>
 #include <tgbotxx/objects/SuggestedPostParameters.hpp>
 #include <tgbotxx/objects/InputChecklist.hpp>
-#include <tgbotxx/objects/ChatBoosts.hpp>
+#include <tgbotxx/objects/UserChatBoosts.hpp>
 #include <tgbotxx/objects/Gifts.hpp>
+#include <tgbotxx/objects/InputProfilePhoto.hpp>
+#include <tgbotxx/objects/AcceptedGiftTypes.hpp>
+#include <tgbotxx/objects/StarAmount.hpp>
+#include <tgbotxx/objects/OwnedGifts.hpp>
+#include <tgbotxx/objects/InputStoryContent.hpp>
+#include <tgbotxx/objects/Story.hpp>
+#include <tgbotxx/objects/StoryArea.hpp>
+#include <tgbotxx/objects/StarTransactions.hpp>
+#include <tgbotxx/objects/InputPaidMedia.hpp>
 
 using namespace tgbotxx;
 
@@ -298,8 +307,6 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
   if (directMessagesTopicId)
@@ -889,7 +896,7 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
 
 Ptr<Message> Api::sendPaidMedia(const std::variant<std::int64_t, std::string>& chatId,
                                 std::int32_t starCount,
-                                const std::vector<Ptr<InputMedia>>& media,
+                                const std::vector<Ptr<InputPaidMedia>>& media,
                                 const std::string& payload,
                                 std::int32_t messageThreadId,
                                 const std::string& caption,
@@ -910,7 +917,7 @@ Ptr<Message> Api::sendPaidMedia(const std::variant<std::int64_t, std::string>& c
   data.parts.emplace_back("star_count", starCount);
   nl::json mediaJson = nl::json::array();
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
-  for (const Ptr<InputMedia>& m: media) {
+  for (const Ptr<InputPaidMedia>& m: media) {
     nl::json mJson = m->toJson();
     switch (m->media.index()) {
       case 0: // cpr::File (Local File)
@@ -1987,13 +1994,13 @@ bool Api::answerCallbackQuery(const std::string& callbackQueryId,
   return sendRequest("answerCallbackQuery", data);
 }
 
-Ptr<ChatBoosts> Api::getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
+Ptr<UserChatBoosts> Api::getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
                                        std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("user_id", std::to_string(userId));
-  return makePtr<ChatBoosts>(sendRequest("getUserChatBoosts", data));
+  return makePtr<UserChatBoosts>(sendRequest("getUserChatBoosts", data));
 }
 
 bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
@@ -2187,38 +2194,390 @@ Ptr<Gifts> Api::getAvailableGifts() const {
   return makePtr<Gifts>(sendRequest("getAvailableGifts"));
 }
 
-//@TODO
-// [ ] - sendGift
-// [ ] - giftPremiumSubscription
-// [ ] - verifyUser
-// [ ] - verifyChat
-// [ ] - removeUserVerification
-// [ ] - removeChatVerification
-// [ ] - readBusinessMessage
-// [ ] - deleteBusinessMessages
-// [ ] - setBusinessAccountName
-// [ ] - setBusinessAccountUsername
-// [ ] - setBusinessAccountBio
-// [ ] - setBusinessAccountProfilePhoto
-// [ ] - removeBusinessAccountProfilePhoto
-// [ ] - setBusinessAccountGiftSettings
-// [ ] - getBusinessAccountStarBalance
-// [ ] - transferBusinessAccountStars
-// [ ] - getBusinessAccountGifts
-// [ ] - convertGiftToStars
-// [ ] - upgradeGift
-// [ ] - transferGift
-// [ ] - postStory
-// [ ] - editStory
-// [ ] - deleteStory
-// [ ] - Inline mode methods
-// [ ] - Updating messages
-// [ ] - Stickers
-// [ ] - Inline mode
-// [ ] - Payments
-// [ ] - Telegram Passport
-// [ ] - Games
-// [ ] - Update object & callbacks
+bool Api::sendGift(const std::string& giftId,
+                   std::int64_t userId,
+                   const std::variant<std::int64_t, std::string>& chatId,
+                   bool payForUpgrade,
+                   const std::string& text,
+                   const std::string& textParseMode,
+                   const std::vector<Ptr<MessageEntity>>& textEntities) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6); // one of userId or chatId
+  data.parts.emplace_back("gift_id", giftId);
+  if (userId)
+    data.parts.emplace_back("user_id", std::to_string(userId));
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (payForUpgrade)
+    data.parts.emplace_back("pay_for_upgrade", payForUpgrade);
+  if (not text.empty())
+    data.parts.emplace_back("text", text);
+  if (not textParseMode.empty())
+    data.parts.emplace_back("text_parse_mode", textParseMode);
+  if (not textEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: textEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("text_entities", entitiesArray.dump());
+  }
+  return sendRequest("sendGift", data);
+}
+
+bool Api::giftPremiumSubscription(std::int64_t userId,
+                                  std::int32_t monthCount,
+                                  std::int32_t starCount,
+                                  const std::string& text,
+                                  const std::string& textParseMode,
+                                  const std::vector<Ptr<MessageEntity>>& textEntities) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("month_count", monthCount);
+  data.parts.emplace_back("star_count", starCount);
+  if (not text.empty())
+    data.parts.emplace_back("text", text);
+  if (not textParseMode.empty())
+    data.parts.emplace_back("text_parse_mode", textParseMode);
+  if (not textEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: textEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("text_entities", entitiesArray.dump());
+  }
+  return sendRequest("giftPremiumSubscription", data);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+bool Api::verifyUser(std::int64_t userId,
+                     const std::string& customDescription) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (not customDescription.empty())
+    data.parts.emplace_back("custom_description", customDescription);
+  return sendRequest("verifyUser", data);
+}
+
+bool Api::verifyChat(const std::variant<std::int64_t, std::string>& chatId,
+                     const std::string& customDescription) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (not customDescription.empty())
+    data.parts.emplace_back("custom_description", customDescription);
+  return sendRequest("verifyChat", data);
+}
+
+bool Api::removeUserVerification(std::int64_t userId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  return sendRequest("removeUserVerification", data);
+}
+
+bool Api::removeChatVerification(const std::variant<std::int64_t, std::string>& chatId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  return sendRequest("removeChatVerification", data);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool Api::readBusinessMessage(const std::string& businessConnectionId,
+                              const std::variant<std::int64_t, std::string>& chatId,
+                              std::int32_t messageId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  data.parts.emplace_back("message_id", messageId);
+  return sendRequest("readBusinessMessage", data);
+}
+
+bool Api::deleteBusinessMessages(const std::string& businessConnectionId,
+                                 const std::vector<std::int32_t>& messageIds) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("message_ids", nl::json(messageIds).dump());
+  return sendRequest("deleteBusinessMessages", data);
+}
+
+bool Api::setBusinessAccountName(const std::string& businessConnectionId,
+                                 const std::string& firstName,
+                                 const std::string& lastName) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("first_name", firstName);
+  if (not lastName.empty())
+    data.parts.emplace_back("last_name", lastName);
+  return sendRequest("setBusinessAccountName", data);
+}
+
+bool Api::setBusinessAccountUsername(const std::string& businessConnectionId,
+                                     const std::string& username) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (not username.empty())
+    data.parts.emplace_back("username", username);
+  return sendRequest("setBusinessAccountUsername", data);
+}
+
+bool Api::setBusinessAccountBio(const std::string& businessConnectionId,
+                                const std::string& bio) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (not bio.empty())
+    data.parts.emplace_back("bio", bio);
+  return sendRequest("setBusinessAccountBio", data);
+}
+
+bool Api::setBusinessAccountProfilePhoto(const std::string& businessConnectionId,
+                                         const Ptr<InputProfilePhoto>& photo,
+                                         bool isPublic) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("photo", photo->toJson().dump());
+  if (isPublic)
+    data.parts.emplace_back("is_public", isPublic);
+  return sendRequest("setBusinessAccountProfilePhoto", data);
+}
+
+bool Api::removeBusinessAccountProfilePhoto(const std::string& businessConnectionId,
+                                            bool isPublic) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (isPublic)
+    data.parts.emplace_back("is_public", isPublic);
+  return sendRequest("removeBusinessAccountProfilePhoto", data);
+}
+
+bool Api::setBusinessAccountGiftSettings(const std::string& businessConnectionId,
+                                         bool showGiftButton,
+                                         const Ptr<AcceptedGiftTypes>& acceptedGiftTypes) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("show_gift_button", showGiftButton);
+  data.parts.emplace_back("accepted_gift_types", acceptedGiftTypes->toJson().dump());
+  return sendRequest("setBusinessAccountGiftSettings", data);
+}
+
+Ptr<StarAmount> Api::getBusinessAccountStarBalance(const std::string& businessConnectionId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  return makePtr<StarAmount>(sendRequest("getBusinessAccountStarBalance", data));
+}
+
+bool Api::transferBusinessAccountStars(const std::string& businessConnectionId, std::int32_t starCount) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("star_count", starCount);
+  return sendRequest("transferBusinessAccountStars", data);
+}
+
+Ptr<OwnedGifts> Api::getBusinessAccountGifts(const std::string& businessConnectionId,
+                                             bool excludeUnsaved,
+                                             bool excludeSaved,
+                                             bool excludeUnlimited,
+                                             bool excludeLimited,
+                                             bool excludeUnique,
+                                             bool sortByPrice,
+                                             const std::string& offset,
+                                             std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(9);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (excludeUnsaved)
+    data.parts.emplace_back("exclude_unsaved", excludeUnsaved);
+  if (excludeSaved)
+    data.parts.emplace_back("exclude_saved", excludeSaved);
+  if (excludeUnlimited)
+    data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
+  if (excludeLimited)
+    data.parts.emplace_back("exclude_limited", excludeLimited);
+  if (excludeUnique)
+    data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (sortByPrice)
+    data.parts.emplace_back("sort_by_price", sortByPrice);
+  data.parts.emplace_back("offset", offset);
+  data.parts.emplace_back("limit", limit);
+  return makePtr<OwnedGifts>(sendRequest("getBusinessAccountGifts", data));
+}
+
+bool Api::convertGiftToStars(const std::string& businessConnectionId, const std::string& ownedGiftId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("owned_gift_id", ownedGiftId);
+  return sendRequest("convertGiftToStars", data);
+}
+
+bool Api::upgradeGift(const std::string& businessConnectionId,
+                      const std::string& ownedGiftId,
+                      bool keepOriginalDetails,
+                      std::int32_t starCount) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("owned_gift_id", ownedGiftId);
+  if (keepOriginalDetails)
+    data.parts.emplace_back("keep_original_details", keepOriginalDetails);
+  if (starCount >= 0)
+    data.parts.emplace_back("star_count", starCount);
+  return sendRequest("convertGiftToStars", data);
+}
+
+bool Api::transferGift(const std::string& businessConnectionId,
+                       const std::string& ownedGiftId,
+                       std::int64_t newOwnerChatId,
+                       std::int32_t starCount) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("owned_gift_id", ownedGiftId);
+  data.parts.emplace_back("new_owner_chat_id", newOwnerChatId);
+  if (starCount >= 0)
+    data.parts.emplace_back("star_count", starCount);
+  return sendRequest("transferGift", data);
+}
+
+Ptr<Story> Api::postStory(const std::string& businessConnectionId,
+                          const Ptr<InputStoryContent>& content,
+                          std::time_t activePeriod,
+                          const std::string& caption,
+                          const std::string& parseMode,
+                          const std::vector<Ptr<MessageEntity>>& captionEntities,
+                          const std::vector<Ptr<StoryArea>>& areas,
+                          bool postToChatPage,
+                          bool protectContent) const {
+  cpr::Multipart data{};
+  data.parts.reserve(9);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("content", content->toJson().dump());
+  data.parts.emplace_back("active_period", activePeriod);
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (not areas.empty()) {
+    nl::json areasArray = nl::json::array();
+    for (const Ptr<StoryArea>& area: areas)
+      areasArray.push_back(area->toJson());
+    data.parts.emplace_back("areas", areasArray.dump());
+  }
+  if (postToChatPage)
+    data.parts.emplace_back("post_to_chat_page", postToChatPage);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+
+  return makePtr<Story>(sendRequest("postStory", data));
+}
+
+Ptr<Story> Api::editStory(const std::string& businessConnectionId,
+                          std::int32_t storyId,
+                          const Ptr<InputStoryContent>& content,
+                          const std::string& caption,
+                          const std::string& parseMode,
+                          const std::vector<Ptr<MessageEntity>>& captionEntities,
+                          const std::vector<Ptr<StoryArea>>& areas) const {
+  cpr::Multipart data{};
+  data.parts.reserve(7);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("story_id", storyId);
+  data.parts.emplace_back("content", content->toJson().dump());
+  if (not caption.empty())
+    data.parts.emplace_back("caption", caption);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not captionEntities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: captionEntities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
+  }
+  if (not areas.empty()) {
+    nl::json areasArray = nl::json::array();
+    for (const Ptr<StoryArea>& area: areas)
+      areasArray.push_back(area->toJson());
+    data.parts.emplace_back("areas", areasArray.dump());
+  }
+  return makePtr<Story>(sendRequest("editStory", data));
+}
+
+bool Api::deleteStory(const std::string& businessConnectionId, std::int32_t storyId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("story_id", storyId);
+  return sendRequest("deleteStory", data);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool Api::deleteWebhook(bool dropPendingUpdates) const {
@@ -2287,9 +2646,11 @@ Ptr<Message> Api::editMessageText(const std::string& text,
                                   const std::string& inlineMessageId,
                                   const std::string& parseMode,
                                   const std::vector<Ptr<MessageEntity>>& entities,
-                                  const Ptr<IReplyMarkup>& replyMarkup) const {
+                                  const Ptr<IReplyMarkup>& replyMarkup,
+                                  const std::string& businessConnectionId,
+                                  const Ptr<LinkPreviewOptions>& linkPreviewOptions) const {
   cpr::Multipart data{};
-  data.parts.reserve(7);
+  data.parts.reserve(9);
   data.parts.emplace_back("text", text);
   switch (chatId.index()) {
     case 0: // std::int64_t
@@ -2319,13 +2680,17 @@ Ptr<Message> Api::editMessageText(const std::string& text,
   }
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (linkPreviewOptions)
+    data.parts.emplace_back("link_preview_options", linkPreviewOptions->toJson().dump());
 
   nl::json sentMessageObj = sendRequest("editMessageText", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -2336,9 +2701,11 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
                                      const std::string& caption,
                                      const std::string& parseMode,
                                      const std::vector<Ptr<MessageEntity>>& captionEntities,
-                                     const Ptr<IReplyMarkup>& replyMarkup) const {
+                                     const Ptr<IReplyMarkup>& replyMarkup,
+                                     const std::string& businessConnectionId,
+                                     bool showCaptionAboveMedia) const {
   cpr::Multipart data{};
-  data.parts.reserve(7);
+  data.parts.reserve(9);
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
@@ -2365,17 +2732,21 @@ Ptr<Message> Api::editMessageCaption(const std::variant<std::int64_t, std::strin
     nl::json entitiesArray = nl::json::array();
     for (const Ptr<MessageEntity>& entity: captionEntities)
       entitiesArray.push_back(entity->toJson());
-    data.parts.emplace_back("entities", entitiesArray.dump());
+    data.parts.emplace_back("caption_entities", entitiesArray.dump());
   }
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (showCaptionAboveMedia)
+    data.parts.emplace_back("show_caption_above_media", showCaptionAboveMedia);
 
   const nl::json sentMessageObj = sendRequest("editMessageCaption", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -2385,9 +2756,10 @@ Ptr<Message> Api::editMessageMedia(const Ptr<InputMedia>& media,
                                    const std::variant<std::int64_t, std::string>& chatId,
                                    std::int32_t messageId,
                                    const std::string& inlineMessageId,
-                                   const Ptr<IReplyMarkup>& replyMarkup) const {
+                                   const Ptr<IReplyMarkup>& replyMarkup,
+                                   const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(5);
+  data.parts.reserve(6);
   data.parts.emplace_back("media", media->toJson().dump());
   switch (chatId.index()) {
     case 0: // std::int64_t
@@ -2409,13 +2781,15 @@ Ptr<Message> Api::editMessageMedia(const Ptr<InputMedia>& media,
     data.parts.emplace_back("inline_message_id", inlineMessageId);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   const nl::json sentMessageObj = sendRequest("editMessageMedia", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -2425,12 +2799,14 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
                                           const std::variant<std::int64_t, std::string>& chatId,
                                           std::int32_t messageId,
                                           const std::string& inlineMessageId,
+                                          std::int32_t livePeriod,
                                           float horizontalAccuracy,
                                           std::int32_t heading,
                                           std::int32_t proximityAlertRadius,
-                                          const Ptr<IReplyMarkup>& replyMarkup) const {
+                                          const Ptr<IReplyMarkup>& replyMarkup,
+                                          const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(9);
+  data.parts.reserve(11);
   data.parts.emplace_back("latitude", std::to_string(latitude));
   data.parts.emplace_back("longitude", std::to_string(longitude));
   switch (chatId.index()) {
@@ -2451,6 +2827,8 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
     data.parts.emplace_back("message_id", messageId);
   if (not inlineMessageId.empty())
     data.parts.emplace_back("inline_message_id", inlineMessageId);
+  if (livePeriod)
+    data.parts.emplace_back("live_period", livePeriod);
   if (horizontalAccuracy != 0.0f)
     data.parts.emplace_back("horizontal_accuracy", std::to_string(horizontalAccuracy));
   if (heading)
@@ -2459,13 +2837,15 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
     data.parts.emplace_back("proximity_alert_radius", proximityAlertRadius);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   const nl::json sentMessageObj = sendRequest("editMessageLiveLocation", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
 }
@@ -2474,9 +2854,10 @@ Ptr<Message> Api::editMessageLiveLocation(float latitude,
 Ptr<Message> Api::stopMessageLiveLocation(const std::variant<std::int64_t, std::string>& chatId,
                                           std::int32_t messageId,
                                           const std::string& inlineMessageId,
-                                          const Ptr<IReplyMarkup>& replyMarkup) const {
+                                          const Ptr<IReplyMarkup>& replyMarkup,
+                                          const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(4);
+  data.parts.reserve(5);
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
@@ -2497,24 +2878,46 @@ Ptr<Message> Api::stopMessageLiveLocation(const std::variant<std::int64_t, std::
     data.parts.emplace_back("inline_message_id", inlineMessageId);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   const nl::json sentMessageObj = sendRequest("stopMessageLiveLocation", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
+}
+
+Ptr<Message> Api::editMessageChecklist(std::int64_t chatId,
+                                       std::int32_t messageId,
+                                       const Ptr<InputChecklist>& checklist,
+                                       const std::string& businessConnectionId,
+                                       const Ptr<IReplyMarkup>& replyMarkup) const {
+  cpr::Multipart data{};
+  data.parts.reserve(5);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_id", messageId);
+  data.parts.emplace_back("message_id", checklist->toJson().dump());
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (replyMarkup)
+    data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+
+  const nl::json sentMessageObj = sendRequest("editMessageChecklist", data);
+  Ptr<Message> message(new Message(sentMessageObj));
+  return message;
 }
 
 
 Ptr<Message> Api::editMessageReplyMarkup(const std::variant<std::int64_t, std::string>& chatId,
                                          std::int32_t messageId,
                                          const std::string& inlineMessageId,
-                                         const Ptr<IReplyMarkup>& replyMarkup) const {
+                                         const Ptr<IReplyMarkup>& replyMarkup,
+                                         const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(4);
+  data.parts.reserve(5);
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (const std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
@@ -2535,31 +2938,48 @@ Ptr<Message> Api::editMessageReplyMarkup(const std::variant<std::int64_t, std::s
     data.parts.emplace_back("inline_message_id", inlineMessageId);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   const nl::json sentMessageObj = sendRequest("editMessageReplyMarkup", data);
   if (sentMessageObj.contains("message_id")) {
     Ptr<Message> message(new Message(sentMessageObj));
     return message;
   } else {
-    // @todo: we have 2 return types here, Message & Boolean, shall we return a variant?
+    // @todo: we have 2 return types here, Message or Boolean, shall we return a variant?
     return nullptr;
   }
 }
 
 Ptr<Poll> Api::stopPoll(const std::variant<std::int64_t, std::string>& chatId,
                         std::int32_t messageId,
-                        const Ptr<IReplyMarkup>& replyMarkup) const {
+                        const Ptr<IReplyMarkup>& replyMarkup,
+                        const std::string& businessConnectionId) const {
   cpr::Multipart data{};
-  data.parts.reserve(3);
+  data.parts.reserve(4);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   if (messageId)
     data.parts.emplace_back("message_id", messageId);
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
 
   const nl::json pollObj = sendRequest("stopPoll", data);
   Ptr<Poll> poll(new Poll(pollObj));
   return poll;
+}
+
+bool Api::approveSuggestedPost(std::int64_t chatId,
+                               std::int32_t messageId,
+                               std::time_t sendDate) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_id", messageId);
+  if (sendDate)
+    data.parts.emplace_back("send_date", sendDate);
+  return sendRequest("approveSuggestedPost", data);
 }
 
 bool Api::deleteMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const {
@@ -2568,6 +2988,25 @@ bool Api::deleteMessage(const std::variant<std::int64_t, std::string>& chatId, s
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
   data.parts.emplace_back("message_id", messageId);
   return sendRequest("deleteMessage", data);
+}
+bool Api::deleteMessages(const std::variant<std::int64_t, std::string>& chatId, const std::vector<std::int32_t>& messageIds) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("message_ids", nl::json(messageIds).dump());
+  return sendRequest("deleteMessages", data);
+}
+
+bool Api::declineSuggestedPost(std::int64_t chatId,
+                               std::int32_t messageId,
+                               const std::string& comment) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("message_id", messageId);
+  if (not comment.empty())
+    data.parts.emplace_back("comment", comment);
+  return sendRequest("declineSuggestedPost", data);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2617,9 +3056,15 @@ Ptr<Message> Api::sendSticker(const std::variant<std::int64_t, std::string>& cha
                               bool disableNotification,
                               bool protectContent,
                               const Ptr<tgbotxx::ReplyParameters>& replyParameters,
-                              const Ptr<tgbotxx::IReplyMarkup>& replyMarkup) const {
+                              const Ptr<tgbotxx::IReplyMarkup>& replyMarkup,
+                              const std::string& businessConnectionId,
+                              std::int32_t directMessagesTopicId,
+                              const Ptr<LinkPreviewOptions>& linkPreviewOptions,
+                              bool allowPaidBroadcast,
+                              const std::string& messageEffectId,
+                              const Ptr<SuggestedPostParameters>& suggestedPostParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(8);
+  data.parts.reserve(13);
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
@@ -2653,6 +3098,18 @@ Ptr<Message> Api::sendSticker(const std::variant<std::int64_t, std::string>& cha
     data.parts.emplace_back("reply_parameters", replyParameters->toJson().dump());
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  if (directMessagesTopicId)
+    data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
+  if (linkPreviewOptions)
+    data.parts.emplace_back("link_preview_options", linkPreviewOptions->toJson().dump());
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
 
   const nl::json sentMessageObj = sendRequest("sendSticker", data);
   Ptr<Message> message(new Message(sentMessageObj));
@@ -2702,7 +3159,6 @@ bool Api::createNewStickerSet(std::int64_t userId,
                               const std::string& name,
                               const std::string& title,
                               const std::vector<Ptr<InputSticker>>& stickers,
-                              const std::string& stickerFormat,
                               const std::string& stickerType,
                               bool needsRepainting) const {
   cpr::Multipart data{};
@@ -2714,7 +3170,6 @@ bool Api::createNewStickerSet(std::int64_t userId,
   for (const Ptr<InputSticker>& inputSticker: stickers)
     stickersJson.push_back(inputSticker->toJson());
   data.parts.emplace_back("stickers", stickersJson.dump());
-  data.parts.emplace_back("sticker_format", stickerFormat);
   data.parts.emplace_back("sticker_type", stickerType);
   if (needsRepainting)
     data.parts.emplace_back("needs_repainting", needsRepainting);
@@ -2746,6 +3201,19 @@ bool Api::deleteStickerFromSet(const std::string& sticker) const {
   data.parts.reserve(1);
   data.parts.emplace_back("sticker", sticker);
   return sendRequest("deleteStickerFromSet", data);
+}
+
+bool Api::replaceStickerInSet(std::int64_t userId,
+                              const std::string& name,
+                              const std::string& oldSticker,
+                              const Ptr<InputSticker>& sticker) const {
+  cpr::Multipart data{};
+  data.parts.reserve(4);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("name", name);
+  data.parts.emplace_back("old_sticker", oldSticker);
+  data.parts.emplace_back("sticker", sticker->toJson().dump());
+  return sendRequest("replaceStickerInSet", data);
 }
 
 bool Api::setStickerEmojiList(const std::string& sticker, const std::vector<std::string>& emojiList) const {
@@ -2792,7 +3260,7 @@ bool Api::setStickerSetThumbnail(const std::string& name,
   cpr::Multipart data{};
   data.parts.reserve(4);
   data.parts.emplace_back("name", name);
-  data.parts.emplace_back("user_id", userId);
+  data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("format", format);
   if (thumbnail.has_value()) {
     if (thumbnail->index() == 0) /* cpr::File */ {
@@ -2991,9 +3459,9 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
                               const std::string& title,
                               const std::string& description,
                               const std::string& payload,
-                              const std::string& providerToken,
                               const std::string& currency,
                               const std::vector<Ptr<LabeledPrice>>& prices,
+                              const std::string& providerToken,
                               std::int32_t messageThreadId,
                               std::int32_t maxTipAmount,
                               const std::vector<std::int32_t>& suggestedTipAmounts,
@@ -3012,10 +3480,13 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
                               bool isFlexible,
                               bool disableNotification,
                               bool protectContent,
+                              bool allowPaidBroadcast,
+                              const std::string& messageEffectId,
+                              const Ptr<SuggestedPostParameters>& suggestedPostParameters,
                               const Ptr<IReplyMarkup>& replyMarkup) const {
 
   cpr::Multipart data{};
-  data.parts.reserve(28);
+  data.parts.reserve(31);
   switch (chatId.index()) {
     case 0: // std::int64_t
       if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
@@ -3033,12 +3504,12 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
   data.parts.emplace_back("title", title);
   data.parts.emplace_back("description", description);
   data.parts.emplace_back("payload", payload);
-  data.parts.emplace_back("provider_token", providerToken);
   data.parts.emplace_back("currency", currency);
   nl::json pricesJson = nl::json::array();
   for (const Ptr<LabeledPrice>& price: prices)
     pricesJson.push_back(price->toJson());
   data.parts.emplace_back("prices", pricesJson.dump());
+  data.parts.emplace_back("provider_token", providerToken);
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
   if (maxTipAmount)
@@ -3075,10 +3546,12 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
-  if (replyToMessageId)
-    data.parts.emplace_back("reply_to_message_id", replyToMessageId);
-  if (allowSendingWithoutReply)
-    data.parts.emplace_back("allow_sending_without_reply", allowSendingWithoutReply);
+  if (allowPaidBroadcast)
+    data.parts.emplace_back("allow_paid_broadcast", allowPaidBroadcast);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
+  if (suggestedPostParameters)
+    data.parts.emplace_back("suggested_post_parameters", suggestedPostParameters->toJson().dump());
   if (replyMarkup)
     data.parts.emplace_back("reply_markup", replyMarkup->toJson().dump());
 
@@ -3091,9 +3564,11 @@ Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& cha
 std::string Api::createInvoiceLink(const std::string& title,
                                    const std::string& description,
                                    const std::string& payload,
-                                   const std::string& providerToken,
                                    const std::string& currency,
                                    const std::vector<Ptr<LabeledPrice>>& prices,
+                                   const std::string& businessConnectionId,
+                                   const std::string& providerToken,
+                                   std::time_t subscriptionPeriod,
                                    std::int32_t maxTipAmount,
                                    const std::vector<std::int32_t>& suggestedTipAmounts,
                                    const std::string& providerData,
@@ -3110,16 +3585,20 @@ std::string Api::createInvoiceLink(const std::string& title,
                                    bool isFlexible) const {
 
   cpr::Multipart data{};
-  data.parts.reserve(20);
+  data.parts.reserve(22);
   data.parts.emplace_back("title", title);
   data.parts.emplace_back("description", description);
   data.parts.emplace_back("payload", payload);
-  data.parts.emplace_back("provider_token", providerToken);
   data.parts.emplace_back("currency", currency);
   nl::json pricesJson = nl::json::array();
   for (const Ptr<LabeledPrice>& price: prices)
     pricesJson.push_back(price->toJson());
   data.parts.emplace_back("prices", pricesJson.dump());
+  if (not businessConnectionId.empty())
+    data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("provider_token", providerToken);
+  if (subscriptionPeriod)
+    data.parts.emplace_back("subscription_period", subscriptionPeriod);
   if (maxTipAmount)
     data.parts.emplace_back("max_tip_amount", maxTipAmount);
   if (not suggestedTipAmounts.empty())
@@ -3183,4 +3662,35 @@ bool Api::answerPreCheckoutQuery(const std::string& preCheckoutQueryId,
     data.parts.emplace_back("error_message", errorMessage);
 
   return sendRequest("answerPreCheckoutQuery", data);
+}
+
+Ptr<StarAmount> Api::getMyStarBalance() const {
+  return makePtr<StarAmount>(sendRequest("getMyStarBalance"));
+}
+
+Ptr<StarTransactions> Api::getStarTransactions(std::int32_t offset, std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  if (offset)
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+  return makePtr<StarTransactions>(sendRequest("getStarTransactions", data));
+}
+
+bool Api::refundStarPayment(std::int64_t userId, const std::string& telegramPaymentChargeId) const {
+  cpr::Multipart data{};
+  data.parts.reserve(2);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("telegram_payment_charge_id", telegramPaymentChargeId);
+  return sendRequest("refundStarPayment", data);
+}
+
+bool Api::editUserStarSubscription(std::int64_t userId, const std::string& telegramPaymentChargeId, bool isCancelled) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  data.parts.emplace_back("telegram_payment_charge_id", telegramPaymentChargeId);
+  data.parts.emplace_back("is_canceled", isCancelled);
+  return sendRequest("editUserStarSubscription", data);
 }

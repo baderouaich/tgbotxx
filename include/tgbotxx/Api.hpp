@@ -50,8 +50,17 @@ namespace tgbotxx {
   struct LinkPreviewOptions;
   struct SuggestedPostParameters;
   struct InputChecklist;
-  struct ChatBoosts;
+  struct UserChatBoosts;
   struct Gifts;
+  struct InputProfilePhoto;
+  struct AcceptedGiftTypes;
+  struct StarAmount;
+  struct OwnedGifts;
+  struct InputStoryContent;
+  struct Story;
+  struct StoryArea;
+  struct StarTransactions;
+  struct InputPaidMedia;
 
   /// @brief Api Methods https://core.telegram.org/bots/api#available-methods
   /// @note All methods in the Bot API are case-insensitive.
@@ -630,7 +639,7 @@ namespace tgbotxx {
     /// @brief Use this method to send paid media. On success, an array of the sent Messages is returned.
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param starCount The number of Telegram Stars that must be paid to buy access to the media; 1-10000
-    /// @param media Array of InputMedia objects. A JSON-serialized array describing the media to be sent; up to 10 items
+    /// @param media A JSON-serialized array describing the media to be sent; up to 10 items
     /// @param payload Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.
     /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
     /// @param caption Optional. Media caption, 0-1024 characters after entities parsing
@@ -650,7 +659,7 @@ namespace tgbotxx {
     /// @ref https://core.telegram.org/bots/api#sendmediagroup
     Ptr<Message> sendPaidMedia(const std::variant<std::int64_t, std::string>& chatId,
                                std::int32_t starCount,
-                               const std::vector<Ptr<InputMedia>>& media,
+                               const std::vector<Ptr<InputPaidMedia>>& media,
                                const std::string& payload = "",
                                std::int32_t messageThreadId = 0,
                                const std::string& caption = "",
@@ -877,12 +886,12 @@ namespace tgbotxx {
 
     /// @brief Use this method to send an animated emoji that will display a random value. On success, the sent Message is returned.
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
     /// @param emoji Optional. Emoji on which the dice throw animation is based. Currently,
     /// must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”.
     /// Dice can have values 1-6 for “🎲”, “🎯” and “🎳”,
     /// values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”.
     /// Defaults to “🎲”
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
     /// @param disableNotification Optional. Sends the message silently
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding
     /// @param replyMarkup Optional. Additional interface options. One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
@@ -895,8 +904,8 @@ namespace tgbotxx {
     /// @param replyParameters Optional. Description of the message to reply to
     /// @returns the sent Message on success
     Ptr<Message> sendDice(const std::variant<std::int64_t, std::string>& chatId,
-                          std::int32_t messageThreadId = 0,
                           const std::string& emoji = "🎲",
+                          std::int32_t messageThreadId = 0,
                           bool disableNotification = false,
                           bool protectContent = false,
                           const Ptr<IReplyMarkup>& replyMarkup = nullptr,
@@ -1587,7 +1596,7 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @returns a UserChatBoosts object.
     /// @ref https://core.telegram.org/bots/api#getuserchatboosts
-    Ptr<ChatBoosts> getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
+    Ptr<UserChatBoosts> getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
                                       std::int64_t userId) const;
 
     /// @brief Use this method to change the list of the bot's commands.
@@ -1710,6 +1719,295 @@ namespace tgbotxx {
     /// @ref https://core.telegram.org/bots/api#getavailablegifts
     Ptr<Gifts> getAvailableGifts() const;
 
+    /// @brief Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver.
+    /// @param giftId Identifier of the gift
+    /// @param userId Optional. Required if chatId is not specified. Unique identifier of the target user who will receive the gift.
+    /// @param chatId Optional. Required if userId is not specified. Unique identifier for the chat or username of the channel (in the format @channelusername) that will receive the gift.
+    /// @param payForUpgrade Optional. Pass True to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver
+    /// @param text Optional. Text that will be shown along with the gift; 0-128 characters
+    /// @param textParseMode Optional. Mode for parsing entities in the text. See formatting options for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.
+    /// @param textEntities Optional. List of special entities that appear in message text, which can be specified instead of textParseMode
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#sendgift
+    bool sendGift(const std::string& giftId,
+                  std::int64_t userId = 0,
+                  const std::variant<std::int64_t, std::string>& chatId = 0,
+                  bool payForUpgrade = false,
+                  const std::string& text = "",
+                  const std::string& textParseMode = "",
+                  const std::vector<Ptr<MessageEntity>>& textEntities = std::vector<Ptr<MessageEntity>>()) const;
+
+    /// @brief Gifts a Telegram Premium subscription to the given user.
+    /// @param userId Unique identifier of the target user who will receive a Telegram Premium subscription
+    /// @param monthCount Number of months the Telegram Premium subscription will be active for the user;
+    ///                   must be one of 3, 6, or 12
+    /// @param starCount Number of Telegram Stars to pay for the Telegram Premium subscription;
+    ///                   must be 1000 for 3 months, 1500 for 6 months, and 2500 for 12 months
+    /// @param text Optional. Text that will be shown along with the service message about the subscription; 0-128 characters
+    /// @param textParseMode Optional. Mode for parsing entities in the text. See formatting options for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.
+    /// @param textEntities Optional. List of special entities that appear in message text, which can be specified instead of textParseMode
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#giftpremiumsubscription
+    bool giftPremiumSubscription(std::int64_t userId,
+                                 std::int32_t monthCount,
+                                 std::int32_t starCount,
+                                 const std::string& text = "",
+                                 const std::string& textParseMode = "",
+                                 const std::vector<Ptr<MessageEntity>>& textEntities = std::vector<Ptr<MessageEntity>>()) const;
+
+  public: // Verification
+    /// @brief Verifies a user on behalf of the organization which is represented by the bot.
+    /// @param userId Unique identifier of the target user
+    /// @param customDescription Custom description for the verification; 0-70 characters.
+    ///                          Must be empty if the organization isn't allowed to provide a custom verification description.
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @link https://telegram.org/verify#third-party-verification @endlink
+    /// @ref https://core.telegram.org/bots/api#verifyuser
+    bool verifyUser(std::int64_t userId, const std::string& customDescription = "") const;
+
+    /// @brief Verifies a chat on behalf of the organization which is represented by the bot.
+    /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername). Channel direct messages chats can't be verified.
+    /// @param customDescription Custom description for the verification; 0-70 characters.
+    ///                          Must be empty if the organization isn't allowed to provide a custom verification description.
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @link https://telegram.org/verify#third-party-verification @endlink
+    /// @ref https://core.telegram.org/bots/api#verifchat
+    bool verifyChat(const std::variant<std::int64_t, std::string>& chatId, const std::string& customDescription = "") const;
+
+    /// @brief Removes verification from a user who is currently verified on behalf of the organization represented by the bot.
+    /// @param userId Unique identifier of the target user
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @link https://telegram.org/verify#third-party-verification @endlink
+    /// @ref https://core.telegram.org/bots/api#removeuserverification
+    bool removeUserVerification(std::int64_t userId) const;
+
+    /// @brief Removes verification from a chat that is currently verified on behalf of the organization represented by the bot.
+    /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @link https://telegram.org/verify#third-party-verification @endlink
+    /// @ref https://core.telegram.org/bots/api#removechatverification
+    bool removeChatVerification(const std::variant<std::int64_t, std::string>& chatId) const;
+
+  public: // Business
+    /// @brief Marks incoming message as read on behalf of a business account.
+    ///        Requires the can_read_messages business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection on behalf of which the message will be sent
+    /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+    /// @param messageId Unique identifier of the message to mark as read
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#readbusinessmessage
+    bool readBusinessMessage(const std::string& businessConnectionId,
+                             const std::variant<std::int64_t, std::string>& chatId,
+                             std::int32_t messageId) const;
+
+    /// @brief Delete messages on behalf of a business account.
+    /// Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself,
+    /// or the can_delete_all_messages business bot right to delete any message.
+    /// @param businessConnectionId Unique identifier of the business connection on behalf of which the message will be sent
+    /// @param messageIds A JSON-serialized list of 1-100 identifiers of messages to delete.
+    ///                   All messages must be from the same chat. See deleteMessage for limitations on which messages can be deleted
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#deletebusinessmessages
+    bool deleteBusinessMessages(const std::string& businessConnectionId,
+                                const std::vector<std::int32_t>& messageIds) const;
+
+    /// @brief Changes the first and last name of a managed business account. Requires the can_change_name business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param firstName The new value of the first name for the business account; 1-64 characters
+    /// @param lastName Optional. The new value of the last name for the business account; 0-64 characters
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#setbusinessaccountname
+    bool setBusinessAccountName(const std::string& businessConnectionId,
+                                const std::string& firstName,
+                                const std::string& lastName = "") const;
+
+    /// @brief Changes the first and last name of a managed business account. Requires the can_change_name business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param username Optional. The new value of the username for the business account; 0-32 characters
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#setbusinessaccountusername
+    bool setBusinessAccountUsername(const std::string& businessConnectionId,
+                                    const std::string& username = "") const;
+
+    /// @brief Changes the bio of a managed business account. Requires the can_change_bio business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param bio Optional. The new value of the bio for the business account; 0-140 characters
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#setbusinessaccountbio
+    bool setBusinessAccountBio(const std::string& businessConnectionId,
+                               const std::string& bio = "") const;
+
+    /// @brief Changes the profile photo of a managed business account. Requires the can_edit_profile_photo business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param photo The new profile photo to set
+    /// @param isPublic Optional. Pass True to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#setbusinessaccountprofilephoto
+    bool setBusinessAccountProfilePhoto(const std::string& businessConnectionId,
+                                        const Ptr<InputProfilePhoto>& photo,
+                                        bool isPublic = false) const;
+
+    /// @brief Removes the current profile photo of a managed business account. Requires the can_edit_profile_photo business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param isPublic Optional. Pass True to remove the public photo, which is visible even if the main photo is hidden by the business account's privacy settings.
+    ///                  After the main photo is removed, the previous profile photo (if present) becomes the main photo.
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#removebusinessaccountprofilephoto
+    bool removeBusinessAccountProfilePhoto(const std::string& businessConnectionId,
+                                           bool isPublic = false) const;
+
+    /// @brief Removes the current profile photo of a managed business account. Requires the can_edit_profile_photo business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param showGiftButton Pass True, if a button for sending a gift to the user or by the business account must always be shown in the input field
+    /// @param acceptedGiftTypes Types of gifts accepted by the business account
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#setbusinessaccountgiftsettings
+    bool setBusinessAccountGiftSettings(const std::string& businessConnectionId,
+                                        bool showGiftButton,
+                                        const Ptr<AcceptedGiftTypes>& acceptedGiftTypes) const;
+
+    /// @brief Returns the amount of Telegram Stars owned by a managed business account.
+    ///        Requires the can_view_gifts_and_stars business bot right
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @throws Exception on failure
+    /// @returns StarAmount on success.
+    /// @ref https://core.telegram.org/bots/api#getbusinessaccountstarbalance
+    Ptr<StarAmount> getBusinessAccountStarBalance(const std::string& businessConnectionId) const;
+
+    /// @brief Transfers Telegram Stars from the business account balance to the bot's balance. Requires the can_transfer_stars business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param starCount Number of Telegram Stars to transfer; 1-10000
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#transferbusinessaccountstars
+    bool transferBusinessAccountStars(const std::string& businessConnectionId,
+                                      std::int32_t starCount) const;
+
+    /// @brief Returns the gifts received and owned by a managed business account. Requires the can_view_gifts_and_stars business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param excludeUnsaved Optional. Pass True to exclude gifts that aren't saved to the account's profile page
+    /// @param excludeSaved Optional. Pass True to exclude gifts that are saved to the account's profile page
+    /// @param excludeUnlimited Optional. Pass True to exclude gifts that can be purchased an unlimited number of times
+    /// @param excludeLimited Optional. Pass True to exclude gifts that can be purchased a limited number of times
+    /// @param excludeUnique Optional. Pass True to exclude unique gifts
+    /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
+    /// @param offset Optional. Offset of the first entry to return as received from the previous request;
+    ///               use empty string to get the first chunk of results
+    /// @param limit Optional. The maximum number of gifts to be returned; 1-100. Defaults to 100
+    /// @throws Exception on failure
+    /// @returns OwnedGifts on success.
+    /// @ref https://core.telegram.org/bots/api#getbusinessaccountgifts
+    Ptr<OwnedGifts> getBusinessAccountGifts(const std::string& businessConnectionId,
+                                            bool excludeUnsaved = false,
+                                            bool excludeSaved = false,
+                                            bool excludeUnlimited = false,
+                                            bool excludeLimited = false,
+                                            bool excludeUnique = false,
+                                            bool sortByPrice = false,
+                                            const std::string& offset = "",
+                                            std::int32_t limit = 100) const;
+
+    /// @brief Converts a given regular gift to Telegram Stars. Requires the can_convert_gifts_to_stars business bot right
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param ownedGiftId Unique identifier of the regular gift that should be converted to Telegram Stars
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#convertgifttostars
+    bool convertGiftToStars(const std::string& businessConnectionId, const std::string& ownedGiftId) const;
+
+    /// @brief Upgrades a given regular gift to a unique gift. Requires the can_transfer_and_upgrade_gifts business bot right. Additionally requires the can_transfer_stars business bot right if the upgrade is paid
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param ownedGiftId Unique identifier of the regular gift that should be upgraded to a unique one
+    /// @param keepOriginalDetails Optional. Pass True to keep the original gift text, sender and receiver in the upgraded gift
+    /// @param starCount Optional. The amount of Telegram Stars that will be paid for the upgrade from the business account balance.
+    ///                  If gift.prepaid_upgrade_star_count > 0, then pass 0, otherwise, the can_transfer_stars business bot right is required and gift.upgrade_star_count must be passed.
+    /// @param
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#upgradegift
+    bool upgradeGift(const std::string& businessConnectionId,
+                     const std::string& ownedGiftId,
+                     bool keepOriginalDetails = false,
+                     std::int32_t starCount = -1) const;
+
+    /// @brief Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires can_transfer_stars business bot right if the transfer is paid.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param ownedGiftId Unique identifier of the regular gift that should be transferred
+    /// @param newOwnerChatId Unique identifier of the chat which will own the gift. The chat must be active in the last 24 hours.
+    /// @param starCount Optional. The amount of Telegram Stars that will be paid for the transfer from the business account balance.
+    ///                  If positive, then the can_transfer_stars business bot right is required.
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#transfergift
+    bool transferGift(const std::string& businessConnectionId,
+                      const std::string& ownedGiftId,
+                      std::int64_t newOwnerChatId,
+                      std::int32_t starCount = -1) const;
+
+  public: // Story
+    /// @brief Posts a story on behalf of a managed business account. Requires the can_manage_stories business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param content Content of the story
+    /// @param activePeriod Period after which the story is moved to the archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
+    /// @param caption Optional. Caption of the story, 0-2048 characters after entities parsing
+    /// @param parseMode Optional. Mode for parsing entities in the message caption. See https://core.telegram.org/bots/api#formatting-options for more details.
+    /// @param captionEntities Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+    /// @param areas Optional. A JSON-serialized list of clickable areas to be shown on the story
+    /// @param postToChatPage Optional. Pass True to keep the story accessible after it expires
+    /// @param protectContent Optional. Pass True if the content of the story must be protected from forwarding and screenshotting
+    /// @throws Exception on failure
+    /// @returns Story on success.
+    /// @ref https://core.telegram.org/bots/api#poststory
+    Ptr<Story> postStory(const std::string& businessConnectionId,
+                         const Ptr<InputStoryContent>& content,
+                         std::time_t activePeriod,
+                         const std::string& caption = "",
+                         const std::string& parseMode = "",
+                         const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                         const std::vector<Ptr<StoryArea>>& areas = std::vector<Ptr<StoryArea>>(),
+                         bool postToChatPage = false,
+                         bool protectContent = false) const;
+
+    /// @brief Edits a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param storyId Unique identifier of the story to edit
+    /// @param content Content of the story
+    /// @param caption Optional. Caption of the story, 0-2048 characters after entities parsing
+    /// @param parseMode Optional. Mode for parsing entities in the message caption. See https://core.telegram.org/bots/api#formatting-options for more details.
+    /// @param captionEntities Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
+    /// @param areas Optional. A JSON-serialized list of clickable areas to be shown on the story
+    /// @throws Exception on failure
+    /// @returns Story on success.
+    /// @ref https://core.telegram.org/bots/api#editstory
+    Ptr<Story> editStory(const std::string& businessConnectionId,
+                         std::int32_t storyId,
+                         const Ptr<InputStoryContent>& content,
+                         const std::string& caption = "",
+                         const std::string& parseMode = "",
+                         const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
+                         const std::vector<Ptr<StoryArea>>& areas = std::vector<Ptr<StoryArea>>()) const;
+
+    /// @brief Deletes a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param storyId Unique identifier of the story to edit
+    /// @throws Exception on failure
+    /// @returns True on success.
+    /// @ref https://core.telegram.org/bots/api#deletestory
+    bool deleteStory(const std::string& businessConnectionId, std::int32_t storyId) const;
 
   public: /// Payments methods https://core.telegram.org/bots/api#payments
     /// @brief Use this method to send invoices.
@@ -1717,9 +2015,9 @@ namespace tgbotxx {
     /// @param title Product name, 1-32 characters
     /// @param description Product description, 1-255 characters
     /// @param payload Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.
-    /// @param providerToken Payment provider token, obtained via @BotFather
     /// @param currency Three-letter ISO 4217 currency code, [see more on currencies](https://core.telegram.org/bots/payments#supported-currencies)
     /// @param prices Array of LabeledPrice, Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)
+    /// @param providerToken Optional. Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
     /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
     /// @param maxTipAmount Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double).
     /// For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json,
@@ -1742,6 +2040,9 @@ namespace tgbotxx {
     /// @param isFlexible Optional. Pass True if the final price depends on the shipping method
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+    /// @param allowPaidBroadcast Optional. Pass True to allow up to 1000 messages per second, ignoring broadcasting limits for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; for private chats only
+    /// @param suggestedPostParameters Optional. A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only.
     /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard. If empty, one 'Pay total price' button will be shown. If not empty, the first button must be a Pay button.
     ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
     /// @returns sent Message object on success.
@@ -1751,9 +2052,9 @@ namespace tgbotxx {
                              const std::string& title,
                              const std::string& description,
                              const std::string& payload,
-                             const std::string& providerToken,
                              const std::string& currency,
                              const std::vector<Ptr<LabeledPrice>>& prices,
+                             const std::string& providerToken = "",
                              std::int32_t messageThreadId = 0,
                              std::int32_t maxTipAmount = 0,
                              const std::vector<std::int32_t>& suggestedTipAmounts = std::vector<std::int32_t>(),
@@ -1772,21 +2073,31 @@ namespace tgbotxx {
                              bool isFlexible = false,
                              bool disableNotification = false,
                              bool protectContent = false,
+                             bool allowPaidBroadcast = false,
+                             const std::string& messageEffectId = "",
+                             const Ptr<SuggestedPostParameters>& suggestedPostParameters = nullptr,
                              const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
     /// @brief Use this method to create a link for an invoice. Returns the created invoice link as std::string on success.
     /// @param title Product name, 1-32 characters
     /// @param description Product description, 1-255 characters
     /// @param payload Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.
-    /// @param providerToken Payment provider token, obtained via @BotFather
     /// @param currency Three-letter ISO 4217 currency code, [see more on currencies](https://core.telegram.org/bots/payments#supported-currencies)
     /// @param prices Array of LabeledPrice, Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the link will be created. For payments in Telegram Stars only.
+    /// @param providerToken Optional. Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
+    /// @param subscriptionPeriod Optional. The number of seconds the subscription will be active for before the next payment.
+    ///                           The currency must be set to “XTR” (Telegram Stars) if the parameter is used.
+    ///                           Currently, it must always be 2592000 (30 days) if specified.
+    ///                           Any number of subscriptions can be active for a given bot at the same time,
+    ///                           including multiple concurrent subscriptions from the same user.
+    ///                           Subscription price must not exceed 10000 Telegram Stars.
     /// @param maxTipAmount Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double).
-    /// For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json,
-    /// it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
+    ///                     For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json,
+    ///                     it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
     /// @param suggestedTipAmounts Optional. A JSON-serialized array of suggested amounts of tips in the smallest units of the currency (integer, not float/double).
-    /// At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed maxTipAmount.
-    /// using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter
+    ///                            At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed maxTipAmount.
+    ///                            using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter
     /// @param providerData Optional. JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
     /// @param photoUrl Optional. URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.
     /// @param photoSize Optional. Photo size in bytes
@@ -1805,9 +2116,11 @@ namespace tgbotxx {
     std::string createInvoiceLink(const std::string& title,
                                   const std::string& description,
                                   const std::string& payload,
-                                  const std::string& providerToken,
                                   const std::string& currency,
                                   const std::vector<Ptr<LabeledPrice>>& prices,
+                                  const std::string& businessConnectionId = "",
+                                  const std::string& providerToken = "",
+                                  std::time_t subscriptionPeriod = 0,
                                   std::int32_t maxTipAmount = 0,
                                   const std::vector<std::int32_t>& suggestedTipAmounts = std::vector<std::int32_t>(),
                                   const std::string& providerData = "",
@@ -1856,6 +2169,42 @@ namespace tgbotxx {
                                 bool ok,
                                 const std::string& errorMessage = "") const;
 
+    /// @brief A method to get the current Telegram Stars balance of the bot.
+    /// Requires no parameters. On success, returns a StarAmount object.
+    /// @returns StarAmount on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#getmystarbalance
+    Ptr<StarAmount> getMyStarBalance() const;
+
+    /// @brief Returns the bot's Telegram Star transactions in chronological order.
+    /// On success, returns a StarTransactions object.
+    /// @param offset Optional. Number of transactions to skip in the response
+    /// @param limit Optional. The maximum number of transactions to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+    /// @returns StarTransactions on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#getstartransactions
+    Ptr<StarTransactions> getStarTransactions(std::int32_t offset = 0, std::int32_t limit = 100) const;
+
+    /// @brief Refunds a successful payment in Telegram Stars. Returns True on success.
+    /// @param userId Identifier of the user whose payment will be refunded
+    /// @param telegramPaymentChargeId Telegram payment identifier
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#refundstarpayment
+    bool refundStarPayment(std::int64_t userId, const std::string& telegramPaymentChargeId) const;
+
+    /// @brief Allows the bot to cancel or re-enable extension of a subscription paid in Telegram Stars. Returns True on success.
+    /// @param userId Identifier of the user whose subscription will be edited
+    /// @param telegramPaymentChargeId Telegram payment identifier for the subscription
+    /// @param isCancelled Pass True to cancel extension of the user subscription; the subscription must be active up to the end of the current subscription period.
+    ///                    Pass False to allow the user to re-enable a subscription that was previously canceled by the bot.
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#edituserstarsubscription
+    bool editUserStarSubscription(std::int64_t userId,
+                                  const std::string& telegramPaymentChargeId,
+                                  bool isCancelled) const;
+
 
   public: /// Updates methods  https://core.telegram.org/bots/api#getting-updates
     /// @brief Use this method to receive incoming updates using long polling.
@@ -1865,8 +2214,6 @@ namespace tgbotxx {
     /// with an offset higher than its update_id. The negative offset can be specified to retrieve updates
     /// starting from -offset update from the end of the updates queue. All previous updates will be forgotten.
     /// @param limit Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
-    /// @param timeout Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive,
-    /// short polling should be used for testing purposes only.
     /// @returns an Array of Update objects.
     /// @throws Exception on failure
     /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
@@ -1937,6 +2284,8 @@ namespace tgbotxx {
     /// @param parseMode Optional. Mode for parsing entities in the message text. See https://core.telegram.org/bots/api#formatting-options for more details.
     /// @param entities Optional. List of special entities that appear in message text, which can be specified instead of parseMode
     /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
+    /// @param linkPreviewOptions Optional. Link preview generation options for the message
     /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#editmessagetext
     Ptr<Message> editMessageText(const std::string& text,
@@ -1945,7 +2294,9 @@ namespace tgbotxx {
                                  const std::string& inlineMessageId = "",
                                  const std::string& parseMode = "",
                                  const std::vector<Ptr<MessageEntity>>& entities = std::vector<Ptr<MessageEntity>>(),
-                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                 const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                 const std::string& businessConnectionId = "",
+                                 const Ptr<LinkPreviewOptions>& linkPreviewOptions = nullptr) const;
 
 
     /// @brief Use this method to edit captions of messages.
@@ -1956,6 +2307,8 @@ namespace tgbotxx {
     /// @param parseMode Optional. Mode for parsing entities in the message caption. See https://core.telegram.org/bots/api#formatting-options for more details.
     /// @param captionEntities Optional. List of special entities that appear in the caption, which can be specified instead of parseMode
     /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
+    /// @param showCaptionAboveMedia Optional. Pass True, if the caption must be shown above the message media. Supported only for animation, photo and video messages.
     /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#editmessagecaption
     Ptr<Message> editMessageCaption(const std::variant<std::int64_t, std::string>& chatId = 0,
@@ -1964,7 +2317,9 @@ namespace tgbotxx {
                                     const std::string& caption = "",
                                     const std::string& parseMode = "",
                                     const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
-                                    const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                    const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                    const std::string& businessConnectionId = "",
+                                    bool showCaptionAboveMedia = false) const;
 
 
     /// @brief Use this method to edit animation, audio, document, photo, or video messages.
@@ -1975,13 +2330,15 @@ namespace tgbotxx {
     /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
     /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
     /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#editmessagemedia
     Ptr<Message> editMessageMedia(const Ptr<InputMedia>& media,
                                   const std::variant<std::int64_t, std::string>& chatId = 0,
                                   std::int32_t messageId = 0,
                                   const std::string& inlineMessageId = "",
-                                  const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                  const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                  const std::string& businessConnectionId = "") const;
 
 
     /// @brief Use this method to edit live location messages.
@@ -1991,10 +2348,12 @@ namespace tgbotxx {
     /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
     /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
+    /// @param livePeriod Optional. New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current live_period by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then live_period remains unchanged
     /// @param horizontalAccuracy Optional. The radius of uncertainty for the location, measured in meters; 0-1500
     /// @param heading Optional. Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
     /// @param proximityAlertRadius Optional. The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.
     /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// @returns On success, the edited Message is returned. Otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#editmessagelivelocation
     Ptr<Message> editMessageLiveLocation(float latitude,
@@ -2002,10 +2361,12 @@ namespace tgbotxx {
                                          const std::variant<std::int64_t, std::string>& chatId = 0,
                                          std::int32_t messageId = 0,
                                          const std::string& inlineMessageId = "",
+                                         std::int32_t livePeriod = 0,
                                          float horizontalAccuracy = 0.0f,
                                          std::int32_t heading = 0,
                                          std::int32_t proximityAlertRadius = 0,
-                                         const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                         const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                         const std::string& businessConnectionId = "") const;
 
 
     /// @brief Use this method to stop updating a live location message before livePeriod expires.
@@ -2013,37 +2374,76 @@ namespace tgbotxx {
     /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message with live location to stop
     /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
     /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// @returns On success, the edited Message is returned. Otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#stopmessagelivelocation
     Ptr<Message> stopMessageLiveLocation(const std::variant<std::int64_t, std::string>& chatId = 0,
                                          std::int32_t messageId = 0,
                                          const std::string& inlineMessageId = "",
-                                         const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                         const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                         const std::string& businessConnectionId = "") const;
 
+    /// @brief Use this method to edit a checklist on behalf of a connected business account. On success, the edited Message is returned.
+    /// @param chatId Unique identifier for the target chat
+    /// @param messageId Unique identifier for the target message
+    /// @param checklist A JSON-serialized object for the new checklist
+    /// @param businessConnectionId Unique identifier of the business connection on behalf of which the message will be sent
+    /// @param replyMarkup Optional. A JSON-serialized object for a new inline keyboard.
+    /// @returns On success, the edited Message is returned. Otherwise nullptr is returned.
+    /// @ref https://core.telegram.org/bots/api#editmessagechecklist
+    Ptr<Message> editMessageChecklist(std::int64_t chatId,
+                                      std::int32_t messageId,
+                                      const Ptr<InputChecklist>& checklist,
+                                      const std::string& businessConnectionId,
+                                      const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
 
     /// @brief Use this method to edit only the reply markup of messages.
     /// @param chatId Optional. Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param messageId Optional. Required if inlineMessageId is not specified. Identifier of the message to edit
     /// @param inlineMessageId Optional. Required if chatId and messageId are not specified. Identifier of the inline message
     /// @param replyMarkup Optional. A JSON-serialized object for an inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise nullptr is returned.
     /// @ref https://core.telegram.org/bots/api#editmessagereplymarkup
     Ptr<Message> editMessageReplyMarkup(const std::variant<std::int64_t, std::string>& chatId = 0,
                                         std::int32_t messageId = 0,
                                         const std::string& inlineMessageId = "",
-                                        const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                                        const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                                        const std::string& businessConnectionId = "") const;
 
 
     /// @brief Use this method to stop a poll which was sent by the bot.
     /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param messageId Identifier of the original message with the poll
     /// @param replyMarkup Optional. A JSON-serialized object for a new message inline keyboard.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// @returns On success, the stopped Poll is returned.
     /// @ref https://core.telegram.org/bots/api#stoppoll
     Ptr<Poll> stopPoll(const std::variant<std::int64_t, std::string>& chatId,
                        std::int32_t messageId,
-                       const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                       const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                       const std::string& businessConnectionId = "") const;
 
+
+    /// @brief Use this method to approve a suggested post in a direct messages chat. The bot must have the 'can_post_messages' administrator right in the corresponding channel chat. Returns True on success.
+    /// @param chatId Unique identifier for the target direct messages chat
+    /// @param messageId Identifier of a suggested post message to approve
+    /// @param sendDate Optional. Point in time (Unix timestamp) when the post is expected to be published; omit if the date has already been specified when the suggested post was created. If specified, then the date must be not more than 2678400 seconds (30 days) in the future
+    /// @returns Returns True on success.
+    /// @ref https://core.telegram.org/bots/api#approvesuggestedpost
+    bool approveSuggestedPost(std::int64_t chatId,
+                              std::int32_t messageId,
+                              std::time_t sendDate = 0) const;
+
+    /// @brief Use this method to decline a suggested post in a direct messages chat. The bot must have the 'can_manage_direct_messages' administrator right in the corresponding channel chat. Returns True on success.
+    /// @param chatId Unique identifier for the target direct messages chat
+    /// @param messageId Identifier of a suggested post message to approve
+    /// @param comment Optional. Comment for the creator of the suggested post; 0-128 characters
+    /// @returns Returns True on success.
+    /// @ref https://core.telegram.org/bots/api#approvesuggestedpost
+    bool declineSuggestedPost(std::int64_t chatId,
+                              std::int32_t messageId,
+                              const std::string& comment = "") const;
 
     /// @brief Use this method to delete a message, including service messages, with the following limitations:
     /// - A message can only be deleted if it was sent less than 48 hours ago.
@@ -2051,15 +2451,23 @@ namespace tgbotxx {
     /// - A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.
     /// - Bots can delete outgoing messages in private chats, groups, and supergroups.
     /// - Bots can delete incoming messages in private chats.
-    /// - Bots granted canPostMessages permissions can delete outgoing messages in channels.
+    /// - Bots granted can_post_messages permissions can delete outgoing messages in channels.
     /// - If the bot is an administrator of a group, it can delete any message there.
-    /// - If the bot has canDeleteMessages permission in a supergroup or a channel, it can delete any message there.
-    ///
+    /// - If the bot has can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
+    /// - If the bot has can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
     /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param messageId Identifier of the message to delete
     /// @returns Returns True on success.
     /// @ref https://core.telegram.org/bots/api#deletemessage
     bool deleteMessage(const std::variant<std::int64_t, std::string>& chatId, std::int32_t messageId) const;
+
+    /// @brief Use this method to delete multiple messages simultaneously.
+    /// If some of the specified messages can't be found, they are skipped. Returns True on success.
+    /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+    /// @param messageIds A JSON-serialized list of 1-100 identifiers of messages to delete. See deleteMessage for limitations on which messages can be deleted
+    /// @returns Returns True on success.
+    /// @ref https://core.telegram.org/bots/api#deletemessage
+    bool deleteMessages(const std::variant<std::int64_t, std::string>& chatId, const std::vector<std::int32_t>& messageIds) const;
 
   public: /// Stickers
     /// @brief Use this method to send static .WEBP, animated .TGS, or video .WEBM stickers. On success, the sent Message is returned.
@@ -2075,6 +2483,12 @@ namespace tgbotxx {
     /// @param replyParameters Optional. Description of the message to reply to
     /// @param replyMarkup Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
     ///                    One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply.
+    /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the link will be created. For payments in Telegram Stars only.
+    /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
+    /// @param linkPreviewOptions Optional. Link preview generation options for the message
+    /// @param allowPaidBroadcast Optional. Pass True to allow up to 1000 messages per second, ignoring broadcasting limits for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; for private chats only
+    /// @param suggestedPostParameters Optional. A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only.
     /// @returns sent Message object on success.
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#sendsticker
@@ -2085,7 +2499,13 @@ namespace tgbotxx {
                              bool disableNotification = false,
                              bool protectContent = false,
                              const Ptr<ReplyParameters>& replyParameters = nullptr,
-                             const Ptr<IReplyMarkup>& replyMarkup = nullptr) const;
+                             const Ptr<IReplyMarkup>& replyMarkup = nullptr,
+                             const std::string& businessConnectionId = "",
+                             std::int32_t directMessagesTopicId = 0,
+                             const Ptr<LinkPreviewOptions>& linkPreviewOptions = nullptr,
+                             bool allowPaidBroadcast = false,
+                             const std::string& messageEffectId = "",
+                             const Ptr<SuggestedPostParameters>& suggestedPostParameters = nullptr) const;
 
     /// @brief Use this method to get a sticker set. On success, a StickerSet object is returned.
     /// @param name Name of the sticker set
@@ -2122,7 +2542,6 @@ namespace tgbotxx {
     /// <bot_username> is case insensitive. 1-64 characters.
     /// @param title Sticker set title, 1-64 characters
     /// @param stickers A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
-    /// @param stickerFormat Format of stickers in the set, must be one of “static”, “animated”, “video”
     /// @param stickerType Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.
     /// @param needsRepainting Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages,
     /// the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only
@@ -2133,7 +2552,6 @@ namespace tgbotxx {
                              const std::string& name,
                              const std::string& title,
                              const std::vector<Ptr<InputSticker>>& stickers,
-                             const std::string& stickerFormat,
                              const std::string& stickerType = "regular",
                              bool needsRepainting = false) const;
 
@@ -2165,6 +2583,21 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#deletestickerfromset
     bool deleteStickerFromSet(const std::string& sticker) const;
+
+    /// @brief Use this method to replace an existing sticker in a sticker set with a new one.
+    /// The method is equivalent to calling deleteStickerFromSet, then addStickerToSet, then setStickerPositionInSet.
+    /// @param userId User identifier of the sticker set owner
+    /// @param name Sticker set name
+    /// @param oldSticker File identifier of the replaced sticker
+    /// @param sticker A JSON-serialized object with information about the added sticker.
+    ///                If exactly the same sticker had already been added to the set, then the set remains unchanged.
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#replacestickerinset
+    bool replaceStickerInSet(std::int64_t userId,
+                             const std::string& name,
+                             const std::string& oldSticker,
+                             const Ptr<InputSticker>& sticker) const;
 
     /// @brief Use this method to change the list of emoji assigned to a regular or custom emoji sticker.
     /// The sticker must belong to a sticker set created by the bot.
