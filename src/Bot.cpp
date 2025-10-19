@@ -93,18 +93,15 @@ void Bot::dispatchMessages(const Ptr<Update>& update) {
         /// Callback -> onNonCommandMessage
         this->onNonCommandMessage(message);
       } else {
-        const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [this, chatType = message->chat->type, &text](const std::string& cmd) noexcept {
+        // 1 BotCommand entity must be in the message starting with /
+        // assert(std::ranges::count_if(message->entities, [](const Ptr<MessageEntity>& entity) noexcept {return entity->type == MessageEntity::Type::BotCommand;}) == 1);
+        const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [&text, atMyUsername = '@' + m_api->m_cache.botUsername](const std::string& cmd) noexcept {
           // Handle both /start (in private chats)  /start@botusername (in groups)
-          if (chatType == Chat::Type::Private) {
-            // In private chats, it's always /command (without a username)
-            return (text == cmd);
-          } else {
-            // In group chats, this bot must be mentioned with the command to avoid
-            // conflicts with other bots having the same command
-            if (text.find('@') != std::string_view::npos && text == (cmd + '@' + m_api->m_cache.botUsername))
-              return true;
-          }
-          return false;
+          // text == cmd: example: /start
+          // text.ends_with(atMyUsername): example: /start@mybotusername
+          // In group chats, this bot must be mentioned with the command to avoid
+          // conflicts with other bots having the same command
+          return text == cmd || text.ends_with(atMyUsername);
         });
         if (isKnownCommand) {
           /// Callback -> onCommand
