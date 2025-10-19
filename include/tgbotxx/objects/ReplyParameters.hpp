@@ -14,9 +14,9 @@ namespace tgbotxx {
     /// @brief Identifier of the message that will be replied to in the current chat, or in the chat chat_id if it is specified
     std::int32_t messageId{};
 
-    /// @brief Optional. If the message to be replied to is from a different chat,
-    /// unique identifier for the chat or username of the channel (in the format @channelusername)
-    std::int64_t chatId{};
+    /// @brief Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername).
+    /// @note Not supported for messages sent on behalf of a business account and messages from channel direct messages chats.
+    std::variant<std::int64_t, std::string> chatId; // std::monostate
 
     /// @brief Optional. Pass True if the message should be sent even if the specified message to be replied to is not found;
     /// can be used only for replies in the same chat and forum topic.
@@ -46,7 +46,11 @@ namespace tgbotxx {
     nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "message_id", messageId);
-      OBJECT_SERIALIZE_FIELD(json, "chat_id", chatId);
+      if (std::holds_alternative<std::int64_t>(chatId)) {
+        OBJECT_SERIALIZE_FIELD(json, "chat_id", std::get<std::int64_t>(chatId));
+      } else if (std::holds_alternative<std::string>(chatId)) {
+        OBJECT_SERIALIZE_FIELD(json, "chat_id", std::get<std::string>(chatId));
+      }
       OBJECT_SERIALIZE_FIELD(json, "allow_sending_without_reply", allowSendingWithoutReply);
       OBJECT_SERIALIZE_FIELD(json, "quote", quote);
       OBJECT_SERIALIZE_FIELD(json, "quote_parse_mode", quoteParseMode);
@@ -59,7 +63,8 @@ namespace tgbotxx {
     /// @brief Deserializes this object from JSON
     void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "message_id", messageId, 0, false);
-      OBJECT_DESERIALIZE_FIELD(json, "chat_id", chatId, 0, true);
+      if (json["chat_id"].is_string()) chatId = json["chat_id"].get<std::string>();
+      else chatId = json["chat_id"].get<std::int64_t>();
       OBJECT_DESERIALIZE_FIELD(json, "allow_sending_without_reply", allowSendingWithoutReply, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "quote", quote, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "quote_parse_mode", quoteParseMode, "", true);
