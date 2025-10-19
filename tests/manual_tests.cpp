@@ -32,6 +32,8 @@ class MyBot : public Bot {
     {{"/quiz", "You will receive a quiz poll"}, &MyBot::handleCommandQuiz},
     {{"/edit_message_text", "You will receive a message that its text will be edited every second for 10 seconds"}, &MyBot::handleCommandEditMessageText},
     {{"/delete_message", "You will receive a message then it will be deleted after 2 seconds"}, &MyBot::handleCommandDeleteMessage},
+    {{"/reply_message", "I will reply the last message I sent"}, &MyBot::handleCommandReplyMessage},
+    {{"/message_effect", "I will reply the last message I sent"}, &MyBot::handleCommandMessageEffect},
     {{"/bot_name", "You will receive bot name"}, &MyBot::handleCommandBotName},
     {{"/media_group", "You will receive a media group"}, &MyBot::handleCommandMediaGroup},
     {{"/inline_buttons", "You will receive an inline keyboard markup"}, &MyBot::handleCommandInlineButtons},
@@ -470,6 +472,36 @@ private: // Command handlers
     Ptr<Message> twoSecondsMsg = api()->sendMessage(message->chat->id, "Hello! my life span is 2 seconds only so I don't have much time. Goodbye!");
     std::this_thread::sleep_for(std::chrono::seconds(2));
     api()->deleteMessage(twoSecondsMsg->chat->id, twoSecondsMsg->messageId);
+  }
+  void handleCommandReplyMessage(const Ptr<Message>& message) {
+    Ptr<Message> msg = api()->sendMessage(message->chat->id, "Hello! waiting to be replied to...");
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    auto replyParams = makePtr<ReplyParameters>();
+    replyParams->chatId = message->chat->id;
+    replyParams->messageId = msg->messageId;
+    api()->sendMessage(message->chat->id, "Done!", 0, "", {},
+                       false, false, nullptr, "", 0, nullptr,
+                       false, "", nullptr, replyParams);
+  }
+  void handleCommandMessageEffect(const Ptr<Message>& message) {
+    // See https://stackoverflow.com/questions/78600012/message-effect-id-in-telegram-bot-api
+    // See https://gist.github.com/wiz0u/2a6d40c8f635687be363d72251a264da (Telegram Bot API - All message_effect_id values)
+    const std::unordered_map<std::string, std::string> effectIds = {
+      {"👍", "5107584321108051014"},
+      {"🎉", "5046509860389126442"},
+      {"👎", "5104858069142078462"},
+    };
+
+    for (const auto& [emoji, effectId]: effectIds) {
+      try {
+        api()->sendMessage(message->chat->id, emoji, 0, "", {},
+                           false, false, nullptr, "", 0, nullptr,
+                           false, effectId, nullptr, nullptr);
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+      } catch (const std::exception& e) {
+        std::cerr << e.what() << ": " << emoji << " - " << effectId << std::endl;
+      }
+    }
   }
   void handleCommandSendInvoice(const Ptr<Message>& message) {
     const std::string providerToken = getPaymentProviderToken();
