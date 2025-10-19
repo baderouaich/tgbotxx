@@ -2818,6 +2818,10 @@ namespace tgbotxx {
     /// @brief Get list of the update types you want your bot to receive.
     const std::vector<std::string>& getAllowedUpdates() const noexcept;
 
+    /// @brief Get cached data about this bot e.g: username, commands...
+    /// Use this when possible to avoid unnecessary api calls
+    const Cache& getCache() const noexcept;
+
   private:
     nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
   };

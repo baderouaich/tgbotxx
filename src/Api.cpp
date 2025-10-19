@@ -3454,6 +3454,9 @@ void Api::setAllowedUpdates(const std::vector<std::string>& allowedUpdates) noex
 }
 /// @brief Get list of the update types you want your bot to receive.
 const std::vector<std::string>& Api::getAllowedUpdates() const noexcept { return m_allowedUpdates; }
+
+const Api::Cache& Api::getCache() const noexcept { return m_cache; }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 Ptr<Message> Api::sendInvoice(const std::variant<std::int64_t, std::string>& chatId,
                               const std::string& title,
