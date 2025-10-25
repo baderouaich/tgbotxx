@@ -576,7 +576,7 @@ private: // Command handlers
     }
     // add local video to the order list
     Ptr<InputPaidMediaVideo> video(new InputPaidMediaVideo());
-    video->media = cpr::File{fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4"}; // Local
+    video->media = cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4").string()}; // Local
     video->startTimestamp = 3;                                                                                        // start from 3rd second
     video->supportsStreaming = true;
     paidMedia.push_back(video);
