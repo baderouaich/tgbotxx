@@ -15,6 +15,6 @@ var _exception_8hpp =
       [ "BAD_GATEWAY", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54", null ],
       [ "INTERNAL", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
     ] ],
-    [ "isErrorCode", "_exception_8hpp.html#af33b48f92738c1b891e948e93829a440", null ],
+    [ "isErrorCode", "_exception_8hpp.html#a316fb3ec05a0ae1cae2862c6d223d538", null ],
     [ "operator<<", "_exception_8hpp.html#a68c2dd07dbf43290d68e1d21b16f948c", null ]
 ];

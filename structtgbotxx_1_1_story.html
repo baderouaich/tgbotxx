@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -92,12 +92,13 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_story.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtgbotxx_1_1_story-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tgbotxx::Story Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This object represents a message about a forwarded story in the chat. Currently holds no information. <a href="https://core.telegram.org/bots/api#story">https://core.telegram.org/bots/api#story</a>.  
+<p>This object represents a story. . <a href="https://core.telegram.org/bots/api#story">https://core.telegram.org/bots/api#story</a>.  
  <a href="structtgbotxx_1_1_story.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_story_8hpp_source.html">Story.hpp</a>&gt;</code></p>
@@ -114,9 +115,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17f103e01acd06939320779c7bc611ad" id="r_a17f103e01acd06939320779c7bc611ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">fromJson</a> (const nl::json &amp;json)</td></tr>
 <tr class="memdesc:a17f103e01acd06939320779c7bc611ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes this object from JSON.  <br /></td></tr>
 <tr class="separator:a17f103e01acd06939320779c7bc611ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa9310efe610d1d05266757260cb6bd38" id="r_aa9310efe610d1d05266757260cb6bd38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_chat.html">Chat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">chat</a></td></tr>
+<tr class="memdesc:aa9310efe610d1d05266757260cb6bd38"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtgbotxx_1_1_chat.html" title="This object represents a chat. https://core.telegram.org/bots/api#chat.">Chat</a> that posted the story.  <br /></td></tr>
+<tr class="separator:aa9310efe610d1d05266757260cb6bd38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72caaf1abfefc8d8d631c185bace0908" id="r_a72caaf1abfefc8d8d631c185bace0908"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_story.html#a72caaf1abfefc8d8d631c185bace0908">id</a> {}</td></tr>
+<tr class="memdesc:a72caaf1abfefc8d8d631c185bace0908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for the story in the chat.  <br /></td></tr>
+<tr class="separator:a72caaf1abfefc8d8d631c185bace0908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This object represents a message about a forwarded story in the chat. Currently holds no information. <a href="https://core.telegram.org/bots/api#story">https://core.telegram.org/bots/api#story</a>. </p>
+<div class="textblock"><p>This object represents a story. . <a href="https://core.telegram.org/bots/api#story">https://core.telegram.org/bots/api#story</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00008">8</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -200,7 +210,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00022">22</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00030">30</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +240,44 @@ Public Member Functions</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00016">16</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00022">22</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa9310efe610d1d05266757260cb6bd38" name="aa9310efe610d1d05266757260cb6bd38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9310efe610d1d05266757260cb6bd38">&#9670;&#160;</a></span>chat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_chat.html">Chat</a>&gt; tgbotxx::Story::chat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structtgbotxx_1_1_chat.html" title="This object represents a chat. https://core.telegram.org/bots/api#chat.">Chat</a> that posted the story. </p>
+
+<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00015">15</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a72caaf1abfefc8d8d631c185bace0908" name="a72caaf1abfefc8d8d631c185bace0908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72caaf1abfefc8d8d631c185bace0908">&#9670;&#160;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::int32_t tgbotxx::Story::id {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unique identifier for the story in the chat. </p>
+
+<p class="definition">Definition at line <a class="el" href="_story_8hpp_source.html#l00018">18</a> of file <a class="el" href="_story_8hpp_source.html">Story.hpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +290,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_story.html">Story</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

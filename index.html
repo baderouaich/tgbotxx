@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -97,7 +97,16 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><a href="https://github.com/baderouaich/tgbotxx/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow" alt="MIT License" class="inline"/></a> <a href="https://baderouaich.github.io/tgbotxx"><img src="https://codedocs.xyz/doxygen/doxygen.svg" alt="Docs" style="pointer-events: none;" class="inline"/></a> <a href="https://img.shields.io/badge/C++-20-blue.svg?style=flat&amp;logo=c%2B%2B"><img src="https://img.shields.io/badge/C++-20-blue.svg?style=flat&amp;logo=c%2B%2B" alt="Language" style="pointer-events: none;" class="inline"/></a></p>
 <h1>tgbotxx</h1>
 <p>Telegram Bot C++ Library</p>
-<p>Compatible with Telegram <a href="https://core.telegram.org/bots/api-changelog">Bot API 6.9 (September 22, 2023)</a></p>
+<h2>Features</h2>
+<ul>
+<li>Compatible with Telegram <a href="https://core.telegram.org/bots/api-changelog">Bot API 9.2 (August 15, 2025)</a></li>
+<li>Simple, Fast and Reliable.</li>
+<li>Uses <a href="https://github.com/libcpr/cpr">libcpr</a> for HTTP requests and <a href="https://github.com/nlohmann/json">nlohmann::json</a> for JSON parsing (Both are exposed to the user by default)</li>
+<li>Cross Platform (Ubuntu, Windows and macOS)</li>
+<li>Plenty of <a href="examples/">examples</a></li>
+<li>MIT License</li>
+<li>C++ 20</li>
+</ul>
 <h3>CI Status</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -109,7 +118,52 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">macOS   </td><td class="markdownTableBodyNone"><a href="https://github.com/baderouaich/tgbotxx/actions/workflows/build-macos.yml"><img src="https://img.shields.io/github/actions/workflow/status/baderouaich/tgbotxx/build-macos.yml?branch=main" alt="macOS" class="inline"/></a>   </td></tr>
 </table>
-<h3>Examples</h3>
+<h4>Basic sample</h4>
+<blockquote class="doxtable">
+<p>&zwj;see <a href="examples/">examples</a> for more </p>
+</blockquote>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="tgbotxx_8hpp.html">tgbotxx/tgbotxx.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyBot : <span class="keyword">public</span> <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  MyBot() : <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a>(<span class="stringliteral">&quot;Bot token here from @BotFather&quot;</span>) {}</div>
+<div class="line">    </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">  <span class="comment">// Called before Bot starts receiving updates</span></div>
+<div class="line">  <span class="keywordtype">void</span> onStart()<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// Initialize your code here...</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Started\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Called before Bot shuts down (triggered by Bot::stop())</span></div>
+<div class="line">  <span class="keywordtype">void</span> onStop()<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// Cleanup your code here</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Stopped\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Called when Bot receives a new message of any kind</span></div>
+<div class="line">  <span class="comment">// NB: Ptr&lt;T&gt; = std::shared_ptr&lt;T&gt;</span></div>
+<div class="line">  <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{</div>
+<div class="line">    std::string reply = <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName</div>
+<div class="line">                        + <span class="stringliteral">&quot;!, got your message!&quot;</span>;</div>
+<div class="line">    api()-&gt;sendMessage(message-&gt;chat-&gt;id, reply);</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// override other callbacks if needed... See Bot.hpp</span></div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  MyBot bot;</div>
+<div class="line">  bot.start();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclasstgbotxx_1_1_bot_html"><div class="ttname"><a href="classtgbotxx_1_1_bot.html">tgbotxx::Bot</a></div><div class="ttdef"><b>Definition</b> <a href="_bot_8hpp_source.html#l00030">Bot.hpp:30</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
+<div class="ttc" id="atgbotxx_8hpp_html"><div class="ttname"><a href="tgbotxx_8hpp.html">tgbotxx.hpp</a></div></div>
+</div><!-- fragment --> <h3>Examples</h3>
 <blockquote class="doxtable">
 <p>&zwj;see <a href="examples/">examples</a> for more </p>
 </blockquote>
@@ -135,147 +189,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a href="https://github.com/baderouaich/GitWatcherBot">GitWatcherBot</a>   </td><td class="markdownTableBodyLeft">Real world Bot that you can use to watch repositories changes and get notified about (stars, forks, issues, watchers and pulls).   </td><td class="markdownTableBodyCenter"><img src="https://i.ibb.co/XDXV2PZ/NEW.jpg" alt="preview" width="200" class="inline"/>   </td></tr>
 </table>
-<h4>Basic sample</h4>
-<blockquote class="doxtable">
-<p>&zwj;see <a href="examples/">examples</a> for more </p>
-</blockquote>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="tgbotxx_8hpp.html">tgbotxx/tgbotxx.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyBot : <span class="keyword">public</span> <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">  MyBot() : <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a>(<span class="stringliteral">&quot;BOT_TOKEN_FROM_BOT_FATHER&quot;</span>) {}</div>
-<div class="line">    </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">  <span class="keywordtype">void</span> onStart()<span class="keyword"> override </span>{</div>
-<div class="line">    <span class="comment">// Called before Bot starts receiving updates</span></div>
-<div class="line">    <span class="comment">// Initialize your code here...</span></div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Started\n&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  <span class="keywordtype">void</span> onStop()<span class="keyword"> override </span>{</div>
-<div class="line">    <span class="comment">// Called before Bot shuts down (triggered by Bot::stop())</span></div>
-<div class="line">    <span class="comment">// Cleanup your code here</span></div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bot Stopped\n&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{</div>
-<div class="line">    <span class="comment">// Called when Bot receives a new message of any kind</span></div>
-<div class="line">    <span class="comment">// NB: a Ptr&lt;T&gt; is just an alias to std::shared_ptr&lt;T&gt;</span></div>
-<div class="line">    api()-&gt;sendMessage(message-&gt;chat-&gt;id, <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName + <span class="stringliteral">&quot;!, got your message!&quot;</span>);</div>
-<div class="line">  }</div>
-<div class="line">  <span class="comment">// override other callbacks if needed... </span></div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">  MyBot bot;</div>
-<div class="line">  bot.start();</div>
-<div class="line">  <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aclasstgbotxx_1_1_bot_html"><div class="ttname"><a href="classtgbotxx_1_1_bot.html">tgbotxx::Bot</a></div><div class="ttdef"><b>Definition</b> <a href="_bot_8hpp_source.html#l00027">Bot.hpp:27</a></div></div>
-<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00014">Api.hpp:14</a></div></div>
-<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
-<div class="ttc" id="atgbotxx_8hpp_html"><div class="ttname"><a href="tgbotxx_8hpp.html">tgbotxx.hpp</a></div></div>
-</div><!-- fragment --><h4>Extensive sample</h4>
-<p>Creating a new Bot called <code>MyBot</code> that overrides all callbacks: </p><details >
-<summary >
-Show</summary>
-<p></p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="tgbotxx_8hpp.html">tgbotxx/tgbotxx.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyBot : <span class="keyword">public</span> <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    MyBot() : <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a>(<span class="stringliteral">&quot;BOT_TOKEN_FROM_BOT_FATHER&quot;</span>) {}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> onStart()<span class="keyword"> override </span>{</div>
-<div class="line">      <span class="comment">// Drop awaiting updates (when Bot is not running, updates will remain 24 hours</span></div>
-<div class="line">      <span class="comment">// in Telegram server before they get deleted or retrieved by BOT)</span></div>
-<div class="line">      api()-&gt;deleteWebhook(<span class="keyword">true</span>);</div>
-<div class="line"> </div>
-<div class="line">      <span class="comment">// Register bot commands ...</span></div>
-<div class="line">      <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;BotCommand&gt;</a> greet(<span class="keyword">new</span> <a class="code hl_struct" href="structtgbotxx_1_1_bot_command.html">BotCommand</a>());</div>
-<div class="line">      greet-&gt;command = <span class="stringliteral">&quot;greet&quot;</span>;</div>
-<div class="line">      greet-&gt;description = <span class="stringliteral">&quot;This command will greet you&quot;</span>;</div>
-<div class="line">      <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;BotCommand&gt;</a> stop(<span class="keyword">new</span> <a class="code hl_struct" href="structtgbotxx_1_1_bot_command.html">BotCommand</a>());</div>
-<div class="line">      stop-&gt;command = <span class="stringliteral">&quot;stop&quot;</span>;</div>
-<div class="line">      stop-&gt;description = <span class="stringliteral">&quot;Stop the bot&quot;</span>;</div>
-<div class="line">      api()-&gt;setMyCommands({greet, stop}); <span class="comment">// The above commands will be shown in the bot chat menu (bottom left)</span></div>
-<div class="line">      </div>
-<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;Bot &quot;</span> &lt;&lt; api()-&gt;getMe()-&gt;username &lt;&lt; <span class="stringliteral">&quot; Started\n&quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onStop()<span class="keyword"> override </span>{</div>
-<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;Bot &quot;</span> &lt;&lt; api()-&gt;getMe()-&gt;username &lt;&lt; <span class="stringliteral">&quot; Stopped\n&quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{</div>
-<div class="line">        api()-&gt;sendMessage(message-&gt;chat-&gt;id, <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName + <span class="stringliteral">&quot;!, got your message!&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onCommand(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{</div>
-<div class="line">      <span class="keywordflow">if</span>(message-&gt;text == <span class="stringliteral">&quot;/stop&quot;</span>) {</div>
-<div class="line">        api()-&gt;sendMessage(message-&gt;chat-&gt;id, <span class="stringliteral">&quot;Bot stopping...&quot;</span>);</div>
-<div class="line">        Bot::stop();</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">      }</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; errorMessage, <a class="code hl_enumeration" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> errorCode)<span class="keyword"> override </span>{</div>
-<div class="line">      std::cerr &lt;&lt;  <span class="stringliteral">&quot;Long polling error: &quot;</span> &lt;&lt; errorMessage &lt;&lt; <span class="stringliteral">&quot;. Error code: &quot;</span> &lt;&lt; errorCode &lt;&lt; std::endl;</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onNonCommandMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{}</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> onUnknownCommand(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onEditedMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; editedMessage)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onMessageReactionUpdated(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;MessageReactionUpdated&gt;</a>&amp; messageReaction)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onMessageReactionCountUpdated(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;MessageReactionCountUpdated&gt;</a>&amp; messageReactionCount)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onInlineQuery(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;InlineQuery&gt;</a>&amp; inlineQuery)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onChosenInlineResult(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChosenInlineResult&gt;</a>&amp; chosenInlineResult)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onCallbackQuery(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;CallbackQuery&gt;</a>&amp; callbackQuery)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onShippingQuery(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ShippingQuery&gt;</a>&amp; shippingQuery)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onPreCheckoutQuery(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;PreCheckoutQuery&gt;</a>&amp; preCheckoutQuery)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onPoll(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Poll&gt;</a>&amp; poll)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onPollAnswer(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;PollAnswer&gt;</a>&amp; pollAnswer)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onMyChatMember(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChatMemberUpdated&gt;</a>&amp; myChatMemberUpdated)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onChatMember(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChatMemberUpdated&gt;</a>&amp; chatMemberUpdated)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onChatJoinRequest(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChatJoinRequest&gt;</a>&amp; chatJoinRequest)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onChatBoostUpdated(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChatBoostUpdated&gt;</a>&amp; chatBoostUpdated)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onChatBoostRemoved(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;ChatBoostRemoved&gt;</a>&amp; chatBoostRemoved)<span class="keyword"> override </span>{}</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onLongPollError(<span class="keyword">const</span> std::string&amp; errorMessage, <a class="code hl_enumeration" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> errorCode)<span class="keyword"> override </span>{}</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">  MyBot bot;</div>
-<div class="line">  bot.start();</div>
-<div class="line">  <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespacetgbotxx_html_a4b250088edff8c46415926d7af74d9af"><div class="ttname"><a href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">tgbotxx::ErrorCode</a></div><div class="ttdeci">ErrorCode</div><div class="ttdoc">https://core.telegram.org/api/errors</div><div class="ttdef"><b>Definition</b> <a href="_exception_8hpp_source.html#l00008">Exception.hpp:8</a></div></div>
-<div class="ttc" id="astructtgbotxx_1_1_bot_command_html"><div class="ttname"><a href="structtgbotxx_1_1_bot_command.html">tgbotxx::BotCommand</a></div><div class="ttdoc">This object represents a bot command. https://core.telegram.org/bots/api#botcommand.</div><div class="ttdef"><b>Definition</b> <a href="_bot_command_8hpp_source.html#l00008">BotCommand.hpp:8</a></div></div>
-</div><!-- fragment --><p></p>
-</details>
 <h3>Usage (4 approaches)</h3>
 <h4>1. <code>FetchContent</code> *(recommended)*</h4>
 <p>Simply use CMake's <code>FetchContent</code> in your project's <code>CMakeLists.txt</code> as below:</p>
-<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.10)</div>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.20)</div>
 <div class="line">project(my_bot)</div>
 <div class="line"> </div>
 <div class="line">set(CMAKE_CXX_STANDARD 20)</div>
@@ -283,8 +200,11 @@ Show</summary>
 <div class="line"> </div>
 <div class="line">include(FetchContent)</div>
 <div class="line">FetchContent_Declare(tgbotxx</div>
-<div class="line">  GIT_REPOSITORY &quot;https://github.com/baderouaich/tgbotxx&quot;</div>
-<div class="line">  GIT_TAG main</div>
+<div class="line">        GIT_REPOSITORY &quot;https://github.com/baderouaich/tgbotxx&quot;</div>
+<div class="line">        GIT_TAG &quot;v1.1.9.2&quot; # Compatible with Telegram Api 9.2</div>
+<div class="line">        GIT_SHALLOW TRUE</div>
+<div class="line">        GIT_PROGRESS TRUE</div>
+<div class="line">        EXCLUDE_FROM_ALL</div>
 <div class="line">)</div>
 <div class="line">FetchContent_MakeAvailable(tgbotxx)</div>
 <div class="line"> </div>
@@ -300,7 +220,7 @@ example</summary>
 <div class="line">cmake .. -DCMAKE_BUILD_TYPE=Release</div>
 <div class="line">sudo make install </div>
 <div class="line"># On Windows run `make install` as administrator </div>
-</div><!-- fragment --><div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.10)</div>
+</div><!-- fragment --><div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.20)</div>
 <div class="line">project(my_bot)</div>
 <div class="line"> </div>
 <div class="line">set(CMAKE_CXX_STANDARD 20)</div>
@@ -310,7 +230,7 @@ example</summary>
 <div class="line">pkg_check_modules(tgbotxx REQUIRED tgbotxx)</div>
 <div class="line"> </div>
 <div class="line">if (NOT tgbotxx_FOUND)</div>
-<div class="line">  message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
+<div class="line">    message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
 <div class="line">endif ()</div>
 <div class="line"> </div>
 <div class="line">add_executable(${PROJECT_NAME} main.cpp)</div>
@@ -325,7 +245,7 @@ example</summary>
 <summary >
 example</summary>
 <p></p>
-<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.10)</div>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.20)</div>
 <div class="line">project(my_bot)</div>
 <div class="line"> </div>
 <div class="line">set(CMAKE_CXX_STANDARD 20)</div>
@@ -334,7 +254,7 @@ example</summary>
 <div class="line">find_package(tgbotxx REQUIRED)</div>
 <div class="line"> </div>
 <div class="line">if (NOT tgbotxx_FOUND)</div>
-<div class="line">  message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
+<div class="line">    message(FATAL_ERROR &quot;Did you install tgbotxx locally?&quot;)</div>
 <div class="line">endif ()</div>
 <div class="line"> </div>
 <div class="line">add_executable(${PROJECT_NAME} main.cpp)</div>
@@ -354,7 +274,7 @@ example</summary>
 </div><!-- fragment --><p>or</p>
 <div class="fragment"><div class="line">git clone https://github.com/baderouaich/tgbotxx ./lib/tgbotxx</div>
 </div><!-- fragment --><p>Then add <code>add_subdirectory(lib/tgbotxx)</code> in your <code>CMakeLists.txt</code>.</p>
-<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.10)</div>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.20)</div>
 <div class="line">project(my_bot)</div>
 <div class="line"> </div>
 <div class="line">add_subdirectory(lib/tgbotxx) # &lt;-- clone tgbotxx in your project&#39;s lib/ directory</div>
@@ -376,7 +296,7 @@ example</summary>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:33 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

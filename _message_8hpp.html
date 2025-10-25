@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('_message_8hpp.html',''); initResizable
   <div class="headertitle"><div class="title">Message.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_animation_8hpp_source.html">tgbotxx/objects/Animation.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_maybe_inaccessible_message_8hpp_source.html">MaybeInaccessibleMessage.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="_animation_8hpp_source.html">tgbotxx/objects/Animation.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_audio_8hpp_source.html">tgbotxx/objects/Audio.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_chat_shared_8hpp_source.html">tgbotxx/objects/ChatShared.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_contact_8hpp_source.html">tgbotxx/objects/Contact.hpp</a>&gt;</code><br />
@@ -123,7 +124,7 @@ $(document).ready(function(){initNavTree('_message_8hpp.html',''); initResizable
 <code>#include &lt;<a class="el" href="_story_8hpp_source.html">tgbotxx/objects/Story.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_successful_payment_8hpp_source.html">tgbotxx/objects/SuccessfulPayment.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_user_8hpp_source.html">tgbotxx/objects/User.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="_user_shared_8hpp_source.html">tgbotxx/objects/UserShared.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_users_shared_8hpp_source.html">tgbotxx/objects/UsersShared.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_venue_8hpp_source.html">tgbotxx/objects/Venue.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_video_8hpp_source.html">tgbotxx/objects/Video.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_video_chat_ended_8hpp_source.html">tgbotxx/objects/VideoChatEnded.hpp</a>&gt;</code><br />
@@ -134,6 +135,19 @@ $(document).ready(function(){initNavTree('_message_8hpp.html',''); initResizable
 <code>#include &lt;<a class="el" href="_voice_8hpp_source.html">tgbotxx/objects/Voice.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_web_app_data_8hpp_source.html">tgbotxx/objects/WebAppData.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_write_access_allowed_8hpp_source.html">tgbotxx/objects/WriteAccessAllowed.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_direct_messages_topic_8hpp_source.html">tgbotxx/objects/DirectMessagesTopic.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_message_origin_8hpp_source.html">tgbotxx/objects/MessageOrigin.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_external_reply_info_8hpp_source.html">tgbotxx/objects/ExternalReplyInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_text_quote_8hpp_source.html">tgbotxx/objects/TextQuote.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_suggested_post_info_8hpp_source.html">tgbotxx/objects/SuggestedPostInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_refunded_payment_8hpp_source.html">tgbotxx/objects/RefundedPayment.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_gift_info_8hpp_source.html">tgbotxx/objects/GiftInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_unique_gift_info_8hpp_source.html">tgbotxx/objects/UniqueGiftInfo.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_boost_added_8hpp_source.html">tgbotxx/objects/ChatBoostAdded.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_chat_background_8hpp_source.html">tgbotxx/objects/ChatBackground.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_direct_message_price_changed_8hpp_source.html">tgbotxx/objects/DirectMessagePriceChanged.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_giveaway_created_8hpp_source.html">tgbotxx/objects/GiveawayCreated.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_paid_message_price_changed_8hpp_source.html">tgbotxx/objects/PaidMessagePriceChanged.hpp</a>&gt;</code><br />
 </div>
 <p><a href="_message_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -154,7 +168,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_message_8hpp.html">Message.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:01 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

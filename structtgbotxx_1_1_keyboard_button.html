@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_keyboard_button.html
 </div><!--header-->
 <div class="contents">
 
-<p>This object represents one button of the reply keyboard. For simple text buttons, String can be used instead of this object to specify the button text. The optional fields web_app, request_user, request_chat, request_contact, request_location, and request_poll are mutually exclusive. <a href="https://core.telegram.org/bots/api#keyboardbutton">https://core.telegram.org/bots/api#keyboardbutton</a>.  
+<p>This object represents one button of the reply keyboard. At most one of the optional fields must be used to specify type of the button. For simple text buttons, String can be used instead of this object to specify the button text. <a href="https://core.telegram.org/bots/api#keyboardbutton">https://core.telegram.org/bots/api#keyboardbutton</a>.  
  <a href="structtgbotxx_1_1_keyboard_button.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>&gt;</code></p>
@@ -121,9 +121,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0da9bdb8f627085d431bde05cf2144bf" id="r_a0da9bdb8f627085d431bde05cf2144bf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a0da9bdb8f627085d431bde05cf2144bf">text</a></td></tr>
 <tr class="memdesc:a0da9bdb8f627085d431bde05cf2144bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed.  <br /></td></tr>
 <tr class="separator:a0da9bdb8f627085d431bde05cf2144bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12e76eadad7ecba7c70097d5840a5312" id="r_a12e76eadad7ecba7c70097d5840a5312"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_request_user.html">KeyboardButtonRequestUser</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a12e76eadad7ecba7c70097d5840a5312">requestUser</a></td></tr>
-<tr class="memdesc:a12e76eadad7ecba7c70097d5840a5312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message.  <br /></td></tr>
-<tr class="separator:a12e76eadad7ecba7c70097d5840a5312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09b242542ca96ae45243e8256477d73" id="r_ae09b242542ca96ae45243e8256477d73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_request_users.html">KeyboardButtonRequestUsers</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#ae09b242542ca96ae45243e8256477d73">requestUsers</a></td></tr>
+<tr class="memdesc:ae09b242542ca96ae45243e8256477d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message.  <br /></td></tr>
+<tr class="separator:ae09b242542ca96ae45243e8256477d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab349c824932f5638e65334e816a234" id="r_acab349c824932f5638e65334e816a234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_request_chat.html">KeyboardButtonRequestChat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#acab349c824932f5638e65334e816a234">requestChat</a></td></tr>
 <tr class="memdesc:acab349c824932f5638e65334e816a234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message.  <br /></td></tr>
 <tr class="separator:acab349c824932f5638e65334e816a234"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,16 +141,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aac94b1c881fa1984aed732d484dd0faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This object represents one button of the reply keyboard. For simple text buttons, String can be used instead of this object to specify the button text. The optional fields web_app, request_user, request_chat, request_contact, request_location, and request_poll are mutually exclusive. <a href="https://core.telegram.org/bots/api#keyboardbutton">https://core.telegram.org/bots/api#keyboardbutton</a>. </p>
-<dl class="section note"><dt>Note</dt><dd>request_contact and request_location options will only work in Telegram versions released after 9 April, 2016. Older clients will display unsupported message. </dd>
-<dd>
-request_poll option will only work in Telegram versions released after 23 January, 2020. Older clients will display unsupported message. </dd>
-<dd>
-web_app option will only work in Telegram versions released after 16 April, 2022. Older clients will display unsupported message. </dd>
-<dd>
-request_user and request_chat options will only work in Telegram versions released after 3 February, 2023. Older clients will display unsupported message. </dd></dl>
+<div class="textblock"><p>This object represents one button of the reply keyboard. At most one of the optional fields must be used to specify type of the button. For simple text buttons, String can be used instead of this object to specify the button text. <a href="https://core.telegram.org/bots/api#keyboardbutton">https://core.telegram.org/bots/api#keyboardbutton</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00017">17</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00013">13</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad64ba05cae8a55d04b281b7e2c4d8b3e" name="ad64ba05cae8a55d04b281b7e2c4d8b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad64ba05cae8a55d04b281b7e2c4d8b3e">&#9670;&#160;</a></span>KeyboardButton() <span class="overload">[1/2]</span></h2>
@@ -201,7 +194,7 @@ request_user and request_chat options will only work in Telegram versions releas
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00019">19</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00015">15</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -232,7 +225,7 @@ request_user and request_chat options will only work in Telegram versions releas
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00069">69</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00065">65</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +255,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00056">56</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -282,7 +275,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00030">30</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +294,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If True, the user's phone number will be sent as a contact when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +313,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If True, the user's current location will be sent when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -339,18 +332,18 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00046">46</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a12e76eadad7ecba7c70097d5840a5312" name="a12e76eadad7ecba7c70097d5840a5312"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12e76eadad7ecba7c70097d5840a5312">&#9670;&#160;</a></span>requestUser</h2>
+<a id="ae09b242542ca96ae45243e8256477d73" name="ae09b242542ca96ae45243e8256477d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09b242542ca96ae45243e8256477d73">&#9670;&#160;</a></span>requestUsers</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_keyboard_button_request_user.html">KeyboardButtonRequestUser</a>&gt; tgbotxx::KeyboardButton::requestUser</td>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_keyboard_button_request_users.html">KeyboardButtonRequestUsers</a>&gt; tgbotxx::KeyboardButton::requestUsers</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -358,7 +351,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00029">29</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +369,7 @@ request_user and request_chat options will only work in Telegram versions releas
 
 <p>Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00024">24</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00020">20</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +388,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <p>Optional. If specified, the described Web App will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -408,7 +401,7 @@ request_user and request_chat options will only work in Telegram versions releas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_keyboard_button.html">KeyboardButton</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

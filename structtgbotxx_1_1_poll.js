@@ -15,6 +15,7 @@ var structtgbotxx_1_1_poll =
     [ "openPeriod", "structtgbotxx_1_1_poll.html#a56064c16b650b4b377094fa05446d081", null ],
     [ "options", "structtgbotxx_1_1_poll.html#a45f0ddcb4346bcd2be34778e79bdc367", null ],
     [ "question", "structtgbotxx_1_1_poll.html#af347112e77acf3999df8db1f6bc9a8c7", null ],
+    [ "questionEntities", "structtgbotxx_1_1_poll.html#a06f26d5600e49aec05cac899529e7304", null ],
     [ "totalVoterCount", "structtgbotxx_1_1_poll.html#ae8f91def9d8ce958fa671bf8e4fb9574", null ],
     [ "type", "structtgbotxx_1_1_poll.html#a79b11ad8f7dde9809dd209c49be55f5e", null ]
 ];

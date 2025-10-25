@@ -11,6 +11,7 @@ var structtgbotxx_1_1_chat_administrator_rights =
     [ "canEditStories", "structtgbotxx_1_1_chat_administrator_rights.html#a92f3d5c10bead41855c20ccccd89a9ab", null ],
     [ "canInviteUsers", "structtgbotxx_1_1_chat_administrator_rights.html#afdd44576718451dd8409987ff56c4b4f", null ],
     [ "canManageChat", "structtgbotxx_1_1_chat_administrator_rights.html#a029dd0525f0632b817e60bc57a3bd76e", null ],
+    [ "canManageDirectMessages", "structtgbotxx_1_1_chat_administrator_rights.html#a195093af0131ca4b45272f2ad0beb0fa", null ],
     [ "canManageTopics", "structtgbotxx_1_1_chat_administrator_rights.html#a0f79f36f970f3680adfc6dde394a1ba1", null ],
     [ "canManageVideoChats", "structtgbotxx_1_1_chat_administrator_rights.html#aebb671a48671b159fcbc8d399252fb8f", null ],
     [ "canPinMessages", "structtgbotxx_1_1_chat_administrator_rights.html#aa3603bc5e41c85966336ebf08fc878ab", null ],

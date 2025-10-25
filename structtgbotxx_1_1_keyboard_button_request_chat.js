@@ -11,5 +11,8 @@ var structtgbotxx_1_1_keyboard_button_request_chat =
     [ "chatIsCreated", "structtgbotxx_1_1_keyboard_button_request_chat.html#ab4b0ce17ca1294c3ac8fb8410afd127f", null ],
     [ "chatIsForum", "structtgbotxx_1_1_keyboard_button_request_chat.html#ad54241096b40aa2311b2f6fba28d0515", null ],
     [ "requestId", "structtgbotxx_1_1_keyboard_button_request_chat.html#af966006741db235d077fd7ff2865a025", null ],
+    [ "requestPhoto", "structtgbotxx_1_1_keyboard_button_request_chat.html#a7a210367c0d2422d48820dc5e6aeee92", null ],
+    [ "requestTitle", "structtgbotxx_1_1_keyboard_button_request_chat.html#ae752de14c8565de43a8f1d40681fd1c4", null ],
+    [ "requestUsername", "structtgbotxx_1_1_keyboard_button_request_chat.html#a4b4364008449421afe22432c3fbaced0", null ],
     [ "userAdministratorRights", "structtgbotxx_1_1_keyboard_button_request_chat.html#a0357cb9c604116e1c61cb33bf96e30bd", null ]
 ];

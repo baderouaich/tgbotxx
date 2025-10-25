@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -121,9 +121,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa89f2e1a749c101cff84e1d0213b2c38" id="r_aa89f2e1a749c101cff84e1d0213b2c38"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#aa89f2e1a749c101cff84e1d0213b2c38">messageId</a> {}</td></tr>
 <tr class="memdesc:aa89f2e1a749c101cff84e1d0213b2c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier of the message that will be replied to in the current chat, or in the chat chat_id if it is specified.  <br /></td></tr>
 <tr class="separator:aa89f2e1a749c101cff84e1d0213b2c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc9a7598bcdc1a10e77050856c4d0b90" id="r_abc9a7598bcdc1a10e77050856c4d0b90"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#abc9a7598bcdc1a10e77050856c4d0b90">chatId</a> {}</td></tr>
-<tr class="memdesc:abc9a7598bcdc1a10e77050856c4d0b90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername)  <br /></td></tr>
-<tr class="separator:abc9a7598bcdc1a10e77050856c4d0b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1937c2e99bb278f6094a47f6b731037" id="r_ab1937c2e99bb278f6094a47f6b731037"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::int64_t, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#ab1937c2e99bb278f6094a47f6b731037">chatId</a></td></tr>
+<tr class="memdesc:ab1937c2e99bb278f6094a47f6b731037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername).  <br /></td></tr>
+<tr class="separator:ab1937c2e99bb278f6094a47f6b731037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59cdace878b8df3f4fd0d6a4ee7270d" id="r_ad59cdace878b8df3f4fd0d6a4ee7270d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#ad59cdace878b8df3f4fd0d6a4ee7270d">allowSendingWithoutReply</a> {}</td></tr>
 <tr class="memdesc:ad59cdace878b8df3f4fd0d6a4ee7270d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Pass True if the message should be sent even if the specified message to be replied to is not found; can be used only for replies in the same chat and forum topic.  <br /></td></tr>
 <tr class="separator:ad59cdace878b8df3f4fd0d6a4ee7270d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +139,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abfbbeb914899e8d51b0912c5227cc871" id="r_abfbbeb914899e8d51b0912c5227cc871"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#abfbbeb914899e8d51b0912c5227cc871">quotePosition</a> {}</td></tr>
 <tr class="memdesc:abfbbeb914899e8d51b0912c5227cc871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Position of the quote in the original message in UTF-16 code units.  <br /></td></tr>
 <tr class="separator:abfbbeb914899e8d51b0912c5227cc871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e4e2318ef2cd19bc53dca8f4f0a0b29" id="r_a8e4e2318ef2cd19bc53dca8f4f0a0b29"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_reply_parameters.html#a8e4e2318ef2cd19bc53dca8f4f0a0b29">checklistTaskId</a> {}</td></tr>
+<tr class="memdesc:a8e4e2318ef2cd19bc53dca8f4f0a0b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Identifier of the specific checklist task to be replied to.  <br /></td></tr>
+<tr class="separator:a8e4e2318ef2cd19bc53dca8f4f0a0b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Describes reply parameters for the message that is being sent. <a href="https://core.telegram.org/bots/api#replyparameters">https://core.telegram.org/bots/api#replyparameters</a>. </p>
@@ -225,7 +228,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00056">56</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00064">64</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +258,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00043">43</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00046">46</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
 
 </div>
 </div>
@@ -278,21 +281,40 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abc9a7598bcdc1a10e77050856c4d0b90" name="abc9a7598bcdc1a10e77050856c4d0b90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc9a7598bcdc1a10e77050856c4d0b90">&#9670;&#160;</a></span>chatId</h2>
+<a id="ab1937c2e99bb278f6094a47f6b731037" name="ab1937c2e99bb278f6094a47f6b731037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1937c2e99bb278f6094a47f6b731037">&#9670;&#160;</a></span>chatId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::int64_t tgbotxx::ReplyParameters::chatId {}</td>
+          <td class="memname">std::variant&lt;std::int64_t, std::string&gt; tgbotxx::ReplyParameters::chatId</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername) </p>
+<p>Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername). </p>
+<dl class="section note"><dt>Note</dt><dd>Not supported for messages sent on behalf of a business account and messages from channel direct messages chats. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00019">19</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8e4e2318ef2cd19bc53dca8f4f0a0b29" name="a8e4e2318ef2cd19bc53dca8f4f0a0b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e4e2318ef2cd19bc53dca8f4f0a0b29">&#9670;&#160;</a></span>checklistTaskId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::int32_t tgbotxx::ReplyParameters::checklistTaskId {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Identifier of the specific checklist task to be replied to. </p>
+
+<p class="definition">Definition at line <a class="el" href="_reply_parameters_8hpp_source.html#l00041">41</a> of file <a class="el" href="_reply_parameters_8hpp_source.html">ReplyParameters.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +417,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_reply_parameters.html">ReplyParameters</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

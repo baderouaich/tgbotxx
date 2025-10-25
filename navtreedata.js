@@ -58,23 +58,32 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_animation_8hpp.html",
-"_switch_inline_query_chosen_chat_8hpp_source.html",
-"classtgbotxx_1_1_api.html#acc02dd712b3724f7a91c55f4ea630cf5",
+"_accepted_gift_types_8hpp.html",
+"_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3",
+"classtgbotxx_1_1_api.html#a2980a15fba008d1422f14a31f360ec3c",
+"classtgbotxx_1_1_api.html#aebcaf91053668cabfdb2b8bd09ea4334",
 "namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8",
-"structtgbotxx_1_1_chat.html#a3fe55ec157658bcb4437fe24dc474e36",
-"structtgbotxx_1_1_chat_join_request.html",
-"structtgbotxx_1_1_chat_photo.html#aec7f812968eee512e74b0e311b1f6ef5",
-"structtgbotxx_1_1_game.html#a884647c74d8a7c67cbd21f2d5ba4139d",
-"structtgbotxx_1_1_inline_query_result_cached_gif.html#ac1d351eeae5f77b0c0883a0df9003a16",
-"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#a09d872a6eb6482366e52cc86913cc02f",
-"structtgbotxx_1_1_input_location_message_content.html#ac4cd1387790f7cef9b631deaf1159bb8",
-"structtgbotxx_1_1_keyboard_button_request_chat.html#a5c18a3ac18c513e68fff83c2911417c7",
-"structtgbotxx_1_1_message.html#aa4404864e2c330a6f65db420cd217494",
-"structtgbotxx_1_1_passport_element_error_file.html#a794b87bdc27bc19d34366ba79e634caf",
-"structtgbotxx_1_1_proximity_alert_triggered.html#ac8d44ba6a3db0404193ff530fe11b8bd",
-"structtgbotxx_1_1_sticker_set.html#aa7bee8f1dea71de9b00186dfece318c1",
-"structtgbotxx_1_1_video_chat_scheduled.html#aacaa4d966037bccf94339c314efdc241"
+"structtgbotxx_1_1_birthdate.html#a3691ef3784a5d65ac58bf1b3cdf60cb8",
+"structtgbotxx_1_1_business_opening_hours.html#a918efb0766090301dcf2936488de1247",
+"structtgbotxx_1_1_chat_boost_source_premium.html#abd4fab6533e4a6b7bede1d6e956f89f5",
+"structtgbotxx_1_1_chat_member_owner.html#a10a6859db51084dec4bf16e3174834be",
+"structtgbotxx_1_1_contact.html#aa907df7ac49203adf396d048bc7c3398",
+"structtgbotxx_1_1_forum_topic_closed.html#af7fa8de15036fe781eb0bd9182884b00",
+"structtgbotxx_1_1_giveaway_winners.html#add084db1756a0cdb118ad6e74c8bea38",
+"structtgbotxx_1_1_inline_query_result_cached_mpeg4_gif.html#af36667afad4fcd94e18ab3e760e2a8af",
+"structtgbotxx_1_1_inline_query_result_mpeg4_gif.html#ad199d7c8d767abb54c20c5243c1dd088",
+"structtgbotxx_1_1_input_invoice_message_content.html#aefed38930507fcfdeb38096e69dce0f9",
+"structtgbotxx_1_1_input_profile_photo_static.html#ae7c16672078c33ac34a64dab1e27c849",
+"structtgbotxx_1_1_link_preview_options.html#a9f8c677e70d90150ffded3c7e5af9b61",
+"structtgbotxx_1_1_message.html#aa2ec4186c015c1199c6ca296baeddc53",
+"structtgbotxx_1_1_message_reaction_count_updated.html#a5484530542571a644b94809c0abc53e2",
+"structtgbotxx_1_1_passport_data.html#a1ecbc3e77717b295ca21edd4d902321e",
+"structtgbotxx_1_1_poll_option.html#a1f408be5c542b38da726bb7680cf3a62",
+"structtgbotxx_1_1_shared_user.html#a7e49f62074ff6b397e93b8f6cf6e1047",
+"structtgbotxx_1_1_story_area_type_link.html#a3e20a98071d8b67744d6bb5521f6ab6a",
+"structtgbotxx_1_1_text_quote.html#a1a76259a2424646705397c5cb3a4cb65",
+"structtgbotxx_1_1_update.html#a2794c01e378126dfc8e8edac55f4c443",
+"structtgbotxx_1_1_voice.html#a82ab12a9469dc119b15098ed382dab5b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['bot_2ehpp_0',['Bot.hpp',['../_bot_8hpp.html',1,'']]],
-  ['botcommand_2ehpp_1',['BotCommand.hpp',['../_bot_command_8hpp.html',1,'']]],
-  ['botcommandscope_2ehpp_2',['BotCommandScope.hpp',['../_bot_command_scope_8hpp.html',1,'']]],
-  ['botdescription_2ehpp_3',['BotDescription.hpp',['../_bot_description_8hpp.html',1,'']]],
-  ['botname_2ehpp_4',['BotName.hpp',['../_bot_name_8hpp.html',1,'']]],
-  ['botshortdescription_2ehpp_5',['BotShortDescription.hpp',['../_bot_short_description_8hpp.html',1,'']]]
+  ['backgroundfill_2ehpp_0',['BackgroundFill.hpp',['../_background_fill_8hpp.html',1,'']]],
+  ['backgroundtype_2ehpp_1',['BackgroundType.hpp',['../_background_type_8hpp.html',1,'']]],
+  ['birthdate_2ehpp_2',['Birthdate.hpp',['../_birthdate_8hpp.html',1,'']]],
+  ['bot_2ehpp_3',['Bot.hpp',['../_bot_8hpp.html',1,'']]],
+  ['botcommand_2ehpp_4',['BotCommand.hpp',['../_bot_command_8hpp.html',1,'']]],
+  ['botcommandscope_2ehpp_5',['BotCommandScope.hpp',['../_bot_command_scope_8hpp.html',1,'']]],
+  ['botdescription_2ehpp_6',['BotDescription.hpp',['../_bot_description_8hpp.html',1,'']]],
+  ['botname_2ehpp_7',['BotName.hpp',['../_bot_name_8hpp.html',1,'']]],
+  ['botshortdescription_2ehpp_8',['BotShortDescription.hpp',['../_bot_short_description_8hpp.html',1,'']]],
+  ['businessbotrights_2ehpp_9',['BusinessBotRights.hpp',['../_business_bot_rights_8hpp.html',1,'']]],
+  ['businessconnection_2ehpp_10',['BusinessConnection.hpp',['../_business_connection_8hpp.html',1,'']]],
+  ['businessintro_2ehpp_11',['BusinessIntro.hpp',['../_business_intro_8hpp.html',1,'']]],
+  ['businesslocation_2ehpp_12',['BusinessLocation.hpp',['../_business_location_8hpp.html',1,'']]],
+  ['businessmessagesdeleted_2ehpp_13',['BusinessMessagesDeleted.hpp',['../_business_messages_deleted_8hpp.html',1,'']]],
+  ['businessopeninghours_2ehpp_14',['BusinessOpeningHours.hpp',['../_business_opening_hours_8hpp.html',1,'']]],
+  ['businessopeninghoursinterval_2ehpp_15',['BusinessOpeningHoursInterval.hpp',['../_business_opening_hours_interval_8hpp.html',1,'']]]
 ];

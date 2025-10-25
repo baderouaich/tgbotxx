@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -136,6 +136,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aae9ec071556806a03203f4ae0b863b0e" id="r_aae9ec071556806a03203f4ae0b863b0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_photo_size.html">PhotoSize</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_video.html#aae9ec071556806a03203f4ae0b863b0e">thumbnail</a></td></tr>
 <tr class="memdesc:aae9ec071556806a03203f4ae0b863b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_video.html" title="This object represents a video file. https://core.telegram.org/bots/api#video.">Video</a> thumbnail.  <br /></td></tr>
 <tr class="separator:aae9ec071556806a03203f4ae0b863b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9292275c3b44376e21948fe5e4fe15a9" id="r_a9292275c3b44376e21948fe5e4fe15a9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_photo_size.html">PhotoSize</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_video.html#a9292275c3b44376e21948fe5e4fe15a9">cover</a></td></tr>
+<tr class="memdesc:a9292275c3b44376e21948fe5e4fe15a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Available sizes of the cover of the video in the message.  <br /></td></tr>
+<tr class="separator:a9292275c3b44376e21948fe5e4fe15a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a45416b273401b71c27700761e8893e" id="r_a0a45416b273401b71c27700761e8893e"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_video.html#a0a45416b273401b71c27700761e8893e">startTimestamp</a> {}</td></tr>
+<tr class="memdesc:a0a45416b273401b71c27700761e8893e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Timestamp in seconds from which the video will play in the message.  <br /></td></tr>
+<tr class="separator:a0a45416b273401b71c27700761e8893e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20462c7d1c8e9c873ae96eb663ddc409" id="r_a20462c7d1c8e9c873ae96eb663ddc409"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_video.html#a20462c7d1c8e9c873ae96eb663ddc409">fileName</a></td></tr>
 <tr class="memdesc:a20462c7d1c8e9c873ae96eb663ddc409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Original filename as defined by sender.  <br /></td></tr>
 <tr class="separator:a20462c7d1c8e9c873ae96eb663ddc409"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,7 +237,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00061">61</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00069">69</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,11 +267,29 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00046">46</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00052">52</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9292275c3b44376e21948fe5e4fe15a9" name="a9292275c3b44376e21948fe5e4fe15a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9292275c3b44376e21948fe5e4fe15a9">&#9670;&#160;</a></span>cover</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_photo_size.html">PhotoSize</a>&gt; &gt; tgbotxx::Video::cover</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Available sizes of the cover of the video in the message. </p>
+
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00034">34</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a612a6ba893110adc4b3e8d50b2ed90c6" name="a612a6ba893110adc4b3e8d50b2ed90c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a612a6ba893110adc4b3e8d50b2ed90c6">&#9670;&#160;</a></span>duration</h2>
 
@@ -316,7 +340,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Original filename as defined by sender. </p>
 
-<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00034">34</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00040">40</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
 
 </div>
 </div>
@@ -334,7 +358,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00042">42</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00048">48</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
 
 </div>
 </div>
@@ -388,6 +412,24 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. MIME type of the file as defined by sender. </p>
 
+<p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00043">43</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0a45416b273401b71c27700761e8893e" name="a0a45416b273401b71c27700761e8893e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a45416b273401b71c27700761e8893e">&#9670;&#160;</a></span>startTimestamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::time_t tgbotxx::Video::startTimestamp {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Timestamp in seconds from which the video will play in the message. </p>
+
 <p class="definition">Definition at line <a class="el" href="_video_8hpp_source.html#l00037">37</a> of file <a class="el" href="_video_8hpp_source.html">Video.hpp</a>.</p>
 
 </div>
@@ -437,7 +479,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_video.html">Video</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

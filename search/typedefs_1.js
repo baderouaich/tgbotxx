@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ptr_0',['Ptr',['../namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43',1,'tgbotxx']]],
-  ['ptrc_1',['PtrC',['../namespacetgbotxx.html#a3d5e50731a4b4523cf062132107f91a4',1,'tgbotxx']]]
+  ['maybeinaccessiblemessage_0',['MaybeInaccessibleMessage',['../namespacetgbotxx.html#ab47d13b82d09c80c2383281179a73526',1,'tgbotxx']]]
 ];

@@ -1,8 +1,22 @@
 var hierarchy =
 [
+    [ "tgbotxx::AcceptedGiftTypes", "structtgbotxx_1_1_accepted_gift_types.html", null ],
+    [ "tgbotxx::AffiliateInfo", "structtgbotxx_1_1_affiliate_info.html", null ],
     [ "tgbotxx::Animation", "structtgbotxx_1_1_animation.html", null ],
     [ "tgbotxx::Api", "classtgbotxx_1_1_api.html", null ],
     [ "tgbotxx::Audio", "structtgbotxx_1_1_audio.html", null ],
+    [ "tgbotxx::BackgroundFill", "structtgbotxx_1_1_background_fill.html", [
+      [ "tgbotxx::BackgroundFillFreeformGradient", "structtgbotxx_1_1_background_fill_freeform_gradient.html", null ],
+      [ "tgbotxx::BackgroundFillGradient", "structtgbotxx_1_1_background_fill_gradient.html", null ],
+      [ "tgbotxx::BackgroundFillSolid", "structtgbotxx_1_1_background_fill_solid.html", null ]
+    ] ],
+    [ "tgbotxx::BackgroundType", "structtgbotxx_1_1_background_type.html", [
+      [ "tgbotxx::BackgroundTypeChatTheme", "structtgbotxx_1_1_background_type_chat_theme.html", null ],
+      [ "tgbotxx::BackgroundTypeFill", "structtgbotxx_1_1_background_type_fill.html", null ],
+      [ "tgbotxx::BackgroundTypePattern", "structtgbotxx_1_1_background_type_pattern.html", null ],
+      [ "tgbotxx::BackgroundTypeWallpaper", "structtgbotxx_1_1_background_type_wallpaper.html", null ]
+    ] ],
+    [ "tgbotxx::Birthdate", "structtgbotxx_1_1_birthdate.html", null ],
     [ "tgbotxx::Bot", "classtgbotxx_1_1_bot.html", [
       [ "PaidSubscriptionBot", "class_paid_subscription_bot.html", null ]
     ] ],
@@ -19,11 +33,22 @@ var hierarchy =
     [ "tgbotxx::BotDescription", "structtgbotxx_1_1_bot_description.html", null ],
     [ "tgbotxx::BotName", "structtgbotxx_1_1_bot_name.html", null ],
     [ "tgbotxx::BotShortDescription", "structtgbotxx_1_1_bot_short_description.html", null ],
+    [ "tgbotxx::BusinessBotRights", "structtgbotxx_1_1_business_bot_rights.html", null ],
+    [ "tgbotxx::BusinessConnection", "structtgbotxx_1_1_business_connection.html", null ],
+    [ "tgbotxx::BusinessIntro", "structtgbotxx_1_1_business_intro.html", null ],
+    [ "tgbotxx::BusinessLocation", "structtgbotxx_1_1_business_location.html", null ],
+    [ "tgbotxx::BusinessMessagesDeleted", "structtgbotxx_1_1_business_messages_deleted.html", null ],
+    [ "tgbotxx::BusinessOpeningHours", "structtgbotxx_1_1_business_opening_hours.html", null ],
+    [ "tgbotxx::BusinessOpeningHoursInterval", "structtgbotxx_1_1_business_opening_hours_interval.html", null ],
     [ "tgbotxx::CallbackGame", "structtgbotxx_1_1_callback_game.html", null ],
     [ "tgbotxx::CallbackQuery", "structtgbotxx_1_1_callback_query.html", null ],
-    [ "tgbotxx::Chat", "structtgbotxx_1_1_chat.html", null ],
+    [ "tgbotxx::Chat", "structtgbotxx_1_1_chat.html", [
+      [ "tgbotxx::ChatFullInfo", "structtgbotxx_1_1_chat_full_info.html", null ]
+    ] ],
     [ "tgbotxx::ChatAdministratorRights", "structtgbotxx_1_1_chat_administrator_rights.html", null ],
+    [ "tgbotxx::ChatBackground", "structtgbotxx_1_1_chat_background.html", null ],
     [ "tgbotxx::ChatBoost", "structtgbotxx_1_1_chat_boost.html", null ],
+    [ "tgbotxx::ChatBoostAdded", "structtgbotxx_1_1_chat_boost_added.html", null ],
     [ "tgbotxx::ChatBoostRemoved", "structtgbotxx_1_1_chat_boost_removed.html", null ],
     [ "tgbotxx::ChatBoostSource", "structtgbotxx_1_1_chat_boost_source.html", [
       [ "tgbotxx::ChatBoostSourceGiftCode", "structtgbotxx_1_1_chat_boost_source_gift_code.html", null ],
@@ -46,12 +71,20 @@ var hierarchy =
     [ "tgbotxx::ChatPermissions", "structtgbotxx_1_1_chat_permissions.html", null ],
     [ "tgbotxx::ChatPhoto", "structtgbotxx_1_1_chat_photo.html", null ],
     [ "tgbotxx::ChatShared", "structtgbotxx_1_1_chat_shared.html", null ],
+    [ "tgbotxx::Checklist", "structtgbotxx_1_1_checklist.html", null ],
+    [ "tgbotxx::ChecklistTask", "structtgbotxx_1_1_checklist_task.html", null ],
+    [ "tgbotxx::ChecklistTasksAdded", "structtgbotxx_1_1_checklist_tasks_added.html", null ],
+    [ "tgbotxx::ChecklistTasksDone", "structtgbotxx_1_1_checklist_tasks_done.html", null ],
     [ "tgbotxx::ChosenInlineResult", "structtgbotxx_1_1_chosen_inline_result.html", null ],
     [ "tgbotxx::Contact", "structtgbotxx_1_1_contact.html", null ],
+    [ "tgbotxx::CopyTextButton", "structtgbotxx_1_1_copy_text_button.html", null ],
     [ "tgbotxx::Dice", "structtgbotxx_1_1_dice.html", null ],
+    [ "tgbotxx::DirectMessagePriceChanged", "structtgbotxx_1_1_direct_message_price_changed.html", null ],
+    [ "tgbotxx::DirectMessagesTopic", "structtgbotxx_1_1_direct_messages_topic.html", null ],
     [ "tgbotxx::Document", "structtgbotxx_1_1_document.html", null ],
     [ "tgbotxx::EncryptedCredentials", "structtgbotxx_1_1_encrypted_credentials.html", null ],
     [ "tgbotxx::EncryptedPassportElement", "structtgbotxx_1_1_encrypted_passport_element.html", null ],
+    [ "tgbotxx::ExternalReplyInfo", "structtgbotxx_1_1_external_reply_info.html", null ],
     [ "std::false_type", null, [
       [ "tgbotxx::isPtr< T >", "structtgbotxx_1_1is_ptr.html", null ]
     ] ],
@@ -65,6 +98,14 @@ var hierarchy =
     [ "tgbotxx::GameHighScore", "structtgbotxx_1_1_game_high_score.html", null ],
     [ "tgbotxx::GeneralForumTopicHidden", "structtgbotxx_1_1_general_forum_topic_hidden.html", null ],
     [ "tgbotxx::GeneralForumTopicUnhidden", "structtgbotxx_1_1_general_forum_topic_unhidden.html", null ],
+    [ "tgbotxx::Gift", "structtgbotxx_1_1_gift.html", null ],
+    [ "tgbotxx::GiftInfo", "structtgbotxx_1_1_gift_info.html", null ],
+    [ "tgbotxx::Gifts", "structtgbotxx_1_1_gifts.html", null ],
+    [ "tgbotxx::Giveaway", "structtgbotxx_1_1_giveaway.html", null ],
+    [ "tgbotxx::GiveawayCompleted", "structtgbotxx_1_1_giveaway_completed.html", null ],
+    [ "tgbotxx::GiveawayCreated", "structtgbotxx_1_1_giveaway_created.html", null ],
+    [ "tgbotxx::GiveawayWinners", "structtgbotxx_1_1_giveaway_winners.html", null ],
+    [ "tgbotxx::InaccessibleMessage", "structtgbotxx_1_1_inaccessible_message.html", null ],
     [ "tgbotxx::InlineKeyboardButton", "structtgbotxx_1_1_inline_keyboard_button.html", null ],
     [ "tgbotxx::InlineQuery", "structtgbotxx_1_1_inline_query.html", null ],
     [ "tgbotxx::InlineQueryResult", "structtgbotxx_1_1_inline_query_result.html", [
@@ -90,6 +131,8 @@ var hierarchy =
       [ "tgbotxx::InlineQueryResultVoice", "structtgbotxx_1_1_inline_query_result_voice.html", null ]
     ] ],
     [ "tgbotxx::InlineQueryResultsButton", "structtgbotxx_1_1_inline_query_results_button.html", null ],
+    [ "tgbotxx::InputChecklist", "structtgbotxx_1_1_input_checklist.html", null ],
+    [ "tgbotxx::InputChecklistTask", "structtgbotxx_1_1_input_checklist_task.html", null ],
     [ "tgbotxx::InputMedia", "structtgbotxx_1_1_input_media.html", [
       [ "tgbotxx::InputMediaAnimation", "structtgbotxx_1_1_input_media_animation.html", null ],
       [ "tgbotxx::InputMediaAudio", "structtgbotxx_1_1_input_media_audio.html", null ],
@@ -104,7 +147,20 @@ var hierarchy =
       [ "tgbotxx::InputTextMessageContent", "structtgbotxx_1_1_input_text_message_content.html", null ],
       [ "tgbotxx::InputVenueMessageContent", "structtgbotxx_1_1_input_venue_message_content.html", null ]
     ] ],
+    [ "tgbotxx::InputPaidMedia", "structtgbotxx_1_1_input_paid_media.html", [
+      [ "tgbotxx::InputPaidMediaPhoto", "structtgbotxx_1_1_input_paid_media_photo.html", null ],
+      [ "tgbotxx::InputPaidMediaVideo", "structtgbotxx_1_1_input_paid_media_video.html", null ]
+    ] ],
+    [ "tgbotxx::InputPollOption", "structtgbotxx_1_1_input_poll_option.html", null ],
+    [ "tgbotxx::InputProfilePhoto", "structtgbotxx_1_1_input_profile_photo.html", [
+      [ "tgbotxx::InputProfilePhotoAnimated", "structtgbotxx_1_1_input_profile_photo_animated.html", null ],
+      [ "tgbotxx::InputProfilePhotoStatic", "structtgbotxx_1_1_input_profile_photo_static.html", null ]
+    ] ],
     [ "tgbotxx::InputSticker", "structtgbotxx_1_1_input_sticker.html", null ],
+    [ "tgbotxx::InputStoryContent", "structtgbotxx_1_1_input_story_content.html", [
+      [ "tgbotxx::InputStoryContentPhoto", "structtgbotxx_1_1_input_story_content_photo.html", null ],
+      [ "tgbotxx::InputStoryContentVideo", "structtgbotxx_1_1_input_story_content_video.html", null ]
+    ] ],
     [ "tgbotxx::Invoice", "structtgbotxx_1_1_invoice.html", null ],
     [ "tgbotxx::IReplyMarkup", "structtgbotxx_1_1_i_reply_markup.html", [
       [ "tgbotxx::ForceReply", "structtgbotxx_1_1_force_reply.html", null ],
@@ -115,9 +171,11 @@ var hierarchy =
     [ "tgbotxx::KeyboardButton", "structtgbotxx_1_1_keyboard_button.html", null ],
     [ "tgbotxx::KeyboardButtonPollType", "structtgbotxx_1_1_keyboard_button_poll_type.html", null ],
     [ "tgbotxx::KeyboardButtonRequestChat", "structtgbotxx_1_1_keyboard_button_request_chat.html", null ],
-    [ "tgbotxx::KeyboardButtonRequestUser", "structtgbotxx_1_1_keyboard_button_request_user.html", null ],
+    [ "tgbotxx::KeyboardButtonRequestUsers", "structtgbotxx_1_1_keyboard_button_request_users.html", null ],
     [ "tgbotxx::LabeledPrice", "structtgbotxx_1_1_labeled_price.html", null ],
+    [ "tgbotxx::LinkPreviewOptions", "structtgbotxx_1_1_link_preview_options.html", null ],
     [ "tgbotxx::Location", "structtgbotxx_1_1_location.html", null ],
+    [ "tgbotxx::LocationAddress", "structtgbotxx_1_1_location_address.html", null ],
     [ "tgbotxx::LoginUrl", "structtgbotxx_1_1_login_url.html", null ],
     [ "tgbotxx::MaskPosition", "structtgbotxx_1_1_mask_position.html", null ],
     [ "tgbotxx::MenuButton", "structtgbotxx_1_1_menu_button.html", [
@@ -129,9 +187,28 @@ var hierarchy =
     [ "tgbotxx::MessageAutoDeleteTimerChanged", "structtgbotxx_1_1_message_auto_delete_timer_changed.html", null ],
     [ "tgbotxx::MessageEntity", "structtgbotxx_1_1_message_entity.html", null ],
     [ "tgbotxx::MessageId", "structtgbotxx_1_1_message_id.html", null ],
+    [ "tgbotxx::MessageOrigin", "structtgbotxx_1_1_message_origin.html", [
+      [ "tgbotxx::MessageOriginChannel", "structtgbotxx_1_1_message_origin_channel.html", null ],
+      [ "tgbotxx::MessageOriginChat", "structtgbotxx_1_1_message_origin_chat.html", null ],
+      [ "tgbotxx::MessageOriginHiddenUser", "structtgbotxx_1_1_message_origin_hidden_user.html", null ],
+      [ "tgbotxx::MessageOriginUser", "structtgbotxx_1_1_message_origin_user.html", null ]
+    ] ],
     [ "tgbotxx::MessageReactionCountUpdated", "structtgbotxx_1_1_message_reaction_count_updated.html", null ],
     [ "tgbotxx::MessageReactionUpdated", "structtgbotxx_1_1_message_reaction_updated.html", null ],
     [ "tgbotxx::OrderInfo", "structtgbotxx_1_1_order_info.html", null ],
+    [ "tgbotxx::OwnedGift", "structtgbotxx_1_1_owned_gift.html", [
+      [ "tgbotxx::OwnedGiftRegular", "structtgbotxx_1_1_owned_gift_regular.html", null ],
+      [ "tgbotxx::OwnedGiftUnique", "structtgbotxx_1_1_owned_gift_unique.html", null ]
+    ] ],
+    [ "tgbotxx::OwnedGifts", "structtgbotxx_1_1_owned_gifts.html", null ],
+    [ "tgbotxx::PaidMedia", "structtgbotxx_1_1_paid_media.html", [
+      [ "tgbotxx::PaidMediaPhoto", "structtgbotxx_1_1_paid_media_photo.html", null ],
+      [ "tgbotxx::PaidMediaPreview", "structtgbotxx_1_1_paid_media_preview.html", null ],
+      [ "tgbotxx::PaidMediaVideo", "structtgbotxx_1_1_paid_media_video.html", null ]
+    ] ],
+    [ "tgbotxx::PaidMediaInfo", "structtgbotxx_1_1_paid_media_info.html", null ],
+    [ "tgbotxx::PaidMediaPurchased", "structtgbotxx_1_1_paid_media_purchased.html", null ],
+    [ "tgbotxx::PaidMessagePriceChanged", "structtgbotxx_1_1_paid_message_price_changed.html", null ],
     [ "tgbotxx::PassportData", "structtgbotxx_1_1_passport_data.html", null ],
     [ "tgbotxx::PassportElementError", "structtgbotxx_1_1_passport_element_error.html", [
       [ "tgbotxx::PassportElementErrorDataField", "structtgbotxx_1_1_passport_element_error_data_field.html", null ],
@@ -156,29 +233,73 @@ var hierarchy =
       [ "tgbotxx::ReactionTypeCustomEmoji", "structtgbotxx_1_1_reaction_type_custom_emoji.html", null ],
       [ "tgbotxx::ReactionTypeEmoji", "structtgbotxx_1_1_reaction_type_emoji.html", null ]
     ] ],
+    [ "tgbotxx::RefundedPayment", "structtgbotxx_1_1_refunded_payment.html", null ],
     [ "tgbotxx::ReplyParameters", "structtgbotxx_1_1_reply_parameters.html", null ],
+    [ "tgbotxx::RevenueWithdrawalState", "structtgbotxx_1_1_revenue_withdrawal_state.html", [
+      [ "tgbotxx::RevenueWithdrawalStateFailed", "structtgbotxx_1_1_revenue_withdrawal_state_failed.html", null ],
+      [ "tgbotxx::RevenueWithdrawalStatePending", "structtgbotxx_1_1_revenue_withdrawal_state_pending.html", null ],
+      [ "tgbotxx::RevenueWithdrawalStateSucceeded", "structtgbotxx_1_1_revenue_withdrawal_state_succeeded.html", null ]
+    ] ],
     [ "std::runtime_error", null, [
       [ "tgbotxx::Exception", "classtgbotxx_1_1_exception.html", null ]
     ] ],
     [ "tgbotxx::SentWebAppMessage", "structtgbotxx_1_1_sent_web_app_message.html", null ],
+    [ "tgbotxx::SharedUser", "structtgbotxx_1_1_shared_user.html", null ],
     [ "tgbotxx::ShippingAddress", "structtgbotxx_1_1_shipping_address.html", null ],
     [ "tgbotxx::ShippingOption", "structtgbotxx_1_1_shipping_option.html", null ],
     [ "tgbotxx::ShippingQuery", "structtgbotxx_1_1_shipping_query.html", null ],
+    [ "tgbotxx::StarAmount", "structtgbotxx_1_1_star_amount.html", null ],
+    [ "tgbotxx::StarTransaction", "structtgbotxx_1_1_star_transaction.html", null ],
+    [ "tgbotxx::StarTransactions", "structtgbotxx_1_1_star_transactions.html", null ],
     [ "tgbotxx::Sticker", "structtgbotxx_1_1_sticker.html", null ],
     [ "tgbotxx::StickerSet", "structtgbotxx_1_1_sticker_set.html", null ],
     [ "tgbotxx::Story", "structtgbotxx_1_1_story.html", null ],
+    [ "tgbotxx::StoryArea", "structtgbotxx_1_1_story_area.html", null ],
+    [ "tgbotxx::StoryAreaPosition", "structtgbotxx_1_1_story_area_position.html", null ],
+    [ "tgbotxx::StoryAreaType", "structtgbotxx_1_1_story_area_type.html", [
+      [ "tgbotxx::StoryAreaTypeLink", "structtgbotxx_1_1_story_area_type_link.html", null ],
+      [ "tgbotxx::StoryAreaTypeLocation", "structtgbotxx_1_1_story_area_type_location.html", null ],
+      [ "tgbotxx::StoryAreaTypeSuggestedReaction", "structtgbotxx_1_1_story_area_type_suggested_reaction.html", null ],
+      [ "tgbotxx::StoryAreaTypeUniqueGift", "structtgbotxx_1_1_story_area_type_unique_gift.html", null ],
+      [ "tgbotxx::StoryAreaTypeWeather", "structtgbotxx_1_1_story_area_type_weather.html", null ]
+    ] ],
     [ "tgbotxx::SuccessfulPayment", "structtgbotxx_1_1_successful_payment.html", null ],
+    [ "tgbotxx::SuggestedPostApprovalFailed", "structtgbotxx_1_1_suggested_post_approval_failed.html", null ],
+    [ "tgbotxx::SuggestedPostApproved", "structtgbotxx_1_1_suggested_post_approved.html", null ],
+    [ "tgbotxx::SuggestedPostDeclined", "structtgbotxx_1_1_suggested_post_declined.html", null ],
+    [ "tgbotxx::SuggestedPostInfo", "structtgbotxx_1_1_suggested_post_info.html", null ],
+    [ "tgbotxx::SuggestedPostPaid", "structtgbotxx_1_1_suggested_post_paid.html", null ],
+    [ "tgbotxx::SuggestedPostParameters", "structtgbotxx_1_1_suggested_post_parameters.html", null ],
+    [ "tgbotxx::SuggestedPostPrice", "structtgbotxx_1_1_suggested_post_price.html", null ],
+    [ "tgbotxx::SuggestedPostRefunded", "structtgbotxx_1_1_suggested_post_refunded.html", null ],
     [ "tgbotxx::SwitchInlineQueryChosenChat", "structtgbotxx_1_1_switch_inline_query_chosen_chat.html", null ],
+    [ "tgbotxx::TextQuote", "structtgbotxx_1_1_text_quote.html", null ],
+    [ "tgbotxx::TransactionPartner", "structtgbotxx_1_1_transaction_partner.html", [
+      [ "tgbotxx::TransactionPartnerAffiliateProgram", "structtgbotxx_1_1_transaction_partner_affiliate_program.html", null ],
+      [ "tgbotxx::TransactionPartnerChat", "structtgbotxx_1_1_transaction_partner_chat.html", null ],
+      [ "tgbotxx::TransactionPartnerFragment", "structtgbotxx_1_1_transaction_partner_fragment.html", null ],
+      [ "tgbotxx::TransactionPartnerOther", "structtgbotxx_1_1_transaction_partner_other.html", null ],
+      [ "tgbotxx::TransactionPartnerTelegramAds", "structtgbotxx_1_1_transaction_partner_telegram_ads.html", null ],
+      [ "tgbotxx::TransactionPartnerTelegramApi", "structtgbotxx_1_1_transaction_partner_telegram_api.html", null ],
+      [ "tgbotxx::TransactionPartnerUser", "structtgbotxx_1_1_transaction_partner_user.html", null ]
+    ] ],
     [ "std::true_type", null, [
       [ "tgbotxx::isPtr< CPtr< T > >", "structtgbotxx_1_1is_ptr_3_01_c_ptr_3_01_t_01_4_01_4.html", null ],
       [ "tgbotxx::isPtr< CPtrC< T > >", "structtgbotxx_1_1is_ptr_3_01_c_ptr_c_3_01_t_01_4_01_4.html", null ],
       [ "tgbotxx::isPtr< Ptr< T > >", "structtgbotxx_1_1is_ptr_3_01_ptr_3_01_t_01_4_01_4.html", null ],
       [ "tgbotxx::isPtr< PtrC< T > >", "structtgbotxx_1_1is_ptr_3_01_ptr_c_3_01_t_01_4_01_4.html", null ]
     ] ],
+    [ "tgbotxx::UniqueGift", "structtgbotxx_1_1_unique_gift.html", null ],
+    [ "tgbotxx::UniqueGiftBackdrop", "structtgbotxx_1_1_unique_gift_backdrop.html", null ],
+    [ "tgbotxx::UniqueGiftBackdropColors", "structtgbotxx_1_1_unique_gift_backdrop_colors.html", null ],
+    [ "tgbotxx::UniqueGiftInfo", "structtgbotxx_1_1_unique_gift_info.html", null ],
+    [ "tgbotxx::UniqueGiftModel", "structtgbotxx_1_1_unique_gift_model.html", null ],
+    [ "tgbotxx::UniqueGiftSymbol", "structtgbotxx_1_1_unique_gift_symbol.html", null ],
     [ "tgbotxx::Update", "structtgbotxx_1_1_update.html", null ],
     [ "tgbotxx::User", "structtgbotxx_1_1_user.html", null ],
+    [ "tgbotxx::UserChatBoosts", "structtgbotxx_1_1_user_chat_boosts.html", null ],
     [ "tgbotxx::UserProfilePhotos", "structtgbotxx_1_1_user_profile_photos.html", null ],
-    [ "tgbotxx::UserShared", "structtgbotxx_1_1_user_shared.html", null ],
+    [ "tgbotxx::UsersShared", "structtgbotxx_1_1_users_shared.html", null ],
     [ "tgbotxx::Venue", "structtgbotxx_1_1_venue.html", null ],
     [ "tgbotxx::Video", "structtgbotxx_1_1_video.html", null ],
     [ "tgbotxx::VideoChatEnded", "structtgbotxx_1_1_video_chat_ended.html", null ],

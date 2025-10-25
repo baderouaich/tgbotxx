@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_callback_query.html'
 </div><!--header-->
 <div class="contents">
 
-<p>This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the button was attached to a message sent via the bot (in inline mode), the field inline_message_id will be present. Exactly one of the fields data or game_short_name will be present. <a href="https://core.telegram.org/bots/api#callbackquery">https://core.telegram.org/bots/api#callbackquery</a>.  
+<p>This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the button was attached to a message sent via the bot (in inline mode), the field inline_message_id will be present. Exactly one of the fields data or game_short_name will be present.  
  <a href="structtgbotxx_1_1_callback_query.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>&gt;</code></p>
@@ -124,9 +124,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a3b83daf8a1033ce5950cf67757c7488d" id="r_a3b83daf8a1033ce5950cf67757c7488d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_callback_query.html#a3b83daf8a1033ce5950cf67757c7488d">from</a></td></tr>
 <tr class="memdesc:a3b83daf8a1033ce5950cf67757c7488d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sender.  <br /></td></tr>
 <tr class="separator:a3b83daf8a1033ce5950cf67757c7488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b97d805cccc2074079f4a95008223d" id="r_af2b97d805cccc2074079f4a95008223d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_message.html">Message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d">message</a></td></tr>
-<tr class="memdesc:af2b97d805cccc2074079f4a95008223d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> with the callback button that originated the query.  <br /></td></tr>
-<tr class="separator:af2b97d805cccc2074079f4a95008223d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa29869ecf303d514f57f347242cd75ad" id="r_aa29869ecf303d514f57f347242cd75ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#ab47d13b82d09c80c2383281179a73526">MaybeInaccessibleMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_callback_query.html#aa29869ecf303d514f57f347242cd75ad">message</a></td></tr>
+<tr class="memdesc:aa29869ecf303d514f57f347242cd75ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> sent by the bot with the callback button that originated the query.  <br /></td></tr>
+<tr class="separator:aa29869ecf303d514f57f347242cd75ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f2dd521f261583ad96b44cf55b35d92" id="r_a1f2dd521f261583ad96b44cf55b35d92"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_callback_query.html#a1f2dd521f261583ad96b44cf55b35d92">inlineMessageId</a></td></tr>
 <tr class="memdesc:a1f2dd521f261583ad96b44cf55b35d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Identifier of the message sent via the bot in inline mode, that originated the query.  <br /></td></tr>
 <tr class="separator:a1f2dd521f261583ad96b44cf55b35d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,9 +141,11 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5da3d8285faa36c4c7fe7e66e80b22c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the button was attached to a message sent via the bot (in inline mode), the field inline_message_id will be present. Exactly one of the fields data or game_short_name will be present. <a href="https://core.telegram.org/bots/api#callbackquery">https://core.telegram.org/bots/api#callbackquery</a>. </p>
+<div class="textblock"><p>This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the button was attached to a message sent via the bot (in inline mode), the field inline_message_id will be present. Exactly one of the fields data or game_short_name will be present. </p>
+<dl class="section note"><dt>Note</dt><dd>NOTE: After the user presses a callback button, Telegram clients will display a progress bar until you call answerCallbackQuery. It is, therefore, necessary to react by calling answerCallbackQuery even if no notification to the user is needed (e.g., without specifying any of the optional parameters).</dd></dl>
+<p><a href="https://core.telegram.org/bots/api#callbackquery">https://core.telegram.org/bots/api#callbackquery</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00016">16</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00022">22</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa9295345801263c276be32414de65e41" name="aa9295345801263c276be32414de65e41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9295345801263c276be32414de65e41">&#9670;&#160;</a></span>CallbackQuery() <span class="overload">[1/2]</span></h2>
@@ -189,12 +191,10 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00018">18</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -204,9 +204,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tgbotxx::CallbackQuery::fromJson </td>
@@ -216,16 +213,9 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Deserializes this object from JSON. </p>
-
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00061">61</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -234,9 +224,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">nl::json tgbotxx::CallbackQuery::toJson </td>
@@ -245,17 +232,10 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00048">48</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -274,7 +254,7 @@ Public Attributes</h2></td></tr>
 
 <p>Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00037">37</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00040">40</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -293,7 +273,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. Data associated with the callback button. </p>
 <dl class="section note"><dt>Note</dt><dd>Be aware that the message originated the query can contain no callback buttons with this data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00041">41</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00044">44</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +291,7 @@ Public Attributes</h2></td></tr>
 
 <p>Sender. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00026">26</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00030">30</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -329,7 +309,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Short name of a <a class="el" href="structtgbotxx_1_1_game.html" title="This object represents a game. Use BotFather to create and edit games, their short names will act as ...">Game</a> to be returned, serves as the unique identifier for the game. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00044">44</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00047">47</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +327,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique identifier for this query. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00023">23</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00027">27</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -365,26 +345,25 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Identifier of the message sent via the bot in inline mode, that originated the query. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00033">33</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00036">36</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
-<a id="af2b97d805cccc2074079f4a95008223d" name="af2b97d805cccc2074079f4a95008223d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2b97d805cccc2074079f4a95008223d">&#9670;&#160;</a></span>message</h2>
+<a id="aa29869ecf303d514f57f347242cd75ad" name="aa29869ecf303d514f57f347242cd75ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29869ecf303d514f57f347242cd75ad">&#9670;&#160;</a></span>message</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_message.html">Message</a>&gt; tgbotxx::CallbackQuery::message</td>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#ab47d13b82d09c80c2383281179a73526">MaybeInaccessibleMessage</a> tgbotxx::CallbackQuery::message</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> with the callback button that originated the query. </p>
-<dl class="section note"><dt>Note</dt><dd>Note that message content and message date will not be available if the message is too old </dd></dl>
+<p>Optional. <a class="el" href="structtgbotxx_1_1_message.html" title="This object represents a message. https://core.telegram.org/bots/api#message.">Message</a> sent by the bot with the callback button that originated the query. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00030">30</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_query_8hpp_source.html#l00033">33</a> of file <a class="el" href="_callback_query_8hpp_source.html">CallbackQuery.hpp</a>.</p>
 
 </div>
 </div>
@@ -397,7 +376,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_callback_query.html">CallbackQuery</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

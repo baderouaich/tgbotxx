@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['unauthorized_0',['UNAUTHORIZED',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa0ab06e7c28266cc1ed601325013a874c',1,'tgbotxx']]],
-  ['underline_1',['Underline',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a852721aa5fc738dfedff2945d71da439',1,'tgbotxx::MessageEntity']]],
-  ['url_2',['Url',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a02a3a357710cc2a5dfdfb74ed012fb59',1,'tgbotxx::MessageEntity']]]
+  ['see_5fother_0',['SEE_OTHER',['../namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa4093e2ac3e1287ac13d1d0ca3317b503',1,'tgbotxx']]],
+  ['spoiler_1',['Spoiler',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9af7115e4891ab41c009017e95f47eb6e9',1,'tgbotxx::MessageEntity']]],
+  ['strikethrough_2',['Strikethrough',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a926a51baad949d12035107e5d06e2fdb',1,'tgbotxx::MessageEntity']]],
+  ['supergroup_3',['Supergroup',['../structtgbotxx_1_1_chat.html#a70742c5f6e87f7ed9ffd1d3254ee52a4a9c306d98196730ac00fc621998b4a8f5',1,'tgbotxx::Chat']]]
 ];

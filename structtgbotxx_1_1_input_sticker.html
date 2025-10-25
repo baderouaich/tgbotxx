@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -121,6 +121,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a34f5d1636b7a1b68e2ea24bf7f500860" id="r_a34f5d1636b7a1b68e2ea24bf7f500860"><td class="memItemLeft" align="right" valign="top">std::variant&lt; cpr::File, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_sticker.html#a34f5d1636b7a1b68e2ea24bf7f500860">sticker</a> {&quot;&quot;}</td></tr>
 <tr class="memdesc:a34f5d1636b7a1b68e2ea24bf7f500860"><td class="mdescLeft">&#160;</td><td class="mdescRight">The added sticker.  <br /></td></tr>
 <tr class="separator:a34f5d1636b7a1b68e2ea24bf7f500860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a439efaae66c1d37500bf7456e17ded4c" id="r_a439efaae66c1d37500bf7456e17ded4c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_sticker.html#a439efaae66c1d37500bf7456e17ded4c">format</a></td></tr>
+<tr class="memdesc:a439efaae66c1d37500bf7456e17ded4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format of the added sticker, must be one of “static” for a .WEBP or .PNG image, “animated” for a .TGS animation, “video” for a .WEBM video.  <br /></td></tr>
+<tr class="separator:a439efaae66c1d37500bf7456e17ded4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1b859b9cd2ae03775e9261a2d20b2e" id="r_abc1b859b9cd2ae03775e9261a2d20b2e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_input_sticker.html#abc1b859b9cd2ae03775e9261a2d20b2e">emojiList</a></td></tr>
 <tr class="memdesc:abc1b859b9cd2ae03775e9261a2d20b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of 1-20 emoji associated with the sticker.  <br /></td></tr>
 <tr class="separator:abc1b859b9cd2ae03775e9261a2d20b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,7 +219,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00049">49</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00053">53</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -246,7 +249,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00035">35</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00038">38</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -264,6 +267,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>List of 1-20 emoji associated with the sticker. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00027">27</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a439efaae66c1d37500bf7456e17ded4c" name="a439efaae66c1d37500bf7456e17ded4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a439efaae66c1d37500bf7456e17ded4c">&#9670;&#160;</a></span>format</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::InputSticker::format</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format of the added sticker, must be one of “static” for a .WEBP or .PNG image, “animated” for a .TGS animation, “video” for a .WEBM video. </p>
 
 <p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00024">24</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
 
@@ -283,7 +304,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For “regular” and “custom_emoji” stickers only. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00031">31</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00034">34</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +322,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. Position where the mask should be placed on faces. For “mask” stickers only. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00027">27</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_sticker_8hpp_source.html#l00030">30</a> of file <a class="el" href="_input_sticker_8hpp_source.html">InputSticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +358,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_input_sticker.html">InputSticker</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -8,8 +8,9 @@ var structtgbotxx_1_1_sticker =
     [ "Sticker", "structtgbotxx_1_1_sticker.html#a119be9e369bc902aa47160439ab97dd0", null ],
     [ "Sticker", "structtgbotxx_1_1_sticker.html#a541fca50d350faae0c9e6abec67e05ed", null ],
     [ "fromJson", "structtgbotxx_1_1_sticker.html#aa0b568c0438af7bbb86ac5dc397e7b1a", null ],
-    [ "Str2Type", "structtgbotxx_1_1_sticker.html#a94fa83c61e90c88979350476ab47942b", null ],
+    [ "StringToType", "structtgbotxx_1_1_sticker.html#a07271b58a5dd47e44c23c3e24957a54a", null ],
     [ "toJson", "structtgbotxx_1_1_sticker.html#ac338749c597f1ae7c44903fa547e5d06", null ],
+    [ "TypeToString", "structtgbotxx_1_1_sticker.html#a164e43d684ffdaedb25457cfc8da8b6c", null ],
     [ "customEmojiId", "structtgbotxx_1_1_sticker.html#aa67c46e3901a58b503b1bd968baefe74", null ],
     [ "emoji", "structtgbotxx_1_1_sticker.html#a2791a955ed3433a2c12964d1836fcf52", null ],
     [ "fileId", "structtgbotxx_1_1_sticker.html#ad7d7101400176b07df75a06c859ad898", null ],
@@ -24,6 +25,5 @@ var structtgbotxx_1_1_sticker =
     [ "setName", "structtgbotxx_1_1_sticker.html#ab56745407c94abd17d49f6e474ee4bc9", null ],
     [ "thumbnail", "structtgbotxx_1_1_sticker.html#afd7a240acdfab741c73a82ccf6afe16c", null ],
     [ "type", "structtgbotxx_1_1_sticker.html#a001e19d6d5402c301f1003c01cd3b43b", null ],
-    [ "Type2Str", "structtgbotxx_1_1_sticker.html#a1b18376bc48354fc555771da6b1d6599", null ],
     [ "width", "structtgbotxx_1_1_sticker.html#ab5df3feb9e937cb350a6050656101773", null ]
 ];

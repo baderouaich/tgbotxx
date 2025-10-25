@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_inline_keyboard_butt
 </div><!--header-->
 <div class="contents">
 
-<p>This object represents one button of an inline keyboard. You must use exactly one of the optional fields. <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">https://core.telegram.org/bots/api#inlinekeyboardbutton</a>.  
+<p>This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify the type of the button. <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">https://core.telegram.org/bots/api#inlinekeyboardbutton</a>.  
  <a href="structtgbotxx_1_1_inline_keyboard_button.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>&gt;</code></p>
@@ -122,37 +122,40 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ae6d74fa9617015a7ebfed16929181bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Label text on the button.  <br /></td></tr>
 <tr class="separator:ae6d74fa9617015a7ebfed16929181bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31a9825db9b623be95fb210b187843a9" id="r_a31a9825db9b623be95fb210b187843a9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#a31a9825db9b623be95fb210b187843a9">url</a></td></tr>
-<tr class="memdesc:a31a9825db9b623be95fb210b187843a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. HTTP or tg:// URL to be opened when the button is pressed. Links tg://user?id=&lt;user_id&gt; can be used to mention a user by their ID without using a username, if this is allowed by their privacy settings.  <br /></td></tr>
+<tr class="memdesc:a31a9825db9b623be95fb210b187843a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. HTTP or tg:// URL to be opened when the button is pressed. Links tg://user?id=&lt;user_id&gt; can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings.  <br /></td></tr>
 <tr class="separator:a31a9825db9b623be95fb210b187843a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7828b337c32f7dcb646e358eeecd16dc" id="r_a7828b337c32f7dcb646e358eeecd16dc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#a7828b337c32f7dcb646e358eeecd16dc">callbackData</a></td></tr>
-<tr class="memdesc:a7828b337c32f7dcb646e358eeecd16dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes.  <br /></td></tr>
+<tr class="memdesc:a7828b337c32f7dcb646e358eeecd16dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Data to be sent in a callback query to the bot when the button is pressed, 1-64 bytes.  <br /></td></tr>
 <tr class="separator:a7828b337c32f7dcb646e358eeecd16dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6acc69322e4a94a2b1d9ed5b6d4bf03" id="r_ac6acc69322e4a94a2b1d9ed5b6d4bf03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_web_app_info.html">WebAppInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#ac6acc69322e4a94a2b1d9ed5b6d4bf03">webApp</a></td></tr>
-<tr class="memdesc:ac6acc69322e4a94a2b1d9ed5b6d4bf03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method answerWebAppQuery. Available only in private chats between a user and the bot.  <br /></td></tr>
+<tr class="memdesc:ac6acc69322e4a94a2b1d9ed5b6d4bf03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method answerWebAppQuery. Available only in private chats between a user and the bot. Not supported for messages sent on behalf of a Telegram Business account.  <br /></td></tr>
 <tr class="separator:ac6acc69322e4a94a2b1d9ed5b6d4bf03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7cfa8d3ca90133051f39d3257192e56" id="r_aa7cfa8d3ca90133051f39d3257192e56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_login_url.html">LoginUrl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#aa7cfa8d3ca90133051f39d3257192e56">loginUrl</a></td></tr>
 <tr class="memdesc:aa7cfa8d3ca90133051f39d3257192e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. An HTTPS URL used to automatically authorize the user. Can be used as a replacement for the Telegram Login Widget.  <br /></td></tr>
 <tr class="separator:aa7cfa8d3ca90133051f39d3257192e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d34de295f91675f69920bf0eefe3cca" id="r_a9d34de295f91675f69920bf0eefe3cca"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#a9d34de295f91675f69920bf0eefe3cca">switchInlineQuery</a></td></tr>
-<tr class="memdesc:a9d34de295f91675f69920bf0eefe3cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted.  <br /></td></tr>
+<tr class="memdesc:a9d34de295f91675f69920bf0eefe3cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted. Not supported for messages sent in channel direct messages chats and on behalf of a Telegram Business account.  <br /></td></tr>
 <tr class="separator:a9d34de295f91675f69920bf0eefe3cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb66868ee351c1994f072fc7ab0cdd3f" id="r_abb66868ee351c1994f072fc7ab0cdd3f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#abb66868ee351c1994f072fc7ab0cdd3f">switchInlineQueryCurrentChat</a></td></tr>
-<tr class="memdesc:abb66868ee351c1994f072fc7ab0cdd3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted.  <br /></td></tr>
+<tr class="memdesc:abb66868ee351c1994f072fc7ab0cdd3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted. This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options. Not supported in channels and for messages sent in channel direct messages chats and on behalf of a Telegram Business account.  <br /></td></tr>
 <tr class="separator:abb66868ee351c1994f072fc7ab0cdd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa204b058b38c41352a79c23f9eb01616" id="r_aa204b058b38c41352a79c23f9eb01616"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_switch_inline_query_chosen_chat.html">SwitchInlineQueryChosenChat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#aa204b058b38c41352a79c23f9eb01616">switchInlineQueryChosenChat</a></td></tr>
-<tr class="memdesc:aa204b058b38c41352a79c23f9eb01616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field.  <br /></td></tr>
+<tr class="memdesc:aa204b058b38c41352a79c23f9eb01616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field. Not supported for messages sent in channel direct messages chats and on behalf of a Telegram Business account.  <br /></td></tr>
 <tr class="separator:aa204b058b38c41352a79c23f9eb01616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0cdcbc0fbd5ecd4322bd0fb8813b7e" id="r_aed0cdcbc0fbd5ecd4322bd0fb8813b7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_copy_text_button.html">CopyTextButton</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#aed0cdcbc0fbd5ecd4322bd0fb8813b7e">copyText</a></td></tr>
+<tr class="memdesc:aed0cdcbc0fbd5ecd4322bd0fb8813b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Description of the button that copies the specified text to the clipboard.  <br /></td></tr>
+<tr class="separator:aed0cdcbc0fbd5ecd4322bd0fb8813b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618687bed3effd14d2e129bd347de5ba" id="r_a618687bed3effd14d2e129bd347de5ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_callback_game.html">CallbackGame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#a618687bed3effd14d2e129bd347de5ba">callbackGame</a></td></tr>
 <tr class="memdesc:a618687bed3effd14d2e129bd347de5ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Description of the game that will be launched when the user presses the button.  <br /></td></tr>
 <tr class="separator:a618687bed3effd14d2e129bd347de5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43f9cfc1f901e9957a06e0ad900f0fea" id="r_a43f9cfc1f901e9957a06e0ad900f0fea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html#a43f9cfc1f901e9957a06e0ad900f0fea">pay</a> {}</td></tr>
-<tr class="memdesc:a43f9cfc1f901e9957a06e0ad900f0fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Specify True, to send a Pay button.  <br /></td></tr>
+<tr class="memdesc:a43f9cfc1f901e9957a06e0ad900f0fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Specify True, to send a Pay button. Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon.  <br /></td></tr>
 <tr class="separator:a43f9cfc1f901e9957a06e0ad900f0fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This object represents one button of an inline keyboard. You must use exactly one of the optional fields. <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">https://core.telegram.org/bots/api#inlinekeyboardbutton</a>. </p>
+<div class="textblock"><p>This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify the type of the button. <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">https://core.telegram.org/bots/api#inlinekeyboardbutton</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00011">11</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00013">13</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aef8264a12c657f5c53cd2a6a53b7030e" name="aef8264a12c657f5c53cd2a6a53b7030e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef8264a12c657f5c53cd2a6a53b7030e">&#9670;&#160;</a></span>InlineKeyboardButton() <span class="overload">[1/2]</span></h2>
@@ -203,7 +206,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00013">13</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00015">15</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -234,7 +237,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00080">80</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00086">86</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -264,7 +267,7 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00064">64</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00069">69</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -281,9 +284,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes. </p>
+<p>Optional. Data to be sent in a callback query to the bot when the button is pressed, 1-64 bytes. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00026">26</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00028">28</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -300,9 +303,27 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Optional. Description of the game that will be launched when the user presses the button. </p>
-<dl class="section note"><dt>Note</dt><dd>This type of button must always be the first button in the first row. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>: This type of button must always be the first button in the first row. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00055">55</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00061">61</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aed0cdcbc0fbd5ecd4322bd0fb8813b7e" name="aed0cdcbc0fbd5ecd4322bd0fb8813b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0cdcbc0fbd5ecd4322bd0fb8813b7e">&#9670;&#160;</a></span>copyText</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt;<a class="el" href="structtgbotxx_1_1_copy_text_button.html">CopyTextButton</a>&gt; tgbotxx::InlineKeyboardButton::copyText</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Description of the button that copies the specified text to the clipboard. </p>
+
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00057">57</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +341,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. An HTTPS URL used to automatically authorize the user. Can be used as a replacement for the Telegram Login Widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00035">35</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00037">37</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -336,10 +357,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. Specify True, to send a Pay button. </p>
-<dl class="section note"><dt>Note</dt><dd>This type of button must always be the first button in the first row and can only be used in invoice messages. </dd></dl>
+<p>Optional. Specify True, to send a Pay button. Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon. </p>
+<dl class="section note"><dt>Note</dt><dd>: This type of button must always be the first button in the first row and can only be used in invoice messages. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00060">60</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00065">65</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,9 +376,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted. </p>
+<p>Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted. Not supported for messages sent in channel direct messages chats and on behalf of a Telegram Business account. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00040">40</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00043">43</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -373,9 +394,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field. </p>
+<p>Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field. Not supported for messages sent in channel direct messages chats and on behalf of a Telegram Business account. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00050">50</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00054">54</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -391,10 +412,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted. </p>
-<p>This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options. </p>
+<p>Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted. This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options. Not supported in channels and for messages sent in channel direct messages chats and on behalf of a Telegram Business account. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00046">46</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00049">49</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -412,7 +432,7 @@ Public Attributes</h2></td></tr>
 
 <p>Label text on the button. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00018">18</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00020">20</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -428,9 +448,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. HTTP or tg:// URL to be opened when the button is pressed. Links tg://user?id=&lt;user_id&gt; can be used to mention a user by their ID without using a username, if this is allowed by their privacy settings. </p>
+<p>Optional. HTTP or tg:// URL to be opened when the button is pressed. Links tg://user?id=&lt;user_id&gt; can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00023">23</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -446,9 +466,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method answerWebAppQuery. Available only in private chats between a user and the bot. </p>
+<p>Optional. Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method answerWebAppQuery. Available only in private chats between a user and the bot. Not supported for messages sent on behalf of a Telegram Business account. </p>
 
-<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00031">31</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_inline_keyboard_button_8hpp_source.html#l00033">33</a> of file <a class="el" href="_inline_keyboard_button_8hpp_source.html">InlineKeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +481,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_inline_keyboard_button.html">InlineKeyboardButton</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

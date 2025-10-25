@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -100,45 +100,61 @@ $(document).ready(function(){initNavTree('_story_8hpp_source.html',''); initResi
 <div class="contents">
 <a href="_story_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;<a class="code" href="_object_8hpp.html">tgbotxx/objects/Object.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a> {</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_8hpp.html">tgbotxx/objects/Chat.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a> {</div>
 <div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html">    8</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_story.html">Story</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2">    9</a></span>      <a class="code hl_function" href="structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2">Story</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2">    9</a></span>    <a class="code hl_function" href="structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2">Story</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de">   10</a></span>      <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de">Story</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_function" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">fromJson</a>(json);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de">   10</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de">Story</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>      <a class="code hl_function" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">fromJson</a>(json);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    }</div>
 </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">   16</a></span>      nl::json <a class="code hl_function" href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">return</span> json;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      }</div>
-</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">   15</a></span>    <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Chat&gt;</a> <a class="code hl_variable" href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">chat</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a72caaf1abfefc8d8d631c185bace0908">   18</a></span>    std::int32_t <span class="keywordtype">id</span>{};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">   22</a></span>      <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">fromJson</a>([[maybe_unused]] <span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">   22</a></span>    nl::json <a class="code hl_function" href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">toJson</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      nl::json json = nl::json::object();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;chat&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">chat</a>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      <a class="code hl_define" href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">OBJECT_SERIALIZE_FIELD</a>(json, <span class="stringliteral">&quot;id&quot;</span>, <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  };</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;chat&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">chat</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      <a class="code hl_define" href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">OBJECT_DESERIALIZE_FIELD</a>(json, <span class="stringliteral">&quot;id&quot;</span>, <span class="keywordtype">id</span>, 0, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  };</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="ttc" id="a_chat_8hpp_html"><div class="ttname"><a href="_chat_8hpp.html">Chat.hpp</a></div></div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="_object_8hpp.html">Object.hpp</a></div></div>
-<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00014">Api.hpp:14</a></div></div>
-<div class="ttc" id="astructtgbotxx_1_1_story_html"><div class="ttname"><a href="structtgbotxx_1_1_story.html">tgbotxx::Story</a></div><div class="ttdoc">This object represents a message about a forwarded story in the chat. Currently holds no information....</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00008">Story.hpp:8</a></div></div>
-<div class="ttc" id="astructtgbotxx_1_1_story_html_a17f103e01acd06939320779c7bc611ad"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">tgbotxx::Story::fromJson</a></div><div class="ttdeci">void fromJson(const nl::json &amp;json)</div><div class="ttdoc">Deserializes this object from JSON.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00022">Story.hpp:22</a></div></div>
+<div class="ttc" id="a_object_8hpp_html_a17ed8caa3e31f92b1f68252cbf9a8602"><div class="ttname"><a href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a></div><div class="ttdeci">#define OBJECT_SERIALIZE_FIELD_PTR(json, json_field, field)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00022">Object.hpp:22</a></div></div>
+<div class="ttc" id="a_object_8hpp_html_a25f92a5ada9a8ff7aac5151925ad1a19"><div class="ttname"><a href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a></div><div class="ttdeci">#define OBJECT_DESERIALIZE_FIELD_PTR(json, json_field, field, optional)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00072">Object.hpp:72</a></div></div>
+<div class="ttc" id="a_object_8hpp_html_a3aba7f6dbd6431b702cd63e69d2b31f3"><div class="ttname"><a href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">OBJECT_SERIALIZE_FIELD</a></div><div class="ttdeci">#define OBJECT_SERIALIZE_FIELD(json, json_field, field)</div><div class="ttdoc">Available objects: https://core.telegram.org/bots/api#available-types.</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00019">Object.hpp:19</a></div></div>
+<div class="ttc" id="a_object_8hpp_html_a90e832fd1bb8a47ee1eabf6a0f69442c"><div class="ttname"><a href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">OBJECT_DESERIALIZE_FIELD</a></div><div class="ttdeci">#define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)</div><div class="ttdoc">Deserialize.</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00046">Object.hpp:46</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
+<div class="ttc" id="astructtgbotxx_1_1_story_html"><div class="ttname"><a href="structtgbotxx_1_1_story.html">tgbotxx::Story</a></div><div class="ttdoc">This object represents a story. . https://core.telegram.org/bots/api#story.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00008">Story.hpp:8</a></div></div>
+<div class="ttc" id="astructtgbotxx_1_1_story_html_a17f103e01acd06939320779c7bc611ad"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a17f103e01acd06939320779c7bc611ad">tgbotxx::Story::fromJson</a></div><div class="ttdeci">void fromJson(const nl::json &amp;json)</div><div class="ttdoc">Deserializes this object from JSON.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00030">Story.hpp:30</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_story_html_a374b9b66cf421cdb5b1a36b93d4f44c2"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a374b9b66cf421cdb5b1a36b93d4f44c2">tgbotxx::Story::Story</a></div><div class="ttdeci">Story()=default</div></div>
 <div class="ttc" id="astructtgbotxx_1_1_story_html_a4b659ab5e947e48e89a22a49f66f64de"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a4b659ab5e947e48e89a22a49f66f64de">tgbotxx::Story::Story</a></div><div class="ttdeci">Story(const nl::json &amp;json)</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00010">Story.hpp:10</a></div></div>
-<div class="ttc" id="astructtgbotxx_1_1_story_html_a897e618c7d4da63c78b0ee2860ae76a1"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">tgbotxx::Story::toJson</a></div><div class="ttdeci">nl::json toJson() const</div><div class="ttdoc">Serializes this object to JSON.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00016">Story.hpp:16</a></div></div>
+<div class="ttc" id="astructtgbotxx_1_1_story_html_a897e618c7d4da63c78b0ee2860ae76a1"><div class="ttname"><a href="structtgbotxx_1_1_story.html#a897e618c7d4da63c78b0ee2860ae76a1">tgbotxx::Story::toJson</a></div><div class="ttdeci">nl::json toJson() const</div><div class="ttdoc">Serializes this object to JSON.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00022">Story.hpp:22</a></div></div>
+<div class="ttc" id="astructtgbotxx_1_1_story_html_aa9310efe610d1d05266757260cb6bd38"><div class="ttname"><a href="structtgbotxx_1_1_story.html#aa9310efe610d1d05266757260cb6bd38">tgbotxx::Story::chat</a></div><div class="ttdeci">Ptr&lt; Chat &gt; chat</div><div class="ttdoc">Chat that posted the story.</div><div class="ttdef"><b>Definition</b> <a href="_story_8hpp_source.html#l00015">Story.hpp:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_story_8hpp.html">Story.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:01 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

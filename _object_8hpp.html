@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -120,6 +120,8 @@ Macros</h2></td></tr>
 <tr class="separator:a1db08aa2e59210a0f40834d022000b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5989e55603d7c0f51eb23ca2b8542e83" id="r_a5989e55603d7c0f51eb23ca2b8542e83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json,  json_field,  array_array_field)</td></tr>
 <tr class="separator:a5989e55603d7c0f51eb23ca2b8542e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac636fa798ffe49313d5a7f3fff65b1f0" id="r_ac636fa798ffe49313d5a7f3fff65b1f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ac636fa798ffe49313d5a7f3fff65b1f0">OBJECT_SERIALIZE_FIELD_ENUM</a>(json,  enum_name,  json_field,  field)&#160;&#160;&#160;  json[json_field] = enum_name##ToString(field)</td></tr>
+<tr class="separator:ac636fa798ffe49313d5a7f3fff65b1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e832fd1bb8a47ee1eabf6a0f69442c" id="r_a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">OBJECT_DESERIALIZE_FIELD</a>(json,  json_field,  field,  default_value,  optional)</td></tr>
 <tr class="memdesc:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize.  <br /></td></tr>
 <tr class="separator:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +131,8 @@ Macros</h2></td></tr>
 <tr class="separator:ac0b3310f245b3966305bd80e1e673cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e8a4563132fc0614d8ea401dd1059e2" id="r_a6e8a4563132fc0614d8ea401dd1059e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json,  json_field,  array_array_field,  optional)</td></tr>
 <tr class="separator:a6e8a4563132fc0614d8ea401dd1059e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fe22d106d038f27a41c7eded3a7830" id="r_a63fe22d106d038f27a41c7eded3a7830"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a63fe22d106d038f27a41c7eded3a7830">OBJECT_DESERIALIZE_FIELD_ENUM</a>(json,  enum_name,  json_field,  field,  default_value,  optional)</td></tr>
+<tr class="separator:a63fe22d106d038f27a41c7eded3a7830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a90e832fd1bb8a47ee1eabf6a0f69442c" name="a90e832fd1bb8a47ee1eabf6a0f69442c"></a>
@@ -201,7 +205,89 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>Deserialize. </p>
 
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00044">44</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00046">46</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a63fe22d106d038f27a41c7eded3a7830" name="a63fe22d106d038f27a41c7eded3a7830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63fe22d106d038f27a41c7eded3a7830">&#9670;&#160;</a></span>OBJECT_DESERIALIZE_FIELD_ENUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_DESERIALIZE_FIELD_ENUM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">enum_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">default_value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">optional&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static_assert</span>(std::is_enum_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must be an enum&quot;</span>);     \</div>
+<div class="line">  static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must not be const&quot;</span>); \</div>
+<div class="line">  if (json.contains(json_field)) {                                                                              \</div>
+<div class="line">    <span class="keywordflow">try</span> {                                                                                                       \</div>
+<div class="line">      if (<span class="keyword">auto</span> opt = StringTo##enum_name(json[json_field]))                                                     \</div>
+<div class="line">        field = *opt;                                                                                            \</div>
+<div class="line">      else                                                                                                      \</div>
+<div class="line">        throw Exception(<span class="stringliteral">&quot;Could not convert string \&quot;&quot;</span> + json[json_field].get&lt;std::string&gt;() + <span class="stringliteral">&quot;\&quot; to enum&quot;</span>);    \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                                         \</div>
+<div class="line">      std::ostringstream err{};                                                                                 \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();                 \</div>
+<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (...) {                                                                                             \</div>
+<div class="line">      std::ostringstream err{};                                                                                 \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
+<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">    }                                                                                                           \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                                                      \</div>
+<div class="line">    if (not(optional)) {                                                                                        \</div>
+<div class="line">      std::ostringstream err{};                                                                                 \</div>
+<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>               \</div>
+<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
+<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">    }                                                                                                           \</div>
+<div class="line">    field = <span class="keyword">static_cast&lt;</span>enum_name<span class="keyword">&gt;</span>(default_value);                                                              \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00137">137</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +344,7 @@ Macros</h2></td></tr>
 <div class="line">    field = <span class="keyword">nullptr</span>;                                                                                                   \</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00070">70</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00072">72</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -318,7 +404,7 @@ Macros</h2></td></tr>
 <div class="line">    array_field.clear();                                                                                                     \</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00087">87</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00089">89</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,7 +471,7 @@ Macros</h2></td></tr>
 <div class="line">    array_array_field.clear();                                                                                                         \</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00108">108</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00110">110</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -428,6 +514,48 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="ac636fa798ffe49313d5a7f3fff65b1f0" name="ac636fa798ffe49313d5a7f3fff65b1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac636fa798ffe49313d5a7f3fff65b1f0">&#9670;&#160;</a></span>OBJECT_SERIALIZE_FIELD_ENUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBJECT_SERIALIZE_FIELD_ENUM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">enum_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">json_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  json[json_field] = enum_name##ToString(field)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00042">42</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a17ed8caa3e31f92b1f68252cbf9a8602" name="a17ed8caa3e31f92b1f68252cbf9a8602"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17ed8caa3e31f92b1f68252cbf9a8602">&#9670;&#160;</a></span>OBJECT_SERIALIZE_FIELD_PTR</h2>
 
@@ -460,7 +588,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (field) {                                              \</div>
-<div class="line">    json[json_field] = field-&gt;toJson();                     \</div>
+<div class="line">    json[json_field] = (field)-&gt;toJson();                     \</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00022">22</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
@@ -556,7 +684,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_object_8hpp.html">Object.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:01 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

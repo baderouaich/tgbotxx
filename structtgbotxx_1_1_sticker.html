@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -95,7 +95,6 @@ $(document).ready(function(){initNavTree('structtgbotxx_1_1_sticker.html',''); i
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structtgbotxx_1_1_sticker-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tgbotxx::Sticker Struct Reference</div></div>
 </div><!--header-->
@@ -112,7 +111,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101a4a18312b5b75f549d5551e5912ad6ebf">Mask</a>
 , <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101af2ded25b30113452f7b15011b876ef8f">CustomEmoji</a>
  }</td></tr>
-<tr class="memdesc:a64a35123b99770475c9767d779f95101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum of possible types of a <a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a>.  <a href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">More...</a><br /></td></tr>
+<tr class="memdesc:a64a35123b99770475c9767d779f95101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum of possible types of Type.  <a href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">More...</a><br /></td></tr>
 <tr class="separator:a64a35123b99770475c9767d779f95101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,8 +129,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a94fa83c61e90c88979350476ab47942b" id="r_a94fa83c61e90c88979350476ab47942b"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_sticker.html#a94fa83c61e90c88979350476ab47942b">Str2Type</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:a94fa83c61e90c88979350476ab47942b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a164e43d684ffdaedb25457cfc8da8b6c" id="r_a164e43d684ffdaedb25457cfc8da8b6c"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_sticker.html#a164e43d684ffdaedb25457cfc8da8b6c">TypeToString</a> (const <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a> <a class="el" href="structtgbotxx_1_1_sticker.html#a001e19d6d5402c301f1003c01cd3b43b">type</a>) noexcept</td></tr>
+<tr class="memdesc:a164e43d684ffdaedb25457cfc8da8b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts enum Type to a string.  <br /></td></tr>
+<tr class="separator:a164e43d684ffdaedb25457cfc8da8b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07271b58a5dd47e44c23c3e24957a54a" id="r_a07271b58a5dd47e44c23c3e24957a54a"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_sticker.html#a07271b58a5dd47e44c23c3e24957a54a">StringToType</a> (const std::string &amp;str) noexcept</td></tr>
+<tr class="memdesc:a07271b58a5dd47e44c23c3e24957a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts string to an enum Type.  <br /></td></tr>
+<tr class="separator:a07271b58a5dd47e44c23c3e24957a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -180,11 +183,6 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a77a901df18425860b7ad006b18c873f8" id="r_a77a901df18425860b7ad006b18c873f8"><td class="memItemLeft" align="right" valign="top">std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_sticker.html#a77a901df18425860b7ad006b18c873f8">fileSize</a> {}</td></tr>
 <tr class="memdesc:a77a901df18425860b7ad006b18c873f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes.  <br /></td></tr>
 <tr class="separator:a77a901df18425860b7ad006b18c873f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a1b18376bc48354fc555771da6b1d6599" id="r_a1b18376bc48354fc555771da6b1d6599"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_sticker.html#a1b18376bc48354fc555771da6b1d6599">Type2Str</a> [] = {&quot;regular&quot;, &quot;mask&quot;, &quot;custom_emoji&quot;}</td></tr>
-<tr class="separator:a1b18376bc48354fc555771da6b1d6599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object represents a sticker. <a href="https://core.telegram.org/bots/api#sticker">https://core.telegram.org/bots/api#sticker</a>. </p>
@@ -211,7 +209,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Enum of possible types of a <a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a>. </p>
+<p>Enum of possible types of Type. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a64a35123b99770475c9767d779f95101ad2203cb1237cb6460cbad94564e39345" name="a64a35123b99770475c9767d779f95101ad2203cb1237cb6460cbad94564e39345"></a>Regular&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a64a35123b99770475c9767d779f95101a4a18312b5b75f549d5551e5912ad6ebf" name="a64a35123b99770475c9767d779f95101a4a18312b5b75f549d5551e5912ad6ebf"></a>Mask&#160;</td><td class="fielddoc"></td></tr>
@@ -303,12 +301,12 @@ Static Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00105">105</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00109">109</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a94fa83c61e90c88979350476ab47942b" name="a94fa83c61e90c88979350476ab47942b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94fa83c61e90c88979350476ab47942b">&#9670;&#160;</a></span>Str2Type()</h2>
+<a id="a07271b58a5dd47e44c23c3e24957a54a" name="a07271b58a5dd47e44c23c3e24957a54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07271b58a5dd47e44c23c3e24957a54a">&#9670;&#160;</a></span>StringToType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,7 +315,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a> tgbotxx::Sticker::Str2Type </td>
+          <td class="memname">static std::optional&lt; <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a> &gt; tgbotxx::Sticker::StringToType </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -326,12 +324,14 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00030">30</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p>Converts string to an enum Type. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00037">37</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +361,37 @@ Static Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00084">84</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00088">88</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a164e43d684ffdaedb25457cfc8da8b6c" name="a164e43d684ffdaedb25457cfc8da8b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a164e43d684ffdaedb25457cfc8da8b6c">&#9670;&#160;</a></span>TypeToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::optional&lt; std::string &gt; tgbotxx::Sticker::TypeToString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtgbotxx_1_1_sticker.html#a64a35123b99770475c9767d779f95101">Type</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts enum Type to a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00030">30</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +410,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. For custom emoji stickers, unique identifier of the custom emoji. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00071">71</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00075">75</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +428,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. Emoji associated with the sticker. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00059">59</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00063">63</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +464,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_file.html" title="This object represents a file ready to be downloaded.">File</a> size in bytes. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00079">79</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00083">83</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -470,7 +500,7 @@ Static Public Attributes</h2></td></tr>
 
 <p><a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> height. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00047">47</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00051">51</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -488,7 +518,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>True, if the sticker is animated. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00050">50</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00054">54</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +536,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>True, if the sticker is a video sticker. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00053">53</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00057">57</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -524,7 +554,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. For mask stickers, the position where the mask should be placed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00068">68</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00072">72</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +572,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. True, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00076">76</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00080">80</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +590,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. For premium regular stickers, premium animation for the sticker. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00065">65</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00069">69</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +608,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. Name of the sticker set to which the sticker belongs. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00062">62</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00066">66</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -596,7 +626,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> thumbnail in the .WEBP or .JPG format. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00056">56</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00060">60</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,31 +644,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Type of the sticker, currently one of “regular”, “mask”, “custom_emoji”. The type of the sticker is independent from its format, which is determined by the fields is_animated and is_video. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00041">41</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1b18376bc48354fc555771da6b1d6599" name="a1b18376bc48354fc555771da6b1d6599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b18376bc48354fc555771da6b1d6599">&#9670;&#160;</a></span>Type2Str</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* tgbotxx::Sticker::Type2Str[] = {&quot;regular&quot;, &quot;mask&quot;, &quot;custom_emoji&quot;}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00029">29</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00045">45</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -656,7 +662,7 @@ Static Public Attributes</h2></td></tr>
 
 <p><a class="el" href="structtgbotxx_1_1_sticker.html" title="This object represents a sticker. https://core.telegram.org/bots/api#sticker.">Sticker</a> width. </p>
 
-<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00044">44</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sticker_8hpp_source.html#l00048">48</a> of file <a class="el" href="_sticker_8hpp_source.html">Sticker.hpp</a>.</p>
 
 </div>
 </div>
@@ -669,7 +675,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_sticker.html">Sticker</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

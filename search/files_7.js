@@ -1,13 +1,20 @@
 var searchData=
 [
-  ['inlinekeyboardbutton_2ehpp_0',['InlineKeyboardButton.hpp',['../_inline_keyboard_button_8hpp.html',1,'']]],
-  ['inlinekeyboardmarkup_2ehpp_1',['InlineKeyboardMarkup.hpp',['../_inline_keyboard_markup_8hpp.html',1,'']]],
-  ['inlinequery_2ehpp_2',['InlineQuery.hpp',['../_inline_query_8hpp.html',1,'']]],
-  ['inlinequeryresult_2ehpp_3',['InlineQueryResult.hpp',['../_inline_query_result_8hpp.html',1,'']]],
-  ['inlinequeryresultsbutton_2ehpp_4',['InlineQueryResultsButton.hpp',['../_inline_query_results_button_8hpp.html',1,'']]],
-  ['inputmedia_2ehpp_5',['InputMedia.hpp',['../_input_media_8hpp.html',1,'']]],
-  ['inputmessagecontent_2ehpp_6',['InputMessageContent.hpp',['../_input_message_content_8hpp.html',1,'']]],
-  ['inputsticker_2ehpp_7',['InputSticker.hpp',['../_input_sticker_8hpp.html',1,'']]],
-  ['invoice_2ehpp_8',['Invoice.hpp',['../_invoice_8hpp.html',1,'']]],
-  ['ireplymarkup_2ehpp_9',['IReplyMarkup.hpp',['../_i_reply_markup_8hpp.html',1,'']]]
+  ['inaccessiblemessage_2ehpp_0',['InaccessibleMessage.hpp',['../_inaccessible_message_8hpp.html',1,'']]],
+  ['inlinekeyboardbutton_2ehpp_1',['InlineKeyboardButton.hpp',['../_inline_keyboard_button_8hpp.html',1,'']]],
+  ['inlinekeyboardmarkup_2ehpp_2',['InlineKeyboardMarkup.hpp',['../_inline_keyboard_markup_8hpp.html',1,'']]],
+  ['inlinequery_2ehpp_3',['InlineQuery.hpp',['../_inline_query_8hpp.html',1,'']]],
+  ['inlinequeryresult_2ehpp_4',['InlineQueryResult.hpp',['../_inline_query_result_8hpp.html',1,'']]],
+  ['inlinequeryresultsbutton_2ehpp_5',['InlineQueryResultsButton.hpp',['../_inline_query_results_button_8hpp.html',1,'']]],
+  ['inputchecklist_2ehpp_6',['InputChecklist.hpp',['../_input_checklist_8hpp.html',1,'']]],
+  ['inputchecklisttask_2ehpp_7',['InputChecklistTask.hpp',['../_input_checklist_task_8hpp.html',1,'']]],
+  ['inputmedia_2ehpp_8',['InputMedia.hpp',['../_input_media_8hpp.html',1,'']]],
+  ['inputmessagecontent_2ehpp_9',['InputMessageContent.hpp',['../_input_message_content_8hpp.html',1,'']]],
+  ['inputpaidmedia_2ehpp_10',['InputPaidMedia.hpp',['../_input_paid_media_8hpp.html',1,'']]],
+  ['inputpolloption_2ehpp_11',['InputPollOption.hpp',['../_input_poll_option_8hpp.html',1,'']]],
+  ['inputprofilephoto_2ehpp_12',['InputProfilePhoto.hpp',['../_input_profile_photo_8hpp.html',1,'']]],
+  ['inputsticker_2ehpp_13',['InputSticker.hpp',['../_input_sticker_8hpp.html',1,'']]],
+  ['inputstorycontent_2ehpp_14',['InputStoryContent.hpp',['../_input_story_content_8hpp.html',1,'']]],
+  ['invoice_2ehpp_15',['Invoice.hpp',['../_invoice_8hpp.html',1,'']]],
+  ['ireplymarkup_2ehpp_16',['IReplyMarkup.hpp',['../_i_reply_markup_8hpp.html',1,'']]]
 ];

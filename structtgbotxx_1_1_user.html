@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -110,8 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0a3a003fa6dd2419b286991a9181697" id="r_ad0a3a003fa6dd2419b286991a9181697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#ad0a3a003fa6dd2419b286991a9181697">User</a> (const nl::json &amp;json)</td></tr>
 <tr class="separator:ad0a3a003fa6dd2419b286991a9181697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af10247d8ee79749caf99129db2f98c67" id="r_af10247d8ee79749caf99129db2f98c67"><td class="memItemLeft" align="right" valign="top">nl::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#af10247d8ee79749caf99129db2f98c67">toJson</a> () const</td></tr>
+<tr class="memdesc:af10247d8ee79749caf99129db2f98c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes this object to JSON.  <br /></td></tr>
 <tr class="separator:af10247d8ee79749caf99129db2f98c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64a441a2b5c16d3aba9b989ae3b71d75" id="r_a64a441a2b5c16d3aba9b989ae3b71d75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#a64a441a2b5c16d3aba9b989ae3b71d75">fromJson</a> (const nl::json &amp;json)</td></tr>
+<tr class="memdesc:a64a441a2b5c16d3aba9b989ae3b71d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes this object from JSON.  <br /></td></tr>
 <tr class="separator:a64a441a2b5c16d3aba9b989ae3b71d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -132,7 +134,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:aeaf0b31ad90ee86957bfb42a933d6225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. <a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a>'s or bot's username.  <br /></td></tr>
 <tr class="separator:aeaf0b31ad90ee86957bfb42a933d6225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3667bb097c03fc100bba0fc253793704" id="r_a3667bb097c03fc100bba0fc253793704"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#a3667bb097c03fc100bba0fc253793704">languageCode</a></td></tr>
-<tr class="memdesc:a3667bb097c03fc100bba0fc253793704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. IETF language tag of the user's language.  <br /></td></tr>
+<tr class="memdesc:a3667bb097c03fc100bba0fc253793704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. IETF language tag of the user's language <a class="el" href="">https://en.wikipedia.org/wiki/IETF_language_tag</a>.  <br /></td></tr>
 <tr class="separator:a3667bb097c03fc100bba0fc253793704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c5def7b1ad4edb2cd445f7765bd697" id="r_ae7c5def7b1ad4edb2cd445f7765bd697"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#ae7c5def7b1ad4edb2cd445f7765bd697">isPremium</a> {}</td></tr>
 <tr class="memdesc:ae7c5def7b1ad4edb2cd445f7765bd697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if this user is a Telegram Premium user.  <br /></td></tr>
@@ -149,6 +151,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:adf236750413fab61ab6f9d110dfdd659" id="r_adf236750413fab61ab6f9d110dfdd659"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#adf236750413fab61ab6f9d110dfdd659">supportsInlineQueries</a> {}</td></tr>
 <tr class="memdesc:adf236750413fab61ab6f9d110dfdd659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the bot supports inline queries. Returned only in getMe.  <br /></td></tr>
 <tr class="separator:adf236750413fab61ab6f9d110dfdd659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88d01c5e00d2e7c9afcf23e9cc0ef9a7" id="r_a88d01c5e00d2e7c9afcf23e9cc0ef9a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#a88d01c5e00d2e7c9afcf23e9cc0ef9a7">canConnectToBusiness</a> {}</td></tr>
+<tr class="memdesc:a88d01c5e00d2e7c9afcf23e9cc0ef9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in getMe.  <br /></td></tr>
+<tr class="separator:a88d01c5e00d2e7c9afcf23e9cc0ef9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c98f5b5cd6586e5d219c1aa9238f3e" id="r_aa1c98f5b5cd6586e5d219c1aa9238f3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_user.html#aa1c98f5b5cd6586e5d219c1aa9238f3e">hasMainWebApp</a> {}</td></tr>
+<tr class="memdesc:aa1c98f5b5cd6586e5d219c1aa9238f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. True, if the bot has a main Web App. Returned only in getMe.  <br /></td></tr>
+<tr class="separator:aa1c98f5b5cd6586e5d219c1aa9238f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object represents a Telegram user or bot. <a href="https://core.telegram.org/bots/api#user">https://core.telegram.org/bots/api#user</a>. </p>
@@ -199,12 +207,10 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00009">9</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -214,9 +220,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tgbotxx::User::fromJson </td>
@@ -226,14 +229,9 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00066">66</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p>Deserializes this object from JSON. </p>
 
 </div>
 </div>
@@ -242,9 +240,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">nl::json tgbotxx::User::toJson </td>
@@ -253,14 +248,10 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00050">50</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p>Serializes this object to JSON. </p>
+<dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
 </div>
 </div>
@@ -279,7 +270,25 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. True, if this user added the bot to the attachment menu. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00038">38</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00037">37</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a88d01c5e00d2e7c9afcf23e9cc0ef9a7" name="a88d01c5e00d2e7c9afcf23e9cc0ef9a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88d01c5e00d2e7c9afcf23e9cc0ef9a7">&#9670;&#160;</a></span>canConnectToBusiness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::User::canConnectToBusiness {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. True, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in getMe. </p>
+
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00049">49</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -297,7 +306,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. True, if the bot can be invited to groups. Returned only in getMe. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00041">41</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00040">40</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -315,7 +324,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. True, if privacy mode is disabled for the bot. Returned only in getMe. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00044">44</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00043">43</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +342,25 @@ Public Attributes</h2></td></tr>
 
 <p><a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a>'s or bot's first name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00023">23</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00021">21</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa1c98f5b5cd6586e5d219c1aa9238f3e" name="aa1c98f5b5cd6586e5d219c1aa9238f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c98f5b5cd6586e5d219c1aa9238f3e">&#9670;&#160;</a></span>hasMainWebApp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tgbotxx::User::hasMainWebApp {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. True, if the bot has a main Web App. Returned only in getMe. </p>
+
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00052">52</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +378,7 @@ Public Attributes</h2></td></tr>
 
 <p>Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00017">17</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00015">15</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -369,7 +396,7 @@ Public Attributes</h2></td></tr>
 
 <p>True, if this user is a bot. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00020">20</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00018">18</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +414,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. True, if this user is a Telegram Premium user. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00035">35</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00034">34</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -403,9 +430,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Optional. IETF language tag of the user's language. </p>
+<p>Optional. IETF language tag of the user's language <a class="el" href="">https://en.wikipedia.org/wiki/IETF_language_tag</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00032">32</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00031">31</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +450,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a>'s or bot's last name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00026">26</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00024">24</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -441,7 +468,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. True, if the bot supports inline queries. Returned only in getMe. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00047">47</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00046">46</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +486,7 @@ Public Attributes</h2></td></tr>
 
 <p>Optional. <a class="el" href="structtgbotxx_1_1_user.html" title="This object represents a Telegram user or bot. https://core.telegram.org/bots/api#user.">User</a>'s or bot's username. </p>
 
-<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00029">29</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_8hpp_source.html#l00027">27</a> of file <a class="el" href="_user_8hpp_source.html">User.hpp</a>.</p>
 
 </div>
 </div>
@@ -472,7 +499,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_user.html">User</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:02 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

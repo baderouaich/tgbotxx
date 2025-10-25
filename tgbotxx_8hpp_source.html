@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.6.9</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -103,134 +103,222 @@ $(document).ready(function(){initNavTree('tgbotxx_8hpp_source.html',''); initRes
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_8hpp.html">tgbotxx/Bot.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="_exception_8hpp.html">tgbotxx/Exception.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="_animation_8hpp.html">tgbotxx/objects/Animation.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="_audio_8hpp.html">tgbotxx/objects/Audio.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_command_8hpp.html">tgbotxx/objects/BotCommand.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_command_scope_8hpp.html">tgbotxx/objects/BotCommandScope.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_description_8hpp.html">tgbotxx/objects/BotDescription.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_name_8hpp.html">tgbotxx/objects/BotName.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_short_description_8hpp.html">tgbotxx/objects/BotShortDescription.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="_callback_game_8hpp.html">tgbotxx/objects/CallbackGame.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;<a class="code" href="_callback_query_8hpp.html">tgbotxx/objects/CallbackQuery.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_8hpp.html">tgbotxx/objects/Chat.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_administrator_rights_8hpp.html">tgbotxx/objects/ChatAdministratorRights.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_8hpp.html">tgbotxx/objects/ChatBoost.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_removed_8hpp.html">tgbotxx/objects/ChatBoostRemoved.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_source_8hpp.html">tgbotxx/objects/ChatBoostSource.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_updated_8hpp.html">tgbotxx/objects/ChatBoostUpdated.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_invite_link_8hpp.html">tgbotxx/objects/ChatInviteLink.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_join_request_8hpp.html">tgbotxx/objects/ChatJoinRequest.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_location_8hpp.html">tgbotxx/objects/ChatLocation.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_member_8hpp.html">tgbotxx/objects/ChatMember.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_member_updated_8hpp.html">tgbotxx/objects/ChatMemberUpdated.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_permissions_8hpp.html">tgbotxx/objects/ChatPermissions.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_photo_8hpp.html">tgbotxx/objects/ChatPhoto.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_shared_8hpp.html">tgbotxx/objects/ChatShared.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;<a class="code" href="_chosen_inline_result_8hpp.html">tgbotxx/objects/ChosenInlineResult.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;<a class="code" href="_contact_8hpp.html">tgbotxx/objects/Contact.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;<a class="code" href="_dice_8hpp.html">tgbotxx/objects/Dice.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;<a class="code" href="_document_8hpp.html">tgbotxx/objects/Document.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;<a class="code" href="_encrypted_credentials_8hpp.html">tgbotxx/objects/EncryptedCredentials.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;<a class="code" href="_encrypted_passport_element_8hpp.html">tgbotxx/objects/EncryptedPassportElement.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;<a class="code" href="_file_8hpp.html">tgbotxx/objects/File.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;<a class="code" href="_force_reply_8hpp.html">tgbotxx/objects/ForceReply.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_8hpp.html">tgbotxx/objects/ForumTopic.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_closed_8hpp.html">tgbotxx/objects/ForumTopicClosed.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_created_8hpp.html">tgbotxx/objects/ForumTopicCreated.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_edited_8hpp.html">tgbotxx/objects/ForumTopicEdited.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_reopened_8hpp.html">tgbotxx/objects/ForumTopicReopened.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;<a class="code" href="_game_8hpp.html">tgbotxx/objects/Game.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;<a class="code" href="_game_high_score_8hpp.html">tgbotxx/objects/GameHighScore.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;<a class="code" href="_general_forum_topic_hidden_8hpp.html">tgbotxx/objects/GeneralForumTopicHidden.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &lt;<a class="code" href="_general_forum_topic_unhidden_8hpp.html">tgbotxx/objects/GeneralForumTopicUnhidden.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &lt;<a class="code" href="_i_reply_markup_8hpp.html">tgbotxx/objects/IReplyMarkup.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_keyboard_button_8hpp.html">tgbotxx/objects/InlineKeyboardButton.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_keyboard_markup_8hpp.html">tgbotxx/objects/InlineKeyboardMarkup.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_8hpp.html">tgbotxx/objects/InlineQuery.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_result_8hpp.html">tgbotxx/objects/InlineQueryResult.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_results_button_8hpp.html">tgbotxx/objects/InlineQueryResultsButton.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;<a class="code" href="_input_media_8hpp.html">tgbotxx/objects/InputMedia.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &lt;<a class="code" href="_input_message_content_8hpp.html">tgbotxx/objects/InputMessageContent.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &lt;<a class="code" href="_input_sticker_8hpp.html">tgbotxx/objects/InputSticker.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &lt;<a class="code" href="_invoice_8hpp.html">tgbotxx/objects/Invoice.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_8hpp.html">tgbotxx/objects/KeyboardButton.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_poll_type_8hpp.html">tgbotxx/objects/KeyboardButtonPollType.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_request_chat_8hpp.html">tgbotxx/objects/KeyboardButtonRequestChat.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_request_user_8hpp.html">tgbotxx/objects/KeyboardButtonRequestUser.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#include &lt;<a class="code" href="_labeled_price_8hpp.html">tgbotxx/objects/LabeledPrice.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#include &lt;<a class="code" href="_location_8hpp.html">tgbotxx/objects/Location.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#include &lt;<a class="code" href="_login_url_8hpp.html">tgbotxx/objects/LoginUrl.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#include &lt;<a class="code" href="_mask_position_8hpp.html">tgbotxx/objects/MaskPosition.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#include &lt;<a class="code" href="_menu_button_8hpp.html">tgbotxx/objects/MenuButton.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#include &lt;<a class="code" href="_message_8hpp.html">tgbotxx/objects/Message.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &lt;<a class="code" href="_message_auto_delete_timer_changed_8hpp.html">tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#include &lt;<a class="code" href="_message_entity_8hpp.html">tgbotxx/objects/MessageEntity.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#include &lt;<a class="code" href="_message_id_8hpp.html">tgbotxx/objects/MessageId.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#include &lt;<a class="code" href="_message_reaction_count_updated_8hpp.html">tgbotxx/objects/MessageReactionCountUpdated.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#include &lt;<a class="code" href="_message_reaction_updated_8hpp.html">tgbotxx/objects/MessageReactionUpdated.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#include &lt;<a class="code" href="_object_8hpp.html">tgbotxx/objects/Object.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#include &lt;<a class="code" href="_order_info_8hpp.html">tgbotxx/objects/OrderInfo.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_data_8hpp.html">tgbotxx/objects/PassportData.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_element_error_8hpp.html">tgbotxx/objects/PassportElementError.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_file_8hpp.html">tgbotxx/objects/PassportFile.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &lt;<a class="code" href="_photo_size_8hpp.html">tgbotxx/objects/PhotoSize.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_8hpp.html">tgbotxx/objects/Poll.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_answer_8hpp.html">tgbotxx/objects/PollAnswer.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_option_8hpp.html">tgbotxx/objects/PollOption.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#include &lt;<a class="code" href="_pre_checkout_query_8hpp.html">tgbotxx/objects/PreCheckoutQuery.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#include &lt;<a class="code" href="_proximity_alert_triggered_8hpp.html">tgbotxx/objects/ProximityAlertTriggered.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#include &lt;<a class="code" href="_reaction_count_8hpp.html">tgbotxx/objects/ReactionCount.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#include &lt;<a class="code" href="_reaction_type_8hpp.html">tgbotxx/objects/ReactionType.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_keyboard_markup_8hpp.html">tgbotxx/objects/ReplyKeyboardMarkup.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_keyboard_remove_8hpp.html">tgbotxx/objects/ReplyKeyboardRemove.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_parameters_8hpp.html">tgbotxx/objects/ReplyParameters.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#include &lt;<a class="code" href="_sent_web_app_message_8hpp.html">tgbotxx/objects/SentWebAppMessage.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_address_8hpp.html">tgbotxx/objects/ShippingAddress.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_option_8hpp.html">tgbotxx/objects/ShippingOption.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_query_8hpp.html">tgbotxx/objects/ShippingQuery.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#include &lt;<a class="code" href="_sticker_8hpp.html">tgbotxx/objects/Sticker.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#include &lt;<a class="code" href="_sticker_set_8hpp.html">tgbotxx/objects/StickerSet.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#include &lt;<a class="code" href="_story_8hpp.html">tgbotxx/objects/Story.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#include &lt;<a class="code" href="_successful_payment_8hpp.html">tgbotxx/objects/SuccessfulPayment.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#include &lt;<a class="code" href="_switch_inline_query_chosen_chat_8hpp.html">tgbotxx/objects/SwitchInlineQueryChosenChat.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#include &lt;<a class="code" href="_update_8hpp.html">tgbotxx/objects/Update.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#include &lt;<a class="code" href="_user_8hpp.html">tgbotxx/objects/User.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#include &lt;<a class="code" href="_user_profile_photos_8hpp.html">tgbotxx/objects/UserProfilePhotos.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#include &lt;<a class="code" href="_user_shared_8hpp.html">tgbotxx/objects/UserShared.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#include &lt;<a class="code" href="_venue_8hpp.html">tgbotxx/objects/Venue.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#include &lt;<a class="code" href="_video_8hpp.html">tgbotxx/objects/Video.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_ended_8hpp.html">tgbotxx/objects/VideoChatEnded.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_participants_invited_8hpp.html">tgbotxx/objects/VideoChatParticipantsInvited.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_scheduled_8hpp.html">tgbotxx/objects/VideoChatScheduled.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_started_8hpp.html">tgbotxx/objects/VideoChatStarted.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#include &lt;<a class="code" href="_video_note_8hpp.html">tgbotxx/objects/VideoNote.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#include &lt;<a class="code" href="_voice_8hpp.html">tgbotxx/objects/Voice.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#include &lt;<a class="code" href="_web_app_data_8hpp.html">tgbotxx/objects/WebAppData.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#include &lt;<a class="code" href="_web_app_info_8hpp.html">tgbotxx/objects/WebAppInfo.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#include &lt;<a class="code" href="_webhook_info_8hpp.html">tgbotxx/objects/WebhookInfo.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#include &lt;<a class="code" href="_write_access_allowed_8hpp.html">tgbotxx/objects/WriteAccessAllowed.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#include &lt;<a class="code" href="_date_time_utils_8hpp.html">tgbotxx/utils/DateTimeUtils.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#include &lt;<a class="code" href="_file_utils_8hpp.html">tgbotxx/utils/FileUtils.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#include &lt;<a class="code" href="_ptr_8hpp.html">tgbotxx/utils/Ptr.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#include &lt;<a class="code" href="_string_utils_8hpp.html">tgbotxx/utils/StringUtils.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="_accepted_gift_types_8hpp.html">tgbotxx/objects/AcceptedGiftTypes.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="_affiliate_info_8hpp.html">tgbotxx/objects/AffiliateInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="_animation_8hpp.html">tgbotxx/objects/Animation.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="_audio_8hpp.html">tgbotxx/objects/Audio.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="_background_fill_8hpp.html">tgbotxx/objects/BackgroundFill.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="_background_type_8hpp.html">tgbotxx/objects/BackgroundType.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="_birthdate_8hpp.html">tgbotxx/objects/Birthdate.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_command_8hpp.html">tgbotxx/objects/BotCommand.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_command_scope_8hpp.html">tgbotxx/objects/BotCommandScope.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_description_8hpp.html">tgbotxx/objects/BotDescription.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_name_8hpp.html">tgbotxx/objects/BotName.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="_bot_short_description_8hpp.html">tgbotxx/objects/BotShortDescription.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="_business_bot_rights_8hpp.html">tgbotxx/objects/BusinessBotRights.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="_business_connection_8hpp.html">tgbotxx/objects/BusinessConnection.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="_business_intro_8hpp.html">tgbotxx/objects/BusinessIntro.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="_business_location_8hpp.html">tgbotxx/objects/BusinessLocation.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="_business_messages_deleted_8hpp.html">tgbotxx/objects/BusinessMessagesDeleted.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;<a class="code" href="_business_opening_hours_8hpp.html">tgbotxx/objects/BusinessOpeningHours.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="_business_opening_hours_interval_8hpp.html">tgbotxx/objects/BusinessOpeningHoursInterval.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="_callback_game_8hpp.html">tgbotxx/objects/CallbackGame.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;<a class="code" href="_callback_query_8hpp.html">tgbotxx/objects/CallbackQuery.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_administrator_rights_8hpp.html">tgbotxx/objects/ChatAdministratorRights.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_background_8hpp.html">tgbotxx/objects/ChatBackground.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_added_8hpp.html">tgbotxx/objects/ChatBoostAdded.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_8hpp.html">tgbotxx/objects/ChatBoost.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_removed_8hpp.html">tgbotxx/objects/ChatBoostRemoved.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_source_8hpp.html">tgbotxx/objects/ChatBoostSource.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_boost_updated_8hpp.html">tgbotxx/objects/ChatBoostUpdated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_full_info_8hpp.html">tgbotxx/objects/ChatFullInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_8hpp.html">tgbotxx/objects/Chat.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_invite_link_8hpp.html">tgbotxx/objects/ChatInviteLink.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_join_request_8hpp.html">tgbotxx/objects/ChatJoinRequest.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_location_8hpp.html">tgbotxx/objects/ChatLocation.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_member_8hpp.html">tgbotxx/objects/ChatMember.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_member_updated_8hpp.html">tgbotxx/objects/ChatMemberUpdated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_permissions_8hpp.html">tgbotxx/objects/ChatPermissions.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_photo_8hpp.html">tgbotxx/objects/ChatPhoto.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;<a class="code" href="_chat_shared_8hpp.html">tgbotxx/objects/ChatShared.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;<a class="code" href="_checklist_8hpp.html">tgbotxx/objects/Checklist.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &lt;<a class="code" href="_checklist_task_8hpp.html">tgbotxx/objects/ChecklistTask.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &lt;<a class="code" href="_checklist_tasks_added_8hpp.html">tgbotxx/objects/ChecklistTasksAdded.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &lt;<a class="code" href="_checklist_tasks_done_8hpp.html">tgbotxx/objects/ChecklistTasksDone.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &lt;<a class="code" href="_chosen_inline_result_8hpp.html">tgbotxx/objects/ChosenInlineResult.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &lt;<a class="code" href="_contact_8hpp.html">tgbotxx/objects/Contact.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &lt;<a class="code" href="_copy_text_button_8hpp.html">tgbotxx/objects/CopyTextButton.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;<a class="code" href="_dice_8hpp.html">tgbotxx/objects/Dice.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;<a class="code" href="_direct_message_price_changed_8hpp.html">tgbotxx/objects/DirectMessagePriceChanged.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &lt;<a class="code" href="_direct_messages_topic_8hpp.html">tgbotxx/objects/DirectMessagesTopic.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &lt;<a class="code" href="_document_8hpp.html">tgbotxx/objects/Document.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &lt;<a class="code" href="_encrypted_credentials_8hpp.html">tgbotxx/objects/EncryptedCredentials.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#include &lt;<a class="code" href="_encrypted_passport_element_8hpp.html">tgbotxx/objects/EncryptedPassportElement.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &lt;<a class="code" href="_external_reply_info_8hpp.html">tgbotxx/objects/ExternalReplyInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &lt;<a class="code" href="_file_8hpp.html">tgbotxx/objects/File.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &lt;<a class="code" href="_force_reply_8hpp.html">tgbotxx/objects/ForceReply.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_closed_8hpp.html">tgbotxx/objects/ForumTopicClosed.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_created_8hpp.html">tgbotxx/objects/ForumTopicCreated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_edited_8hpp.html">tgbotxx/objects/ForumTopicEdited.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_8hpp.html">tgbotxx/objects/ForumTopic.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#include &lt;<a class="code" href="_forum_topic_reopened_8hpp.html">tgbotxx/objects/ForumTopicReopened.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#include &lt;<a class="code" href="_game_high_score_8hpp.html">tgbotxx/objects/GameHighScore.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &lt;<a class="code" href="_game_8hpp.html">tgbotxx/objects/Game.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#include &lt;<a class="code" href="_general_forum_topic_hidden_8hpp.html">tgbotxx/objects/GeneralForumTopicHidden.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#include &lt;<a class="code" href="_general_forum_topic_unhidden_8hpp.html">tgbotxx/objects/GeneralForumTopicUnhidden.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#include &lt;<a class="code" href="_gift_8hpp.html">tgbotxx/objects/Gift.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#include &lt;<a class="code" href="_gift_info_8hpp.html">tgbotxx/objects/GiftInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#include &lt;<a class="code" href="_gifts_8hpp.html">tgbotxx/objects/Gifts.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#include &lt;<a class="code" href="_giveaway_completed_8hpp.html">tgbotxx/objects/GiveawayCompleted.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#include &lt;<a class="code" href="_giveaway_created_8hpp.html">tgbotxx/objects/GiveawayCreated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#include &lt;<a class="code" href="_giveaway_8hpp.html">tgbotxx/objects/Giveaway.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#include &lt;<a class="code" href="_giveaway_winners_8hpp.html">tgbotxx/objects/GiveawayWinners.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &lt;<a class="code" href="_inaccessible_message_8hpp.html">tgbotxx/objects/InaccessibleMessage.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_keyboard_button_8hpp.html">tgbotxx/objects/InlineKeyboardButton.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_keyboard_markup_8hpp.html">tgbotxx/objects/InlineKeyboardMarkup.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_8hpp.html">tgbotxx/objects/InlineQuery.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_result_8hpp.html">tgbotxx/objects/InlineQueryResult.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#include &lt;<a class="code" href="_inline_query_results_button_8hpp.html">tgbotxx/objects/InlineQueryResultsButton.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#include &lt;<a class="code" href="_input_checklist_8hpp.html">tgbotxx/objects/InputChecklist.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#include &lt;<a class="code" href="_input_checklist_task_8hpp.html">tgbotxx/objects/InputChecklistTask.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#include &lt;<a class="code" href="_input_media_8hpp.html">tgbotxx/objects/InputMedia.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#include &lt;<a class="code" href="_input_message_content_8hpp.html">tgbotxx/objects/InputMessageContent.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#include &lt;<a class="code" href="_input_paid_media_8hpp.html">tgbotxx/objects/InputPaidMedia.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#include &lt;<a class="code" href="_input_poll_option_8hpp.html">tgbotxx/objects/InputPollOption.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#include &lt;<a class="code" href="_input_profile_photo_8hpp.html">tgbotxx/objects/InputProfilePhoto.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#include &lt;<a class="code" href="_input_sticker_8hpp.html">tgbotxx/objects/InputSticker.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#include &lt;<a class="code" href="_input_story_content_8hpp.html">tgbotxx/objects/InputStoryContent.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#include &lt;<a class="code" href="_invoice_8hpp.html">tgbotxx/objects/Invoice.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#include &lt;<a class="code" href="_i_reply_markup_8hpp.html">tgbotxx/objects/IReplyMarkup.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_8hpp.html">tgbotxx/objects/KeyboardButton.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_poll_type_8hpp.html">tgbotxx/objects/KeyboardButtonPollType.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_request_chat_8hpp.html">tgbotxx/objects/KeyboardButtonRequestChat.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#include &lt;<a class="code" href="_keyboard_button_request_users_8hpp.html">tgbotxx/objects/KeyboardButtonRequestUsers.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#include &lt;<a class="code" href="_labeled_price_8hpp.html">tgbotxx/objects/LabeledPrice.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#include &lt;<a class="code" href="_link_preview_options_8hpp.html">tgbotxx/objects/LinkPreviewOptions.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#include &lt;<a class="code" href="_location_address_8hpp.html">tgbotxx/objects/LocationAddress.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#include &lt;<a class="code" href="_location_8hpp.html">tgbotxx/objects/Location.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#include &lt;<a class="code" href="_login_url_8hpp.html">tgbotxx/objects/LoginUrl.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#include &lt;<a class="code" href="_mask_position_8hpp.html">tgbotxx/objects/MaskPosition.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#include &lt;<a class="code" href="_maybe_inaccessible_message_8hpp.html">tgbotxx/objects/MaybeInaccessibleMessage.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#include &lt;<a class="code" href="_menu_button_8hpp.html">tgbotxx/objects/MenuButton.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#include &lt;<a class="code" href="_message_auto_delete_timer_changed_8hpp.html">tgbotxx/objects/MessageAutoDeleteTimerChanged.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#include &lt;<a class="code" href="_message_entity_8hpp.html">tgbotxx/objects/MessageEntity.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#include &lt;<a class="code" href="_message_8hpp.html">tgbotxx/objects/Message.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#include &lt;<a class="code" href="_message_id_8hpp.html">tgbotxx/objects/MessageId.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#include &lt;<a class="code" href="_message_origin_8hpp.html">tgbotxx/objects/MessageOrigin.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#include &lt;<a class="code" href="_message_reaction_count_updated_8hpp.html">tgbotxx/objects/MessageReactionCountUpdated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#include &lt;<a class="code" href="_message_reaction_updated_8hpp.html">tgbotxx/objects/MessageReactionUpdated.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#include &lt;<a class="code" href="_object_8hpp.html">tgbotxx/objects/Object.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#include &lt;<a class="code" href="_order_info_8hpp.html">tgbotxx/objects/OrderInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#include &lt;<a class="code" href="_owned_gift_8hpp.html">tgbotxx/objects/OwnedGift.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#include &lt;<a class="code" href="_owned_gifts_8hpp.html">tgbotxx/objects/OwnedGifts.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#include &lt;<a class="code" href="_paid_media_8hpp.html">tgbotxx/objects/PaidMedia.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#include &lt;<a class="code" href="_paid_media_info_8hpp.html">tgbotxx/objects/PaidMediaInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#include &lt;<a class="code" href="_paid_media_purchased_8hpp.html">tgbotxx/objects/PaidMediaPurchased.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#include &lt;<a class="code" href="_paid_message_price_changed_8hpp.html">tgbotxx/objects/PaidMessagePriceChanged.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_data_8hpp.html">tgbotxx/objects/PassportData.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_element_error_8hpp.html">tgbotxx/objects/PassportElementError.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#include &lt;<a class="code" href="_passport_file_8hpp.html">tgbotxx/objects/PassportFile.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#include &lt;<a class="code" href="_photo_size_8hpp.html">tgbotxx/objects/PhotoSize.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_answer_8hpp.html">tgbotxx/objects/PollAnswer.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_8hpp.html">tgbotxx/objects/Poll.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#include &lt;<a class="code" href="_poll_option_8hpp.html">tgbotxx/objects/PollOption.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#include &lt;<a class="code" href="_pre_checkout_query_8hpp.html">tgbotxx/objects/PreCheckoutQuery.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#include &lt;<a class="code" href="_proximity_alert_triggered_8hpp.html">tgbotxx/objects/ProximityAlertTriggered.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#include &lt;<a class="code" href="_reaction_count_8hpp.html">tgbotxx/objects/ReactionCount.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#include &lt;<a class="code" href="_reaction_type_8hpp.html">tgbotxx/objects/ReactionType.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#include &lt;<a class="code" href="_refunded_payment_8hpp.html">tgbotxx/objects/RefundedPayment.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_keyboard_markup_8hpp.html">tgbotxx/objects/ReplyKeyboardMarkup.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_keyboard_remove_8hpp.html">tgbotxx/objects/ReplyKeyboardRemove.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#include &lt;<a class="code" href="_reply_parameters_8hpp.html">tgbotxx/objects/ReplyParameters.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#include &lt;<a class="code" href="_revenue_withdrawal_state_8hpp.html">tgbotxx/objects/RevenueWithdrawalState.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#include &lt;<a class="code" href="_sent_web_app_message_8hpp.html">tgbotxx/objects/SentWebAppMessage.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="preprocessor">#include &lt;<a class="code" href="_shared_user_8hpp.html">tgbotxx/objects/SharedUser.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_address_8hpp.html">tgbotxx/objects/ShippingAddress.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_option_8hpp.html">tgbotxx/objects/ShippingOption.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#include &lt;<a class="code" href="_shipping_query_8hpp.html">tgbotxx/objects/ShippingQuery.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#include &lt;<a class="code" href="_star_amount_8hpp.html">tgbotxx/objects/StarAmount.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#include &lt;<a class="code" href="_star_transaction_8hpp.html">tgbotxx/objects/StarTransaction.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">#include &lt;<a class="code" href="_star_transactions_8hpp.html">tgbotxx/objects/StarTransactions.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">#include &lt;<a class="code" href="_sticker_8hpp.html">tgbotxx/objects/Sticker.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#include &lt;<a class="code" href="_sticker_set_8hpp.html">tgbotxx/objects/StickerSet.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">#include &lt;<a class="code" href="_story_area_8hpp.html">tgbotxx/objects/StoryArea.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#include &lt;<a class="code" href="_story_area_position_8hpp.html">tgbotxx/objects/StoryAreaPosition.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">#include &lt;<a class="code" href="_story_area_type_8hpp.html">tgbotxx/objects/StoryAreaType.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#include &lt;<a class="code" href="_story_8hpp.html">tgbotxx/objects/Story.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#include &lt;<a class="code" href="_successful_payment_8hpp.html">tgbotxx/objects/SuccessfulPayment.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_approval_failed_8hpp.html">tgbotxx/objects/SuggestedPostApprovalFailed.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_approved_8hpp.html">tgbotxx/objects/SuggestedPostApproved.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_declined_8hpp.html">tgbotxx/objects/SuggestedPostDeclined.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_info_8hpp.html">tgbotxx/objects/SuggestedPostInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_paid_8hpp.html">tgbotxx/objects/SuggestedPostPaid.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_parameters_8hpp.html">tgbotxx/objects/SuggestedPostParameters.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_price_8hpp.html">tgbotxx/objects/SuggestedPostPrice.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#include &lt;<a class="code" href="_suggested_post_refunded_8hpp.html">tgbotxx/objects/SuggestedPostRefunded.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#include &lt;<a class="code" href="_switch_inline_query_chosen_chat_8hpp.html">tgbotxx/objects/SwitchInlineQueryChosenChat.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#include &lt;<a class="code" href="_text_quote_8hpp.html">tgbotxx/objects/TextQuote.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#include &lt;<a class="code" href="_transaction_partner_8hpp.html">tgbotxx/objects/TransactionPartner.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_backdrop_colors_8hpp.html">tgbotxx/objects/UniqueGiftBackdropColors.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_backdrop_8hpp.html">tgbotxx/objects/UniqueGiftBackdrop.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_8hpp.html">tgbotxx/objects/UniqueGift.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_info_8hpp.html">tgbotxx/objects/UniqueGiftInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_model_8hpp.html">tgbotxx/objects/UniqueGiftModel.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#include &lt;<a class="code" href="_unique_gift_symbol_8hpp.html">tgbotxx/objects/UniqueGiftSymbol.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#include &lt;<a class="code" href="_update_8hpp.html">tgbotxx/objects/Update.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#include &lt;<a class="code" href="_user_chat_boosts_8hpp.html">tgbotxx/objects/UserChatBoosts.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#include &lt;<a class="code" href="_user_8hpp.html">tgbotxx/objects/User.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#include &lt;<a class="code" href="_user_profile_photos_8hpp.html">tgbotxx/objects/UserProfilePhotos.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">#include &lt;<a class="code" href="_users_shared_8hpp.html">tgbotxx/objects/UsersShared.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#include &lt;<a class="code" href="_venue_8hpp.html">tgbotxx/objects/Venue.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_ended_8hpp.html">tgbotxx/objects/VideoChatEnded.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_participants_invited_8hpp.html">tgbotxx/objects/VideoChatParticipantsInvited.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_scheduled_8hpp.html">tgbotxx/objects/VideoChatScheduled.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#include &lt;<a class="code" href="_video_chat_started_8hpp.html">tgbotxx/objects/VideoChatStarted.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#include &lt;<a class="code" href="_video_8hpp.html">tgbotxx/objects/Video.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#include &lt;<a class="code" href="_video_note_8hpp.html">tgbotxx/objects/VideoNote.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#include &lt;<a class="code" href="_voice_8hpp.html">tgbotxx/objects/Voice.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#include &lt;<a class="code" href="_web_app_data_8hpp.html">tgbotxx/objects/WebAppData.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#include &lt;<a class="code" href="_web_app_info_8hpp.html">tgbotxx/objects/WebAppInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#include &lt;<a class="code" href="_webhook_info_8hpp.html">tgbotxx/objects/WebhookInfo.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#include &lt;<a class="code" href="_write_access_allowed_8hpp.html">tgbotxx/objects/WriteAccessAllowed.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#include &lt;<a class="code" href="_date_time_utils_8hpp.html">tgbotxx/utils/DateTimeUtils.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#include &lt;<a class="code" href="_file_utils_8hpp.html">tgbotxx/utils/FileUtils.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#include &lt;<a class="code" href="_ptr_8hpp.html">tgbotxx/utils/Ptr.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#include &lt;<a class="code" href="_string_utils_8hpp.html">tgbotxx/utils/StringUtils.hpp</a>&gt;</span></div>
+<div class="ttc" id="a_accepted_gift_types_8hpp_html"><div class="ttname"><a href="_accepted_gift_types_8hpp.html">AcceptedGiftTypes.hpp</a></div></div>
+<div class="ttc" id="a_affiliate_info_8hpp_html"><div class="ttname"><a href="_affiliate_info_8hpp.html">AffiliateInfo.hpp</a></div></div>
 <div class="ttc" id="a_animation_8hpp_html"><div class="ttname"><a href="_animation_8hpp.html">Animation.hpp</a></div></div>
 <div class="ttc" id="a_api_8hpp_html"><div class="ttname"><a href="_api_8hpp.html">Api.hpp</a></div></div>
 <div class="ttc" id="a_audio_8hpp_html"><div class="ttname"><a href="_audio_8hpp.html">Audio.hpp</a></div></div>
+<div class="ttc" id="a_background_fill_8hpp_html"><div class="ttname"><a href="_background_fill_8hpp.html">BackgroundFill.hpp</a></div></div>
+<div class="ttc" id="a_background_type_8hpp_html"><div class="ttname"><a href="_background_type_8hpp.html">BackgroundType.hpp</a></div></div>
+<div class="ttc" id="a_birthdate_8hpp_html"><div class="ttname"><a href="_birthdate_8hpp.html">Birthdate.hpp</a></div></div>
 <div class="ttc" id="a_bot_8hpp_html"><div class="ttname"><a href="_bot_8hpp.html">Bot.hpp</a></div></div>
 <div class="ttc" id="a_bot_command_8hpp_html"><div class="ttname"><a href="_bot_command_8hpp.html">BotCommand.hpp</a></div></div>
 <div class="ttc" id="a_bot_command_scope_8hpp_html"><div class="ttname"><a href="_bot_command_scope_8hpp.html">BotCommandScope.hpp</a></div></div>
 <div class="ttc" id="a_bot_description_8hpp_html"><div class="ttname"><a href="_bot_description_8hpp.html">BotDescription.hpp</a></div></div>
 <div class="ttc" id="a_bot_name_8hpp_html"><div class="ttname"><a href="_bot_name_8hpp.html">BotName.hpp</a></div></div>
 <div class="ttc" id="a_bot_short_description_8hpp_html"><div class="ttname"><a href="_bot_short_description_8hpp.html">BotShortDescription.hpp</a></div></div>
+<div class="ttc" id="a_business_bot_rights_8hpp_html"><div class="ttname"><a href="_business_bot_rights_8hpp.html">BusinessBotRights.hpp</a></div></div>
+<div class="ttc" id="a_business_connection_8hpp_html"><div class="ttname"><a href="_business_connection_8hpp.html">BusinessConnection.hpp</a></div></div>
+<div class="ttc" id="a_business_intro_8hpp_html"><div class="ttname"><a href="_business_intro_8hpp.html">BusinessIntro.hpp</a></div></div>
+<div class="ttc" id="a_business_location_8hpp_html"><div class="ttname"><a href="_business_location_8hpp.html">BusinessLocation.hpp</a></div></div>
+<div class="ttc" id="a_business_messages_deleted_8hpp_html"><div class="ttname"><a href="_business_messages_deleted_8hpp.html">BusinessMessagesDeleted.hpp</a></div></div>
+<div class="ttc" id="a_business_opening_hours_8hpp_html"><div class="ttname"><a href="_business_opening_hours_8hpp.html">BusinessOpeningHours.hpp</a></div></div>
+<div class="ttc" id="a_business_opening_hours_interval_8hpp_html"><div class="ttname"><a href="_business_opening_hours_interval_8hpp.html">BusinessOpeningHoursInterval.hpp</a></div></div>
 <div class="ttc" id="a_callback_game_8hpp_html"><div class="ttname"><a href="_callback_game_8hpp.html">CallbackGame.hpp</a></div></div>
 <div class="ttc" id="a_callback_query_8hpp_html"><div class="ttname"><a href="_callback_query_8hpp.html">CallbackQuery.hpp</a></div></div>
 <div class="ttc" id="a_chat_8hpp_html"><div class="ttname"><a href="_chat_8hpp.html">Chat.hpp</a></div></div>
 <div class="ttc" id="a_chat_administrator_rights_8hpp_html"><div class="ttname"><a href="_chat_administrator_rights_8hpp.html">ChatAdministratorRights.hpp</a></div></div>
+<div class="ttc" id="a_chat_background_8hpp_html"><div class="ttname"><a href="_chat_background_8hpp.html">ChatBackground.hpp</a></div></div>
 <div class="ttc" id="a_chat_boost_8hpp_html"><div class="ttname"><a href="_chat_boost_8hpp.html">ChatBoost.hpp</a></div></div>
+<div class="ttc" id="a_chat_boost_added_8hpp_html"><div class="ttname"><a href="_chat_boost_added_8hpp.html">ChatBoostAdded.hpp</a></div></div>
 <div class="ttc" id="a_chat_boost_removed_8hpp_html"><div class="ttname"><a href="_chat_boost_removed_8hpp.html">ChatBoostRemoved.hpp</a></div></div>
 <div class="ttc" id="a_chat_boost_source_8hpp_html"><div class="ttname"><a href="_chat_boost_source_8hpp.html">ChatBoostSource.hpp</a></div></div>
 <div class="ttc" id="a_chat_boost_updated_8hpp_html"><div class="ttname"><a href="_chat_boost_updated_8hpp.html">ChatBoostUpdated.hpp</a></div></div>
+<div class="ttc" id="a_chat_full_info_8hpp_html"><div class="ttname"><a href="_chat_full_info_8hpp.html">ChatFullInfo.hpp</a></div></div>
 <div class="ttc" id="a_chat_invite_link_8hpp_html"><div class="ttname"><a href="_chat_invite_link_8hpp.html">ChatInviteLink.hpp</a></div></div>
 <div class="ttc" id="a_chat_join_request_8hpp_html"><div class="ttname"><a href="_chat_join_request_8hpp.html">ChatJoinRequest.hpp</a></div></div>
 <div class="ttc" id="a_chat_location_8hpp_html"><div class="ttname"><a href="_chat_location_8hpp.html">ChatLocation.hpp</a></div></div>
@@ -239,14 +327,22 @@ $(document).ready(function(){initNavTree('tgbotxx_8hpp_source.html',''); initRes
 <div class="ttc" id="a_chat_permissions_8hpp_html"><div class="ttname"><a href="_chat_permissions_8hpp.html">ChatPermissions.hpp</a></div></div>
 <div class="ttc" id="a_chat_photo_8hpp_html"><div class="ttname"><a href="_chat_photo_8hpp.html">ChatPhoto.hpp</a></div></div>
 <div class="ttc" id="a_chat_shared_8hpp_html"><div class="ttname"><a href="_chat_shared_8hpp.html">ChatShared.hpp</a></div></div>
+<div class="ttc" id="a_checklist_8hpp_html"><div class="ttname"><a href="_checklist_8hpp.html">Checklist.hpp</a></div></div>
+<div class="ttc" id="a_checklist_task_8hpp_html"><div class="ttname"><a href="_checklist_task_8hpp.html">ChecklistTask.hpp</a></div></div>
+<div class="ttc" id="a_checklist_tasks_added_8hpp_html"><div class="ttname"><a href="_checklist_tasks_added_8hpp.html">ChecklistTasksAdded.hpp</a></div></div>
+<div class="ttc" id="a_checklist_tasks_done_8hpp_html"><div class="ttname"><a href="_checklist_tasks_done_8hpp.html">ChecklistTasksDone.hpp</a></div></div>
 <div class="ttc" id="a_chosen_inline_result_8hpp_html"><div class="ttname"><a href="_chosen_inline_result_8hpp.html">ChosenInlineResult.hpp</a></div></div>
 <div class="ttc" id="a_contact_8hpp_html"><div class="ttname"><a href="_contact_8hpp.html">Contact.hpp</a></div></div>
+<div class="ttc" id="a_copy_text_button_8hpp_html"><div class="ttname"><a href="_copy_text_button_8hpp.html">CopyTextButton.hpp</a></div></div>
 <div class="ttc" id="a_date_time_utils_8hpp_html"><div class="ttname"><a href="_date_time_utils_8hpp.html">DateTimeUtils.hpp</a></div></div>
 <div class="ttc" id="a_dice_8hpp_html"><div class="ttname"><a href="_dice_8hpp.html">Dice.hpp</a></div></div>
+<div class="ttc" id="a_direct_message_price_changed_8hpp_html"><div class="ttname"><a href="_direct_message_price_changed_8hpp.html">DirectMessagePriceChanged.hpp</a></div></div>
+<div class="ttc" id="a_direct_messages_topic_8hpp_html"><div class="ttname"><a href="_direct_messages_topic_8hpp.html">DirectMessagesTopic.hpp</a></div></div>
 <div class="ttc" id="a_document_8hpp_html"><div class="ttname"><a href="_document_8hpp.html">Document.hpp</a></div></div>
 <div class="ttc" id="a_encrypted_credentials_8hpp_html"><div class="ttname"><a href="_encrypted_credentials_8hpp.html">EncryptedCredentials.hpp</a></div></div>
 <div class="ttc" id="a_encrypted_passport_element_8hpp_html"><div class="ttname"><a href="_encrypted_passport_element_8hpp.html">EncryptedPassportElement.hpp</a></div></div>
 <div class="ttc" id="a_exception_8hpp_html"><div class="ttname"><a href="_exception_8hpp.html">Exception.hpp</a></div></div>
+<div class="ttc" id="a_external_reply_info_8hpp_html"><div class="ttname"><a href="_external_reply_info_8hpp.html">ExternalReplyInfo.hpp</a></div></div>
 <div class="ttc" id="a_file_8hpp_html"><div class="ttname"><a href="_file_8hpp.html">File.hpp</a></div></div>
 <div class="ttc" id="a_file_utils_8hpp_html"><div class="ttname"><a href="_file_utils_8hpp.html">FileUtils.hpp</a></div></div>
 <div class="ttc" id="a_force_reply_8hpp_html"><div class="ttname"><a href="_force_reply_8hpp.html">ForceReply.hpp</a></div></div>
@@ -259,33 +355,57 @@ $(document).ready(function(){initNavTree('tgbotxx_8hpp_source.html',''); initRes
 <div class="ttc" id="a_game_high_score_8hpp_html"><div class="ttname"><a href="_game_high_score_8hpp.html">GameHighScore.hpp</a></div></div>
 <div class="ttc" id="a_general_forum_topic_hidden_8hpp_html"><div class="ttname"><a href="_general_forum_topic_hidden_8hpp.html">GeneralForumTopicHidden.hpp</a></div></div>
 <div class="ttc" id="a_general_forum_topic_unhidden_8hpp_html"><div class="ttname"><a href="_general_forum_topic_unhidden_8hpp.html">GeneralForumTopicUnhidden.hpp</a></div></div>
+<div class="ttc" id="a_gift_8hpp_html"><div class="ttname"><a href="_gift_8hpp.html">Gift.hpp</a></div></div>
+<div class="ttc" id="a_gift_info_8hpp_html"><div class="ttname"><a href="_gift_info_8hpp.html">GiftInfo.hpp</a></div></div>
+<div class="ttc" id="a_gifts_8hpp_html"><div class="ttname"><a href="_gifts_8hpp.html">Gifts.hpp</a></div></div>
+<div class="ttc" id="a_giveaway_8hpp_html"><div class="ttname"><a href="_giveaway_8hpp.html">Giveaway.hpp</a></div></div>
+<div class="ttc" id="a_giveaway_completed_8hpp_html"><div class="ttname"><a href="_giveaway_completed_8hpp.html">GiveawayCompleted.hpp</a></div></div>
+<div class="ttc" id="a_giveaway_created_8hpp_html"><div class="ttname"><a href="_giveaway_created_8hpp.html">GiveawayCreated.hpp</a></div></div>
+<div class="ttc" id="a_giveaway_winners_8hpp_html"><div class="ttname"><a href="_giveaway_winners_8hpp.html">GiveawayWinners.hpp</a></div></div>
 <div class="ttc" id="a_i_reply_markup_8hpp_html"><div class="ttname"><a href="_i_reply_markup_8hpp.html">IReplyMarkup.hpp</a></div></div>
+<div class="ttc" id="a_inaccessible_message_8hpp_html"><div class="ttname"><a href="_inaccessible_message_8hpp.html">InaccessibleMessage.hpp</a></div></div>
 <div class="ttc" id="a_inline_keyboard_button_8hpp_html"><div class="ttname"><a href="_inline_keyboard_button_8hpp.html">InlineKeyboardButton.hpp</a></div></div>
 <div class="ttc" id="a_inline_keyboard_markup_8hpp_html"><div class="ttname"><a href="_inline_keyboard_markup_8hpp.html">InlineKeyboardMarkup.hpp</a></div></div>
 <div class="ttc" id="a_inline_query_8hpp_html"><div class="ttname"><a href="_inline_query_8hpp.html">InlineQuery.hpp</a></div></div>
 <div class="ttc" id="a_inline_query_result_8hpp_html"><div class="ttname"><a href="_inline_query_result_8hpp.html">InlineQueryResult.hpp</a></div></div>
 <div class="ttc" id="a_inline_query_results_button_8hpp_html"><div class="ttname"><a href="_inline_query_results_button_8hpp.html">InlineQueryResultsButton.hpp</a></div></div>
+<div class="ttc" id="a_input_checklist_8hpp_html"><div class="ttname"><a href="_input_checklist_8hpp.html">InputChecklist.hpp</a></div></div>
+<div class="ttc" id="a_input_checklist_task_8hpp_html"><div class="ttname"><a href="_input_checklist_task_8hpp.html">InputChecklistTask.hpp</a></div></div>
 <div class="ttc" id="a_input_media_8hpp_html"><div class="ttname"><a href="_input_media_8hpp.html">InputMedia.hpp</a></div></div>
 <div class="ttc" id="a_input_message_content_8hpp_html"><div class="ttname"><a href="_input_message_content_8hpp.html">InputMessageContent.hpp</a></div></div>
+<div class="ttc" id="a_input_paid_media_8hpp_html"><div class="ttname"><a href="_input_paid_media_8hpp.html">InputPaidMedia.hpp</a></div></div>
+<div class="ttc" id="a_input_poll_option_8hpp_html"><div class="ttname"><a href="_input_poll_option_8hpp.html">InputPollOption.hpp</a></div></div>
+<div class="ttc" id="a_input_profile_photo_8hpp_html"><div class="ttname"><a href="_input_profile_photo_8hpp.html">InputProfilePhoto.hpp</a></div></div>
 <div class="ttc" id="a_input_sticker_8hpp_html"><div class="ttname"><a href="_input_sticker_8hpp.html">InputSticker.hpp</a></div></div>
+<div class="ttc" id="a_input_story_content_8hpp_html"><div class="ttname"><a href="_input_story_content_8hpp.html">InputStoryContent.hpp</a></div></div>
 <div class="ttc" id="a_invoice_8hpp_html"><div class="ttname"><a href="_invoice_8hpp.html">Invoice.hpp</a></div></div>
 <div class="ttc" id="a_keyboard_button_8hpp_html"><div class="ttname"><a href="_keyboard_button_8hpp.html">KeyboardButton.hpp</a></div></div>
 <div class="ttc" id="a_keyboard_button_poll_type_8hpp_html"><div class="ttname"><a href="_keyboard_button_poll_type_8hpp.html">KeyboardButtonPollType.hpp</a></div></div>
 <div class="ttc" id="a_keyboard_button_request_chat_8hpp_html"><div class="ttname"><a href="_keyboard_button_request_chat_8hpp.html">KeyboardButtonRequestChat.hpp</a></div></div>
-<div class="ttc" id="a_keyboard_button_request_user_8hpp_html"><div class="ttname"><a href="_keyboard_button_request_user_8hpp.html">KeyboardButtonRequestUser.hpp</a></div></div>
+<div class="ttc" id="a_keyboard_button_request_users_8hpp_html"><div class="ttname"><a href="_keyboard_button_request_users_8hpp.html">KeyboardButtonRequestUsers.hpp</a></div></div>
 <div class="ttc" id="a_labeled_price_8hpp_html"><div class="ttname"><a href="_labeled_price_8hpp.html">LabeledPrice.hpp</a></div></div>
+<div class="ttc" id="a_link_preview_options_8hpp_html"><div class="ttname"><a href="_link_preview_options_8hpp.html">LinkPreviewOptions.hpp</a></div></div>
 <div class="ttc" id="a_location_8hpp_html"><div class="ttname"><a href="_location_8hpp.html">Location.hpp</a></div></div>
+<div class="ttc" id="a_location_address_8hpp_html"><div class="ttname"><a href="_location_address_8hpp.html">LocationAddress.hpp</a></div></div>
 <div class="ttc" id="a_login_url_8hpp_html"><div class="ttname"><a href="_login_url_8hpp.html">LoginUrl.hpp</a></div></div>
 <div class="ttc" id="a_mask_position_8hpp_html"><div class="ttname"><a href="_mask_position_8hpp.html">MaskPosition.hpp</a></div></div>
+<div class="ttc" id="a_maybe_inaccessible_message_8hpp_html"><div class="ttname"><a href="_maybe_inaccessible_message_8hpp.html">MaybeInaccessibleMessage.hpp</a></div></div>
 <div class="ttc" id="a_menu_button_8hpp_html"><div class="ttname"><a href="_menu_button_8hpp.html">MenuButton.hpp</a></div></div>
 <div class="ttc" id="a_message_8hpp_html"><div class="ttname"><a href="_message_8hpp.html">Message.hpp</a></div></div>
 <div class="ttc" id="a_message_auto_delete_timer_changed_8hpp_html"><div class="ttname"><a href="_message_auto_delete_timer_changed_8hpp.html">MessageAutoDeleteTimerChanged.hpp</a></div></div>
 <div class="ttc" id="a_message_entity_8hpp_html"><div class="ttname"><a href="_message_entity_8hpp.html">MessageEntity.hpp</a></div></div>
 <div class="ttc" id="a_message_id_8hpp_html"><div class="ttname"><a href="_message_id_8hpp.html">MessageId.hpp</a></div></div>
+<div class="ttc" id="a_message_origin_8hpp_html"><div class="ttname"><a href="_message_origin_8hpp.html">MessageOrigin.hpp</a></div></div>
 <div class="ttc" id="a_message_reaction_count_updated_8hpp_html"><div class="ttname"><a href="_message_reaction_count_updated_8hpp.html">MessageReactionCountUpdated.hpp</a></div></div>
 <div class="ttc" id="a_message_reaction_updated_8hpp_html"><div class="ttname"><a href="_message_reaction_updated_8hpp.html">MessageReactionUpdated.hpp</a></div></div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="_object_8hpp.html">Object.hpp</a></div></div>
 <div class="ttc" id="a_order_info_8hpp_html"><div class="ttname"><a href="_order_info_8hpp.html">OrderInfo.hpp</a></div></div>
+<div class="ttc" id="a_owned_gift_8hpp_html"><div class="ttname"><a href="_owned_gift_8hpp.html">OwnedGift.hpp</a></div></div>
+<div class="ttc" id="a_owned_gifts_8hpp_html"><div class="ttname"><a href="_owned_gifts_8hpp.html">OwnedGifts.hpp</a></div></div>
+<div class="ttc" id="a_paid_media_8hpp_html"><div class="ttname"><a href="_paid_media_8hpp.html">PaidMedia.hpp</a></div></div>
+<div class="ttc" id="a_paid_media_info_8hpp_html"><div class="ttname"><a href="_paid_media_info_8hpp.html">PaidMediaInfo.hpp</a></div></div>
+<div class="ttc" id="a_paid_media_purchased_8hpp_html"><div class="ttname"><a href="_paid_media_purchased_8hpp.html">PaidMediaPurchased.hpp</a></div></div>
+<div class="ttc" id="a_paid_message_price_changed_8hpp_html"><div class="ttname"><a href="_paid_message_price_changed_8hpp.html">PaidMessagePriceChanged.hpp</a></div></div>
 <div class="ttc" id="a_passport_data_8hpp_html"><div class="ttname"><a href="_passport_data_8hpp.html">PassportData.hpp</a></div></div>
 <div class="ttc" id="a_passport_element_error_8hpp_html"><div class="ttname"><a href="_passport_element_error_8hpp.html">PassportElementError.hpp</a></div></div>
 <div class="ttc" id="a_passport_file_8hpp_html"><div class="ttname"><a href="_passport_file_8hpp.html">PassportFile.hpp</a></div></div>
@@ -298,23 +418,49 @@ $(document).ready(function(){initNavTree('tgbotxx_8hpp_source.html',''); initRes
 <div class="ttc" id="a_ptr_8hpp_html"><div class="ttname"><a href="_ptr_8hpp.html">Ptr.hpp</a></div></div>
 <div class="ttc" id="a_reaction_count_8hpp_html"><div class="ttname"><a href="_reaction_count_8hpp.html">ReactionCount.hpp</a></div></div>
 <div class="ttc" id="a_reaction_type_8hpp_html"><div class="ttname"><a href="_reaction_type_8hpp.html">ReactionType.hpp</a></div></div>
+<div class="ttc" id="a_refunded_payment_8hpp_html"><div class="ttname"><a href="_refunded_payment_8hpp.html">RefundedPayment.hpp</a></div></div>
 <div class="ttc" id="a_reply_keyboard_markup_8hpp_html"><div class="ttname"><a href="_reply_keyboard_markup_8hpp.html">ReplyKeyboardMarkup.hpp</a></div></div>
 <div class="ttc" id="a_reply_keyboard_remove_8hpp_html"><div class="ttname"><a href="_reply_keyboard_remove_8hpp.html">ReplyKeyboardRemove.hpp</a></div></div>
 <div class="ttc" id="a_reply_parameters_8hpp_html"><div class="ttname"><a href="_reply_parameters_8hpp.html">ReplyParameters.hpp</a></div></div>
+<div class="ttc" id="a_revenue_withdrawal_state_8hpp_html"><div class="ttname"><a href="_revenue_withdrawal_state_8hpp.html">RevenueWithdrawalState.hpp</a></div></div>
 <div class="ttc" id="a_sent_web_app_message_8hpp_html"><div class="ttname"><a href="_sent_web_app_message_8hpp.html">SentWebAppMessage.hpp</a></div></div>
+<div class="ttc" id="a_shared_user_8hpp_html"><div class="ttname"><a href="_shared_user_8hpp.html">SharedUser.hpp</a></div></div>
 <div class="ttc" id="a_shipping_address_8hpp_html"><div class="ttname"><a href="_shipping_address_8hpp.html">ShippingAddress.hpp</a></div></div>
 <div class="ttc" id="a_shipping_option_8hpp_html"><div class="ttname"><a href="_shipping_option_8hpp.html">ShippingOption.hpp</a></div></div>
 <div class="ttc" id="a_shipping_query_8hpp_html"><div class="ttname"><a href="_shipping_query_8hpp.html">ShippingQuery.hpp</a></div></div>
+<div class="ttc" id="a_star_amount_8hpp_html"><div class="ttname"><a href="_star_amount_8hpp.html">StarAmount.hpp</a></div></div>
+<div class="ttc" id="a_star_transaction_8hpp_html"><div class="ttname"><a href="_star_transaction_8hpp.html">StarTransaction.hpp</a></div></div>
+<div class="ttc" id="a_star_transactions_8hpp_html"><div class="ttname"><a href="_star_transactions_8hpp.html">StarTransactions.hpp</a></div></div>
 <div class="ttc" id="a_sticker_8hpp_html"><div class="ttname"><a href="_sticker_8hpp.html">Sticker.hpp</a></div></div>
 <div class="ttc" id="a_sticker_set_8hpp_html"><div class="ttname"><a href="_sticker_set_8hpp.html">StickerSet.hpp</a></div></div>
 <div class="ttc" id="a_story_8hpp_html"><div class="ttname"><a href="_story_8hpp.html">Story.hpp</a></div></div>
+<div class="ttc" id="a_story_area_8hpp_html"><div class="ttname"><a href="_story_area_8hpp.html">StoryArea.hpp</a></div></div>
+<div class="ttc" id="a_story_area_position_8hpp_html"><div class="ttname"><a href="_story_area_position_8hpp.html">StoryAreaPosition.hpp</a></div></div>
+<div class="ttc" id="a_story_area_type_8hpp_html"><div class="ttname"><a href="_story_area_type_8hpp.html">StoryAreaType.hpp</a></div></div>
 <div class="ttc" id="a_string_utils_8hpp_html"><div class="ttname"><a href="_string_utils_8hpp.html">StringUtils.hpp</a></div></div>
 <div class="ttc" id="a_successful_payment_8hpp_html"><div class="ttname"><a href="_successful_payment_8hpp.html">SuccessfulPayment.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_approval_failed_8hpp_html"><div class="ttname"><a href="_suggested_post_approval_failed_8hpp.html">SuggestedPostApprovalFailed.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_approved_8hpp_html"><div class="ttname"><a href="_suggested_post_approved_8hpp.html">SuggestedPostApproved.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_declined_8hpp_html"><div class="ttname"><a href="_suggested_post_declined_8hpp.html">SuggestedPostDeclined.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_info_8hpp_html"><div class="ttname"><a href="_suggested_post_info_8hpp.html">SuggestedPostInfo.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_paid_8hpp_html"><div class="ttname"><a href="_suggested_post_paid_8hpp.html">SuggestedPostPaid.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_parameters_8hpp_html"><div class="ttname"><a href="_suggested_post_parameters_8hpp.html">SuggestedPostParameters.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_price_8hpp_html"><div class="ttname"><a href="_suggested_post_price_8hpp.html">SuggestedPostPrice.hpp</a></div></div>
+<div class="ttc" id="a_suggested_post_refunded_8hpp_html"><div class="ttname"><a href="_suggested_post_refunded_8hpp.html">SuggestedPostRefunded.hpp</a></div></div>
 <div class="ttc" id="a_switch_inline_query_chosen_chat_8hpp_html"><div class="ttname"><a href="_switch_inline_query_chosen_chat_8hpp.html">SwitchInlineQueryChosenChat.hpp</a></div></div>
+<div class="ttc" id="a_text_quote_8hpp_html"><div class="ttname"><a href="_text_quote_8hpp.html">TextQuote.hpp</a></div></div>
+<div class="ttc" id="a_transaction_partner_8hpp_html"><div class="ttname"><a href="_transaction_partner_8hpp.html">TransactionPartner.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_8hpp_html"><div class="ttname"><a href="_unique_gift_8hpp.html">UniqueGift.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_backdrop_8hpp_html"><div class="ttname"><a href="_unique_gift_backdrop_8hpp.html">UniqueGiftBackdrop.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_backdrop_colors_8hpp_html"><div class="ttname"><a href="_unique_gift_backdrop_colors_8hpp.html">UniqueGiftBackdropColors.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_info_8hpp_html"><div class="ttname"><a href="_unique_gift_info_8hpp.html">UniqueGiftInfo.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_model_8hpp_html"><div class="ttname"><a href="_unique_gift_model_8hpp.html">UniqueGiftModel.hpp</a></div></div>
+<div class="ttc" id="a_unique_gift_symbol_8hpp_html"><div class="ttname"><a href="_unique_gift_symbol_8hpp.html">UniqueGiftSymbol.hpp</a></div></div>
 <div class="ttc" id="a_update_8hpp_html"><div class="ttname"><a href="_update_8hpp.html">Update.hpp</a></div></div>
 <div class="ttc" id="a_user_8hpp_html"><div class="ttname"><a href="_user_8hpp.html">User.hpp</a></div></div>
+<div class="ttc" id="a_user_chat_boosts_8hpp_html"><div class="ttname"><a href="_user_chat_boosts_8hpp.html">UserChatBoosts.hpp</a></div></div>
 <div class="ttc" id="a_user_profile_photos_8hpp_html"><div class="ttname"><a href="_user_profile_photos_8hpp.html">UserProfilePhotos.hpp</a></div></div>
-<div class="ttc" id="a_user_shared_8hpp_html"><div class="ttname"><a href="_user_shared_8hpp.html">UserShared.hpp</a></div></div>
+<div class="ttc" id="a_users_shared_8hpp_html"><div class="ttname"><a href="_users_shared_8hpp.html">UsersShared.hpp</a></div></div>
 <div class="ttc" id="a_venue_8hpp_html"><div class="ttname"><a href="_venue_8hpp.html">Venue.hpp</a></div></div>
 <div class="ttc" id="a_video_8hpp_html"><div class="ttname"><a href="_video_8hpp.html">Video.hpp</a></div></div>
 <div class="ttc" id="a_video_chat_ended_8hpp_html"><div class="ttname"><a href="_video_chat_ended_8hpp.html">VideoChatEnded.hpp</a></div></div>
@@ -333,7 +479,7 @@ $(document).ready(function(){initNavTree('tgbotxx_8hpp_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="tgbotxx_8hpp.html">tgbotxx.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 1 2025 18:35:32 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 25 2025 09:54:01 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

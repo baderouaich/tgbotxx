@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['joinbyrequest_0',['joinByRequest',['../structtgbotxx_1_1_chat.html#a48d1fce46fe4fdfde117536ad827b022',1,'tgbotxx::Chat']]],
-  ['jointosendmessages_1',['joinToSendMessages',['../structtgbotxx_1_1_chat.html#aec97277505ea55c4f0e6156d0c2262f4',1,'tgbotxx::Chat']]]
+  ['joinbyrequest_0',['joinByRequest',['../structtgbotxx_1_1_chat_full_info.html#a8b1d2526983d4d26f6f9de1496cf37c2',1,'tgbotxx::ChatFullInfo']]],
+  ['jointosendmessages_1',['joinToSendMessages',['../structtgbotxx_1_1_chat_full_info.html#a732b4f79352f4a1dd039fe61dcaf0808',1,'tgbotxx::ChatFullInfo']]]
 ];

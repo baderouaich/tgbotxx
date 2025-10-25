@@ -9,6 +9,11 @@ var searchData=
   ['messageautodeletetimerchanged_6',['MessageAutoDeleteTimerChanged',['../structtgbotxx_1_1_message_auto_delete_timer_changed.html',1,'tgbotxx']]],
   ['messageentity_7',['MessageEntity',['../structtgbotxx_1_1_message_entity.html',1,'tgbotxx']]],
   ['messageid_8',['MessageId',['../structtgbotxx_1_1_message_id.html',1,'tgbotxx']]],
-  ['messagereactioncountupdated_9',['MessageReactionCountUpdated',['../structtgbotxx_1_1_message_reaction_count_updated.html',1,'tgbotxx']]],
-  ['messagereactionupdated_10',['MessageReactionUpdated',['../structtgbotxx_1_1_message_reaction_updated.html',1,'tgbotxx']]]
+  ['messageorigin_9',['MessageOrigin',['../structtgbotxx_1_1_message_origin.html',1,'tgbotxx']]],
+  ['messageoriginchannel_10',['MessageOriginChannel',['../structtgbotxx_1_1_message_origin_channel.html',1,'tgbotxx']]],
+  ['messageoriginchat_11',['MessageOriginChat',['../structtgbotxx_1_1_message_origin_chat.html',1,'tgbotxx']]],
+  ['messageoriginhiddenuser_12',['MessageOriginHiddenUser',['../structtgbotxx_1_1_message_origin_hidden_user.html',1,'tgbotxx']]],
+  ['messageoriginuser_13',['MessageOriginUser',['../structtgbotxx_1_1_message_origin_user.html',1,'tgbotxx']]],
+  ['messagereactioncountupdated_14',['MessageReactionCountUpdated',['../structtgbotxx_1_1_message_reaction_count_updated.html',1,'tgbotxx']]],
+  ['messagereactionupdated_15',['MessageReactionUpdated',['../structtgbotxx_1_1_message_reaction_updated.html',1,'tgbotxx']]]
 ];

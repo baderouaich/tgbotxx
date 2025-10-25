@@ -10,5 +10,5 @@ var structtgbotxx_1_1_callback_query =
     [ "gameShortName", "structtgbotxx_1_1_callback_query.html#a5da3d8285faa36c4c7fe7e66e80b22c2", null ],
     [ "id", "structtgbotxx_1_1_callback_query.html#aad8535d442df59e63cf73a00dfaa5ebd", null ],
     [ "inlineMessageId", "structtgbotxx_1_1_callback_query.html#a1f2dd521f261583ad96b44cf55b35d92", null ],
-    [ "message", "structtgbotxx_1_1_callback_query.html#af2b97d805cccc2074079f4a95008223d", null ]
+    [ "message", "structtgbotxx_1_1_callback_query.html#aa29869ecf303d514f57f347242cd75ad", null ]
 ];
