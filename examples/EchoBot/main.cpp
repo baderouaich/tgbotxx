@@ -3,7 +3,7 @@
 #include <csignal>
 using namespace tgbotxx;
 
-class EchoBot : public Bot {
+class EchoBot final : public Bot {
 public:
     EchoBot(const std::string& token) : Bot(token) { }
 

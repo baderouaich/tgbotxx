@@ -5,7 +5,7 @@
 #include <tgbotxx/tgbotxx.hpp>
 using namespace tgbotxx;
 
-class UrlShortenerBot : public Bot {
+class UrlShortenerBot final : public Bot {
   public:
     UrlShortenerBot(const std::string& token) : Bot(token) {}
 

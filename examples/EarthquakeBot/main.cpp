@@ -7,7 +7,7 @@
 #include <set>
 using namespace tgbotxx;
 
-class EarthQuakeBot : public Bot {
+class EarthQuakeBot final : public Bot {
 public:
   EarthQuakeBot(const std::string &token) : Bot(token) {}
 

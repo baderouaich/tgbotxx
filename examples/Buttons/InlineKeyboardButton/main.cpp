@@ -4,7 +4,7 @@
 
 using namespace tgbotxx;
 
-class InlineButtonsBot : public Bot {
+class InlineButtonsBot final : public Bot {
 public:
   InlineButtonsBot(const std::string &token) : Bot(token) {}
 

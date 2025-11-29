@@ -15,7 +15,7 @@ using namespace tgbotxx;
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include <stb_image_write.h>
 
-class QrCodeBot : public Bot {
+class QrCodeBot final : public Bot {
   public:
     QrCodeBot(const std::string& token) : Bot(token) {}
 

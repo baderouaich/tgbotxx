@@ -6,7 +6,7 @@
 #include <array>
 using namespace tgbotxx;
 
-class PhotoBot : public Bot {
+class PhotoBot final : public Bot {
 public:
   PhotoBot(const std::string &token) : Bot(token) {}
 

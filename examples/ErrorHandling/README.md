@@ -9,7 +9,7 @@
 using namespace tgbotxx;
 using namespace std::chrono_literals;
 
-class MyBot : public Bot {
+class MyBot final : public Bot {
   public:
     void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {
       // Handle long polling error

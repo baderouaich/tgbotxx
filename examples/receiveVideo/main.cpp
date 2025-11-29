@@ -5,7 +5,7 @@ using namespace tgbotxx;
 #include <filesystem>
 namespace fs = std::filesystem;
 
-class ReceiveVideoBot : public Bot {
+class ReceiveVideoBot final : public Bot {
   public:
     ReceiveVideoBot(const std::string& token) : Bot(token) {}
 

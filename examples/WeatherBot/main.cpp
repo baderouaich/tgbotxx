@@ -12,7 +12,7 @@
 
 using namespace tgbotxx;
 
-class WeatherBot : public Bot {
+class WeatherBot final : public Bot {
 public:
     WeatherBot(const std::string &token, const std::string &weatherApiKey)
             : Bot(token), m_weatherApiKey(weatherApiKey) {}

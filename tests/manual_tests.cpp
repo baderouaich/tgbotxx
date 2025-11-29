@@ -15,7 +15,7 @@
 
 using namespace tgbotxx;
 
-class MyBot : public Bot {
+class MyBot final : public Bot {
   using CommandHandler = void (MyBot::*)(const Ptr<Message>&);
   const std::map<std::pair<std::string, std::string>, CommandHandler> commandHandlers = {
     // command, description: handler

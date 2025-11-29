@@ -3,7 +3,7 @@
 #include <csignal>
 using namespace tgbotxx;
 
-class PingBot : public Bot {
+class PingBot final : public Bot {
 public:
   PingBot(const std::string &token) : Bot(token) {}
 

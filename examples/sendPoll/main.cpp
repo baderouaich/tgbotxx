@@ -4,7 +4,7 @@
 
 using namespace tgbotxx;
 
-class PollBot : public Bot {
+class PollBot final : public Bot {
 public:
     explicit PollBot(const std::string &token) : Bot(token) {}
 

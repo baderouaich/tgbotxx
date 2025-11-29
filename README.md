@@ -60,7 +60,7 @@ Telegram Bot C++ Library
 #include <iostream>
 using namespace tgbotxx;
 
-class MyBot : public Bot {
+class MyBot final : public Bot {
 public:
   MyBot() : Bot("Bot token here from @BotFather") {}
     

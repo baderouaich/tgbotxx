@@ -4,7 +4,7 @@
 #include <csignal>
 using namespace tgbotxx;
 
-class DocumentBot : public Bot {
+class DocumentBot final : public Bot {
 public:
   DocumentBot(const std::string &token) : Bot(token) {}
 

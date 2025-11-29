@@ -6,7 +6,7 @@
 #include <array>
 using namespace tgbotxx;
 
-class AudioBot : public Bot {
+class AudioBot final : public Bot {
 public:
   AudioBot(const std::string &token) : Bot(token) {}
 

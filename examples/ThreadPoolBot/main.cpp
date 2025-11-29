@@ -7,7 +7,7 @@
 using namespace tgbotxx;
 using namespace std::chrono_literals;
 
-class ThreadPoolBot : public Bot {
+class ThreadPoolBot final : public Bot {
 public:
   ThreadPoolBot(const std::string &token) : Bot(token) {}
 
