@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(tgbotxx VERSION "1.1.9.2" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
+project(tgbotxx VERSION "1.2.9.2" DESCRIPTION "Telegram Bot C++ Library" LANGUAGES C CXX)
 # Note: tgbotxx version's patch & build is based on Telegram Bot Api version for compatibility. See https://core.telegram.org/bots/api-changelog
 # <OurMajorVersion>.<OurMinorVersion>.<TelegramBotApiMajorVersion>.<TelegramBotApiMinorVersion>
 
@@ -15,6 +15,7 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 set(USE_LIBIDN2 OFF CACHE BOOL "Curl option - Use libidn2 for IDN support" FORCE)
 set(CURL_USE_LIBPSL OFF CACHE BOOL "Curl option - Use libpsl" FORCE)
 set(BUILD_CURL_EXE OFF CACHE BOOL "Curl option - Build curl executable" FORCE)
+set(CPR_CURL_USE_LIBPSL OFF CACHE BOOL "Since curl 8.13 curl depends on libpsl (https://everything.curl.dev/build/deps.html#libpsl). By default cpr keeps this as a secure default enabled wich in turn requires meson as build dependency. If set to OFF, psl support inside curl will be disabled." FORCE)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
 ######################################################
 
