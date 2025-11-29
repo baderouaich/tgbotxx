@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
-project(cpr VERSION 1.11.3 LANGUAGES CXX)
+project(cpr VERSION 1.14.1 LANGUAGES CXX)
 
 math(EXPR cpr_VERSION_NUM "${cpr_VERSION_MAJOR} * 0x10000 + ${cpr_VERSION_MINOR} * 0x100 + ${cpr_VERSION_PATCH}" OUTPUT_FORMAT HEXADECIMAL)
 configure_file("${cpr_SOURCE_DIR}/cmake/cprver.h.in" "${cpr_BINARY_DIR}/cpr_generated_includes/cpr/cprver.h")
 
-# Only change the folder behaviour if cpr is not a subproject
+# Only change the folder behavior if cpr is not a subproject
 if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
     set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMake")
@@ -56,6 +56,9 @@ cpr_option(CPR_CURL_NOSIGNAL "Set to ON to disable use of signals in libcurl." O
 cpr_option(CURL_VERBOSE_LOGGING "Curl verbose logging during building curl" OFF)
 cpr_option(CPR_USE_SYSTEM_GTEST "If ON, this project will look in the system paths for an installed gtest library. If none is found it will use the built-in one." OFF)
 cpr_option(CPR_USE_SYSTEM_CURL "If enabled we will use the curl lib already installed on this system." OFF)
+cpr_option(CPR_USE_EXISTING_CURL_TARGET "Use an existing libcurl cmake target instead of having the cpr project source the dependency itself." OFF)
+cpr_option(CPR_CURL_USE_LIBPSL "Since curl 8.13 curl depends on libpsl (https://everything.curl.dev/build/deps.html#libpsl). By default cpr keeps this as a secure default enabled wich in turn requires meson as build dependency. If set to OFF, psl support inside curl will be disabled." ON)
+cpr_option(CPR_USE_SYSTEM_LIB_PSL "If enabled we will use the psl lib already installed on this system. Else meson is required as build dependency. Only relevant in case 'CPR_CURL_USE_LIBPSL' is set to ON." ${CPR_USE_SYSTEM_CURL})
 cpr_option(CPR_ENABLE_CURL_HTTP_ONLY "If enabled we will only use the HTTP/HTTPS protocols from CURL. If disabled, all the CURL protocols are enabled. This is useful if your project uses libcurl and you need support for other CURL features e.g. sending emails." ON)
 cpr_option(CPR_ENABLE_SSL "Enables or disables the SSL backend. Required to perform HTTPS requests." ON)
 cpr_option(CPR_FORCE_OPENSSL_BACKEND "Force to use the OpenSSL backend. If CPR_FORCE_OPENSSL_BACKEND, CPR_FORCE_DARWINSSL_BACKEND, CPR_FORCE_MBEDTLS_BACKEND, and CPR_FORCE_WINSSL_BACKEND are set to to OFF, cpr will try to automatically detect the best available SSL backend (WinSSL - Windows, OpenSSL - Linux, DarwinSSL - Mac ...)." OFF)
@@ -188,7 +191,9 @@ find_package(OpenSSL REQUIRED)
 endif()
 
 # Curl configuration
-if(CPR_USE_SYSTEM_CURL)
+if(CPR_USE_EXISTING_CURL_TARGET)
+    message(STATUS "cpr skipping management of curl dependency (CPR_USE_EXISTING_CURL_TARGET is set to ON).")
+elseif(CPR_USE_SYSTEM_CURL)
     if(CPR_ENABLE_SSL)
         find_package(CURL COMPONENTS HTTP HTTPS)
         if(CURL_FOUND)
@@ -294,10 +299,15 @@ else()
     if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
         cmake_policy(SET CMP0135 NEW)
     endif()
-    FetchContent_Declare(curl
-                         URL                    https://github.com/curl/curl/releases/download/curl-8_10_1/curl-8.10.1.tar.xz
-                         URL_HASH               SHA256=73a4b0e99596a09fa5924a4fb7e4b995a85fda0d18a2c02ab9cf134bebce04ee # the file hash for curl-8.10.1.tar.xz
-                         USES_TERMINAL_DOWNLOAD TRUE)   # <---- This is needed only for Ninja to show download progress
+
+    # Since curl 8.13, curl depends on lib psl
+    set(CURL_USE_LIBPSL ${CPR_CURL_USE_LIBPSL} CACHE INTERNAL "" FORCE)
+    if(CPR_CURL_USE_LIBPSL AND NOT CPR_USE_SYSTEM_LIB_PSL)
+        include(libpsl)
+    endif()
+
+    FetchContent_Declare(curl URL https://github.com/curl/curl/releases/download/curl-8_13_0/curl-8.13.0.tar.xz
+                              URL_HASH SHA256=4a093979a3c2d02de2fbc00549a32771007f2e78032c6faa5ecd2f7a9e152025) # the file hash for curl-8.13.0.tar.xz
     FetchContent_MakeAvailable(curl)
 
     restore_variable(DESTINATION CMAKE_CXX_CLANG_TIDY BACKUP CMAKE_CXX_CLANG_TIDY_BKP)
@@ -377,7 +387,7 @@ if(CPR_BUILD_TESTS)
                          USES_TERMINAL_DOWNLOAD TRUE)   # <---- This is needed only for Ninja to show download progress
     # We can not use FetchContent_MakeAvailable, since we need to patch mongoose to use CMake
     if (NOT mongoose_POPULATED)
-        FetchContent_POPULATE(mongoose)
+        FetchContent_MakeAvailable(mongoose)
 
         file(INSTALL cmake/mongoose.CMakeLists.txt DESTINATION ${mongoose_SOURCE_DIR})
         file(RENAME ${mongoose_SOURCE_DIR}/mongoose.CMakeLists.txt ${mongoose_SOURCE_DIR}/CMakeLists.txt)

@@ -27,13 +27,32 @@ const std::string CurlContainer<Parameter>::GetContent(const CurlHolder& holder)
             content += "&";
         }
 
-        const std::string escapedKey = encode ? holder.urlEncode(parameter.key) : parameter.key;
+        const std::string escapedKey = encode ? std::string{holder.urlEncode(parameter.key)} : parameter.key;
         if (parameter.value.empty()) {
             content += escapedKey;
         } else {
-            const std::string escapedValue = encode ? holder.urlEncode(parameter.value) : parameter.value;
+            const std::string escapedValue = encode ? std::string{holder.urlEncode(parameter.value)} : parameter.value;
             content += escapedKey + "=";
             content += escapedValue;
+        }
+    }
+
+    return content;
+}
+
+template <>
+const std::string CurlContainer<Parameter>::GetContent() const {
+    std::string content{};
+    for (const Parameter& parameter : containerList_) {
+        if (!content.empty()) {
+            content += "&";
+        }
+
+        if (parameter.value.empty()) {
+            content += parameter.key;
+        } else {
+            content += parameter.key + "=";
+            content += parameter.value;
         }
     }
 
@@ -47,8 +66,21 @@ const std::string CurlContainer<Pair>::GetContent(const CurlHolder& holder) cons
         if (!content.empty()) {
             content += "&";
         }
-        const std::string escaped = encode ? holder.urlEncode(element.value) : element.value;
+        const std::string escaped = encode ? std::string{holder.urlEncode(element.value)} : element.value;
         content += element.key + "=" + escaped;
+    }
+
+    return content;
+}
+
+template <>
+const std::string CurlContainer<Pair>::GetContent() const {
+    std::string content{};
+    for (const cpr::Pair& element : containerList_) {
+        if (!content.empty()) {
+            content += "&";
+        }
+        content += element.key + "=" + element.value;
     }
 
     return content;
