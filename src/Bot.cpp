@@ -10,7 +10,7 @@
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-  : m_api{new Api(token)}, m_updates{}, m_lastUpdateId{0}, m_running{false} {
+  : m_api{new Api(token)}, m_updates{}, m_lastUpdateId{0}, m_stopped{std::make_shared<std::atomic<bool>>(true)} {
 }
 
 Bot::~Bot() {
@@ -18,17 +18,17 @@ Bot::~Bot() {
 }
 
 void Bot::start() {
-  if (m_running) return;
-  m_running = true;
+  if (not *m_stopped) return;
+  *m_stopped = false;
 
   /// Callback -> onStart
   this->onStart();
 
   /// Start the Long Polling loop...
-  while (m_running) {
+  while (not *m_stopped) {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)
-      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, {}, m_stopped);
     } catch (const Exception& err) {
       /// Callback -> onLongPollError
       std::string errStr{err.what()};
@@ -57,8 +57,8 @@ void Bot::start() {
 }
 
 void Bot::stop() {
-  if (not m_running) return;
-  m_running = false;
+  if (*m_stopped) return;
+  *m_stopped = true;
 
   /// Callback -> onStop
   this->onStop();
@@ -66,7 +66,7 @@ void Bot::stop() {
 
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
 const Ptr<Api>& Bot::api() const noexcept { return m_api; }
-bool Bot::isRunning() const noexcept { return m_running; }
+bool Bot::isRunning() const noexcept { return not *m_stopped; }
 
 void Bot::dispatch(const Ptr<Update>& update) {
   this->dispatchMessages(update);
