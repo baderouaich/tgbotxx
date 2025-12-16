@@ -43,6 +43,9 @@ namespace tgbotxx {
     /// Bad Gateway
     BAD_GATEWAY = cpr::status::HTTP_BAD_GATEWAY,
 
+    /// Request is cancelled by the sender (e.g. Bot::stop() cancelled long polling request)
+    REQUEST_CANCELLED = 499,
+
     /// An internal server error occurred while a request was being processed; for example,
     /// there was a disruption while accessing a database or file storage.
     /// If a client receives a 500 error, or you believe this error should not have occurred,
@@ -62,6 +65,7 @@ namespace tgbotxx {
        case ErrorCode::CONFLICT: return os << "CONFLICT";
        case ErrorCode::TOO_MANY_REQUESTS: return os << "TOO_MANY_REQUESTS";
        case ErrorCode::BAD_GATEWAY: return os << "BAD_GATEWAY";
+       case ErrorCode::REQUEST_CANCELLED: return os << "REQUEST_CANCELLED";
        case ErrorCode::INTERNAL: return os << "INTERNAL";
        default: return os << "Unknown ErrorCode (" << static_cast<std::int32_t>(errorCode) << ')';
      }
@@ -80,6 +84,7 @@ namespace tgbotxx {
       case static_cast<std::int32_t>(ErrorCode::CONFLICT):
       case static_cast<std::int32_t>(ErrorCode::TOO_MANY_REQUESTS):
       case static_cast<std::int32_t>(ErrorCode::BAD_GATEWAY):
+      case static_cast<std::int32_t>(ErrorCode::REQUEST_CANCELLED):
       case static_cast<std::int32_t>(ErrorCode::INTERNAL):
         return true;
       default:

@@ -28,7 +28,7 @@ void Bot::start() {
   while (not *m_stopped) {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)
-      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, {}, m_stopped);
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, 100, m_stopped);
     } catch (const Exception& err) {
       /// Callback -> onLongPollError
       std::string errStr{err.what()};

@@ -114,6 +114,9 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 
   const cpr::Response res = isMultipart ? session.Post() : session.Get();
+  if (res.error) [[unlikely]] {
+    throw Exception(endpoint + ": " + res.error.message, (res.error.code == cpr::ErrorCode::ABORTED_BY_CALLBACK) ? ErrorCode::REQUEST_CANCELLED : ErrorCode::OTHER);
+  }
   if (res.status_code == 0) [[unlikely]] {
     throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?", ErrorCode::OTHER);
   }
