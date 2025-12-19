@@ -85,13 +85,13 @@ Api::Api(const std::string& token) : m_token(token) {
   m_cache.refresh(this);
 }
 
-nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, std::shared_ptr<std::atomic<bool>> stop) const {
+nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
   cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
 
-  if (stop) {
-    session.SetCancellationParam(stop);
+  if (cancellationParam) {
+    session.SetCancellationParam(cancellationParam);
   }
 
   const bool hasFiles = std::ranges::any_of(data.parts, [](const cpr::Part& part) noexcept { return part.is_file; });
@@ -2598,7 +2598,7 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::shared_ptr<std::atomic<bool>> running) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
   std::vector<Ptr<Update>> updates;
   const cpr::Multipart data = {
     {"offset", offset},
@@ -2606,7 +2606,7 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
-  const nl::json updatesJson = sendRequest("getUpdates", data, running);
+  const nl::json updatesJson = sendRequest("getUpdates", data, cancellationParam);
   updates.reserve(updatesJson.size());
   for (const nl::json& updateObj: updatesJson) {
     Ptr<Update> update = makePtr<Update>(updateObj);

@@ -28,7 +28,6 @@ namespace tgbotxx {
   struct PaidMediaPurchased;
 
   class Bot {
-    private:
       Ptr<Api> m_api{};
       std::vector<Ptr<Update>> m_updates{};
       std::int32_t m_lastUpdateId{};
