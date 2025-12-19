@@ -48,11 +48,11 @@ int main(int argc, const char *argv[]) {
   static std::unique_ptr<ReceiveVideoBot> BOT(new ReceiveVideoBot(argv[1]));
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if (BOT) {
-      std::cout << "Stopping Bot. Please wait...\n";
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

@@ -120,12 +120,13 @@ int main(int argc, const char *argv[]) {
   static std::unique_ptr<WeatherBot> BOT;
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
       if (BOT) {
+        std::cout << "Stopping Bot. Please wait..." << std::endl;
         BOT->stop();
       }
-      std::exit(EXIT_SUCCESS);
   });
 
   BOT = std::make_unique<WeatherBot>(argv[1], argv[2]);
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

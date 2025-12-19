@@ -47,10 +47,9 @@ int main(int argc, const char *argv[]) {
   static std::unique_ptr<ReceivePhotoBot> BOT(new ReceivePhotoBot(argv[1]));
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if (BOT) {
-      std::cout << "Stopping Bot. Please wait...\n";
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
   BOT->start();
   return EXIT_SUCCESS;

@@ -135,15 +135,15 @@ int main(int argc, const char *argv[]) {
     std::cerr << "Usage:\nqrcode_bot \"BOT_TOKEN\"\n";
     return EXIT_FAILURE;
   }
-  static std::unique_ptr<QrCodeBot> BOT;
+  static std::unique_ptr<QrCodeBot> BOT = std::make_unique<QrCodeBot>(argv[1]);
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if (BOT) {
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
 
-  BOT = std::make_unique<QrCodeBot>(argv[1]);
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

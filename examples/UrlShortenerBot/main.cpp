@@ -56,8 +56,8 @@ int main(int argc, const char *argv[]) {
       std::cout << "Stopping Bot. Please wait...\n";
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

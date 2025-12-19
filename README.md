@@ -80,8 +80,7 @@ private:
   // Called when Bot receives a new message of any kind
   // NB: Ptr<T> = std::shared_ptr<T>
   void onAnyMessage(const Ptr<Message>& message) override {
-    std::string reply = "Hi " + message->from->firstName
-                        + "!, got your message!";
+    std::string reply = "Hi " + message->from->firstName + ", got your message!";
     api()->sendMessage(message->chat->id, reply);
   }
   
