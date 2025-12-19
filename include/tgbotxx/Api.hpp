@@ -2214,13 +2214,16 @@ namespace tgbotxx {
     /// with an offset higher than its update_id. The negative offset can be specified to retrieve updates
     /// starting from -offset update from the end of the updates queue. All previous updates will be forgotten.
     /// @param limit Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+    /// @param stop Flag used to stop long polling.
     /// @returns an Array of Update objects.
     /// @throws Exception on failure
     /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
     /// @note This method will not work if an outgoing webhook is set up.
     /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
     /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
-    std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100) const;
+    std::vector<Ptr<Update>> getUpdates(std::int32_t offset,
+                                        std::int32_t limit = 100,
+                                        std::shared_ptr<std::atomic<bool>> stop = {}) const;
 
     /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
     /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
@@ -2823,6 +2826,8 @@ namespace tgbotxx {
     const Cache& getCache() const noexcept;
 
   private:
-    nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
+    nl::json sendRequest(const std::string& endpoint,
+                         const cpr::Multipart& data = cpr::Multipart({}),
+                         std::shared_ptr<std::atomic<bool>> stop = {}) const;
   };
 }

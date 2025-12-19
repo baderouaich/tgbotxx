@@ -32,7 +32,7 @@ namespace tgbotxx {
       Ptr<Api> m_api{};
       std::vector<Ptr<Update>> m_updates{};
       std::int32_t m_lastUpdateId{};
-      std::atomic<bool> m_running{};
+      std::shared_ptr<std::atomic<bool>> m_stopped{};
 
     public:
       /// @brief Constructs a new Bot object

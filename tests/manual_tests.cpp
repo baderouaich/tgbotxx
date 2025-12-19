@@ -63,6 +63,7 @@ private:
     // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
     // in Telegram server before they get deleted or retrieved by BOT)
     api()->deleteWebhook(true);
+    api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
     //      api()->setAllowedUpdates({
     //        "message_reaction",
     //        "message_reaction_count"
@@ -122,7 +123,27 @@ private:
   }
 
   void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) override {
-    std::cerr << "Long polling error: " << errorMessage << " (" << static_cast<int>(errorCode) << ") (" << errorCode << ")" << std::endl;
+    switch (errorCode) {
+      case ErrorCode::OTHER:
+        std::cerr << "Long polling error: " << errorMessage << " (" << static_cast<int>(errorCode) << ") (" << errorCode << ")" << std::endl;
+        break;
+      case ErrorCode::SEE_OTHER:
+      case ErrorCode::BAD_REQUEST:
+      case ErrorCode::UNAUTHORIZED:
+      case ErrorCode::FORBIDDEN:
+      case ErrorCode::NOT_FOUND:
+      case ErrorCode::NOT_ACCEPTABLE:
+      case ErrorCode::FLOOD:
+      case ErrorCode::CONFLICT:
+      case ErrorCode::TOO_MANY_REQUESTS:
+      case ErrorCode::BAD_GATEWAY:
+      case ErrorCode::INTERNAL:
+        std::cerr << "Long polling error: " << errorMessage << " (" << static_cast<int>(errorCode) << ") (" << errorCode << ")" << std::endl;
+        break;
+      case ErrorCode::REQUEST_CANCELLED:
+        std::cout << "Long polling cancelled" << std::endl;
+        break;
+    }
   }
 
   /// Called when a new command is received (messages with leading '/' char).
@@ -577,7 +598,7 @@ private: // Command handlers
     // add local video to the order list
     Ptr<InputPaidMediaVideo> video(new InputPaidMediaVideo());
     video->media = cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4").string()}; // Local
-    video->startTimestamp = 3;                                                                                        // start from 3rd second
+    video->startTimestamp = 3;                                                                                                   // start from 3rd second
     video->supportsStreaming = true;
     paidMedia.push_back(video);
 
@@ -604,15 +625,19 @@ static std::string getToken() {
 }
 
 int main() try {
-  static MyBot bot(getToken());
+  // Create the bot
+  static auto bot = std::make_unique<MyBot>(getToken());
+  // Listen to stop signals for graceful bot exit
   for (const int sig: {SIGINT, SIGTERM}) {
     std::signal(sig, [](int sig) {
-      std::cout << "Signal (" << sig << ") received! Stopping Bot. Please wait...\n";
-      bot.stop();
-      std::exit(EXIT_SUCCESS);
+      std::cout << "Signal (" << sig << ") received! Stopping Bot. Please wait..." << std::endl;
+      bot->stop();
     });
   }
-  bot.start();
+  // Start the bot
+  std::cout << "Bot Starting..." << std::endl;
+  bot->start();
+  std::cout << "Bot Stopped" << std::endl;
   return EXIT_SUCCESS;
 } catch (const std::exception& e) {
   std::cerr << e.what() << std::endl;

@@ -1,4 +1,5 @@
 #include <chrono>
+#include <memory>
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
@@ -69,7 +70,7 @@ const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);   
 const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
 const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
-void Api::Cache::refresh(const Api* api) {
+void Api::Cache::refresh(const Api *api) {
   // Cache Bot's username & commands
   botUsername = api->getMe()->username;
   if (const auto cmds = api->getMyCommands(); !cmds.empty()) {
@@ -84,10 +85,15 @@ Api::Api(const std::string& token) : m_token(token) {
   m_cache.refresh(this);
 }
 
-nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
+nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, std::shared_ptr<std::atomic<bool>> stop) const {
   cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
+
+  if (stop) {
+    session.SetCancellationParam(stop);
+  }
+
   const bool hasFiles = std::ranges::any_of(data.parts, [](const cpr::Part& part) noexcept { return part.is_file; });
   session.SetProxies(m_proxies);
   session.SetConnectTimeout(m_connectTimeout);
@@ -108,6 +114,9 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 
   const cpr::Response res = isMultipart ? session.Post() : session.Get();
+  if (res.error) [[unlikely]] {
+    throw Exception(endpoint + ": " + res.error.message, (res.error.code == cpr::ErrorCode::ABORTED_BY_CALLBACK) ? ErrorCode::REQUEST_CANCELLED : ErrorCode::OTHER);
+  }
   if (res.status_code == 0) [[unlikely]] {
     throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?", ErrorCode::OTHER);
   }
@@ -1995,7 +2004,7 @@ bool Api::answerCallbackQuery(const std::string& callbackQueryId,
 }
 
 Ptr<UserChatBoosts> Api::getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
-                                       std::int64_t userId) const {
+                                           std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
@@ -2589,7 +2598,7 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, std::shared_ptr<std::atomic<bool>> running) const {
   std::vector<Ptr<Update>> updates;
   const cpr::Multipart data = {
     {"offset", offset},
@@ -2597,7 +2606,7 @@ std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
-  const nl::json updatesJson = sendRequest("getUpdates", data);
+  const nl::json updatesJson = sendRequest("getUpdates", data, running);
   updates.reserve(updatesJson.size());
   for (const nl::json& updateObj: updatesJson) {
     Ptr<Update> update = makePtr<Update>(updateObj);
