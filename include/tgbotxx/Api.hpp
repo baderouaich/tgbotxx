@@ -87,6 +87,7 @@ namespace tgbotxx {
     cpr::ConnectTimeout m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;       /// Api connection timeout
     cpr::Timeout m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
     cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
+    std::int32_t m_updatesLimit = 100;                                    /// Limits the number of long polling updates to be retrieved by getUpdates(). Values between 1-100 are accepted. Defaults to 100.
     cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
     cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
     cpr::Proxies m_proxies = cpr::Proxies();                              /// Api proxy to use for requests
@@ -2213,17 +2214,15 @@ namespace tgbotxx {
     /// unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called
     /// with an offset higher than its update_id. The negative offset can be specified to retrieve updates
     /// starting from -offset update from the end of the updates queue. All previous updates will be forgotten.
-    /// @param limit Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
     /// @param cancellationParam Flag used to stop long polling.
     /// @returns an Array of Update objects.
     /// @throws Exception on failure
+    /// @note Limit updates with setUpdatesLimit(limit) method. Default is 100.
     /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
     /// @note This method will not work if an outgoing webhook is set up.
     /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
     /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
-    std::vector<Ptr<Update>> getUpdates(std::int32_t offset,
-                                        std::int32_t limit = 100,
-                                        const std::shared_ptr<std::atomic<bool>>& cancellationParam = nullptr) const;
+    std::vector<Ptr<Update>> getUpdates(std::int32_t offset, const std::shared_ptr<std::atomic<bool>>& cancellationParam = nullptr) const;
 
     /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
     /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
@@ -2787,6 +2786,12 @@ namespace tgbotxx {
     void setLongPollTimeout(const cpr::Timeout& longPollTimeout);
     /// @brief Get long polling timeout.
     cpr::Timeout getLongPollTimeout() const noexcept;
+
+    /// @brief Set the number of long polling updates to be retrieved by getUpdates().
+    /// Values between 1-100 are accepted. Defaults to 100.
+    void setUpdatesLimit(const std::int32_t limit) noexcept;
+    /// @brief Get Set the number of long polling updates to be retrieved by getUpdates().
+    std::int32_t getUpdatesLimit() const noexcept;
 
     /// @brief Set Api requests connection timeout.
     void setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept;

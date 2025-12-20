@@ -62,8 +62,10 @@ private:
     //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
     // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
     // in Telegram server before they get deleted or retrieved by BOT)
-    api()->deleteWebhook(true);
+    //api()->deleteWebhook(true);
     api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
+    api()->setUpdatesLimit(3); // memory tight? process updates 3 by 3...
+    assert(api()->getUpdatesLimit() == 3);
     //      api()->setAllowedUpdates({
     //        "message_reaction",
     //        "message_reaction_count"

@@ -2598,11 +2598,11 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
   std::vector<Ptr<Update>> updates;
   const cpr::Multipart data = {
     {"offset", offset},
-    {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
+    {"limit", m_updatesLimit},
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
@@ -3428,6 +3428,11 @@ void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
   m_longPollTimeout = longPollTimeout;
 }
 cpr::Timeout Api::getLongPollTimeout() const noexcept { return m_longPollTimeout; }
+
+void Api::setUpdatesLimit(const std::int32_t limit) noexcept {
+  m_updatesLimit = std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit));
+}
+std::int32_t Api::getUpdatesLimit() const noexcept { return m_updatesLimit; }
 
 void Api::setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept {
   m_connectTimeout = timeout;
