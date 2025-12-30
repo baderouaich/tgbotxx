@@ -5,7 +5,7 @@ ChatFullInfo::ChatFullInfo(const nl::json& json) {
   ChatFullInfo::fromJson(json);
 }
 
-nl::json ChatFullInfo::toJson() const override {
+nl::json ChatFullInfo::toJson() const {
   nl::json json = Chat::toJson();
   OBJECT_SERIALIZE_FIELD(json, "accent_color_id", accentColorId);
   OBJECT_SERIALIZE_FIELD(json, "max_reaction_count", maxReactionCount);
@@ -47,7 +47,7 @@ nl::json ChatFullInfo::toJson() const override {
 }
 
 
-void ChatFullInfo::fromJson(const nl::json& json) override {
+void ChatFullInfo::fromJson(const nl::json& json) {
   Chat::fromJson(json);
   OBJECT_DESERIALIZE_FIELD(json, "accent_color_id", accentColorId, 0, true);
   OBJECT_DESERIALIZE_FIELD(json, "max_reaction_count", maxReactionCount, 0, false);
