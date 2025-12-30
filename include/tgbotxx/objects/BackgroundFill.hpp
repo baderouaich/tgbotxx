@@ -11,14 +11,14 @@ namespace tgbotxx {
   struct BackgroundFill {
     BackgroundFill() = default;
     explicit BackgroundFill(const nl::json& json) {
-      _fromJson(json);
+      BackgroundFill::fromJson(json);
     }
     virtual ~BackgroundFill() = default;
 
     /// @brief Type of the background fill, one of "solid", "gradient", "freeform_gradient"
     std::string type;
 
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
       return json;
@@ -27,21 +27,15 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The background is filled using the selected solid color.
   /// @ref https://core.telegram.org/bots/api#backgroundfillsolid
   struct BackgroundFillSolid : BackgroundFill {
-    BackgroundFillSolid() {
-      BackgroundFill::type = "solid";
-    }
-    explicit BackgroundFillSolid(const nl::json& json) : BackgroundFill(json) {
-      BackgroundFill::type = "solid";
+    BackgroundFillSolid() = default;
+    explicit BackgroundFillSolid(const nl::json& json) {
+      BackgroundFillSolid::fromJson(json);
+      // BackgroundFill::type = "solid";
     }
 
     /// @brief The color of the background fill in the RGB24 format
@@ -62,11 +56,10 @@ namespace tgbotxx {
   /// @brief The background is a gradient fill.
   /// @ref https://core.telegram.org/bots/api#backgroundfillgradient
   struct BackgroundFillGradient : BackgroundFill {
-    BackgroundFillGradient() {
-      BackgroundFill::type = "gradient";
-    }
-    explicit BackgroundFillGradient(const nl::json& json) : BackgroundFill(json) {
-      BackgroundFill::type = "gradient";
+    BackgroundFillGradient() = default;
+    explicit BackgroundFillGradient(const nl::json& json) {
+      BackgroundFillGradient::fromJson(json);
+      // BackgroundFill::type = "gradient";
     }
 
     /// @brief Top color of the gradient in the RGB24 format
@@ -97,11 +90,10 @@ namespace tgbotxx {
   /// @brief The background is a freeform gradient that rotates after every message in the chat.
   /// @ref https://core.telegram.org/bots/api#backgroundfillfreeformgradient
   struct BackgroundFillFreeformGradient : BackgroundFill {
-    BackgroundFillFreeformGradient() {
-      BackgroundFill::type = "freeform_gradient";
-    }
-    explicit BackgroundFillFreeformGradient(const nl::json& json) : BackgroundFill(json) {
-      BackgroundFill::type = "freeform_gradient";
+    BackgroundFillFreeformGradient() = default;
+    explicit BackgroundFillFreeformGradient(const nl::json& json) {
+      BackgroundFillFreeformGradient::fromJson(json);
+      // BackgroundFill::type = "freeform_gradient";
     }
 
     /// @brief A list of 3 or 4 base colors that are used to generate the freeform gradient in the RGB24 format

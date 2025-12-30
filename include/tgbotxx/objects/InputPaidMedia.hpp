@@ -10,7 +10,7 @@ namespace tgbotxx {
   struct InputPaidMedia {
     InputPaidMedia() = default;
     explicit InputPaidMedia(const nl::json& json) {
-      _fromJson(json);
+      InputPaidMedia::fromJson(json);
     }
     virtual ~InputPaidMedia() = default;
 
@@ -26,7 +26,7 @@ namespace tgbotxx {
     std::variant<cpr::File, std::string> media{""};
 
     /// @brief Serializes this object to JSON
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
       // media variant
@@ -43,25 +43,17 @@ namespace tgbotxx {
       // media variant, we can't get a local file from remote, so it's always a URL or file id std::string.
       OBJECT_DESERIALIZE_FIELD(json, "media", std::get<std::string>(media), "", false);
     }
-
-  private:
-    /// @brief Avoid calling virtual fromJson in constructor
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The paid media to send is a photo
   struct InputPaidMediaPhoto : InputPaidMedia {
-    InputPaidMediaPhoto() {
-      InputPaidMedia::type = "photo";
-    }
-    explicit InputPaidMediaPhoto(const nl::json& json) : InputPaidMedia(json) {
-      InputPaidMedia::type = "photo";
+    InputPaidMediaPhoto() = default;
+    explicit InputPaidMediaPhoto(const nl::json& json) {
+      InputPaidMediaPhoto::fromJson(json);
+      // InputPaidMedia::type = "photo";
     }
 
-
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = InputPaidMedia::toJson();
       return json;
     }
@@ -73,11 +65,10 @@ namespace tgbotxx {
 
   /// @brief The paid media to send is a video
   struct InputPaidMediaVideo : InputPaidMedia {
-    InputPaidMediaVideo() {
-      InputPaidMedia::type = "video";
-    }
-    explicit InputPaidMediaVideo(const nl::json& json) : InputPaidMedia(json) {
-      InputPaidMedia::type = "video";
+    InputPaidMediaVideo() = default;
+    explicit InputPaidMediaVideo(const nl::json& json) {
+      InputPaidMediaVideo::fromJson(json);
+      // InputPaidMedia::type = "video";
     }
 
     /// @brief Optional. Thumbnail of the file sent
@@ -101,7 +92,7 @@ namespace tgbotxx {
     /// @brief Optional. True if the uploaded video is suitable for streaming
     bool supportsStreaming{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = InputPaidMedia::toJson();
       OBJECT_SERIALIZE_FIELD(json, "thumbnail", thumbnail);
       OBJECT_SERIALIZE_FIELD(json, "cover", cover);

@@ -15,7 +15,7 @@ namespace tgbotxx {
   struct TransactionPartner {
     TransactionPartner() = default;
     explicit TransactionPartner(const nl::json& json) {
-      _fromJson(json);
+      TransactionPartner::fromJson(json);
     }
     virtual ~TransactionPartner() = default;
 
@@ -24,7 +24,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
       return json;
@@ -34,21 +34,14 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    /// @brief Avoid calling virtual fromJson in constructor
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief Describes a transaction with a user.
   struct TransactionPartnerUser : TransactionPartner {
-    TransactionPartnerUser() {
-      TransactionPartner::type = "user";
-    }
-    explicit TransactionPartnerUser(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "user";
+    TransactionPartnerUser() = default;
+    explicit TransactionPartnerUser(const nl::json& json) {
+      TransactionPartnerUser::fromJson(json);
+      // TransactionPartner::type = "user";
     }
 
     /// @brief Type of the transaction, e.g., "invoice_payment", "paid_media_payment", etc.
@@ -80,7 +73,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = TransactionPartner::toJson();
       OBJECT_SERIALIZE_FIELD(json, "transaction_type", transactionType);
       OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
@@ -111,11 +104,10 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with a chat.
   struct TransactionPartnerChat : TransactionPartner {
-    TransactionPartnerChat() {
-      TransactionPartner::type = "chat";
-    }
-    explicit TransactionPartnerChat(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "chat";
+    TransactionPartnerChat() = default;
+    explicit TransactionPartnerChat(const nl::json& json) {
+      TransactionPartnerChat::fromJson(json);
+      // TransactionPartner::type = "chat";
     }
 
     /// @brief Information about the chat
@@ -125,7 +117,7 @@ namespace tgbotxx {
     Ptr<Gift> gift;
 
     /// @brief Serializes this object to JSON
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = TransactionPartner::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "chat", chat);
       OBJECT_SERIALIZE_FIELD_PTR(json, "gift", gift);
@@ -142,11 +134,10 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with an affiliate program.
   struct TransactionPartnerAffiliateProgram : TransactionPartner {
-    TransactionPartnerAffiliateProgram() {
-      TransactionPartner::type = "affiliate_program";
-    }
-    explicit TransactionPartnerAffiliateProgram(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "affiliate_program";
+    TransactionPartnerAffiliateProgram() = default;
+    explicit TransactionPartnerAffiliateProgram(const nl::json& json) {
+      TransactionPartnerAffiliateProgram::fromJson(json);
+      //TransactionPartner::type = "affiliate_program";
     }
 
     /// @brief Optional. Information about the bot sponsoring the affiliate program
@@ -155,7 +146,7 @@ namespace tgbotxx {
     /// @brief Number of Telegram Stars received per 1000 Stars of referred users
     std::int32_t commissionPerMille{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = TransactionPartner::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "sponsor_user", sponsorUser);
       OBJECT_SERIALIZE_FIELD(json, "commission_per_mille", commissionPerMille);
@@ -171,17 +162,16 @@ namespace tgbotxx {
 
   /// @brief Describes a withdrawal transaction with Fragment.
   struct TransactionPartnerFragment : TransactionPartner {
-    TransactionPartnerFragment() {
-      TransactionPartner::type = "fragment";
-    }
-    explicit TransactionPartnerFragment(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "fragment";
+    TransactionPartnerFragment() = default;
+    explicit TransactionPartnerFragment(const nl::json& json) {
+      TransactionPartnerFragment::fromJson(json);
+      // TransactionPartner::type = "fragment";
     }
 
     /// @brief Optional. State of the withdrawal if transaction is outgoing
     Ptr<RevenueWithdrawalState> withdrawalState;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = TransactionPartner::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "withdrawal_state", withdrawalState);
       return json;
@@ -195,27 +185,34 @@ namespace tgbotxx {
 
   /// @brief Describes a withdrawal transaction to Telegram Ads platform.
   struct TransactionPartnerTelegramAds : TransactionPartner {
-    TransactionPartnerTelegramAds() {
-      TransactionPartner::type = "telegram_ads";
+    TransactionPartnerTelegramAds() = default;
+    explicit TransactionPartnerTelegramAds(const nl::json& json) {
+      TransactionPartnerTelegramAds::fromJson(json);
+      // TransactionPartner::type = "telegram_ads";
     }
-    explicit TransactionPartnerTelegramAds(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "telegram_ads";
+
+    [[nodiscard]] nl::json toJson() const override {
+      nl::json json = TransactionPartner::toJson();
+      return json;
+    }
+
+    void fromJson(const nl::json& json) override {
+      TransactionPartner::fromJson(json);
     }
   };
 
   /// @brief Describes a transaction for paid broadcasting (Telegram API).
   struct TransactionPartnerTelegramApi : TransactionPartner {
-    TransactionPartnerTelegramApi() {
-      TransactionPartner::type = "telegram_api";
-    }
-    explicit TransactionPartnerTelegramApi(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "telegram_api";
+    TransactionPartnerTelegramApi() = default;
+    explicit TransactionPartnerTelegramApi(const nl::json& json) {
+      TransactionPartnerTelegramApi::fromJson(json);
+      // TransactionPartner::type = "telegram_api";
     }
 
     /// @brief Number of successful requests exceeding regular limits that were billed
     std::int32_t requestCount{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = TransactionPartner::toJson();
       OBJECT_SERIALIZE_FIELD(json, "request_count", requestCount);
       return json;
@@ -229,11 +226,19 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with an unknown source or recipient.
   struct TransactionPartnerOther : TransactionPartner {
-    TransactionPartnerOther() {
-      TransactionPartner::type = "other";
+    TransactionPartnerOther() = default;
+    explicit TransactionPartnerOther(const nl::json& json) {
+      TransactionPartnerOther::fromJson(json);
+      // TransactionPartner::type = "other";
     }
-    explicit TransactionPartnerOther(const nl::json& json) : TransactionPartner(json) {
-      TransactionPartner::type = "other";
+
+    [[nodiscard]] nl::json toJson() const override {
+      nl::json json = TransactionPartner::toJson();
+      return json;
+    }
+
+    void fromJson(const nl::json& json) override {
+      TransactionPartner::fromJson(json);
     }
   };
 

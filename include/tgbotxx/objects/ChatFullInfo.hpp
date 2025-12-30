@@ -139,7 +139,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = Chat::toJson();
       OBJECT_SERIALIZE_FIELD(json, "accent_color_id", accentColorId);
       OBJECT_SERIALIZE_FIELD(json, "max_reaction_count", maxReactionCount);

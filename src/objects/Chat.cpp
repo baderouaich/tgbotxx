@@ -2,11 +2,7 @@
 using namespace tgbotxx;
 
 Chat::Chat(const nl::json& json) {
-  _fromJson(json);
-}
-
-void Chat::_fromJson(const nl::json& json) {
-  fromJson(json);
+  Chat::fromJson(json);
 }
 
 std::optional<std::string> Chat::TypeToString(const Type type) noexcept {

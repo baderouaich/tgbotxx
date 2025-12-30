@@ -8,14 +8,14 @@ namespace tgbotxx {
   struct InputStoryContent {
     InputStoryContent() = default;
     explicit InputStoryContent(const nl::json& json) {
-      _fromJson(json);
+      InputStoryContent::fromJson(json);
     }
     virtual ~InputStoryContent() = default;
 
     /// @brief Type of the story content
     std::string type;
 
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
       return json;
@@ -24,21 +24,15 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief Describes a photo to post as a story
   /// @ref https://core.telegram.org/bots/api#inputstorycontentphoto
   struct InputStoryContentPhoto : InputStoryContent {
-    InputStoryContentPhoto() {
-      InputStoryContent::type = "photo";
-    }
-    explicit InputStoryContentPhoto(const nl::json& json) : InputStoryContent(json) {
-      InputStoryContent::type = "photo";
+    InputStoryContentPhoto() = default;
+    explicit InputStoryContentPhoto(const nl::json& json) {
+      InputStoryContentPhoto::fromJson(json);
+      // InputStoryContentPhoto::type = "photo";
     }
 
     /// @brief The photo to post as a story. Must be 1080x1920 and <= 10MB. Can't be reused.
@@ -46,7 +40,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = InputStoryContent::toJson();
       OBJECT_SERIALIZE_FIELD(json, "photo", photo);
       return json;
@@ -62,11 +56,10 @@ namespace tgbotxx {
   /// @brief Describes a video to post as a story
   /// @ref https://core.telegram.org/bots/api#inputstorycontentvideo
   struct InputStoryContentVideo : InputStoryContent {
-    InputStoryContentVideo() {
-      InputStoryContent::type = "video";
-    }
-    explicit InputStoryContentVideo(const nl::json& json) : InputStoryContent(json) {
-      InputStoryContent::type = "video";
+    InputStoryContentVideo() = default;
+    explicit InputStoryContentVideo(const nl::json& json) {
+      InputStoryContentVideo::fromJson(json);
+      // InputStoryContentVideo::type = "video";
     }
 
     /// @brief The video to post as a story. Must be 720x1280, H.265, streamable, <= 30MB. Can't be reused.
@@ -83,7 +76,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = InputStoryContent::toJson();
       OBJECT_SERIALIZE_FIELD(json, "video", video);
       OBJECT_SERIALIZE_FIELD(json, "duration", duration);

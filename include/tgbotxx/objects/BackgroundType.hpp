@@ -14,7 +14,7 @@ namespace tgbotxx {
   struct BackgroundType {
     BackgroundType() = default;
     explicit BackgroundType(const nl::json& json) {
-      _fromJson(json);
+      BackgroundType::fromJson(json);
     }
     virtual ~BackgroundType() = default;
 
@@ -30,21 +30,15 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The background is automatically filled based on the selected colors.
   /// @ref https://core.telegram.org/bots/api#backgroundtypefill
   struct BackgroundTypeFill : BackgroundType {
-    BackgroundTypeFill() {
-      BackgroundType::type = "fill";
-    }
-    explicit BackgroundTypeFill(const nl::json& json) : BackgroundType(json) {
-      BackgroundType::type = "fill";
+    BackgroundTypeFill() = default;
+    explicit BackgroundTypeFill(const nl::json& json) {
+      BackgroundTypeFill::fromJson(json);
+      BackgroundTypeFill::type = "fill";
     }
 
     /// @brief The background fill
@@ -70,11 +64,10 @@ namespace tgbotxx {
   /// @brief The background is a wallpaper in JPEG format.
   /// @ref https://core.telegram.org/bots/api#backgroundtypewallpaper
   struct BackgroundTypeWallpaper : BackgroundType {
-    BackgroundTypeWallpaper() {
-      BackgroundType::type = "wallpaper";
-    }
-    explicit BackgroundTypeWallpaper(const nl::json& json) : BackgroundType(json) {
-      BackgroundType::type = "wallpaper";
+    BackgroundTypeWallpaper() = default;
+    explicit BackgroundTypeWallpaper(const nl::json& json){
+      BackgroundTypeWallpaper::fromJson(json);
+      // BackgroundTypeWallpaper::type = "wallpaper";
     }
 
     /// @brief Document with the wallpaper
@@ -110,11 +103,10 @@ namespace tgbotxx {
   /// @brief The background is a PNG or TGV pattern combined with a fill.
   /// @ref https://core.telegram.org/bots/api#backgroundtypepattern
   struct BackgroundTypePattern : BackgroundType {
-    BackgroundTypePattern() {
-      BackgroundType::type = "pattern";
-    }
-    explicit BackgroundTypePattern(const nl::json& json) : BackgroundType(json) {
-      BackgroundType::type = "pattern";
+    BackgroundTypePattern() = default;
+    explicit BackgroundTypePattern(const nl::json& json) {
+      BackgroundTypePattern::fromJson(json);
+      // BackgroundTypePattern::type = "pattern";
     }
 
     /// @brief Document with the pattern
@@ -155,11 +147,10 @@ namespace tgbotxx {
   /// @brief The background is taken directly from a built-in chat theme.
   /// @ref https://core.telegram.org/bots/api#backgroundtypechattheme
   struct BackgroundTypeChatTheme : BackgroundType {
-    BackgroundTypeChatTheme() {
-      BackgroundType::type = "chat_theme";
-    }
-    explicit BackgroundTypeChatTheme(const nl::json& json) : BackgroundType(json) {
-      BackgroundType::type = "chat_theme";
+    BackgroundTypeChatTheme() = default;
+    explicit BackgroundTypeChatTheme(const nl::json& json) {
+      BackgroundTypeChatTheme::fromJson(json);
+      // BackgroundTypeChatTheme::type = "chat_theme";
     }
 
     /// @brief Name of the chat theme, which is usually an emoji

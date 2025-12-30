@@ -12,7 +12,7 @@ namespace tgbotxx {
   struct OwnedGift {
     OwnedGift() = default;
     explicit OwnedGift(const nl::json& json) {
-      _fromJson(json);
+      OwnedGift::fromJson(json);
     }
     virtual ~OwnedGift() = default;
 
@@ -31,19 +31,14 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief Describes a regular gift owned by a user or a chat
   struct OwnedGiftRegular : OwnedGift {
-    OwnedGiftRegular() {
-      OwnedGift::type = "regular";
-    }
-    explicit OwnedGiftRegular(const nl::json& json) : OwnedGift(json) {
-      OwnedGift::type = "regular";
+    OwnedGiftRegular() = default;
+    explicit OwnedGiftRegular(const nl::json& json) {
+      OwnedGiftRegular::fromJson(json);
+      // OwnedGift::type = "regular";
     }
     ~OwnedGiftRegular() override = default;
 
@@ -121,11 +116,9 @@ namespace tgbotxx {
 
   /// @brief Describes a unique gift owned by a user or a chat
   struct OwnedGiftUnique : OwnedGift {
-    OwnedGiftUnique() {
-      OwnedGift::type = "unique";
-    }
-    explicit OwnedGiftUnique(const nl::json& json) : OwnedGift(json) {
-      OwnedGift::type = "unique";
+    OwnedGiftUnique() = default;
+    explicit OwnedGiftUnique(const nl::json& json) {
+      OwnedGiftUnique::fromJson(json);
     }
     ~OwnedGiftUnique() override = default;
 
@@ -154,7 +147,7 @@ namespace tgbotxx {
     std::int64_t nextTransferDate{};
 
     /// @brief Serializes this object to JSON
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = OwnedGift::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "gift", gift);
       OBJECT_SERIALIZE_FIELD(json, "owned_gift_id", ownedGiftId);

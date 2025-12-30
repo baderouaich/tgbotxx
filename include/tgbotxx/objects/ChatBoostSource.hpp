@@ -11,7 +11,7 @@ namespace tgbotxx {
   struct ChatBoostSource {
     ChatBoostSource() = default;
     explicit ChatBoostSource(const nl::json& json) {
-      _fromJson(json);
+      ChatBoostSource::fromJson(json);
     }
     virtual ~ChatBoostSource() = default;
 
@@ -21,7 +21,7 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "source", source);
       return json;
@@ -31,28 +31,21 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "source", source, "", false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcepremium
   struct ChatBoostSourcePremium : ChatBoostSource {
-    ChatBoostSourcePremium() {
-      ChatBoostSource::source = "premium";
-    }
+    ChatBoostSourcePremium() = default;
     explicit ChatBoostSourcePremium(const nl::json& json) {
-      ChatBoostSource::fromJson(json);
-      ChatBoostSource::source = "premium";
+      ChatBoostSourcePremium::fromJson(json);
+      // ChatBoostSource::source = "premium";
     }
 
     /// @brief User that boosted the chat
     Ptr<User> user;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = ChatBoostSource::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
       return json;
@@ -66,18 +59,16 @@ namespace tgbotxx {
   /// @brief The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcegiftcode
   struct ChatBoostSourceGiftCode : ChatBoostSource {
-    ChatBoostSourceGiftCode() {
-      ChatBoostSource::source = "gift_code";
-    }
+    ChatBoostSourceGiftCode() = default;
     explicit ChatBoostSourceGiftCode(const nl::json& json) {
-      ChatBoostSource::fromJson(json);
-      ChatBoostSource::source = "gift_code";
+      ChatBoostSourceGiftCode::fromJson(json);
+      // ChatBoostSourceGiftCode::source = "gift_code";
     }
 
     /// @brief User for which the gift code was created
     Ptr<User> user;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = ChatBoostSource::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
       return json;
@@ -92,12 +83,10 @@ namespace tgbotxx {
   /// This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcegiveaway
   struct ChatBoostSourceGiveaway : ChatBoostSource {
-    ChatBoostSourceGiveaway() {
-      ChatBoostSource::source = "giveaway";
-    }
+    ChatBoostSourceGiveaway() = default;
     explicit ChatBoostSourceGiveaway(const nl::json& json) {
-      ChatBoostSource::fromJson(json);
-      ChatBoostSource::source = "giveaway";
+      ChatBoostSourceGiveaway::fromJson(json);
+      // ChatBoostSourceGiveaway::source = "giveaway";
     }
 
     /// @brief Identifier of a message in the chat with the giveaway; the message could have been deleted already.
@@ -110,7 +99,7 @@ namespace tgbotxx {
     /// @brief Optional. True, if the giveaway was completed, but there was no user to win the prize
     bool isUnclaimed{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = ChatBoostSource::toJson();
       OBJECT_SERIALIZE_FIELD(json, "giveaway_message_id", giveawayMessageId);
       OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);

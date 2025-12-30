@@ -16,7 +16,7 @@ namespace tgbotxx {
 
     /// @brief Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format @channelusername).
     /// @note Not supported for messages sent on behalf of a business account and messages from channel direct messages chats.
-    std::variant<std::int64_t, std::string> chatId; // std::monostate
+    std::variant<std::monostate, std::int64_t, std::string> chatId{};
 
     /// @brief Optional. Pass True if the message should be sent even if the specified message to be replied to is not found;
     /// can be used only for replies in the same chat and forum topic.
@@ -43,13 +43,15 @@ namespace tgbotxx {
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
-    nl::json toJson() const {
+    [[nodiscard]] nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "message_id", messageId);
       if (std::holds_alternative<std::int64_t>(chatId)) {
         OBJECT_SERIALIZE_FIELD(json, "chat_id", std::get<std::int64_t>(chatId));
       } else if (std::holds_alternative<std::string>(chatId)) {
         OBJECT_SERIALIZE_FIELD(json, "chat_id", std::get<std::string>(chatId));
+      } else {
+        // ignore std::monostate.
       }
       OBJECT_SERIALIZE_FIELD(json, "allow_sending_without_reply", allowSendingWithoutReply);
       OBJECT_SERIALIZE_FIELD(json, "quote", quote);
