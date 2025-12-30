@@ -2023,10 +2023,6 @@ bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
   data.parts.emplace_back("commands", commandsJson.dump());
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
-  else {
-    auto defScope = makePtr<BotCommandScopeDefault>();
-    data.parts.emplace_back("scope", defScope->toJson().dump());
-  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
@@ -2063,10 +2059,6 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scop
   data.parts.reserve(2);
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
-  else {
-    const auto defScope = makePtr<BotCommandScopeDefault>();
-    data.parts.emplace_back("scope", defScope->toJson().dump());
-  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
