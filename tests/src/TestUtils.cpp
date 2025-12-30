@@ -46,6 +46,11 @@ TEST_CASE("StringUtils", "all functions") {
 
     std::string str3 = StringUtils::join(ints, "ok");
     REQUIRE(str3 == "1ok2ok3");
+
+    std::string s = ",,,,,,";
+    std::string r = StringUtils::join(std::span{s}, ',');
+    std::string expected((s.size() * 2) - 1, ',');
+    REQUIRE(r == expected);
   }
 }
 

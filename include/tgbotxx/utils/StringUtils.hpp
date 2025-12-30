@@ -13,15 +13,18 @@ namespace tgbotxx {
     /// @param con: Container of T elements
     /// @param delim: Text to put between each element T
     /// Example: array = [1,2,3]
-    ///           StringUtils::join(array, ",") -> "1,2,3"
+    ///          StringUtils::join(array, ",") -> "1,2,3"
     template<typename T, typename D>
-    [[nodiscard]] static std::string join(const std::span<T>& con, const D& delim) {
+    [[nodiscard]] static std::string join(std::span<T> con, const D& delim) {
       std::ostringstream oss{};
-      for (std::size_t i = 0; i < con.size(); ++i) {
-        oss << con[i];
-        if (i != con.size() - 1) {
-          oss << delim;
-        }
+      auto it = con.begin();
+      if (it == con.end()) {
+        return {};
+      }
+      oss << *it;
+      ++it;
+      for (; it != con.end(); ++it) {
+        oss << delim << *it;
       }
       return oss.str();
     }
@@ -97,7 +100,7 @@ namespace tgbotxx {
     }
 
     /// @brief Left trim a string from start (copy)
-    /// @param str: string to trim from the left
+    /// @param s: string to trim from the left
     /// @returns Copy of left trimmed string
     [[nodiscard]] static std::string ltrimCopy(std::string s) {
       ltrim(s);
@@ -105,7 +108,7 @@ namespace tgbotxx {
     }
 
     /// @brief Right trim a string from end (copy)
-    /// @param str: string to trim from the right
+    /// @param s: string to trim from the right
     /// @returns Copy of right trimmed string
     [[nodiscard]] static std::string rtrimCopy(std::string s) {
       rtrim(s);
@@ -113,7 +116,7 @@ namespace tgbotxx {
     }
 
     /// @brief Left and Right trim a string from start and end (copy)
-    /// @param str: string to trim from the left and right
+    /// @param s: string to trim from the left and right
     /// @returns Copy of trimmed string
     [[nodiscard]] static std::string trimCopy(std::string s) {
       trim(s);
@@ -200,13 +203,13 @@ namespace tgbotxx {
       for (char& c: str) {
         switch (choice(engine)) {
           case 0: // a-z
-            c = lowercaseAlpha(engine);
+            c = static_cast<char>(lowercaseAlpha(engine));
             break;
           case 1: // A-Z
-            c = uppercaseAlpha(engine);
+            c = static_cast<char>(uppercaseAlpha(engine));
             break;
           case 2: // 0-9
-            c = digits(engine);
+            c = static_cast<char>(digits(engine));
             break;
           default:
             break;
