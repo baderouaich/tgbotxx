@@ -23,17 +23,19 @@ namespace tgbotxx {
     /// - Pass a cpr::File to upload a local file
     /// The latter will internally use “attach://<file_attach_name>” with multipart/form-data under <file_attach_name> name to upload the local file.
     /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    std::variant<cpr::File, std::string> media{""};
+    std::variant<std::monostate, cpr::File, std::string> media{};
 
     /// @brief Serializes this object to JSON
     [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
-      // media variant
-      if (auto idx = media.index(); idx == 0)
-        json["media"] = std::get<cpr::File>(media).filepath;
-      else if (idx == 1)
-        json["media"] = std::get<std::string>(media);
+      if (not std::holds_alternative<std::monostate>(media)) {
+        // media variant
+        if (std::holds_alternative<cpr::File>(media))
+          json["media"] = std::get<cpr::File>(media).filepath;
+        else
+          json["media"] = std::get<std::string>(media);
+      }
       return json;
     }
 
