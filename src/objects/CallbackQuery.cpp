@@ -27,10 +27,12 @@ void CallbackQuery::fromJson(const nl::json& json) {
     // date: Always 0. The field can be used to differentiate regular and inaccessible messages.
     const bool isInaccessibleMessage = json["message"].contains("date") && json["message"]["date"].get<std::time_t>() == 0;
     if (isInaccessibleMessage) {
-      Ptr<InaccessibleMessage>& inaccessibleMessage = std::get<1>(message);
+      message = makePtr<InaccessibleMessage>();
+      auto& inaccessibleMessage = std::get<Ptr<InaccessibleMessage>>(message);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "message", inaccessibleMessage, true);
     } else { // Regular message
-      Ptr<Message>& regularMessage = std::get<0>(message);
+      message = makePtr<Message>();
+      auto& regularMessage = std::get<Ptr<Message>>(message);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "message", regularMessage, true);
     }
   }
