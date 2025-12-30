@@ -446,7 +446,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
                             std::time_t duration,
                             const std::string& performer,
                             const std::string& title,
-                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                            const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                             bool disableNotification,
                             bool protectContent,
                             const Ptr<IReplyMarkup>& replyMarkup,
@@ -484,12 +484,12 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("performer", performer);
   if (not title.empty())
     data.parts.emplace_back("title", title);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -520,7 +520,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
 Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                                const std::variant<cpr::File, std::string>& document,
                                std::int32_t messageThreadId,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                const std::string& caption,
                                const std::string& parseMode,
                                const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -546,12 +546,12 @@ Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& ch
   }
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -598,8 +598,8 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
                             std::time_t duration,
                             std::int32_t width,
                             std::int32_t height,
-                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
-                            const std::optional<std::variant<cpr::File, std::string>>& cover,
+                            const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
+                            const std::variant<std::monostate, cpr::File, std::string>& cover,
                             std::time_t startTimestamp,
                             const std::string& caption,
                             const std::string& parseMode,
@@ -634,21 +634,21 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("width", width);
   if (height)
     data.parts.emplace_back("height", height);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
-  if (cover.has_value()) {
-    if (cover->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*cover);
+  if (not std::holds_alternative<std::monostate>(cover)) {
+    if (std::holds_alternative<cpr::File>(cover)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(cover);
       data.parts.emplace_back("cover", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*cover);
+      const std::string& fileIdOrUrl = std::get<std::string>(cover);
       data.parts.emplace_back("cover", fileIdOrUrl);
     }
   }
@@ -700,7 +700,7 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
                                 std::time_t duration,
                                 std::int32_t width,
                                 std::int32_t height,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                 const std::string& caption,
                                 const std::string& parseMode,
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -731,12 +731,12 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("width", width);
   if (height)
     data.parts.emplace_back("height", height);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -844,7 +844,7 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
                                 std::int32_t messageThreadId,
                                 std::time_t duration,
                                 std::int32_t length,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                 bool disableNotification,
                                 bool protectContent,
                                 const Ptr<IReplyMarkup>& replyMarkup,
@@ -870,12 +870,12 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("duration", duration);
   if (length)
     data.parts.emplace_back("length", duration);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -3265,18 +3265,18 @@ bool Api::setStickerSetTitle(const std::string& name, const std::string& title) 
 bool Api::setStickerSetThumbnail(const std::string& name,
                                  std::int64_t userId,
                                  const std::string& format,
-                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail) const {
+                                 const std::variant<std::monostate, cpr::File, std::string>& thumbnail) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
   data.parts.emplace_back("name", name);
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("format", format);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }

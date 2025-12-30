@@ -378,7 +378,7 @@ namespace tgbotxx {
                            std::time_t duration = 0,
                            const std::string& performer = "",
                            const std::string& title = "",
-                           const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                           const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                            bool disableNotification = false,
                            bool protectContent = false,
                            const Ptr<IReplyMarkup>& replyMarkup = nullptr,
@@ -422,7 +422,7 @@ namespace tgbotxx {
     Ptr<Message> sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                               const std::variant<cpr::File, std::string>& document,
                               std::int32_t messageThreadId = 0,
-                              const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                              const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                               const std::string& caption = "",
                               const std::string& parseMode = "",
                               const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -481,8 +481,8 @@ namespace tgbotxx {
                            std::time_t duration = 0,
                            std::int32_t width = 0,
                            std::int32_t height = 0,
-                           const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
-                           const std::optional<std::variant<cpr::File, std::string>>& cover = std::nullopt,
+                           const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
+                           const std::variant<std::monostate, cpr::File, std::string>& cover = std::monostate{},
                            std::time_t startTimestamp = 0,
                            const std::string& caption = "",
                            const std::string& parseMode = "",
@@ -537,7 +537,7 @@ namespace tgbotxx {
                                std::time_t duration = 0,
                                std::int32_t width = 0,
                                std::int32_t height = 0,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                                const std::string& caption = "",
                                const std::string& parseMode = "",
                                const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -625,7 +625,7 @@ namespace tgbotxx {
                                std::int32_t messageThreadId = 0,
                                std::time_t duration = 0,
                                std::int32_t length = 0,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                                bool disableNotification = false,
                                bool protectContent = false,
                                const Ptr<IReplyMarkup>& replyMarkup = nullptr,
@@ -2656,7 +2656,7 @@ namespace tgbotxx {
     bool setStickerSetThumbnail(const std::string& name,
                                 std::int64_t userId,
                                 const std::string& format,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt) const;
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{}) const;
 
     /// @brief Use this method to set the thumbnail of a custom emoji sticker set.
     /// @param name Sticker set name
