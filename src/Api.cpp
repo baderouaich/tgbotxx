@@ -82,7 +82,6 @@ void Api::Cache::refresh(const Api *api) {
 }
 
 Api::Api(const std::string& token) : m_token(token) {
-  m_cache.refresh(this);
 }
 
 nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {

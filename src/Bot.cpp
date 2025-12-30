@@ -93,6 +93,11 @@ void Bot::dispatchMessages(const Ptr<Update>& update) {
         /// Callback -> onNonCommandMessage
         this->onNonCommandMessage(message);
       } else {
+        // Cache bot commands & username locally (to avoid calling api()->getMyCommands() everytime we receive a command)
+        if (m_api->m_cache.botCommands.empty()) [[unlikely]] {
+          m_api->m_cache.refresh(m_api.get());
+        }
+
         // 1 BotCommand entity must be in the message starting with /
         // assert(std::ranges::count_if(message->entities, [](const Ptr<MessageEntity>& entity) noexcept {return entity->type == MessageEntity::Type::BotCommand;}) == 1);
         const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [&text, atMyUsername = '@' + m_api->m_cache.botUsername](const std::string& cmd) noexcept {
