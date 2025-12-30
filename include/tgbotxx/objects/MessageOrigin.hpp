@@ -42,10 +42,11 @@ namespace tgbotxx {
   /// @brief The message was originally sent by a known user.
   /// @ref https://core.telegram.org/bots/api#messageoriginuser
   struct MessageOriginUser : MessageOrigin {
-    MessageOriginUser() = default;
+    MessageOriginUser() {
+      type = "user";
+    }
     explicit MessageOriginUser(const nl::json& json) {
       MessageOriginUser::fromJson(json);
-      // MessageOrigin::type = "user";
     }
 
     /// @brief User that sent the message originally
@@ -67,10 +68,11 @@ namespace tgbotxx {
   /// @brief The message was originally sent by an unknown user.
   /// @ref https://core.telegram.org/bots/api#messageoriginhiddenuser
   struct MessageOriginHiddenUser : MessageOrigin {
-    MessageOriginHiddenUser() = default;
+    MessageOriginHiddenUser() {
+      type = "hidden_user";
+    }
     explicit MessageOriginHiddenUser(const nl::json& json) {
       MessageOriginHiddenUser::fromJson(json);
-      // MessageOrigin::type = "hidden_user";
     }
 
     /// @brief Name of the user that sent the message originally
@@ -92,10 +94,11 @@ namespace tgbotxx {
   /// @brief The message was originally sent on behalf of a chat to a group chat.
   /// @ref https://core.telegram.org/bots/api#messageoriginchat
   struct MessageOriginChat : MessageOrigin {
-    MessageOriginChat() = default;
-    explicit MessageOriginChat(const nl::json& json)  {
+    MessageOriginChat() {
+      type = "chat";
+    }
+    explicit MessageOriginChat(const nl::json& json) {
       MessageOriginChat::fromJson(json);
-      // MessageOrigin::type = "chat";
     }
 
     /// @brief Chat that sent the message originally
@@ -121,10 +124,11 @@ namespace tgbotxx {
   /// @brief The message was originally sent to a channel chat.
   /// @ref https://core.telegram.org/bots/api#messageoriginchannel
   struct MessageOriginChannel : MessageOrigin {
-    MessageOriginChannel() = default;
+    MessageOriginChannel() {
+      type = "channel";
+    }
     explicit MessageOriginChannel(const nl::json& json) {
       MessageOriginChannel::fromJson(json);
-      // MessageOrigin::type = "channel";
     }
 
     /// @brief Channel chat to which the message was originally sent

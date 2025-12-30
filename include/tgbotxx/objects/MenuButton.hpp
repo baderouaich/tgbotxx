@@ -38,10 +38,11 @@ namespace tgbotxx {
   /// @brief Describes that no specific value for the menu button was set.
   /// @ref https://core.telegram.org/bots/api#menubuttondefault
   struct MenuButtonDefault : MenuButton {
-    MenuButtonDefault() = default;
+    MenuButtonDefault() {
+      type = "default";
+    }
     explicit MenuButtonDefault(const nl::json& json) {
       MenuButtonDefault::fromJson(json);
-      // MenuButtonDefault::type = "default";
     }
     nl::json toJson() const override {
       nl::json json = MenuButton::toJson();
@@ -56,10 +57,11 @@ namespace tgbotxx {
   /// @brief Represents a menu button, which launches a Web App. https://core.telegram.org/bots/webapps
   /// @ref https://core.telegram.org/bots/api#menubuttonwebapp
   struct MenuButtonWebApp : MenuButton {
-    MenuButtonWebApp() = default;
+    MenuButtonWebApp() {
+      type = "web_app";
+    }
     explicit MenuButtonWebApp(const nl::json& json) {
       MenuButtonWebApp::fromJson(json);
-      // MenuButtonWebApp::type = "web_app";
     }
 
     /// @brief Text on the button
@@ -86,10 +88,11 @@ namespace tgbotxx {
   /// @brief Represents a menu button, which opens the bot's list of commands.
   /// @ref https://core.telegram.org/bots/api#menubuttoncommands
   struct MenuButtonCommands : MenuButton {
-    MenuButtonCommands() = default;
+    MenuButtonCommands() {
+      type = "commands";
+    }
     explicit MenuButtonCommands(const nl::json& json) {
       MenuButtonCommands::fromJson(json);
-      // MenuButtonCommands::type = "commands";
     }
 
     nl::json toJson() const override {

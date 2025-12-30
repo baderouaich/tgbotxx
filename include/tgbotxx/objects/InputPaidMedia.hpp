@@ -49,10 +49,11 @@ namespace tgbotxx {
 
   /// @brief The paid media to send is a photo
   struct InputPaidMediaPhoto : InputPaidMedia {
-    InputPaidMediaPhoto() = default;
+    InputPaidMediaPhoto() {
+      type = "photo";
+    }
     explicit InputPaidMediaPhoto(const nl::json& json) {
       InputPaidMediaPhoto::fromJson(json);
-      // InputPaidMedia::type = "photo";
     }
 
     [[nodiscard]] nl::json toJson() const override {
@@ -67,10 +68,11 @@ namespace tgbotxx {
 
   /// @brief The paid media to send is a video
   struct InputPaidMediaVideo : InputPaidMedia {
-    InputPaidMediaVideo() = default;
+    InputPaidMediaVideo() {
+      type = "video";
+    }
     explicit InputPaidMediaVideo(const nl::json& json) {
       InputPaidMediaVideo::fromJson(json);
-      // InputPaidMedia::type = "video";
     }
 
     /// @brief Optional. Thumbnail of the file sent

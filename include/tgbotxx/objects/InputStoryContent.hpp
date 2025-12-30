@@ -29,10 +29,11 @@ namespace tgbotxx {
   /// @brief Describes a photo to post as a story
   /// @ref https://core.telegram.org/bots/api#inputstorycontentphoto
   struct InputStoryContentPhoto : InputStoryContent {
-    InputStoryContentPhoto() = default;
+    InputStoryContentPhoto() {
+      type = "photo";
+    }
     explicit InputStoryContentPhoto(const nl::json& json) {
       InputStoryContentPhoto::fromJson(json);
-      // InputStoryContentPhoto::type = "photo";
     }
 
     /// @brief The photo to post as a story. Must be 1080x1920 and <= 10MB. Can't be reused.
@@ -56,10 +57,11 @@ namespace tgbotxx {
   /// @brief Describes a video to post as a story
   /// @ref https://core.telegram.org/bots/api#inputstorycontentvideo
   struct InputStoryContentVideo : InputStoryContent {
-    InputStoryContentVideo() = default;
+    InputStoryContentVideo() {
+      type = "video";
+    }
     explicit InputStoryContentVideo(const nl::json& json) {
       InputStoryContentVideo::fromJson(json);
-      // InputStoryContentVideo::type = "video";
     }
 
     /// @brief The video to post as a story. Must be 720x1280, H.265, streamable, <= 30MB. Can't be reused.

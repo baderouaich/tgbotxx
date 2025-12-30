@@ -36,10 +36,11 @@ namespace tgbotxx {
   /// @brief The paid media isn't available before the payment.
   /// @ref https://core.telegram.org/bots/api#paidmediapreview
   struct PaidMediaPreview : PaidMedia {
-    PaidMediaPreview() = default;
+    PaidMediaPreview() {
+      type = "preview";
+    }
     explicit PaidMediaPreview(const nl::json& json) {
       PaidMediaPreview::fromJson(json);
-      // PaidMedia::type = "preview";
     }
 
     /// @brief Optional. Media width as defined by the sender
@@ -71,10 +72,11 @@ namespace tgbotxx {
   /// @brief The paid media is a photo.
   /// @ref https://core.telegram.org/bots/api#paidmediaphoto
   struct PaidMediaPhoto : PaidMedia {
-    PaidMediaPhoto() = default;
+    PaidMediaPhoto() {
+      type = "photo";
+    }
     explicit PaidMediaPhoto(const nl::json& json) {
       PaidMediaPhoto::fromJson(json);
-      // PaidMedia::type = "photo";
     }
 
     /// @brief The photo
@@ -96,10 +98,11 @@ namespace tgbotxx {
   /// @brief The paid media is a video.
   /// @ref https://core.telegram.org/bots/api#paidmediavideo
   struct PaidMediaVideo : PaidMedia {
-    PaidMediaVideo() = default;
+    PaidMediaVideo() {
+      type = "video";
+    }
     explicit PaidMediaVideo(const nl::json& json) {
       PaidMediaVideo::fromJson(json);
-      // PaidMedia::type = "video";
     }
 
     /// @brief The video

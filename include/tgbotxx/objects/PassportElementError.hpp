@@ -48,10 +48,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the field's value changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrordatafield
   struct PassportElementErrorDataField : PassportElementError {
-    PassportElementErrorDataField() = default;
+    PassportElementErrorDataField() {
+      source = "data";
+    }
     explicit PassportElementErrorDataField(const nl::json& json) {
       PassportElementError::fromJson(json);
-      // PassportElementError::source = "data";
     }
 
     /// @brief Name of the data field which has the error
@@ -82,10 +83,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the file with the front side of the document changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorfrontside
   struct PassportElementErrorFrontSide : PassportElementError {
-    PassportElementErrorFrontSide() = default;
+    PassportElementErrorFrontSide() {
+      source = "front_side";
+    }
     explicit PassportElementErrorFrontSide(const nl::json& json) {
       PassportElementErrorFrontSide::fromJson(json);
-      // PassportElementErrorFrontSide::source = "front_side";
     }
 
     /// @brief Base64-encoded hash of the file with the front side of the document
@@ -94,7 +96,7 @@ namespace tgbotxx {
     /// @brief Error message
     std::string message;
 
-   [[nodiscard]] nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = PassportElementError::toJson();
       OBJECT_SERIALIZE_FIELD(json, "file_hash", fileHash);
       OBJECT_SERIALIZE_FIELD(json, "message", message);
@@ -111,10 +113,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the file with reverse side of the document changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorreverseside
   struct PassportElementErrorReverseSide : PassportElementError {
-    PassportElementErrorReverseSide() = default;
+    PassportElementErrorReverseSide() {
+      source = "reverse_side";
+    }
     explicit PassportElementErrorReverseSide(const nl::json& json) {
       PassportElementErrorReverseSide::fromJson(json);
-      // PassportElementErrorReverseSide::source = "reverse_side";
     }
 
     /// @brief Base64-encoded hash of the file with the front side of the document
@@ -140,10 +143,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the file with the selfie changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorselfie
   struct PassportElementErrorSelfie : PassportElementError {
-    PassportElementErrorSelfie() = default;
+    PassportElementErrorSelfie() {
+      source = "selfie";
+    }
     explicit PassportElementErrorSelfie(const nl::json& json) {
       PassportElementErrorSelfie::fromJson(json);
-      // PassportElementErrorSelfie::source = "selfie";
     }
 
     /// @brief Base64-encoded hash of the file with the selfie
@@ -169,10 +173,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the file with the document scan changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorfile
   struct PassportElementErrorFile : PassportElementError {
-    PassportElementErrorFile() = default;
+    PassportElementErrorFile() {
+      source = "file";
+    }
     explicit PassportElementErrorFile(const nl::json& json) {
       PassportElementErrorFile::fromJson(json);
-      // PassportElementErrorFile::source = "file";
     }
 
     /// @brief Base64-encoded file hash
@@ -199,10 +204,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the list of files containing the scans changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorfiles
   struct PassportElementErrorFiles : PassportElementError {
-    PassportElementErrorFiles() = default;
+    PassportElementErrorFiles() {
+      source = "files";
+    }
     explicit PassportElementErrorFiles(const nl::json& json) {
       PassportElementErrorFiles::fromJson(json);
-      // PassportElementErrorFiles::source = "files";
     }
 
     /// @brief List of base64-encoded file hashes
@@ -228,10 +234,11 @@ namespace tgbotxx {
   /// The error is considered resolved when the file changes.
   /// @ref https://core.telegram.org/bots/api#passportelementerrortranslationfile
   struct PassportElementErrorTranslationFile : PassportElementError {
-    PassportElementErrorTranslationFile() = default;
+    PassportElementErrorTranslationFile() {
+      source = "translation_file";
+    }
     explicit PassportElementErrorTranslationFile(const nl::json& json) {
       PassportElementErrorTranslationFile::fromJson(json);
-      // PassportElementErrorTranslationFile::source = "translation_file";
     }
 
     /// @brief Base64-encoded file hash
@@ -257,10 +264,11 @@ namespace tgbotxx {
   /// The error is considered resolved when a file with the document translation change.
   /// @ref https://core.telegram.org/bots/api#passportelementerrortranslationfiles
   struct PassportElementErrorTranslationFiles : PassportElementError {
-    PassportElementErrorTranslationFiles() = default;
+    PassportElementErrorTranslationFiles() {
+      source = "translation_files";
+    }
     explicit PassportElementErrorTranslationFiles(const nl::json& json) {
       PassportElementErrorTranslationFiles::fromJson(json);
-      // PassportElementErrorTranslationFiles::source = "translation_files";
     }
 
     /// @brief List of base64-encoded file hashes
@@ -286,10 +294,11 @@ namespace tgbotxx {
   /// The error is considered resolved when new data is added.
   /// @ref https://core.telegram.org/bots/api#passportelementerrorunspecified
   struct PassportElementErrorUnspecified : PassportElementError {
-    PassportElementErrorUnspecified() = default;
+    PassportElementErrorUnspecified() {
+      source = "unspecified";
+    }
     explicit PassportElementErrorUnspecified(const nl::json& json) {
       PassportElementErrorUnspecified::fromJson(json);
-      // PassportElementErrorUnspecified::source = "unspecified";
     }
 
     /// @brief Base64-encoded element hash

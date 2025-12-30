@@ -36,10 +36,11 @@ namespace tgbotxx {
   /// @brief The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcepremium
   struct ChatBoostSourcePremium : ChatBoostSource {
-    ChatBoostSourcePremium() = default;
+    ChatBoostSourcePremium() {
+      source = "premium";
+    }
     explicit ChatBoostSourcePremium(const nl::json& json) {
       ChatBoostSourcePremium::fromJson(json);
-      // ChatBoostSource::source = "premium";
     }
 
     /// @brief User that boosted the chat
@@ -59,10 +60,11 @@ namespace tgbotxx {
   /// @brief The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcegiftcode
   struct ChatBoostSourceGiftCode : ChatBoostSource {
-    ChatBoostSourceGiftCode() = default;
+    ChatBoostSourceGiftCode() {
+      source = "gift_code";
+    }
     explicit ChatBoostSourceGiftCode(const nl::json& json) {
       ChatBoostSourceGiftCode::fromJson(json);
-      // ChatBoostSourceGiftCode::source = "gift_code";
     }
 
     /// @brief User for which the gift code was created
@@ -83,10 +85,11 @@ namespace tgbotxx {
   /// This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.
   /// @ref https://core.telegram.org/bots/api#chatboostsourcegiveaway
   struct ChatBoostSourceGiveaway : ChatBoostSource {
-    ChatBoostSourceGiveaway() = default;
+    ChatBoostSourceGiveaway() {
+      source = "giveaway";
+    }
     explicit ChatBoostSourceGiveaway(const nl::json& json) {
       ChatBoostSourceGiveaway::fromJson(json);
-      // ChatBoostSourceGiveaway::source = "giveaway";
     }
 
     /// @brief Identifier of a message in the chat with the giveaway; the message could have been deleted already.

@@ -64,10 +64,11 @@ namespace tgbotxx {
   /// @brief Represents a link to an article or web page.
   /// @ref https://core.telegram.org/bots/api#inlinequeryresultarticle
   struct InlineQueryResultArticle : InlineQueryResult {
-    InlineQueryResultArticle() = default;
+    InlineQueryResultArticle() {
+      type = "article";
+    }
     explicit InlineQueryResultArticle(const nl::json& json) {
       InlineQueryResultArticle::fromJson(json);
-      // InlineQueryResultArticle::type = "article";
     }
 
     /// @brief Title of the result
@@ -124,10 +125,11 @@ namespace tgbotxx {
   /// Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.
   /// @ref https://core.telegram.org/bots/api#inlinequeryresultphoto
   struct InlineQueryResultPhoto : InlineQueryResult {
-    InlineQueryResultPhoto() = default;
+    InlineQueryResultPhoto() {
+      type = "photo";
+    }
     explicit InlineQueryResultPhoto(const nl::json& json) {
       InlineQueryResultPhoto::fromJson(json);
-      // InlineQueryResultPhoto::type = "photo";
     }
 
     /// @brief A valid URL of the photo. Photo must be in JPEG format. Photo size must not exceed 5MB
@@ -194,10 +196,11 @@ namespace tgbotxx {
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the animation.
   /// @ref https://core.telegram.org/bots/api#inlinequeryresultgif
   struct InlineQueryResultGif : InlineQueryResult {
-    InlineQueryResultGif() = default;
+    InlineQueryResultGif() {
+      type = "gif";
+    }
     explicit InlineQueryResultGif(const nl::json& json) {
       InlineQueryResultGif::fromJson(json);
-      // InlineQueryResultGif::type = "gif";
     }
 
     /// @brief A valid URL for the GIF file. File size must not exceed 1MB
@@ -270,10 +273,11 @@ namespace tgbotxx {
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the animation.
   /// @ref https://core.telegram.org/bots/api#inlinequeryresultmpeg4gif
   struct InlineQueryResultMpeg4Gif : InlineQueryResult {
-    InlineQueryResultMpeg4Gif() = default;
+    InlineQueryResultMpeg4Gif() {
+      type = "mpeg4_gif";
+    }
     explicit InlineQueryResultMpeg4Gif(const nl::json& json) {
       InlineQueryResultMpeg4Gif::fromJson(json);
-      // InlineQueryResultMpeg4Gif::type = "mpeg4_gif";
     }
 
     /// @brief A valid URL for the MPEG4 file. File size must not exceed 1MB
@@ -348,10 +352,11 @@ namespace tgbotxx {
   /// @ref https://core.telegram.org/bots/api#inlinequeryresultvideo
   /// @note If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube), you must replace its content using inputMessageContent.
   struct InlineQueryResultVideo : InlineQueryResult {
-    InlineQueryResultVideo() = default;
+    InlineQueryResultVideo() {
+      type = "video";
+    }
     explicit InlineQueryResultVideo(const nl::json& json) {
       InlineQueryResultVideo::fromJson(json);
-      // InlineQueryResultVideo::type = "video";
     }
 
     /// @brief A valid URL for the embedded video player or video file
@@ -430,10 +435,11 @@ namespace tgbotxx {
   /// By default, this audio file will be sent by the user.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the audio.
   struct InlineQueryResultAudio : InlineQueryResult {
-    InlineQueryResultAudio() = default;
+    InlineQueryResultAudio() {
+      type = "audio";
+    }
     explicit InlineQueryResultAudio(const nl::json& json) {
       InlineQueryResultAudio::fromJson(json);
-      // InlineQueryResultAudio::type = "audio";
     }
 
     /// @brief A valid URL for the audio file
@@ -493,10 +499,11 @@ namespace tgbotxx {
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the voice message.
   /// @note: This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
   struct InlineQueryResultVoice : InlineQueryResult {
-    InlineQueryResultVoice() = default;
+    InlineQueryResultVoice() {
+      type = "voice";
+    }
     explicit InlineQueryResultVoice(const nl::json& json) {
       InlineQueryResultVoice::fromJson(json);
-      // InlineQueryResultVoice::type = "voice";
     }
 
     /// @brief A valid URL for the voice recording
@@ -555,10 +562,11 @@ namespace tgbotxx {
   /// Currently, only .PDF and .ZIP files can be sent using this method.
   /// @note: This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
   struct InlineQueryResultDocument : InlineQueryResult {
-    InlineQueryResultDocument() = default;
+    InlineQueryResultDocument() {
+      type = "document";
+    }
     explicit InlineQueryResultDocument(const nl::json& json) {
       InlineQueryResultDocument::fromJson(json);
-      InlineQueryResultDocument::type = "document";
     }
 
     /// @brief Title for the result
@@ -631,10 +639,11 @@ namespace tgbotxx {
   /// By default, the location will be sent by the user.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the location.
   struct InlineQueryResultLocation : InlineQueryResult {
-    InlineQueryResultLocation() = default;
+    InlineQueryResultLocation() {
+      type = "location";
+    }
     explicit InlineQueryResultLocation(const nl::json& json) {
       InlineQueryResultLocation::fromJson(json);
-      // InlineQueryResultLocation::type = "location";
     }
 
     /// @brief Location latitude in degrees
@@ -706,10 +715,11 @@ namespace tgbotxx {
   /// @brief Represents a venue. By default, the venue will be sent by the user.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the venue.
   struct InlineQueryResultVenue : InlineQueryResult {
-    InlineQueryResultVenue() = default;
+    InlineQueryResultVenue() {
+      type = "venue";
+    }
     explicit InlineQueryResultVenue(const nl::json& json) {
       InlineQueryResultVenue::fromJson(json);
-      // InlineQueryResultVenue::type = "venue";
     }
 
     /// @brief Latitude of the venue location in degrees
@@ -787,10 +797,11 @@ namespace tgbotxx {
   /// @brief Represents a venue. By default, the venue will be sent by the user.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the venue.
   struct InlineQueryResultContact : InlineQueryResult {
-    InlineQueryResultContact() = default;
+    InlineQueryResultContact() {
+      type = "contact";
+    }
     explicit InlineQueryResultContact(const nl::json& json) {
       InlineQueryResultContact::fromJson(json);
-      // InlineQueryResultContact::type = "contact";
     }
 
     /// @brief Contact's phone number
@@ -847,10 +858,11 @@ namespace tgbotxx {
   /// @brief Represents a Game.
   /// @note This will only work in Telegram versions released after October 1, 2016. Older clients will not display any inline results if a game result is among them.
   struct InlineQueryResultGame : InlineQueryResult {
-    InlineQueryResultGame() = default;
+    InlineQueryResultGame() {
+      type = "game";
+    }
     explicit InlineQueryResultGame(const nl::json& json) {
       InlineQueryResultGame::fromJson(json);
-      // InlineQueryResultGame::type = "game";
     }
 
     /// @brief Short name of the game
@@ -872,10 +884,11 @@ namespace tgbotxx {
   /// @brief Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
   struct InlineQueryResultCachedPhoto : InlineQueryResult {
-    InlineQueryResultCachedPhoto() = default;
+    InlineQueryResultCachedPhoto() {
+      type = "photo";
+    }
     explicit InlineQueryResultCachedPhoto(const nl::json& json) {
       InlineQueryResultCachedPhoto::fromJson(json);
-      // InlineQueryResultCachedPhoto::type = "photo";
     }
 
     /// @brief A valid file identifier of the photo
@@ -929,10 +942,11 @@ namespace tgbotxx {
   /// By default, this animated GIF file will be sent by the user with an optional caption.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
   struct InlineQueryResultCachedGif : InlineQueryResult {
-    InlineQueryResultCachedGif() = default;
+    InlineQueryResultCachedGif() {
+      type = "gif";
+    }
     explicit InlineQueryResultCachedGif(const nl::json& json) {
       InlineQueryResultCachedGif::fromJson(json);
-      // InlineQueryResultCachedGif::type = "gif";
     }
 
     /// @brief A valid file identifier for the GIF file
@@ -980,10 +994,11 @@ namespace tgbotxx {
   /// By default, this animated MPEG-4 file will be sent by the user with an optional caption.
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
   struct InlineQueryResultCachedMpeg4Gif : InlineQueryResult {
-    InlineQueryResultCachedMpeg4Gif() = default;
+    InlineQueryResultCachedMpeg4Gif() {
+      type = "mpeg4_gif";
+    }
     explicit InlineQueryResultCachedMpeg4Gif(const nl::json& json) {
       InlineQueryResultCachedMpeg4Gif::fromJson(json);
-      // InlineQueryResultCachedMpeg4Gif::type = "mpeg4_gif";
     }
 
     /// @brief A valid file identifier for the MPEG4 file
@@ -1032,10 +1047,11 @@ namespace tgbotxx {
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
   /// @note This will only work in Telegram versions released after 9 April, 2016 for static stickers and after 06 July, 2019 for animated stickers. Older clients will ignore them.
   struct InlineQueryResultCachedSticker : InlineQueryResult {
-    InlineQueryResultCachedSticker() = default;
+    InlineQueryResultCachedSticker() {
+      type = "sticker";
+    }
     explicit InlineQueryResultCachedSticker(const nl::json& json) {
       InlineQueryResultCachedSticker::fromJson(json);
-      // InlineQueryResultCachedSticker::type = "sticker";
     }
 
     /// @brief A valid file identifier of the sticker
@@ -1065,10 +1081,11 @@ namespace tgbotxx {
   /// Alternatively, you can use inputMessageContent to send a message with the specified content instead of the photo.
   /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
   struct InlineQueryResultCachedDocument : InlineQueryResult {
-    InlineQueryResultCachedDocument() = default;
+    InlineQueryResultCachedDocument() {
+      type = "document";
+    }
     explicit InlineQueryResultCachedDocument(const nl::json& json) {
       InlineQueryResultCachedDocument::fromJson(json);
-      // InlineQueryResultCachedDocument::type = "document";
     }
 
     /// @brief Title for the result
@@ -1121,10 +1138,11 @@ namespace tgbotxx {
   /// @brief Represents a link to a video file stored on the Telegram servers.
   /// By default, this video file will be sent by the user with an optional caption
   struct InlineQueryResultCachedVideo : InlineQueryResult {
-    InlineQueryResultCachedVideo() = default;
+    InlineQueryResultCachedVideo() {
+      type = "video";
+    }
     explicit InlineQueryResultCachedVideo(const nl::json& json) {
       InlineQueryResultCachedVideo::fromJson(json);
-      // InlineQueryResultCachedVideo::type = "video";
     }
 
     /// @brief A valid file identifier for the video file
@@ -1178,10 +1196,11 @@ namespace tgbotxx {
   /// By default, this voice message will be sent by the user.
   /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
   struct InlineQueryResultCachedVoice : InlineQueryResult {
-    InlineQueryResultCachedVoice() = default;
+    InlineQueryResultCachedVoice() {
+      type = "voice";
+    }
     explicit InlineQueryResultCachedVoice(const nl::json& json) {
       InlineQueryResultCachedVoice::fromJson(json);
-      // InlineQueryResultCachedVoice::type = "voice";
     }
 
     /// @brief A valid file identifier for the voice message
@@ -1235,10 +1254,11 @@ namespace tgbotxx {
   /// By default, this audio file will be sent by the user.
   /// @note This will only work in Telegram versions released after 9 April, 2016. Older clients will ignore them.
   struct InlineQueryResultCachedAudio : InlineQueryResult {
-    InlineQueryResultCachedAudio() = default;
+    InlineQueryResultCachedAudio() {
+      type = "audio";
+    }
     explicit InlineQueryResultCachedAudio(const nl::json& json) {
       InlineQueryResultCachedAudio::fromJson(json);
-      // InlineQueryResultCachedAudio::type = "audio";
     }
 
     /// @brief A valid file identifier for the audio file

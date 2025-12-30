@@ -1,5 +1,5 @@
-#include <chrono>
 #define CATCH_CONFIG_MAIN
+#include <chrono>
 #include <catch2/catch.hpp>
 #include <tgbotxx/tgbotxx.hpp>
 using namespace tgbotxx;

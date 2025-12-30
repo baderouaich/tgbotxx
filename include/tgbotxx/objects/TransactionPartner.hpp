@@ -38,10 +38,11 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with a user.
   struct TransactionPartnerUser : TransactionPartner {
-    TransactionPartnerUser() = default;
+    TransactionPartnerUser() {
+      type = "user";
+    }
     explicit TransactionPartnerUser(const nl::json& json) {
       TransactionPartnerUser::fromJson(json);
-      // TransactionPartner::type = "user";
     }
 
     /// @brief Type of the transaction, e.g., "invoice_payment", "paid_media_payment", etc.
@@ -104,10 +105,11 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with a chat.
   struct TransactionPartnerChat : TransactionPartner {
-    TransactionPartnerChat() = default;
+    TransactionPartnerChat() {
+      type = "chat";
+    }
     explicit TransactionPartnerChat(const nl::json& json) {
       TransactionPartnerChat::fromJson(json);
-      // TransactionPartner::type = "chat";
     }
 
     /// @brief Information about the chat
@@ -134,10 +136,11 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with an affiliate program.
   struct TransactionPartnerAffiliateProgram : TransactionPartner {
-    TransactionPartnerAffiliateProgram() = default;
+    TransactionPartnerAffiliateProgram() {
+      type = "affiliate_program";
+    }
     explicit TransactionPartnerAffiliateProgram(const nl::json& json) {
       TransactionPartnerAffiliateProgram::fromJson(json);
-      //TransactionPartner::type = "affiliate_program";
     }
 
     /// @brief Optional. Information about the bot sponsoring the affiliate program
@@ -162,10 +165,11 @@ namespace tgbotxx {
 
   /// @brief Describes a withdrawal transaction with Fragment.
   struct TransactionPartnerFragment : TransactionPartner {
-    TransactionPartnerFragment() = default;
+    TransactionPartnerFragment() {
+      type = "fragment";
+    }
     explicit TransactionPartnerFragment(const nl::json& json) {
       TransactionPartnerFragment::fromJson(json);
-      // TransactionPartner::type = "fragment";
     }
 
     /// @brief Optional. State of the withdrawal if transaction is outgoing
@@ -185,10 +189,11 @@ namespace tgbotxx {
 
   /// @brief Describes a withdrawal transaction to Telegram Ads platform.
   struct TransactionPartnerTelegramAds : TransactionPartner {
-    TransactionPartnerTelegramAds() = default;
+    TransactionPartnerTelegramAds() {
+      type = "telegram_ads";
+    }
     explicit TransactionPartnerTelegramAds(const nl::json& json) {
       TransactionPartnerTelegramAds::fromJson(json);
-      // TransactionPartner::type = "telegram_ads";
     }
 
     [[nodiscard]] nl::json toJson() const override {
@@ -203,10 +208,11 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction for paid broadcasting (Telegram API).
   struct TransactionPartnerTelegramApi : TransactionPartner {
-    TransactionPartnerTelegramApi() = default;
+    TransactionPartnerTelegramApi() {
+      type = "telegram_api";
+    }
     explicit TransactionPartnerTelegramApi(const nl::json& json) {
       TransactionPartnerTelegramApi::fromJson(json);
-      // TransactionPartner::type = "telegram_api";
     }
 
     /// @brief Number of successful requests exceeding regular limits that were billed
@@ -226,10 +232,11 @@ namespace tgbotxx {
 
   /// @brief Describes a transaction with an unknown source or recipient.
   struct TransactionPartnerOther : TransactionPartner {
-    TransactionPartnerOther() = default;
+    TransactionPartnerOther() {
+      type = "other";
+    }
     explicit TransactionPartnerOther(const nl::json& json) {
       TransactionPartnerOther::fromJson(json);
-      // TransactionPartner::type = "other";
     }
 
     [[nodiscard]] nl::json toJson() const override {

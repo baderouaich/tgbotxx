@@ -29,10 +29,11 @@ namespace tgbotxx {
   /// @brief A static profile photo in the .JPG format
   /// @ref https://core.telegram.org/bots/api#inputprofilephotostatic
   struct InputProfilePhotoStatic : InputProfilePhoto {
-    InputProfilePhotoStatic() = default;
+    InputProfilePhotoStatic() {
+      type = "static";
+    }
     explicit InputProfilePhotoStatic(const nl::json& json) {
       InputProfilePhotoStatic::fromJson(json);
-      // InputProfilePhotoStatic::type = "static";
     }
 
     /// @brief The static profile photo. Profile photos can't be reused and can only be uploaded as a new file,
@@ -57,10 +58,11 @@ namespace tgbotxx {
   /// @brief An animated profile photo in the MPEG4 format
   /// @ref https://core.telegram.org/bots/api#inputprofilephotoanimated
   struct InputProfilePhotoAnimated : InputProfilePhoto {
-    InputProfilePhotoAnimated() = default;
+    InputProfilePhotoAnimated() {
+      type = "animated";
+    }
     explicit InputProfilePhotoAnimated(const nl::json& json) {
       InputProfilePhotoAnimated::fromJson(json);
-      // InputProfilePhotoAnimated::type = "animated";
     }
 
 

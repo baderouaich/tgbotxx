@@ -38,10 +38,11 @@ namespace tgbotxx {
   /// @brief Represents the content of a text message to be sent as the result of an inline query.
   /// @ref https://core.telegram.org/bots/api#inputtextmessagecontent
   struct InputTextMessageContent : InputMessageContent {
-    InputTextMessageContent() = default;
+    InputTextMessageContent() {
+      type = "text";
+    }
     explicit InputTextMessageContent(const nl::json& json) {
       InputTextMessageContent::fromJson(json);
-      // InputTextMessageContent::type = "text";
     }
 
     /// @brief Text of the message to be sent, 1-4096 characters
@@ -78,10 +79,11 @@ namespace tgbotxx {
   /// @brief Represents the content of a location message to be sent as the result of an inline query.
   /// @ref https://core.telegram.org/bots/api#inputlocationmessagecontent
   struct InputLocationMessageContent : InputMessageContent {
-    InputLocationMessageContent() = default;
+    InputLocationMessageContent() {
+      type = "location";
+    }
     explicit InputLocationMessageContent(const nl::json& json) {
       InputLocationMessageContent::fromJson(json);
-      // InputLocationMessageContent::type = "location";
     }
 
     /// @brief Latitude of the location in degrees
@@ -123,10 +125,11 @@ namespace tgbotxx {
   /// @brief Represents the content of a venue message to be sent as the result of an inline query.
   /// @ref https://core.telegram.org/bots/api#inputvenuemessagecontent
   struct InputVenueMessageContent : InputMessageContent {
-    InputVenueMessageContent() = default;
+    InputVenueMessageContent() {
+      type = "venue";
+    }
     explicit InputVenueMessageContent(const nl::json& json) {
       InputVenueMessageContent::fromJson(json);
-      // InputVenueMessageContent::type = "venue";
     }
 
     /// @brief Latitude of the venue in degrees
@@ -182,10 +185,11 @@ namespace tgbotxx {
   /// @brief Represents the content of a contact message to be sent as the result of an inline query.
   /// @ref https://core.telegram.org/bots/api#inputcontactmessagecontent
   struct InputContactMessageContent : InputMessageContent {
-    InputContactMessageContent() = default;
+    InputContactMessageContent() {
+      type = "contact";
+    }
     explicit InputContactMessageContent(const nl::json& json) {
       InputContactMessageContent::fromJson(json);
-      // InputContactMessageContent::type = "contact";
     }
 
     /// @brief Contact's phone number
@@ -222,10 +226,11 @@ namespace tgbotxx {
   /// @brief Represents the content of a invoice message to be sent as the result of an inline query.
   /// @ref https://core.telegram.org/bots/api#inputinvoicemessagecontent
   struct InputInvoiceMessageContent : InputMessageContent {
-    InputInvoiceMessageContent() = default;
+    InputInvoiceMessageContent() {
+      type = "invoice";
+    }
     explicit InputInvoiceMessageContent(const nl::json& json) {
       InputInvoiceMessageContent::fromJson(json);
-      // InputInvoiceMessageContent::type = "invoice";
     }
 
     /// @brief Product name, 1-32 characters

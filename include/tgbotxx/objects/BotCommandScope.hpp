@@ -36,10 +36,11 @@ namespace tgbotxx {
   /// @brief Represents the default scope of bot commands. Default commands are used if no commands with a narrower
   /// scope are specified for the user.
   struct BotCommandScopeDefault : BotCommandScope {
-    BotCommandScopeDefault() = default;
+    BotCommandScopeDefault() {
+      type = "default";
+    }
     explicit BotCommandScopeDefault(const nl::json& json) {
-      BotCommandScope::fromJson(json);
-      // BotCommandScope::type = "default";
+      BotCommandScopeDefault::fromJson(json);
     }
 
     /// @brief Serializes this object to JSON
@@ -57,10 +58,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering all private chats.
   struct BotCommandScopeAllPrivateChats : BotCommandScope {
-    BotCommandScopeAllPrivateChats() = default;
+    BotCommandScopeAllPrivateChats() {
+      type = "all_private_chats";
+    }
     explicit BotCommandScopeAllPrivateChats(const nl::json& json) {
       BotCommandScopeAllPrivateChats::fromJson(json);
-      // BotCommandScope::type = "all_private_chats";
     }
 
     /// @brief Serializes this object to JSON
@@ -79,10 +81,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering all group and supergroup chats.
   struct BotCommandScopeAllGroupChats : BotCommandScope {
-    BotCommandScopeAllGroupChats() = default;
+    BotCommandScopeAllGroupChats() {
+      type = "all_group_chats";
+    }
     explicit BotCommandScopeAllGroupChats(const nl::json& json) {
       BotCommandScopeAllGroupChats::fromJson(json);
-      // BotCommandScope::type = "all_group_chats";
     }
 
     /// @brief Serializes this object to JSON
@@ -101,10 +104,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering all group and supergroup chat administrators.
   struct BotCommandScopeAllChatAdministrators : BotCommandScope {
-    BotCommandScopeAllChatAdministrators() = default;
+    BotCommandScopeAllChatAdministrators() {
+      type = "all_chat_administrators";
+    }
     explicit BotCommandScopeAllChatAdministrators(const nl::json& json) {
       BotCommandScopeAllChatAdministrators::fromJson(json);
-      // BotCommandScope::type = "all_chat_administrators";
     }
 
     /// @brief Serializes this object to JSON
@@ -123,10 +127,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering a specific chat.
   struct BotCommandScopeChat : BotCommandScope {
-    BotCommandScopeChat() = default;
+    BotCommandScopeChat() {
+      type = "chat";
+    }
     explicit BotCommandScopeChat(const nl::json& json) {
       BotCommandScopeChat::fromJson(json);
-      // BotCommandScope::type = "chat";
     }
 
     /// @brief Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
@@ -146,10 +151,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering all administrators of a specific group or supergroup chat.
   struct BotCommandScopeChatAdministrators : BotCommandScope {
-    BotCommandScopeChatAdministrators() = default;
+    BotCommandScopeChatAdministrators() {
+      type = "chat_administrators";
+    }
     explicit BotCommandScopeChatAdministrators(const nl::json& json) {
       BotCommandScopeChatAdministrators::fromJson(json);
-      // BotCommandScope::type = "chat_administrators";
     }
 
     /// @brief Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
@@ -169,10 +175,11 @@ namespace tgbotxx {
 
   /// @brief Represents the scope of bot commands, covering a specific member of a group or supergroup chat.
   struct BotCommandScopeChatMember : BotCommandScope {
-    BotCommandScopeChatMember() = default;
+    BotCommandScopeChatMember() {
+      type = "chat_member";
+    }
     explicit BotCommandScopeChatMember(const nl::json& json) {
       BotCommandScopeChatMember::fromJson(json);
-      // BotCommandScope::type = "chat_member";
     }
 
     /// @brief Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)

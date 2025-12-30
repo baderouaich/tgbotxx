@@ -1,4 +1,3 @@
-#include <ostream>
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 #include <tgbotxx/tgbotxx.hpp>

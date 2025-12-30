@@ -35,10 +35,11 @@ namespace tgbotxx {
   /// @brief The background is automatically filled based on the selected colors.
   /// @ref https://core.telegram.org/bots/api#backgroundtypefill
   struct BackgroundTypeFill : BackgroundType {
-    BackgroundTypeFill() = default;
+    BackgroundTypeFill() {
+      type = "fill";
+    }
     explicit BackgroundTypeFill(const nl::json& json) {
       BackgroundTypeFill::fromJson(json);
-      BackgroundTypeFill::type = "fill";
     }
 
     /// @brief The background fill
@@ -64,10 +65,11 @@ namespace tgbotxx {
   /// @brief The background is a wallpaper in JPEG format.
   /// @ref https://core.telegram.org/bots/api#backgroundtypewallpaper
   struct BackgroundTypeWallpaper : BackgroundType {
-    BackgroundTypeWallpaper() = default;
+    BackgroundTypeWallpaper() {
+      type = "wallpaper";
+    }
     explicit BackgroundTypeWallpaper(const nl::json& json){
       BackgroundTypeWallpaper::fromJson(json);
-      // BackgroundTypeWallpaper::type = "wallpaper";
     }
 
     /// @brief Document with the wallpaper
@@ -103,10 +105,11 @@ namespace tgbotxx {
   /// @brief The background is a PNG or TGV pattern combined with a fill.
   /// @ref https://core.telegram.org/bots/api#backgroundtypepattern
   struct BackgroundTypePattern : BackgroundType {
-    BackgroundTypePattern() = default;
+    BackgroundTypePattern() {
+      type = "pattern";
+    }
     explicit BackgroundTypePattern(const nl::json& json) {
       BackgroundTypePattern::fromJson(json);
-      // BackgroundTypePattern::type = "pattern";
     }
 
     /// @brief Document with the pattern
@@ -147,10 +150,11 @@ namespace tgbotxx {
   /// @brief The background is taken directly from a built-in chat theme.
   /// @ref https://core.telegram.org/bots/api#backgroundtypechattheme
   struct BackgroundTypeChatTheme : BackgroundType {
-    BackgroundTypeChatTheme() = default;
+    BackgroundTypeChatTheme() {
+      type = "chat_theme";
+    }
     explicit BackgroundTypeChatTheme(const nl::json& json) {
       BackgroundTypeChatTheme::fromJson(json);
-      // BackgroundTypeChatTheme::type = "chat_theme";
     }
 
     /// @brief Name of the chat theme, which is usually an emoji

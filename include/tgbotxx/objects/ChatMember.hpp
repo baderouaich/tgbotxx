@@ -43,10 +43,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that owns the chat and has all administrator privileges.
   /// @ref https://core.telegram.org/bots/api#chatmemberowner
   struct ChatMemberOwner : ChatMember {
-    ChatMemberOwner() = default;
+    ChatMemberOwner() {
+      status = "creator";
+    }
     explicit ChatMemberOwner(const nl::json& json) {
       ChatMemberOwner::fromJson(json);
-      // ChatMember::status = "creator";
     }
 
     /// @brief True, if the user's presence in the chat is hidden
@@ -76,9 +77,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that has some additional privileges.
   /// @ref https://core.telegram.org/bots/api#chatmemberadministrator
   struct ChatMemberAdministrator : ChatMember {
+    ChatMemberAdministrator() {
+      status = "administrator";
+    }
     explicit ChatMemberAdministrator(const nl::json& json) {
       ChatMemberAdministrator::fromJson(json);
-      // ChatMember::status = "administrator";
     }
 
     /// @brief True, if the bot is allowed to edit administrator privileges of that user
@@ -187,10 +190,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that has no additional privileges or restrictions.
   /// @ref https://core.telegram.org/bots/api#chatmembermember
   struct ChatMemberMember : ChatMember {
-    ChatMemberMember() = default;
+    ChatMemberMember() {
+      status = "member";
+    }
     explicit ChatMemberMember(const nl::json& json) {
       ChatMemberMember::fromJson(json);
-      // ChatMember::status = "member";
     }
 
     /// @brief Serializes this object to JSON
@@ -210,10 +214,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that is under certain restrictions in the chat. Supergroups only.
   /// @ref https://core.telegram.org/bots/api#chatmemberrestricted
   struct ChatMemberRestricted : ChatMember {
-    ChatMemberRestricted() = default;
+    ChatMemberRestricted() {
+      status = "restricted";
+    }
     explicit ChatMemberRestricted(const nl::json& json) {
       ChatMemberRestricted::fromJson(json);
-      // ChatMember::status = "restricted";
     }
 
     /// @brief True, if the user is a member of the chat at the moment of the request
@@ -314,10 +319,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that isn't currently a member of the chat, but may join it themselves.
   /// @ref https://core.telegram.org/bots/api#chatmemberleft
   struct ChatMemberLeft : ChatMember {
-    ChatMemberLeft() = default;
+    ChatMemberLeft() {
+      status = "left";
+    }
     explicit ChatMemberLeft(const nl::json& json) {
       ChatMemberLeft::fromJson(json);
-      // ChatMember::status = "left";
     }
 
     /// @brief Serializes this object to JSON
@@ -337,10 +343,11 @@ namespace tgbotxx {
   /// @brief Represents a chat member that was banned in the chat and can't return to the chat or view chat messages.
   /// @ref https://core.telegram.org/bots/api#chatmemberbanned
   struct ChatMemberBanned : ChatMember {
-    ChatMemberBanned() = default;
+    ChatMemberBanned() {
+      status = "kicked";
+    }
     explicit ChatMemberBanned(const nl::json& json) {
       ChatMemberBanned::fromJson(json);
-      // ChatMember::status = "left";
     }
 
     /// @brief Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever

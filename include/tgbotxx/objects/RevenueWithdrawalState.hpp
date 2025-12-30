@@ -30,10 +30,11 @@ namespace tgbotxx {
 
   /// @brief The withdrawal is in progress
   struct RevenueWithdrawalStatePending : RevenueWithdrawalState {
-    RevenueWithdrawalStatePending() = default;
+    RevenueWithdrawalStatePending() {
+      type = "pending";
+    }
     explicit RevenueWithdrawalStatePending(const nl::json& json) {
       RevenueWithdrawalStatePending::fromJson(json);
-      // RevenueWithdrawalState::type = "pending";
     }
 
     /// @brief Serializes this object to JSON
@@ -51,10 +52,11 @@ namespace tgbotxx {
 
   /// @brief The withdrawal succeeded
   struct RevenueWithdrawalStateSucceeded : RevenueWithdrawalState {
-    RevenueWithdrawalStateSucceeded() = default;
+    RevenueWithdrawalStateSucceeded() {
+      type = "succeeded";
+    }
     explicit RevenueWithdrawalStateSucceeded(const nl::json& json) {
       RevenueWithdrawalStateSucceeded::fromJson(json);
-      // RevenueWithdrawalState::type = "succeeded";
     }
 
     /// @brief Date the withdrawal was completed in Unix time
@@ -82,7 +84,9 @@ namespace tgbotxx {
 
   /// @brief The withdrawal failed and the transaction was refunded
   struct RevenueWithdrawalStateFailed : RevenueWithdrawalState {
-    RevenueWithdrawalStateFailed() = default;
+    RevenueWithdrawalStateFailed() {
+      type = "failed";
+    }
     explicit RevenueWithdrawalStateFailed(const nl::json& json) {
       RevenueWithdrawalStateFailed::fromJson(json);
     }

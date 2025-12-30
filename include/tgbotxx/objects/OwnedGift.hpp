@@ -35,10 +35,11 @@ namespace tgbotxx {
 
   /// @brief Describes a regular gift owned by a user or a chat
   struct OwnedGiftRegular : OwnedGift {
-    OwnedGiftRegular() = default;
+    OwnedGiftRegular() {
+      type = "regular";
+    }
     explicit OwnedGiftRegular(const nl::json& json) {
       OwnedGiftRegular::fromJson(json);
-      // OwnedGift::type = "regular";
     }
     ~OwnedGiftRegular() override = default;
 
@@ -116,7 +117,9 @@ namespace tgbotxx {
 
   /// @brief Describes a unique gift owned by a user or a chat
   struct OwnedGiftUnique : OwnedGift {
-    OwnedGiftUnique() = default;
+    OwnedGiftUnique() {
+      type = "unique";
+    }
     explicit OwnedGiftUnique(const nl::json& json) {
       OwnedGiftUnique::fromJson(json);
     }

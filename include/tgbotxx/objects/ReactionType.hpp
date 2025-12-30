@@ -13,7 +13,7 @@ namespace tgbotxx {
     }
     virtual ~ReactionType() = default;
 
-    /// @brief Type of the reaction, one of “emoji”, "custom_emoji
+    /// @brief Type of the reaction, one of “emoji”, "custom_emoji”
     std::string type;
 
 
@@ -34,10 +34,11 @@ namespace tgbotxx {
   /// @brief The reaction is based on an emoji.
   /// @ref https://core.telegram.org/bots/api#reactiontypeemoji
   struct ReactionTypeEmoji : ReactionType {
-    ReactionTypeEmoji() = default;
+    ReactionTypeEmoji() {
+      type = "emoji";
+    }
     explicit ReactionTypeEmoji(const nl::json& json) {
       ReactionTypeEmoji::fromJson(json);
-      // ReactionType::type = "emoji";
     }
 
     /// @brief Reaction emoji. Currently,it can be one of "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯",
@@ -62,10 +63,11 @@ namespace tgbotxx {
   /// @brief The reaction is based on a custom emoji.
   /// @ref https://core.telegram.org/bots/api#reactiontypecustomemoji
   struct ReactionTypeCustomEmoji : ReactionType {
-    ReactionTypeCustomEmoji() = default;
+    ReactionTypeCustomEmoji() {
+      type = "custom_emoji";
+    }
     explicit ReactionTypeCustomEmoji(const nl::json& json) {
       ReactionTypeCustomEmoji::fromJson(json);
-      // ReactionType::type = "custom_emoji";
     }
 
     /// @brief Custom emoji identifier

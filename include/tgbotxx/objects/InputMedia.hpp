@@ -26,7 +26,7 @@ namespace tgbotxx {
     /// - Pass a cpr::File to upload a local file
     /// The latter will internally use “attach://<file_attach_name>” with multipart/form-data under <file_attach_name> name to upload the local file.
     /// More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    std::variant<cpr::File, std::string> media{""};
+    std::variant<std::monostate, cpr::File, std::string> media{};
 
     /// @brief Optional. Caption of the media to be sent, 0-1024 characters after entities parsing
     std::string caption;
@@ -44,11 +44,13 @@ namespace tgbotxx {
     [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
-      // media variant
-      if (const std::size_t idx = media.index(); idx == 0)
-        json["media"] = std::get<cpr::File>(media).filepath;
-      else if (idx == 1)
-        json["media"] = std::get<std::string>(media);
+      if (not std::holds_alternative<std::monostate>(media)) {
+        // media variant
+        if (std::holds_alternative<cpr::File>(media))
+          json["media"] = std::get<cpr::File>(media).filepath;
+        else
+          json["media"] = std::get<std::string>(media);
+      }
       OBJECT_SERIALIZE_FIELD(json, "caption", caption);
       OBJECT_SERIALIZE_FIELD(json, "parse_mode", parseMode);
       OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "caption_entities", captionEntities);
@@ -69,10 +71,11 @@ namespace tgbotxx {
   /// @brief Represents an animation file (GIF or H.264/MPEG-4 AVC video without sound) to be sent.
   /// @ref https://core.telegram.org/bots/api#inputmediaanimation
   struct InputMediaAnimation : InputMedia {
-    InputMediaAnimation() = default;
+    InputMediaAnimation() {
+      type = "animation";
+    }
     explicit InputMediaAnimation(const nl::json& json) {
       InputMediaAnimation::fromJson(json);
-      // InputMediaAnimation::type = "animation";
     }
 
     /// @brief Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
@@ -118,10 +121,11 @@ namespace tgbotxx {
   /// @brief Represents a general file to be sent.
   /// @ref https://core.telegram.org/bots/api#inputmediadocument
   struct InputMediaDocument : InputMedia {
-    InputMediaDocument() = default;
+    InputMediaDocument() {
+      type = "document";
+    }
     explicit InputMediaDocument(const nl::json& json) {
       InputMediaDocument::fromJson(json);
-      // InputMediaDocument::type = "document";
     }
 
     /// @brief Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
@@ -153,10 +157,11 @@ namespace tgbotxx {
   /// @brief Represents an audio file to be treated as music to be sent.
   /// @ref https://core.telegram.org/bots/api#inputmediaaudio
   struct InputMediaAudio : InputMedia {
-    InputMediaAudio() = default;
+    InputMediaAudio() {
+      type = "audio";
+    }
     explicit InputMediaAudio(const nl::json& json) {
       InputMediaAudio::fromJson(json);
-      // InputMediaAudio::type = "audio";
     }
 
     /// @brief Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
@@ -196,10 +201,11 @@ namespace tgbotxx {
   /// @brief Represents a photo to be sent.
   /// @ref https://core.telegram.org/bots/api#inputmediaphoto
   struct InputMediaPhoto : InputMedia {
-    InputMediaPhoto() = default;
+    InputMediaPhoto() {
+      type = "photo";
+    }
     explicit InputMediaPhoto(const nl::json& json) {
       InputMediaPhoto::fromJson(json);
-      // InputMediaPhoto::type = "photo";
     }
 
     /// @brief Optional. Pass True if the photo needs to be covered with a spoiler animation
@@ -220,10 +226,11 @@ namespace tgbotxx {
   /// @brief Represents a video to be sent.
   /// @ref https://core.telegram.org/bots/api#inputmediavideo
   struct InputMediaVideo : InputMedia {
-    InputMediaVideo() = default;
+    InputMediaVideo() {
+      type = "video";
+    }
     explicit InputMediaVideo(const nl::json& json) {
       InputMediaVideo::fromJson(json);
-      // InputMediaVideo::type = "video";
     }
 
     /// @brief Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.

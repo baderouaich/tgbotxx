@@ -31,10 +31,11 @@ namespace tgbotxx {
 
   /// @brief Story area pointing to a location
   struct StoryAreaTypeLocation : StoryAreaType {
-    StoryAreaTypeLocation() = default;
+    StoryAreaTypeLocation() {
+      type = "location";
+    }
     explicit StoryAreaTypeLocation(const nl::json& json) {
       StoryAreaTypeLocation::fromJson(json);
-      // StoryAreaType::type = "location";
     }
 
     float latitude{};
@@ -59,10 +60,11 @@ namespace tgbotxx {
 
   /// @brief Story area pointing to a suggested reaction
   struct StoryAreaTypeSuggestedReaction : StoryAreaType {
-    StoryAreaTypeSuggestedReaction() = default;
+    StoryAreaTypeSuggestedReaction() {
+      type = "suggested_reaction";
+    }
     explicit StoryAreaTypeSuggestedReaction(const nl::json& json) {
       StoryAreaTypeSuggestedReaction::fromJson(json);
-      // StoryAreaTypeSuggestedReaction::type = "suggested_reaction";
     }
 
     Ptr<ReactionType> reactionType;
@@ -87,10 +89,11 @@ namespace tgbotxx {
 
   /// @brief Story area pointing to a link
   struct StoryAreaTypeLink : StoryAreaType {
-    StoryAreaTypeLink() = default;
+    StoryAreaTypeLink() {
+      type = "link";
+    }
     explicit StoryAreaTypeLink(const nl::json& json) {
       StoryAreaTypeLink::fromJson(json);
-      // StoryAreaTypeLink::type = "link";
     }
 
     std::string url;
@@ -109,10 +112,11 @@ namespace tgbotxx {
 
   /// @brief Story area showing weather information
   struct StoryAreaTypeWeather : StoryAreaType {
-    StoryAreaTypeWeather() = default;
+    StoryAreaTypeWeather() {
+      type = "weather";
+    }
     explicit StoryAreaTypeWeather(const nl::json& json) {
       StoryAreaTypeWeather::fromJson(json);
-      // StoryAreaTypeWeather::type = "weather";
     }
 
     float temperature{};
@@ -137,10 +141,11 @@ namespace tgbotxx {
 
   /// @brief Story area pointing to a unique gift
   struct StoryAreaTypeUniqueGift : StoryAreaType {
-    StoryAreaTypeUniqueGift() = default;
+    StoryAreaTypeUniqueGift() {
+      type = "unique_gift";
+    }
     explicit StoryAreaTypeUniqueGift(const nl::json& json) {
       StoryAreaTypeUniqueGift::fromJson(json);
-      // StoryAreaTypeUniqueGift::type = "unique_gift";
     }
 
     std::string name;
