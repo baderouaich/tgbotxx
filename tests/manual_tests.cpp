@@ -51,7 +51,13 @@ class MyBot final : public Bot {
   };
 
 public:
-  explicit MyBot(const std::string& token) : Bot(token) {}
+  explicit MyBot(const std::string& token) : Bot(token) {
+    std::cout << "TGBOTXX_VERSION=" << TGBOTXX_VERSION << std::endl;
+    std::cout << "TGBOTXX_VERSION_MAJOR=" << TGBOTXX_VERSION_MAJOR << std::endl;
+    std::cout << "TGBOTXX_VERSION_MINOR=" << TGBOTXX_VERSION_MINOR << std::endl;
+    std::cout << "TGBOTXX_VERSION_PATCH=" << TGBOTXX_VERSION_PATCH << std::endl;
+    std::cout << "TGBOTXX_VERSION_TWEAK=" << TGBOTXX_VERSION_TWEAK << std::endl;
+  }
 
 private:
   /// Called before Bot starts receiving updates (triggered by Bot::start())
@@ -84,6 +90,7 @@ private:
       commands.push_back(std::move(cmd));
     }
     api()->setMyCommands(commands);
+
 
     std::cout << __func__ << ": " << api()->getMyName()->name << " bot started!" << std::endl;
   }

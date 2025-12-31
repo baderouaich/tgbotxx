@@ -32,9 +32,15 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include> # nlohmann json (single include)
         ${CPR_INCLUDE_DIRS}                                             # libcpr includes
-        )
+)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})
-add_compile_definitions(TGBOTXX_VERSION="${PROJECT_VERSION}")
+target_compile_definitions(${PROJECT_NAME} PUBLIC
+        TGBOTXX_VERSION="${PROJECT_VERSION}"
+        TGBOTXX_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
+        TGBOTXX_VERSION_MINOR=${PROJECT_VERSION_MINOR}
+        TGBOTXX_VERSION_PATCH=${PROJECT_VERSION_PATCH}
+        TGBOTXX_VERSION_TWEAK=${PROJECT_VERSION_TWEAK}
+)
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Wno-unused-function -Wno-unused-parameter)
 elseif (MSVC)
