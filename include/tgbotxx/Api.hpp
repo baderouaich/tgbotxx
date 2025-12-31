@@ -97,12 +97,16 @@ namespace tgbotxx {
                                                                           /// except chat_member (default). If not specified, the previous setting will be used.
                                                                           /// Cached data
     struct Cache {
-      std::string botUsername;              /// Cached Bot username to avoid calling getMe()->username everytime we receive a message to check if a command was sent to this Bot in a group that has multiple Bots
-      std::vector<std::string> botCommands; /// Cached Bot commands to avoid calling getMyCommands() everytime we receive a message to check if it's a command or not. (with / leading)
+      explicit Cache(const Api& pApi) noexcept;
 
-      void refresh(const Api*);
+      std::span<std::string> getBotCommands() const;
+      std::string_view getBotUsername() const;
+
+      const Api& api;
+      mutable std::string botUsername;              /// Cached Bot username to avoid calling getMe()->username everytime we receive a message to check if a command was sent to this Bot in a group that has multiple Bots
+      mutable std::vector<std::string> botCommands; /// Cached Bot commands to avoid calling getMyCommands() everytime we receive a message to check if it's a command or not. (with / leading)
     };
-    mutable Cache m_cache{};
+    Cache m_cache;
 
   public:
     /// @brief Constructs Api object.

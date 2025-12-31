@@ -70,18 +70,31 @@ const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);   
 const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
 const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
-void Api::Cache::refresh(const Api *api) {
-  // Cache Bot's username & commands
-  botUsername = api->getMe()->username;
-  if (const auto cmds = api->getMyCommands(); !cmds.empty()) {
-    botCommands.reserve(cmds.size());
-    for (const auto& cmd: cmds) {
-      botCommands.push_back(cmd->command);
-    }
-  }
+Api::Cache::Cache(const Api& pApi) noexcept
+  : api{pApi} {
 }
 
-Api::Api(const std::string& token) : m_token(token) {
+std::span<std::string> Api::Cache::getBotCommands() const {
+  if (botCommands.empty()) [[unlikely]] {
+    // Cache Bot commands
+    if (const auto cmds = api.getMyCommands(); !cmds.empty()) {
+      botCommands.reserve(cmds.size());
+      for (const auto& cmd: cmds) {
+        botCommands.push_back(cmd->command);
+      }
+    }
+  }
+  return botCommands;
+}
+std::string_view Api::Cache::getBotUsername() const {
+  if (botUsername.empty()) [[unlikely]] {
+    // Cache Bot username
+    botUsername = api.getMe()->username;
+  }
+  return botUsername;
+}
+
+Api::Api(const std::string& token) : m_token{token}, m_cache{*this} {
 }
 
 nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {

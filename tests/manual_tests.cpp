@@ -156,7 +156,7 @@ private:
     for (const auto& [cmdInfo, handler]: commandHandlers) {
       const auto& [command, desc] = cmdInfo;
       // look for /start or /start@myusername (in groups)
-      if (command == message->text || message->text.ends_with(atMyUsername)) {
+      if (command == message->text or message->text == command + atMyUsername) {
         // Call the proper command handler
         (this->*handler)(message);
         break;
