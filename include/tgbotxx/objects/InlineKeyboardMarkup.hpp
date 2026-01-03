@@ -9,7 +9,7 @@ namespace tgbotxx {
   struct InlineKeyboardMarkup : IReplyMarkup {
       InlineKeyboardMarkup() = default;
       explicit InlineKeyboardMarkup(const nl::json& json) {
-        _fromJson(json);
+        InlineKeyboardMarkup::fromJson(json);
       }
       virtual ~InlineKeyboardMarkup() = default;
 
@@ -18,7 +18,7 @@ namespace tgbotxx {
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
-      nl::json toJson() const override {
+      [[nodiscard]] nl::json toJson() const override {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, "inline_keyboard", inlineKeyboard);
         return json;
@@ -27,12 +27,6 @@ namespace tgbotxx {
       /// @brief Deserializes this object from JSON
       void fromJson(const nl::json& json) override {
         OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, "inline_keyboard", inlineKeyboard, false);
-      }
-
-    private:
-      /// @brief Just so we don't invoke virtual method fromJson() from constructor
-      void _fromJson(const nl::json& json) {
-        fromJson(json);
       }
   };
 }

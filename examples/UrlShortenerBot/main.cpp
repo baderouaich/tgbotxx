@@ -5,7 +5,7 @@
 #include <tgbotxx/tgbotxx.hpp>
 using namespace tgbotxx;
 
-class UrlShortenerBot : public Bot {
+class UrlShortenerBot final : public Bot {
   public:
     UrlShortenerBot(const std::string& token) : Bot(token) {}
 
@@ -56,8 +56,8 @@ int main(int argc, const char *argv[]) {
       std::cout << "Stopping Bot. Please wait...\n";
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

@@ -5,7 +5,7 @@ using namespace tgbotxx;
 #include <filesystem>
 namespace fs = std::filesystem;
 
-class ReceiveDocumentBot : public Bot {
+class ReceiveDocumentBot final : public Bot {
   public:
     ReceiveDocumentBot(const std::string& token) : Bot(token) {}
 
@@ -45,10 +45,9 @@ int main(int argc, const char *argv[]) {
   static std::unique_ptr<ReceiveDocumentBot> BOT(new ReceiveDocumentBot(argv[1]));
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if (BOT) {
-      std::cout << "Stopping Bot. Please wait...\n";
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
   BOT->start();
   return EXIT_SUCCESS;

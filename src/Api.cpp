@@ -1,4 +1,5 @@
 #include <chrono>
+#include <memory>
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
@@ -69,25 +70,42 @@ const cpr::Timeout Api::DEFAULT_LONG_POLL_TIMEOUT = std::chrono::seconds(60);   
 const cpr::Timeout Api::DEFAULT_UPLOAD_FILES_TIMEOUT = std::chrono::seconds(15 * 60);          /// 15min (Files can take longer time to upload. Setting a shorter timeout will stop the request even if the file isn't fully uploaded)
 const cpr::Timeout Api::DEFAULT_DOWNLOAD_FILES_TIMEOUT = std::chrono::seconds(30 * 60);        /// 30min (Files can take longer time to download. Setting a shorter timeout will stop the request even if the file isn't fully downloaded)
 
-void Api::Cache::refresh(const Api* api) {
-  // Cache Bot's username & commands
-  botUsername = api->getMe()->username;
-  if (const auto cmds = api->getMyCommands(); !cmds.empty()) {
-    botCommands.reserve(cmds.size());
-    for (const auto& cmd: cmds) {
-      botCommands.push_back(cmd->command);
+Api::Cache::Cache(const Api& pApi) noexcept
+  : api{pApi} {
+}
+
+std::span<std::string> Api::Cache::getBotCommands() const {
+  if (botCommands.empty()) [[unlikely]] {
+    // Cache Bot commands
+    if (const auto cmds = api.getMyCommands(); !cmds.empty()) {
+      botCommands.reserve(cmds.size());
+      for (const auto& cmd: cmds) {
+        botCommands.push_back(cmd->command);
+      }
     }
   }
+  return botCommands;
+}
+std::string_view Api::Cache::getBotUsername() const {
+  if (botUsername.empty()) [[unlikely]] {
+    // Cache Bot username
+    botUsername = api.getMe()->username;
+  }
+  return botUsername;
 }
 
-Api::Api(const std::string& token) : m_token(token) {
-  m_cache.refresh(this);
+Api::Api(const std::string& token) : m_token{token}, m_cache{*this} {
 }
 
-nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data) const {
+nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& data, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
   cpr::Session session{}; // Note: Why not have one session as a class member to use for all requests ?
                           // You can initiate multiple concurrent requests to the Telegram API, which means
                           // You can call sendMessage while getUpdates long polling is still pending, and you can't do that with a single cpr::Session instance.
+
+  if (cancellationParam) {
+    session.SetCancellationParam(cancellationParam);
+  }
+
   const bool hasFiles = std::ranges::any_of(data.parts, [](const cpr::Part& part) noexcept { return part.is_file; });
   session.SetProxies(m_proxies);
   session.SetConnectTimeout(m_connectTimeout);
@@ -108,6 +126,9 @@ nl::json Api::sendRequest(const std::string& endpoint, const cpr::Multipart& dat
   }
 
   const cpr::Response res = isMultipart ? session.Post() : session.Get();
+  if (res.error) [[unlikely]] {
+    throw Exception(endpoint + ": " + res.error.message, (res.error.code == cpr::ErrorCode::ABORTED_BY_CALLBACK) ? ErrorCode::REQUEST_CANCELLED : ErrorCode::OTHER);
+  }
   if (res.status_code == 0) [[unlikely]] {
     throw Exception(endpoint + ": Failed to connect to Telegram API with status code: 0. Perhaps you are not connected to the internet?", ErrorCode::OTHER);
   }
@@ -437,7 +458,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
                             std::time_t duration,
                             const std::string& performer,
                             const std::string& title,
-                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                            const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                             bool disableNotification,
                             bool protectContent,
                             const Ptr<IReplyMarkup>& replyMarkup,
@@ -475,12 +496,12 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("performer", performer);
   if (not title.empty())
     data.parts.emplace_back("title", title);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -511,7 +532,7 @@ Ptr<Message> Api::sendAudio(const std::variant<std::int64_t, std::string>& chatI
 Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                                const std::variant<cpr::File, std::string>& document,
                                std::int32_t messageThreadId,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                const std::string& caption,
                                const std::string& parseMode,
                                const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -537,12 +558,12 @@ Ptr<Message> Api::sendDocument(const std::variant<std::int64_t, std::string>& ch
   }
   if (messageThreadId)
     data.parts.emplace_back("message_thread_id", messageThreadId);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -589,8 +610,8 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
                             std::time_t duration,
                             std::int32_t width,
                             std::int32_t height,
-                            const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
-                            const std::optional<std::variant<cpr::File, std::string>>& cover,
+                            const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
+                            const std::variant<std::monostate, cpr::File, std::string>& cover,
                             std::time_t startTimestamp,
                             const std::string& caption,
                             const std::string& parseMode,
@@ -625,21 +646,21 @@ Ptr<Message> Api::sendVideo(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("width", width);
   if (height)
     data.parts.emplace_back("height", height);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
-  if (cover.has_value()) {
-    if (cover->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*cover);
+  if (not std::holds_alternative<std::monostate>(cover)) {
+    if (std::holds_alternative<cpr::File>(cover)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(cover);
       data.parts.emplace_back("cover", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*cover);
+      const std::string& fileIdOrUrl = std::get<std::string>(cover);
       data.parts.emplace_back("cover", fileIdOrUrl);
     }
   }
@@ -691,7 +712,7 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
                                 std::time_t duration,
                                 std::int32_t width,
                                 std::int32_t height,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                 const std::string& caption,
                                 const std::string& parseMode,
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
@@ -722,12 +743,12 @@ Ptr<Message> Api::sendAnimation(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("width", width);
   if (height)
     data.parts.emplace_back("height", height);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -835,7 +856,7 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
                                 std::int32_t messageThreadId,
                                 std::time_t duration,
                                 std::int32_t length,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail,
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail,
                                 bool disableNotification,
                                 bool protectContent,
                                 const Ptr<IReplyMarkup>& replyMarkup,
@@ -861,12 +882,12 @@ Ptr<Message> Api::sendVideoNote(const std::variant<std::int64_t, std::string>& c
     data.parts.emplace_back("duration", duration);
   if (length)
     data.parts.emplace_back("length", duration);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -1995,7 +2016,7 @@ bool Api::answerCallbackQuery(const std::string& callbackQueryId,
 }
 
 Ptr<UserChatBoosts> Api::getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
-                                       std::int64_t userId) const {
+                                           std::int64_t userId) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
@@ -2015,10 +2036,6 @@ bool Api::setMyCommands(const std::vector<Ptr<BotCommand>>& commands,
   data.parts.emplace_back("commands", commandsJson.dump());
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
-  else {
-    auto defScope = makePtr<BotCommandScopeDefault>();
-    data.parts.emplace_back("scope", defScope->toJson().dump());
-  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
@@ -2055,10 +2072,6 @@ std::vector<Ptr<BotCommand>> Api::getMyCommands(const Ptr<BotCommandScope>& scop
   data.parts.reserve(2);
   if (scope)
     data.parts.emplace_back("scope", scope->toJson().dump());
-  else {
-    const auto defScope = makePtr<BotCommandScopeDefault>();
-    data.parts.emplace_back("scope", defScope->toJson().dump());
-  }
   if (not languageCode.empty())
     data.parts.emplace_back("language_code", languageCode);
 
@@ -2589,15 +2602,15 @@ bool Api::deleteWebhook(bool dropPendingUpdates) const {
 }
 
 /// Called every LONG_POOL_TIMEOUT seconds
-std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, std::int32_t limit) const {
+std::vector<Ptr<Update>> Api::getUpdates(std::int32_t offset, const std::shared_ptr<std::atomic<bool>>& cancellationParam) const {
   std::vector<Ptr<Update>> updates;
   const cpr::Multipart data = {
     {"offset", offset},
-    {"limit", std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit))},
+    {"limit", m_updatesLimit},
     {"timeout", static_cast<std::int32_t>(std::chrono::duration_cast<std::chrono::seconds>(m_longPollTimeout.ms).count())},
     {"allowed_updates", nl::json(m_allowedUpdates).dump()},
   };
-  const nl::json updatesJson = sendRequest("getUpdates", data);
+  const nl::json updatesJson = sendRequest("getUpdates", data, cancellationParam);
   updates.reserve(updatesJson.size());
   for (const nl::json& updateObj: updatesJson) {
     Ptr<Update> update = makePtr<Update>(updateObj);
@@ -3256,18 +3269,18 @@ bool Api::setStickerSetTitle(const std::string& name, const std::string& title) 
 bool Api::setStickerSetThumbnail(const std::string& name,
                                  std::int64_t userId,
                                  const std::string& format,
-                                 const std::optional<std::variant<cpr::File, std::string>>& thumbnail) const {
+                                 const std::variant<std::monostate, cpr::File, std::string>& thumbnail) const {
   cpr::Multipart data{};
   data.parts.reserve(4);
   data.parts.emplace_back("name", name);
   data.parts.emplace_back("user_id", std::to_string(userId));
   data.parts.emplace_back("format", format);
-  if (thumbnail.has_value()) {
-    if (thumbnail->index() == 0) /* cpr::File */ {
-      const cpr::File& file = std::get<cpr::File>(*thumbnail);
+  if (not std::holds_alternative<std::monostate>(thumbnail)) {
+    if (std::holds_alternative<cpr::File>(thumbnail)) /* cpr::File */ {
+      const cpr::File& file = std::get<cpr::File>(thumbnail);
       data.parts.emplace_back("thumbnail", cpr::Files{file});
     } else /* std::string (fileId or Url) */ {
-      const std::string& fileIdOrUrl = std::get<std::string>(*thumbnail);
+      const std::string& fileIdOrUrl = std::get<std::string>(thumbnail);
       data.parts.emplace_back("thumbnail", fileIdOrUrl);
     }
   }
@@ -3419,6 +3432,11 @@ void Api::setLongPollTimeout(const cpr::Timeout& longPollTimeout) {
   m_longPollTimeout = longPollTimeout;
 }
 cpr::Timeout Api::getLongPollTimeout() const noexcept { return m_longPollTimeout; }
+
+void Api::setUpdatesLimit(const std::int32_t limit) noexcept {
+  m_updatesLimit = std::max<std::int32_t>(1, std::min<std::int32_t>(100, limit));
+}
+std::int32_t Api::getUpdatesLimit() const noexcept { return m_updatesLimit; }
 
 void Api::setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept {
   m_connectTimeout = timeout;

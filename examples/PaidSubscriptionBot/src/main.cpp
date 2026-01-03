@@ -19,13 +19,14 @@ int main(int argc, const char *argv[]) {
   {
     std::signal(sig, [](int s) {
       if(BOT) {
+        std::cout << "Stopping Bot. Please wait..." << std::endl;
         BOT->stop();
       }
-      std::exit(s == SIGINT ? EXIT_SUCCESS : EXIT_FAILURE);
     });
   }
 
   // Start the bot
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

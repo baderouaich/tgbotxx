@@ -284,7 +284,7 @@ namespace tgbotxx {
       std::int64_t migrateFromChatId{};
 
       /// @brief Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
-      MaybeInaccessibleMessage pinnedMessage;
+      MaybeInaccessibleMessage pinnedMessage{};
 
       /// @brief Optional. Message is an invoice for a payment, information about the invoice.
       /// @link More about payments » https://core.telegram.org/bots/api#payments @endlink

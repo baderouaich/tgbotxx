@@ -51,8 +51,7 @@ When using **tgbotxx** in your own applications:
 - Protect Your Bot Token Treat your **Bot Token** like a password (if leaked), anyone can control your bot.
 - Never commit your token to GitHub or other version control systems.
 - If you suspect your token was leaked, revoke it immediately via [@BotFather](https://t.me/BotFather).
-- Avoid Command Injection and Unsafe Operations**  Never use `system()`, `popen()`, or shell commands with untrusted input.
-- If you must run system commands, strictly sanitize inputs or use safe alternatives such as `std::filesystem`.
+- Avoid Command Injection and Unsafe Operations**  Never use `system()`, `popen()`, or shell commands with untrusted input. If you must run system commands, strictly sanitize inputs.
 - Avoid deserializing arbitrary JSON from users; validate fields explicitly.
 - Do not store private user data unless absolutely required.
 - Encrypt sensitive information at rest using CryptoPP, OpenSSL AES, libsodium, or a trusted vault.

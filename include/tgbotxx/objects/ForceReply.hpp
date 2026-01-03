@@ -15,7 +15,7 @@ namespace tgbotxx {
   struct ForceReply : IReplyMarkup {
       ForceReply() = default;
       explicit ForceReply(const nl::json& json) {
-        _fromJson(json);
+        ForceReply::fromJson(json);
       }
 
       /// @brief Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'
@@ -33,7 +33,7 @@ namespace tgbotxx {
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
-      nl::json toJson() const override {
+      [[nodiscard]] nl::json toJson() const override {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD(json, "force_reply", forceReply);
         OBJECT_SERIALIZE_FIELD(json, "input_field_placeholder", inputFieldPlaceholder);
@@ -46,12 +46,6 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "force_reply", forceReply, false, false);
         OBJECT_DESERIALIZE_FIELD(json, "input_field_placeholder", inputFieldPlaceholder, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "selective", selective, false, true);
-      }
-
-    private:
-      /// @brief Just so we don't invoke virtual method fromJson() from constructor
-      void _fromJson(const nl::json& json) {
-        fromJson(json);
       }
   };
 }

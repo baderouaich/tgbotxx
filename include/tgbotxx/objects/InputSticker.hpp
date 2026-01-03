@@ -18,7 +18,7 @@ namespace tgbotxx {
       /// - Pass an HTTP URL as an std::string for Telegram to get a .WEBP sticker from the Internet, or
       /// - Pass a cpr::File to upload a new .WEBP or .TGS sticker
       /// Animated and video stickers can't be uploaded via HTTP URL. [More information on Sending Files »](https://core.telegram.org/bots/api#sending-files)
-      std::variant<cpr::File, std::string> sticker{""};
+      std::variant<std::monostate, cpr::File, std::string> sticker{};
 
       /// @brief Format of the added sticker, must be one of “static” for a .WEBP or .PNG image, “animated” for a .TGS animation, “video” for a .WEBM video
       std::string format;
@@ -37,11 +37,13 @@ namespace tgbotxx {
       /// @returns JSON representation of this object
       nl::json toJson() const {
         nl::json json = nl::json::object();
-        // sticker variant
-        if (auto idx = sticker.index(); idx == 0)
-          json["sticker"] = std::get<cpr::File>(sticker).filepath;
-        else if (idx == 1)
-          json["sticker"] = std::get<std::string>(sticker);
+        if (not std::holds_alternative<std::monostate>(sticker)) {
+          // sticker variant
+          if (std::holds_alternative<cpr::File>(sticker))
+            json["sticker"] = std::get<cpr::File>(sticker).filepath;
+          else
+            json["sticker"] = std::get<std::string>(sticker);
+        }
         OBJECT_SERIALIZE_FIELD(json, "format", format);
         OBJECT_SERIALIZE_FIELD(json, "emoji_list", emojiList);
         OBJECT_SERIALIZE_FIELD_PTR(json, "mask_position", maskPosition);

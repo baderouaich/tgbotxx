@@ -8,7 +8,7 @@ namespace tgbotxx {
   struct RevenueWithdrawalState {
     RevenueWithdrawalState() = default;
     explicit RevenueWithdrawalState(const nl::json& json) {
-      _fromJson(json);
+      RevenueWithdrawalState::fromJson(json);
     }
     virtual ~RevenueWithdrawalState() = default;
 
@@ -26,31 +26,37 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    /// @brief Avoid calling virtual fromJson in constructor
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The withdrawal is in progress
   struct RevenueWithdrawalStatePending : RevenueWithdrawalState {
     RevenueWithdrawalStatePending() {
-      RevenueWithdrawalState::type = "pending";
+      type = "pending";
     }
-    explicit RevenueWithdrawalStatePending(const nl::json& json) : RevenueWithdrawalState(json) {
-      RevenueWithdrawalState::type = "pending";
+    explicit RevenueWithdrawalStatePending(const nl::json& json) {
+      RevenueWithdrawalStatePending::fromJson(json);
+    }
+
+    /// @brief Serializes this object to JSON
+    /// @returns JSON representation of this object
+    [[nodiscard]] nl::json toJson() const override {
+      nl::json json = RevenueWithdrawalState::toJson();
+      return json;
+    }
+
+    /// @brief Deserializes this object from JSON
+    void fromJson(const nl::json& json) override {
+      RevenueWithdrawalState::fromJson(json);
     }
   };
 
   /// @brief The withdrawal succeeded
   struct RevenueWithdrawalStateSucceeded : RevenueWithdrawalState {
     RevenueWithdrawalStateSucceeded() {
-      RevenueWithdrawalState::type = "succeeded";
+      type = "succeeded";
     }
-    explicit RevenueWithdrawalStateSucceeded(const nl::json& json) : RevenueWithdrawalState(json) {
-      RevenueWithdrawalState::type = "succeeded";
+    explicit RevenueWithdrawalStateSucceeded(const nl::json& json) {
+      RevenueWithdrawalStateSucceeded::fromJson(json);
     }
 
     /// @brief Date the withdrawal was completed in Unix time
@@ -59,6 +65,8 @@ namespace tgbotxx {
     /// @brief An HTTPS URL that can be used to see transaction details
     std::string url;
 
+    /// @brief Serializes this object to JSON
+    /// @returns JSON representation of this object
     nl::json toJson() const override {
       nl::json json = RevenueWithdrawalState::toJson();
       OBJECT_SERIALIZE_FIELD(json, "date", date);
@@ -66,6 +74,7 @@ namespace tgbotxx {
       return json;
     }
 
+    /// @brief Deserializes this object from JSON
     void fromJson(const nl::json& json) override {
       RevenueWithdrawalState::fromJson(json);
       OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
@@ -76,10 +85,22 @@ namespace tgbotxx {
   /// @brief The withdrawal failed and the transaction was refunded
   struct RevenueWithdrawalStateFailed : RevenueWithdrawalState {
     RevenueWithdrawalStateFailed() {
-      RevenueWithdrawalState::type = "failed";
+      type = "failed";
     }
-    explicit RevenueWithdrawalStateFailed(const nl::json& json) : RevenueWithdrawalState(json) {
-      RevenueWithdrawalState::type = "failed";
+    explicit RevenueWithdrawalStateFailed(const nl::json& json) {
+      RevenueWithdrawalStateFailed::fromJson(json);
+    }
+
+    /// @brief Serializes this object to JSON
+    /// @returns JSON representation of this object
+    [[nodiscard]] nl::json toJson() const override {
+      nl::json json = RevenueWithdrawalState::toJson();
+      return json;
+    }
+
+    /// @brief Deserializes this object from JSON
+    void fromJson(const nl::json& json) override {
+      RevenueWithdrawalState::fromJson(json);
     }
   };
 

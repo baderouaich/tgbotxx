@@ -4,9 +4,9 @@ add_library(cpr
         accept_encoding.cpp
         async.cpp
         auth.cpp
-        bearer.cpp
         callback.cpp
         cert_info.cpp
+        connection_pool.cpp
         cookies.cpp
         cprtypes.cpp
         curl_container.cpp
@@ -19,6 +19,7 @@ add_library(cpr
         proxies.cpp
         proxyauth.cpp
         session.cpp
+        sse.cpp
         threadpool.cpp
         timeout.cpp
         unix_socket.cpp
@@ -65,9 +66,15 @@ if(CPR_USE_SYSTEM_CURL)
                 VERSION ${${PROJECT_NAME}_VERSION}
                 COMPATIBILITY ExactVersion)
 
-        configure_package_config_file(${PROJECT_SOURCE_DIR}/cmake/cprConfig.cmake.in
+        if(SSL_BACKEND_USED STREQUAL "OpenSSL")
+            configure_package_config_file(${PROJECT_SOURCE_DIR}/cmake/cprConfig-ssl.cmake.in
                 "${PROJECT_BINARY_DIR}/cpr/cprConfig.cmake"
                 INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cpr)
+        else()
+            configure_package_config_file(${PROJECT_SOURCE_DIR}/cmake/cprConfig.cmake.in
+                "${PROJECT_BINARY_DIR}/cpr/cprConfig.cmake"
+                INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cpr)
+        endif()
 
         install(FILES ${PROJECT_BINARY_DIR}/cpr/cprConfig.cmake
                 ${PROJECT_BINARY_DIR}/cpr/cprConfigVersion.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cpr)

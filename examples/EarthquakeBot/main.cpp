@@ -7,7 +7,7 @@
 #include <set>
 using namespace tgbotxx;
 
-class EarthQuakeBot : public Bot {
+class EarthQuakeBot final : public Bot {
 public:
   EarthQuakeBot(const std::string &token) : Bot(token) {}
 
@@ -140,7 +140,6 @@ private:
 };
 
 
-static std::unique_ptr<EarthQuakeBot> BOT;
 
 int main(int argc, const char *argv[]) {
   if (argc < 2) {
@@ -148,15 +147,14 @@ int main(int argc, const char *argv[]) {
     return EXIT_FAILURE;
   }
 
+  static std::unique_ptr<EarthQuakeBot> BOT = std::make_unique<EarthQuakeBot>(argv[1]);
   std::signal(SIGINT, [](int) { // Graceful Bot exit on CTRL+C
     if(BOT) {
-      std::cout << "Stopping Bot. Please wait...\n";
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
-
-  BOT = std::make_unique<EarthQuakeBot>(argv[1]);
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }

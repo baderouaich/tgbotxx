@@ -10,7 +10,7 @@ namespace tgbotxx {
   struct ReplyKeyboardMarkup : IReplyMarkup {
       ReplyKeyboardMarkup() = default;
       explicit ReplyKeyboardMarkup(const nl::json& json) {
-        _fromJson(json);
+        ReplyKeyboardMarkup::fromJson(json);
       }
 
       /// @brief Array of button rows, each represented by an Array of KeyboardButton objects
@@ -46,7 +46,7 @@ namespace tgbotxx {
 
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
-      nl::json toJson() const override {
+      [[nodiscard]] nl::json toJson() const override {
         nl::json json = nl::json::object();
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, "keyboard", keyboard);
         OBJECT_SERIALIZE_FIELD(json, "is_persistent", isPersistent);
@@ -65,12 +65,6 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "one_time_keyboard", oneTimeKeyboard, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "input_field_placeholder", inputFieldPlaceholder, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "selective", selective, false, true);
-      }
-
-    private:
-      /// @brief Just so we don't invoke virtual method fromJson() from constructor
-      void _fromJson(const nl::json& json) {
-        fromJson(json);
       }
   };
 }

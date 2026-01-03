@@ -56,8 +56,5 @@ namespace tgbotxx {
 
     /// @brief Deserializes this object from JSON
     virtual void fromJson(const nl::json& json);
-
-  private:
-    void _fromJson(const nl::json& json);
   };
 }

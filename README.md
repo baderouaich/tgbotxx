@@ -60,7 +60,7 @@ Telegram Bot C++ Library
 #include <iostream>
 using namespace tgbotxx;
 
-class MyBot : public Bot {
+class MyBot final : public Bot {
 public:
   MyBot() : Bot("Bot token here from @BotFather") {}
     
@@ -80,8 +80,7 @@ private:
   // Called when Bot receives a new message of any kind
   // NB: Ptr<T> = std::shared_ptr<T>
   void onAnyMessage(const Ptr<Message>& message) override {
-    std::string reply = "Hi " + message->from->firstName
-                        + "!, got your message!";
+    std::string reply = "Hi " + message->from->firstName + ", got your message!";
     api()->sendMessage(message->chat->id, reply);
   }
   
@@ -128,7 +127,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 FetchContent_Declare(tgbotxx
         GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-        GIT_TAG "v1.1.9.2" # Compatible with Telegram Api 9.2
+        GIT_TAG "v1.2.9.2" # Compatible with Telegram Api 9.2
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         EXCLUDE_FROM_ALL

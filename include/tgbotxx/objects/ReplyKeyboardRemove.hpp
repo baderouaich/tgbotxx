@@ -9,7 +9,7 @@ namespace tgbotxx {
   struct ReplyKeyboardRemove : IReplyMarkup {
       ReplyKeyboardRemove() = default;
       explicit ReplyKeyboardRemove(const nl::json& json) {
-        _fromJson(json);
+        ReplyKeyboardRemove::fromJson(json);
       }
 
       /// @brief Requests clients to remove the custom keyboard (user will not be able to summon this keyboard;
@@ -38,12 +38,6 @@ namespace tgbotxx {
       void fromJson(const nl::json& json) override {
         OBJECT_DESERIALIZE_FIELD(json, "remove_keyboard", removeKeyboard, false, false);
         OBJECT_DESERIALIZE_FIELD(json, "selective", selective, false, true);
-      }
-
-    private:
-      /// @brief Just so we don't invoke virtual method fromJson() from constructor
-      void _fromJson(const nl::json& json) {
-        fromJson(json);
       }
   };
 }

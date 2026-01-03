@@ -10,7 +10,7 @@
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
-  : m_api{new Api(token)}, m_updates{}, m_lastUpdateId{0}, m_running{false} {
+  : m_api{new Api(token)}, m_updates{}, m_lastUpdateId{0}, m_stopped{std::make_shared<std::atomic<bool>>(true)} {
 }
 
 Bot::~Bot() {
@@ -18,17 +18,17 @@ Bot::~Bot() {
 }
 
 void Bot::start() {
-  if (m_running) return;
-  m_running = true;
+  if (not *m_stopped) return;
+  *m_stopped = false;
 
   /// Callback -> onStart
   this->onStart();
 
   /// Start the Long Polling loop...
-  while (m_running) {
+  while (not *m_stopped) {
     try {
       // Get updates from Telegram (any new events such as messages, commands, files, ...)
-      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId);
+      m_updates = m_api->getUpdates(/*offset=*/m_lastUpdateId, m_stopped);
     } catch (const Exception& err) {
       /// Callback -> onLongPollError
       std::string errStr{err.what()};
@@ -57,8 +57,8 @@ void Bot::start() {
 }
 
 void Bot::stop() {
-  if (not m_running) return;
-  m_running = false;
+  if (*m_stopped) return;
+  *m_stopped = true;
 
   /// Callback -> onStop
   this->onStop();
@@ -66,7 +66,7 @@ void Bot::stop() {
 
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }
 const Ptr<Api>& Bot::api() const noexcept { return m_api; }
-bool Bot::isRunning() const noexcept { return m_running; }
+bool Bot::isRunning() const noexcept { return not *m_stopped; }
 
 void Bot::dispatch(const Ptr<Update>& update) {
   this->dispatchMessages(update);
@@ -95,13 +95,13 @@ void Bot::dispatchMessages(const Ptr<Update>& update) {
       } else {
         // 1 BotCommand entity must be in the message starting with /
         // assert(std::ranges::count_if(message->entities, [](const Ptr<MessageEntity>& entity) noexcept {return entity->type == MessageEntity::Type::BotCommand;}) == 1);
-        const bool isKnownCommand = std::ranges::any_of(m_api->m_cache.botCommands, [&text, atMyUsername = '@' + m_api->m_cache.botUsername](const std::string& cmd) noexcept {
-          // Handle both /start (in private chats)  /start@botusername (in groups)
-          // text == cmd: example: /start
-          // text.ends_with(atMyUsername): example: /start@mybotusername
+        const bool isKnownCommand = std::ranges::any_of(m_api->getCache().getBotCommands(), [&text, atMyUsername = '@' + std::string{m_api->getCache().getBotUsername()}](const std::string& cmd) noexcept {
+          // Handle both command types:
+          // 1. /command (in private chats)
+          // 2. /command@botusername (in groups)
           // In group chats, this bot must be mentioned with the command to avoid
           // conflicts with other bots having the same command
-          return text == cmd || text.ends_with(atMyUsername);
+          return (text == cmd) or (text == cmd + atMyUsername);
         });
         if (isKnownCommand) {
           /// Callback -> onCommand

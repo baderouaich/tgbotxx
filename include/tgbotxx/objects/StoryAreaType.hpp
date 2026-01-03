@@ -11,14 +11,14 @@ namespace tgbotxx {
   struct StoryAreaType {
     StoryAreaType() = default;
     explicit StoryAreaType(const nl::json& json) {
-      _fromJson(json);
+      StoryAreaType::fromJson(json);
     }
     virtual ~StoryAreaType() = default;
 
     /// @brief Type of the area
     std::string type;
 
-    virtual nl::json toJson() const {
+    [[nodiscard]] virtual nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "type", type);
       return json;
@@ -27,27 +27,22 @@ namespace tgbotxx {
     virtual void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief Story area pointing to a location
   struct StoryAreaTypeLocation : StoryAreaType {
     StoryAreaTypeLocation() {
-      StoryAreaType::type = "location";
+      type = "location";
     }
-    explicit StoryAreaTypeLocation(const nl::json& json) : StoryAreaType(json) {
-      StoryAreaType::type = "location";
+    explicit StoryAreaTypeLocation(const nl::json& json) {
+      StoryAreaTypeLocation::fromJson(json);
     }
 
     float latitude{};
     float longitude{};
     Ptr<LocationAddress> address;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = StoryAreaType::toJson();
       OBJECT_SERIALIZE_FIELD(json, "latitude", latitude);
       OBJECT_SERIALIZE_FIELD(json, "longitude", longitude);
@@ -66,17 +61,17 @@ namespace tgbotxx {
   /// @brief Story area pointing to a suggested reaction
   struct StoryAreaTypeSuggestedReaction : StoryAreaType {
     StoryAreaTypeSuggestedReaction() {
-      StoryAreaType::type = "suggested_reaction";
+      type = "suggested_reaction";
     }
-    explicit StoryAreaTypeSuggestedReaction(const nl::json& json) : StoryAreaType(json) {
-      StoryAreaType::type = "suggested_reaction";
+    explicit StoryAreaTypeSuggestedReaction(const nl::json& json) {
+      StoryAreaTypeSuggestedReaction::fromJson(json);
     }
 
     Ptr<ReactionType> reactionType;
     bool isDark{};
     bool isFlipped{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = StoryAreaType::toJson();
       OBJECT_SERIALIZE_FIELD_PTR(json, "reaction_type", reactionType);
       OBJECT_SERIALIZE_FIELD(json, "is_dark", isDark);
@@ -95,15 +90,15 @@ namespace tgbotxx {
   /// @brief Story area pointing to a link
   struct StoryAreaTypeLink : StoryAreaType {
     StoryAreaTypeLink() {
-      StoryAreaType::type = "link";
+      type = "link";
     }
-    explicit StoryAreaTypeLink(const nl::json& json) : StoryAreaType(json) {
-      StoryAreaType::type = "link";
+    explicit StoryAreaTypeLink(const nl::json& json) {
+      StoryAreaTypeLink::fromJson(json);
     }
 
     std::string url;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = StoryAreaType::toJson();
       OBJECT_SERIALIZE_FIELD(json, "url", url);
       return json;
@@ -118,17 +113,17 @@ namespace tgbotxx {
   /// @brief Story area showing weather information
   struct StoryAreaTypeWeather : StoryAreaType {
     StoryAreaTypeWeather() {
-      StoryAreaType::type = "weather";
+      type = "weather";
     }
-    explicit StoryAreaTypeWeather(const nl::json& json) : StoryAreaType(json) {
-      StoryAreaType::type = "weather";
+    explicit StoryAreaTypeWeather(const nl::json& json) {
+      StoryAreaTypeWeather::fromJson(json);
     }
 
     float temperature{};
     std::string emoji;
     std::int32_t backgroundColor{};
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = StoryAreaType::toJson();
       OBJECT_SERIALIZE_FIELD(json, "temperature", temperature);
       OBJECT_SERIALIZE_FIELD(json, "emoji", emoji);
@@ -147,15 +142,15 @@ namespace tgbotxx {
   /// @brief Story area pointing to a unique gift
   struct StoryAreaTypeUniqueGift : StoryAreaType {
     StoryAreaTypeUniqueGift() {
-      StoryAreaType::type = "unique_gift";
+      type = "unique_gift";
     }
-    explicit StoryAreaTypeUniqueGift(const nl::json& json) : StoryAreaType(json) {
-      StoryAreaType::type = "unique_gift";
+    explicit StoryAreaTypeUniqueGift(const nl::json& json) {
+      StoryAreaTypeUniqueGift::fromJson(json);
     }
 
     std::string name;
 
-    nl::json toJson() const override {
+    [[nodiscard]] nl::json toJson() const override {
       nl::json json = StoryAreaType::toJson();
       OBJECT_SERIALIZE_FIELD(json, "name", name);
       return json;

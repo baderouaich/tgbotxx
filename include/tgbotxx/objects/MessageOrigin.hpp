@@ -13,7 +13,7 @@ namespace tgbotxx {
   struct MessageOrigin {
     MessageOrigin() = default;
     explicit MessageOrigin(const nl::json& json) {
-      _fromJson(json);
+      MessageOrigin::fromJson(json);
     }
     virtual ~MessageOrigin() = default;
 
@@ -37,21 +37,16 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "type", type, "", false);
       OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
     }
-
-  private:
-    void _fromJson(const nl::json& json) {
-      fromJson(json);
-    }
   };
 
   /// @brief The message was originally sent by a known user.
   /// @ref https://core.telegram.org/bots/api#messageoriginuser
   struct MessageOriginUser : MessageOrigin {
     MessageOriginUser() {
-      MessageOrigin::type = "user";
+      type = "user";
     }
-    explicit MessageOriginUser(const nl::json& json) : MessageOrigin(json) {
-      MessageOrigin::type = "user";
+    explicit MessageOriginUser(const nl::json& json) {
+      MessageOriginUser::fromJson(json);
     }
 
     /// @brief User that sent the message originally
@@ -74,10 +69,10 @@ namespace tgbotxx {
   /// @ref https://core.telegram.org/bots/api#messageoriginhiddenuser
   struct MessageOriginHiddenUser : MessageOrigin {
     MessageOriginHiddenUser() {
-      MessageOrigin::type = "hidden_user";
+      type = "hidden_user";
     }
-    explicit MessageOriginHiddenUser(const nl::json& json) : MessageOrigin(json) {
-      MessageOrigin::type = "hidden_user";
+    explicit MessageOriginHiddenUser(const nl::json& json) {
+      MessageOriginHiddenUser::fromJson(json);
     }
 
     /// @brief Name of the user that sent the message originally
@@ -100,10 +95,10 @@ namespace tgbotxx {
   /// @ref https://core.telegram.org/bots/api#messageoriginchat
   struct MessageOriginChat : MessageOrigin {
     MessageOriginChat() {
-      MessageOrigin::type = "chat";
+      type = "chat";
     }
-    explicit MessageOriginChat(const nl::json& json) : MessageOrigin(json) {
-      MessageOrigin::type = "chat";
+    explicit MessageOriginChat(const nl::json& json) {
+      MessageOriginChat::fromJson(json);
     }
 
     /// @brief Chat that sent the message originally
@@ -130,10 +125,10 @@ namespace tgbotxx {
   /// @ref https://core.telegram.org/bots/api#messageoriginchannel
   struct MessageOriginChannel : MessageOrigin {
     MessageOriginChannel() {
-      MessageOrigin::type = "channel";
+      type = "channel";
     }
-    explicit MessageOriginChannel(const nl::json& json) : MessageOrigin(json) {
-      MessageOrigin::type = "channel";
+    explicit MessageOriginChannel(const nl::json& json) {
+      MessageOriginChannel::fromJson(json);
     }
 
     /// @brief Channel chat to which the message was originally sent

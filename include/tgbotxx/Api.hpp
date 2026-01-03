@@ -87,6 +87,7 @@ namespace tgbotxx {
     cpr::ConnectTimeout m_connectTimeout = DEFAULT_CONNECT_TIMEOUT;       /// Api connection timeout
     cpr::Timeout m_timeout = DEFAULT_TIMEOUT;                             /// Api requests timeout
     cpr::Timeout m_longPollTimeout = DEFAULT_LONG_POLL_TIMEOUT;           /// Long polling timeout
+    std::int32_t m_updatesLimit = 100;                                    /// Limits the number of long polling updates to be retrieved by getUpdates(). Values between 1-100 are accepted. Defaults to 100.
     cpr::Timeout m_uploadFilesTimeout = DEFAULT_UPLOAD_FILES_TIMEOUT;     /// Api files upload timeout
     cpr::Timeout m_downloadFilesTimeout = DEFAULT_DOWNLOAD_FILES_TIMEOUT; /// Api files download timeout
     cpr::Proxies m_proxies = cpr::Proxies();                              /// Api proxy to use for requests
@@ -96,12 +97,16 @@ namespace tgbotxx {
                                                                           /// except chat_member (default). If not specified, the previous setting will be used.
                                                                           /// Cached data
     struct Cache {
-      std::string botUsername;              /// Cached Bot username to avoid calling getMe()->username everytime we receive a message to check if a command was sent to this Bot in a group that has multiple Bots
-      std::vector<std::string> botCommands; /// Cached Bot commands to avoid calling getMyCommands() everytime we receive a message to check if it's a command or not. (with / leading)
+      explicit Cache(const Api& pApi) noexcept;
 
-      void refresh(const Api*);
+      std::span<std::string> getBotCommands() const;
+      std::string_view getBotUsername() const;
+
+      const Api& api;
+      mutable std::string botUsername;              /// Cached Bot username to avoid calling getMe()->username everytime we receive a message to check if a command was sent to this Bot in a group that has multiple Bots
+      mutable std::vector<std::string> botCommands; /// Cached Bot commands to avoid calling getMyCommands() everytime we receive a message to check if it's a command or not. (with / leading)
     };
-    mutable Cache m_cache{};
+    Cache m_cache;
 
   public:
     /// @brief Constructs Api object.
@@ -377,7 +382,7 @@ namespace tgbotxx {
                            std::time_t duration = 0,
                            const std::string& performer = "",
                            const std::string& title = "",
-                           const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                           const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                            bool disableNotification = false,
                            bool protectContent = false,
                            const Ptr<IReplyMarkup>& replyMarkup = nullptr,
@@ -421,7 +426,7 @@ namespace tgbotxx {
     Ptr<Message> sendDocument(const std::variant<std::int64_t, std::string>& chatId,
                               const std::variant<cpr::File, std::string>& document,
                               std::int32_t messageThreadId = 0,
-                              const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                              const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                               const std::string& caption = "",
                               const std::string& parseMode = "",
                               const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -480,8 +485,8 @@ namespace tgbotxx {
                            std::time_t duration = 0,
                            std::int32_t width = 0,
                            std::int32_t height = 0,
-                           const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
-                           const std::optional<std::variant<cpr::File, std::string>>& cover = std::nullopt,
+                           const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
+                           const std::variant<std::monostate, cpr::File, std::string>& cover = std::monostate{},
                            std::time_t startTimestamp = 0,
                            const std::string& caption = "",
                            const std::string& parseMode = "",
@@ -536,7 +541,7 @@ namespace tgbotxx {
                                std::time_t duration = 0,
                                std::int32_t width = 0,
                                std::int32_t height = 0,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                                const std::string& caption = "",
                                const std::string& parseMode = "",
                                const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
@@ -624,7 +629,7 @@ namespace tgbotxx {
                                std::int32_t messageThreadId = 0,
                                std::time_t duration = 0,
                                std::int32_t length = 0,
-                               const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt,
+                               const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{},
                                bool disableNotification = false,
                                bool protectContent = false,
                                const Ptr<IReplyMarkup>& replyMarkup = nullptr,
@@ -2213,14 +2218,15 @@ namespace tgbotxx {
     /// unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called
     /// with an offset higher than its update_id. The negative offset can be specified to retrieve updates
     /// starting from -offset update from the end of the updates queue. All previous updates will be forgotten.
-    /// @param limit Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+    /// @param cancellationParam Flag used to stop long polling.
     /// @returns an Array of Update objects.
     /// @throws Exception on failure
+    /// @note Limit updates with setUpdatesLimit(limit) method. Default is 100.
     /// @note Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
     /// @note This method will not work if an outgoing webhook is set up.
     /// @note In order to avoid getting duplicate updates, recalculate offset after each server response.
     /// @link ref https://core.telegram.org/bots/api#getupdates @endlink
-    std::vector<Ptr<Update>> getUpdates(std::int32_t offset, std::int32_t limit = 100) const;
+    std::vector<Ptr<Update>> getUpdates(std::int32_t offset, const std::shared_ptr<std::atomic<bool>>& cancellationParam = nullptr) const;
 
     /// @brief Use this method to specify a URL and receive incoming updates via an outgoing webhook.
     /// Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update.
@@ -2654,7 +2660,7 @@ namespace tgbotxx {
     bool setStickerSetThumbnail(const std::string& name,
                                 std::int64_t userId,
                                 const std::string& format,
-                                const std::optional<std::variant<cpr::File, std::string>>& thumbnail = std::nullopt) const;
+                                const std::variant<std::monostate, cpr::File, std::string>& thumbnail = std::monostate{}) const;
 
     /// @brief Use this method to set the thumbnail of a custom emoji sticker set.
     /// @param name Sticker set name
@@ -2785,6 +2791,12 @@ namespace tgbotxx {
     /// @brief Get long polling timeout.
     cpr::Timeout getLongPollTimeout() const noexcept;
 
+    /// @brief Set the number of long polling updates to be retrieved by getUpdates().
+    /// Values between 1-100 are accepted. Defaults to 100.
+    void setUpdatesLimit(const std::int32_t limit) noexcept;
+    /// @brief Get Set the number of long polling updates to be retrieved by getUpdates().
+    std::int32_t getUpdatesLimit() const noexcept;
+
     /// @brief Set Api requests connection timeout.
     void setConnectTimeout(const cpr::ConnectTimeout& timeout) noexcept;
     /// @brief Get Api requests connection timeout.
@@ -2823,6 +2835,8 @@ namespace tgbotxx {
     const Cache& getCache() const noexcept;
 
   private:
-    nl::json sendRequest(const std::string& endpoint, const cpr::Multipart& data = cpr::Multipart({})) const;
+    nl::json sendRequest(const std::string& endpoint,
+                         const cpr::Multipart& data = cpr::Multipart({}),
+                         const std::shared_ptr<std::atomic<bool>>& cancellationParam = nullptr) const;
   };
 }

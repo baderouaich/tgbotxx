@@ -189,10 +189,12 @@ void Message::fromJson(const nl::json& json) {
     // date: Always 0. The field can be used to differentiate regular and inaccessible messages.
     const bool isInaccessibleMessage = json["pinned_message"].contains("date") && json["pinned_message"]["date"].get<std::time_t>() == 0;
     if (isInaccessibleMessage) {
-      Ptr<InaccessibleMessage>& inaccessibleMessage = std::get<1>(pinnedMessage);
+      pinnedMessage = makePtr<InaccessibleMessage>();
+      auto& inaccessibleMessage = std::get<Ptr<InaccessibleMessage>>(pinnedMessage);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "pinned_message", inaccessibleMessage, true);
     } else { // Regular message
-      Ptr<Message>& regularMessage = std::get<0>(pinnedMessage);
+      pinnedMessage = makePtr<Message>();
+      auto& regularMessage = std::get<Ptr<Message>>(pinnedMessage);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "pinned_message", regularMessage, true);
     }
   }

@@ -3,6 +3,8 @@
 #include "cpr/cookies.h"
 #include "cpr/cprtypes.h"
 #include "cpr/curlholder.h"
+#include "cpr/secure_string.h"
+#include "cpr/sse.h"
 #include <algorithm>
 #include <cctype>
 #include <chrono>
@@ -134,9 +136,9 @@ size_t headerUserFunction(char* ptr, size_t size, size_t nmemb, const HeaderCall
     return (*header)({ptr, size}) ? size : 0;
 }
 
-size_t writeFunction(char* ptr, size_t size, size_t nmemb, std::string* data) {
+size_t writeFunction(char* ptr, size_t size, size_t nmemb, void* data) {
     size *= nmemb;
-    data->append(ptr, size);
+    static_cast<std::string*>(data)->append(ptr, size);
     return size;
 }
 
@@ -149,6 +151,11 @@ size_t writeFileFunction(char* ptr, size_t size, size_t nmemb, std::ofstream* fi
 size_t writeUserFunction(char* ptr, size_t size, size_t nmemb, const WriteCallback* write) {
     size *= nmemb;
     return (*write)({ptr, size}) ? size : 0;
+}
+
+size_t writeSSEFunction(char* ptr, size_t size, size_t nmemb, ServerSentEventCallback* sse) {
+    size *= nmemb;
+    return sse->handleData({ptr, size}) ? size : 0;
 }
 
 int debugUserFunction(CURL* /*handle*/, curl_infotype type, char* data, size_t size, const DebugCallback* debug) {
@@ -166,7 +173,7 @@ int debugUserFunction(CURL* /*handle*/, curl_infotype type, char* data, size_t s
  * std::string input = "Hello World!";
  * std::string result = holder.urlEncode(input);
  **/
-std::string urlEncode(const std::string& s) {
+util::SecureString urlEncode(std::string_view s) {
     const CurlHolder holder; // Create a temporary new holder for URL encoding
     return holder.urlEncode(s);
 }
@@ -181,55 +188,15 @@ std::string urlEncode(const std::string& s) {
  * std::string input = "Hello%20World%21";
  * std::string result = holder.urlDecode(input);
  **/
-std::string urlDecode(const std::string& s) {
+util::SecureString urlDecode(std::string_view s) {
     const CurlHolder holder; // Create a temporary new holder for URL decoding
     return holder.urlDecode(s);
 }
 
-#if defined(__STDC_LIB_EXT1__)
-void secureStringClear(std::string& s) {
-    if (s.empty()) {
-        return;
-    }
-    memset_s(&s.front(), s.length(), 0, s.length());
-    s.clear();
-}
-#elif defined(_WIN32)
-void secureStringClear(std::string& s) {
-    if (s.empty()) {
-        return;
-    }
-    SecureZeroMemory(&s.front(), s.length());
-    s.clear();
-}
-#else
-#if defined(__clang__)
-#pragma clang optimize off // clang
-#elif defined(__GNUC__) || defined(__MINGW32__) || defined(__MINGW32__) || defined(__MINGW64__)
-#pragma GCC push_options   // g++
-#pragma GCC optimize("O0") // g++
-#endif
-void secureStringClear(std::string& s) {
-    if (s.empty()) {
-        return;
-    }
-    // NOLINTNEXTLINE (readability-container-data-pointer)
-    char* ptr = &(s[0]);
-    memset(ptr, '\0', s.length());
-    s.clear();
-}
-
-#if defined(__clang__)
-#pragma clang optimize on // clang
-#elif defined(__GNUC__) || defined(__MINGW32__) || defined(__MINGW32__) || defined(__MINGW64__)
-#pragma GCC pop_options // g++
-#endif
-#endif
-
 bool isTrue(const std::string& s) {
-    std::string temp_string{s};
-    std::transform(temp_string.begin(), temp_string.end(), temp_string.begin(), [](unsigned char c) { return static_cast<unsigned char>(std::tolower(c)); });
-    return temp_string == "true";
+    constexpr std::string_view tmp = "true";
+    auto [s_it, tmp_it] = std::mismatch(s.begin(), s.end(), tmp.begin(), tmp.end(), [](auto s_c, auto t_c) { return std::tolower(s_c) == t_c; });
+    return s_it == s.end() && tmp_it == tmp.end();
 }
 
 time_t sTimestampToT(const std::string& st) {

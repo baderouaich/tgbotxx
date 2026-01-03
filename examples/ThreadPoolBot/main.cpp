@@ -7,9 +7,9 @@
 using namespace tgbotxx;
 using namespace std::chrono_literals;
 
-class ThreadPoolBot : public Bot {
+class ThreadPoolBot final : public Bot {
 public:
-  ThreadPoolBot(const std::string &token) : Bot(token) {}
+  explicit ThreadPoolBot(const std::string &token) : Bot(token) {}
 
 private:
   cpr::ThreadPool threadPool;
@@ -30,9 +30,10 @@ private:
   }
 
   void onStop() override {
-    std::cout << "Bot Stopped\n";
+    std::cout << "Stopping thread pool...\n";
     // Stop the thread pool
     threadPool.Stop();
+    std::cout << "Thread pool stopped.\n";
   }
 
 
@@ -78,12 +79,13 @@ int main(int argc, const char *argv[]) {
   // Graceful Bot exit CTRL+C
   std::signal(SIGINT, [](int s) {
     if (BOT) {
+      std::cout << "Stopping Bot. Please wait..." << std::endl;
       BOT->stop();
     }
-    std::exit(EXIT_SUCCESS);
   });
 
   // Start the bot
   BOT->start();
+  std::cout << "Bot Stopped." << std::endl;
   return EXIT_SUCCESS;
 }
