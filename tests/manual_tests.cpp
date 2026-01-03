@@ -637,7 +637,7 @@ int main() try {
   // Create the bot
   static auto bot = std::make_unique<MyBot>(getToken());
   // Listen to stop signals for graceful bot exit
-  for (const int sig: {SIGINT, SIGTERM, SIGHUP, SIGABRT, SIGKILL}) {
+  for (const int sig: {SIGINT, SIGTERM, SIGHUP, SIGABRT}) {
     std::signal(sig, [](int sig) {
       std::cout << "Signal (" << sig << ") received! Stopping Bot. Please wait..." << std::endl;
       bot->stop();
