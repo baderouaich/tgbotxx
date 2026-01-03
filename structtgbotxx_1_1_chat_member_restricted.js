@@ -1,9 +1,9 @@
 var structtgbotxx_1_1_chat_member_restricted =
 [
-    [ "ChatMemberRestricted", "structtgbotxx_1_1_chat_member_restricted.html#ab671f653fe6abe2cb61c06ecbddfe75f", null ],
+    [ "ChatMemberRestricted", "structtgbotxx_1_1_chat_member_restricted.html#a9e86d18d3b498135275626303a093876", null ],
     [ "ChatMemberRestricted", "structtgbotxx_1_1_chat_member_restricted.html#afdca9fa6e0b5853c323c0685ee632610", null ],
-    [ "fromJson", "structtgbotxx_1_1_chat_member_restricted.html#a6dfabb796ab80e11edfb3f857155ca02", null ],
-    [ "toJson", "structtgbotxx_1_1_chat_member_restricted.html#a6a3c8c446f3cbe8d1fbea3d27ad6ece4", null ],
+    [ "fromJson", "structtgbotxx_1_1_chat_member_restricted.html#ab63e00d545514661881c83005aa9b3b2", null ],
+    [ "toJson", "structtgbotxx_1_1_chat_member_restricted.html#a811996349aab69afde80bfc60bdd2127", null ],
     [ "canAddWebPagePreviews", "structtgbotxx_1_1_chat_member_restricted.html#a3553d350e05d626ecf612888e3e5f0b2", null ],
     [ "canChangeInfo", "structtgbotxx_1_1_chat_member_restricted.html#a670b9af68ca25ead642b9f2e1e158c02", null ],
     [ "canInviteUsers", "structtgbotxx_1_1_chat_member_restricted.html#ae33d09dbee7941e878d0a61bbdaff285", null ],

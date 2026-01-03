@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -108,8 +108,8 @@ $(document).ready(function(){initNavTree('_user_chat_boosts_8hpp_source.html',''
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html">    9</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_user_chat_boosts.html">UserChatBoosts</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#aee548ad8b65832c34da9f59c3818597e">   10</a></span>    <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#aee548ad8b65832c34da9f59c3818597e">UserChatBoosts</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#a5fd9d528df2f820c4af708ff08addc96">   11</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a5fd9d528df2f820c4af708ff08addc96">UserChatBoosts</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">fromJson</a>(json);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#a5fd9d528df2f820c4af708ff08addc96">   11</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a5fd9d528df2f820c4af708ff08addc96">UserChatBoosts</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">fromJson</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
@@ -117,15 +117,15 @@ $(document).ready(function(){initNavTree('_user_chat_boosts_8hpp_source.html',''
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#a9db17c1b65a629570ebd11038ee9b310">   20</a></span>    nl::json <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a9db17c1b65a629570ebd11038ee9b310">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      <a class="code hl_define" href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a>(json, <span class="stringliteral">&quot;boosts&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_user_chat_boosts.html#a23bb1a53974a5d189df4daea3e895dc1">boosts</a>);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      nl::json <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a> = nl::json::object();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      <a class="code hl_define" href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;boosts&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_user_chat_boosts.html#a23bb1a53974a5d189df4daea3e895dc1">boosts</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
 </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">   27</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <a class="code hl_define" href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a>(json, <span class="stringliteral">&quot;boosts&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_user_chat_boosts.html#a23bb1a53974a5d189df4daea3e895dc1">boosts</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">   27</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_user_chat_boosts.html#a793bd2980df0b7a614a195e9dc746de1">fromJson</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <a class="code hl_define" href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;boosts&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_user_chat_boosts.html#a23bb1a53974a5d189df4daea3e895dc1">boosts</a>, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
 </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  };</div>
@@ -137,6 +137,7 @@ $(document).ready(function(){initNavTree('_user_chat_boosts_8hpp_source.html',''
 <div class="ttc" id="a_object_8hpp_html_a1db08aa2e59210a0f40834d022000b31"><div class="ttname"><a href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a></div><div class="ttdeci">#define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00027">Object.hpp:27</a></div></div>
 <div class="ttc" id="a_object_8hpp_html_ac0b3310f245b3966305bd80e1e673cc7"><div class="ttname"><a href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a></div><div class="ttdeci">#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field, optional)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00089">Object.hpp:89</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_user_chat_boosts_html"><div class="ttname"><a href="structtgbotxx_1_1_user_chat_boosts.html">tgbotxx::UserChatBoosts</a></div><div class="ttdoc">This object represents a list of boosts added to a chat by a user. https://core.telegram....</div><div class="ttdef"><b>Definition</b> <a href="_user_chat_boosts_8hpp_source.html#l00009">UserChatBoosts.hpp:9</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_user_chat_boosts_html_a23bb1a53974a5d189df4daea3e895dc1"><div class="ttname"><a href="structtgbotxx_1_1_user_chat_boosts.html#a23bb1a53974a5d189df4daea3e895dc1">tgbotxx::UserChatBoosts::boosts</a></div><div class="ttdeci">std::vector&lt; Ptr&lt; ChatBoost &gt; &gt; boosts</div><div class="ttdoc">The list of boosts added to the chat by the user.</div><div class="ttdef"><b>Definition</b> <a href="_user_chat_boosts_8hpp_source.html#l00016">UserChatBoosts.hpp:16</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_user_chat_boosts_html_a5fd9d528df2f820c4af708ff08addc96"><div class="ttname"><a href="structtgbotxx_1_1_user_chat_boosts.html#a5fd9d528df2f820c4af708ff08addc96">tgbotxx::UserChatBoosts::UserChatBoosts</a></div><div class="ttdeci">UserChatBoosts(const nl::json &amp;json)</div><div class="ttdef"><b>Definition</b> <a href="_user_chat_boosts_8hpp_source.html#l00011">UserChatBoosts.hpp:11</a></div></div>
@@ -149,7 +150,7 @@ $(document).ready(function(){initNavTree('_user_chat_boosts_8hpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_user_chat_boosts_8hpp.html">UserChatBoosts.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

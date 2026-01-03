@@ -9,7 +9,7 @@ var searchData=
   ['answerprecheckoutquery_6',['answerPreCheckoutQuery',['../classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021',1,'tgbotxx::Api']]],
   ['answershippingquery_7',['answerShippingQuery',['../classtgbotxx_1_1_api.html#a6f97d98fc076c9af8d719cfde542420d',1,'tgbotxx::Api']]],
   ['answerwebappquery_8',['answerWebAppQuery',['../classtgbotxx_1_1_api.html#ae64e04650e890d55d086bc2a943c739f',1,'tgbotxx::Api']]],
-  ['api_9',['api',['../classtgbotxx_1_1_bot.html#a5d712cbbb0580bb30e0ee7047f0cdad8',1,'tgbotxx::Bot::api()'],['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api::Api(const std::string &amp;token)']]],
+  ['api_9',['api',['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api::Api()'],['../classtgbotxx_1_1_bot.html#a5d712cbbb0580bb30e0ee7047f0cdad8',1,'tgbotxx::Bot::api()']]],
   ['approvechatjoinrequest_10',['approveChatJoinRequest',['../classtgbotxx_1_1_api.html#adb7036feed0a679d243e789263e2cd0b',1,'tgbotxx::Api']]],
   ['approvesuggestedpost_11',['approveSuggestedPost',['../classtgbotxx_1_1_api.html#a9efea28f3d20aa8925c8275901890137',1,'tgbotxx::Api']]],
   ['audio_12',['audio',['../structtgbotxx_1_1_audio.html#a953255898280192bca9b09cf9f5aaa70',1,'tgbotxx::Audio::Audio()=default'],['../structtgbotxx_1_1_audio.html#ab53455676939473f6dd5cbdfaa17975b',1,'tgbotxx::Audio::Audio(const nl::json &amp;json)']]]

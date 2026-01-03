@@ -30,7 +30,7 @@ var searchData=
   ['answerprecheckoutquery_27',['answerPreCheckoutQuery',['../classtgbotxx_1_1_api.html#ab9cedaad1f8ccba7b3b9a5f8da5b2021',1,'tgbotxx::Api']]],
   ['answershippingquery_28',['answerShippingQuery',['../classtgbotxx_1_1_api.html#a6f97d98fc076c9af8d719cfde542420d',1,'tgbotxx::Api']]],
   ['answerwebappquery_29',['answerWebAppQuery',['../classtgbotxx_1_1_api.html#ae64e04650e890d55d086bc2a943c739f',1,'tgbotxx::Api']]],
-  ['api_30',['api',['../classtgbotxx_1_1_api.html',1,'tgbotxx::Api'],['../classtgbotxx_1_1_bot.html#a5d712cbbb0580bb30e0ee7047f0cdad8',1,'tgbotxx::Bot::api()'],['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api::Api()']]],
+  ['api_30',['api',['../classtgbotxx_1_1_api.html',1,'tgbotxx::Api'],['../classtgbotxx_1_1_api.html#a3f3c10fcdb01039733b30b74d3342095',1,'tgbotxx::Api::Api()'],['../classtgbotxx_1_1_bot.html#a5d712cbbb0580bb30e0ee7047f0cdad8',1,'tgbotxx::Bot::api()']]],
   ['api_2ehpp_31',['Api.hpp',['../_api_8hpp.html',1,'']]],
   ['approvechatjoinrequest_32',['approveChatJoinRequest',['../classtgbotxx_1_1_api.html#adb7036feed0a679d243e789263e2cd0b',1,'tgbotxx::Api']]],
   ['approved_33',['Approved',['../structtgbotxx_1_1_suggested_post_info.html#a86aa9822008fc32ebedfdb463b0006b1a6f8063417ab31f38d864c28302f3de2f',1,'tgbotxx::SuggestedPostInfo']]],

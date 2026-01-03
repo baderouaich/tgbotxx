@@ -13,6 +13,7 @@ var _exception_8hpp =
       [ "CONFLICT", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae", null ],
       [ "TOO_MANY_REQUESTS", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17", null ],
       [ "BAD_GATEWAY", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54", null ],
+      [ "REQUEST_CANCELLED", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa62ae639f237da64207b048621cd82f29", null ],
       [ "INTERNAL", "_exception_8hpp.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
     ] ],
     [ "isErrorCode", "_exception_8hpp.html#a316fb3ec05a0ae1cae2862c6d223d538", null ],

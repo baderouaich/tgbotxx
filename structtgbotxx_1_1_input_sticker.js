@@ -8,5 +8,5 @@ var structtgbotxx_1_1_input_sticker =
     [ "format", "structtgbotxx_1_1_input_sticker.html#a439efaae66c1d37500bf7456e17ded4c", null ],
     [ "keywords", "structtgbotxx_1_1_input_sticker.html#abd892f3e09b5832a12882780cfcbce03", null ],
     [ "maskPosition", "structtgbotxx_1_1_input_sticker.html#a3cd674beda8079c20905fb267bd7d847", null ],
-    [ "sticker", "structtgbotxx_1_1_input_sticker.html#a34f5d1636b7a1b68e2ea24bf7f500860", null ]
+    [ "sticker", "structtgbotxx_1_1_input_sticker.html#a5602918a84af76a92d8723454b063bf4", null ]
 ];

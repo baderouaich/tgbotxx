@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -109,8 +109,8 @@ $(document).ready(function(){initNavTree('_star_transactions_8hpp_source.html','
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html">   10</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_star_transactions.html">StarTransactions</a> {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#a1a4b89846b16e22f08af15643e860a8f">   11</a></span>    <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#a1a4b89846b16e22f08af15643e860a8f">StarTransactions</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#a33d0eabe77a0393093636c87d281a171">   12</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#a33d0eabe77a0393093636c87d281a171">StarTransactions</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">fromJson</a>(json);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#a33d0eabe77a0393093636c87d281a171">   12</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#a33d0eabe77a0393093636c87d281a171">StarTransactions</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">fromJson</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -118,15 +118,15 @@ $(document).ready(function(){initNavTree('_star_transactions_8hpp_source.html','
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#a80e9aa722878085bd993bad20a10913a">   21</a></span>    nl::json <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#a80e9aa722878085bd993bad20a10913a">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <a class="code hl_define" href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a>(json, <span class="stringliteral">&quot;transactions&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_star_transactions.html#a6d12d0fddc26791e672088cce40b99f0">transactions</a>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      nl::json <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a> = nl::json::object();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <a class="code hl_define" href="_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31">OBJECT_SERIALIZE_FIELD_PTR_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;transactions&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_star_transactions.html#a6d12d0fddc26791e672088cce40b99f0">transactions</a>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <a class="code hl_define" href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a>(json, <span class="stringliteral">&quot;transactions&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_star_transactions.html#a6d12d0fddc26791e672088cce40b99f0">transactions</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_star_transactions.html#aa607a1c173936e3548fa8fa048ac4308">fromJson</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <a class="code hl_define" href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;transactions&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_star_transactions.html#a6d12d0fddc26791e672088cce40b99f0">transactions</a>, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
 </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  };</div>
@@ -137,6 +137,7 @@ $(document).ready(function(){initNavTree('_star_transactions_8hpp_source.html','
 <div class="ttc" id="a_object_8hpp_html_ac0b3310f245b3966305bd80e1e673cc7"><div class="ttname"><a href="_object_8hpp.html#ac0b3310f245b3966305bd80e1e673cc7">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY</a></div><div class="ttdeci">#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field, optional)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00089">Object.hpp:89</a></div></div>
 <div class="ttc" id="a_star_transaction_8hpp_html"><div class="ttname"><a href="_star_transaction_8hpp.html">StarTransaction.hpp</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_star_transactions_html"><div class="ttname"><a href="structtgbotxx_1_1_star_transactions.html">tgbotxx::StarTransactions</a></div><div class="ttdoc">Contains a list of Telegram Star transactions. https://core.telegram.org/bots/api#startransactions.</div><div class="ttdef"><b>Definition</b> <a href="_star_transactions_8hpp_source.html#l00010">StarTransactions.hpp:10</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_star_transactions_html_a1a4b89846b16e22f08af15643e860a8f"><div class="ttname"><a href="structtgbotxx_1_1_star_transactions.html#a1a4b89846b16e22f08af15643e860a8f">tgbotxx::StarTransactions::StarTransactions</a></div><div class="ttdeci">StarTransactions()=default</div></div>
 <div class="ttc" id="astructtgbotxx_1_1_star_transactions_html_a33d0eabe77a0393093636c87d281a171"><div class="ttname"><a href="structtgbotxx_1_1_star_transactions.html#a33d0eabe77a0393093636c87d281a171">tgbotxx::StarTransactions::StarTransactions</a></div><div class="ttdeci">StarTransactions(const nl::json &amp;json)</div><div class="ttdef"><b>Definition</b> <a href="_star_transactions_8hpp_source.html#l00012">StarTransactions.hpp:12</a></div></div>
@@ -149,7 +150,7 @@ $(document).ready(function(){initNavTree('_star_transactions_8hpp_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_star_transactions_8hpp.html">StarTransactions.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

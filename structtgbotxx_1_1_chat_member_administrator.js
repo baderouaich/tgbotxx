@@ -1,9 +1,9 @@
 var structtgbotxx_1_1_chat_member_administrator =
 [
-    [ "ChatMemberAdministrator", "structtgbotxx_1_1_chat_member_administrator.html#a6afcc887d5b65c88414a1b69d0ca13ca", null ],
+    [ "ChatMemberAdministrator", "structtgbotxx_1_1_chat_member_administrator.html#a19c9d7fc9c0dc70bf6699c6a8bdf778b", null ],
     [ "ChatMemberAdministrator", "structtgbotxx_1_1_chat_member_administrator.html#a0a93906aec19f6c1960cfd078d24b217", null ],
-    [ "fromJson", "structtgbotxx_1_1_chat_member_administrator.html#aafb5c5616fd85528cfa46c778e69084f", null ],
-    [ "toJson", "structtgbotxx_1_1_chat_member_administrator.html#a9e61e72c7e991d79ec941774a40dfb9e", null ],
+    [ "fromJson", "structtgbotxx_1_1_chat_member_administrator.html#a6746bd2919d0e2aeda210914e3244672", null ],
+    [ "toJson", "structtgbotxx_1_1_chat_member_administrator.html#a86c96dd0b11bcd10718565645250d160", null ],
     [ "canBeEdited", "structtgbotxx_1_1_chat_member_administrator.html#a405ac6074697823ba6a04c7c19e086e1", null ],
     [ "canChangeInfo", "structtgbotxx_1_1_chat_member_administrator.html#aab5caa462d81b31b7f24d5343ee571b2", null ],
     [ "canDeleteMessages", "structtgbotxx_1_1_chat_member_administrator.html#a98f9e09f72d261a9a2989a20ec7178cb", null ],

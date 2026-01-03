@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -126,9 +126,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacetgbotxx.html">tgbotxx</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyBot : <span class="keyword">public</span> <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
+<div class="line"><span class="keyword">class </span><a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">MyBot</a> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">final</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a> {</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">  MyBot() : <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a>(<span class="stringliteral">&quot;Bot token here from @BotFather&quot;</span>) {}</div>
+<div class="line">  <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">MyBot</a>() : <a class="code hl_class" href="classtgbotxx_1_1_bot.html">Bot</a>(<span class="stringliteral">&quot;Bot token here from @BotFather&quot;</span>) {}</div>
 <div class="line">    </div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line">  <span class="comment">// Called before Bot starts receiving updates</span></div>
@@ -146,20 +146,20 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">  <span class="comment">// Called when Bot receives a new message of any kind</span></div>
 <div class="line">  <span class="comment">// NB: Ptr&lt;T&gt; = std::shared_ptr&lt;T&gt;</span></div>
 <div class="line">  <span class="keywordtype">void</span> onAnyMessage(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr&lt;Message&gt;</a>&amp; message)<span class="keyword"> override </span>{</div>
-<div class="line">    std::string reply = <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName</div>
-<div class="line">                        + <span class="stringliteral">&quot;!, got your message!&quot;</span>;</div>
-<div class="line">    api()-&gt;sendMessage(message-&gt;chat-&gt;id, reply);</div>
+<div class="line">    std::string <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">reply</a> = <span class="stringliteral">&quot;Hi &quot;</span> + message-&gt;from-&gt;firstName + <span class="stringliteral">&quot;, got your message!&quot;</span>;</div>
+<div class="line">    api()-&gt;sendMessage(message-&gt;chat-&gt;id, <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">reply</a>);</div>
 <div class="line">  }</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// override other callbacks if needed... See Bot.hpp</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">  MyBot bot;</div>
-<div class="line">  bot.start();</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">main</a>() {</div>
+<div class="line">  <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">MyBot</a> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">bot</a>;</div>
+<div class="line">  <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">bot</a>.<a class="code hl_function" href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">start</a>();</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclasstgbotxx_1_1_bot_html"><div class="ttname"><a href="classtgbotxx_1_1_bot.html">tgbotxx::Bot</a></div><div class="ttdef"><b>Definition</b> <a href="_bot_8hpp_source.html#l00030">Bot.hpp:30</a></div></div>
+<div class="ttc" id="aclasstgbotxx_1_1_bot_html_af11bc819676313db63da5d4d2e58d314"><div class="ttname"><a href="classtgbotxx_1_1_bot.html#af11bc819676313db63da5d4d2e58d314">tgbotxx::Bot::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Start the long polling.</div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
 <div class="ttc" id="atgbotxx_8hpp_html"><div class="ttname"><a href="tgbotxx_8hpp.html">tgbotxx.hpp</a></div></div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">include(FetchContent)</div>
 <div class="line">FetchContent_Declare(tgbotxx</div>
 <div class="line">        GIT_REPOSITORY &quot;https://github.com/baderouaich/tgbotxx&quot;</div>
-<div class="line">        GIT_TAG &quot;v1.1.9.2&quot; # Compatible with Telegram Api 9.2</div>
+<div class="line">        GIT_TAG &quot;v1.2.9.2&quot; # Compatible with Telegram Api 9.2</div>
 <div class="line">        GIT_SHALLOW TRUE</div>
 <div class="line">        GIT_PROGRESS TRUE</div>
 <div class="line">        EXCLUDE_FROM_ALL</div>
@@ -296,7 +296,7 @@ example</summary>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

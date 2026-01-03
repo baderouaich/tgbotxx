@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -109,8 +109,8 @@ $(document).ready(function(){initNavTree('_story_area_8hpp_source.html',''); ini
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html">   10</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_story_area.html">StoryArea</a> {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#aaeac19920b91b72c4615a679f61a26c0">   11</a></span>    <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#aaeac19920b91b72c4615a679f61a26c0">StoryArea</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#a445547b5c8c24aae0bcc1f5e65426029">   12</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a445547b5c8c24aae0bcc1f5e65426029">StoryArea</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">fromJson</a>(json);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#a445547b5c8c24aae0bcc1f5e65426029">   12</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a445547b5c8c24aae0bcc1f5e65426029">StoryArea</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">fromJson</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -120,17 +120,17 @@ $(document).ready(function(){initNavTree('_story_area_8hpp_source.html',''); ini
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#af6cedc6195f9ac555b65d52733093409">   24</a></span>    nl::json <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#af6cedc6195f9ac555b65d52733093409">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;position&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#ae08f9bfc8d5092668b50daee4b8be01c">position</a>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#a69e2f4eed8965881e0e39979da455b4f">type</a>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      nl::json <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a> = nl::json::object();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;position&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#ae08f9bfc8d5092668b50daee4b8be01c">position</a>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#a69e2f4eed8965881e0e39979da455b4f">type</a>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
 </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;position&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#ae08f9bfc8d5092668b50daee4b8be01c">position</a>, <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#a69e2f4eed8965881e0e39979da455b4f">type</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_story_area.html#a16609ba5d88c6f695da28c8a79fefc6a">fromJson</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;position&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#ae08f9bfc8d5092668b50daee4b8be01c">position</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_story_area.html#a69e2f4eed8965881e0e39979da455b4f">type</a>, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
 </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  };</div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('_story_area_8hpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_story_area_8hpp.html">StoryArea.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

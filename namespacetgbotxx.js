@@ -14,8 +14,8 @@ var namespacetgbotxx =
     ] ],
     [ "StringUtils", "namespacetgbotxx_1_1_string_utils.html", [
       [ "endsWith", "namespacetgbotxx_1_1_string_utils.html#ae1f42c3a086d6459fb91817981d8f8eb", null ],
-      [ "join", "namespacetgbotxx_1_1_string_utils.html#a485515db3889cb8ab2cac23f436137f8", null ],
       [ "join", "namespacetgbotxx_1_1_string_utils.html#a51af8c0b4db4bd64a9adfe3e8d5f2fb6", null ],
+      [ "join", "namespacetgbotxx_1_1_string_utils.html#a58796928afe427f7324db803ff71f761", null ],
       [ "ltrim", "namespacetgbotxx_1_1_string_utils.html#ac76641e3294d564151a3caab70d526f2", null ],
       [ "ltrimCopy", "namespacetgbotxx_1_1_string_utils.html#a83bc9425583fd6fe7a1b7f0d63ca9aee", null ],
       [ "random", "namespacetgbotxx_1_1_string_utils.html#a7fd24770e720e5645130a643b9fae448", null ],
@@ -332,6 +332,7 @@ var namespacetgbotxx =
       [ "CONFLICT", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae", null ],
       [ "TOO_MANY_REQUESTS", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17", null ],
       [ "BAD_GATEWAY", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54", null ],
+      [ "REQUEST_CANCELLED", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa62ae639f237da64207b048621cd82f29", null ],
       [ "INTERNAL", "namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81", null ]
     ] ],
     [ "isErrorCode", "namespacetgbotxx.html#a316fb3ec05a0ae1cae2862c6d223d538", null ],

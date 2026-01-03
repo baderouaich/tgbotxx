@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -108,8 +108,8 @@ $(document).ready(function(){initNavTree('_inline_keyboard_markup_8hpp_source.ht
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html">    9</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_inline_keyboard_markup.html">InlineKeyboardMarkup</a> : <a class="code hl_struct" href="structtgbotxx_1_1_i_reply_markup.html">IReplyMarkup</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a29c99959d068ca89c3b3f13d7205f9ea">   10</a></span>      <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a29c99959d068ca89c3b3f13d7205f9ea">InlineKeyboardMarkup</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a99788b447f8f68c3c933487b4a09c138">   11</a></span>      <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a99788b447f8f68c3c933487b4a09c138">InlineKeyboardMarkup</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        _fromJson(json);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a99788b447f8f68c3c933487b4a09c138">   11</a></span>      <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a99788b447f8f68c3c933487b4a09c138">InlineKeyboardMarkup</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">InlineKeyboardMarkup::fromJson</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      }</div>
 </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a42baa93a930ba156edab69afe5108e3a">   14</a></span>      <span class="keyword">virtual</span> <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a42baa93a930ba156edab69afe5108e3a">~InlineKeyboardMarkup</a>() = <span class="keywordflow">default</span>;</div>
@@ -117,32 +117,28 @@ $(document).ready(function(){initNavTree('_inline_keyboard_markup_8hpp_source.ht
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">   17</a></span>      std::vector&lt;std::vector&lt;Ptr&lt;InlineKeyboardButton&gt;&gt;&gt; <a class="code hl_variable" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">inlineKeyboard</a>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef">   21</a></span>      nl::json <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef">toJson</a>()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_define" href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json, <span class="stringliteral">&quot;inline_keyboard&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">inlineKeyboard</a>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef">   21</a></span>      [[<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">nodiscard</a>]] nl::json <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#afc953912b4af27ad2a8ef86349a3a5ef">toJson</a>()<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        nl::json <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a> = nl::json::object();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_define" href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;inline_keyboard&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">inlineKeyboard</a>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      }</div>
 </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">   28</a></span>      <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_define" href="_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json, <span class="stringliteral">&quot;inline_keyboard&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">inlineKeyboard</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">   28</a></span>      <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">fromJson</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_define" href="_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;inline_keyboard&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_inline_keyboard_markup.html#aff0db6d98dc78c852a8a650be803adac">inlineKeyboard</a>, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      }</div>
 </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      <span class="keywordtype">void</span> _fromJson(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_function" href="structtgbotxx_1_1_inline_keyboard_markup.html#a49260a3164be4841ad61028ee90af5e6">fromJson</a>(json);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  };</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  };</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 <div class="ttc" id="a_i_reply_markup_8hpp_html"><div class="ttname"><a href="_i_reply_markup_8hpp.html">IReplyMarkup.hpp</a></div></div>
 <div class="ttc" id="a_inline_keyboard_button_8hpp_html"><div class="ttname"><a href="_inline_keyboard_button_8hpp.html">InlineKeyboardButton.hpp</a></div></div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="_object_8hpp.html">Object.hpp</a></div></div>
 <div class="ttc" id="a_object_8hpp_html_a5989e55603d7c0f51eb23ca2b8542e83"><div class="ttname"><a href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a></div><div class="ttdeci">#define OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00032">Object.hpp:32</a></div></div>
 <div class="ttc" id="a_object_8hpp_html_a6e8a4563132fc0614d8ea401dd1059e2"><div class="ttname"><a href="_object_8hpp.html#a6e8a4563132fc0614d8ea401dd1059e2">OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY</a></div><div class="ttdeci">#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field, optional)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00110">Object.hpp:110</a></div></div>
 <div class="ttc" id="anamespacetgbotxx_html"><div class="ttname"><a href="namespacetgbotxx.html">tgbotxx</a></div><div class="ttdef"><b>Definition</b> <a href="_api_8hpp_source.html#l00011">Api.hpp:11</a></div></div>
+<div class="ttc" id="anamespacetgbotxx_html_a441cf8fce5bff655d159cf6aebc6ca43"><div class="ttname"><a href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">tgbotxx::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; Ptr</div><div class="ttdef"><b>Definition</b> <a href="_ptr_8hpp_source.html#l00006">Ptr.hpp:6</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_i_reply_markup_html"><div class="ttname"><a href="structtgbotxx_1_1_i_reply_markup.html">tgbotxx::IReplyMarkup</a></div><div class="ttdoc">The interface of reply markup objects InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove ...</div><div class="ttdef"><b>Definition</b> <a href="_i_reply_markup_8hpp_source.html#l00007">IReplyMarkup.hpp:7</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_inline_keyboard_markup_html"><div class="ttname"><a href="structtgbotxx_1_1_inline_keyboard_markup.html">tgbotxx::InlineKeyboardMarkup</a></div><div class="ttdoc">This object represents an inline keyboard that appears right next to the message it belongs to....</div><div class="ttdef"><b>Definition</b> <a href="_inline_keyboard_markup_8hpp_source.html#l00009">InlineKeyboardMarkup.hpp:9</a></div></div>
 <div class="ttc" id="astructtgbotxx_1_1_inline_keyboard_markup_html_a29c99959d068ca89c3b3f13d7205f9ea"><div class="ttname"><a href="structtgbotxx_1_1_inline_keyboard_markup.html#a29c99959d068ca89c3b3f13d7205f9ea">tgbotxx::InlineKeyboardMarkup::InlineKeyboardMarkup</a></div><div class="ttdeci">InlineKeyboardMarkup()=default</div></div>
@@ -157,7 +153,7 @@ $(document).ready(function(){initNavTree('_inline_keyboard_markup_8hpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_inline_keyboard_markup_8hpp.html">InlineKeyboardMarkup.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:52 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:04 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

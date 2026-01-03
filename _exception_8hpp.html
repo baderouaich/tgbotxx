@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -131,7 +131,9 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afaddbe277f267f119df2ef18a8fe3364ae">tgbotxx::CONFLICT</a> = cpr::status::HTTP_CONFLICT
 , <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa48217406fa20a472560abdf9b6ec8c17">tgbotxx::TOO_MANY_REQUESTS</a> = cpr::status::HTTP_TOO_MANY_REQUESTS
 , <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa2a685d68f06ec03e4b658cc0d6ca4e54">tgbotxx::BAD_GATEWAY</a> = cpr::status::HTTP_BAD_GATEWAY
-, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81">tgbotxx::INTERNAL</a> = cpr::status::HTTP_INTERNAL_SERVER_ERROR
+, <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa62ae639f237da64207b048621cd82f29">tgbotxx::REQUEST_CANCELLED</a> = 499
+, <br />
+&#160;&#160;<a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9afa182fa1c42a2468f8488e6dcf75a81b81">tgbotxx::INTERNAL</a> = cpr::status::HTTP_INTERNAL_SERVER_ERROR
 <br />
  }</td></tr>
 <tr class="memdesc:a4b250088edff8c46415926d7af74d9af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a href="https://core.telegram.org/api/errors">https://core.telegram.org/api/errors</a>  <a href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">More...</a><br /></td></tr>
@@ -139,9 +141,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a68c2dd07dbf43290d68e1d21b16f948c" id="r_a68c2dd07dbf43290d68e1d21b16f948c"><td class="memItemLeft" align="right" valign="top">static std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a68c2dd07dbf43290d68e1d21b16f948c">tgbotxx::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> &amp;errorCode) noexcept</td></tr>
+<tr class="memitem:a68c2dd07dbf43290d68e1d21b16f948c" id="r_a68c2dd07dbf43290d68e1d21b16f948c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">static</a> std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a68c2dd07dbf43290d68e1d21b16f948c">tgbotxx::operator&lt;&lt;</a> (std::ostream &amp;<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">os</a>, <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">const</a> <a class="el" href="namespacetgbotxx.html#a4b250088edff8c46415926d7af74d9af">ErrorCode</a> &amp;errorCode) <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">noexcept</a></td></tr>
 <tr class="separator:a68c2dd07dbf43290d68e1d21b16f948c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a316fb3ec05a0ae1cae2862c6d223d538" id="r_a316fb3ec05a0ae1cae2862c6d223d538"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a316fb3ec05a0ae1cae2862c6d223d538">tgbotxx::isErrorCode</a> (const std::int32_t c) noexcept</td></tr>
+<tr class="memitem:a316fb3ec05a0ae1cae2862c6d223d538" id="r_a316fb3ec05a0ae1cae2862c6d223d538"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">static</a> <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetgbotxx.html#a316fb3ec05a0ae1cae2862c6d223d538">tgbotxx::isErrorCode</a> (<a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">const</a> std::int32_t <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">c</a>) <a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">noexcept</a></td></tr>
 <tr class="separator:a316fb3ec05a0ae1cae2862c6d223d538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -150,7 +152,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="_exception_8hpp.html">Exception.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:53 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

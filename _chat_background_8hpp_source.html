@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.1.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -108,8 +108,8 @@ $(document).ready(function(){initNavTree('_chat_background_8hpp_source.html','')
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html">    9</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structtgbotxx_1_1_chat_background.html">ChatBackground</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#aa36fb0bde32de8b61ef61974c874fcad">   10</a></span>    <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#aa36fb0bde32de8b61ef61974c874fcad">ChatBackground</a>() = <span class="keywordflow">default</span>;</div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#a8093f1b7d17c11eebca8df7e3382b5c6">   11</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#a8093f1b7d17c11eebca8df7e3382b5c6">ChatBackground</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">fromJson</a>(json);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#a8093f1b7d17c11eebca8df7e3382b5c6">   11</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#a8093f1b7d17c11eebca8df7e3382b5c6">ChatBackground</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">fromJson</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
@@ -117,15 +117,15 @@ $(document).ready(function(){initNavTree('_chat_background_8hpp_source.html','')
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#adc6dda7dbdbd59dcdbfa0e88b8e8997f">   18</a></span>    nl::json <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#adc6dda7dbdbd59dcdbfa0e88b8e8997f">toJson</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      nl::json json = nl::json::object();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_chat_background.html#a94d2f41b655eff59b02ee04541c0c398">type</a>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      <span class="keywordflow">return</span> json;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      nl::json <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a> = nl::json::object();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      <a class="code hl_define" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_chat_background.html#a94d2f41b655eff59b02ee04541c0c398">type</a>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">   24</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">fromJson</a>(<span class="keyword">const</span> nl::json&amp; json) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(json, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_chat_background.html#a94d2f41b655eff59b02ee04541c0c398">type</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">   24</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structtgbotxx_1_1_chat_background.html#ab018a86cefab1037091d9938aa41d47c">fromJson</a>(<span class="keyword">const</span> nl::json&amp; <a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      <a class="code hl_define" href="_object_8hpp.html#a25f92a5ada9a8ff7aac5151925ad1a19">OBJECT_DESERIALIZE_FIELD_PTR</a>(<a class="code hl_typedef" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">json</a>, <span class="stringliteral">&quot;type&quot;</span>, <a class="code hl_variable" href="structtgbotxx_1_1_chat_background.html#a94d2f41b655eff59b02ee04541c0c398">type</a>, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  };</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('_chat_background_8hpp_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_chat_background_8hpp.html">ChatBackground.hpp</a></li>
-    <li class="footer">Generated on Sat Oct 25 2025 10:01:52 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 3 2026 13:56:04 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
