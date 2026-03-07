@@ -68,7 +68,7 @@ private:
     //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
     // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
     // in Telegram server before they get deleted or retrieved by BOT)
-    //api()->deleteWebhook(true);
+    api()->deleteWebhook(true);
     api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
     api()->setUpdatesLimit(3); // memory tight? process updates 3 by 3...
     assert(api()->getUpdatesLimit() == 3);
@@ -165,7 +165,11 @@ private:
       // look for /start or /start@myusername (in groups)
       if (command == message->text or message->text == command + atMyUsername) {
         // Call the proper command handler
-        (this->*handler)(message);
+        try {
+          (this->*handler)(message);
+        } catch (const std::exception& e) {
+          std::cerr << command << " handler threw an exception: " << e.what() << std::endl;
+        }
         break;
       }
     }
@@ -602,13 +606,15 @@ private: // Command handlers
                                  "https://images2.alphacoders.com/131/1311487.jpg"}) {
       Ptr<InputPaidMediaPhoto> photo(new InputPaidMediaPhoto());
       photo->media = url;
+      assert(photo->type == "photo");
       paidMedia.push_back(photo);
     }
     // add local video to the order list
     Ptr<InputPaidMediaVideo> video(new InputPaidMediaVideo());
     video->media = cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4").string()}; // Local
-    video->startTimestamp = 3;                                                                                                   // start from 3rd second
+    video->startTimestamp = std::rand() % 10;                                                                                                   // start from 3rd second
     video->supportsStreaming = true;
+    assert(video->type == "video");
     paidMedia.push_back(video);
 
     constexpr std::int32_t starsPrice = 100;

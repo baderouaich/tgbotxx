@@ -940,24 +940,18 @@ Ptr<Message> Api::sendPaidMedia(const std::variant<std::int64_t, std::string>& c
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
   for (const Ptr<InputPaidMedia>& m: media) {
     nl::json mJson = m->toJson();
-    switch (m->media.index()) {
-      case 0: // cpr::File (Local File)
-      {
+    if (not std::holds_alternative<std::monostate>(m->media)) {
+      // media variant
+      if (std::holds_alternative<cpr::File>(m->media)) { // cpr::File (Local File)
         const cpr::File& file = std::get<cpr::File>(m->media);
         std::string fileKey = StringUtils::random(8);
         mJson["media"] = "attach://" + fileKey;
         data.parts.emplace_back(fileKey, cpr::Files{file});
-        break;
-      }
-      case 1: // std::string (URL, File ID)
-      {
+      } else { // std::string (URL, File ID)
         // do nothing as toJson will export the "media": "URL or file ID" object.
-        break;
       }
-      default:
-        break;
     }
-    mediaJson.push_back(mJson);
+    mediaJson.emplace_back(mJson);
   }
   data.parts.emplace_back("media", mediaJson.dump());
   if (not payload.empty())
@@ -1018,24 +1012,18 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
   for (const Ptr<InputMedia>& m: media) {
     nl::json mJson = m->toJson();
-    switch (m->media.index()) {
-      case 0: // cpr::File (Local File)
-      {
+    if (not std::holds_alternative<std::monostate>(m->media)) {
+      // media variant
+      if (std::holds_alternative<cpr::File>(m->media)) { // cpr::File (Local File)
         const cpr::File& file = std::get<cpr::File>(m->media);
         std::string fileKey = StringUtils::random(8);
         mJson["media"] = "attach://" + fileKey;
         data.parts.emplace_back(fileKey, cpr::Files{file});
-        break;
-      }
-      case 1: // std::string (URL, File ID)
-      {
+      } else { // std::string (URL, File ID)
         // do nothing as toJson will export the "media": "URL or file ID" object.
-        break;
       }
-      default:
-        break;
     }
-    mediaJson.push_back(mJson);
+    mediaJson.emplace_back(mJson);
   }
   data.parts.emplace_back("media", mediaJson.dump());
   if (messageThreadId)
