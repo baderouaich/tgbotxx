@@ -15,28 +15,31 @@ namespace nl = nlohmann;
 
 /// @brief Helper macros to de/serialize objects
 
+#define TGBOTXX_CONCAT2(a, b) )
+#define VARNAME(x) CONCAT()
+
 /// Serialize
 #define OBJECT_SERIALIZE_FIELD(json, json_field, field) \
   json[json_field] = field;
 
 #define OBJECT_SERIALIZE_FIELD_PTR(json, json_field, field) \
   if (field) {                                              \
-    json[json_field] = (field)->toJson();                     \
+    json[json_field] = (field)->toJson();                   \
   }
 
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field) \
-  json[json_field] = nl::json::array();                                 \
+  auto& arr = json[json_field] = nl::json::array();                     \
   for (const auto& e: array_field)                                      \
-    json[json_field].push_back(e->toJson());
+    arr.emplace_back(e->toJson());
 
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field) \
-  json[json_field] = nl::json::array();                                             \
+  auto& root_arr = json[json_field] = nl::json::array();                            \
   for (const auto& array: array_array_field) {                                      \
     nl::json arr = nl::json::array();                                               \
     for (const auto& e: array) {                                                    \
-      arr.push_back(e->toJson());                                                   \
+      arr.emplace_back(e->toJson());                                                   \
     }                                                                               \
-    json[json_field].push_back(arr);                                                \
+    root_arr.emplace_back(arr);                                                        \
   }
 
 #define OBJECT_SERIALIZE_FIELD_ENUM(json, enum_name, json_field, field) \
@@ -75,7 +78,7 @@ namespace nl = nlohmann;
   if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \
     using T = std::remove_reference_t<decltype(field)>;                                                                \
     using E = T::element_type;                                                                                         \
-    field.reset(new (E)(json[json_field]));                                                                            \
+    field = makePtr<E>(json[json_field]);                                                                              \
   } else {                                                                                                             \
     if (not(optional)) {                                                                                               \
       std::ostringstream err{};                                                                                        \
@@ -92,6 +95,7 @@ namespace nl = nlohmann;
   if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                       \
     using T = std::remove_reference_t<std::remove_const_t<decltype(array_field)::value_type>>;                               \
     using E = T::element_type;                                                                                               \
+    array_field.clear();                                                                                                     \
     array_field.reserve(json[json_field].size());                                                                            \
     for (const nl::json& obj: json[json_field]) {                                                                            \
       array_field.emplace_back(new E(obj));                                                                                  \
@@ -115,6 +119,7 @@ namespace nl = nlohmann;
     using Array = ArrayArray::value_type;         /* e.g vector<vector<int> <- > */                                                    \
     using T = ArrayArray::value_type::value_type; /* e.g vector<vector<int>> <-  */                                                    \
     using E = T::element_type;                                                                                                         \
+    array_array_field.clear();                                                                                                         \
     array_array_field.reserve(json[json_field].size());                                                                                \
     for (const nl::json& array: json[json_field]) {                                                                                    \
       Array arr;                                                                                                                       \
@@ -122,7 +127,7 @@ namespace nl = nlohmann;
       for (const nl::json& obj: array) {                                                                                               \
         arr.emplace_back(new E(obj));                                                                                                  \
       }                                                                                                                                \
-      array_array_field.push_back(std::move(arr));                                                                                     \
+      array_array_field.emplace_back(std::move(arr));                                                                                  \
     }                                                                                                                                  \
   } else {                                                                                                                             \
     if (not(optional)) {                                                                                                               \
@@ -140,7 +145,7 @@ namespace nl = nlohmann;
   if (json.contains(json_field)) {                                                                              \
     try {                                                                                                       \
       if (auto opt = StringTo##enum_name(json[json_field]))                                                     \
-        field = *opt;                                                                                            \
+        field = *opt;                                                                                           \
       else                                                                                                      \
         throw Exception("Could not convert string \"" + json[json_field].get<std::string>() + "\" to enum");    \
     } catch (const std::exception& e) {                                                                         \

@@ -14,7 +14,7 @@
 Telegram Bot C++ Library
 
 ## Features
-- Compatible with Telegram [Bot API 9.2 (August 15, 2025)](https://core.telegram.org/bots/api-changelog)
+- Compatible with Telegram [Bot API 9.5 (March 1, 2026)](https://core.telegram.org/bots/api-changelog#march-1-2026)
 - Simple, Fast and Reliable.
 - Uses [libcpr](https://github.com/libcpr/cpr) for HTTP requests and [nlohmann::json](https://github.com/nlohmann/json) for JSON parsing (Both are exposed to the user by default)
 - Cross Platform (Ubuntu, Windows and macOS)
@@ -127,7 +127,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 FetchContent_Declare(tgbotxx
         GIT_REPOSITORY "https://github.com/baderouaich/tgbotxx"
-        GIT_TAG "v1.2.9.2" # Compatible with Telegram Api 9.2
+        GIT_TAG "v1.2.9.5" # Compatible with Telegram Api 9.5
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         EXCLUDE_FROM_ALL
