@@ -48,6 +48,7 @@ class MyBot final : public Bot {
     {{"/create_invoice_link", "You will receive a test invoice link"}, &MyBot::handleCommandCreateInvoiceLink},
     {{"/test_bot_blocked_by_user", "Block the bot within 10s after u receive a message"}, &MyBot::handleCommandTestBotBlockedByUser},
     {{"/send_paid_media", "send paid media to be unlocked with stars"}, &MyBot::handleCommandSendPaidMedia},
+    {{"/send_message_draft", "stream a partial message to a user while the message is being generated"}, &MyBot::handleCommandSendMessageDraft},
   };
 
 public:
@@ -63,7 +64,7 @@ private:
   /// Called before Bot starts receiving updates (triggered by Bot::start())
   /// Use this callback to initialize your code, set commands..
   void onStart() override {
-
+    std::srand(std::time(nullptr));
     //      api()->setTimeout(std::chrono::seconds(60 * 3));
     //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
     // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
@@ -621,6 +622,26 @@ private: // Command handlers
     std::string payload = "some payload to receive back if this got purchased";
     api()->sendPaidMedia(message->from->id, starsPrice, paidMedia, payload);
     // the user will get access to the photos only after the payment is completed
+  }
+
+  void handleCommandSendMessageDraft(const Ptr<Message>& message) {
+    using namespace std::chrono_literals;
+    bool ok = true;
+
+    const std::int64_t draftId = std::rand() % INT32_MAX;
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "Hello, this is a draft message with id=" + std::to_string(draftId));
+    assert(ok);
+
+    std::this_thread::sleep_for(2s);
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "and it just got edited!");
+    assert(ok);
+
+    std::this_thread::sleep_for(2s);
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "Final edit.");
+    assert(ok);
   }
 
 

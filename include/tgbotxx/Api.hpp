@@ -922,6 +922,22 @@ namespace tgbotxx {
                           const Ptr<ReplyParameters>& replyParameters = nullptr) const;
 
 
+    /// @brief Use this method to stream a partial message to a user while the message is being generated. Returns True on success.
+    /// @param chatId Unique identifier for the target private chat
+    /// @param draftId Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated
+    /// @param text Text of the message to be sent, 1-4096 characters after entities parsing
+    /// @param messageThreadId Optional. Unique identifier for the target message thread
+    /// @param parseMode Optional. Mode for parsing entities in the message text. See https://core.telegram.org/bots/api#formatting-options for more details.
+    /// @param entities Optional. List of special entities that appear in message text, which can be specified instead of parseMode
+    /// @returns True on success
+    bool sendMessageDraft(std::int64_t chatId,
+                          std::int64_t draftId,
+                          const std::string& text,
+                          std::int32_t messageThreadId = 0,
+                          const std::string& parseMode = "",
+                          const std::vector<Ptr<MessageEntity>>& entities = std::vector<Ptr<MessageEntity>>()) const;
+
+
     /// @brief Use this method when you need to tell the user that something is happening on the bot's side.
     /// The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status).
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)

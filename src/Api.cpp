@@ -1383,6 +1383,31 @@ Ptr<Message> Api::sendDice(const std::variant<std::int64_t, std::string>& chatId
   return message;
 }
 
+bool Api::sendMessageDraft(std::int64_t chatId,
+                           std::int64_t draftId,
+                           const std::string& text,
+                           std::int32_t messageThreadId,
+                           const std::string& parseMode,
+                           const std::vector<Ptr<MessageEntity>>& entities) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("draft_id", std::to_string(draftId));
+  data.parts.emplace_back("text", text);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not entities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: entities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("entities", entitiesArray.dump());
+  }
+
+  return sendRequest("sendMessageDraft", data);
+}
+
 bool Api::sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                          const std::string& action,
                          std::int32_t messageThreadId,
