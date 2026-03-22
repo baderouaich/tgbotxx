@@ -2285,6 +2285,87 @@ bool Api::giftPremiumSubscription(std::int64_t userId,
   return sendRequest("giftPremiumSubscription", data);
 }
 
+Ptr<OwnedGifts> Api::getUserGifts(std::int64_t userId,
+                                  bool excludeUnlimited,
+                                  bool excludeLimitedUpgradable,
+                                  bool excludeLimitedNonUpgradable,
+                                  bool excludeFromBlockchain,
+                                  bool excludeUnique,
+                                  bool sortByPrice,
+                                  const std::string& offset,
+                                  std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(9);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (excludeUnlimited)
+    data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
+  if (excludeLimitedUpgradable)
+    data.parts.emplace_back("exclude_limited_upgradable", excludeLimitedUpgradable);
+  if (excludeLimitedNonUpgradable)
+    data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
+  if (excludeUnique)
+    data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (sortByPrice)
+    data.parts.emplace_back("sort_by_price", sortByPrice);
+  if (not offset.empty())
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+  return makePtr<OwnedGifts>(sendRequest("getUserGifts", data));
+}
+
+Ptr<OwnedGifts> Api::getChatGifts(const std::variant<std::int64_t, std::string>& chatId,
+                                  bool excludeUnsaved,
+                                  bool excludeSaved,
+                                  bool excludeUnlimited,
+                                  bool excludeLimitedUpgradable,
+                                  bool excludeLimitedNonUpgradable,
+                                  bool excludeFromBlockchain,
+                                  bool excludeUnique,
+                                  bool sortByPrice,
+                                  const std::string& offset,
+                                  std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (excludeUnsaved)
+    data.parts.emplace_back("exclude_unsaved", excludeUnsaved);
+  if (excludeSaved)
+    data.parts.emplace_back("exclude_saved", excludeSaved);
+  if (excludeUnlimited)
+    data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
+  if (excludeLimitedUpgradable)
+    data.parts.emplace_back("exclude_limited_upgradable", excludeLimitedUpgradable);
+  if (excludeLimitedNonUpgradable)
+    data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
+  if (excludeUnique)
+    data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (sortByPrice)
+    data.parts.emplace_back("sort_by_price", sortByPrice);
+  if (not offset.empty())
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+  return makePtr<OwnedGifts>(sendRequest("getChatGifts", data));
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Api::verifyUser(std::int64_t userId,
                      const std::string& customDescription) const {
