@@ -45,35 +45,35 @@
 # 9.4
 
 ### Custom Emoji
-- [ ] Allowed bots to use custom emoji in messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
+- [x] Allowed bots to use custom emoji in messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
 
 ### Topics in Private Chats
-- [ ] Allowed bots to create topics in private chats using the method `createForumTopic`.
-- [ ] Allowed bots to prevent users from creating and deleting topics in private chats through a new setting in the @BotFather Mini App.
-- [ ] Added the field `allows_users_to_create_topics` to the class `User`.
+- [x] Allowed bots to create topics in private chats using the method `createForumTopic`.
+- [x] Allowed bots to prevent users from creating and deleting topics in private chats through a new setting in the @BotFather Mini App.
+- [x] Added the field `allows_users_to_create_topics` to the class `User`.
 
 ### Button Improvements
-- [ ] Added the field `icon_custom_emoji_id` to the classes `KeyboardButton` and `InlineKeyboardButton`.
-- [ ] Added the field `style` to the classes `KeyboardButton` and `InlineKeyboardButton`.
+- [x] Added the field `icon_custom_emoji_id` to the classes `KeyboardButton` and `InlineKeyboardButton`.
+- [x] Added the field `style` to the classes `KeyboardButton` and `InlineKeyboardButton`.
 
 ### Chat Ownership
-- [ ] Added the class `ChatOwnerLeft` and the field `chat_owner_left` to the class `Message`.
-- [ ] Added the class `ChatOwnerChanged` and the field `chat_owner_changed` to the class `Message`.
+- [x] Added the class `ChatOwnerLeft` and the field `chat_owner_left` to the class `Message`.
+- [x] Added the class `ChatOwnerChanged` and the field `chat_owner_changed` to the class `Message`.
 
 ### Bot Profile
-- [ ] Added the methods `setMyProfilePhoto` and `removeMyProfilePhoto`.
+- [x] Added the methods `setMyProfilePhoto` and `removeMyProfilePhoto`.
 
 ### Video Improvements
-- [ ] Added the class `VideoQuality` and the field `qualities` to the class `Video`.
+- [x] Added the class `VideoQuality` and the field `qualities` to the class `Video`.
 
 ### Profile Audio
-- [ ] Added the field `first_profile_audio` to the class `ChatFullInfo`.
-- [ ] Added the class `UserProfileAudios`.
-- [ ] Added the method `getUserProfileAudios`.
+- [x] Added the field `first_profile_audio` to the class `ChatFullInfo`.
+- [x] Added the class `UserProfileAudios`.
+- [x] Added the method `getUserProfileAudios`.
 
 ### Gifts
-- [ ] Added the field `rarity` to the class `UniqueGiftModel`.
-- [ ] Added the field `is_burned` to the class `UniqueGift`.
+- [x] Added the field `rarity` to the class `UniqueGiftModel`.
+- [x] Added the field `is_burned` to the class `UniqueGift`.
 
 
 # 9.5

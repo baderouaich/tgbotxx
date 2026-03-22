@@ -17,8 +17,11 @@ namespace tgbotxx {
     /// @brief The sticker that represents the unique gift
     Ptr<Sticker> sticker;
 
-    /// @brief The number of unique gifts that receive this model for every 1000 gifts upgraded
+    /// @brief The number of unique gifts that receive this model for every 1000 gift upgrades. Always 0 for crafted gifts.
     std::int32_t rarityPerMille{};
+
+    /// @brief Optional. Rarity of the model if it is a crafted model. Currently, can be “uncommon”, “rare”, “epic”, or “legendary”.
+    std::string rarity;
 
     /// @brief Serializes this object to JSON
     nl::json toJson() const {
@@ -26,6 +29,7 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "name", name);
       OBJECT_SERIALIZE_FIELD_PTR(json, "sticker", sticker);
       OBJECT_SERIALIZE_FIELD(json, "rarity_per_mille", rarityPerMille);
+      OBJECT_SERIALIZE_FIELD(json, "rarity", rarity);
       return json;
     }
 
@@ -34,6 +38,7 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "name", name, "", false);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "sticker", sticker, false);
       OBJECT_DESERIALIZE_FIELD(json, "rarity_per_mille", rarityPerMille, 0, false);
+      OBJECT_DESERIALIZE_FIELD(json, "rarity", rarity, "", true);
     }
   };
 }

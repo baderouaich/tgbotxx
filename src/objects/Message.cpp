@@ -8,6 +8,8 @@
 #include <tgbotxx/objects/SuggestedPostDeclined.hpp>
 #include <tgbotxx/objects/SuggestedPostPaid.hpp>
 #include <tgbotxx/objects/SuggestedPostRefunded.hpp>
+#include <tgbotxx/objects/ChatOwnerLeft.hpp>
+#include <tgbotxx/objects/ChatOwnerChanged.hpp>
 using namespace tgbotxx;
 
 nl::json Message::toJson() const {
@@ -65,6 +67,8 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_members", newChatMembers);
   OBJECT_SERIALIZE_FIELD_PTR(json, "left_chat_member", leftChatMember);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "chat_owner_left", chatOwnerLeft);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "chat_owner_changed", chatOwnerChanged);
   OBJECT_SERIALIZE_FIELD(json, "new_chat_title", newChatTitle);
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_photo", newChatPhoto);
   OBJECT_SERIALIZE_FIELD(json, "delete_chat_photo", deleteChatPhoto);
@@ -176,6 +180,8 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, true);
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_members", newChatMembers, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "left_chat_member", leftChatMember, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_owner_left", chatOwnerLeft, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_owner_changed", chatOwnerChanged, true);
   OBJECT_DESERIALIZE_FIELD(json, "new_chat_title", newChatTitle, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_photo", newChatPhoto, true);
   OBJECT_DESERIALIZE_FIELD(json, "delete_chat_photo", deleteChatPhoto, false, true);

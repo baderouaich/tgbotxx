@@ -39,6 +39,8 @@
 #include <tgbotxx/objects/ChatLocation.hpp>
 #include <tgbotxx/objects/ChatMember.hpp>
 #include <tgbotxx/objects/ChatMemberUpdated.hpp>
+#include <tgbotxx/objects/ChatOwnerLeft.hpp>
+#include <tgbotxx/objects/ChatOwnerChanged.hpp>
 #include <tgbotxx/objects/ChatPermissions.hpp>
 #include <tgbotxx/objects/ChatPhoto.hpp>
 #include <tgbotxx/objects/ChatShared.hpp>
@@ -172,6 +174,7 @@
 #include <tgbotxx/objects/UserChatBoosts.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
+#include <tgbotxx/objects/UserProfileAudios.hpp>
 #include <tgbotxx/objects/UserRating.hpp>
 #include <tgbotxx/objects/UsersShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
@@ -179,6 +182,7 @@
 #include <tgbotxx/objects/VideoChatParticipantsInvited.hpp>
 #include <tgbotxx/objects/VideoChatScheduled.hpp>
 #include <tgbotxx/objects/VideoChatStarted.hpp>
+#include <tgbotxx/objects/VideoQuality.hpp>
 #include <tgbotxx/objects/Video.hpp>
 #include <tgbotxx/objects/VideoNote.hpp>
 #include <tgbotxx/objects/Voice.hpp>

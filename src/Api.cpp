@@ -44,6 +44,7 @@
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
+#include <tgbotxx/objects/UserProfileAudios.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/LinkPreviewOptions.hpp>
 #include <tgbotxx/objects/SuggestedPostParameters.hpp>
@@ -1466,6 +1467,20 @@ Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
   return userProfilePhotos;
 }
 
+Ptr<UserProfileAudios> Api::getUserProfileAudios(std::int64_t userId,
+                                                 std::int32_t offset,
+                                                 std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (offset)
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+
+  return makePtr<UserProfileAudios>(sendRequest("getUserProfileAudios", data));
+}
+
 Ptr<File> Api::getFile(const std::string& fileId) const {
   cpr::Multipart data{};
   data.parts.reserve(1);
@@ -2167,6 +2182,18 @@ Ptr<BotShortDescription> Api::getMyShortDescription(const std::string& languageC
 
   const nl::json botShortDescObj = sendRequest("getMyShortDescription", data);
   return makePtr<BotShortDescription>(botShortDescObj);
+}
+
+bool Api::setMyProfilePhoto(const Ptr<InputProfilePhoto>& photo) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("photo", photo->toJson().dump());
+
+  return sendRequest("setMyProfilePhoto", data);
+}
+
+bool Api::removeMyProfilePhoto() const {
+  return sendRequest("removeMyProfilePhoto");
 }
 
 bool Api::setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {

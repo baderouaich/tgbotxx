@@ -66,6 +66,8 @@ namespace tgbotxx {
   struct SuggestedPostDeclined;
   struct SuggestedPostPaid;
   struct SuggestedPostRefunded;
+  struct ChatOwnerLeft;
+  struct ChatOwnerChanged;
 
   /// @brief This object represents a message.
   /// @ref https://core.telegram.org/bots/api#message
@@ -245,6 +247,12 @@ namespace tgbotxx {
 
       /// @brief Optional. A member was removed from the group, information about them (this member may be the bot itself)
       Ptr<User> leftChatMember;
+
+      /// @brief Optional. Service message: chat owner has left
+      Ptr<ChatOwnerLeft> chatOwnerLeft;
+
+      /// @brief Optional. Service message: chat owner has changed
+      Ptr<ChatOwnerChanged> chatOwnerChanged;
 
       /// @brief Optional. A chat title was changed to this value
       std::string newChatTitle;

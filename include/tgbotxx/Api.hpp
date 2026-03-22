@@ -19,6 +19,7 @@ namespace tgbotxx {
   struct MessageId;
   struct InputMedia;
   struct UserProfilePhotos;
+  struct UserProfileAudios;
   struct File;
   struct ChatMember;
   struct ChatPermissions;
@@ -998,6 +999,17 @@ namespace tgbotxx {
                                                 std::int32_t offset = 0,
                                                 std::int32_t limit = 100) const;
 
+    /// @brief Use this method to get a list of profile audios for a user.
+    /// @param userId Unique identifier of the target user
+    /// @param offset Optional. Sequential number of the first audio to be returned. By default, all audios are returned.
+    /// @param limit Optional. Limits the number of audios to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+    /// @returns a UserProfileAudios object.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#getuserprofilephotos
+    Ptr<UserProfileAudios> getUserProfileAudios(std::int64_t userId,
+                                                std::int32_t offset = 0,
+                                                std::int32_t limit = 100) const;
+
 
     /// @brief Use this method to get basic information about a file and prepare it for downloading.
     /// For the moment, bots can download files of up to 20MB in size.
@@ -1455,8 +1467,9 @@ namespace tgbotxx {
     std::vector<Ptr<Sticker>> getForumTopicIconStickers() const;
 
 
-    /// @brief Use this method to create a topic in a forum supergroup chat.
-    /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+    /// @brief Use this method to create a topic in a forum supergroup chat or a private chat with a user.
+    /// In the case of a supergroup chat the bot must be an administrator in the chat for this to work and
+    // must have the can_manage_topics administrator right.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param name Topic name, 1-128 characters
@@ -1705,6 +1718,19 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#getmyshortdescription
     Ptr<BotShortDescription> getMyShortDescription(const std::string& languageCode = "") const;
+
+    /// @brief Changes the profile photo of the bot.
+    /// @param photo The new profile photo to set
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#setmyprofilephoto
+    bool setMyProfilePhoto(const Ptr<InputProfilePhoto>& photo) const;
+
+    /// @brief Removes the profile photo of the bot. Requires no parameters.
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#removemyprofilephoto
+    bool removeMyProfilePhoto() const;
 
     /// @brief Use this method to change the bot's menu button in a private chat, or the default menu button.
     /// @param chatId Optional. Unique identifier for the target private chat. If not specified, default bot's menu button will be changed

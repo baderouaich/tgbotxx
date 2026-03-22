@@ -301,6 +301,12 @@ private: // Command handlers
       Ptr<InlineKeyboardButton> button(new InlineKeyboardButton());
       button->text = std::to_string(i);
       button->callbackData = button->text;
+      switch (i) {
+        case 0: button->style = "danger"; break;
+        case 1: button->style = "success"; break;
+        case 9: button->style = "primary"; break;
+        default: break;
+      }
       row.push_back(button);
       if (i % 3 == 0 || !i) {
         keyboard->inlineKeyboard.push_back(row);
@@ -308,6 +314,7 @@ private: // Command handlers
       }
     }
     std::ranges::reverse(keyboard->inlineKeyboard);
+
     api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, keyboard);
   }
   void handleCommandReplyKeyboardButtons(const Ptr<Message>& message) {
@@ -330,13 +337,16 @@ private: // Command handlers
     button1->text = "Button1";
     row1.push_back(button1);
     Ptr<KeyboardButton> button2(new KeyboardButton());
-    button2->text = "Button2";
+    button2->text = "Button2 (style=success)";
+    button2->style = "success";
     row1.push_back(button2);
     Ptr<KeyboardButton> button3(new KeyboardButton());
-    button3->text = "Button3";
+    button3->text = "Button3 (style=primary)";
+    button3->style = "primary";
     row2.push_back(button3);
     Ptr<KeyboardButton> button4(new KeyboardButton());
-    button4->text = "Button4";
+    button4->text = "Button4 (style=danger)";
+    button4->style = "danger";
     row2.push_back(button4);
     replyKeyboardMarkup->keyboard.push_back(row1);
     replyKeyboardMarkup->keyboard.push_back(row2);
