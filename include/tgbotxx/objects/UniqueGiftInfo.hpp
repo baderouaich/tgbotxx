@@ -14,15 +14,20 @@ namespace tgbotxx {
     /// @brief Information about the gift
     Ptr<UniqueGift> gift;
 
-    /// @brief Origin of the gift.
-    /// Currently, either
-    /// “upgrade” for gifts upgraded from regular gifts,
-    /// “transfer” for gifts transferred from other users or channels, or
-    /// “resale” for gifts bought from other users
+    /// @briefOrigin of the gift. Currently, either:
+    /// - “upgrade” for gifts upgraded from regular gifts,
+    /// - “transfer” for gifts transferred from other users or channels,
+    /// - “resale” for gifts bought from other users,
+    /// - “gifted_upgrade” for upgrades purchased after the gift was sent, or
+    /// - “offer” for gifts bought or sold through gift purchase offers
     std::string origin;
 
-    /// @brief Optional. For gifts bought from other users, the price paid for the gift
-    std::int64_t lastResaleStarCount{};
+    /// @brief Optional. For gifts bought from other users, the currency in which the payment for the gift was done.
+    /// Currently, one of “XTR” for Telegram Stars or “TON” for toncoins.
+    std::string lastResaleCurrency{};
+
+    /// @brief Optional. For gifts bought from other users, the price paid for the gift in either Telegram Stars or nanotoncoins
+    std::int64_t lastResaleAmount{};
 
     /// @brief Optional. Unique identifier of the received gift for the bot;
     /// only present for gifts received on behalf of business accounts
@@ -42,7 +47,8 @@ namespace tgbotxx {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD_PTR(json, "gift", gift);
       OBJECT_SERIALIZE_FIELD(json, "origin", origin);
-      OBJECT_SERIALIZE_FIELD(json, "last_resale_star_count", lastResaleStarCount);
+      OBJECT_SERIALIZE_FIELD(json, "last_resale_currency", lastResaleCurrency);
+      OBJECT_SERIALIZE_FIELD(json, "last_resale_amount", lastResaleAmount);
       OBJECT_SERIALIZE_FIELD(json, "owned_gift_id", ownedGiftId);
       OBJECT_SERIALIZE_FIELD(json, "transfer_star_count", transferStarCount);
       OBJECT_SERIALIZE_FIELD(json, "next_transfer_date", nextTransferDate);
@@ -53,7 +59,8 @@ namespace tgbotxx {
     void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD_PTR(json, "gift", gift, false);
       OBJECT_DESERIALIZE_FIELD(json, "origin", origin, "", false);
-      OBJECT_DESERIALIZE_FIELD(json, "last_resale_star_count", lastResaleStarCount, 0, true);
+      OBJECT_DESERIALIZE_FIELD(json, "last_resale_currency", lastResaleCurrency, "", true);
+      OBJECT_DESERIALIZE_FIELD(json, "last_resale_amount", lastResaleAmount, 0, true);
       OBJECT_DESERIALIZE_FIELD(json, "owned_gift_id", ownedGiftId, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "transfer_star_count", transferStarCount, 0, true);
       OBJECT_DESERIALIZE_FIELD(json, "next_transfer_date", nextTransferDate, 0, true);

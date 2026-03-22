@@ -1973,7 +1973,8 @@ namespace tgbotxx {
     /// @param excludeUnsaved Optional. Pass True to exclude gifts that aren't saved to the account's profile page
     /// @param excludeSaved Optional. Pass True to exclude gifts that are saved to the account's profile page
     /// @param excludeUnlimited Optional. Pass True to exclude gifts that can be purchased an unlimited number of times
-    /// @param excludeLimited Optional. Pass True to exclude gifts that can be purchased a limited number of times
+    /// @param excludeLimitedUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can be upgraded to unique
+    /// @param excludeLimitedNonUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can't be upgraded to unique
     /// @param excludeUnique Optional. Pass True to exclude unique gifts
     /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
     /// @param offset Optional. Offset of the first entry to return as received from the previous request;
@@ -1986,7 +1987,8 @@ namespace tgbotxx {
                                             bool excludeUnsaved = false,
                                             bool excludeSaved = false,
                                             bool excludeUnlimited = false,
-                                            bool excludeLimited = false,
+                                            bool excludeLimitedUpgradable = false,
+                                            bool excludeLimitedNonUpgradable = false,
                                             bool excludeUnique = false,
                                             bool sortByPrice = false,
                                             const std::string& offset = "",

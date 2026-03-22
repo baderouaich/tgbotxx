@@ -11,8 +11,8 @@
 
 ### Gifts
 - [x] Added the methods `getUserGifts` and `getChatGifts`.
-- [ ] Replaced the field `last_resale_star_count` with the fields `last_resale_currency` and `last_resale_amount` in the class `UniqueGiftInfo`.
-- [ ] Replaced the parameter `exclude_limited` with the parameters `exclude_limited_upgradable` and `exclude_limited_non_upgradable` in the method `getBusinessAccountGifts`.
+- [x] Replaced the field `last_resale_star_count` with the fields `last_resale_currency` and `last_resale_amount` in the class `UniqueGiftInfo`.
+- [x] Replaced the parameter `exclude_limited` with the parameters `exclude_limited_upgradable` and `exclude_limited_non_upgradable` in the method `getBusinessAccountGifts`.
 - [ ] Added the value `"gifted_upgrade"` as a possible value of `UniqueGiftInfo.origin`.
 - [ ] Added the value `"offer"` as a possible value of `UniqueGiftInfo.origin`.
 - [ ] Added the field `gift_upgrade_sent` to the class `Message`.
