@@ -2546,14 +2546,15 @@ Ptr<OwnedGifts> Api::getBusinessAccountGifts(const std::string& businessConnecti
                                              bool excludeUnsaved,
                                              bool excludeSaved,
                                              bool excludeUnlimited,
-                                             bool excludeLimitedUpgradable = false,
-                                             bool excludeLimitedNonUpgradable = false,
+                                             bool excludeLimitedUpgradable,
+                                             bool excludeLimitedNonUpgradable,
                                              bool excludeUnique,
+                                             bool excludeFromBlockchain,
                                              bool sortByPrice,
                                              const std::string& offset,
                                              std::int32_t limit) const {
   cpr::Multipart data{};
-  data.parts.reserve(10);
+  data.parts.reserve(11);
   data.parts.emplace_back("business_connection_id", businessConnectionId);
   if (excludeUnsaved)
     data.parts.emplace_back("exclude_unsaved", excludeUnsaved);
@@ -2567,6 +2568,8 @@ Ptr<OwnedGifts> Api::getBusinessAccountGifts(const std::string& businessConnecti
     data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
   if (excludeUnique)
     data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
   if (sortByPrice)
     data.parts.emplace_back("sort_by_price", sortByPrice);
   data.parts.emplace_back("offset", offset);

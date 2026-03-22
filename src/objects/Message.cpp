@@ -87,6 +87,7 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "chat_shared", chatShared);
   OBJECT_SERIALIZE_FIELD_PTR(json, "gift", gift);
   OBJECT_SERIALIZE_FIELD_PTR(json, "unique_gift", uniqueGift);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "gift_upgrade_sent", giftUpgradeSent);
   OBJECT_SERIALIZE_FIELD(json, "connected_website", connectedWebsite);
   OBJECT_SERIALIZE_FIELD_PTR(json, "write_access_allowed", writeAccessAllowed);
   OBJECT_SERIALIZE_FIELD_PTR(json, "passport_data", passportData);
@@ -205,6 +206,7 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_shared", chatShared, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "gift", gift, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "unique_gift", uniqueGift, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "gift_upgrade_sent", giftUpgradeSent, true);
   OBJECT_DESERIALIZE_FIELD(json, "connected_website", connectedWebsite, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "write_access_allowed", writeAccessAllowed, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "passport_data", passportData, true);

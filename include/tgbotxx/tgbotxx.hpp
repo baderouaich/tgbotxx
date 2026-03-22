@@ -68,6 +68,7 @@
 #include <tgbotxx/objects/GeneralForumTopicHidden.hpp>
 #include <tgbotxx/objects/GeneralForumTopicUnhidden.hpp>
 #include <tgbotxx/objects/Gift.hpp>
+#include <tgbotxx/objects/GiftBackground.hpp>
 #include <tgbotxx/objects/GiftInfo.hpp>
 #include <tgbotxx/objects/Gifts.hpp>
 #include <tgbotxx/objects/GiveawayCompleted.hpp>
@@ -162,6 +163,7 @@
 #include <tgbotxx/objects/TransactionPartner.hpp>
 #include <tgbotxx/objects/UniqueGiftBackdropColors.hpp>
 #include <tgbotxx/objects/UniqueGiftBackdrop.hpp>
+#include <tgbotxx/objects/UniqueGiftColors.hpp>
 #include <tgbotxx/objects/UniqueGift.hpp>
 #include <tgbotxx/objects/UniqueGiftInfo.hpp>
 #include <tgbotxx/objects/UniqueGiftModel.hpp>

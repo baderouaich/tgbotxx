@@ -25,6 +25,9 @@ namespace tgbotxx {
     /// @brief Optional. Number of Telegram Stars that were prepaid by the sender for the ability to upgrade the gift
     std::int64_t prepaidUpgradeStarCount{};
 
+    /// @brief Optional. True, if the gift's upgrade was purchased after the gift was sent
+    bool isUpgradeSeparate{};
+
     /// @brief Optional. True, if the gift can be upgraded to a unique gift
     bool canBeUpgraded{};
 
@@ -37,6 +40,9 @@ namespace tgbotxx {
     /// @brief Optional. True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
     bool isPrivate{};
 
+    /// @brief Optional. Unique number reserved for this gift when upgraded. See the number field in UniqueGift
+    std::int32_t uniqueGiftNumber{};
+
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
     nl::json toJson() const {
@@ -45,10 +51,12 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "owned_gift_id", ownedGiftId);
       OBJECT_SERIALIZE_FIELD(json, "convert_star_count", convertStarCount);
       OBJECT_SERIALIZE_FIELD(json, "prepaid_upgrade_star_count", prepaidUpgradeStarCount);
+      OBJECT_SERIALIZE_FIELD(json, "is_upgrade_separate", isUpgradeSeparate);
       OBJECT_SERIALIZE_FIELD(json, "can_be_upgraded", canBeUpgraded);
       OBJECT_SERIALIZE_FIELD(json, "text", text);
       OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "entities", entities);
       OBJECT_SERIALIZE_FIELD(json, "is_private", isPrivate);
+      OBJECT_SERIALIZE_FIELD(json, "unique_gift_number", uniqueGiftNumber);
       return json;
     }
 
@@ -58,10 +66,12 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "owned_gift_id", ownedGiftId, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "convert_star_count", convertStarCount, 0, true);
       OBJECT_DESERIALIZE_FIELD(json, "prepaid_upgrade_star_count", prepaidUpgradeStarCount, 0, true);
+      OBJECT_DESERIALIZE_FIELD(json, "is_upgrade_separate", isUpgradeSeparate, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "can_be_upgraded", canBeUpgraded, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "text", text, "", true);
       OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "entities", entities, true);
       OBJECT_DESERIALIZE_FIELD(json, "is_private", isPrivate, false, true);
+      OBJECT_DESERIALIZE_FIELD(json, "unique_gift_number", uniqueGiftNumber, 0, true);
     }
   };
 }

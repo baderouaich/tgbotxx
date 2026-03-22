@@ -1976,6 +1976,7 @@ namespace tgbotxx {
     /// @param excludeLimitedUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can be upgraded to unique
     /// @param excludeLimitedNonUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can't be upgraded to unique
     /// @param excludeUnique Optional. Pass True to exclude unique gifts
+    /// @param excludeFromBlockchain Optional. Pass True to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
     /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
     /// @param offset Optional. Offset of the first entry to return as received from the previous request;
     ///               use empty string to get the first chunk of results
@@ -1990,6 +1991,7 @@ namespace tgbotxx {
                                             bool excludeLimitedUpgradable = false,
                                             bool excludeLimitedNonUpgradable = false,
                                             bool excludeUnique = false,
+                                            bool excludeFromBlockchain = false,
                                             bool sortByPrice = false,
                                             const std::string& offset = "",
                                             std::int32_t limit = 100) const;

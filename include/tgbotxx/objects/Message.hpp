@@ -310,6 +310,9 @@ namespace tgbotxx {
       /// @brief Optional. Service message: a unique gift was sent or received
       Ptr<UniqueGiftInfo> uniqueGift{};
 
+      /// @brief Optional. Service message: upgrade of a gift was purchased after the gift was sent
+      Ptr<GiftInfo> giftUpgradeSent{};
+
       /// @brief Optional. The domain name of the website on which the user has logged in.
       /// @link More about Telegram Login » https://core.telegram.org/widgets/login @endlink
       std::string connectedWebsite;

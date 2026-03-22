@@ -13,22 +13,22 @@
 - [x] Added the methods `getUserGifts` and `getChatGifts`.
 - [x] Replaced the field `last_resale_star_count` with the fields `last_resale_currency` and `last_resale_amount` in the class `UniqueGiftInfo`.
 - [x] Replaced the parameter `exclude_limited` with the parameters `exclude_limited_upgradable` and `exclude_limited_non_upgradable` in the method `getBusinessAccountGifts`.
-- [ ] Added the value `"gifted_upgrade"` as a possible value of `UniqueGiftInfo.origin`.
-- [ ] Added the value `"offer"` as a possible value of `UniqueGiftInfo.origin`.
-- [ ] Added the field `gift_upgrade_sent` to the class `Message`.
-- [ ] Added the field `gift_id` to the class `UniqueGift`.
-- [ ] Added the field `is_from_blockchain` to the class `UniqueGift`.
-- [ ] Added the parameter `exclude_from_blockchain` in the method `getBusinessAccountGifts`.
-- [ ] Added the fields `personal_total_count` and `personal_remaining_count` to the class `Gift`.
-- [ ] Added the field `is_premium` to the classes `Gift` and `UniqueGift`.
-- [ ] Added the field `is_upgrade_separate` to the classes `GiftInfo` and `OwnedGiftRegular`.
-- [ ] Added the class `UniqueGiftColors`.
-- [ ] Added the field `has_colors` to the class `Gift`.
-- [ ] Added the field `colors` to the class `UniqueGift`.
-- [ ] Added the class `GiftBackground` and the field `background` to the class `Gift`.
-- [ ] Added the field `unique_gift_variant_count` to the class `Gift`.
-- [ ] Added the field `unique_gift_number` to the classes `GiftInfo` and `OwnedGiftRegular`.
-- [ ] Added the field `gifts_from_channels` to the class `AcceptedGiftTypes`.
+- [x] Added the value `"gifted_upgrade"` as a possible value of `UniqueGiftInfo.origin`.
+- [x] Added the value `"offer"` as a possible value of `UniqueGiftInfo.origin`.
+- [x] Added the field `gift_upgrade_sent` to the class `Message`.
+- [x] Added the field `gift_id` to the class `UniqueGift`.
+- [x] Added the field `is_from_blockchain` to the class `UniqueGift`.
+- [x] Added the parameter `exclude_from_blockchain` in the method `getBusinessAccountGifts`.
+- [x] Added the fields `personal_total_count` and `personal_remaining_count` to the class `Gift`.
+- [x] Added the field `is_premium` to the classes `Gift` and `UniqueGift`.
+- [x] Added the field `is_upgrade_separate` to the classes `GiftInfo` and `OwnedGiftRegular`.
+- [x] Added the class `UniqueGiftColors`.
+- [x] Added the field `has_colors` to the class `Gift`.
+- [x] Added the field `colors` to the class `UniqueGift`.
+- [x] Added the class `GiftBackground` and the field `background` to the class `Gift`.
+- [x] Added the field `unique_gift_variant_count` to the class `Gift`.
+- [x] Added the field `unique_gift_number` to the classes `GiftInfo` and `OwnedGiftRegular`.
+- [x] Added the field `gifts_from_channels` to the class `AcceptedGiftTypes`.
 
 ### Miscellaneous
 - [ ] Allowed bots to disable their main username if they have additional active usernames purchased on Fragment.

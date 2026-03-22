@@ -23,6 +23,10 @@ namespace tgbotxx {
     /// @brief True, if a Telegram Premium subscription is accepted
     bool premiumSubscription{};
 
+    /// @brief True, if transfers of unique gifts from channels are accepted
+    bool giftsFromChannels{};
+
+
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
     nl::json toJson() const {
@@ -31,6 +35,7 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "limited_gifts", limitedGifts);
       OBJECT_SERIALIZE_FIELD(json, "unique_gifts", uniqueGifts);
       OBJECT_SERIALIZE_FIELD(json, "premium_subscription", premiumSubscription);
+      OBJECT_SERIALIZE_FIELD(json, "gifts_from_channels", giftsFromChannels);
       return json;
     }
 
@@ -40,6 +45,7 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "limited_gifts", limitedGifts, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "unique_gifts", uniqueGifts, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "premium_subscription", premiumSubscription, false, false);
+      OBJECT_DESERIALIZE_FIELD(json, "gifts_from_channels", giftsFromChannels, false, false);
     }
   };
 
