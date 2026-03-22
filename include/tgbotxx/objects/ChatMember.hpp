@@ -135,6 +135,12 @@ namespace tgbotxx {
     /// @brief Optional. True, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
     bool canManageTopics{};
 
+    /// @brief Optional. True, if the administrator can manage direct messages of the channel and decline suggested posts; for channels only
+    bool canManageDirectMessages{};
+
+    /// @brief Optional. True, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted defaults to the value of can_pin_messages.
+    bool canManageTags{};
+
     /// @brief Optional. Custom title for this user
     std::string customTitle;
 
@@ -159,6 +165,8 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "can_edit_stories", canEditStories);
       OBJECT_SERIALIZE_FIELD(json, "can_delete_stories", canDeleteStories);
       OBJECT_SERIALIZE_FIELD(json, "can_manage_topics", canManageTopics);
+      OBJECT_SERIALIZE_FIELD(json, "can_manage_direct_messages", canManageDirectMessages);
+      OBJECT_SERIALIZE_FIELD(json, "can_manage_tags", canManageTags);
       OBJECT_SERIALIZE_FIELD(json, "custom_title", customTitle);
       return json;
     }
@@ -182,6 +190,8 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "can_edit_stories", canEditStories, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "can_delete_stories", canDeleteStories, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "can_manage_topics", canManageTopics, false, true);
+      OBJECT_DESERIALIZE_FIELD(json, "can_manage_direct_messages", canManageDirectMessages, false, true);
+      OBJECT_DESERIALIZE_FIELD(json, "can_manage_tags", canManageTags, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "custom_title", customTitle, "", true);
     }
   };
@@ -197,16 +207,26 @@ namespace tgbotxx {
       ChatMemberMember::fromJson(json);
     }
 
+    /// @brief Optional. Tag of the member
+    std::string tag;
+
+    /// @brief Optional. Date when the user's subscription will expire; Unix time
+    std::time_t untilDate{};
+
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
     [[nodiscard]] nl::json toJson() const override {
       nl::json json = ChatMember::toJson();
+      OBJECT_SERIALIZE_FIELD(json, "tag", tag);
+      OBJECT_SERIALIZE_FIELD(json, "until_date", untilDate);
       return json;
     }
 
     /// @brief Deserializes this object from JSON
     void fromJson(const nl::json& json) override {
       ChatMember::fromJson(json);
+      OBJECT_DESERIALIZE_FIELD(json, "tag", tag, "", true);
+      OBJECT_DESERIALIZE_FIELD(json, "until_date", untilDate, 0, true);
     }
   };
 
@@ -220,6 +240,9 @@ namespace tgbotxx {
     explicit ChatMemberRestricted(const nl::json& json) {
       ChatMemberRestricted::fromJson(json);
     }
+
+    /// @brief Optional. Tag of the member
+    std::string tag;
 
     /// @brief True, if the user is a member of the chat at the moment of the request
     bool isMember{};
@@ -254,6 +277,9 @@ namespace tgbotxx {
     /// @brief True, if the user is allowed to add web page previews to their messages
     bool canAddWebPagePreviews{};
 
+    /// @brief True, if the user is allowed to edit their own tag
+    bool canEditTag{};
+
     /// @brief True, if the user is allowed to change the chat title, photo and other settings
     bool canChangeInfo{};
 
@@ -274,6 +300,7 @@ namespace tgbotxx {
     /// @returns JSON representation of this object
     [[nodiscard]] nl::json toJson() const override {
       nl::json json = ChatMember::toJson();
+      OBJECT_SERIALIZE_FIELD(json, "tag", tag);
       OBJECT_SERIALIZE_FIELD(json, "is_member", isMember);
       OBJECT_SERIALIZE_FIELD(json, "can_send_messages", canSendMessages);
       OBJECT_SERIALIZE_FIELD(json, "can_send_audios", canSendAudios);
@@ -285,6 +312,7 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "can_send_polls", canSendPolls);
       OBJECT_SERIALIZE_FIELD(json, "can_send_other_messages", canSendOtherMessages);
       OBJECT_SERIALIZE_FIELD(json, "can_add_web_page_previews", canAddWebPagePreviews);
+      OBJECT_SERIALIZE_FIELD(json, "can_edit_tag", canEditTag);
       OBJECT_SERIALIZE_FIELD(json, "can_change_info", canChangeInfo);
       OBJECT_SERIALIZE_FIELD(json, "can_invite_users", canInviteUsers);
       OBJECT_SERIALIZE_FIELD(json, "can_pin_messages", canPinMessages);
@@ -296,6 +324,7 @@ namespace tgbotxx {
     /// @brief Deserializes this object from JSON
     void fromJson(const nl::json& json) override {
       ChatMember::fromJson(json);
+      OBJECT_DESERIALIZE_FIELD(json, "tag", tag, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "is_member", isMember, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_send_messages", canSendMessages, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_send_audios", canSendAudios, false, false);
@@ -307,6 +336,7 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "can_send_polls", canSendPolls, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_send_other_messages", canSendOtherMessages, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_add_web_page_previews", canAddWebPagePreviews, false, false);
+      OBJECT_DESERIALIZE_FIELD(json, "can_edit_tag", canEditTag, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_change_info", canChangeInfo, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_invite_users", canInviteUsers, false, false);
       OBJECT_DESERIALIZE_FIELD(json, "can_pin_messages", canPinMessages, false, false);

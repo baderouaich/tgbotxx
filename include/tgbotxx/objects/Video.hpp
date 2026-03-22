@@ -1,6 +1,7 @@
 #pragma once
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/PhotoSize.hpp>
+#include <tgbotxx/objects/VideoQuality.hpp>
 
 namespace tgbotxx {
   /// @brief This object represents a video file.
@@ -36,6 +37,9 @@ namespace tgbotxx {
       /// @brief Optional. Timestamp in seconds from which the video will play in the message
       std::time_t startTimestamp{};
 
+      /// @brief Optional. List of available qualities of the video
+      std::vector<Ptr<VideoQuality>> qualities;
+
       /// @brief Optional. Original filename as defined by sender
       std::string fileName;
 
@@ -59,6 +63,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail);
         OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "cover", cover);
         OBJECT_SERIALIZE_FIELD(json, "start_timestamp", startTimestamp);
+        OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "qualities", qualities);
         OBJECT_SERIALIZE_FIELD(json, "file_name", fileName);
         OBJECT_SERIALIZE_FIELD(json, "mime_type", mimeType);
         OBJECT_SERIALIZE_FIELD(json, "file_size", fileSize);
@@ -75,6 +80,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD_PTR(json, "thumbnail", thumbnail, true);
         OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "cover", cover, true);
         OBJECT_DESERIALIZE_FIELD(json, "start_timestamp", startTimestamp, 0, true);
+        OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "qualities", qualities, true);
         OBJECT_DESERIALIZE_FIELD(json, "file_name", fileName, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "mime_type", mimeType, "", true);
         OBJECT_DESERIALIZE_FIELD(json, "file_size", fileSize, 0, true);

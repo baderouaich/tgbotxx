@@ -5,36 +5,41 @@ namespace tgbotxx {
   /// @brief This object represents a service message about a new forum topic created in the chat.
   /// @ref https://core.telegram.org/bots/api#forumtopiccreated
   struct ForumTopicCreated {
-      ForumTopicCreated() = default;
-      explicit ForumTopicCreated(const nl::json& json) {
-        fromJson(json);
-      }
+    ForumTopicCreated() = default;
+    explicit ForumTopicCreated(const nl::json& json) {
+      fromJson(json);
+    }
 
-      /// @brief Name of the topic
-      std::string name;
+    /// @brief Name of the topic
+    std::string name;
 
-      /// @brief Color of the topic icon in RGB format
-      std::int32_t iconColor{};
+    /// @brief Color of the topic icon in RGB format
+    std::int32_t iconColor{};
 
-      /// @brief Optional. Unique identifier of the custom emoji shown as the topic icon
-      std::string iconCustomEmojiId;
+    /// @brief Optional. Unique identifier of the custom emoji shown as the topic icon
+    std::string iconCustomEmojiId;
+
+    /// @brief Optional. True, if the name of the topic wasn't specified explicitly by its creator and likely needs to be changed by the bot
+    bool isNameImplicit{};
 
 
-      /// @brief Serializes this object to JSON
-      /// @returns JSON representation of this object
-      nl::json toJson() const {
-        nl::json json = nl::json::object();
-        OBJECT_SERIALIZE_FIELD(json, "name", name);
-        OBJECT_SERIALIZE_FIELD(json, "icon_color", iconColor);
-        OBJECT_SERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId);
-        return json;
-      }
+    /// @brief Serializes this object to JSON
+    /// @returns JSON representation of this object
+    nl::json toJson() const {
+      nl::json json = nl::json::object();
+      OBJECT_SERIALIZE_FIELD(json, "name", name);
+      OBJECT_SERIALIZE_FIELD(json, "icon_color", iconColor);
+      OBJECT_SERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId);
+      OBJECT_SERIALIZE_FIELD(json, "is_name_implicit", isNameImplicit);
+      return json;
+    }
 
-      /// @brief Deserializes this object from JSON
-      void fromJson(const nl::json& json) {
-        OBJECT_DESERIALIZE_FIELD(json, "name", name, "", false);
-        OBJECT_DESERIALIZE_FIELD(json, "icon_color", iconColor, 0, false);
-        OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, "", true);
-      }
+    /// @brief Deserializes this object from JSON
+    void fromJson(const nl::json& json) {
+      OBJECT_DESERIALIZE_FIELD(json, "name", name, "", false);
+      OBJECT_DESERIALIZE_FIELD(json, "icon_color", iconColor, 0, false);
+      OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, "", true);
+      OBJECT_DESERIALIZE_FIELD(json, "is_name_implicit", isNameImplicit, false, true);
+    }
   };
 }

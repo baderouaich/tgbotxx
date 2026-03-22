@@ -1,4 +1,9 @@
 file(GLOB TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
+## Catch2
+add_library(catch2 STATIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/catch2/src/catch.cpp)
+target_include_directories(catch2 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib/catch2/include)
+
 ## CTest
 foreach (source ${TEST_SOURCES})
     get_filename_component(filename ${source} NAME_WE)
@@ -7,7 +12,10 @@ foreach (source ${TEST_SOURCES})
     target_compile_features(${filename} PRIVATE cxx_std_20)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/catch2/include)
     # Link the tests with the main project tgbotxx
-    target_link_libraries(${filename} PRIVATE tgbotxx)
+    target_link_libraries(${filename} PRIVATE catch2 tgbotxx)
+    target_compile_options(${filename}
+            PRIVATE # Fix ".obj file too big" issue in windows/mingw
+            $<$<AND:$<CXX_COMPILER_ID:GNU>,$<PLATFORM_ID:Windows>>:-Wa,-mbig-obj>)
     if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
         # valgrind memory leak checks (NOTE: valgrind has problems with clang symbols, compile with gcc before running this target)
         add_custom_target(check_memory_leaks_${filename}

@@ -66,6 +66,8 @@ namespace tgbotxx {
   struct SuggestedPostDeclined;
   struct SuggestedPostPaid;
   struct SuggestedPostRefunded;
+  struct ChatOwnerLeft;
+  struct ChatOwnerChanged;
 
   /// @brief This object represents a message.
   /// @ref https://core.telegram.org/bots/api#message
@@ -78,7 +80,7 @@ namespace tgbotxx {
       /// @brief Unique message identifier inside this chat
       std::int32_t messageId{};
 
-      /// @brief Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
+      /// @brief Optional. Unique identifier of a message thread or forum topic to which the message belongs; for supergroups and private chats only
       std::int32_t messageThreadId{};
 
       /// @brief Optional. Information about the direct messages chat topic that contains the message
@@ -100,6 +102,9 @@ namespace tgbotxx {
       /// @brief Optional. The bot that actually sent the message on behalf of the business account. Available only for outgoing messages sent on behalf of the connected business account.
       Ptr<User> senderBusinessBot;
 
+      /// @brief Optional. Tag or custom title of the sender of the message; for supergroups only
+      std::string senderTag;
+
       /// @brief Date the message was sent in Unix time. It is always a positive number, representing a valid date.
       std::time_t date{};
 
@@ -114,7 +119,7 @@ namespace tgbotxx {
       /// @brief Optional. Information about the original message for forwarded messages
       Ptr<MessageOrigin> forwardOrigin;
 
-      /// @brief Optional. True, if the message is sent to a forum topic
+      /// @brief Optional. True, if the message is sent to a topic in a forum supergroup or a private chat with the bot
       bool isTopicMessage{};
 
       /// @brief Optional. True, if the message is a channel post that was automatically
@@ -246,6 +251,12 @@ namespace tgbotxx {
       /// @brief Optional. A member was removed from the group, information about them (this member may be the bot itself)
       Ptr<User> leftChatMember;
 
+      /// @brief Optional. Service message: chat owner has left
+      Ptr<ChatOwnerLeft> chatOwnerLeft;
+
+      /// @brief Optional. Service message: chat owner has changed
+      Ptr<ChatOwnerChanged> chatOwnerChanged;
+
       /// @brief Optional. A chat title was changed to this value
       std::string newChatTitle;
 
@@ -309,6 +320,9 @@ namespace tgbotxx {
 
       /// @brief Optional. Service message: a unique gift was sent or received
       Ptr<UniqueGiftInfo> uniqueGift{};
+
+      /// @brief Optional. Service message: upgrade of a gift was purchased after the gift was sent
+      Ptr<GiftInfo> giftUpgradeSent{};
 
       /// @brief Optional. The domain name of the website on which the user has logged in.
       /// @link More about Telegram Login » https://core.telegram.org/widgets/login @endlink

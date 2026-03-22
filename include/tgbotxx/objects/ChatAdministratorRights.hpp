@@ -61,6 +61,9 @@ namespace tgbotxx {
     /// @brief Optional. True, if the administrator can manage direct messages of the channel and decline suggested posts; for channels only
     bool canManageDirectMessages{};
 
+    /// @brief Optional. True, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted defaults to the value of can_pin_messages.
+    bool canManageTags{};
+
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
@@ -82,6 +85,7 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "can_delete_stories", canDeleteStories);
       OBJECT_SERIALIZE_FIELD(json, "can_manage_topics", canManageTopics);
       OBJECT_SERIALIZE_FIELD(json, "can_manage_direct_messages", canManageDirectMessages);
+      OBJECT_SERIALIZE_FIELD(json, "can_manage_tags", canManageTags);
       return json;
     }
 
@@ -103,6 +107,7 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "can_delete_stories", canDeleteStories, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "can_manage_topics", canManageTopics, false, true);
       OBJECT_DESERIALIZE_FIELD(json, "can_manage_direct_messages", canManageDirectMessages, false, true);
+      OBJECT_DESERIALIZE_FIELD(json, "can_manage_tags", canManageTags, false, true);
     }
   };
 }

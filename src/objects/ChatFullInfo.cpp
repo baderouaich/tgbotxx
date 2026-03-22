@@ -7,6 +7,7 @@ ChatFullInfo::ChatFullInfo(const nl::json& json) {
 
 nl::json ChatFullInfo::toJson() const {
   nl::json json = Chat::toJson();
+  // @note: id, title, username, firstName...etc. are handled by parent Chat
   OBJECT_SERIALIZE_FIELD(json, "accent_color_id", accentColorId);
   OBJECT_SERIALIZE_FIELD(json, "max_reaction_count", maxReactionCount);
   OBJECT_SERIALIZE_FIELD_PTR(json, "photo", photo);
@@ -43,12 +44,17 @@ nl::json ChatFullInfo::toJson() const {
   OBJECT_SERIALIZE_FIELD(json, "custom_emoji_sticker_set_name", customEmojiStickerSetName);
   OBJECT_SERIALIZE_FIELD(json, "linked_chat_id", linkedChatId);
   OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "rating", rating);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "first_profile_audio", firstProfileAudio);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "unique_gift_colors", uniqueGiftColors);
+  OBJECT_SERIALIZE_FIELD(json, "paid_message_star_count", paidMessageStarCount);
   return json;
 }
 
 
 void ChatFullInfo::fromJson(const nl::json& json) {
   Chat::fromJson(json);
+  // @note: id, title, username, firstName...etc. are handled by parent Chat
   OBJECT_DESERIALIZE_FIELD(json, "accent_color_id", accentColorId, 0, true);
   OBJECT_DESERIALIZE_FIELD(json, "max_reaction_count", maxReactionCount, 0, false);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "photo", photo, true);
@@ -85,4 +91,8 @@ void ChatFullInfo::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD(json, "custom_emoji_sticker_set_name", customEmojiStickerSetName, "", true);
   OBJECT_DESERIALIZE_FIELD(json, "linked_chat_id", linkedChatId, 0, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "rating", rating, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "first_profile_audio", firstProfileAudio, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "unique_gift_colors", uniqueGiftColors, true);
+  OBJECT_DESERIALIZE_FIELD(json, "paid_message_star_count", paidMessageStarCount, 0, true);
 }

@@ -50,7 +50,9 @@ namespace tgbotxx {
       /// @brief “text_mention” (for users without usernames),
       TextMention,
       /// @brief “custom_emoji” (for inline custom emoji stickers)
-      CustomEmoji
+      CustomEmoji,
+      /// @brief “date_time” (for formatted date and time)
+      DateTime
     };
     /// @brief Converts enum Type to a string
     static std::optional<std::string> TypeToString(const Type type) noexcept {
@@ -73,6 +75,7 @@ namespace tgbotxx {
       if (type == Type::TextLink) return "text_link";
       if (type == Type::TextMention) return "text_mention";
       if (type == Type::CustomEmoji) return "custom_emoji";
+      if (type == Type::DateTime) return "date_time";
       return std::nullopt;
     }
     /// @brief Converts string to an enum Type
@@ -96,6 +99,7 @@ namespace tgbotxx {
       if (str == "text_link") return Type::TextLink;
       if (str == "text_mention") return Type::TextMention;
       if (str == "custom_emoji") return Type::CustomEmoji;
+      if (str == "date_time") return Type::DateTime;
       return std::nullopt;
     }
 
@@ -120,6 +124,7 @@ namespace tgbotxx {
     /// “text_link” (for clickable text URLs),
     /// “text_mention” (for users without usernames),
     /// “custom_emoji” (for inline custom emoji stickers)
+    /// “date_time” (for formatted date and time)
     Type type{};
 
     /// @brief Offset in UTF-16 code units to the start of the entity
@@ -141,6 +146,14 @@ namespace tgbotxx {
     /// Use Api::getCustomEmojiStickers to get full information about the sticker
     std::string customEmojiId;
 
+    /// @brief Optional. For “date_time” only, the Unix time associated with the entity
+    std::time_t unixTime{};
+
+    /// @brief Optional. For “date_time” only, the string that defines the formatting of the date and time.
+    /// See date-time entity formatting for more details.
+    /// @link "date-time entity formatting" https://core.telegram.org/bots/api#date-time-entity-formatting @endlink
+    std::string dateTimeFormat{};
+
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
     nl::json toJson() const {
@@ -152,6 +165,8 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD_PTR(json, "user", user);
       OBJECT_SERIALIZE_FIELD(json, "language", language);
       OBJECT_SERIALIZE_FIELD(json, "custom_emoji_id", customEmojiId);
+      OBJECT_SERIALIZE_FIELD(json, "unix_time", unixTime);
+      OBJECT_SERIALIZE_FIELD(json, "date_time_format", dateTimeFormat);
       return json;
     }
 
@@ -164,6 +179,8 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD_PTR(json, "user", user, true);
       OBJECT_DESERIALIZE_FIELD(json, "language", language, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "custom_emoji_id", customEmojiId, "", true);
+      OBJECT_DESERIALIZE_FIELD(json, "unix_time", unixTime, 0, true);
+      OBJECT_DESERIALIZE_FIELD(json, "date_time_format", dateTimeFormat, "", true);
     }
   };
 }

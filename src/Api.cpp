@@ -44,6 +44,7 @@
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
+#include <tgbotxx/objects/UserProfileAudios.hpp>
 #include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/objects/LinkPreviewOptions.hpp>
 #include <tgbotxx/objects/SuggestedPostParameters.hpp>
@@ -234,11 +235,12 @@ Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& 
                                  std::int32_t messageThreadId,
                                  bool disableNotification,
                                  bool protectContent,
+                                 const std::string& messageEffectId,
                                  std::int32_t directMessagesTopicId,
                                  std::time_t videoStartTimestamp,
                                  const Ptr<SuggestedPostParameters>& suggestedPostParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(6);
+  data.parts.reserve(7);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("message_id", messageId);
@@ -248,6 +250,8 @@ Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& 
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
   if (directMessagesTopicId)
     data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
   if (videoStartTimestamp)
@@ -300,6 +304,7 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
                                 bool disableNotification,
                                 bool protectContent,
+                                const std::string& messageEffectId,
                                 const Ptr<IReplyMarkup>& replyMarkup,
                                 std::int32_t directMessagesTopicId,
                                 std::time_t videoStartTimestamp,
@@ -326,6 +331,8 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
   }
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
   if (replyMarkup)
@@ -940,24 +947,18 @@ Ptr<Message> Api::sendPaidMedia(const std::variant<std::int64_t, std::string>& c
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
   for (const Ptr<InputPaidMedia>& m: media) {
     nl::json mJson = m->toJson();
-    switch (m->media.index()) {
-      case 0: // cpr::File (Local File)
-      {
+    if (not std::holds_alternative<std::monostate>(m->media)) {
+      // media variant
+      if (std::holds_alternative<cpr::File>(m->media)) { // cpr::File (Local File)
         const cpr::File& file = std::get<cpr::File>(m->media);
         std::string fileKey = StringUtils::random(8);
         mJson["media"] = "attach://" + fileKey;
         data.parts.emplace_back(fileKey, cpr::Files{file});
-        break;
-      }
-      case 1: // std::string (URL, File ID)
-      {
+      } else { // std::string (URL, File ID)
         // do nothing as toJson will export the "media": "URL or file ID" object.
-        break;
       }
-      default:
-        break;
     }
-    mediaJson.push_back(mJson);
+    mediaJson.emplace_back(mJson);
   }
   data.parts.emplace_back("media", mediaJson.dump());
   if (not payload.empty())
@@ -1018,24 +1019,18 @@ std::vector<Ptr<Message>> Api::sendMediaGroup(const std::variant<std::int64_t, s
   // Handle local media files if available, see https://core.telegram.org/bots/api#inputmediaphoto
   for (const Ptr<InputMedia>& m: media) {
     nl::json mJson = m->toJson();
-    switch (m->media.index()) {
-      case 0: // cpr::File (Local File)
-      {
+    if (not std::holds_alternative<std::monostate>(m->media)) {
+      // media variant
+      if (std::holds_alternative<cpr::File>(m->media)) { // cpr::File (Local File)
         const cpr::File& file = std::get<cpr::File>(m->media);
         std::string fileKey = StringUtils::random(8);
         mJson["media"] = "attach://" + fileKey;
         data.parts.emplace_back(fileKey, cpr::Files{file});
-        break;
-      }
-      case 1: // std::string (URL, File ID)
-      {
+      } else { // std::string (URL, File ID)
         // do nothing as toJson will export the "media": "URL or file ID" object.
-        break;
       }
-      default:
-        break;
     }
-    mediaJson.push_back(mJson);
+    mediaJson.emplace_back(mJson);
   }
   data.parts.emplace_back("media", mediaJson.dump());
   if (messageThreadId)
@@ -1395,6 +1390,31 @@ Ptr<Message> Api::sendDice(const std::variant<std::int64_t, std::string>& chatId
   return message;
 }
 
+bool Api::sendMessageDraft(std::int64_t chatId,
+                           std::int64_t draftId,
+                           const std::string& text,
+                           std::int32_t messageThreadId,
+                           const std::string& parseMode,
+                           const std::vector<Ptr<MessageEntity>>& entities) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("chat_id", std::to_string(chatId));
+  data.parts.emplace_back("draft_id", std::to_string(draftId));
+  data.parts.emplace_back("text", text);
+  if (messageThreadId)
+    data.parts.emplace_back("message_thread_id", messageThreadId);
+  if (not parseMode.empty())
+    data.parts.emplace_back("parse_mode", parseMode);
+  if (not entities.empty()) {
+    nl::json entitiesArray = nl::json::array();
+    for (const Ptr<MessageEntity>& entity: entities)
+      entitiesArray.push_back(entity->toJson());
+    data.parts.emplace_back("entities", entitiesArray.dump());
+  }
+
+  return sendRequest("sendMessageDraft", data);
+}
+
 bool Api::sendChatAction(const std::variant<std::int64_t, std::string>& chatId,
                          const std::string& action,
                          std::int32_t messageThreadId,
@@ -1445,6 +1465,20 @@ Ptr<UserProfilePhotos> Api::getUserProfilePhotos(std::int64_t userId,
   const nl::json userProfilePhotosObj = sendRequest("getUserProfilePhotos", data);
   Ptr<UserProfilePhotos> userProfilePhotos(new UserProfilePhotos(userProfilePhotosObj));
   return userProfilePhotos;
+}
+
+Ptr<UserProfileAudios> Api::getUserProfileAudios(std::int64_t userId,
+                                                 std::int32_t offset,
+                                                 std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (offset)
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+
+  return makePtr<UserProfileAudios>(sendRequest("getUserProfileAudios", data));
 }
 
 Ptr<File> Api::getFile(const std::string& fileId) const {
@@ -1548,7 +1582,8 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
                             bool canEditStories,
                             bool canDeleteStories,
                             bool canManageTopics,
-                            bool canManageDirectMessages) const {
+                            bool canManageDirectMessages,
+                            bool canManageTags) const {
   cpr::Multipart data{};
   data.parts.reserve(18);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
@@ -1585,6 +1620,8 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("can_manage_topics", canManageTopics);
   if (canManageDirectMessages)
     data.parts.emplace_back("can_manage_direct_messages", canManageDirectMessages);
+  if (canManageTags)
+    data.parts.emplace_back("can_manage_tags", canManageTags);
   return sendRequest("promoteChatMember", data);
 }
 
@@ -2150,6 +2187,18 @@ Ptr<BotShortDescription> Api::getMyShortDescription(const std::string& languageC
   return makePtr<BotShortDescription>(botShortDescObj);
 }
 
+bool Api::setMyProfilePhoto(const Ptr<InputProfilePhoto>& photo) const {
+  cpr::Multipart data{};
+  data.parts.reserve(1);
+  data.parts.emplace_back("photo", photo->toJson().dump());
+
+  return sendRequest("setMyProfilePhoto", data);
+}
+
+bool Api::removeMyProfilePhoto() const {
+  return sendRequest("removeMyProfilePhoto");
+}
+
 bool Api::setChatMenuButton(const std::variant<std::int64_t, std::string>& chatId, const Ptr<tgbotxx::MenuButton>& menuButton) const {
   cpr::Multipart data{};
   data.parts.reserve(2);
@@ -2198,6 +2247,19 @@ Ptr<ChatAdministratorRights> Api::getMyDefaultAdministratorRights(bool forChanne
     data.parts.emplace_back("for_channels", forChannels);
   const nl::json chatAdministratorRightsObj = sendRequest("getMyDefaultAdministratorRights", data);
   return makePtr<ChatAdministratorRights>(chatAdministratorRightsObj);
+}
+
+bool Api::setChatMemberTag(const std::variant<std::int64_t, std::string>& chatId,
+                           std::int64_t userId,
+                           const std::string& tag) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (not tag.empty())
+    data.parts.emplace_back("tag", tag);
+
+  return sendRequest("setChatMemberTag", data);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2270,6 +2332,87 @@ bool Api::giftPremiumSubscription(std::int64_t userId,
     data.parts.emplace_back("text_entities", entitiesArray.dump());
   }
   return sendRequest("giftPremiumSubscription", data);
+}
+
+Ptr<OwnedGifts> Api::getUserGifts(std::int64_t userId,
+                                  bool excludeUnlimited,
+                                  bool excludeLimitedUpgradable,
+                                  bool excludeLimitedNonUpgradable,
+                                  bool excludeFromBlockchain,
+                                  bool excludeUnique,
+                                  bool sortByPrice,
+                                  const std::string& offset,
+                                  std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(9);
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (excludeUnlimited)
+    data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
+  if (excludeLimitedUpgradable)
+    data.parts.emplace_back("exclude_limited_upgradable", excludeLimitedUpgradable);
+  if (excludeLimitedNonUpgradable)
+    data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
+  if (excludeUnique)
+    data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (sortByPrice)
+    data.parts.emplace_back("sort_by_price", sortByPrice);
+  if (not offset.empty())
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+  return makePtr<OwnedGifts>(sendRequest("getUserGifts", data));
+}
+
+Ptr<OwnedGifts> Api::getChatGifts(const std::variant<std::int64_t, std::string>& chatId,
+                                  bool excludeUnsaved,
+                                  bool excludeSaved,
+                                  bool excludeUnlimited,
+                                  bool excludeLimitedUpgradable,
+                                  bool excludeLimitedNonUpgradable,
+                                  bool excludeFromBlockchain,
+                                  bool excludeUnique,
+                                  bool sortByPrice,
+                                  const std::string& offset,
+                                  std::int32_t limit) const {
+  cpr::Multipart data{};
+  data.parts.reserve(11);
+  switch (chatId.index()) {
+    case 0: // std::int64_t
+      if (std::int64_t chatIdInt = std::get<std::int64_t>(chatId); chatIdInt != 0) {
+        data.parts.emplace_back("chat_id", std::to_string(chatIdInt));
+      }
+      break;
+    case 1: // std::string
+      if (std::string chatIdStr = std::get<std::string>(chatId); not chatIdStr.empty()) {
+        data.parts.emplace_back("chat_id", chatIdStr);
+      }
+      break;
+    default:
+      break;
+  }
+  if (excludeUnsaved)
+    data.parts.emplace_back("exclude_unsaved", excludeUnsaved);
+  if (excludeSaved)
+    data.parts.emplace_back("exclude_saved", excludeSaved);
+  if (excludeUnlimited)
+    data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
+  if (excludeLimitedUpgradable)
+    data.parts.emplace_back("exclude_limited_upgradable", excludeLimitedUpgradable);
+  if (excludeLimitedNonUpgradable)
+    data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
+  if (excludeUnique)
+    data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (sortByPrice)
+    data.parts.emplace_back("sort_by_price", sortByPrice);
+  if (not offset.empty())
+    data.parts.emplace_back("offset", offset);
+  if (limit)
+    data.parts.emplace_back("limit", limit);
+  return makePtr<OwnedGifts>(sendRequest("getChatGifts", data));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2452,13 +2595,15 @@ Ptr<OwnedGifts> Api::getBusinessAccountGifts(const std::string& businessConnecti
                                              bool excludeUnsaved,
                                              bool excludeSaved,
                                              bool excludeUnlimited,
-                                             bool excludeLimited,
+                                             bool excludeLimitedUpgradable,
+                                             bool excludeLimitedNonUpgradable,
                                              bool excludeUnique,
+                                             bool excludeFromBlockchain,
                                              bool sortByPrice,
                                              const std::string& offset,
                                              std::int32_t limit) const {
   cpr::Multipart data{};
-  data.parts.reserve(9);
+  data.parts.reserve(11);
   data.parts.emplace_back("business_connection_id", businessConnectionId);
   if (excludeUnsaved)
     data.parts.emplace_back("exclude_unsaved", excludeUnsaved);
@@ -2466,10 +2611,14 @@ Ptr<OwnedGifts> Api::getBusinessAccountGifts(const std::string& businessConnecti
     data.parts.emplace_back("exclude_saved", excludeSaved);
   if (excludeUnlimited)
     data.parts.emplace_back("exclude_unlimited", excludeUnlimited);
-  if (excludeLimited)
-    data.parts.emplace_back("exclude_limited", excludeLimited);
+  if (excludeLimitedUpgradable)
+    data.parts.emplace_back("exclude_limited_upgradable", excludeLimitedUpgradable);
+  if (excludeLimitedNonUpgradable)
+    data.parts.emplace_back("exclude_limited_non_upgradable", excludeLimitedNonUpgradable);
   if (excludeUnique)
     data.parts.emplace_back("exclude_unique", excludeUnique);
+  if (excludeFromBlockchain)
+    data.parts.emplace_back("exclude_from_blockchain", excludeFromBlockchain);
   if (sortByPrice)
     data.parts.emplace_back("sort_by_price", sortByPrice);
   data.parts.emplace_back("offset", offset);
@@ -2550,6 +2699,26 @@ Ptr<Story> Api::postStory(const std::string& businessConnectionId,
     data.parts.emplace_back("protect_content", protectContent);
 
   return makePtr<Story>(sendRequest("postStory", data));
+}
+
+Ptr<Story> Api::repostStory(const std::string& businessConnectionId,
+                            std::int64_t fromChatId,
+                            std::int32_t fromStoryId,
+                            std::time_t activePeriod,
+                            bool postToChatPage,
+                            bool protectContent) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId));
+  data.parts.emplace_back("from_story_id", std::to_string(fromStoryId));
+  data.parts.emplace_back("active_period", std::to_string(activePeriod));
+  if (postToChatPage)
+    data.parts.emplace_back("post_to_chat_page", postToChatPage);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+
+  return makePtr<Story>(sendRequest("repostStory", data));
 }
 
 Ptr<Story> Api::editStory(const std::string& businessConnectionId,

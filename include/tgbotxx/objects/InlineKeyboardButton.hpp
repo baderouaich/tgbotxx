@@ -19,6 +19,15 @@ namespace tgbotxx {
     /// @brief Label text on the button
     std::string text;
 
+    /// @brief Optional. Unique identifier of the custom emoji shown before the text of the button.
+    /// Can only be used by bots that purchased additional usernames on Fragment or in the messages directly sent by the bot to private,
+    /// group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
+    std::string iconCustomEmojiId;
+
+    /// @brief Optional. Style of the button. Must be one of “danger” (red), “success” (green) or “primary” (blue).
+    /// If omitted, then an app-specific style is used.
+    std::string style;
+
     /// @brief Optional. HTTP or tg:// URL to be opened when the button is pressed.
     /// Links tg://user?id=<user_id> can be used to mention a user by their identifier without using a username,
     /// if this is allowed by their privacy settings.
@@ -69,6 +78,9 @@ namespace tgbotxx {
     nl::json toJson() const {
       nl::json json = nl::json::object();
       OBJECT_SERIALIZE_FIELD(json, "text", text);
+      if (not iconCustomEmojiId.empty()) // @todo: this is a workaround. Seems to be the only field that makes telegram complain if its empty "" ->  Bad Request: can't parse keyboard button: Field "icon_custom_emoji_id" must be a valid Number
+        OBJECT_SERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId);
+      OBJECT_SERIALIZE_FIELD(json, "style", style);
       OBJECT_SERIALIZE_FIELD(json, "url", url);
       OBJECT_SERIALIZE_FIELD(json, "callback_data", callbackData);
       OBJECT_SERIALIZE_FIELD_PTR(json, "web_app", webApp);
@@ -85,6 +97,8 @@ namespace tgbotxx {
     /// @brief Deserializes this object from JSON
     void fromJson(const nl::json& json) {
       OBJECT_DESERIALIZE_FIELD(json, "text", text, "", false);
+      OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, "", true);
+      OBJECT_DESERIALIZE_FIELD(json, "style", style, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "url", url, "", true);
       OBJECT_DESERIALIZE_FIELD(json, "callback_data", callbackData, "", true);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "web_app", webApp, true);

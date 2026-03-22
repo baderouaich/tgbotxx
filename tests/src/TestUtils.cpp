@@ -81,24 +81,57 @@ TEST_CASE("DateTimeUtils", "all functions") {
     Catch::cout() << nowStr << std::endl;
     Catch::cout() << oneHourFromNowStr << std::endl;
     Catch::cout() << oneHourBeforeNowStr << std::endl;
+
+    REQUIRE(nowStr != oneHourFromNowStr);
+    REQUIRE(nowStr != oneHourBeforeNowStr);
   }
+
   SECTION("fromString") {
-    {
-      std::string str = "1970-01-01";
-      std::time_t dt = DateTimeUtils::fromString(str, "%Y-%m-%d");
-      std::string rec = DateTimeUtils::toString(dt, "%Y-%m-%d");
-      Catch::cout() << dt << std::endl;
-      Catch::cout() << rec << std::endl;
-      REQUIRE(str == rec);
+    std::string str = "2031/07/18 16:34:34";
+    std::time_t dt = DateTimeUtils::fromString(str, "%Y/%m/%d %H:%M:%S");
+    std::string rec = DateTimeUtils::toString(dt, "%Y/%m/%d %H:%M:%S");
+    Catch::cout() << dt << std::endl;
+    Catch::cout() << rec << std::endl;
+    REQUIRE(str == rec);
+  }
+
+  SECTION("round-trip conversions") {
+    for (int i = 0; i < 10; ++i) {
+      std::time_t now = std::time(nullptr) + (i * 12345);
+      std::string str = DateTimeUtils::toString(now);
+      std::time_t parsed = DateTimeUtils::fromString(str);
+      std::string reconstructed = DateTimeUtils::toString(parsed);
+      Catch::cout() << str << " -> " << reconstructed << std::endl;
+      REQUIRE(str == reconstructed);
     }
-    {
-      std::string str = "2031/07/18 16:34:34";
-      std::time_t dt = DateTimeUtils::fromString(str, "%Y/%m/%d %H:%M:%S");
-      std::string rec = DateTimeUtils::toString(dt, "%Y/%m/%d %H:%M:%S");
-      Catch::cout() << dt << std::endl;
-      Catch::cout() << rec << std::endl;
-      REQUIRE(str == rec);
-    }
+  }
+
+  SECTION("different formats") {
+    std::time_t now = std::time(nullptr);
+
+    std::string f1 = DateTimeUtils::toString(now, "%Y/%m/%d");
+    std::string f2 = DateTimeUtils::toString(now, "%H-%M-%S");
+    std::string f3 = DateTimeUtils::toString(now, "%d-%m-%Y %H:%M");
+
+    Catch::cout() << f1 << std::endl;
+    Catch::cout() << f2 << std::endl;
+    Catch::cout() << f3 << std::endl;
+
+    REQUIRE(!f1.empty());
+    REQUIRE(!f2.empty());
+    REQUIRE(!f3.empty());
+  }
+ SECTION("invalid parsing should fail") {
+    std::string invalid = "not-a-date";
+    auto t = DateTimeUtils::fromString(invalid);
+    REQUIRE(t == -1);
+  }
+
+  SECTION("leap year handling") {
+    std::string leap = "2024-02-29";
+    std::time_t dt = DateTimeUtils::fromString(leap, "%Y-%m-%d");
+    std::string rec = DateTimeUtils::toString(dt, "%Y-%m-%d");
+    REQUIRE(rec == leap);
   }
 }
 

@@ -51,6 +51,12 @@ namespace tgbotxx {
     /// @brief Optional. True, if the bot has a main Web App. Returned only in getMe.
     bool hasMainWebApp{};
 
+    /// @brief Optional. True, if the bot has forum topic mode enabled in private chats. Returned only in getMe.
+    bool hasTopicsEnabled{};
+
+    /// @brief Optional. True, if the bot allows users to create and delete topics in private chats. Returned only in getMe.
+    bool allowsUsersToCreateTopics{};
+
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object
     [[nodiscard]] nl::json toJson() const;

@@ -10,6 +10,9 @@
 #include <tgbotxx/objects/BusinessIntro.hpp>
 #include <tgbotxx/objects/BusinessLocation.hpp>
 #include <tgbotxx/objects/BusinessOpeningHours.hpp>
+#include <tgbotxx/objects/UserRating.hpp>
+#include <tgbotxx/objects/Audio.hpp>
+#include <tgbotxx/objects/UniqueGiftColors.hpp>
 
 namespace tgbotxx {
   /// @brief This object represents a chat.
@@ -134,6 +137,18 @@ namespace tgbotxx {
 
     /// @brief Optional. For supergroups, the location to which the supergroup is connected.
     Ptr<ChatLocation> location;
+
+    /// @brief Optional. For private chats, the rating of the user if any
+    Ptr<UserRating> rating;
+
+    /// @brief Optional. For private chats, the first audio added to the profile of the user
+    Ptr<Audio> firstProfileAudio;
+
+    /// @brief Optional. The color scheme based on a unique gift that must be used for the chat's name, message replies and link previews
+    Ptr<UniqueGiftColors> uniqueGiftColors;
+
+    /// @brief Optional. The color scheme based on a unique gift that must be used for the chat's name, message replies and link previews
+    std::int64_t paidMessageStarCount{};
 
     /// @brief Serializes this object to JSON
     /// @returns JSON representation of this object

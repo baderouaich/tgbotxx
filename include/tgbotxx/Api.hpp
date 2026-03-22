@@ -19,6 +19,7 @@ namespace tgbotxx {
   struct MessageId;
   struct InputMedia;
   struct UserProfilePhotos;
+  struct UserProfileAudios;
   struct File;
   struct ChatMember;
   struct ChatPermissions;
@@ -138,7 +139,7 @@ namespace tgbotxx {
     /// @brief Use this method to send text messages. On success, the sent Message is returned.
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param text Text of the message to be sent, 1-4096 characters after entities parsing
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param parseMode Optional. Mode for parsing entities in the message text. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
     /// @param entities Optional. A JSON-serialized list of special entities that appear in message text, which can be specified instead of parseMode
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
@@ -179,9 +180,10 @@ namespace tgbotxx {
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param fromChatId Integer or String. Unique identifier for the chat where the original message was sent (or channel username in the format @channelusername)
     /// @param messageId Message identifier in the chat specified in fromChatId
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the forwarded message from forwarding and saving
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; only available when forwarding to private chats
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat
     /// @param videoStartTimestamp Optional. New start timestamp for the forwarded video in the message
     /// @param suggestedPostParameters Optional. A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only
@@ -194,6 +196,7 @@ namespace tgbotxx {
                                 std::int32_t messageThreadId = 0,
                                 bool disableNotification = false,
                                 bool protectContent = false,
+                                const std::string& messageEffectId = "",
                                 std::int32_t directMessagesTopicId = 0,
                                 std::time_t videoStartTimestamp = 0,
                                 const Ptr<SuggestedPostParameters>& suggestedPostParameters = nullptr) const;
@@ -207,7 +210,7 @@ namespace tgbotxx {
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param fromChatId Integer or String. Unique identifier for the chat where the original messages were sent (or channel username in the format @channelusername)
     /// @param messageIds A list of 1-100 identifiers of messages in the chat fromChatId to forward.    ///                   The identifiers must be specified in a strictly increasing order.
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the messages silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the forwarded messages from forwarding and saving
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the messages will be forwarded;
@@ -232,12 +235,13 @@ namespace tgbotxx {
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
     /// @param fromChatId Integer or String. Identifier for the chat where the original message was sent (or channel username in the format @channelusername)
     /// @param messageId Message identifier in the chat specified in fromChatId
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param caption Optional. New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept
     /// @param parseMode Optional. Mode for parsing entities in the new caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; only available when copying to private chats
     /// @param replyMarkup Optional. Additional interface options. One of InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, or ForceReply
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
     /// @param videoStartTimestamp Optional. New start timestamp for the copied video in the message
@@ -257,6 +261,7 @@ namespace tgbotxx {
                                const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
                                bool disableNotification = false,
                                bool protectContent = false,
+                               const std::string& messageEffectId = "",
                                const Ptr<IReplyMarkup>& replyMarkup = nullptr,
                                std::int32_t directMessagesTopicId = 0,
                                std::time_t videoStartTimestamp = 0,
@@ -275,7 +280,7 @@ namespace tgbotxx {
     /// @param fromChatId Integer or String. Unique identifier for the chat where the original messages were sent (or channel username in the format @channelusername)
     /// @param messageIds A list of 1-100 identifiers of messages in the chat fromChatId to copy.
     ///                   The identifiers must be specified in a strictly increasing order.
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the messages will be sent;
     ///                              required if the messages are sent to a direct messages chat
     /// @param disableNotification Optional. Sends the messages silently. Users will receive a notification with no sound.
@@ -302,7 +307,7 @@ namespace tgbotxx {
     ///              The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total.
     ///              Width and height ratio must be at most 20.
     ///              More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param caption Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing
     /// @param parseMode Optional. Mode for parsing entities in the photo caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parseMode
@@ -349,7 +354,7 @@ namespace tgbotxx {
     ///              Pass an HTTP URL as a String for Telegram to get an audio file from the Internet,
     ///              or upload a new one using multipart/form-data.
     ///              More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param caption Optional. Audio caption, 0-1024 characters after entities parsing
     /// @param parseMode Optional. Mode for parsing entities in the audio caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parseMode
@@ -400,7 +405,7 @@ namespace tgbotxx {
     ///                 Pass a file_id as String to send a file that exists on the Telegram servers (recommended),
     ///                 Pass an HTTP URL as a String for Telegram to get a file from the Internet,
     ///                 or upload a new one using multipart/form-data. More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
     ///                  The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320.
     ///                  Ignored if the file is not uploaded using multipart/form-data.
@@ -448,7 +453,7 @@ namespace tgbotxx {
     ///              Pass a file_id as String to send a video that exists on the Telegram servers (recommended),
     ///              Pass an HTTP URL as a String for Telegram to get a video from the Internet,
     ///              or upload a new one using multipart/form-data. More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param duration Optional. Duration of sent video in seconds
     /// @param width Optional. Video width
     /// @param height Optional. Video height
@@ -511,7 +516,7 @@ namespace tgbotxx {
     ///                  Pass a file_id as String to send an animation that exists on the Telegram servers (recommended),
     ///                  Pass an HTTP URL as a String for Telegram to get an animation from the Internet,
     ///                  or upload a new one using multipart/form-data. More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param duration Optional. Duration of sent animation in seconds
     /// @param width Optional. Animation width
     /// @param height Optional. Animation height
@@ -562,7 +567,7 @@ namespace tgbotxx {
     ///              Pass a file_id as String to send a voice message that exists on the Telegram servers (recommended),
     ///              Pass an HTTP URL as a String for Telegram to get a voice message from the Internet,
     ///              or upload a new one using multipart/form-data. More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param caption Optional. Voice message caption, 0-1024 characters after entities parsing
     /// @param parseMode Optional. Mode for parsing entities in the caption. See formatting options for more details. https://core.telegram.org/bots/api#formatting-options
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
@@ -604,7 +609,7 @@ namespace tgbotxx {
     ///                  Pass a file_id as String to send a video note that exists on the Telegram servers (recommended),
     ///                  Pass an HTTP URL as a String for Telegram to get a video note from the Internet,
     ///                  or upload a new one using multipart/form-data. More information on Sending Files » https://core.telegram.org/bots/api#sending-files
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param duration Optional. Duration of sent video in seconds
     /// @param length Optional. Video width and height (diameter) for the video note
     /// @param thumbnail Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side.
@@ -646,7 +651,7 @@ namespace tgbotxx {
     /// @param starCount The number of Telegram Stars that must be paid to buy access to the media; 1-10000
     /// @param media A JSON-serialized array describing the media to be sent; up to 10 items
     /// @param payload Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param caption Optional. Media caption, 0-1024 characters after entities parsing
     /// @param parseMode Optional. Mode for parsing entities in the message text. See https://core.telegram.org/bots/api#formatting-options for more details.
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -683,7 +688,7 @@ namespace tgbotxx {
     /// @brief Use this method to send a group of photos, videos, or documents as an album. On success, an array of the sent Messages is returned.
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param media Array of InputMedia objects. A JSON-serialized list of 2–10 items, each describing a photo, video, or document to be sent
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the messages silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent messages from forwarding and saving
     /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the messages will be sent
@@ -710,7 +715,7 @@ namespace tgbotxx {
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param latitude Latitude of the location
     /// @param longitude Longitude of the location
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param horizontalAccuracy Optional. The radius of uncertainty for the location, measured in meters; 0-1500
     /// @param livePeriod Optional. Period in seconds during which the location will be updated; should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely
     /// @param heading Optional. For live locations, a direction in which the user is moving, in degrees; must be between 1 and 360 if specified
@@ -750,7 +755,7 @@ namespace tgbotxx {
     /// @param longitude Longitude of the venue
     /// @param title Name of the venue
     /// @param address Address of the venue
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param foursquareId Optional. Foursquare identifier of the venue
     /// @param foursquareType Optional. Foursquare type of the venue, if known
     /// @param googlePlaceId Optional. Google Places identifier of the venue
@@ -792,7 +797,7 @@ namespace tgbotxx {
     /// @param firstName Contact's first name
     /// @param lastName Optional. Contact's last name
     /// @param vcard Optional. Additional data about the contact in the form of a vCard, 0-2048 bytes
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the message silently
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
     /// @param replyMarkup Optional. Additional interface options. One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
@@ -823,7 +828,7 @@ namespace tgbotxx {
     /// @param chatId Integer or String. Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param question Poll question, 1-300 characters
     /// @param options A JSON-serialized list of 2-12 answer options
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param questionParseMode Optional. Mode for parsing entities in the question. Currently, only custom emoji entities are allowed
     /// @param questionEntities Optional. A JSON-serialized list of special entities that appear in the poll question. Can be specified instead of questionParseMode
     /// @param isAnonymous Optional. True, if the poll needs to be anonymous, defaults to True
@@ -896,7 +901,7 @@ namespace tgbotxx {
     /// Dice can have values 1-6 for “🎲”, “🎯” and “🎳”,
     /// values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”.
     /// Defaults to “🎲”
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the message silently
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding
     /// @param replyMarkup Optional. Additional interface options. One of InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
@@ -922,6 +927,22 @@ namespace tgbotxx {
                           const Ptr<ReplyParameters>& replyParameters = nullptr) const;
 
 
+    /// @brief Use this method to stream a partial message to a user while the message is being generated. Returns True on success.
+    /// @param chatId Unique identifier for the target private chat
+    /// @param draftId Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated
+    /// @param text Text of the message to be sent, 1-4096 characters after entities parsing
+    /// @param messageThreadId Optional. Unique identifier for the target message thread
+    /// @param parseMode Optional. Mode for parsing entities in the message text. See https://core.telegram.org/bots/api#formatting-options for more details.
+    /// @param entities Optional. List of special entities that appear in message text, which can be specified instead of parseMode
+    /// @returns True on success
+    bool sendMessageDraft(std::int64_t chatId,
+                          std::int64_t draftId,
+                          const std::string& text,
+                          std::int32_t messageThreadId = 0,
+                          const std::string& parseMode = "",
+                          const std::vector<Ptr<MessageEntity>>& entities = std::vector<Ptr<MessageEntity>>()) const;
+
+
     /// @brief Use this method when you need to tell the user that something is happening on the bot's side.
     /// The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status).
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
@@ -935,7 +956,7 @@ namespace tgbotxx {
     /// - "find_location" for location data
     /// - "record_video_note"
     /// - "upload_video_note" for video notes
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread or topic of a forum; for supergroups and private chats of bots with forum topic mode enabled only
     /// @param businessConnectionId Optional. Unique identifier of the business connection on behalf of which the message will be sent
     /// @returns True on success.
     /// @throws Exception on failure
@@ -975,6 +996,17 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#getuserprofilephotos
     Ptr<UserProfilePhotos> getUserProfilePhotos(std::int64_t userId,
+                                                std::int32_t offset = 0,
+                                                std::int32_t limit = 100) const;
+
+    /// @brief Use this method to get a list of profile audios for a user.
+    /// @param userId Unique identifier of the target user
+    /// @param offset Optional. Sequential number of the first audio to be returned. By default, all audios are returned.
+    /// @param limit Optional. Limits the number of audios to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+    /// @returns a UserProfileAudios object.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#getuserprofilephotos
+    Ptr<UserProfileAudios> getUserProfileAudios(std::int64_t userId,
                                                 std::int32_t offset = 0,
                                                 std::int32_t limit = 100) const;
 
@@ -1079,6 +1111,7 @@ namespace tgbotxx {
     /// @param canDeleteStories Optional. Pass True if the administrator can delete stories posted by other users; channels only
     /// @param canManageTopics Optional. Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
     /// @param canManageDirectMessages Optional. Pass True if the administrator can manage direct messages within the channel and decline suggested posts; for channels only
+    /// @param canManageTags Optional. Pass True if the administrator can edit the tags of regular members; for groups and supergroups only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#promotechatmember
@@ -1099,7 +1132,8 @@ namespace tgbotxx {
                            bool canEditStories = false,
                            bool canDeleteStories = false,
                            bool canManageTopics = false,
-                           bool canManageDirectMessages = false) const;
+                           bool canManageDirectMessages = false,
+                           bool canManageTags = false) const;
 
 
     /// @brief Use this method to set a custom title for an administrator in a supergroup promoted by the bot.
@@ -1435,8 +1469,9 @@ namespace tgbotxx {
     std::vector<Ptr<Sticker>> getForumTopicIconStickers() const;
 
 
-    /// @brief Use this method to create a topic in a forum supergroup chat.
-    /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
+    /// @brief Use this method to create a topic in a forum supergroup chat or a private chat with a user.
+    /// In the case of a supergroup chat the bot must be an administrator in the chat for this to work and
+    // must have the can_manage_topics administrator right.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
     /// @param name Topic name, 1-128 characters
@@ -1456,7 +1491,7 @@ namespace tgbotxx {
     /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+    /// @param messageThreadId Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param name Optional. New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept
     /// @param iconCustomEmojiId Optional. New unique identifier of the custom emoji shown as the topic icon.
     /// Use getForumTopicIconStickers to get all allowed custom emoji identifiers.
@@ -1475,7 +1510,7 @@ namespace tgbotxx {
     /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+    /// @param messageThreadId Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @relatesalso createForumTopic editForumTopic reopenForumTopic deleteForumTopic
@@ -1487,7 +1522,7 @@ namespace tgbotxx {
     /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+    /// @param messageThreadId Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @relatesalso createForumTopic editForumTopic closeForumTopic deleteForumTopic
@@ -1499,7 +1534,7 @@ namespace tgbotxx {
     /// The bot must be an administrator in the chat for this to work and must have the canManageTopics administrator rights.
     /// https://core.telegram.org/bots/api#forumtopic
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+    /// @param messageThreadId Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic
@@ -1510,7 +1545,7 @@ namespace tgbotxx {
     /// @brief Use this method to clear the list of pinned messages in a forum topic.
     /// The bot must be an administrator in the chat for this to work and must have the canPinMessages administrator right in the supergroup.
     /// @param chatId Integer or String Unique identifier for the target chat or username of the target channel (in the format \@channelusername)
-    /// @param messageThreadId Unique identifier for the target message thread of the forum topic
+    /// @param messageThreadId Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @relatesalso createForumTopic editForumTopic closeForumTopic reopenForumTopic deleteForumTopic
@@ -1602,7 +1637,7 @@ namespace tgbotxx {
     /// @returns a UserChatBoosts object.
     /// @ref https://core.telegram.org/bots/api#getuserchatboosts
     Ptr<UserChatBoosts> getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
-                                      std::int64_t userId) const;
+                                          std::int64_t userId) const;
 
     /// @brief Use this method to change the list of the bot's commands.
     /// See this manual for more details about bot commands. https://core.telegram.org/bots/features#commands
@@ -1686,6 +1721,19 @@ namespace tgbotxx {
     /// @ref https://core.telegram.org/bots/api#getmyshortdescription
     Ptr<BotShortDescription> getMyShortDescription(const std::string& languageCode = "") const;
 
+    /// @brief Changes the profile photo of the bot.
+    /// @param photo The new profile photo to set
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#setmyprofilephoto
+    bool setMyProfilePhoto(const Ptr<InputProfilePhoto>& photo) const;
+
+    /// @brief Removes the profile photo of the bot. Requires no parameters.
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#removemyprofilephoto
+    bool removeMyProfilePhoto() const;
+
     /// @brief Use this method to change the bot's menu button in a private chat, or the default menu button.
     /// @param chatId Optional. Unique identifier for the target private chat. If not specified, default bot's menu button will be changed
     /// @param menuButton Optional. A JSON-serialized object for the bot's new menu button. Defaults to MenuButtonDefault
@@ -1716,6 +1764,18 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#getmydefaultadministratorrights
     Ptr<ChatAdministratorRights> getMyDefaultAdministratorRights(bool forChannels = false) const;
+
+    /// @brief Use this method to get the current default administrator rights of the bot
+    /// @param chatId Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
+    /// @param userId Unique identifier of the target user
+    /// @param tag Optional. New tag for the member; 0-16 characters, emoji are not allowed
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#setchatmembertag
+    bool setChatMemberTag(const std::variant<std::int64_t, std::string>& chatId,
+                          std::int64_t userId,
+                          const std::string& tag = "") const;
+
 
   public: // Gifts
     /// @brief Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters.
@@ -1761,6 +1821,56 @@ namespace tgbotxx {
                                  const std::string& text = "",
                                  const std::string& textParseMode = "",
                                  const std::vector<Ptr<MessageEntity>>& textEntities = std::vector<Ptr<MessageEntity>>()) const;
+
+    /// @brief Returns the gifts owned and hosted by a user.
+    /// @param userId Unique identifier of the user
+    /// @param excludeUnlimited Optional. Pass True to exclude gifts that can be purchased an unlimited number of times
+    /// @param excludeLimitedUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can be upgraded to unique
+    /// @param excludeLimitedNonUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can't be upgraded to unique
+    /// @param excludeFromBlockchain Optional. Pass True to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
+    /// @param excludeUnique Optional. Pass True to exclude unique gifts
+    /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
+    /// @param offset Optional. Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
+    /// @param limit Optional. The maximum number of gifts to be returned; 1-100. Defaults to 100
+    /// @throws Exception on failure
+    /// @returns OwnedGifts on success.
+    /// @ref https://core.telegram.org/bots/api#getusergifts
+    Ptr<OwnedGifts> getUserGifts(std::int64_t userId,
+                                 bool excludeUnlimited = false,
+                                 bool excludeLimitedUpgradable = false,
+                                 bool excludeLimitedNonUpgradable = false,
+                                 bool excludeFromBlockchain = false,
+                                 bool excludeUnique = false,
+                                 bool sortByPrice = false,
+                                 const std::string& offset = "",
+                                 std::int32_t limit = 100) const;
+
+    /// @brief Returns the gifts owned by a chat.
+    /// @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+    /// @param excludeUnsaved Optional. Pass True to exclude gifts that aren't saved to the chat's profile page. Always True, unless the bot has the can_post_messages administrator right in the channel.
+    /// @param excludeSaved Optional. Pass True to exclude gifts that are saved to the chat's profile page. Always False, unless the bot has the can_post_messages administrator right in the channel.
+    /// @param excludeUnlimited Optional. Pass True to exclude gifts that can be purchased an unlimited number of times
+    /// @param excludeLimitedUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can be upgraded to unique
+    /// @param excludeLimitedNonUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can't be upgraded to unique
+    /// @param excludeFromBlockchain Optional. Pass True to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
+    /// @param excludeUnique Optional. Pass True to exclude unique gifts
+    /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
+    /// @param offset Optional. Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
+    /// @param limit Optional. The maximum number of gifts to be returned; 1-100. Defaults to 100
+    /// @throws Exception on failure
+    /// @returns OwnedGifts on success.
+    /// @ref https://core.telegram.org/bots/api#getchatgifts
+    Ptr<OwnedGifts> getChatGifts(const std::variant<std::int64_t, std::string>& chatId,
+                                 bool excludeUnsaved = false,
+                                 bool excludeSaved = false,
+                                 bool excludeUnlimited = false,
+                                 bool excludeLimitedUpgradable = false,
+                                 bool excludeLimitedNonUpgradable = false,
+                                 bool excludeFromBlockchain = false,
+                                 bool excludeUnique = false,
+                                 bool sortByPrice = false,
+                                 const std::string& offset = "",
+                                 std::int32_t limit = 100) const;
 
   public: // Verification
     /// @brief Verifies a user on behalf of the organization which is represented by the bot.
@@ -1907,8 +2017,10 @@ namespace tgbotxx {
     /// @param excludeUnsaved Optional. Pass True to exclude gifts that aren't saved to the account's profile page
     /// @param excludeSaved Optional. Pass True to exclude gifts that are saved to the account's profile page
     /// @param excludeUnlimited Optional. Pass True to exclude gifts that can be purchased an unlimited number of times
-    /// @param excludeLimited Optional. Pass True to exclude gifts that can be purchased a limited number of times
+    /// @param excludeLimitedUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can be upgraded to unique
+    /// @param excludeLimitedNonUpgradable Optional. Pass True to exclude gifts that can be purchased a limited number of times and can't be upgraded to unique
     /// @param excludeUnique Optional. Pass True to exclude unique gifts
+    /// @param excludeFromBlockchain Optional. Pass True to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
     /// @param sortByPrice Optional. Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
     /// @param offset Optional. Offset of the first entry to return as received from the previous request;
     ///               use empty string to get the first chunk of results
@@ -1920,8 +2032,10 @@ namespace tgbotxx {
                                             bool excludeUnsaved = false,
                                             bool excludeSaved = false,
                                             bool excludeUnlimited = false,
-                                            bool excludeLimited = false,
+                                            bool excludeLimitedUpgradable = false,
+                                            bool excludeLimitedNonUpgradable = false,
                                             bool excludeUnique = false,
+                                            bool excludeFromBlockchain = false,
                                             bool sortByPrice = false,
                                             const std::string& offset = "",
                                             std::int32_t limit = 100) const;
@@ -1987,6 +2101,25 @@ namespace tgbotxx {
                          bool postToChatPage = false,
                          bool protectContent = false) const;
 
+    /// @brief Reposts a story on behalf of a business account from another business account.
+    /// Both business accounts must be managed by the same bot, and the story on the source account must have been posted (or reposted) by the bot.
+    /// Requires the can_manage_stories business bot right for both business accounts.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param fromChatId Unique identifier of the chat which posted the story that should be reposted
+    /// @param fromStoryId Unique identifier of the story that should be reposted
+    /// @param activePeriod Period after which the story is moved to the archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
+    /// @param postToChatPage Optional. Pass True to keep the story accessible after it expires
+    /// @param protectContent Optional. Pass True if the content of the story must be protected from forwarding and screenshotting
+    /// @throws Exception on failure
+    /// @returns Story on success.
+    /// @ref https://core.telegram.org/bots/api#repoststory
+    Ptr<Story> repostStory(const std::string& businessConnectionId,
+                           std::int64_t fromChatId,
+                           std::int32_t fromStoryId,
+                           std::time_t activePeriod,
+                           bool postToChatPage = false,
+                           bool protectContent = false) const;
+
     /// @brief Edits a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right.
     /// @param businessConnectionId Unique identifier of the business connection
     /// @param storyId Unique identifier of the story to edit
@@ -2023,7 +2156,7 @@ namespace tgbotxx {
     /// @param currency Three-letter ISO 4217 currency code, [see more on currencies](https://core.telegram.org/bots/payments#supported-currencies)
     /// @param prices Array of LabeledPrice, Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)
     /// @param providerToken Optional. Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param maxTipAmount Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double).
     /// For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json,
     /// it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
@@ -2482,7 +2615,7 @@ namespace tgbotxx {
     /// - Pass a file_id std::string to send a file that exists on the Telegram servers (recommended),
     /// - Pass an HTTP URL as an std::string for Telegram to get a .WEBP sticker from the Internet, or
     /// - Pass a cpr::File to upload a new .WEBP or .TGS sticker
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param emoji Optional. Emoji associated with the sticker; only for just uploaded stickers
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
@@ -2696,7 +2829,7 @@ namespace tgbotxx {
     /// @brief Use this method to send a game.
     /// @param chatId Unique identifier for the target chat
     /// @param gameShortName Short name of the game, serves as the unique identifier for the game. Set up your games via @BotFather.
-    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
     /// @param replyParameters Optional. Description of the message to reply to

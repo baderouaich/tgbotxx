@@ -48,6 +48,7 @@ class MyBot final : public Bot {
     {{"/create_invoice_link", "You will receive a test invoice link"}, &MyBot::handleCommandCreateInvoiceLink},
     {{"/test_bot_blocked_by_user", "Block the bot within 10s after u receive a message"}, &MyBot::handleCommandTestBotBlockedByUser},
     {{"/send_paid_media", "send paid media to be unlocked with stars"}, &MyBot::handleCommandSendPaidMedia},
+    {{"/send_message_draft", "stream a partial message to a user while the message is being generated"}, &MyBot::handleCommandSendMessageDraft},
   };
 
 public:
@@ -63,12 +64,12 @@ private:
   /// Called before Bot starts receiving updates (triggered by Bot::start())
   /// Use this callback to initialize your code, set commands..
   void onStart() override {
-
+    std::srand(std::time(nullptr));
     //      api()->setTimeout(std::chrono::seconds(60 * 3));
     //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
     // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
     // in Telegram server before they get deleted or retrieved by BOT)
-    //api()->deleteWebhook(true);
+    api()->deleteWebhook(true);
     api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
     api()->setUpdatesLimit(3); // memory tight? process updates 3 by 3...
     assert(api()->getUpdatesLimit() == 3);
@@ -165,7 +166,11 @@ private:
       // look for /start or /start@myusername (in groups)
       if (command == message->text or message->text == command + atMyUsername) {
         // Call the proper command handler
-        (this->*handler)(message);
+        try {
+          (this->*handler)(message);
+        } catch (const std::exception& e) {
+          std::cerr << command << " handler threw an exception: " << e.what() << std::endl;
+        }
         break;
       }
     }
@@ -296,6 +301,12 @@ private: // Command handlers
       Ptr<InlineKeyboardButton> button(new InlineKeyboardButton());
       button->text = std::to_string(i);
       button->callbackData = button->text;
+      switch (i) {
+        case 0: button->style = "danger"; break;
+        case 1: button->style = "success"; break;
+        case 9: button->style = "primary"; break;
+        default: break;
+      }
       row.push_back(button);
       if (i % 3 == 0 || !i) {
         keyboard->inlineKeyboard.push_back(row);
@@ -303,6 +314,7 @@ private: // Command handlers
       }
     }
     std::ranges::reverse(keyboard->inlineKeyboard);
+
     api()->sendMessage(message->chat->id, "Buttons:", 0, "", {}, false, false, keyboard);
   }
   void handleCommandReplyKeyboardButtons(const Ptr<Message>& message) {
@@ -325,13 +337,16 @@ private: // Command handlers
     button1->text = "Button1";
     row1.push_back(button1);
     Ptr<KeyboardButton> button2(new KeyboardButton());
-    button2->text = "Button2";
+    button2->text = "Button2 (style=success)";
+    button2->style = "success";
     row1.push_back(button2);
     Ptr<KeyboardButton> button3(new KeyboardButton());
-    button3->text = "Button3";
+    button3->text = "Button3 (style=primary)";
+    button3->style = "primary";
     row2.push_back(button3);
     Ptr<KeyboardButton> button4(new KeyboardButton());
-    button4->text = "Button4";
+    button4->text = "Button4 (style=danger)";
+    button4->style = "danger";
     row2.push_back(button4);
     replyKeyboardMarkup->keyboard.push_back(row1);
     replyKeyboardMarkup->keyboard.push_back(row2);
@@ -602,19 +617,41 @@ private: // Command handlers
                                  "https://images2.alphacoders.com/131/1311487.jpg"}) {
       Ptr<InputPaidMediaPhoto> photo(new InputPaidMediaPhoto());
       photo->media = url;
+      assert(photo->type == "photo");
       paidMedia.push_back(photo);
     }
     // add local video to the order list
     Ptr<InputPaidMediaVideo> video(new InputPaidMediaVideo());
     video->media = cpr::File{(fs::path(__FILE__).parent_path().parent_path() / "examples/sendVideo/videos/video.mp4").string()}; // Local
-    video->startTimestamp = 3;                                                                                                   // start from 3rd second
+    video->startTimestamp = std::rand() % 10;                                                                                                   // start from 3rd second
     video->supportsStreaming = true;
+    assert(video->type == "video");
     paidMedia.push_back(video);
 
     constexpr std::int32_t starsPrice = 100;
     std::string payload = "some payload to receive back if this got purchased";
     api()->sendPaidMedia(message->from->id, starsPrice, paidMedia, payload);
     // the user will get access to the photos only after the payment is completed
+  }
+
+  void handleCommandSendMessageDraft(const Ptr<Message>& message) {
+    using namespace std::chrono_literals;
+    bool ok = true;
+
+    const std::int64_t draftId = std::rand() % INT32_MAX;
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "Hello, this is a draft message with id=" + std::to_string(draftId));
+    assert(ok);
+
+    std::this_thread::sleep_for(2s);
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "and it just got edited!");
+    assert(ok);
+
+    std::this_thread::sleep_for(2s);
+
+    ok &= api()->sendMessageDraft(message->chat->id, draftId, "Final edit.");
+    assert(ok);
   }
 
 

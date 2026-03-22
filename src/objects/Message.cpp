@@ -8,6 +8,8 @@
 #include <tgbotxx/objects/SuggestedPostDeclined.hpp>
 #include <tgbotxx/objects/SuggestedPostPaid.hpp>
 #include <tgbotxx/objects/SuggestedPostRefunded.hpp>
+#include <tgbotxx/objects/ChatOwnerLeft.hpp>
+#include <tgbotxx/objects/ChatOwnerChanged.hpp>
 using namespace tgbotxx;
 
 nl::json Message::toJson() const {
@@ -19,6 +21,7 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "sender_chat", senderChat);
   OBJECT_SERIALIZE_FIELD(json, "sender_boost_count", senderBoostCount);
   OBJECT_SERIALIZE_FIELD_PTR(json, "sender_business_bot", senderBusinessBot);
+  OBJECT_SERIALIZE_FIELD(json, "sender_tag", senderTag);
   OBJECT_SERIALIZE_FIELD(json, "date", date);
   OBJECT_SERIALIZE_FIELD(json, "business_connection_id", businessConnectionId);
   OBJECT_SERIALIZE_FIELD_PTR(json, "chat", chat);
@@ -65,6 +68,8 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "location", location);
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_members", newChatMembers);
   OBJECT_SERIALIZE_FIELD_PTR(json, "left_chat_member", leftChatMember);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "chat_owner_left", chatOwnerLeft);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "chat_owner_changed", chatOwnerChanged);
   OBJECT_SERIALIZE_FIELD(json, "new_chat_title", newChatTitle);
   OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_photo", newChatPhoto);
   OBJECT_SERIALIZE_FIELD(json, "delete_chat_photo", deleteChatPhoto);
@@ -87,6 +92,7 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "chat_shared", chatShared);
   OBJECT_SERIALIZE_FIELD_PTR(json, "gift", gift);
   OBJECT_SERIALIZE_FIELD_PTR(json, "unique_gift", uniqueGift);
+  OBJECT_SERIALIZE_FIELD_PTR(json, "gift_upgrade_sent", giftUpgradeSent);
   OBJECT_SERIALIZE_FIELD(json, "connected_website", connectedWebsite);
   OBJECT_SERIALIZE_FIELD_PTR(json, "write_access_allowed", writeAccessAllowed);
   OBJECT_SERIALIZE_FIELD_PTR(json, "passport_data", passportData);
@@ -129,6 +135,7 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "sender_chat", senderChat, true);
   OBJECT_DESERIALIZE_FIELD(json, "sender_boost_count", senderBoostCount, 0, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "sender_business_bot", senderBusinessBot, true);
+  OBJECT_DESERIALIZE_FIELD(json, "sender_tag", senderTag, "", true);
   OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
   OBJECT_DESERIALIZE_FIELD(json, "business_connection_id", businessConnectionId, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, false);
@@ -175,6 +182,8 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "location", location, true);
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_members", newChatMembers, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "left_chat_member", leftChatMember, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_owner_left", chatOwnerLeft, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_owner_changed", chatOwnerChanged, true);
   OBJECT_DESERIALIZE_FIELD(json, "new_chat_title", newChatTitle, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "new_chat_photo", newChatPhoto, true);
   OBJECT_DESERIALIZE_FIELD(json, "delete_chat_photo", deleteChatPhoto, false, true);
@@ -205,6 +214,7 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "chat_shared", chatShared, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "gift", gift, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "unique_gift", uniqueGift, true);
+  OBJECT_DESERIALIZE_FIELD_PTR(json, "gift_upgrade_sent", giftUpgradeSent, true);
   OBJECT_DESERIALIZE_FIELD(json, "connected_website", connectedWebsite, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "write_access_allowed", writeAccessAllowed, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "passport_data", passportData, true);

@@ -22,6 +22,9 @@ namespace tgbotxx {
       /// @brief Optional. Unique identifier of the custom emoji shown as the topic icon
       std::string iconCustomEmojiId{};
 
+      /// @brief Optional. True, if the name of the topic wasn't specified explicitly by its creator and likely needs to be changed by the bot
+      bool isNameImplicit{};
+
       /// @brief Serializes this object to JSON
       /// @returns JSON representation of this object
       nl::json toJson() const {
@@ -30,6 +33,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "name", name);
         OBJECT_SERIALIZE_FIELD(json, "icon_color", iconColor);
         OBJECT_SERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId);
+        OBJECT_SERIALIZE_FIELD(json, "is_name_implicit", isNameImplicit);
         return json;
       }
 
@@ -39,6 +43,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "name", name, "", false);
         OBJECT_DESERIALIZE_FIELD(json, "icon_color", iconColor, 0x000000, false);
         OBJECT_DESERIALIZE_FIELD(json, "icon_custom_emoji_id", iconCustomEmojiId, "", true);
+        OBJECT_DESERIALIZE_FIELD(json, "is_name_implicit", isNameImplicit, false, true);
       }
   };
 }

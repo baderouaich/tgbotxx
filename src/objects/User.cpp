@@ -19,6 +19,8 @@ nl::json User::toJson() const {
   OBJECT_SERIALIZE_FIELD(user, "supports_inline_queries", supportsInlineQueries);
   OBJECT_SERIALIZE_FIELD(user, "can_connect_to_business", canConnectToBusiness);
   OBJECT_SERIALIZE_FIELD(user, "has_main_web_app", hasMainWebApp);
+  OBJECT_SERIALIZE_FIELD(user, "has_topics_enabled", hasTopicsEnabled);
+  OBJECT_SERIALIZE_FIELD(user, "allows_users_to_create_topics", allowsUsersToCreateTopics);
   return user;
 }
 
@@ -36,4 +38,6 @@ void User::fromJson(const nl::json &json) {
   OBJECT_DESERIALIZE_FIELD(json, "supports_inline_queries", supportsInlineQueries, false, true);
   OBJECT_DESERIALIZE_FIELD(json, "can_connect_to_business", canConnectToBusiness, false, true);
   OBJECT_DESERIALIZE_FIELD(json, "has_main_web_app", hasMainWebApp, false, true);
+  OBJECT_DESERIALIZE_FIELD(json, "has_topics_enabled", hasTopicsEnabled, false, true);
+  OBJECT_DESERIALIZE_FIELD(json, "allows_users_to_create_topics", allowsUsersToCreateTopics, false, true);
 }
