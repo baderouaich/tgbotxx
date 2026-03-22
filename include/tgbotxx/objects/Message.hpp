@@ -78,7 +78,7 @@ namespace tgbotxx {
       /// @brief Unique message identifier inside this chat
       std::int32_t messageId{};
 
-      /// @brief Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
+      /// @brief Optional. Unique identifier of a message thread or forum topic to which the message belongs; for supergroups and private chats only
       std::int32_t messageThreadId{};
 
       /// @brief Optional. Information about the direct messages chat topic that contains the message
@@ -114,7 +114,7 @@ namespace tgbotxx {
       /// @brief Optional. Information about the original message for forwarded messages
       Ptr<MessageOrigin> forwardOrigin;
 
-      /// @brief Optional. True, if the message is sent to a forum topic
+      /// @brief Optional. True, if the message is sent to a topic in a forum supergroup or a private chat with the bot
       bool isTopicMessage{};
 
       /// @brief Optional. True, if the message is a channel post that was automatically

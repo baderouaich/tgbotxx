@@ -3,11 +3,11 @@
 ### Topics in private chats
 - [x] Added the field `has_topics_enabled` to the class `User`, which can be used to determine whether forum topic mode is enabled for the bot in private chats.
 - [x] Added the method `sendMessageDraft`, allowing partial messages to be streamed to a user while being generated.
-- [ ] Supported the fields `message_thread_id` and `is_topic_message` in the class `Message` for messages in private chats with forum topic mode enabled.
-- [ ] Supported the parameter `message_thread_id` in private chats with topics in the methods `sendMessage`, `sendPhoto`, `sendVideo`, `sendAnimation`, `sendAudio`, `sendDocument`, `sendPaidMedia`, `sendSticker`, `sendVideoNote`, `sendVoice`, `sendLocation`, `sendVenue`, `sendContact`, `sendPoll`, `sendDice`, `sendInvoice`, `sendGame`, `sendMediaGroup`, `copyMessage`, `copyMessages`, `forwardMessage`, and `forwardMessages`.
-- [ ] Supported the parameter `message_thread_id` in private chats in the method `sendChatAction`.
-- [ ] Supported the parameter `message_thread_id` in private chats with topics in the methods `editForumTopic`, `deleteForumTopic`, and `unpinAllForumTopicMessages`.
-- [ ] Added the field `is_name_implicit` to the classes `ForumTopic` and `ForumTopicCreated`.
+- [x] Supported the fields `message_thread_id` and `is_topic_message` in the class `Message` for messages in private chats with forum topic mode enabled.
+- [x] Supported the parameter `message_thread_id` in private chats with topics in the methods `sendMessage`, `sendPhoto`, `sendVideo`, `sendAnimation`, `sendAudio`, `sendDocument`, `sendPaidMedia`, `sendSticker`, `sendVideoNote`, `sendVoice`, `sendLocation`, `sendVenue`, `sendContact`, `sendPoll`, `sendDice`, `sendInvoice`, `sendGame`, `sendMediaGroup`, `copyMessage`, `copyMessages`, `forwardMessage`, and `forwardMessages`.
+- [x] Supported the parameter `message_thread_id` in private chats in the method `sendChatAction`.
+- [x] Supported the parameter `message_thread_id` in private chats with topics in the methods `editForumTopic`, `deleteForumTopic`, and `unpinAllForumTopicMessages`.
+- [x] Added the field `is_name_implicit` to the classes `ForumTopic` and `ForumTopicCreated`.
 
 ### Gifts
 - [ ] Added the methods `getUserGifts` and `getChatGifts`.
