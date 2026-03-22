@@ -27,6 +27,6 @@ var searchData=
   ['polloption_24',['polloption',['../structtgbotxx_1_1_poll_option.html#a8c950ef78cc5666c02e35be8e449b5a7',1,'tgbotxx::PollOption::PollOption()=default'],['../structtgbotxx_1_1_poll_option.html#a738298ac72212ca9c6e823bb72ae21ca',1,'tgbotxx::PollOption::PollOption(const nl::json &amp;json)']]],
   ['poststory_25',['postStory',['../classtgbotxx_1_1_api.html#a4327c23a53be8e1d3dbf41a29e81a86c',1,'tgbotxx::Api']]],
   ['precheckoutquery_26',['precheckoutquery',['../structtgbotxx_1_1_pre_checkout_query.html#a83898f960c278b68ba1cf0ea94adadd6',1,'tgbotxx::PreCheckoutQuery::PreCheckoutQuery()=default'],['../structtgbotxx_1_1_pre_checkout_query.html#a70c12b3da6c82cf7f50ab8884ca75c79',1,'tgbotxx::PreCheckoutQuery::PreCheckoutQuery(const nl::json &amp;json)']]],
-  ['promotechatmember_27',['promoteChatMember',['../classtgbotxx_1_1_api.html#ac34cdcd86e577a27438fde966876c707',1,'tgbotxx::Api']]],
+  ['promotechatmember_27',['promoteChatMember',['../classtgbotxx_1_1_api.html#ac36ed4671107fbde2bd54dc75552d18c',1,'tgbotxx::Api']]],
   ['proximityalerttriggered_28',['proximityalerttriggered',['../structtgbotxx_1_1_proximity_alert_triggered.html#ac8d44ba6a3db0404193ff530fe11b8bd',1,'tgbotxx::ProximityAlertTriggered::ProximityAlertTriggered()=default'],['../structtgbotxx_1_1_proximity_alert_triggered.html#abd91ae1b3bed83c37fd94d21ee0b5003',1,'tgbotxx::ProximityAlertTriggered::ProximityAlertTriggered(const nl::json &amp;json)']]]
 ];

@@ -6,6 +6,7 @@ var structtgbotxx_1_1_chat_member_restricted =
     [ "toJson", "structtgbotxx_1_1_chat_member_restricted.html#a811996349aab69afde80bfc60bdd2127", null ],
     [ "canAddWebPagePreviews", "structtgbotxx_1_1_chat_member_restricted.html#a3553d350e05d626ecf612888e3e5f0b2", null ],
     [ "canChangeInfo", "structtgbotxx_1_1_chat_member_restricted.html#a670b9af68ca25ead642b9f2e1e158c02", null ],
+    [ "canEditTag", "structtgbotxx_1_1_chat_member_restricted.html#a8f0c5fb86f507c400706177bf393f05a", null ],
     [ "canInviteUsers", "structtgbotxx_1_1_chat_member_restricted.html#ae33d09dbee7941e878d0a61bbdaff285", null ],
     [ "canManageTopics", "structtgbotxx_1_1_chat_member_restricted.html#a43ea586b93b74032819af9e91cee0c1e", null ],
     [ "canPinMessages", "structtgbotxx_1_1_chat_member_restricted.html#afd325bc4e70223e7665bea1b5bf5070c", null ],
@@ -19,5 +20,6 @@ var structtgbotxx_1_1_chat_member_restricted =
     [ "canSendVideos", "structtgbotxx_1_1_chat_member_restricted.html#a3640882366c23ef79fb27e4b2a8c33bc", null ],
     [ "canSendVoiceNotes", "structtgbotxx_1_1_chat_member_restricted.html#adabc914e02b9738e2e488412068efd82", null ],
     [ "isMember", "structtgbotxx_1_1_chat_member_restricted.html#aa65e5af8737f9553d43f1c29c09be438", null ],
+    [ "tag", "structtgbotxx_1_1_chat_member_restricted.html#a685a8fda767f8b4e549d758d987f9026", null ],
     [ "untilDate", "structtgbotxx_1_1_chat_member_restricted.html#acaa951fb036b6cccf6951634ddb1ab4c", null ]
 ];

@@ -4,6 +4,7 @@ var structtgbotxx_1_1_checklist_task =
     [ "ChecklistTask", "structtgbotxx_1_1_checklist_task.html#a755249a0c911b0c5cd4b317b22b73451", null ],
     [ "fromJson", "structtgbotxx_1_1_checklist_task.html#a9f56d90570e149666131716f27c86350", null ],
     [ "toJson", "structtgbotxx_1_1_checklist_task.html#a7bccd01bafbc22f8833b9416a8d43664", null ],
+    [ "completedByChat", "structtgbotxx_1_1_checklist_task.html#aaa9f0733b50eed7979204a24e6e73396", null ],
     [ "completedByUser", "structtgbotxx_1_1_checklist_task.html#a88099080e1fef576581a949d90203701", null ],
     [ "completionDate", "structtgbotxx_1_1_checklist_task.html#a4fef09407a5970d55b9b6a14650fc90d", null ],
     [ "id", "structtgbotxx_1_1_checklist_task.html#a613e65b366bfefd608dfabe7bb048b1f", null ],

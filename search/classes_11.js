@@ -7,5 +7,6 @@ var searchData=
   ['videochatscheduled_4',['VideoChatScheduled',['../structtgbotxx_1_1_video_chat_scheduled.html',1,'tgbotxx']]],
   ['videochatstarted_5',['VideoChatStarted',['../structtgbotxx_1_1_video_chat_started.html',1,'tgbotxx']]],
   ['videonote_6',['VideoNote',['../structtgbotxx_1_1_video_note.html',1,'tgbotxx']]],
-  ['voice_7',['Voice',['../structtgbotxx_1_1_voice.html',1,'tgbotxx']]]
+  ['videoquality_7',['VideoQuality',['../structtgbotxx_1_1_video_quality.html',1,'tgbotxx']]],
+  ['voice_8',['Voice',['../structtgbotxx_1_1_voice.html',1,'tgbotxx']]]
 ];

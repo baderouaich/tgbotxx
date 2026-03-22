@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.5</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -125,8 +125,11 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a05075d8d2bf8e3ef4a203e0faa5f5d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sticker that represents the unique gift.  <br /></td></tr>
 <tr class="separator:a05075d8d2bf8e3ef4a203e0faa5f5d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abea996cf42eb0702b9412adc05ab298b" id="r_abea996cf42eb0702b9412adc05ab298b"><td class="memItemLeft" align="right" valign="top">std::int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_unique_gift_model.html#abea996cf42eb0702b9412adc05ab298b">rarityPerMille</a> {}</td></tr>
-<tr class="memdesc:abea996cf42eb0702b9412adc05ab298b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of unique gifts that receive this model for every 1000 gifts upgraded.  <br /></td></tr>
+<tr class="memdesc:abea996cf42eb0702b9412adc05ab298b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of unique gifts that receive this model for every 1000 gift upgrades. Always 0 for crafted gifts.  <br /></td></tr>
 <tr class="separator:abea996cf42eb0702b9412adc05ab298b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa512f414ce6f15e872dd44a71c76c228" id="r_aa512f414ce6f15e872dd44a71c76c228"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_unique_gift_model.html#aa512f414ce6f15e872dd44a71c76c228">rarity</a></td></tr>
+<tr class="memdesc:aa512f414ce6f15e872dd44a71c76c228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Rarity of the model if it is a crafted model. Currently, can be “uncommon”, “rare”, “epic”, or “legendary”.  <br /></td></tr>
+<tr class="separator:aa512f414ce6f15e872dd44a71c76c228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object describes the model of a unique gift. <a href="https://core.telegram.org/bots/api#uniquegiftmodel">https://core.telegram.org/bots/api#uniquegiftmodel</a>. </p>
@@ -213,7 +216,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00033">33</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00037">37</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +245,7 @@ Public Attributes</h2></td></tr>
 
 <p>Serializes this object to JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00024">24</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00027">27</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,6 +268,24 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa512f414ce6f15e872dd44a71c76c228" name="aa512f414ce6f15e872dd44a71c76c228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa512f414ce6f15e872dd44a71c76c228">&#9670;&#160;</a></span>rarity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::UniqueGiftModel::rarity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Rarity of the model if it is a crafted model. Currently, can be “uncommon”, “rare”, “epic”, or “legendary”. </p>
+
+<p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00024">24</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
+
+</div>
+</div>
 <a id="abea996cf42eb0702b9412adc05ab298b" name="abea996cf42eb0702b9412adc05ab298b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abea996cf42eb0702b9412adc05ab298b">&#9670;&#160;</a></span>rarityPerMille</h2>
 
@@ -277,7 +298,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The number of unique gifts that receive this model for every 1000 gifts upgraded. </p>
+<p>The number of unique gifts that receive this model for every 1000 gift upgrades. Always 0 for crafted gifts. </p>
 
 <p class="definition">Definition at line <a class="el" href="_unique_gift_model_8hpp_source.html#l00021">21</a> of file <a class="el" href="_unique_gift_model_8hpp_source.html">UniqueGiftModel.hpp</a>.</p>
 
@@ -310,7 +331,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_unique_gift_model.html">UniqueGiftModel</a></li>
-    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Mar 22 2026 21:33:31 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -7,5 +7,6 @@ var searchData=
   ['videochatscheduled_2ehpp_4',['VideoChatScheduled.hpp',['../_video_chat_scheduled_8hpp.html',1,'']]],
   ['videochatstarted_2ehpp_5',['VideoChatStarted.hpp',['../_video_chat_started_8hpp.html',1,'']]],
   ['videonote_2ehpp_6',['VideoNote.hpp',['../_video_note_8hpp.html',1,'']]],
-  ['voice_2ehpp_7',['Voice.hpp',['../_voice_8hpp.html',1,'']]]
+  ['videoquality_2ehpp_7',['VideoQuality.hpp',['../_video_quality_8hpp.html',1,'']]],
+  ['voice_2ehpp_8',['Voice.hpp',['../_voice_8hpp.html',1,'']]]
 ];

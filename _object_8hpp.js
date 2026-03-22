@@ -9,5 +9,8 @@ var _object_8hpp =
     [ "OBJECT_SERIALIZE_FIELD_ENUM", "_object_8hpp.html#ac636fa798ffe49313d5a7f3fff65b1f0", null ],
     [ "OBJECT_SERIALIZE_FIELD_PTR", "_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602", null ],
     [ "OBJECT_SERIALIZE_FIELD_PTR_ARRAY", "_object_8hpp.html#a1db08aa2e59210a0f40834d022000b31", null ],
-    [ "OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY", "_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83", null ]
+    [ "OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY", "_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83", null ],
+    [ "TGBOTXX_CAT", "_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91", null ],
+    [ "TGBOTXX_CAT_IMPL", "_object_8hpp.html#acdebd9c896bbdba899f0e5d101b0ce66", null ],
+    [ "VAR", "_object_8hpp.html#ab0682378ef6cce1053e91efe3f104378", null ]
 ];

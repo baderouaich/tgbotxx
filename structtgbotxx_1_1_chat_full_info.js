@@ -18,6 +18,7 @@ var structtgbotxx_1_1_chat_full_info =
     [ "description", "structtgbotxx_1_1_chat_full_info.html#a5c5f228a8044e2b6c3a94e22aa895cd1", null ],
     [ "emojiStatusCustomEmojiId", "structtgbotxx_1_1_chat_full_info.html#ab013c824a1f0404560a8b2f31a378961", null ],
     [ "emojiStatusExpirationDate", "structtgbotxx_1_1_chat_full_info.html#a35b563ffc870dcce49e24b523216c04d", null ],
+    [ "firstProfileAudio", "structtgbotxx_1_1_chat_full_info.html#a9ba1d4e1aeee4ba8dcb937c4fa2f9753", null ],
     [ "hasAggressiveAntiSpamEnabled", "structtgbotxx_1_1_chat_full_info.html#a99142f14d796e54b6bf6c99311c02311", null ],
     [ "hasHiddenMembers", "structtgbotxx_1_1_chat_full_info.html#a4c98a25a1c3fa80af57b14c51739d02e", null ],
     [ "hasPrivateForwards", "structtgbotxx_1_1_chat_full_info.html#a66cb81ef224656317f8b91182a09dcbd", null ],
@@ -31,6 +32,7 @@ var structtgbotxx_1_1_chat_full_info =
     [ "location", "structtgbotxx_1_1_chat_full_info.html#a815df3de522eda772d268bb0bcee7f14", null ],
     [ "maxReactionCount", "structtgbotxx_1_1_chat_full_info.html#a3af9c73fac493437b82be836520be9f0", null ],
     [ "messageAutoDeleteTime", "structtgbotxx_1_1_chat_full_info.html#acdc4c41527047422dffb3cc5698ba427", null ],
+    [ "paidMessageStarCount", "structtgbotxx_1_1_chat_full_info.html#ad7e7378dd47f0281451c8af26571d615", null ],
     [ "parentChat", "structtgbotxx_1_1_chat_full_info.html#aafebbf1b85c780383ac0f8893ed300fb", null ],
     [ "permissions", "structtgbotxx_1_1_chat_full_info.html#a4b9c2ca71cc86ab13baa7d48e573d6ba", null ],
     [ "personalChat", "structtgbotxx_1_1_chat_full_info.html#ac5194827a36b85fa721a7d0da2f4a96a", null ],
@@ -38,7 +40,9 @@ var structtgbotxx_1_1_chat_full_info =
     [ "pinnedMessage", "structtgbotxx_1_1_chat_full_info.html#afdb3dab0426fd02d4d385e816875d1c7", null ],
     [ "profileAccentColorId", "structtgbotxx_1_1_chat_full_info.html#ae1dec70e7dcfe2e5694bda8f57f54a0a", null ],
     [ "profileBackgroundCustomEmojiId", "structtgbotxx_1_1_chat_full_info.html#a431faf70570526e08554a5217e7cf16f", null ],
+    [ "rating", "structtgbotxx_1_1_chat_full_info.html#a30ff7cbd8fc0f255b679354de70840fa", null ],
     [ "slowModeDelay", "structtgbotxx_1_1_chat_full_info.html#ab0cd02f6b51de6cb974fb310788157d0", null ],
     [ "stickerSetName", "structtgbotxx_1_1_chat_full_info.html#a44e864978ce2e5037f3518049ff5e468", null ],
+    [ "uniqueGiftColors", "structtgbotxx_1_1_chat_full_info.html#a50be8b9dda4433038b2ffa8a244dbfc8", null ],
     [ "unrestrictBoostCount", "structtgbotxx_1_1_chat_full_info.html#a0fe3b46dd264c3faba6bbebfd04953fd", null ]
 ];

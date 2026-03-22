@@ -9,7 +9,9 @@ var structtgbotxx_1_1_gift_info =
     [ "entities", "structtgbotxx_1_1_gift_info.html#a6dd2b525d38f8102c441afccf1eafc6e", null ],
     [ "gift", "structtgbotxx_1_1_gift_info.html#a18a416db5da44568884048bd8db1033c", null ],
     [ "isPrivate", "structtgbotxx_1_1_gift_info.html#aa44687e7ec99094f2f7b3d009e3df221", null ],
+    [ "isUpgradeSeparate", "structtgbotxx_1_1_gift_info.html#a65705a7a57cb08a119084ba8c4fb715f", null ],
     [ "ownedGiftId", "structtgbotxx_1_1_gift_info.html#a6eef5b8c12cb400b507b1515a1ebd7e9", null ],
     [ "prepaidUpgradeStarCount", "structtgbotxx_1_1_gift_info.html#ac7e30f6ec553a2938e137977e2a9264c", null ],
-    [ "text", "structtgbotxx_1_1_gift_info.html#a4079c18a16f54b32aea165bceedf2d31", null ]
+    [ "text", "structtgbotxx_1_1_gift_info.html#a4079c18a16f54b32aea165bceedf2d31", null ],
+    [ "uniqueGiftNumber", "structtgbotxx_1_1_gift_info.html#a56e305168f9b53fb31fd378e3f289872", null ]
 ];

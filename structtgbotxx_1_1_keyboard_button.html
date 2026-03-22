@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.5</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -121,6 +121,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0da9bdb8f627085d431bde05cf2144bf" id="r_a0da9bdb8f627085d431bde05cf2144bf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a0da9bdb8f627085d431bde05cf2144bf">text</a></td></tr>
 <tr class="memdesc:a0da9bdb8f627085d431bde05cf2144bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed.  <br /></td></tr>
 <tr class="separator:a0da9bdb8f627085d431bde05cf2144bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06fd8cc5127e8970b0e8ac08e20c4181" id="r_a06fd8cc5127e8970b0e8ac08e20c4181"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a06fd8cc5127e8970b0e8ac08e20c4181">iconCustomEmojiId</a></td></tr>
+<tr class="memdesc:a06fd8cc5127e8970b0e8ac08e20c4181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Unique identifier of the custom emoji shown before the text of the button. Can only be used by bots that purchased additional usernames on Fragment or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.  <br /></td></tr>
+<tr class="separator:a06fd8cc5127e8970b0e8ac08e20c4181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48113c2e401907e83ffaf751af530434" id="r_a48113c2e401907e83ffaf751af530434"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#a48113c2e401907e83ffaf751af530434">style</a></td></tr>
+<tr class="memdesc:a48113c2e401907e83ffaf751af530434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. Style of the button. Must be one of “danger” (red), “success” (green) or “primary” (blue). If omitted, then an app-specific style is used.  <br /></td></tr>
+<tr class="separator:a48113c2e401907e83ffaf751af530434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09b242542ca96ae45243e8256477d73" id="r_ae09b242542ca96ae45243e8256477d73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetgbotxx.html#a441cf8fce5bff655d159cf6aebc6ca43">Ptr</a>&lt; <a class="el" href="structtgbotxx_1_1_keyboard_button_request_users.html">KeyboardButtonRequestUsers</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtgbotxx_1_1_keyboard_button.html#ae09b242542ca96ae45243e8256477d73">requestUsers</a></td></tr>
 <tr class="memdesc:ae09b242542ca96ae45243e8256477d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message.  <br /></td></tr>
 <tr class="separator:ae09b242542ca96ae45243e8256477d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,7 +231,7 @@ Public Attributes</h2></td></tr>
 
 <p>Deserializes this object from JSON. </p>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00065">65</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00077">77</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,11 +261,29 @@ Public Attributes</h2></td></tr>
 <p>Serializes this object to JSON. </p>
 <dl class="section return"><dt>Returns</dt><dd>JSON representation of this object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00052">52</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00061">61</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a06fd8cc5127e8970b0e8ac08e20c4181" name="a06fd8cc5127e8970b0e8ac08e20c4181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fd8cc5127e8970b0e8ac08e20c4181">&#9670;&#160;</a></span>iconCustomEmojiId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::KeyboardButton::iconCustomEmojiId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Unique identifier of the custom emoji shown before the text of the button. Can only be used by bots that purchased additional usernames on Fragment or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription. </p>
+
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+
+</div>
+</div>
 <a id="acab349c824932f5638e65334e816a234" name="acab349c824932f5638e65334e816a234"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acab349c824932f5638e65334e816a234">&#9670;&#160;</a></span>requestChat</h2>
 
@@ -275,7 +299,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00030">30</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00039">39</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +318,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's phone number will be sent as a contact when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00043">43</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -313,7 +337,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If True, the user's current location will be sent when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00038">38</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -332,7 +356,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00051">51</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +375,25 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user_shared” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00025">25</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00034">34</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a48113c2e401907e83ffaf751af530434" name="a48113c2e401907e83ffaf751af530434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48113c2e401907e83ffaf751af530434">&#9670;&#160;</a></span>style</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tgbotxx::KeyboardButton::style</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional. Style of the button. Must be one of “danger” (red), “success” (green) or “primary” (blue). If omitted, then an app-specific style is used. </p>
+
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00029">29</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -388,7 +430,7 @@ Public Attributes</h2></td></tr>
 <p>Optional. If specified, the described Web App will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. </p>
 <dl class="section note"><dt>Note</dt><dd>Available in private chats only. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00047">47</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_keyboard_button_8hpp_source.html#l00056">56</a> of file <a class="el" href="_keyboard_button_8hpp_source.html">KeyboardButton.hpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +443,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetgbotxx.html">tgbotxx</a></li><li class="navelem"><a class="el" href="structtgbotxx_1_1_keyboard_button.html">KeyboardButton</a></li>
-    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Mar 22 2026 21:33:31 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

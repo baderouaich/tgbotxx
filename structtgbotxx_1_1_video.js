@@ -12,6 +12,7 @@ var structtgbotxx_1_1_video =
     [ "fileUniqueId", "structtgbotxx_1_1_video.html#aeb27e309bd0f987ca269765c2657c097", null ],
     [ "height", "structtgbotxx_1_1_video.html#ab82164e7d855f638218dfce0ca03955c", null ],
     [ "mimeType", "structtgbotxx_1_1_video.html#a366a4894d76154802246fe7e8901a6f6", null ],
+    [ "qualities", "structtgbotxx_1_1_video.html#a158525a05caed63ebda5896a54c73a97", null ],
     [ "startTimestamp", "structtgbotxx_1_1_video.html#a0a45416b273401b71c27700761e8893e", null ],
     [ "thumbnail", "structtgbotxx_1_1_video.html#aae9ec071556806a03203f4ae0b863b0e", null ],
     [ "width", "structtgbotxx_1_1_video.html#a6f9a6f6027720069820894df9155bb25", null ]

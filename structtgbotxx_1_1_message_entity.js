@@ -19,7 +19,8 @@ var structtgbotxx_1_1_message_entity =
       [ "Pre", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9afb55a965b77791b31ffd2bb548f71080", null ],
       [ "TextLink", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a7f01c2ecef93cd509dab0bb85ff03f49", null ],
       [ "TextMention", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a4ed8233defa4ad141a6a784b45a31c45", null ],
-      [ "CustomEmoji", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9af2ded25b30113452f7b15011b876ef8f", null ]
+      [ "CustomEmoji", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9af2ded25b30113452f7b15011b876ef8f", null ],
+      [ "DateTime", "structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9a8cf10d2341ed01492506085688270c1e", null ]
     ] ],
     [ "MessageEntity", "structtgbotxx_1_1_message_entity.html#a2145cbcf67bd56f5e4054041bb2d7387", null ],
     [ "MessageEntity", "structtgbotxx_1_1_message_entity.html#acb08b5355326da87069cc148a2f510b4", null ],
@@ -28,10 +29,12 @@ var structtgbotxx_1_1_message_entity =
     [ "toJson", "structtgbotxx_1_1_message_entity.html#a34baf9334cda6c38951a00f0a15cbd6c", null ],
     [ "TypeToString", "structtgbotxx_1_1_message_entity.html#a06f046301b1a40c35c487f5b99deaa26", null ],
     [ "customEmojiId", "structtgbotxx_1_1_message_entity.html#ae624f8ebf76488be820ec1bef52b1306", null ],
+    [ "dateTimeFormat", "structtgbotxx_1_1_message_entity.html#a63de224fabd487bc4c69ca9cef1c88ec", null ],
     [ "language", "structtgbotxx_1_1_message_entity.html#ad8ff4cfdec670d4715a820a4cf835a26", null ],
     [ "length", "structtgbotxx_1_1_message_entity.html#a1b5ee432ab3cd34377ddb624896c9946", null ],
     [ "offset", "structtgbotxx_1_1_message_entity.html#add31a98286e1188b6adcde8290065dfb", null ],
     [ "type", "structtgbotxx_1_1_message_entity.html#a985ac1b92cc53be17ee83f84af800d35", null ],
+    [ "unixTime", "structtgbotxx_1_1_message_entity.html#aba10d808d0928596be1fc2069c0c827f", null ],
     [ "url", "structtgbotxx_1_1_message_entity.html#a3ee1d0d7ba9b97269b89b31124d4efc9", null ],
     [ "user", "structtgbotxx_1_1_message_entity.html#afc728f5b633ac21543ef17506a2ac34f", null ]
 ];

@@ -12,6 +12,8 @@ var structtgbotxx_1_1_chat_member_administrator =
     [ "canEditStories", "structtgbotxx_1_1_chat_member_administrator.html#ad9218ffc93dc55c9f64aeb626584cfed", null ],
     [ "canInviteUsers", "structtgbotxx_1_1_chat_member_administrator.html#ace3705a3d5af078df242ad5d1459b79e", null ],
     [ "canManageChat", "structtgbotxx_1_1_chat_member_administrator.html#a8229c4fb01c0a760148576091ce58882", null ],
+    [ "canManageDirectMessages", "structtgbotxx_1_1_chat_member_administrator.html#a8b0a91b06b865fe181717ea095023860", null ],
+    [ "canManageTags", "structtgbotxx_1_1_chat_member_administrator.html#a2ac1e0da531730b282086ef40851bf28", null ],
     [ "canManageTopics", "structtgbotxx_1_1_chat_member_administrator.html#af6b483fd3963cd3d8d7ba0feee2a8f61", null ],
     [ "canManageVideoChats", "structtgbotxx_1_1_chat_member_administrator.html#a03883bdc70dd16d56bc481a497b9e9ea", null ],
     [ "canPinMessages", "structtgbotxx_1_1_chat_member_administrator.html#aac555120068c128b98f527ccc6652e36", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['edgecolor_0',['edgeColor',['../structtgbotxx_1_1_unique_gift_backdrop_colors.html#ad3b0c4fe3d8171f31de9e4367ce25359',1,'tgbotxx::UniqueGiftBackdropColors']]],
+  ['edgecolor_0',['edgecolor',['../structtgbotxx_1_1_gift_background.html#a5f04d2a56a754f811a1fbae7539dafa1',1,'tgbotxx::GiftBackground::edgeColor'],['../structtgbotxx_1_1_unique_gift_backdrop_colors.html#ad3b0c4fe3d8171f31de9e4367ce25359',1,'tgbotxx::UniqueGiftBackdropColors::edgeColor']]],
   ['editchatinvitelink_1',['editChatInviteLink',['../classtgbotxx_1_1_api.html#a211a75b3571040dcb66b76ee27b09375',1,'tgbotxx::Api']]],
   ['editchatsubscriptioninvitelink_2',['editChatSubscriptionInviteLink',['../classtgbotxx_1_1_api.html#a3d9c4012b359b741d7ebaa1a2b7ffd37',1,'tgbotxx::Api']]],
   ['editdate_3',['editDate',['../structtgbotxx_1_1_message.html#ab2a8def2f51b142e6f0d4ed94b8bf611',1,'tgbotxx::Message']]],
@@ -19,7 +19,7 @@ var searchData=
   ['edituserstarsubscription_16',['editUserStarSubscription',['../classtgbotxx_1_1_api.html#a3142b52fc16a7bb538f166647b64283c',1,'tgbotxx::Api']]],
   ['effectid_17',['effectId',['../structtgbotxx_1_1_message.html#aab0dd272576f8470480e09a8db0f873c',1,'tgbotxx::Message']]],
   ['elementhash_18',['elementHash',['../structtgbotxx_1_1_passport_element_error_unspecified.html#ae10e18449bdd8dadb7277f646eab6192',1,'tgbotxx::PassportElementErrorUnspecified']]],
-  ['email_19',['email',['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9ace8ae9da5b7cd6c3df2929543a9af92d',1,'tgbotxx::MessageEntity::Email'],['../structtgbotxx_1_1_encrypted_passport_element.html#a6013c4c57d83c16e95a10ff25a6cc2ae',1,'tgbotxx::EncryptedPassportElement::email'],['../structtgbotxx_1_1_order_info.html#aec567174aeb23129772ac6ea9a6d04e9',1,'tgbotxx::OrderInfo::email']]],
+  ['email_19',['email',['../structtgbotxx_1_1_encrypted_passport_element.html#a6013c4c57d83c16e95a10ff25a6cc2ae',1,'tgbotxx::EncryptedPassportElement::email'],['../structtgbotxx_1_1_order_info.html#aec567174aeb23129772ac6ea9a6d04e9',1,'tgbotxx::OrderInfo::email'],['../structtgbotxx_1_1_message_entity.html#a613e8ced2242301c8c6ee9cba88576f9ace8ae9da5b7cd6c3df2929543a9af92d',1,'tgbotxx::MessageEntity::Email']]],
   ['emoji_20',['emoji',['../structtgbotxx_1_1_dice.html#aaab0994b577d12d081fb026b164918bb',1,'tgbotxx::Dice::emoji'],['../structtgbotxx_1_1_reaction_type_emoji.html#af803d35a1e0ff1b185dd66bdcaa17b96',1,'tgbotxx::ReactionTypeEmoji::emoji'],['../structtgbotxx_1_1_sticker.html#a2791a955ed3433a2c12964d1836fcf52',1,'tgbotxx::Sticker::emoji'],['../structtgbotxx_1_1_story_area_type_weather.html#a16d0ea9e3aa35ad9a96d23d17ba7cefd',1,'tgbotxx::StoryAreaTypeWeather::emoji']]],
   ['emojilist_21',['emojiList',['../structtgbotxx_1_1_input_sticker.html#abc1b859b9cd2ae03775e9261a2d20b2e',1,'tgbotxx::InputSticker']]],
   ['emojistatuscustomemojiid_22',['emojiStatusCustomEmojiId',['../structtgbotxx_1_1_chat_full_info.html#ab013c824a1f0404560a8b2f31a378961',1,'tgbotxx::ChatFullInfo']]],

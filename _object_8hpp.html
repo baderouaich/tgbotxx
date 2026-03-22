@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.2</span>
+   <div id="projectname">tgbotxx<span id="projectnumber">&#160;1.2.9.5</span>
    </div>
    <div id="projectbrief">Telegram Bot C++ Library</div>
   </td>
@@ -111,8 +111,16 @@ $(document).ready(function(){initNavTree('_object_8hpp.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3aba7f6dbd6431b702cd63e69d2b31f3" id="r_a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">OBJECT_SERIALIZE_FIELD</a>(json,  json_field,  field)&#160;&#160;&#160;  json[json_field] = field;</td></tr>
-<tr class="memdesc:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>.  <br /></td></tr>
+<tr class="memitem:acdebd9c896bbdba899f0e5d101b0ce66" id="r_acdebd9c896bbdba899f0e5d101b0ce66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#acdebd9c896bbdba899f0e5d101b0ce66">TGBOTXX_CAT_IMPL</a>(a,  b)&#160;&#160;&#160;a##b</td></tr>
+<tr class="memdesc:acdebd9c896bbdba899f0e5d101b0ce66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>.  <br /></td></tr>
+<tr class="separator:acdebd9c896bbdba899f0e5d101b0ce66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea808e149b7104af9b5f3f274ba41e91" id="r_aea808e149b7104af9b5f3f274ba41e91"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a>(a,  b)&#160;&#160;&#160;<a class="el" href="_object_8hpp.html#acdebd9c896bbdba899f0e5d101b0ce66">TGBOTXX_CAT_IMPL</a>(a, b)</td></tr>
+<tr class="separator:aea808e149b7104af9b5f3f274ba41e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0682378ef6cce1053e91efe3f104378" id="r_ab0682378ef6cce1053e91efe3f104378"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ab0682378ef6cce1053e91efe3f104378">VAR</a>(x)&#160;&#160;&#160;<a class="el" href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a>(x, __LINE__)</td></tr>
+<tr class="memdesc:ab0682378ef6cce1053e91efe3f104378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avoid expanded variable names collisions.  <br /></td></tr>
+<tr class="separator:ab0682378ef6cce1053e91efe3f104378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aba7f6dbd6431b702cd63e69d2b31f3" id="r_a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a3aba7f6dbd6431b702cd63e69d2b31f3">OBJECT_SERIALIZE_FIELD</a>(json,  json_field,  field)</td></tr>
+<tr class="memdesc:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize.  <br /></td></tr>
 <tr class="separator:a3aba7f6dbd6431b702cd63e69d2b31f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17ed8caa3e31f92b1f68252cbf9a8602" id="r_a17ed8caa3e31f92b1f68252cbf9a8602"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a17ed8caa3e31f92b1f68252cbf9a8602">OBJECT_SERIALIZE_FIELD_PTR</a>(json,  json_field,  field)</td></tr>
 <tr class="separator:a17ed8caa3e31f92b1f68252cbf9a8602"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,7 +128,7 @@ Macros</h2></td></tr>
 <tr class="separator:a1db08aa2e59210a0f40834d022000b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5989e55603d7c0f51eb23ca2b8542e83" id="r_a5989e55603d7c0f51eb23ca2b8542e83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a5989e55603d7c0f51eb23ca2b8542e83">OBJECT_SERIALIZE_FIELD_PTR_ARRAY_ARRAY</a>(json,  json_field,  array_array_field)</td></tr>
 <tr class="separator:a5989e55603d7c0f51eb23ca2b8542e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac636fa798ffe49313d5a7f3fff65b1f0" id="r_ac636fa798ffe49313d5a7f3fff65b1f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ac636fa798ffe49313d5a7f3fff65b1f0">OBJECT_SERIALIZE_FIELD_ENUM</a>(json,  enum_name,  json_field,  field)&#160;&#160;&#160;  json[json_field] = enum_name##ToString(field)</td></tr>
+<tr class="memitem:ac636fa798ffe49313d5a7f3fff65b1f0" id="r_ac636fa798ffe49313d5a7f3fff65b1f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#ac636fa798ffe49313d5a7f3fff65b1f0">OBJECT_SERIALIZE_FIELD_ENUM</a>(json,  enum_name,  json_field,  field)</td></tr>
 <tr class="separator:ac636fa798ffe49313d5a7f3fff65b1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e832fd1bb8a47ee1eabf6a0f69442c" id="r_a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_object_8hpp.html#a90e832fd1bb8a47ee1eabf6a0f69442c">OBJECT_DESERIALIZE_FIELD</a>(json,  json_field,  field,  default_value,  optional)</td></tr>
 <tr class="memdesc:a90e832fd1bb8a47ee1eabf6a0f69442c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize.  <br /></td></tr>
@@ -178,34 +186,36 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (json.contains(json_field)) {                                                                \</div>
-<div class="line">    <span class="keywordflow">try</span> {                                                                                         \</div>
-<div class="line">      <span class="keyword">using </span>T = std::remove_reference_t&lt;std::remove_const_t&lt;<span class="keyword">decltype</span>(field)&gt;&gt;;                    \</div>
-<div class="line">      field = json[json_field].get&lt;T&gt;();                                                          \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                           \</div>
-<div class="line">      std::ostringstream err{};                                                                   \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();   \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (...) {                                                                               \</div>
-<div class="line">      std::ostringstream err{};                                                                   \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
-<div class="line">    }                                                                                             \</div>
-<div class="line">  } <span class="keywordflow">else</span> {                                                                                        \</div>
-<div class="line">    if (not(optional)) {                                                                          \</div>
-<div class="line">      std::ostringstream err{};                                                                   \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span> \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
-<div class="line">    }                                                                                             \</div>
-<div class="line">    field = default_value;                                                                        \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                              \</div>
+<div class="line">    if (json.contains(json_field)) {                                                                \</div>
+<div class="line">      <span class="keywordflow">try</span> {                                                                                         \</div>
+<div class="line">        <span class="keyword">using </span>T = std::remove_reference_t&lt;std::remove_const_t&lt;<span class="keyword">decltype</span>(field)&gt;&gt;;                    \</div>
+<div class="line">        field = json[json_field].get&lt;T&gt;();                                                          \</div>
+<div class="line">      } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                           \</div>
+<div class="line">        std::ostringstream err{};                                                                   \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();   \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
+<div class="line">      } <span class="keywordflow">catch</span> (...) {                                                                               \</div>
+<div class="line">        std::ostringstream err{};                                                                   \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>  \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
+<div class="line">      }                                                                                             \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                                        \</div>
+<div class="line">      if (not(optional)) {                                                                          \</div>
+<div class="line">        std::ostringstream err{};                                                                   \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span> \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                               \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                 \</div>
+<div class="line">      }                                                                                             \</div>
+<div class="line">      field = default_value;                                                                        \</div>
+<div class="line">    }                                                                                               \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
 <p>Deserialize. </p>
 
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00046">46</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00064">64</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,36 +268,39 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static_assert</span>(std::is_enum_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must be an enum&quot;</span>);     \</div>
-<div class="line">  static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must not be const&quot;</span>); \</div>
-<div class="line">  if (json.contains(json_field)) {                                                                              \</div>
-<div class="line">    <span class="keywordflow">try</span> {                                                                                                       \</div>
-<div class="line">      if (<span class="keyword">auto</span> opt = StringTo##enum_name(json[json_field]))                                                     \</div>
-<div class="line">        field = *opt;                                                                                            \</div>
-<div class="line">      else                                                                                                      \</div>
-<div class="line">        throw Exception(<span class="stringliteral">&quot;Could not convert string \&quot;&quot;</span> + json[json_field].get&lt;std::string&gt;() + <span class="stringliteral">&quot;\&quot; to enum&quot;</span>);    \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                                         \</div>
-<div class="line">      std::ostringstream err{};                                                                                 \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();                 \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (...) {                                                                                             \</div>
-<div class="line">      std::ostringstream err{};                                                                                 \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
-<div class="line">    }                                                                                                           \</div>
-<div class="line">  } <span class="keywordflow">else</span> {                                                                                                      \</div>
-<div class="line">    if (not(optional)) {                                                                                        \</div>
-<div class="line">      std::ostringstream err{};                                                                                 \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>               \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
-<div class="line">    }                                                                                                           \</div>
-<div class="line">    field = <span class="keyword">static_cast&lt;</span>enum_name<span class="keyword">&gt;</span>(default_value);                                                              \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                                            \</div>
+<div class="line">    static_assert(std::is_enum_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must be an enum&quot;</span>);     \</div>
+<div class="line">    static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_ENUM: &#39;field&#39; must not be const&quot;</span>); \</div>
+<div class="line">    if (json.contains(json_field)) {                                                                              \</div>
+<div class="line">      <span class="keywordflow">try</span> {                                                                                                       \</div>
+<div class="line">        if (<span class="keyword">auto</span> opt = <a class="code hl_define" href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a>(StringTo, enum_name)(json[json_field]))                                        \</div>
+<div class="line">          field = *opt;                                                                                           \</div>
+<div class="line">        else                                                                                                      \</div>
+<div class="line">          throw Exception(<span class="stringliteral">&quot;Could not convert string \&quot;&quot;</span> + json[json_field].get&lt;std::string&gt;() + <span class="stringliteral">&quot;\&quot; to enum&quot;</span>);    \</div>
+<div class="line">      } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {                                                                         \</div>
+<div class="line">        std::ostringstream err{};                                                                                 \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2) &lt;&lt; <span class="stringliteral">&quot;\nReason: &quot;</span> &lt;&lt; e.what();                 \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">      } <span class="keywordflow">catch</span> (...) {                                                                                             \</div>
+<div class="line">        std::ostringstream err{};                                                                                 \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Failed to deserialize \&quot;&quot;</span>                \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">      }                                                                                                           \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                                                      \</div>
+<div class="line">      if (not(optional)) {                                                                                        \</div>
+<div class="line">        std::ostringstream err{};                                                                                 \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>               \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                             \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                               \</div>
+<div class="line">      }                                                                                                           \</div>
+<div class="line">      field = <span class="keyword">static_cast&lt;</span>enum_name<span class="keyword">&gt;</span>(default_value);                                                              \</div>
+<div class="line">    }                                                                                                             \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
+<div class="ttc" id="a_object_8hpp_html_aea808e149b7104af9b5f3f274ba41e91"><div class="ttname"><a href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a></div><div class="ttdeci">#define TGBOTXX_CAT(a, b)</div><div class="ttdef"><b>Definition</b> <a href="_object_8hpp_source.html#l00021">Object.hpp:21</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00137">137</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00165">165</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -328,23 +341,25 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static_assert</span>(!std::is_const_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;field&#39; must not be const&quot;</span>);         \</div>
-<div class="line">  static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;optional&#39; must be boolean&quot;</span>); \</div>
-<div class="line">  if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \</div>
-<div class="line">    <span class="keyword">using </span>T = std::remove_reference_t&lt;<span class="keyword">decltype</span>(field)&gt;;                                                                \</div>
-<div class="line">    <span class="keyword">using </span>E = T::element_type;                                                                                         \</div>
-<div class="line">    field.reset(<span class="keyword">new</span> (E)(json[json_field]));                                                                            \</div>
-<div class="line">  } <span class="keywordflow">else</span> {                                                                                                             \</div>
-<div class="line">    if (not(optional)) {                                                                                               \</div>
-<div class="line">      std::ostringstream err{};                                                                                        \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                      \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                    \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                                      \</div>
-<div class="line">    }                                                                                                                  \</div>
-<div class="line">    field = <span class="keyword">nullptr</span>;                                                                                                   \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                                                   \</div>
+<div class="line">    static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;field&#39; must not be const&quot;</span>);         \</div>
+<div class="line">    static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR: &#39;optional&#39; must be boolean&quot;</span>); \</div>
+<div class="line">    if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \</div>
+<div class="line">      <span class="keyword">using </span>T = std::remove_reference_t&lt;<span class="keyword">decltype</span>(field)&gt;;                                                                \</div>
+<div class="line">      <span class="keyword">using </span>E = T::element_type;                                                                                         \</div>
+<div class="line">      field = makePtr&lt;E&gt;(json[json_field]);                                                                              \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                                                             \</div>
+<div class="line">      if (not(optional)) {                                                                                               \</div>
+<div class="line">        std::ostringstream err{};                                                                                        \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                      \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                    \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                                      \</div>
+<div class="line">      }                                                                                                                  \</div>
+<div class="line">      field = <span class="keyword">nullptr</span>;                                                                                                   \</div>
+<div class="line">    }                                                                                                                    \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00072">72</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00092">92</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -385,26 +400,29 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static_assert</span>(!std::is_const_v&lt;<span class="keyword">decltype</span>(array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;field&#39; must not be const&quot;</span>);   \</div>
-<div class="line">  static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;optional&#39; must be boolean&quot;</span>); \</div>
-<div class="line">  if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                       \</div>
-<div class="line">    <span class="keyword">using </span>T = std::remove_reference_t&lt;std::remove_const_t&lt;<span class="keyword">decltype</span>(array_field)::value_type&gt;&gt;;                               \</div>
-<div class="line">    <span class="keyword">using </span>E = T::element_type;                                                                                               \</div>
-<div class="line">    array_field.reserve(json[json_field].size());                                                                            \</div>
-<div class="line">    for (<span class="keyword">const</span> nl::json&amp; obj: json[json_field]) {                                                                            \</div>
-<div class="line">      array_field.emplace_back(<span class="keyword">new</span> E(obj));                                                                                  \</div>
-<div class="line">    }                                                                                                                        \</div>
-<div class="line">  } <span class="keywordflow">else</span> {                                                                                                                   \</div>
-<div class="line">    if (not(optional)) {                                                                                                     \</div>
-<div class="line">      std::ostringstream err{};                                                                                              \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                            \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                          \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                                            \</div>
-<div class="line">    }                                                                                                                        \</div>
-<div class="line">    array_field.clear();                                                                                                     \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                                                         \</div>
+<div class="line">    static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;field&#39; must not be const&quot;</span>);   \</div>
+<div class="line">    static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: &#39;optional&#39; must be boolean&quot;</span>); \</div>
+<div class="line">    if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                       \</div>
+<div class="line">      <span class="keyword">using </span>T = std::remove_reference_t&lt;std::remove_const_t&lt;<span class="keyword">decltype</span>(array_field)::value_type&gt;&gt;;                               \</div>
+<div class="line">      <span class="keyword">using </span>E = T::element_type;                                                                                               \</div>
+<div class="line">      array_field.clear();                                                                                                     \</div>
+<div class="line">      array_field.reserve(json[json_field].size());                                                                            \</div>
+<div class="line">      for (<span class="keyword">const</span> nl::json&amp; obj: json[json_field]) {                                                                            \</div>
+<div class="line">        array_field.emplace_back(<span class="keyword">new</span> E(obj));                                                                                  \</div>
+<div class="line">      }                                                                                                                        \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                                                                   \</div>
+<div class="line">      if (not(optional)) {                                                                                                     \</div>
+<div class="line">        std::ostringstream err{};                                                                                              \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                            \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                          \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                                            \</div>
+<div class="line">      }                                                                                                                        \</div>
+<div class="line">      array_field.clear();                                                                                                     \</div>
+<div class="line">    }                                                                                                                          \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00089">89</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00111">111</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -445,33 +463,36 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static_assert</span>(!std::is_const_v&lt;<span class="keyword">decltype</span>(array_array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;field&#39; must not be const&quot;</span>); \</div>
-<div class="line">  static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;optional&#39; must be boolean&quot;</span>);     \</div>
-<div class="line">  if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                                 \</div>
-<div class="line">    <span class="keyword">using </span>ArrayArray = <span class="keyword">decltype</span>(array_array_field);                                                                                    \</div>
-<div class="line">    <span class="keyword">using </span>Array = ArrayArray::value_type;         <span class="comment">/* e.g vector&lt;vector&lt;int&gt; &lt;- &gt; */</span>                                                    \</div>
-<div class="line">    <span class="keyword">using </span>T = ArrayArray::value_type::value_type; <span class="comment">/* e.g vector&lt;vector&lt;int&gt;&gt; &lt;-  */</span>                                                    \</div>
-<div class="line">    <span class="keyword">using </span>E = T::element_type;                                                                                                         \</div>
-<div class="line">    array_array_field.reserve(json[json_field].size());                                                                                \</div>
-<div class="line">    for (<span class="keyword">const</span> nl::json&amp; array: json[json_field]) {                                                                                    \</div>
-<div class="line">      Array arr;                                                                                                                       \</div>
-<div class="line">      arr.reserve(array.size());                                                                                                       \</div>
-<div class="line">      for (<span class="keyword">const</span> nl::json&amp; obj: array) {                                                                                               \</div>
-<div class="line">        arr.emplace_back(<span class="keyword">new</span> E(obj));                                                                                                  \</div>
-<div class="line">      }                                                                                                                                \</div>
-<div class="line">      array_array_field.push_back(std::move(arr));                                                                                     \</div>
-<div class="line">    }                                                                                                                                  \</div>
-<div class="line">  } <span class="keywordflow">else</span> {                                                                                                                             \</div>
-<div class="line">    if (not(optional)) {                                                                                                               \</div>
-<div class="line">      std::ostringstream err{};                                                                                                        \</div>
-<div class="line">      err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                                      \</div>
-<div class="line">          &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                                    \</div>
-<div class="line">      <span class="keywordflow">throw</span> Exception(err.str());                                                                                                      \</div>
-<div class="line">    }                                                                                                                                  \</div>
-<div class="line">    array_array_field.clear();                                                                                                         \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                                                                   \</div>
+<div class="line">    static_assert(!std::is_const_v&lt;<span class="keyword">decltype</span>(array_array_field)&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;field&#39; must not be const&quot;</span>); \</div>
+<div class="line">    static_assert(std::is_same_v&lt;<span class="keyword">decltype</span>(optional), <span class="keywordtype">bool</span>&gt;, <span class="stringliteral">&quot;OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: &#39;optional&#39; must be boolean&quot;</span>);     \</div>
+<div class="line">    if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                                 \</div>
+<div class="line">      <span class="keyword">using </span>ArrayArray = <span class="keyword">decltype</span>(array_array_field);                                                                                    \</div>
+<div class="line">      <span class="keyword">using </span>Array = ArrayArray::value_type;         <span class="comment">/* e.g vector&lt;vector&lt;int&gt; &lt;- &gt; */</span>                                                    \</div>
+<div class="line">      <span class="keyword">using </span>T = ArrayArray::value_type::value_type; <span class="comment">/* e.g vector&lt;vector&lt;int&gt;&gt; &lt;-  */</span>                                                    \</div>
+<div class="line">      <span class="keyword">using </span>E = T::element_type;                                                                                                         \</div>
+<div class="line">      array_array_field.clear();                                                                                                         \</div>
+<div class="line">      array_array_field.reserve(json[json_field].size());                                                                                \</div>
+<div class="line">      for (<span class="keyword">const</span> nl::json&amp; array: json[json_field]) {                                                                                    \</div>
+<div class="line">        Array arr;                                                                                                                       \</div>
+<div class="line">        arr.reserve(array.size());                                                                                                       \</div>
+<div class="line">        for (<span class="keyword">const</span> nl::json&amp; obj: array) {                                                                                               \</div>
+<div class="line">          arr.emplace_back(<span class="keyword">new</span> E(obj));                                                                                                  \</div>
+<div class="line">        }                                                                                                                                \</div>
+<div class="line">        array_array_field.emplace_back(std::move(arr));                                                                                  \</div>
+<div class="line">      }                                                                                                                                  \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                                                                             \</div>
+<div class="line">      if (not(optional)) {                                                                                                               \</div>
+<div class="line">        std::ostringstream err{};                                                                                                        \</div>
+<div class="line">        err &lt;&lt; __FILE__ &lt;&lt; <span class="charliteral">&#39;:&#39;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot;: Missing required field \&quot;&quot;</span>                                      \</div>
+<div class="line">            &lt;&lt; json_field &lt;&lt; <span class="stringliteral">&quot;\&quot; from json object: &quot;</span> &lt;&lt; json.dump(2);                                                                    \</div>
+<div class="line">        <span class="keywordflow">throw</span> Exception(err.str());                                                                                                      \</div>
+<div class="line">      }                                                                                                                                  \</div>
+<div class="line">      array_array_field.clear();                                                                                                         \</div>
+<div class="line">    }                                                                                                                                    \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00110">110</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00135">135</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -502,15 +523,17 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;  json[json_field] = field;</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                  \</div>
+<div class="line">    json[json_field] = field;                           \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
+</div><!-- fragment -->
+<p>Serialize. </p>
 
-<p>Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>. </p>
-<p>Helper macros to de/serialize objects Serialize </p>
-
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00019">19</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00027">27</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -547,12 +570,15 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;  json[json_field] = enum_name##ToString(field)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00042">42</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                  \</div>
+<div class="line">    json[json_field] = <a class="code hl_define" href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a>(enum_name, ToString)(field);         \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00058">58</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -587,11 +613,13 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (field) {                                              \</div>
-<div class="line">    json[json_field] = (field)-&gt;toJson();                     \</div>
-<div class="line">  }</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                      \</div>
+<div class="line">    if (field) {                                            \</div>
+<div class="line">      json[json_field] = (field)-&gt;toJson();                 \</div>
+<div class="line">    }                                                       \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00022">22</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00032">32</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -626,11 +654,13 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  json[json_field] = nl::json::array();                                 \</div>
-<div class="line">  for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array_field)                                      \</div>
-<div class="line">    json[json_field].push_back(e-&gt;toJson());</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                  \</div>
+<div class="line">    <span class="keyword">auto</span> arr = json[json_field] = nl::json::array();                    \</div>
+<div class="line">    for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array_field)                                    \</div>
+<div class="line">      arr.emplace_back(e-&gt;toJson());                                    \</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00027">27</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00039">39</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -665,16 +695,103 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  json[json_field] = nl::json::array();                                             \</div>
-<div class="line">  for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; array: array_array_field) {                                      \</div>
-<div class="line">    nl::json arr = nl::json::array();                                               \</div>
-<div class="line">    for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array) {                                                    \</div>
-<div class="line">      arr.push_back(e-&gt;toJson());                                                   \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                              \</div>
+<div class="line">    <span class="keyword">auto</span>&amp; root_arr = json[json_field] = nl::json::array();                          \</div>
+<div class="line">    for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; array: array_array_field) {                                    \</div>
+<div class="line">      nl::json arr = nl::json::array();                                             \</div>
+<div class="line">      for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; e: array) {                                                  \</div>
+<div class="line">        arr.emplace_back(e-&gt;toJson());                                              \</div>
+<div class="line">      }                                                                             \</div>
+<div class="line">      root_arr.emplace_back(arr);                                                   \</div>
 <div class="line">    }                                                                               \</div>
-<div class="line">    json[json_field].push_back(arr);                                                \</div>
-<div class="line">  }</div>
+<div class="line">  } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00032">32</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00046">46</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aea808e149b7104af9b5f3f274ba41e91" name="aea808e149b7104af9b5f3f274ba41e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea808e149b7104af9b5f3f274ba41e91">&#9670;&#160;</a></span>TGBOTXX_CAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TGBOTXX_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="_object_8hpp.html#acdebd9c896bbdba899f0e5d101b0ce66">TGBOTXX_CAT_IMPL</a>(a, b)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00021">21</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acdebd9c896bbdba899f0e5d101b0ce66" name="acdebd9c896bbdba899f0e5d101b0ce66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdebd9c896bbdba899f0e5d101b0ce66">&#9670;&#160;</a></span>TGBOTXX_CAT_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TGBOTXX_CAT_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;a##b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Available objects: <a href="https://core.telegram.org/bots/api#available-types">https://core.telegram.org/bots/api#available-types</a>. </p>
+<p>Helper macros to de/serialize objects Concatenate tokens </p>
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00020">20</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab0682378ef6cce1053e91efe3f104378" name="ab0682378ef6cce1053e91efe3f104378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0682378ef6cce1053e91efe3f104378">&#9670;&#160;</a></span>VAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VAR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="_object_8hpp.html#aea808e149b7104af9b5f3f274ba41e91">TGBOTXX_CAT</a>(x, __LINE__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avoid expanded variable names collisions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_object_8hpp_source.html#l00024">24</a> of file <a class="el" href="_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -684,7 +801,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_77ee4c6df0abeb13cf2435b661623a0a.html">tgbotxx</a></li><li class="navelem"><a class="el" href="dir_5e3b55b5946d17583ee39f95641b3f39.html">objects</a></li><li class="navelem"><a class="el" href="_object_8hpp.html">Object.hpp</a></li>
-    <li class="footer">Generated on Sat Jan 3 2026 13:56:05 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Mar 22 2026 21:33:30 for tgbotxx by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

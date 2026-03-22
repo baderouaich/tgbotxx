@@ -6,6 +6,7 @@ var structtgbotxx_1_1_chat_permissions =
     [ "toJson", "structtgbotxx_1_1_chat_permissions.html#a07d7e34534b14c963e50a3dd143a28d9", null ],
     [ "canAddWebPagePreviews", "structtgbotxx_1_1_chat_permissions.html#a1b39f6c9e0a434a286f38c2747132d59", null ],
     [ "canChangeInfo", "structtgbotxx_1_1_chat_permissions.html#a28ec45a8dad96d022e38f17761ce184d", null ],
+    [ "canEditTag", "structtgbotxx_1_1_chat_permissions.html#a641e3143443ec6ba3e264748d507a457", null ],
     [ "canInviteUsers", "structtgbotxx_1_1_chat_permissions.html#a7e9e91eb88b6c4c3fc13d1dd52426241", null ],
     [ "canManageTopics", "structtgbotxx_1_1_chat_permissions.html#a1829281c7c69512f6ae422d21b1bad9a", null ],
     [ "canPinMessages", "structtgbotxx_1_1_chat_permissions.html#a745f83efcdf49c4ef64cb55e0a7e0cdc", null ],

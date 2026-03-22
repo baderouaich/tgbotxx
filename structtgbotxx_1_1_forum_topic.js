@@ -6,6 +6,7 @@ var structtgbotxx_1_1_forum_topic =
     [ "toJson", "structtgbotxx_1_1_forum_topic.html#aaf9d40fb219f98fc0e8b6f8bc7db4564", null ],
     [ "iconColor", "structtgbotxx_1_1_forum_topic.html#a725ea3071c4ac5f08ea00f30e52fef8f", null ],
     [ "iconCustomEmojiId", "structtgbotxx_1_1_forum_topic.html#affc6c06efd628df72b66ad0e860f8d7c", null ],
+    [ "isNameImplicit", "structtgbotxx_1_1_forum_topic.html#adaa28db7933220958bf5743a1b0dd6ce", null ],
     [ "messageThreadId", "structtgbotxx_1_1_forum_topic.html#a57b74e718df2d034f0d8d7df8fec9dcb", null ],
     [ "name", "structtgbotxx_1_1_forum_topic.html#aedc5e544671009a805d5198052d6d988", null ]
 ];
