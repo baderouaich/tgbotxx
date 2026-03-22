@@ -172,6 +172,7 @@
 #include <tgbotxx/objects/UserChatBoosts.hpp>
 #include <tgbotxx/objects/User.hpp>
 #include <tgbotxx/objects/UserProfilePhotos.hpp>
+#include <tgbotxx/objects/UserRating.hpp>
 #include <tgbotxx/objects/UsersShared.hpp>
 #include <tgbotxx/objects/Venue.hpp>
 #include <tgbotxx/objects/VideoChatEnded.hpp>

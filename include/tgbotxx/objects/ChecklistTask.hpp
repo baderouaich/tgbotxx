@@ -2,6 +2,7 @@
 #include <tgbotxx/objects/Object.hpp>
 #include <tgbotxx/objects/MessageEntity.hpp>
 #include <tgbotxx/objects/User.hpp>
+#include <tgbotxx/objects/Chat.hpp>
 
 namespace tgbotxx {
   /// @brief Describes a task in a checklist.
@@ -24,6 +25,9 @@ namespace tgbotxx {
     /// @brief Optional. User that completed the task; omitted if the task wasn't completed
     Ptr<User> completedByUser;
 
+    /// @brief Optional. User that completed the task; omitted if the task wasn't completed
+    Ptr<Chat> completedByChat;
+
     /// @brief Optional. Point in time (Unix timestamp) when the task was completed; 0 if the task wasn't completed
     std::time_t completionDate{};
 
@@ -36,6 +40,7 @@ namespace tgbotxx {
       OBJECT_SERIALIZE_FIELD(json, "text", text);
       OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, "text_entities", textEntities);
       OBJECT_SERIALIZE_FIELD_PTR(json, "completed_by_user", completedByUser);
+      OBJECT_SERIALIZE_FIELD_PTR(json, "completed_by_chat", completedByChat);
       OBJECT_SERIALIZE_FIELD(json, "completion_date", completionDate);
       return json;
     }
@@ -46,6 +51,7 @@ namespace tgbotxx {
       OBJECT_DESERIALIZE_FIELD(json, "text", text, "", false);
       OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, "text_entities", textEntities, true);
       OBJECT_DESERIALIZE_FIELD_PTR(json, "completed_by_user", completedByUser, true);
+      OBJECT_DESERIALIZE_FIELD_PTR(json, "completed_by_chat", completedByChat, true);
       OBJECT_DESERIALIZE_FIELD(json, "completion_date", completionDate, 0, true);
     }
   };

@@ -31,15 +31,15 @@
 - [x] Added the field `gifts_from_channels` to the class `AcceptedGiftTypes`.
 
 ### Miscellaneous
-- [ ] Allowed bots to disable their main username if they have additional active usernames purchased on Fragment.
-- [ ] Allowed bots to disable the right `can_restrict_members` in channel chats.
-- [ ] Added the method `repostStory`.
-- [ ] Added the class `UserRating` and the field `rating` to the class `ChatFullInfo`.
-- [ ] Increased the maximum price for paid media to 25000 Telegram Stars.
-- [ ] Added the field `paid_message_star_count` to the class `ChatFullInfo`.
-- [ ] Added the parameter `message_effect_id` to the methods `forwardMessage` and `copyMessage`.
-- [ ] Added the field `unique_gift_colors` to the class `ChatFullInfo`.
-- [ ] Added the field `completed_by_chat` to the class `ChecklistTask`.
+- [x] Allowed bots to disable their main username if they have additional active usernames purchased on Fragment.
+- [x] Allowed bots to disable the right `can_restrict_members` in channel chats.
+- [x] Added the method `repostStory`.
+- [x] Added the class `UserRating` and the field `rating` to the class `ChatFullInfo`.
+- [x] Increased the maximum price for paid media to 25000 Telegram Stars.
+- [x] Added the field `paid_message_star_count` to the class `ChatFullInfo`.
+- [x] Added the parameter `message_effect_id` to the methods `forwardMessage` and `copyMessage`.
+- [x] Added the field `unique_gift_colors` to the class `ChatFullInfo`.
+- [x] Added the field `completed_by_chat` to the class `ChecklistTask`.
 
 
 # 9.4

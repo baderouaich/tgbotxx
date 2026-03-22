@@ -234,11 +234,12 @@ Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& 
                                  std::int32_t messageThreadId,
                                  bool disableNotification,
                                  bool protectContent,
+                                 const std::string& messageEffectId,
                                  std::int32_t directMessagesTopicId,
                                  std::time_t videoStartTimestamp,
                                  const Ptr<SuggestedPostParameters>& suggestedPostParameters) const {
   cpr::Multipart data{};
-  data.parts.reserve(6);
+  data.parts.reserve(7);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));                  // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("from_chat_id", fromChatId.index() == 0 ? std::to_string(std::get<0>(fromChatId)) : std::get<1>(fromChatId)); // Since cpr::Part() does not take 64bit integers (only 32bit), passing a 64bit chatId to 32bit integer gets overflown and sends wrong chat_id which causes Bad Request: chat not found
   data.parts.emplace_back("message_id", messageId);
@@ -248,6 +249,8 @@ Ptr<Message> Api::forwardMessage(const std::variant<std::int64_t, std::string>& 
     data.parts.emplace_back("disable_notification", disableNotification);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
   if (directMessagesTopicId)
     data.parts.emplace_back("direct_messages_topic_id", directMessagesTopicId);
   if (videoStartTimestamp)
@@ -300,6 +303,7 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
                                 const std::vector<Ptr<MessageEntity>>& captionEntities,
                                 bool disableNotification,
                                 bool protectContent,
+                                const std::string& messageEffectId,
                                 const Ptr<IReplyMarkup>& replyMarkup,
                                 std::int32_t directMessagesTopicId,
                                 std::time_t videoStartTimestamp,
@@ -326,6 +330,8 @@ Ptr<MessageId> Api::copyMessage(const std::variant<std::int64_t, std::string>& c
   }
   if (disableNotification)
     data.parts.emplace_back("disable_notification", disableNotification);
+  if (not messageEffectId.empty())
+    data.parts.emplace_back("message_effect_id", messageEffectId);
   if (protectContent)
     data.parts.emplace_back("protect_content", protectContent);
   if (replyMarkup)
@@ -2650,6 +2656,26 @@ Ptr<Story> Api::postStory(const std::string& businessConnectionId,
     data.parts.emplace_back("protect_content", protectContent);
 
   return makePtr<Story>(sendRequest("postStory", data));
+}
+
+Ptr<Story> Api::repostStory(const std::string& businessConnectionId,
+                            std::int64_t fromChatId,
+                            std::int32_t fromStoryId,
+                            std::time_t activePeriod,
+                            bool postToChatPage,
+                            bool protectContent) const {
+  cpr::Multipart data{};
+  data.parts.reserve(6);
+  data.parts.emplace_back("business_connection_id", businessConnectionId);
+  data.parts.emplace_back("from_chat_id", std::to_string(fromChatId));
+  data.parts.emplace_back("from_story_id", std::to_string(fromStoryId));
+  data.parts.emplace_back("active_period", std::to_string(activePeriod));
+  if (postToChatPage)
+    data.parts.emplace_back("post_to_chat_page", postToChatPage);
+  if (protectContent)
+    data.parts.emplace_back("protect_content", protectContent);
+
+  return makePtr<Story>(sendRequest("repostStory", data));
 }
 
 Ptr<Story> Api::editStory(const std::string& businessConnectionId,

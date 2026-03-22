@@ -182,6 +182,7 @@ namespace tgbotxx {
     /// @param messageThreadId Optional. Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the forwarded message from forwarding and saving
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; only available when forwarding to private chats
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat
     /// @param videoStartTimestamp Optional. New start timestamp for the forwarded video in the message
     /// @param suggestedPostParameters Optional. A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only
@@ -194,6 +195,7 @@ namespace tgbotxx {
                                 std::int32_t messageThreadId = 0,
                                 bool disableNotification = false,
                                 bool protectContent = false,
+                                const std::string& messageEffectId = "",
                                 std::int32_t directMessagesTopicId = 0,
                                 std::time_t videoStartTimestamp = 0,
                                 const Ptr<SuggestedPostParameters>& suggestedPostParameters = nullptr) const;
@@ -238,6 +240,7 @@ namespace tgbotxx {
     /// @param captionEntities Optional. A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of parseMode
     /// @param disableNotification Optional. Sends the message silently. Users will receive a notification with no sound.
     /// @param protectContent Optional. Protects the contents of the sent message from forwarding and saving
+    /// @param messageEffectId Optional. Unique identifier of the message effect to be added to the message; only available when copying to private chats
     /// @param replyMarkup Optional. Additional interface options. One of InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, or ForceReply
     /// @param directMessagesTopicId Optional. Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
     /// @param videoStartTimestamp Optional. New start timestamp for the copied video in the message
@@ -257,6 +260,7 @@ namespace tgbotxx {
                                const std::vector<Ptr<MessageEntity>>& captionEntities = std::vector<Ptr<MessageEntity>>(),
                                bool disableNotification = false,
                                bool protectContent = false,
+                               const std::string& messageEffectId = "",
                                const Ptr<IReplyMarkup>& replyMarkup = nullptr,
                                std::int32_t directMessagesTopicId = 0,
                                std::time_t videoStartTimestamp = 0,
@@ -2056,6 +2060,25 @@ namespace tgbotxx {
                          const std::vector<Ptr<StoryArea>>& areas = std::vector<Ptr<StoryArea>>(),
                          bool postToChatPage = false,
                          bool protectContent = false) const;
+
+    /// @brief Reposts a story on behalf of a business account from another business account.
+    /// Both business accounts must be managed by the same bot, and the story on the source account must have been posted (or reposted) by the bot.
+    /// Requires the can_manage_stories business bot right for both business accounts.
+    /// @param businessConnectionId Unique identifier of the business connection
+    /// @param fromChatId Unique identifier of the chat which posted the story that should be reposted
+    /// @param fromStoryId Unique identifier of the story that should be reposted
+    /// @param activePeriod Period after which the story is moved to the archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
+    /// @param postToChatPage Optional. Pass True to keep the story accessible after it expires
+    /// @param protectContent Optional. Pass True if the content of the story must be protected from forwarding and screenshotting
+    /// @throws Exception on failure
+    /// @returns Story on success.
+    /// @ref https://core.telegram.org/bots/api#repoststory
+    Ptr<Story> repostStory(const std::string& businessConnectionId,
+                          std::int64_t fromChatId,
+                          std::int32_t fromStoryId,
+                          std::time_t activePeriod,
+                          bool postToChatPage = false,
+                          bool protectContent = false) const;
 
     /// @brief Edits a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right.
     /// @param businessConnectionId Unique identifier of the business connection
