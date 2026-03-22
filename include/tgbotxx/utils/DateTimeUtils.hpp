@@ -10,28 +10,38 @@ namespace tgbotxx {
     /// @brief Converts an std::time_t to a string date time with a specific format
     /// @param time std::time_t value to convert
     /// @param format Format of the date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05) https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
-    /// @returns time as string date time with the specific format
+    /// @returns on success: time as string datetime with the specific format
+    ///          on failure: empty std::string
     [[nodiscard]] static std::string toString(const std::time_t& time, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
-      char buffer[128]{};
-      tm tm_{};
+      std::tm tm_{};
+
 #ifdef _WIN32
       localtime_s(&tm_, &time);
 #else
-      tm_ = *std::localtime(&time);
+      localtime_r(&time, &tm_);
 #endif
-      std::strftime(buffer, sizeof(buffer), format.data(), &tm_);
-      return std::string{buffer};
+
+      std::string result(128, '\0');
+      const std::size_t size = std::strftime(result.data(), result.size(), format.data(), &tm_);
+      if (size == 0) return {};
+
+      result.resize(size);
+      return result;
     }
 
     /// @brief Converts a string date time with a specific format to an std::time_t
     /// @param dateTimeStr String date time to convert
     /// @param format Format of the string date to return. Default %Y-%m-%d %H:%M:%S (e.g 2023-10-25 12:55:05) https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
-    /// @returns std::time_t
+    /// @returns non-negative std::time_t on success
     [[nodiscard]] static std::time_t fromString(const std::string& dateTimeStr, const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
       std::tm tm{};
       std::istringstream iss{dateTimeStr};
-      iss >> std::get_time(&tm, format.data());
-      tm.tm_isdst = -1; // let mktime() determine DST correctly
+
+      if (!(iss >> std::get_time(&tm, format.data()))) {
+        return -1; // failed to parse dateTimeStr
+      }
+
+      tm.tm_isdst = -1;
       return std::mktime(&tm);
     }
 
@@ -43,8 +53,7 @@ namespace tgbotxx {
       return toString(tm, format);
     }
 
-    [[deprecated("Use DateTimeUtils::now() instead")]]
-    [[nodiscard]] static std::string currentDateTime(const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
+    [[deprecated("Use DateTimeUtils::now() instead")]] [[nodiscard]] static std::string currentDateTime(const std::string_view& format = "%Y-%m-%d %H:%M:%S") {
       return now(format);
     }
 
