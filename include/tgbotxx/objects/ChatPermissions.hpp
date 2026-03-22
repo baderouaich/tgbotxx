@@ -40,6 +40,9 @@ namespace tgbotxx {
       /// @brief Optional. True, if the user is allowed to add web page previews to their messages
       bool canAddWebPagePreviews{};
 
+      /// @brief Optional. True, if the user is allowed to edit their own tag
+      bool canEditTag{};
+
       /// @brief Optional. True, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
       bool canChangeInfo{};
 
@@ -67,6 +70,7 @@ namespace tgbotxx {
         OBJECT_SERIALIZE_FIELD(json, "can_send_polls", canSendPolls);
         OBJECT_SERIALIZE_FIELD(json, "can_send_other_messages", canSendOtherMessages);
         OBJECT_SERIALIZE_FIELD(json, "can_add_web_page_previews", canAddWebPagePreviews);
+        OBJECT_SERIALIZE_FIELD(json, "can_edit_tag", canEditTag);
         OBJECT_SERIALIZE_FIELD(json, "can_change_info", canChangeInfo);
         OBJECT_SERIALIZE_FIELD(json, "can_invite_users", canInviteUsers);
         OBJECT_SERIALIZE_FIELD(json, "can_pin_messages", canPinMessages);
@@ -86,6 +90,7 @@ namespace tgbotxx {
         OBJECT_DESERIALIZE_FIELD(json, "can_send_polls", canSendPolls, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_send_other_messages", canSendOtherMessages, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_add_web_page_previews", canAddWebPagePreviews, false, true);
+        OBJECT_DESERIALIZE_FIELD(json, "can_edit_tag", canEditTag, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_change_info", canChangeInfo, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_invite_users", canInviteUsers, false, true);
         OBJECT_DESERIALIZE_FIELD(json, "can_pin_messages", canPinMessages, false, true);

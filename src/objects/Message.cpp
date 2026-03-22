@@ -21,6 +21,7 @@ nl::json Message::toJson() const {
   OBJECT_SERIALIZE_FIELD_PTR(json, "sender_chat", senderChat);
   OBJECT_SERIALIZE_FIELD(json, "sender_boost_count", senderBoostCount);
   OBJECT_SERIALIZE_FIELD_PTR(json, "sender_business_bot", senderBusinessBot);
+  OBJECT_SERIALIZE_FIELD(json, "sender_tag", senderTag);
   OBJECT_SERIALIZE_FIELD(json, "date", date);
   OBJECT_SERIALIZE_FIELD(json, "business_connection_id", businessConnectionId);
   OBJECT_SERIALIZE_FIELD_PTR(json, "chat", chat);
@@ -134,6 +135,7 @@ void Message::fromJson(const nl::json& json) {
   OBJECT_DESERIALIZE_FIELD_PTR(json, "sender_chat", senderChat, true);
   OBJECT_DESERIALIZE_FIELD(json, "sender_boost_count", senderBoostCount, 0, true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "sender_business_bot", senderBusinessBot, true);
+  OBJECT_DESERIALIZE_FIELD(json, "sender_tag", senderTag, "", true);
   OBJECT_DESERIALIZE_FIELD(json, "date", date, 0, false);
   OBJECT_DESERIALIZE_FIELD(json, "business_connection_id", businessConnectionId, "", true);
   OBJECT_DESERIALIZE_FIELD_PTR(json, "chat", chat, false);

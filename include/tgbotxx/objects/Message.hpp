@@ -102,6 +102,9 @@ namespace tgbotxx {
       /// @brief Optional. The bot that actually sent the message on behalf of the business account. Available only for outgoing messages sent on behalf of the connected business account.
       Ptr<User> senderBusinessBot;
 
+      /// @brief Optional. Tag or custom title of the sender of the message; for supergroups only
+      std::string senderTag;
+
       /// @brief Date the message was sent in Unix time. It is always a positive number, representing a valid date.
       std::time_t date{};
 

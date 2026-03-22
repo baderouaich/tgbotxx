@@ -79,18 +79,15 @@
 # 9.5
 
 ### Message Entities
-- [ ] Added the `MessageEntity` type `date_time`, allowing bots to show a formatted date and time to the user.
+- [x] Added the `MessageEntity` type `date_time`, allowing bots to show a formatted date and time to the user.
 
 ### Draft Messages
-- [ ] Allowed all bots to use the method `sendMessageDraft`.
+- [x] Allowed all bots to use the method `sendMessageDraft`.
 
 ### Chat Member Tags
-- [ ] Added the field `tag` to the classes `ChatMemberMember` and `ChatMemberRestricted`.
-- [ ] Added the method `setChatMemberTag`.
-- [ ] Added the field `can_edit_tag` to the classes `ChatMemberRestricted` and `ChatPermissions`.
-- [ ] Added the field `can_manage_tags` to the classes `ChatMemberAdministrator` and `ChatAdministratorRights`.
-- [ ] Added the parameter `can_manage_tags` to the method `promoteChatMember`.
-- [ ] Added the field `sender_tag` to the class `Message`.
-
-### UI
-- [ ] Added the field `iconCustomEmojiId` to the class `BottomButton`.
+- [x] Added the field `tag` to the classes `ChatMemberMember` and `ChatMemberRestricted`.
+- [x] Added the method `setChatMemberTag`.
+- [x] Added the field `can_edit_tag` to the classes `ChatMemberRestricted` and `ChatPermissions`.
+- [x] Added the field `can_manage_tags` to the classes `ChatMemberAdministrator` and `ChatAdministratorRights`.
+- [x] Added the parameter `can_manage_tags` to the method `promoteChatMember`.
+- [x] Added the field `sender_tag` to the class `Message`.

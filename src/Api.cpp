@@ -1582,7 +1582,8 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
                             bool canEditStories,
                             bool canDeleteStories,
                             bool canManageTopics,
-                            bool canManageDirectMessages) const {
+                            bool canManageDirectMessages,
+                            bool canManageTags) const {
   cpr::Multipart data{};
   data.parts.reserve(18);
   data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
@@ -1619,6 +1620,8 @@ bool Api::promoteChatMember(const std::variant<std::int64_t, std::string>& chatI
     data.parts.emplace_back("can_manage_topics", canManageTopics);
   if (canManageDirectMessages)
     data.parts.emplace_back("can_manage_direct_messages", canManageDirectMessages);
+  if (canManageTags)
+    data.parts.emplace_back("can_manage_tags", canManageTags);
   return sendRequest("promoteChatMember", data);
 }
 
@@ -2244,6 +2247,19 @@ Ptr<ChatAdministratorRights> Api::getMyDefaultAdministratorRights(bool forChanne
     data.parts.emplace_back("for_channels", forChannels);
   const nl::json chatAdministratorRightsObj = sendRequest("getMyDefaultAdministratorRights", data);
   return makePtr<ChatAdministratorRights>(chatAdministratorRightsObj);
+}
+
+bool Api::setChatMemberTag(const std::variant<std::int64_t, std::string>& chatId,
+                           std::int64_t userId,
+                           const std::string& tag) const {
+  cpr::Multipart data{};
+  data.parts.reserve(3);
+  data.parts.emplace_back("chat_id", chatId.index() == 0 ? std::to_string(std::get<0>(chatId)) : std::get<1>(chatId));
+  data.parts.emplace_back("user_id", std::to_string(userId));
+  if (not tag.empty())
+    data.parts.emplace_back("tag", tag);
+
+  return sendRequest("setChatMemberTag", data);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////

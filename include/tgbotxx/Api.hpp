@@ -1111,6 +1111,7 @@ namespace tgbotxx {
     /// @param canDeleteStories Optional. Pass True if the administrator can delete stories posted by other users; channels only
     /// @param canManageTopics Optional. Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
     /// @param canManageDirectMessages Optional. Pass True if the administrator can manage direct messages within the channel and decline suggested posts; for channels only
+    /// @param canManageTags Optional. Pass True if the administrator can edit the tags of regular members; for groups and supergroups only
     /// @returns True on success.
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#promotechatmember
@@ -1131,7 +1132,8 @@ namespace tgbotxx {
                            bool canEditStories = false,
                            bool canDeleteStories = false,
                            bool canManageTopics = false,
-                           bool canManageDirectMessages = false) const;
+                           bool canManageDirectMessages = false,
+                           bool canManageTags = false) const;
 
 
     /// @brief Use this method to set a custom title for an administrator in a supergroup promoted by the bot.
@@ -1635,7 +1637,7 @@ namespace tgbotxx {
     /// @returns a UserChatBoosts object.
     /// @ref https://core.telegram.org/bots/api#getuserchatboosts
     Ptr<UserChatBoosts> getUserChatBoosts(const std::variant<std::int64_t, std::string>& chatId,
-                                      std::int64_t userId) const;
+                                          std::int64_t userId) const;
 
     /// @brief Use this method to change the list of the bot's commands.
     /// See this manual for more details about bot commands. https://core.telegram.org/bots/features#commands
@@ -1762,6 +1764,18 @@ namespace tgbotxx {
     /// @throws Exception on failure
     /// @ref https://core.telegram.org/bots/api#getmydefaultadministratorrights
     Ptr<ChatAdministratorRights> getMyDefaultAdministratorRights(bool forChannels = false) const;
+
+    /// @brief Use this method to get the current default administrator rights of the bot
+    /// @param chatId Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
+    /// @param userId Unique identifier of the target user
+    /// @param tag Optional. New tag for the member; 0-16 characters, emoji are not allowed
+    /// @returns True on success.
+    /// @throws Exception on failure
+    /// @ref https://core.telegram.org/bots/api#setchatmembertag
+    bool setChatMemberTag(const std::variant<std::int64_t, std::string>& chatId,
+                          std::int64_t userId,
+                          const std::string& tag = "") const;
+
 
   public: // Gifts
     /// @brief Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters.
@@ -2100,11 +2114,11 @@ namespace tgbotxx {
     /// @returns Story on success.
     /// @ref https://core.telegram.org/bots/api#repoststory
     Ptr<Story> repostStory(const std::string& businessConnectionId,
-                          std::int64_t fromChatId,
-                          std::int32_t fromStoryId,
-                          std::time_t activePeriod,
-                          bool postToChatPage = false,
-                          bool protectContent = false) const;
+                           std::int64_t fromChatId,
+                           std::int32_t fromStoryId,
+                           std::time_t activePeriod,
+                           bool postToChatPage = false,
+                           bool protectContent = false) const;
 
     /// @brief Edits a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right.
     /// @param businessConnectionId Unique identifier of the business connection
