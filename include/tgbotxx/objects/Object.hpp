@@ -38,7 +38,7 @@ namespace nl = nlohmann;
 
 #define OBJECT_SERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field) \
   do {                                                                  \
-    auto arr = json[json_field] = nl::json::array();                    \
+    auto& arr = json[json_field] = nl::json::array();                   \
     for (const auto& e: array_field)                                    \
       arr.emplace_back(e->toJson());                                    \
   } while (false)
@@ -63,10 +63,9 @@ namespace nl = nlohmann;
 /// Deserialize
 #define OBJECT_DESERIALIZE_FIELD(json, json_field, field, default_value, optional)                  \
   do {                                                                                              \
-    if (json.contains(json_field)) {                                                                \
+    if (const auto it = json.find(json_field); it != json.cend()) {                                 \
       try {                                                                                         \
-        using T = std::remove_reference_t<std::remove_const_t<decltype(field)>>;                    \
-        field = json[json_field].get<T>();                                                          \
+        it->get_to(field);                                                                          \
       } catch (const std::exception& e) {                                                           \
         std::ostringstream err{};                                                                   \
         err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Failed to deserialize \""  \
@@ -93,10 +92,10 @@ namespace nl = nlohmann;
   do {                                                                                                                   \
     static_assert(!std::is_const_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_PTR: 'field' must not be const");         \
     static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR: 'optional' must be boolean"); \
-    if (json.contains(json_field) and json[json_field].is_object() and not json[json_field].empty()) {                   \
-      using T = std::remove_reference_t<decltype(field)>;                                                                \
+    if (const auto it = json.find(json_field); it != json.cend() and it->is_object() and not it->empty()) {              \
+      using T = std::remove_cvref_t<decltype(field)>;                                                                    \
       using E = T::element_type;                                                                                         \
-      field = makePtr<E>(json[json_field]);                                                                              \
+      field = makePtr<E>(*it);                                                                                           \
     } else {                                                                                                             \
       if (not(optional)) {                                                                                               \
         std::ostringstream err{};                                                                                        \
@@ -108,70 +107,70 @@ namespace nl = nlohmann;
     }                                                                                                                    \
   } while (false)
 
-#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field, optional)                                            \
-  do {                                                                                                                         \
-    static_assert(!std::is_const_v<decltype(array_field)>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: 'field' must not be const");   \
-    static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: 'optional' must be boolean"); \
-    if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                       \
-      using T = std::remove_reference_t<std::remove_const_t<decltype(array_field)::value_type>>;                               \
-      using E = T::element_type;                                                                                               \
-      array_field.clear();                                                                                                     \
-      array_field.reserve(json[json_field].size());                                                                            \
-      for (const nl::json& obj: json[json_field]) {                                                                            \
-        array_field.emplace_back(new E(obj));                                                                                  \
-      }                                                                                                                        \
-    } else {                                                                                                                   \
-      if (not(optional)) {                                                                                                     \
-        std::ostringstream err{};                                                                                              \
-        err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Missing required field \""                            \
-            << json_field << "\" from json object: " << json.dump(2);                                                          \
-        throw Exception(err.str());                                                                                            \
-      }                                                                                                                        \
-      array_field.clear();                                                                                                     \
-    }                                                                                                                          \
+#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY(json, json_field, array_field, optional)                                                \
+  do {                                                                                                                             \
+    static_assert(!std::is_const_v<decltype(array_field)>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: 'array_field' must not be const"); \
+    static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY: 'optional' must be boolean");     \
+    if (const auto it = json.find(json_field); it != json.cend() and it->is_array()) {                                             \
+      using T = std::remove_cvref_t<decltype(array_field)::value_type>;                                                            \
+      using E = T::element_type;                                                                                                   \
+      array_field.clear();                                                                                                         \
+      array_field.reserve(it->size());                                                                                             \
+      for (const auto& obj: *it) {                                                                                                 \
+        array_field.emplace_back(new E(obj));                                                                                      \
+      }                                                                                                                            \
+    } else {                                                                                                                       \
+      if (not(optional)) {                                                                                                         \
+        std::ostringstream err{};                                                                                                  \
+        err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Missing required field \""                                \
+            << json_field << "\" from json object: " << json.dump(2);                                                              \
+        throw Exception(err.str());                                                                                                \
+      }                                                                                                                            \
+      array_field.clear();                                                                                                         \
+    }                                                                                                                              \
   } while (false)
 
 
-#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field, optional)                                          \
-  do {                                                                                                                                   \
-    static_assert(!std::is_const_v<decltype(array_array_field)>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: 'field' must not be const"); \
-    static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: 'optional' must be boolean");     \
-    if ((json.contains(json_field)) and (json[json_field].is_array())) {                                                                 \
-      using ArrayArray = decltype(array_array_field);                                                                                    \
-      using Array = ArrayArray::value_type;         /* e.g vector<vector<int> <- > */                                                    \
-      using T = ArrayArray::value_type::value_type; /* e.g vector<vector<int>> <-  */                                                    \
-      using E = T::element_type;                                                                                                         \
-      array_array_field.clear();                                                                                                         \
-      array_array_field.reserve(json[json_field].size());                                                                                \
-      for (const nl::json& array: json[json_field]) {                                                                                    \
-        Array arr;                                                                                                                       \
-        arr.reserve(array.size());                                                                                                       \
-        for (const nl::json& obj: array) {                                                                                               \
-          arr.emplace_back(new E(obj));                                                                                                  \
-        }                                                                                                                                \
-        array_array_field.emplace_back(std::move(arr));                                                                                  \
-      }                                                                                                                                  \
-    } else {                                                                                                                             \
-      if (not(optional)) {                                                                                                               \
-        std::ostringstream err{};                                                                                                        \
-        err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Missing required field \""                                      \
-            << json_field << "\" from json object: " << json.dump(2);                                                                    \
-        throw Exception(err.str());                                                                                                      \
-      }                                                                                                                                  \
-      array_array_field.clear();                                                                                                         \
-    }                                                                                                                                    \
+#define OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY(json, json_field, array_array_field, optional)                                                      \
+  do {                                                                                                                                               \
+    static_assert(!std::is_const_v<decltype(array_array_field)>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: 'array_array_field' must not be const"); \
+    static_assert(std::is_same_v<decltype(optional), bool>, "OBJECT_DESERIALIZE_FIELD_PTR_ARRAY_ARRAY: 'optional' must be boolean");                 \
+    if (const auto it = json.find(json_field); it != json.cend() and it->is_array()) {                                                               \
+      using ArrayArray = decltype(array_array_field);                                                                                                \
+      using Array = ArrayArray::value_type;         /* e.g vector<vector<int> <- > */                                                                \
+      using T = ArrayArray::value_type::value_type; /* e.g vector<vector<int>> <-  */                                                                \
+      using E = T::element_type;                                                                                                                     \
+      array_array_field.clear();                                                                                                                     \
+      array_array_field.reserve(it->size());                                                                                                         \
+      for (const auto& array: *it) {                                                                                                                 \
+        Array arr;                                                                                                                                   \
+        arr.reserve(array.size());                                                                                                                   \
+        for (const auto& obj: array) {                                                                                                               \
+          arr.emplace_back(new E(obj));                                                                                                              \
+        }                                                                                                                                            \
+        array_array_field.emplace_back(std::move(arr));                                                                                              \
+      }                                                                                                                                              \
+    } else {                                                                                                                                         \
+      if (not(optional)) {                                                                                                                           \
+        std::ostringstream err{};                                                                                                                    \
+        err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Missing required field \""                                                  \
+            << json_field << "\" from json object: " << json.dump(2);                                                                                \
+        throw Exception(err.str());                                                                                                                  \
+      }                                                                                                                                              \
+      array_array_field.clear();                                                                                                                     \
+    }                                                                                                                                                \
   } while (false)
 
 #define OBJECT_DESERIALIZE_FIELD_ENUM(json, enum_name, json_field, field, default_value, optional)                \
   do {                                                                                                            \
     static_assert(std::is_enum_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_ENUM: 'field' must be an enum");     \
     static_assert(!std::is_const_v<decltype(field)>, "OBJECT_DESERIALIZE_FIELD_ENUM: 'field' must not be const"); \
-    if (json.contains(json_field)) {                                                                              \
+    if (const auto it = json.find(json_field); it != json.cend()) {                                               \
       try {                                                                                                       \
-        if (auto opt = TGBOTXX_CAT(StringTo, enum_name)(json[json_field]))                                        \
+        if (auto opt = TGBOTXX_CAT(StringTo, enum_name)(*it))                                                     \
           field = *opt;                                                                                           \
         else                                                                                                      \
-          throw Exception("Could not convert string \"" + json[json_field].get<std::string>() + "\" to enum");    \
+          throw Exception("Could not convert string \"" + it->get<std::string>() + "\" to enum");                 \
       } catch (const std::exception& e) {                                                                         \
         std::ostringstream err{};                                                                                 \
         err << __FILE__ << ':' << __LINE__ << ": " << __FUNCTION__ << ": Failed to deserialize \""                \

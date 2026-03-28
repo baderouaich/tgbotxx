@@ -48,7 +48,7 @@ void Bot::start() {
     }
     // Dispatch updates to callbacks (onCommand, onAnyMessage, onPoll, ...)
     for (const Ptr<Update>& update: m_updates) {
-      if (update->updateId >= m_lastUpdateId) {
+      if (update->updateId >= m_lastUpdateId) [[likely]] {
         m_lastUpdateId = update->updateId + 1;
         this->dispatch(update);
       }
@@ -88,21 +88,30 @@ void Bot::dispatchMessages(const Ptr<Update>& update) {
     this->onAnyMessage(message);
 
     const std::string_view text = message->text;
-    if (not text.empty()) {
+    if (not text.empty()) [[likely]] {
       if (text[0] != '/') {
         /// Callback -> onNonCommandMessage
         this->onNonCommandMessage(message);
       } else {
         // 1 BotCommand entity must be in the message starting with /
         // assert(std::ranges::count_if(message->entities, [](const Ptr<MessageEntity>& entity) noexcept {return entity->type == MessageEntity::Type::BotCommand;}) == 1);
-        const bool isKnownCommand = std::ranges::any_of(m_api->getCache().getBotCommands(), [&text, atMyUsername = '@' + std::string{m_api->getCache().getBotUsername()}](const std::string& cmd) noexcept {
-          // Handle both command types:
-          // 1. /command (in private chats)
-          // 2. /command@botusername (in groups)
-          // In group chats, this bot must be mentioned with the command to avoid
-          // conflicts with other bots having the same command
-          return (text == cmd) or (text == cmd + atMyUsername);
+        const std::string_view botUsername = m_api->getCache().getBotUsername();
+        const bool isKnownCommand = std::ranges::any_of(m_api->getCache().getBotCommands(), [&text, &botUsername](const std::string_view& cmd) noexcept {
+          // Exact match for /command
+          if (text == cmd) return true;
+
+          // Exact match for /command@BotUsername
+          if (text.size() == cmd.size() + 1 + botUsername.size() and // same length
+              text.substr(0, cmd.size()) == cmd and                  // a valid command
+              text[cmd.size()] == '@' and
+              text.substr(cmd.size() + 1) == botUsername // meant for this bot
+          ) {
+            return true;
+          }
+
+          return false; // everything else is rejected
         });
+
         if (isKnownCommand) {
           /// Callback -> onCommand
           this->onCommand(message);
