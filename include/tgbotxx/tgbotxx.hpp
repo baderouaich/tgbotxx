@@ -2,6 +2,7 @@
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
 #include <tgbotxx/Exception.hpp>
+#include <tgbotxx/WebhookSettings.hpp>
 
 /// Objects
 #include <tgbotxx/objects/AcceptedGiftTypes.hpp>

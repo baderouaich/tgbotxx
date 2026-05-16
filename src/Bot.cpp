@@ -1,12 +1,10 @@
 #include <tgbotxx/Api.hpp>
 #include <tgbotxx/Bot.hpp>
+#include <tgbotxx/objects/WebhookInfo.hpp>
 #include <tgbotxx/Exception.hpp>
 #include <tgbotxx/objects/Message.hpp>
 #include <tgbotxx/objects/Update.hpp>
 #include <tgbotxx/utils/StringUtils.hpp>
-#include <tgbotxx/objects/BusinessMessagesDeleted.hpp>
-#include <tgbotxx/objects/PaidMediaPurchased.hpp>
-#include <tgbotxx/objects/BusinessConnection.hpp>
 using namespace tgbotxx;
 
 Bot::Bot(const std::string& token)
@@ -24,6 +22,45 @@ void Bot::start() {
   /// Callback -> onStart
   this->onStart();
 
+  if (m_webhookSettings) {
+    startWebhookListener();
+  } else {
+    startLongPolling();
+  }
+}
+
+void Bot::stop() {
+  if (*m_stopped) return;
+  *m_stopped = true;
+
+  /// Stop the webhook listener
+  if (m_webhookListener && m_webhookListener->is_running()) {
+    m_webhookListener->stop();
+  }
+
+  /// Callback -> onStop
+  this->onStop();
+}
+
+void Bot::setWebhookSettings(const WebhookSettings& ws) {
+  const bool success = api()->setWebhook(ws.url,
+                                         ws.certificateFile,
+                                         ws.ipAddress,
+                                         ws.maxConnections,
+                                         ws.allowedUpdates,
+                                         ws.dropPendingUpdates,
+                                         ws.secretToken);
+  assert(success);
+  if (!success) [[unlikely]] {
+    /// Callback -> onWebhookError
+    this->onWebhookError("Bot::setWebhookSettings: Could not set webhook: " + api()->getWebhookInfo()->lastErrorMessage, ErrorCode::OTHER);
+    Bot::stop();
+    return;
+  }
+  m_webhookSettings = ws;
+}
+
+void Bot::startLongPolling() {
   /// Start the Long Polling loop...
   while (not *m_stopped) {
     try {
@@ -56,12 +93,52 @@ void Bot::start() {
   }
 }
 
-void Bot::stop() {
-  if (*m_stopped) return;
-  *m_stopped = true;
+void Bot::startWebhookListener() {
+  assert(m_webhookSettings);
 
-  /// Callback -> onStop
-  this->onStop();
+  const auto extractSchemeAndPath = [](const std::string& url) -> std::pair<std::string, std::string> {
+    httplib::detail::UrlComponents uc{};
+    const bool parsed = httplib::detail::parse_url(url, uc);
+    assert(parsed);
+    return parsed ? std::pair{uc.scheme, uc.path} : std::pair{"http", "/"};
+  };
+
+  const auto [scheme, path] = extractSchemeAndPath(m_webhookSettings->url);
+  assert(scheme.starts_with("http"));
+  if (scheme == "https") {
+    // HTTPS
+    m_webhookListener = std::make_unique<httplib::SSLServer>(m_webhookSettings->certificateFile.filepath.c_str(), m_webhookSettings->privateKeyFile.filepath.c_str());
+    assert(m_webhookListener->is_valid() && "Bot::startWebhookListener: Invalid SSL");
+    if (!m_webhookListener->is_valid()) {
+      /// Callback -> onWebhookError
+      this->onWebhookError("Bot::startWebhookListener: Invalid SSL", ErrorCode::OTHER);
+      Bot::stop();
+      return;
+    }
+  } else {
+    // HTTP
+    m_webhookListener = std::make_unique<httplib::Server>();
+  }
+
+  m_webhookListener->Post(path, [this](const httplib::Request& req, httplib::Response& res) {
+    try {
+      const nl::json updateJson = nl::json::parse(req.body);
+      const Ptr<Update> update = makePtr<Update>(updateJson);
+      this->dispatch(update);
+      // Unlike Long Polling, we don't increment m_lastUpdateId,
+      // we reply with OK as this update is handled, then we get the next one.
+      res.set_content("OK", "text/plain");
+      res.status = cpr::status::HTTP_OK;
+    } catch (const std::exception& ex) {
+      /// Callback -> onWebhookError
+      this->onWebhookError(ex.what(), ErrorCode::OTHER);
+      res.status = cpr::status::HTTP_INTERNAL_SERVER_ERROR;
+    } catch (...) {
+      /// Callback -> onWebhookError
+      this->onWebhookError("Unknown error", ErrorCode::OTHER);
+    }
+  });
+  m_webhookListener->listen("0.0.0.0", m_webhookSettings->port);
 }
 
 const Ptr<Api>& Bot::getApi() const noexcept { return m_api; }

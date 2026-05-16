@@ -15,6 +15,8 @@
 
 using namespace tgbotxx;
 
+static constexpr bool kUseWebhook = true; // false=typical long poll (getUpdates)
+
 class MyBot final : public Bot {
   using CommandHandler = void (MyBot::*)(const Ptr<Message>&);
   const std::map<std::pair<std::string, std::string>, CommandHandler> commandHandlers = {
@@ -65,12 +67,33 @@ private:
   /// Use this callback to initialize your code, set commands..
   void onStart() override {
     std::srand(std::time(nullptr));
-    //      api()->setTimeout(std::chrono::seconds(60 * 3));
-    //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
-    // Drop awaiting updates (when Bot is not running, updates will remain 24 hours
-    // in Telegram server before they get deleted or retrieved by BOT)
-    api()->deleteWebhook(true);
-    api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
+
+    if  constexpr (kUseWebhook) {
+      std::cout << "Using webhook\n";
+      std::cout << "WEBHOOK_URL: " << std::getenv("WEBHOOK_URL") << std::endl;
+      std::cout << "WEBHOOK_PORT: " << std::getenv("WEBHOOK_PORT") << std::endl;
+      std::cout << "WEBHOOK_CERT_FILE: " << std::getenv("WEBHOOK_CERT_FILE") << std::endl;
+      std::cout << "WEBHOOK_PRIVATE_FILE: " << std::getenv("WEBHOOK_PRIVATE_FILE") << std::endl;
+
+      WebhookSettings ws{};
+      ws.url = std::getenv("WEBHOOK_URL");
+      ws.port = std::stoi(std::getenv("WEBHOOK_LISTENER_PORT"));
+      ws.certificateFile = cpr::File{std::getenv("WEBHOOK_CERT_FILE")};
+      ws.privateKeyFile = cpr::File{std::getenv("WEBHOOK_PRIVATE_FILE")};
+      Bot::setWebhookSettings(ws);
+      std::cout << api()->getWebhookInfo()->toJson().dump(2) << std::endl;
+    }
+    else {
+      std::cout << "Using Long polling\n";
+      // Delete webhook & drop awaiting updates (when Bot is not running, updates will remain 24 hours
+      // in Telegram server before they get deleted or retrieved by BOT)
+      api()->deleteWebhook(true);
+      //      api()->setTimeout(std::chrono::seconds(60 * 3));
+      //      api()->setLongPollTimeout(std::chrono::seconds(60 * 2));
+      api()->setLongPollTimeout(cpr::Timeout(std::chrono::seconds(300)));
+
+    }
+
     api()->setUpdatesLimit(3); // memory tight? process updates 3 by 3...
     assert(api()->getUpdatesLimit() == 3);
     //      api()->setAllowedUpdates({
@@ -154,6 +177,10 @@ private:
         std::cout << "Long polling cancelled" << std::endl;
         break;
     }
+  }
+
+  void onWebhookError(const std::string& errorMessage, ErrorCode errorCode) override {
+    std::cerr << "Webhook Error: " << errorMessage << " (" << static_cast<int>(errorCode) << ") (" << errorCode << ")" << std::endl;
   }
 
   /// Called when a new command is received (messages with leading '/' char).

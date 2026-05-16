@@ -15,6 +15,7 @@ option(BUILD_SHARED_LIBS "Build tgbotxx as a shared/static library." OFF)
 #set(USE_LIBIDN2 OFF CACHE BOOL "Curl option - Use libidn2 for IDN support" FORCE)
 #set(CURL_USE_LIBPSL OFF CACHE BOOL "Curl option - Use libpsl" FORCE)
 #set(BUILD_CURL_EXE OFF CACHE BOOL "Curl option - Build curl executable" FORCE)
+set(BUILD_EXAMPLES OFF CACHE BOOL "Build libcurl examples" FORCE)
 set(CPR_CURL_USE_LIBPSL OFF CACHE BOOL "Since curl 8.13 curl depends on libpsl (https://everything.curl.dev/build/deps.html#libpsl). By default cpr keeps this as a secure default enabled wich in turn requires meson as build dependency. If set to OFF, psl support inside curl will be disabled." FORCE)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/cpr)
 ######################################################
@@ -31,6 +32,7 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/json/include> # nlohmann json (single include)
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/httplib/include> # httplib (single include)
         ${CPR_INCLUDE_DIRS}                                             # libcpr includes
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CPR_LIBRARIES})

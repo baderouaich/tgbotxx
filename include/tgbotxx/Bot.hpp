@@ -1,9 +1,12 @@
 #pragma once
 #include "Exception.hpp"
+#include "WebhookSettings.hpp"
 #include <cstdint>
 #include <string>
 #include <tgbotxx/utils/Ptr.hpp>
 #include <vector>
+#define CPPHTTPLIB_OPENSSL_SUPPORT
+#include <httplib/httplib.h>
 
 namespace tgbotxx {
   class Api;
@@ -32,6 +35,9 @@ namespace tgbotxx {
       std::vector<Ptr<Update>> m_updates{};
       std::int32_t m_lastUpdateId{};
       std::shared_ptr<std::atomic<bool>> m_stopped{};
+      // Webhook stuff
+      std::optional<WebhookSettings> m_webhookSettings{std::nullopt};
+      std::unique_ptr<httplib::Server> m_webhookListener{nullptr};
 
     public:
       /// @brief Constructs a new Bot object
@@ -45,6 +51,16 @@ namespace tgbotxx {
 
       /// @brief Stop the long polling
       void stop();
+
+      /// @brief Set webhook settings
+      void setWebhookSettings(const WebhookSettings& webhookSettings);
+
+    private: /// Initiators
+      /// @brief Starts the long polling loop
+      void startLongPolling();
+
+      /// @brief Starts the webhook listener server
+      void startWebhookListener();
 
     public: /// Bot Callbacks
 #pragma region Lifecycle
@@ -195,6 +211,11 @@ namespace tgbotxx {
       /// @param errorMessage the reason of failure
       /// @param errorCode ErrorCode enum from Telegram Api
       virtual void onLongPollError(const std::string& errorMessage, ErrorCode errorCode) {}
+
+      /// @brief Called when there is an issue with the webhook listener.
+      /// @param errorMessage the reason of failure
+      /// @param errorCode ErrorCode enum from Telegram Api
+      virtual void onWebhookError(const std::string& errorMessage, ErrorCode errorCode) {}
 #pragma endregion Errors
 
     protected: /// Getters
